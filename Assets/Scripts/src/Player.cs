@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         }
         yield return null;
     }
-    PokemonData[] Team = new PokemonData[6];
+    Pokemon[] Team = new Pokemon[6];
     // Start is called before the first frame update
     void Start()
     {

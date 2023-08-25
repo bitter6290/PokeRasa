@@ -5,9 +5,9 @@ using UnityEngine;
 public class OverallTest : MonoBehaviour
 {
     public Battle battle;
-    PokemonData testPokemon = PokemonData.WildPokemon(SpeciesID.Ivysaur, 10);
-    PokemonData testPokemon2 = PokemonData.WildPokemon(SpeciesID.Ivysaur, 10);
-    PokemonData testPokemon3 = PokemonData.WildPokemon(SpeciesID.Bulbasaur, 10);
+    Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Ivysaur, 10);
+    Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Ivysaur, 10);
+    Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
     // Start is called before the first frame update
     void Start()
     {

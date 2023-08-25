@@ -21,9 +21,9 @@ public static class Learnset
         new LearnsetMove(4, MoveID.Growl),
     };
 
-    public static ushort[] GetMoves(LearnsetMove[] Learnset, byte Level)
+    public static MoveID[] GetMoves(LearnsetMove[] Learnset, byte Level)
     {
-        ushort[] result = new ushort[4]
+        MoveID[] result = new MoveID[4]
         {
             MoveID.None,
             MoveID.None,

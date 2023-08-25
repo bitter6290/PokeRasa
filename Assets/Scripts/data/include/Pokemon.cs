@@ -3,7 +3,7 @@ using static System.Convert;
 using System;
 
 [Serializable]
-public class PokemonData
+public class Pokemon
 {
     public SpeciesID species;
 
@@ -42,16 +42,16 @@ public class PokemonData
     public ushort spDef;
     public ushort speed;
 
-    public ushort move1;
+    public MoveID move1;
     public byte maxPp1;
     public byte pp1;
-    public ushort move2;
+    public MoveID move2;
     public byte maxPp2;
     public byte pp2;
-    public ushort move3;
+    public MoveID move3;
     public byte maxPp3;
     public byte pp3;
-    public ushort move4;
+    public MoveID move4;
     public byte maxPp4;
     public byte pp4;
 
@@ -68,14 +68,12 @@ public class PokemonData
     public bool transformed;
     public SpeciesID temporarySpecies;
 
-    public SpeciesData SpeciesData()
-    {
-        return Species.SpeciesTable[(int)species];
-    }
+    public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
+        (int)temporarySpecies : (int)species];
 
     private ushort CalculateHP()
     {
-        return ToUInt16(((2 * SpeciesData().baseHP) + ivHP + (evHP >> 2)) * level / 100 + level + 10);
+        return ToUInt16(((2 * SpeciesData.baseHP) + ivHP + (evHP >> 2)) * level / 100 + level + 10);
     }
     private ushort CalculateStat(byte statID, byte baseStat, byte statIv, byte statEv)
     {
@@ -84,11 +82,11 @@ public class PokemonData
     public void CalculateStats()
     {
         hpMax = CalculateHP();
-        attack = CalculateStat(0, SpeciesData().baseAttack, ivAttack, evAttack);
-        defense = CalculateStat(1, SpeciesData().baseDefense, ivDefense, evDefense);
-        spAtk = CalculateStat(3, SpeciesData().baseSpAtk, ivSpAtk, evSpAtk);
-        spDef = CalculateStat(4, SpeciesData().baseSpDef, ivSpDef, evSpDef);
-        speed = CalculateStat(2, SpeciesData().baseSpeed, ivSpeed, evSpeed);
+        attack = CalculateStat(0, SpeciesData.baseAttack, ivAttack, evAttack);
+        defense = CalculateStat(1, SpeciesData.baseDefense, ivDefense, evDefense);
+        spAtk = CalculateStat(3, SpeciesData.baseSpAtk, ivSpAtk, evSpAtk);
+        spDef = CalculateStat(4, SpeciesData.baseSpDef, ivSpDef, evSpDef);
+        speed = CalculateStat(2, SpeciesData.baseSpeed, ivSpeed, evSpeed);
     }
     public bool ShouldLevelUp()
     {
@@ -96,11 +94,11 @@ public class PokemonData
     }
     public (bool,SpeciesID) ShouldEvolve()
     {
-        for (int i = 0; i < SpeciesData().evolution.Length; i ++)
+        for (int i = 0; i < SpeciesData.evolution.Length; i ++)
         {
-            if (CheckEvolutionMethod(SpeciesData().evolution[i].Method, SpeciesData().evolution[i].Data))
+            if (CheckEvolutionMethod(SpeciesData.evolution[i].Method, SpeciesData.evolution[i].Data))
             {
-                return (true, SpeciesData().evolution[i].Destination);
+                return (true, SpeciesData.evolution[i].Destination);
             }
         }
         return (false, SpeciesID.Missingno);
@@ -133,30 +131,30 @@ public class PokemonData
     }
     public void GetNextLevel()
     {
-        nextLevelXP = XP.LevelToXP(ToByte(level + 1), SpeciesData().xpClass);
+        nextLevelXP = XP.LevelToXP(ToByte(level + 1), SpeciesData.xpClass);
     }
     public byte GetLevelProgress()
     {
-        return level >= PokemonConst.maxLevel ? ToByte(0) : ToByte((xp - XP.LevelToXP(level, SpeciesData().xpClass)) * 8 / (nextLevelXP - XP.LevelToXP(level, SpeciesData().xpClass)));
+        return level >= PokemonConst.maxLevel ? ToByte(0) : ToByte((xp - XP.LevelToXP(level, SpeciesData.xpClass)) * 8 / (nextLevelXP - XP.LevelToXP(level, SpeciesData.xpClass)));
     }
     public int Moves()
     {
         return move2 == MoveID.None ? 1 : move3 == MoveID.None ? 2 : move4 == MoveID.None ? 3 : 4;
     }
-    public PokemonData(SpeciesID thisSpecies, bool Gender, byte Level,
+    public Pokemon(SpeciesID thisSpecies, bool Gender, byte Level,
         byte IvHP, byte IvAttack, byte IvDefense, byte IvSpAtk, byte IvSpDef, byte IvSpeed,
         byte EvHP, byte EvAttack, byte EvDefense, byte EvSpAtk, byte EvSpDef, byte EvSpeed,
-        byte thisNature, ushort Move1, ushort Move2, ushort Move3, ushort Move4,
-        byte WhichAbility, ushort Item, bool exists = true)
+        byte thisNature, MoveID Move1, MoveID Move2, MoveID Move3, MoveID Move4,
+        byte WhichAbility, ushort Item, bool Exists = true)
     {
         species = thisSpecies;
         gender = Gender;
 
-        monName = SpeciesData().speciesName;
+        monName = SpeciesData.speciesName;
 
         level = Level;
-        currentLevelXP = XP.LevelToXP(level, SpeciesData().xpClass);
-        nextLevelXP = level >= PokemonConst.maxLevel ? 0 : XP.LevelToXP(ToByte(level + 1), SpeciesData().xpClass);
+        currentLevelXP = XP.LevelToXP(level, SpeciesData.xpClass);
+        nextLevelXP = level >= PokemonConst.maxLevel ? 0 : XP.LevelToXP(ToByte(level + 1), SpeciesData.xpClass);
         levelProgress = 0;
 
         ivHP = IvHP;
@@ -177,27 +175,27 @@ public class PokemonData
         nature = thisNature;
         whichAbility = WhichAbility;
 
-        xp = XP.LevelToXP(level, SpeciesData().xpClass);
+        xp = XP.LevelToXP(level, SpeciesData.xpClass);
 
-        hpMax = ToUInt16(((2 * SpeciesData().baseHP) + ivHP) * level / 100 + level + 10);
-        attack = ToUInt16(Floor((((2 * SpeciesData().baseAttack) + ivAttack + (evHP >> 2)) * level / 100 + 5) * Natures.NatureEffect(nature, 0)));
-        defense = ToUInt16(Floor((((2 * SpeciesData().baseDefense) + ivDefense) * level / 100 + 5) * Natures.NatureEffect(nature, 1)));
-        spAtk = ToUInt16(Floor((((2 * SpeciesData().baseSpAtk) + ivSpAtk) * level / 100 + 5) * Natures.NatureEffect(nature, 3)));
-        spDef = ToUInt16(Floor((((2 * SpeciesData().baseSpDef) + ivSpDef) * level / 100 + 5) * Natures.NatureEffect(nature, 4)));
-        speed = ToUInt16(Floor((((2 * SpeciesData().baseSpeed) + ivSpeed) * level / 100 + 5) * Natures.NatureEffect(nature, 2)));
+        hpMax = ToUInt16(((2 * SpeciesData.baseHP) + ivHP) * level / 100 + level + 10);
+        attack = ToUInt16(Floor((((2 * SpeciesData.baseAttack) + ivAttack + (evHP >> 2)) * level / 100 + 5) * Natures.NatureEffect(nature, 0)));
+        defense = ToUInt16(Floor((((2 * SpeciesData.baseDefense) + ivDefense) * level / 100 + 5) * Natures.NatureEffect(nature, 1)));
+        spAtk = ToUInt16(Floor((((2 * SpeciesData.baseSpAtk) + ivSpAtk) * level / 100 + 5) * Natures.NatureEffect(nature, 3)));
+        spDef = ToUInt16(Floor((((2 * SpeciesData.baseSpDef) + ivSpDef) * level / 100 + 5) * Natures.NatureEffect(nature, 4)));
+        speed = ToUInt16(Floor((((2 * SpeciesData.baseSpeed) + ivSpeed) * level / 100 + 5) * Natures.NatureEffect(nature, 2)));
 
         move1 = Move1;
         move2 = Move2;
         move3 = Move3;
         move4 = Move4;
 
-        maxPp1 = Move.MoveTable[move1].pp;
+        maxPp1 = Move.MoveTable[(int)move1].pp;
         pp1 = maxPp1;
-        maxPp2 = Move.MoveTable[move2].pp;
+        maxPp2 = Move.MoveTable[(int)move2].pp;
         pp2 = maxPp2;
-        maxPp3 = Move.MoveTable[move3].pp;
+        maxPp3 = Move.MoveTable[(int)move3].pp;
         pp3 = maxPp3;
-        maxPp4 = Move.MoveTable[move4].pp;
+        maxPp4 = Move.MoveTable[(int)move4].pp;
         pp4 = maxPp4;
 
         HP = hpMax;
@@ -211,9 +209,9 @@ public class PokemonData
 
         item = Item;
 
-        this.exists = exists;
+        exists = Exists;
     }
-    public static PokemonData WildPokemon(SpeciesID species, byte level)
+    public static Pokemon WildPokemon(SpeciesID species, byte level)
     {
         var random = new System.Random();
         byte[] ivBytes = new byte[6];
@@ -229,12 +227,10 @@ public class PokemonData
         bool Gender = personality % 2 == 1 ? true : false;
         byte Nature = (byte)((personality >> 1) % 25);
 
-        ushort[] Moves = Learnset.GetMoves(Species.SpeciesTable[(int)species].learnset, level);
+        MoveID[] Moves = Learnset.GetMoves(Species.SpeciesTable[(int)species].learnset, level);
 
-        return new PokemonData(species, Gender, level, IvHP, IvAttack, IvDefense, IvSpAtk, IvSpDef, IvSpeed, 0, 0, 0, 0, 0, 0, Nature, Moves[0], Moves[1], Moves[2], Moves[3], (byte)Floor(random.NextDouble() * 2), ItemID.None);
+        return new Pokemon(species, Gender, level, IvHP, IvAttack, IvDefense, IvSpAtk, IvSpDef, IvSpeed, 0, 0, 0, 0, 0, 0, Nature, Moves[0], Moves[1], Moves[2], Moves[3], (byte)Floor(random.NextDouble() * 2), ItemID.None);
     }
-    public static PokemonData MakeEmptyMon()
-    {
-        return new PokemonData(SpeciesID.Missingno, false, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Natures.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, ItemID.None, false);
-    }
+    public static Pokemon MakeEmptyMon => new
+        (SpeciesID.Missingno, false, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Natures.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, ItemID.None, false);
 }

@@ -78,8 +78,15 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator MoveNoPP(int currentMon, int currentMove)
     {
-        yield return Battle.Announce(Move.MoveTable[battle.PokemonOnField[currentMon].GetMove(currentMove)].name + BattleText.NoPP, battle);
+        yield return battle.Announce(Move.MoveTable[(int)(int)battle.PokemonOnField[currentMon].GetMove(currentMove)].name + BattleText.NoPP);
         battle.state = BattleState.PlayerInput;
+    }
+
+    private IEnumerator MoveDisabled(int currentMon, int currentMove)
+    {
+        yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true) + "'s "
+            + Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(currentMove)].name
+            + " is disabled!");
     }
 
     private string LeadingZero(string input)
@@ -106,15 +113,15 @@ public class MenuManager : MonoBehaviour
                 switch (menuMode)
                 {
                     case MenuMode.Moves:
-                        box1.color = Type.typeColor[Move.MoveTable[battle.PokemonOnField[currentMon].PokemonData.move1].type];
-                        box2.color = Type.typeColor[Move.MoveTable[battle.PokemonOnField[currentMon].PokemonData.move2].type];
-                        box3.color = Type.typeColor[Move.MoveTable[battle.PokemonOnField[currentMon].PokemonData.move3].type];
-                        box4.color = Type.typeColor[Move.MoveTable[battle.PokemonOnField[currentMon].PokemonData.move4].type];
+                        box1.color = Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].PokemonData.move1].type];
+                        box2.color = Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].PokemonData.move2].type];
+                        box3.color = Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].PokemonData.move3].type];
+                        box4.color = Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].PokemonData.move4].type];
 
-                        text1.text = Move.MoveTable[battle.PokemonOnField[currentMon].PokemonData.move1].name;
-                        text2.text = Move.MoveTable[battle.PokemonOnField[currentMon].PokemonData.move2].name;
-                        text3.text = Move.MoveTable[battle.PokemonOnField[currentMon].PokemonData.move3].name;
-                        text4.text = Move.MoveTable[battle.PokemonOnField[currentMon].PokemonData.move4].name;
+                        text1.text = Move.MoveTable[(int)battle.PokemonOnField[currentMon].PokemonData.move1].name;
+                        text2.text = Move.MoveTable[(int)battle.PokemonOnField[currentMon].PokemonData.move2].name;
+                        text3.text = Move.MoveTable[(int)battle.PokemonOnField[currentMon].PokemonData.move3].name;
+                        text4.text = Move.MoveTable[(int)battle.PokemonOnField[currentMon].PokemonData.move4].name;
 
                         pp1.text = LeadingZero(battle.PokemonOnField[currentMon].PokemonData.pp1.ToString()) + " / " +
                             LeadingZero(battle.PokemonOnField[currentMon].PokemonData.maxPp1.ToString());
@@ -254,7 +261,14 @@ public class MenuManager : MonoBehaviour
                                 case 2:
                                 case 3:
                                 case 4:
-                                    if (battle.TryAddMove(currentMon, currentMove))
+                                    if (battle.PokemonOnField[currentMon].disabled
+                                        && battle.PokemonOnField[currentMon].GetMove(currentMove)
+                                        == battle.PokemonOnField[currentMon].disable)
+                                    {
+                                        battle.state = BattleState.Announcement;
+                                        StartCoroutine(MoveDisabled(currentMon, currentMove));
+                                    }
+                                    else if (battle.TryAddMove(currentMon, currentMove))
                                     {
                                         battle.PokemonOnField[currentMon].choseMove = true;
                                         if (GetNextPokemon())

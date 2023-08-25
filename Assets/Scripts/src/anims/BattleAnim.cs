@@ -380,7 +380,7 @@ public static class BattleAnim
 
 
     //Move animation sequences
-    public static IEnumerator AttackerAnims(Battle battle, int index, ushort move)
+    public static IEnumerator AttackerAnims(Battle battle, int index, MoveID move)
     {
         switch (move)
         {
@@ -417,7 +417,7 @@ public static class BattleAnim
     }
 
 
-    public static IEnumerator DefenderAnims(Battle battle, int index, ushort move)
+    public static IEnumerator DefenderAnims(Battle battle, int index, MoveID move)
     {
         switch(move)
         {

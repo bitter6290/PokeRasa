@@ -8,7 +8,7 @@ using static System.Math;
 [Serializable]
 public class BattlePokemon
 {
-    public PokemonData PokemonData;
+    public Pokemon PokemonData;
 
     public sbyte attackStage = 0;
     public sbyte defenseStage = 0;
@@ -46,11 +46,12 @@ public class BattlePokemon
     public bool getsContinuousDamage = false;
     public ContinuousDamage continuousDamageType = ContinuousDamage.None;
     public int continuousDamageSource = 0;
+    public int continuousDamageTimer = 0;
 
     public bool thrashing = false;
     public byte thrashingTimer;
     public bool lockedInNextTurn = false;
-    public ushort lockedInMove;
+    public MoveID lockedInMove;
     public Invulnerability invulnerability;
     public bool dontCheckPP = false;
 
@@ -58,16 +59,37 @@ public class BattlePokemon
 
     public bool choseMove = false;
 
+    public MoveID lastMoveUsed = MoveID.None;
+
     public bool flinched = false;
+
+    public bool minimized = false;
+
+    public bool protect = false;
+    public byte protectCounter = 0;
 
     public int toxicCounter = 0;
 
     public int moveDamageDone = 0;
+    public int damageTaken = 0;
+    public bool damageWasPhysical = false;
+    public int lastDamageDoer = 0;
+
+    public bool disabled = false;
+    public MoveID disable = 0;
+    public int disableTimer = 0;
+    public int lastUsedMove = 0;
+
+    public bool biding = false;
+    public int bideDamage = 0;
 
     public ushort ability;
     public ushort item;
 
-    public BattlePokemon(PokemonData pokemonData, bool side, int position, bool player, bool exists = true)
+    public bool hasType3 = false;
+    public byte Type3 = Type.Typeless;
+
+    public BattlePokemon(Pokemon pokemonData, bool side, int position, bool player, bool exists = true)
     {
         this.PokemonData = pokemonData;
         attack = PokemonData.attack;
@@ -82,7 +104,7 @@ public class BattlePokemon
         ability = Species.SpeciesTable[(int)pokemonData.species].abilities[pokemonData.whichAbility];
     }
 
-    public ushort GetMove(int index)
+    public MoveID GetMove(int index)
     {
         switch (index)
         {
@@ -98,6 +120,17 @@ public class BattlePokemon
                 return MoveID.None;
         }
     }
+
+    public bool HasType(byte type)
+    {
+        return Type1 == type
+            || Type2 == type
+            || (hasType3 && Type3 == type);
+    }
+
+    public byte Type1 => PokemonData.SpeciesData.type1;
+
+    public byte Type2 => PokemonData.SpeciesData.type2;
 
     public static float StageToModifierNormal(sbyte stage)
     {
@@ -120,7 +153,7 @@ public class BattlePokemon
 
     public static BattlePokemon MakeEmptyBattleMon(bool side,int position)
     {
-        PokemonData emptyMon = PokemonData.MakeEmptyMon();
+        Pokemon emptyMon = Pokemon.MakeEmptyMon;
         return new BattlePokemon(emptyMon, side, position, false, false);
     }
 

@@ -66,7 +66,7 @@ public static class Type
         new Color(247F/255F, 195F/255F, 232F/255F), //Fairy
 
     };
-    
+
     public static float Effectiveness(byte Attacker, byte Defender)
     {
         if (Attacker < 18 && Defender < 18)
@@ -82,15 +82,15 @@ public static class Type
         return 1.0F;
     }
 
-    public static float GetTypeEffectiveness(ushort move, PokemonData defender)
+    public static float GetTypeEffectiveness(MoveID move, Pokemon defender)
     {
-        return (defender.SpeciesData().type1 == defender.SpeciesData().type2) ?
-            Effectiveness(Move.MoveTable[move].type, defender.SpeciesData().type1)
-            : Effectiveness(Move.MoveTable[move].type, defender.SpeciesData().type1)
-            * Effectiveness(Move.MoveTable[move].type, defender.SpeciesData().type2);
+        return (defender.SpeciesData.type1 == defender.SpeciesData.type2) ?
+            Effectiveness(Move.MoveTable[(int)move].type, defender.SpeciesData.type1)
+            : Effectiveness(Move.MoveTable[(int)move].type, defender.SpeciesData.type1)
+            * Effectiveness(Move.MoveTable[(int)move].type, defender.SpeciesData.type2);
     }
 
-    public static bool IsImmune(ushort move, PokemonData defender)
+    public static bool IsImmune(MoveID move, Pokemon defender)
     {
         return GetTypeEffectiveness(move, defender) == 0;
     }

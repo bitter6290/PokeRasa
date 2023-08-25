@@ -1,3 +1,7 @@
+using System.Reflection;
+using System.Threading;
+using UnityEngine;
+
 public static class Move
 {
     public const byte AlwaysHit = 101;
@@ -340,9 +344,9 @@ public static class Move
         true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
     public static MoveData Counter = new MoveData(
         "Counter", Type.Fighting,
-        0, 100, -5,
-        MoveEffect.Hit, 0,
-        true, TargetID.Self, 20); //Needs effect and anim
+        1, 100, -5,
+        MoveEffect.Counter, 0,
+        true, TargetID.None, 20); //Needs anim
     public static MoveData SeismicToss = new MoveData(
         "Seismic Toss", Type.Fighting,
         0, 100, 0,
@@ -373,8 +377,8 @@ public static class Move
     public static MoveData Growth = new MoveData(
         "Growth", Type.Normal,
         0, AlwaysHit, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Self, 20); //Needs effect and anim
+        MoveEffect.Growth, 100,
+        false, TargetID.Self, 20); //Needs anim
     public static MoveData RazorLeaf = new MoveData(
         "Razor Leaf", Type.Grass,
         55, 95, 0,
@@ -404,7 +408,7 @@ public static class Move
         "Petal Dance", Type.Grass,
         120, 100, 0,
         MoveEffect.Thrash, 0,
-        false, TargetID.Self, 10); //Needs effect and anim
+        false, TargetID.Self, 10); //Needs anim
     public static MoveData StringShot = new MoveData(
         "String Shot", Type.Bug,
         0, 95, 0,
@@ -418,8 +422,8 @@ public static class Move
     public static MoveData FireSpin = new MoveData(
         "Fire Spin", Type.Fire,
         35, 85, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+        MoveEffect.ContinuousDamage, 100,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
     public static MoveData ThunderShock = new MoveData(
         "Thunder Shock", Type.Electric,
         40, 100, 0,
@@ -439,7 +443,7 @@ public static class Move
         "Thunder", Type.Electric,
         110, 70, 0,
         MoveEffect.Paralyze, 30,
-        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect (weather) and anim
+        false, TargetID.Opponent + TargetID.Ally, 10, MoveFlags.alwaysHitsInRain); //Needs anim
     public static MoveData RockThrow = new MoveData(
         "Rock Throw", Type.Rock,
         50, 90, 0,
@@ -505,6 +509,326 @@ public static class Move
         0, AlwaysHit, -6,
         MoveEffect.Hit, 0,
         false, TargetID.Self, 20); //Needs effect and anim
+    public static MoveData NightShade = new MoveData(
+        "Night Shade", Type.Ghost,
+        1, 100, 0,
+        MoveEffect.DirectLevel, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+    public static MoveData Mimic = new MoveData(
+        "Mimic", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData Screech = new MoveData(
+        "Screech", Type.Normal,
+        0, 85, 0,
+        MoveEffect.DefenseDown2, 100,
+        false, TargetID.Opponent + TargetID.Ally, 40); //Needs anim
+    public static MoveData DoubleTeam = new MoveData(
+        "Double Team", Type.Normal,
+        0, 101, 0,
+        MoveEffect.EvasionUp1, 100,
+        false, TargetID.Self, 15); //Needs anim
+    public static MoveData Recover = new MoveData(
+        "Recover", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Heal50, 100,
+        false, TargetID.Self, 10); //Needs anim
+    public static MoveData Harden = new MoveData(
+        "Harden", Type.Normal,
+        0, 101, 0,
+        MoveEffect.DefenseUp1, 0,
+        false, TargetID.Self, 30); //Needs anim
+    public static MoveData Minimize = new MoveData(
+        "Minimize", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10); //Needs effect and anim
+    public static MoveData Smokescreen = new MoveData(
+        "Smokescreen", Type.Normal,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 20);
+    public static MoveData ConfuseRay = new MoveData(
+        "Confuse Ray", Type.Ghost,
+        0, 100, 0,
+        MoveEffect.Confuse, 100,
+        false, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData Withdraw = new MoveData(
+        "Withdraw", Type.Water,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 40);
+    public static MoveData DefenseCurl = new MoveData(
+        "Defense Curl", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 40);
+    public static MoveData Barrier = new MoveData(
+        "Barrier", Type.Psychic,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 20);
+    public static MoveData LightScreen = new MoveData(
+        "Light Screen", Type.Psychic,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Field, 30);
+    public static MoveData Haze = new MoveData(
+        "Haze", Type.Ice,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Field, 30);
+    public static MoveData Reflect = new MoveData(
+        "Reflect", Type.Psychic,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Field, 20);
+    public static MoveData FocusEnergy = new MoveData(
+        "Focus Energy", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 30);
+    public static MoveData Bide = new MoveData(
+        "Bide", Type.Normal,
+        0, 101, 1,
+        MoveEffect.Hit, 0,
+        true, TargetID.Self, 10);
+    public static MoveData Metronome = new MoveData(
+        "Metronome", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10);
+    public static MoveData MirrorMove = new MoveData(
+        "Mirror Move", Type.Flying,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 20);
+    public static MoveData SelfDestruct = new MoveData(
+        "Self Destruct", Type.Normal,
+        200, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 5);
+    public static MoveData EggBomb = new MoveData(
+        "Egg Bomb", Type.Normal,
+        100, 75, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData Lick = new MoveData(
+        "Lick", Type.Ghost,
+        30, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 30);
+    public static MoveData Smog = new MoveData(
+        "Smog", Type.Poison,
+        30, 70, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 20);
+    public static MoveData Sludge = new MoveData(
+        "Sludge", Type.Poison,
+        65, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 20);
+    public static MoveData BoneClub = new MoveData(
+        "Bone Club", Type.Ground,
+        65, 85, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 20);
+    public static MoveData FireBlast = new MoveData(
+        "Fire Blast", Type.Fire,
+        110, 85, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 5);
+    public static MoveData Waterfall = new MoveData(
+        "Waterfall", Type.Water,
+        80, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15);
+    public static MoveData Clamp = new MoveData(
+        "Clamp", Type.Water,
+        35, 85, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15);
+    public static MoveData Swift = new MoveData(
+        "Swift", Type.Normal,
+        60, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Spread, 20);
+    public static MoveData SkullBash = new MoveData(
+        "Skull Bash", Type.Normal,
+        130, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData SpikeCannon = new MoveData(
+        "Spike Cannon", Type.Normal,
+        20, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15);
+    public static MoveData Constrict = new MoveData(
+        "Constrict", Type.Normal,
+        10, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 35);
+    public static MoveData Amnesia = new MoveData(
+        "Amnesia", Type.Psychic,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 20);
+    public static MoveData Kinesis = new MoveData(
+        "Kinesis", Type.Psychic,
+        0, 80, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15);
+    public static MoveData SoftBoiled = new MoveData(
+        "Soft Boiled", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10);
+    public static MoveData HighJumpKick = new MoveData(
+        "High Jump Kick", Type.Fighting,
+        130, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData Glare = new MoveData(
+        "Glare", Type.Normal,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 30);
+    public static MoveData DreamEater = new MoveData(
+        "Dream Eater", Type.Psychic,
+        100, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15);
+    public static MoveData PoisonGas = new MoveData(
+        "Poison Gas", Type.Poison,
+        0, 90, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Spread, 40);
+    public static MoveData Barrage = new MoveData(
+        "Barrage", Type.Normal,
+        15, 85, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 20);
+    public static MoveData LeechLife = new MoveData(
+        "Leech Life", Type.Bug,
+        80, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData LovelyKiss = new MoveData(
+        "Lovely Kiss", Type.Normal,
+        0, 75, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData SkyAttack = new MoveData(
+        "Sky Attack", Type.Flying,
+        140, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 5);
+    public static MoveData Transform = new MoveData(
+        "Transform", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData Bubble = new MoveData(
+        "Bubble", Type.Water,
+        40, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Spread, 30);
+    public static MoveData DizzyPunch = new MoveData(
+        "Dizzy Punch", Type.Normal,
+        70, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData Spore = new MoveData(
+        "Spore", Type.Grass,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15);
+    public static MoveData Flash = new MoveData(
+        "Flash", Type.Normal,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 20);
+    public static MoveData Psywave = new MoveData(
+        "Psywave", Type.Psychic,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15);
+    public static MoveData Splash = new MoveData(
+        "Splash", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 40);
+    public static MoveData AcidArmor = new MoveData(
+        "Acid Armor", Type.Poison,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 20);
+    public static MoveData Crabhammer = new MoveData(
+        "Crabhammer", Type.Water,
+        100, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData Explosion = new MoveData(
+        "Explosion", Type.Normal,
+        250, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 5);
+    public static MoveData FurySwipes = new MoveData(
+        "Fury Swipes", Type.Normal,
+        18, 80, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15);
+    public static MoveData Bonemerang = new MoveData(
+        "Bonemerang", Type.Ground,
+        50, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData Rest = new MoveData(
+        "Rest", Type.Psychic,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10);
+    public static MoveData RockSlide = new MoveData(
+        "Rock Slide", Type.Rock,
+        75, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Spread, 10);
+    public static MoveData HyperFang = new MoveData(
+        "Hyper Fang", Type.Normal,
+        80, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15);
+    public static MoveData Sharpen = new MoveData(
+        "Sharpen", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 30);
+    public static MoveData Conversion = new MoveData(
+        "Conversion", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 30);
+    public static MoveData TriAttack = new MoveData(
+        "Tri Attack", Type.Normal,
+        80, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData SuperFang = new MoveData(
+        "Super Fang", Type.Normal,
+        0, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10);
+    public static MoveData Slash = new MoveData(
+        "Slash", Type.Normal,
+        70, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 20);
+    public static MoveData Substitute = new MoveData(
+        "Substitute", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10);
 
     //Non-standard moves
     public static MoveData ConfusionHit = new MoveData("Null", Type.Typeless,
@@ -514,7 +838,7 @@ public static class Move
     public static MoveData Recharge = new MoveData(
         "Null", Type.Typeless,
         0, 0, 0,
-        MoveEffect.Recharge, 0,
+        MoveEffect.None, 0,
         false, 0, 0);
     public static MoveData RazorWindAttack = new MoveData(
         "Razor Wind", Type.Normal,
@@ -531,8 +855,13 @@ public static class Move
         90, 95, 0,
         MoveEffect.Hit, 0,
         false, TargetID.Opponent + TargetID.Spread, 0); //Needs anim
+    public static MoveData Struggle = new MoveData(
+        "Struggle", Type.Typeless,
+        50, 100, 0,
+        MoveEffect.Recoil25Max, 100,
+        true, TargetID.Opponent + TargetID.Ally, 0); //Meeds anim
 
-    public static MoveData[] MoveTable = new MoveData[MoveID.Count] {
+    public static MoveData[] MoveTable = new MoveData[(int)MoveID.Count] {
         None,
         Pound,
         KarateChop,
@@ -634,6 +963,71 @@ public static class Move
         QuickAttack,
         Rage,
         Teleport,
+        NightShade,
+        Mimic,
+        Screech,
+        DoubleTeam,
+        Recover,
+        Harden,
+        Minimize,
+        Smokescreen,
+        ConfuseRay,
+        Withdraw,
+        DefenseCurl,
+        Barrier,
+        LightScreen,
+        Haze,
+        Reflect,
+        FocusEnergy,
+        Bide,
+        Metronome,
+        MirrorMove,
+        SelfDestruct,
+        EggBomb,
+        Lick,
+        Smog,
+        Sludge,
+        BoneClub,
+        FireBlast,
+        Waterfall,
+        Clamp,
+        Swift,
+        SkullBash,
+        SpikeCannon,
+        Constrict,
+        Amnesia,
+        Kinesis,
+        SoftBoiled,
+        HighJumpKick,
+        Glare,
+        DreamEater,
+        PoisonGas,
+        Barrage,
+        LeechLife,
+        LovelyKiss,
+        SkyAttack,
+        Transform,
+        Bubble,
+        DizzyPunch,
+        Spore,
+        Flash,
+        Psywave,
+        Splash,
+        AcidArmor,
+        Crabhammer,
+        Explosion,
+        FurySwipes,
+        Bonemerang,
+        Rest,
+        RockSlide,
+        HyperFang,
+        Sharpen,
+        Conversion,
+        TriAttack,
+        SuperFang,
+        Slash,
+        Substitute,
+        Struggle,
         //Nonstandard moves
         ConfusionHit,
         Recharge,

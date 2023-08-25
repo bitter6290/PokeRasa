@@ -10,23 +10,23 @@ public static class BattleEffect
         switch (stagesRaised)
         {
             case 0:
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.CantGoHigher, battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + "'s " + StatID.statName[statID] + BattleText.CantGoHigher);
                 break;
             case 1:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.Rose, battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + "'s " + StatID.statName[statID] + BattleText.Rose);
                 break;
             case 2:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.RoseSharply, battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + "'s " + StatID.statName[statID] + BattleText.RoseSharply);
                 break;
             default:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.RoseDrastically, battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + "'s " + StatID.statName[statID] + BattleText.RoseDrastically);
                 break;
         }
     }
@@ -37,23 +37,23 @@ public static class BattleEffect
         switch (stagesLowered)
         {
             case 0:
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.CantGoLower, battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + "'s " + StatID.statName[statID] + BattleText.CantGoLower);
                 break;
             case 1:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.Fell, battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + "'s " + StatID.statName[statID] + BattleText.Fell);
                 break;
             case 2:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.FellSharply, battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + "'s " + StatID.statName[statID] + BattleText.FellSharply);
                 break;
             default:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.FellDrastically, battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + "'s " + StatID.statName[statID] + BattleText.FellDrastically);
                 break;
         }
     }
@@ -62,58 +62,71 @@ public static class BattleEffect
     {
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return null;
+            yield return battle.Announce("But it failed!");
         }
-        if (battle.PokemonOnField[index].PokemonData.SpeciesData().type1 == Type.Fire
-            || battle.PokemonOnField[index].PokemonData.SpeciesData().type2 == Type.Fire)
+        if (battle.PokemonOnField[index].HasType(Type.Fire))
         {
-            yield return Battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false), battle);
+            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
         }
         else
         {
             yield return BattleAnim.ShowBurn(battle.maskManager[index]);
             battle.PokemonOnField[index].PokemonData.status = Status.Burn;
-            yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " was burned!", battle);
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was burned!");
         }
     }
     public static IEnumerator GetParalysis(Battle battle, int index)
     {
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return null;
+            yield return battle.Announce("But it failed!");
+        }
+        if (battle.PokemonOnField[index].HasType(Type.Electric))
+        {
+            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
         }
         else
         {
             yield return BattleAnim.ShowParalysis(battle.maskManager[index]);
             battle.PokemonOnField[index].PokemonData.status = Status.Paralysis;
-            yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " was paralyzed!", battle);
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was paralyzed!");
         }
     }
     public static IEnumerator GetPoison(Battle battle, int index)
     {
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return null;
+            yield return battle.Announce("But it failed!");
+        }
+        if (battle.PokemonOnField[index].HasType(Type.Poison)
+            || battle.PokemonOnField[index].HasType(Type.Steel))
+        {
+            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
         }
         else
         {
             yield return BattleAnim.ShowPoison(battle.maskManager[index]);
             battle.PokemonOnField[index].PokemonData.status = Status.Poison;
-            yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " was poisoned!", battle);
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was poisoned!");
         }
     }
     public static IEnumerator GetBadPoison(Battle battle, int index)
     {
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return null;
+            yield return battle.Announce("But it failed!");
+        }
+        if (battle.PokemonOnField[index].HasType(Type.Poison)
+    || battle.PokemonOnField[index].HasType(Type.Steel))
+        {
+            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
         }
         else
         {
             yield return BattleAnim.ShowToxicPoison(battle.maskManager[index]);
             battle.PokemonOnField[index].PokemonData.status = Status.ToxicPoison;
             battle.PokemonOnField[index].toxicCounter = 0;
-            yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " was badly poisoned!", battle);
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was badly poisoned!");
         }
     }
     public static IEnumerator GetFreeze(Battle battle, int index)
@@ -122,11 +135,15 @@ public static class BattleEffect
         {
             yield return null;
         }
+        if (battle.PokemonOnField[index].HasType(Type.Ice))
+        {
+            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+        }
         else
         {
             yield return BattleAnim.ShowFreeze(battle.maskManager[index]);
             battle.PokemonOnField[index].PokemonData.status = Status.Freeze;
-            yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " was frozen solid!", battle);
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was frozen solid!");
         }
     }
     public static IEnumerator FallAsleep(Battle battle, int index)
@@ -139,7 +156,7 @@ public static class BattleEffect
         {
             battle.PokemonOnField[index].PokemonData.status = Status.Sleep;
             battle.PokemonOnField[index].PokemonData.sleepTurns = 0;
-            yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " fell asleep!", battle);
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " fell asleep!");
         }
     }
 
@@ -156,7 +173,7 @@ public static class BattleEffect
         {
             battle.PokemonOnField[index].PokemonData.HP -= (ushort)burnDamage;
         }
-        yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by its burn!", battle);
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by its burn!");
     }
 
     public static IEnumerator PoisonHurt(Battle battle, int index)
@@ -172,7 +189,7 @@ public static class BattleEffect
         {
             battle.PokemonOnField[index].PokemonData.HP -= (ushort)poisonDamage;
         }
-        yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by poison!", battle);
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by poison!");
     }
 
     public static IEnumerator ToxicPoisonHurt(Battle battle, int index)
@@ -189,14 +206,29 @@ public static class BattleEffect
         {
             battle.PokemonOnField[index].PokemonData.HP -= (ushort)toxicDamage;
         }
-        yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by poison!", battle);
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by poison!");
     }
 
-    public static IEnumerator Confuse (Battle battle, int index)
+    public static IEnumerator Confuse(Battle battle, int index)
     {
         if (battle.PokemonOnField[index].confused) { yield break; }
         battle.PokemonOnField[index].confused = true;
-        yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " became confused!", battle);
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " became confused!");
+    }
+
+    public static IEnumerator Disable(Battle battle, int index)
+    {
+        if (battle.PokemonOnField[index].disabled)
+        {
+            yield break;
+        }
+        if (battle.PokemonOnField[index].lastMoveUsed is MoveID.None or MoveID.Struggle)
+        {
+
+        }
+        battle.PokemonOnField[index].disabled = true;
+        battle.PokemonOnField[index].disable = battle.PokemonOnField[index].lastMoveUsed;
+        battle.PokemonOnField[index].disableTimer = 4;
     }
 
     public static IEnumerator Heal(Battle battle, int index, int amount)
@@ -226,31 +258,41 @@ public static class BattleEffect
         battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index > 2, index % 3);
         yield return null;
         battle.spriteRenderer[index].maskInteraction = SpriteMaskInteraction.None;
-        yield return Battle.Announce(faintedMonName + " fainted!", battle);
+        yield return battle.Announce(faintedMonName + " fainted!");
     }
 
-    public static IEnumerator GetContinuousDamage(Battle battle, int attacker, int index, ushort move)
+    public static IEnumerator GetContinuousDamage(Battle battle, int attacker, int index, MoveID move)
     {
         if (battle.PokemonOnField[index].getsContinuousDamage)
         {
             yield break;
         }
-        switch(move)
+        switch (move)
         {
             case MoveID.Wrap:
                 battle.PokemonOnField[index].getsContinuousDamage = true;
                 battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.Wrap;
                 battle.PokemonOnField[index].continuousDamageSource = attacker;
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " was wrapped by "
-                    + battle.MonNameWithPrefix(battle.PokemonOnField[index].continuousDamageSource, false), battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was wrapped by "
+                    + battle.MonNameWithPrefix(battle.PokemonOnField[index].continuousDamageSource, false));
                 break;
             case MoveID.Bind:
                 battle.PokemonOnField[index].getsContinuousDamage = true;
                 battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.Bind;
                 battle.PokemonOnField[index].continuousDamageSource = attacker;
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " is squeezed by "
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is squeezed by "
                     + battle.MonNameWithPrefix(battle.PokemonOnField[index].continuousDamageSource, false)
-                    + "'s Bind!", battle);
+                    + "'s Bind!");
+                break;
+            case MoveID.FireSpin:
+                battle.PokemonOnField[index].getsContinuousDamage = true;
+                battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.FireSpin;
+                battle.PokemonOnField[index].continuousDamageSource = attacker;
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was trapped in the vortex!"
+                    );
+                break;
+            default:
+                yield return battle.Announce("Error 301");
                 break;
         }
 
@@ -259,20 +301,25 @@ public static class BattleEffect
     public static IEnumerator DoContinuousDamage(Battle battle, int index, ContinuousDamage type)
     {
         int damage = 0;
-        switch(type)
+        switch (type)
         {
-            case ContinuousDamage.None:
-                yield return Battle.Announce("Error 11", battle);
-                break;
             case ContinuousDamage.Wrap:
                 //yield return BattleAnim.Wrap(battle, index);
                 damage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " was hurt by Wrap!", battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was hurt by Wrap!");
                 break;
             case ContinuousDamage.Bind:
                 //yield return BattleAnim.Bind(battle, index);
                 damage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
-                yield return Battle.Announce(battle.MonNameWithPrefix(index, true) + " was hurt by Bind!", battle);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was hurt by Bind!");
+                break;
+            case ContinuousDamage.FireSpin:
+                //yield return BattleAnim.FireSpin(battle, index);
+                damage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was hurt by Fire Spin!");
+                break;
+            default:
+                yield return battle.Announce("Error 302");
                 break;
         }
         if (damage > battle.PokemonOnField[index].PokemonData.HP)
@@ -292,16 +339,16 @@ public static class BattleEffect
         switch (weather)
         {
             case Weather.Sun:
-                yield return Battle.Announce(BattleText.SunStart, battle);
+                yield return battle.Announce(BattleText.SunStart);
                 break;
             case Weather.Rain:
-                yield return Battle.Announce(BattleText.RainStart, battle);
+                yield return battle.Announce(BattleText.RainStart);
                 break;
             case Weather.Sand:
-                yield return Battle.Announce(BattleText.SandStart, battle);
+                yield return battle.Announce(BattleText.SandStart);
                 break;
             case Weather.Snow:
-                yield return Battle.Announce(BattleText.SnowStart, battle);
+                yield return battle.Announce(BattleText.SnowStart);
                 break;
         }
     }
@@ -316,16 +363,16 @@ public static class BattleEffect
             switch (battle.weather)
             {
                 case Weather.Sun:
-                    yield return Battle.Announce(BattleText.SunEnd, battle);
+                    yield return battle.Announce(BattleText.SunEnd);
                     break;
                 case Weather.Rain:
-                    yield return Battle.Announce(BattleText.RainEnd, battle);
+                    yield return battle.Announce(BattleText.RainEnd);
                     break;
                 case Weather.Sand:
-                    yield return Battle.Announce(BattleText.SandEnd, battle);
+                    yield return battle.Announce(BattleText.SandEnd);
                     break;
                 case Weather.Snow:
-                    yield return Battle.Announce(BattleText.SnowEnd, battle);
+                    yield return battle.Announce(BattleText.SnowEnd);
                     break;
             }
             battle.weather = Weather.None;
@@ -335,16 +382,16 @@ public static class BattleEffect
             switch (battle.weather)
             {
                 case Weather.Sun:
-                    yield return Battle.Announce(BattleText.SunContinue, battle);
+                    yield return battle.Announce(BattleText.SunContinue);
                     break;
                 case Weather.Rain:
-                    yield return Battle.Announce(BattleText.RainContinue, battle);
+                    yield return battle.Announce(BattleText.RainContinue);
                     break;
                 case Weather.Sand:
-                    yield return Battle.Announce(BattleText.SandContinue, battle);
+                    yield return battle.Announce(BattleText.SandContinue);
                     break;
                 case Weather.Snow:
-                    yield return Battle.Announce(BattleText.SnowContinue, battle);
+                    yield return battle.Announce(BattleText.SnowContinue);
                     break;
             }
             battle.weatherTimer--;

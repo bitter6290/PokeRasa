@@ -1,8 +1,8 @@
 public readonly struct LearnsetMove
 {
     public readonly byte level;
-    public readonly ushort move;
-    public LearnsetMove(byte Level, ushort Move)
+    public readonly MoveID move;
+    public LearnsetMove(byte Level, MoveID Move)
     {
         level = Level;
         move = Move;

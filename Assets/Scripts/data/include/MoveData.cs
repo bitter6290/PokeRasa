@@ -9,7 +9,7 @@ public readonly struct MoveData
     public readonly byte accuracy;
     public readonly sbyte priority;
 
-    public readonly ushort effect;
+    public readonly MoveEffect effect;
     public readonly byte effectChance;
     public readonly bool physical;
 
@@ -20,7 +20,7 @@ public readonly struct MoveData
     public readonly int moveFlags;
 
 
-    public MoveData(string Name, byte thisType, byte Power, byte Accuracy, sbyte Priority, ushort Effect, byte EffectChance, bool IsPhysical, byte Targets, byte PP, int MoveFlags = 0)
+    public MoveData(string Name, byte thisType, byte Power, byte Accuracy, sbyte Priority, MoveEffect Effect, byte EffectChance, bool IsPhysical, byte Targets, byte PP, int MoveFlags = 0)
     {
         name = Name;
         type = thisType;
