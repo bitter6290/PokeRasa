@@ -9370,6 +9370,7 @@ GameObject:
   - component: {fileID: 1034585566}
   - component: {fileID: 1034585567}
   - component: {fileID: 1034585568}
+  - component: {fileID: 1034585569}
   m_Layer: 0
   m_Name: BattleController
   m_TagString: Untagged
@@ -10067,6 +10068,7 @@ MonoBehaviour:
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
+    continuousDamageTimer: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -10075,11 +10077,28 @@ MonoBehaviour:
     dontCheckPP: 0
     rechargeNextTurn: 0
     choseMove: 0
+    lastMoveUsed: 0
     flinched: 0
+    usedDefenseCurl: 0
+    minimized: 0
+    protect: 0
+    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
+    damageTaken: 0
+    damageWasPhysical: 0
+    lastDamageDoer: 0
+    disabled: 0
+    disable: 0
+    disableTimer: 0
+    lastUsedMove: 0
+    gotAbilityEffect: 0
+    biding: 0
+    bideDamage: 0
     ability: 0
     item: 0
+    hasType3: 0
+    Type3: 255
   - PokemonData:
       species: 0
       monName: Null
@@ -10152,6 +10171,7 @@ MonoBehaviour:
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
+    continuousDamageTimer: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -10160,11 +10180,28 @@ MonoBehaviour:
     dontCheckPP: 0
     rechargeNextTurn: 0
     choseMove: 0
+    lastMoveUsed: 0
     flinched: 0
+    usedDefenseCurl: 0
+    minimized: 0
+    protect: 0
+    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
+    damageTaken: 0
+    damageWasPhysical: 0
+    lastDamageDoer: 0
+    disabled: 0
+    disable: 0
+    disableTimer: 0
+    lastUsedMove: 0
+    gotAbilityEffect: 0
+    biding: 0
+    bideDamage: 0
     ability: 0
     item: 0
+    hasType3: 0
+    Type3: 255
   - PokemonData:
       species: 0
       monName: Null
@@ -10237,6 +10274,7 @@ MonoBehaviour:
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
+    continuousDamageTimer: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -10245,11 +10283,28 @@ MonoBehaviour:
     dontCheckPP: 0
     rechargeNextTurn: 0
     choseMove: 0
+    lastMoveUsed: 0
     flinched: 0
+    usedDefenseCurl: 0
+    minimized: 0
+    protect: 0
+    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
+    damageTaken: 0
+    damageWasPhysical: 0
+    lastDamageDoer: 0
+    disabled: 0
+    disable: 0
+    disableTimer: 0
+    lastUsedMove: 0
+    gotAbilityEffect: 0
+    biding: 0
+    bideDamage: 0
     ability: 0
     item: 0
+    hasType3: 0
+    Type3: 255
   - PokemonData:
       species: 0
       monName: Null
@@ -10322,6 +10377,7 @@ MonoBehaviour:
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
+    continuousDamageTimer: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -10330,11 +10386,28 @@ MonoBehaviour:
     dontCheckPP: 0
     rechargeNextTurn: 0
     choseMove: 0
+    lastMoveUsed: 0
     flinched: 0
+    usedDefenseCurl: 0
+    minimized: 0
+    protect: 0
+    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
+    damageTaken: 0
+    damageWasPhysical: 0
+    lastDamageDoer: 0
+    disabled: 0
+    disable: 0
+    disableTimer: 0
+    lastUsedMove: 0
+    gotAbilityEffect: 0
+    biding: 0
+    bideDamage: 0
     ability: 0
     item: 0
+    hasType3: 0
+    Type3: 255
   - PokemonData:
       species: 0
       monName: Null
@@ -10407,6 +10480,7 @@ MonoBehaviour:
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
+    continuousDamageTimer: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -10415,11 +10489,28 @@ MonoBehaviour:
     dontCheckPP: 0
     rechargeNextTurn: 0
     choseMove: 0
+    lastMoveUsed: 0
     flinched: 0
+    usedDefenseCurl: 0
+    minimized: 0
+    protect: 0
+    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
+    damageTaken: 0
+    damageWasPhysical: 0
+    lastDamageDoer: 0
+    disabled: 0
+    disable: 0
+    disableTimer: 0
+    lastUsedMove: 0
+    gotAbilityEffect: 0
+    biding: 0
+    bideDamage: 0
     ability: 0
     item: 0
+    hasType3: 0
+    Type3: 255
   - PokemonData:
       species: 0
       monName: Null
@@ -10492,6 +10583,7 @@ MonoBehaviour:
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
+    continuousDamageTimer: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -10500,11 +10592,28 @@ MonoBehaviour:
     dontCheckPP: 0
     rechargeNextTurn: 0
     choseMove: 0
+    lastMoveUsed: 0
     flinched: 0
+    usedDefenseCurl: 0
+    minimized: 0
+    protect: 0
+    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
+    damageTaken: 0
+    damageWasPhysical: 0
+    lastDamageDoer: 0
+    disabled: 0
+    disable: 0
+    disableTimer: 0
+    lastUsedMove: 0
+    gotAbilityEffect: 0
+    biding: 0
+    bideDamage: 0
     ability: 0
     item: 0
+    hasType3: 0
+    Type3: 255
   battleType: 0
 --- !u!114 &1034585560
 MonoBehaviour:
@@ -10748,6 +10857,20 @@ MonoBehaviour:
   - {fileID: 1648044984, guid: e56fdc91c9ebd46318b0fa8856ec217d, type: 3}
   - {fileID: 2008456666, guid: e56fdc91c9ebd46318b0fa8856ec217d, type: 3}
   currentStatus: 0
+--- !u!114 &1034585569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034585550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420ba2b0ed775415da443b053ece9aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battle: {fileID: 1034585559}
+  index: 0
 --- !u!1 &1083136005
 GameObject:
   m_ObjectHideFlags: 0
@@ -11335,6 +11458,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 1322025948}
   healthBar: {fileID: 1300887812}
+  duration: 0
+  interval: 0
+  changed: 0
   battle: {fileID: 1034585559}
   index: 0
 --- !u!114 &1322025948
@@ -11493,6 +11619,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 1333135495}
   healthBar: {fileID: 1589590601}
+  duration: 0
+  interval: 0
+  changed: 0
   battle: {fileID: 1034585559}
   index: 3
 --- !u!1 &1365671567

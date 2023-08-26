@@ -1,138 +1,138 @@
-public static class Ability
+public enum Ability
 {
-    public const ushort None = 0;
-    public const ushort Overgrow = 1;
-    public const ushort Blaze = 2;
-    public const ushort Torrent = 3;
-    public const ushort ShedSkin = 4;
-    public const ushort CompoundEyes = 5;
-    public const ushort Swarm = 6;
-    public const ushort KeenEye = 7;
-    public const ushort TangledFeet = 8;
-    public const ushort NoGuard = 9;
-    public const ushort RunAway = 10;
-    public const ushort Guts = 11;
-    public const ushort Gluttony = 12;
-    public const ushort Hustle = 13;
-    public const ushort Intimidate = 14;
-    public const ushort Static = 15;
-    public const ushort LightningRod = 16;
-    public const ushort SurgeSurfer = 17;
-    public const ushort SandVeil = 18;
-    public const ushort SnowCloak = 19;
-    public const ushort PoisonPoint = 20;
-    public const ushort Rivalry = 21;
-    public const ushort CuteCharm = 22;
-    public const ushort MagicGuard = 23;
-    public const ushort FlashFire = 24;
-    public const ushort Competitive = 25;
-    public const ushort InnerFocus = 26;
-    public const ushort Chlorophyll = 27;
-    public const ushort EffectSpore = 28;
-    public const ushort DrySkin = 29;
-    public const ushort TintedLens = 30;
-    public const ushort ArenaTrap = 31;
-    public const ushort TanglingHair = 32;
-    public const ushort Pickup = 33;
-    public const ushort Technician = 34;
-    public const ushort ToughClaws = 35;
-    public const ushort Limber = 36;
-    public const ushort FurCoat = 37;
-    public const ushort BattleArmor = 38;
-    public const ushort Damp = 39;
-    public const ushort CloudNine = 40;
-    public const ushort VitalSpirit = 41;
-    public const ushort AngerPoint = 42;
-    public const ushort WaterAbsorb = 43;
-    public const ushort Synchronize = 44;
-    public const ushort Trace = 45;
-    public const ushort ClearBody = 46;
-    public const ushort LiquidOoze = 47;
-    public const ushort RockHead = 48;
-    public const ushort Sturdy = 49;
-    public const ushort MagnetPull = 50;
-    public const ushort PastelVeil = 51;
-    public const ushort Oblivious = 52;
-    public const ushort OwnTempo = 53;
-    public const ushort QuickDraw = 54;
-    public const ushort CuriousMedicine = 55;
-    public const ushort Steadfast = 56;
-    public const ushort EarlyBird = 57;
-    public const ushort ThickFat = 58;
-    public const ushort Hydration = 59;
-    public const ushort Stench = 60;
-    public const ushort StickyHold = 61;
-    public const ushort PoisonTouch = 62;
-    public const ushort SkillLink = 63;
-    public const ushort Levitate = 64;
-    public const ushort CursedBody = 65;
-    public const ushort ShadowTag = 66;
-    public const ushort SandForce = 67;
-    public const ushort Forewarn = 68;
-    public const ushort HyperCutter = 69;
-    public const ushort Soundproof = 70;
-    public const ushort Frisk = 71;
-    public const ushort IronFist = 72;
-    public const ushort NeutralizingGas = 73;
-    public const ushort NaturalCure = 74;
-    public const ushort SereneGrace = 75;
-    public const ushort LeafGuard = 76;
-    public const ushort Scrappy = 77;
-    public const ushort ParentalBond = 78;
-    public const ushort Sniper = 79;
-    public const ushort WaterVeil = 80;
-    public const ushort SwiftSwim = 81;
-    public const ushort Filter = 82;
-    public const ushort ScreenCleaner = 83;
-    public const ushort MotorDrive = 84;
-    public const ushort FlameBody = 85;
-    public const ushort MoldBreaker = 86;
-    public const ushort Aerilate = 87;
-    public const ushort VoltAbsorb = 88;
-    public const ushort Download = 89;
-    public const ushort ShellArmor = 90;
-    public const ushort Immunity = 91;
-    public const ushort Pressure = 92;
-    public const ushort Defiant = 93;
-    public const ushort Berserk = 94;
-    public const ushort Insomnia = 95;
-    public const ushort Unnerve = 96;
-    public const ushort MarvelScale = 97;
-    public const ushort WeakArmor = 98;
-    public const ushort Analytic = 99;
-    public const ushort Pixilate = 100;
-    public const ushort IceBody = 101;
-    public const ushort MagicBounce = 102;
-    public const ushort Anticipation = 103;
-    public const ushort Imposter = 104;
-    public const ushort Moxie = 105;
-    public const ushort Rattled = 106;
-    public const ushort CudChew = 107;
-    public const ushort Sharpness = 108;
-    public const ushort LightMetal = 109;
-    public const ushort Regenerator = 110;
-    public const ushort Healer = 111;
-    public const ushort FriendGuard = 112;
-    public const ushort MistySurge = 113;
-    public const ushort Unburden = 114;
-    public const ushort Aftermath = 115;
-    public const ushort SheerForce = 116;
-    public const ushort Overcoat = 117;
-    public const ushort PowerOfAlchemy = 118;
-    public const ushort Galvanize = 119;
-    public const ushort RainDish = 120;
-    public const ushort Drizzle = 121;
-    public const ushort Justified = 122;
-    public const ushort SteelySpirit = 123;
-    public const ushort WonderSkin = 124;
-    public const ushort Infiltrator = 125;
-    public const ushort SnowWarning = 126;
-    public const ushort Drought = 127;
-    public const ushort SlushRush = 128;
-    public const ushort SandRush = 129;
-    public const ushort BigPecks = 130;
-    public const ushort SolarPower = 131;
-    public const ushort ShieldDust = 132;
+    None,
+    Overgrow,
+    Blaze,
+    Torrent,
+    ShedSkin,
+    CompoundEyes,
+    Swarm,
+    KeenEye,
+    TangledFeet,
+    NoGuard,
+    RunAway,
+    Guts,
+    Gluttony,
+    Hustle,
+    Intimidate,
+    Static,
+    LightningRod,
+    SurgeSurfer,
+    SandVeil,
+    SnowCloak,
+    PoisonPoint,
+    Rivalry,
+    CuteCharm,
+    MagicGuard,
+    FlashFire,
+    Competitive,
+    InnerFocus,
+    Chlorophyll,
+    EffectSpore,
+    DrySkin,
+    TintedLens,
+    ArenaTrap,
+    TanglingHair,
+    Pickup,
+    Technician,
+    ToughClaws,
+    Limber,
+    FurCoat,
+    BattleArmor,
+    Damp,
+    CloudNine,
+    VitalSpirit,
+    AngerPoint,
+    WaterAbsorb,
+    Synchronize,
+    Trace,
+    ClearBody,
+    LiquidOoze,
+    RockHead,
+    Sturdy,
+    MagnetPull,
+    PastelVeil,
+    Oblivious,
+    OwnTempo,
+    QuickDraw,
+    CuriousMedicine,
+    Steadfast,
+    EarlyBird,
+    ThickFat,
+    Hydration,
+    Stench,
+    StickyHold,
+    PoisonTouch,
+    SkillLink,
+    Levitate,
+    CursedBody,
+    ShadowTag,
+    SandForce,
+    Forewarn,
+    HyperCutter,
+    Soundproof,
+    Frisk,
+    IronFist,
+    NeutralizingGas,
+    NaturalCure,
+    SereneGrace,
+    LeafGuard,
+    Scrappy,
+    ParentalBond,
+    Sniper,
+    WaterVeil,
+    SwiftSwim,
+    Filter,
+    ScreenCleaner,
+    MotorDrive,
+    FlameBody,
+    MoldBreaker,
+    Aerilate,
+    VoltAbsorb,
+    Download,
+    ShellArmor,
+    Immunity,
+    Pressure,
+    Defiant,
+    Berserk,
+    Insomnia,
+    Unnerve,
+    MarvelScale,
+    WeakArmor,
+    Analytic,
+    Pixilate,
+    IceBody,
+    MagicBounce,
+    Anticipation,
+    Imposter,
+    Moxie,
+    Rattled,
+    CudChew,
+    Sharpness,
+    LightMetal,
+    Regenerator,
+    Healer,
+    FriendGuard,
+    MistySurge,
+    Unburden,
+    Aftermath,
+    SheerForce,
+    Overcoat,
+    PowerOfAlchemy,
+    Galvanize,
+    RainDish,
+    Drizzle,
+    Justified,
+    SteelySpirit,
+    WonderSkin,
+    Infiltrator,
+    SnowWarning,
+    Drought,
+    SlushRush,
+    SandRush,
+    BigPecks,
+    SolarPower,
+    ShieldDust,
 
 
 }

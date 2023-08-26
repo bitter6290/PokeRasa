@@ -63,6 +63,7 @@ public class BattlePokemon
 
     public bool flinched = false;
 
+    public bool usedDefenseCurl = false;
     public bool minimized = false;
 
     public bool protect = false;
@@ -80,10 +81,12 @@ public class BattlePokemon
     public int disableTimer = 0;
     public int lastUsedMove = 0;
 
+    public bool gotAbilityEffect = false;
+
     public bool biding = false;
     public int bideDamage = 0;
 
-    public ushort ability;
+    public Ability ability;
     public ushort item;
 
     public bool hasType3 = false;
@@ -151,7 +154,7 @@ public class BattlePokemon
         speed = ToUInt16(PokemonData.speed * StageToModifierNormal(speedStage));
     }
 
-    public static BattlePokemon MakeEmptyBattleMon(bool side,int position)
+    public static BattlePokemon MakeEmptyBattleMon(bool side, int position)
     {
         Pokemon emptyMon = Pokemon.MakeEmptyMon;
         return new BattlePokemon(emptyMon, side, position, false, false);
@@ -159,10 +162,10 @@ public class BattlePokemon
 
     public int RaiseStat(byte statID, int amount)
     {
-        switch(statID)
+        switch (statID)
         {
             case StatID.Attack:
-                if(attackStage == 6)
+                if (attackStage == 6)
                 {
                     return 0;
                 }

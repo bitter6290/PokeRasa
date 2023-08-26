@@ -5,11 +5,11 @@ using UnityEngine;
 public class OverallTest : MonoBehaviour
 {
     public Battle battle;
-    Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Ivysaur, 10);
-    Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Ivysaur, 10);
-    Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
+    private readonly Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Ivysaur, 10);
+    private readonly Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Ivysaur, 10);
+    private readonly Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         testPokemon2.item = ItemID.Venusaurite;
         battle.PlayerPokemon[0] = testPokemon2;
@@ -19,8 +19,8 @@ public class OverallTest : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+
     }
 }

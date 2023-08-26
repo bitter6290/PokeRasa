@@ -4,11 +4,5 @@ public enum ContinuousDamage : byte
     Wrap,
     Bind,
     FireSpin,
-}
-
-public enum Invulnerability : byte
-{
-    None,
-    Fly,
-    Dig,
+    Clamp,
 }

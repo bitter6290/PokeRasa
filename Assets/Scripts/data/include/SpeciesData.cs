@@ -29,11 +29,11 @@ public readonly struct SpeciesData
     public readonly string graphicsLocation;
     public readonly byte backSpriteHeight;
 
-    public readonly ushort[] abilities;
+    public readonly Ability[] abilities;
 
     public SpeciesData(SpeciesID id, string speciesName, byte type1, byte type2, byte baseHP, byte baseAttack,
         byte baseDefense, byte baseSpAtk, byte baseSpDef, byte baseSpeed, short evYield, EvolutionData[] evolution,
-        byte xpClass, byte xpYield, LearnsetMove[] learnset, ushort[] abilities, string cryLocation, string graphicsLocation, byte backSpriteHeight)
+        byte xpClass, byte xpYield, LearnsetMove[] learnset, Ability[] abilities, string cryLocation, string graphicsLocation, byte backSpriteHeight)
     {
         this.id = id;
         this.speciesName = speciesName;
@@ -53,7 +53,7 @@ public readonly struct SpeciesData
         this.cryLocation = cryLocation;
         this.graphicsLocation = graphicsLocation;
         this.backSpriteHeight = backSpriteHeight;
-        if(abilities.Length != 3)
+        if (abilities.Length != 3)
         {
             throw new Exception("Wrong number of abilities for " + speciesName);
         }

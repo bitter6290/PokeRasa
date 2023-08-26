@@ -9,9 +9,11 @@ public class HealthBarManager : MonoBehaviour
 {
     public Slider healthSlider;
     public Image healthBar;
-    double duration;
-    float interval;
-    bool changed = false;
+    [SerializeField]
+    private double duration;
+    [SerializeField]
+    private float interval;
+    public bool changed = false;
     private float nextTime;
 
     public Battle battle;
@@ -19,7 +21,7 @@ public class HealthBarManager : MonoBehaviour
 
     public void SetParameters(ushort HP, ushort maxHP)
     {
-        healthSlider.minValue = -0.85F*maxHP;
+        healthSlider.minValue = -0.85F * maxHP;
         healthSlider.maxValue = maxHP;
         healthSlider.value = HP;
         UpdateColor();
@@ -60,7 +62,7 @@ public class HealthBarManager : MonoBehaviour
             changed = false;
             return;
         }
-        else if(changed == false)
+        else if (changed == false)
         {
             changed = true;
             SetSpeed();

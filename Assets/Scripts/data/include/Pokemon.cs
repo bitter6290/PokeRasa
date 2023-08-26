@@ -92,9 +92,9 @@ public class Pokemon
     {
         return level < PokemonConst.maxLevel && xp > nextLevelXP;
     }
-    public (bool,SpeciesID) ShouldEvolve()
+    public (bool, SpeciesID) ShouldEvolve()
     {
-        for (int i = 0; i < SpeciesData.evolution.Length; i ++)
+        for (int i = 0; i < SpeciesData.evolution.Length; i++)
         {
             if (CheckEvolutionMethod(SpeciesData.evolution[i].Method, SpeciesData.evolution[i].Data))
             {

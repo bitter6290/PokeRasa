@@ -31,7 +31,8 @@ public static class Learnset
             MoveID.None
         };
         int i = 0;
-        while (i < Learnset.Length){
+        while (i < Learnset.Length)
+        {
             if (Learnset[i].level > Level) { break; }
             result[i % 4] = Learnset[i].move;
             i++;

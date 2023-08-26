@@ -20,16 +20,11 @@ public class StatusManager : MonoBehaviour
         index = Index;
         currentStatus = Status.None;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        if(currentStatus != battle.PokemonOnField[index].PokemonData.status)
+        if (currentStatus != battle.PokemonOnField[index].PokemonData.status)
         {
             currentStatus = battle.PokemonOnField[index].PokemonData.status;
             switch (currentStatus)
@@ -54,14 +49,9 @@ public class StatusManager : MonoBehaviour
                     statusbar.sprite = sprites[5];
                     break;
             }
-            if(currentStatus == Status.ToxicPoison)
-            {
-                statusbar.color = new Color(180.0F / 255.0F, 180.0F / 255.0F, 180.0F / 255.0F);
-            }
-            else
-            {
-                statusbar.color = new Color(1, 1, 1);
-            }
+            statusbar.color = currentStatus == Status.ToxicPoison
+                ? new Color(180.0F / 255.0F, 180.0F / 255.0F, 180.0F / 255.0F)
+                : new Color(1, 1, 1);
 
         }
     }

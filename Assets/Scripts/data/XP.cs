@@ -31,11 +31,12 @@ public static class XP
     }
     public static int FluctuatingXP(byte level)
     {
-        if (level >= 15)
+        return level switch
         {
-            return level < 36 ? ToInt32(level * level * level * (level + 14) / 50) : ToInt32(level * level * level * ((level / 2) + 32) / 50);
-        }
-        return ToInt32(level * level * level * ((level + 1) / 3 + 24) / 50);
+            >= 36 => ToInt32(level * level * level * ((level / 2) + 32) / 50),
+            >= 15 => ToInt32(level * level * level * (level + 14) / 50),
+            _ => ToInt32(level * level * level * (((level + 1) / 3) + 24) / 50)
+        };
     }
     public static int LevelToXP(byte level, byte XPClass)
     {

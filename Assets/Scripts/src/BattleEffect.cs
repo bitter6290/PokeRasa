@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class BattleEffect
 {
+    public static System.Random random = new();
     public static IEnumerator StatUp(Battle battle, int index, byte statID, int amount)
     {
         int stagesRaised = battle.PokemonOnField[index].RaiseStat(statID, amount);
@@ -62,7 +63,7 @@ public static class BattleEffect
     {
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return battle.Announce("But it failed!");
+            yield return battle.Announce(BattleText.MoveFailed);
         }
         if (battle.PokemonOnField[index].HasType(Type.Fire))
         {
@@ -79,7 +80,7 @@ public static class BattleEffect
     {
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return battle.Announce("But it failed!");
+            yield return battle.Announce(BattleText.MoveFailed);
         }
         if (battle.PokemonOnField[index].HasType(Type.Electric))
         {
@@ -96,7 +97,7 @@ public static class BattleEffect
     {
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return battle.Announce("But it failed!");
+            yield return battle.Announce(BattleText.MoveFailed);
         }
         if (battle.PokemonOnField[index].HasType(Type.Poison)
             || battle.PokemonOnField[index].HasType(Type.Steel))
@@ -114,7 +115,7 @@ public static class BattleEffect
     {
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return battle.Announce("But it failed!");
+            yield return battle.Announce(BattleText.MoveFailed);
         }
         if (battle.PokemonOnField[index].HasType(Type.Poison)
     || battle.PokemonOnField[index].HasType(Type.Steel))
@@ -155,7 +156,7 @@ public static class BattleEffect
         else
         {
             battle.PokemonOnField[index].PokemonData.status = Status.Sleep;
-            battle.PokemonOnField[index].PokemonData.sleepTurns = 0;
+            battle.PokemonOnField[index].PokemonData.sleepTurns = (byte)(1 + (random.Next() % 3));
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " fell asleep!");
         }
     }
@@ -247,7 +248,7 @@ public static class BattleEffect
         }
         else
         {
-            yield return null;
+            yield return battle.Announce(BattleText.MoveFailed);
         }
     }
 
@@ -274,7 +275,7 @@ public static class BattleEffect
                 battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.Wrap;
                 battle.PokemonOnField[index].continuousDamageSource = attacker;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was wrapped by "
-                    + battle.MonNameWithPrefix(battle.PokemonOnField[index].continuousDamageSource, false));
+                    + battle.MonNameWithPrefix(battle.PokemonOnField[index].continuousDamageSource, false) + "!");
                 break;
             case MoveID.Bind:
                 battle.PokemonOnField[index].getsContinuousDamage = true;
@@ -288,8 +289,14 @@ public static class BattleEffect
                 battle.PokemonOnField[index].getsContinuousDamage = true;
                 battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.FireSpin;
                 battle.PokemonOnField[index].continuousDamageSource = attacker;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was trapped in the vortex!"
-                    );
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was trapped in the vortex!");
+                break;
+            case MoveID.Clamp:
+                battle.PokemonOnField[index].getsContinuousDamage = true;
+                battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.Clamp;
+                battle.PokemonOnField[index].continuousDamageSource = attacker;
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was clamped by "
+                    + battle.MonNameWithPrefix(battle.PokemonOnField[index].continuousDamageSource, false) + "!");
                 break;
             default:
                 yield return battle.Announce("Error 301");
@@ -317,6 +324,11 @@ public static class BattleEffect
                 //yield return BattleAnim.FireSpin(battle, index);
                 damage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was hurt by Fire Spin!");
+                break;
+            case ContinuousDamage.Clamp:
+                //yield return BattleAnim.FireSpin(battle, index);
+                damage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was hurt by Clamp!");
                 break;
             default:
                 yield return battle.Announce("Error 302");
@@ -354,11 +366,11 @@ public static class BattleEffect
     }
     public static IEnumerator WeatherContinues(Battle battle)
     {
-        if(battle.weather == Weather.None)
+        if (battle.weather == Weather.None)
         {
             yield break;
         }
-        if(battle.weatherTimer == 0)
+        if (battle.weatherTimer == 0)
         {
             switch (battle.weather)
             {
@@ -395,6 +407,22 @@ public static class BattleEffect
                     break;
             }
             battle.weatherTimer--;
+        }
+    }
+    public static IEnumerator Rest(Battle battle, int index) {
+        if (battle.PokemonOnField[index].PokemonData.HP
+            < battle.PokemonOnField[index].PokemonData.hpMax)
+        {
+            battle.PokemonOnField[index].PokemonData.status = Status.Sleep;
+            battle.PokemonOnField[index].PokemonData.sleepTurns = 2;
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                + " rested and became healthy!");
+            yield return Heal(battle, index,
+                battle.PokemonOnField[index].PokemonData.hpMax);
+        }
+        else
+        {
+            yield return battle.Announce(BattleText.MoveFailed);
         }
     }
 }

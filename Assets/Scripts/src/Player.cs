@@ -6,9 +6,9 @@ public class Player : MonoBehaviour
 {
 
 
-    BitArray TM = new BitArray(96);
-    BitArray HM = new BitArray(8);
-    BitArray keyItem = new BitArray(0);
+    public BitArray TM = new(96);
+    public BitArray HM = new(8);
+    public BitArray keyItem = new(0);
 
 
     private IEnumerator OnItemGet(ushort item)
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void Awake()

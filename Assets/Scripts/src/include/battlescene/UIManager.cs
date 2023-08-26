@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI hpBox;
     public Battle battle;
 
-    string LeadingZero2(string input)
+    private string LeadingZero2(string input)
     {
         switch (input.Length)
         {
@@ -24,15 +24,15 @@ public class UIManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             if (battle.PokemonOnField[i].exists)
             {

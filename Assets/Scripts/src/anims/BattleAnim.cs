@@ -65,14 +65,11 @@ public static class BattleAnim
 
     public static int GetSideModifier(int index)
     {
-        if(index < 3)
+        return index switch
         {
-            return 1;
-        }
-        else
-        {
-            return -1;
-        }
+            < 3 => 1,
+            _ => -1
+        };
     }
 
     //Visual animations
@@ -103,7 +100,7 @@ public static class BattleAnim
         targetTime = Time.time + endTime;
         while (Time.time < targetTime)
         {
-            sprite.position = new Vector3((float)(initialPosition.x + ((Cos(((Time.time - startTime) / endTime) * PI) + 1) / 2 * amplitude)),
+            sprite.position = new Vector3((float)(initialPosition.x + ((Cos((Time.time - startTime) / endTime * PI) + 1) / 2 * amplitude)),
                 initialPosition.y,
                 initialPosition.z);
             yield return null;
@@ -118,7 +115,7 @@ public static class BattleAnim
         Vector3 firstScale = sprite.localScale;
         while (Time.time < endTime)
         {
-            float timeScale = ((endTime - Time.time) + scale * (Time.time - baseTime)) / duration;
+            float timeScale = (endTime - Time.time + (scale * (Time.time - baseTime))) / duration;
             sprite.localScale = new Vector3(firstScale.x * timeScale, firstScale.y * timeScale, firstScale.z);
             yield return null;
         }
@@ -129,10 +126,10 @@ public static class BattleAnim
     {
         float baseTime = Time.time;
         float endTime = baseTime + duration;
-        Color firstColor = new Color(sprite.color[0], sprite.color[1], sprite.color[2], sprite.color[3]);
+        Color firstColor = new(sprite.color[0], sprite.color[1], sprite.color[2], sprite.color[3]);
         while (Time.time < endTime)
         {
-            sprite.color = new Color(firstColor[0], firstColor[1], firstColor[2], firstColor[3] * (endTime - Time.time) / duration);
+            sprite.color = new(firstColor[0], firstColor[1], firstColor[2], firstColor[3] * (endTime - Time.time) / duration);
             yield return null;
         }
         Object.Destroy(sprite.gameObject);
@@ -144,13 +141,13 @@ public static class BattleAnim
         float baseTime = Time.time;
         float endTime = baseTime + duration;
         float coeff = depth / 2.0F;
-        while(Time.time < endTime)
+        while (Time.time < endTime)
         {
             sprite.position = new Vector3(
-                (float)(initialPosition.x + width * Sin(2 * PI * (!smooth ? (Time.time - baseTime) / duration
-                : (Cos((((Time.time - baseTime) / duration) - 1) * PI) / 2) + 1))),
-                (float)(initialPosition.y + coeff * (Cos(2 * PI * (!smooth ? (Time.time - baseTime) / duration
-                : (Cos((((Time.time - baseTime) / duration) - 1) * PI) / 2) + 1)) - 1)),
+                (float)(initialPosition.x + (width * -Sin(2 * PI * (!smooth ? (Time.time - baseTime) / duration
+                : (Cos((((Time.time - baseTime) / duration) - 1) * PI) / 2) + 1)))),
+                (float)(initialPosition.y + (coeff * (-Cos(2 * PI * (!smooth ? (Time.time - baseTime) / duration
+                : (Cos((((Time.time - baseTime) / duration) - 1) * PI) / 2) + 1)) - 1))),
                 initialPosition.z);
             yield return null;
         }
@@ -169,10 +166,10 @@ public static class BattleAnim
             sprite.position = new Vector3(
                 (float)(initialPosition.x
                 + (width * Sin(2 * PI * (!smooth ? progress : Cos((progress - 1) * PI))))
-                + progress * translation.x),
+                + (progress * translation.x)),
                 (float)(initialPosition.y
-                + coeff * (Cos(2 * PI * (!smooth ? progress : Cos((progress - 1) * PI))) - 1)
-                + progress * translation.y),
+                + (coeff * (Cos(2 * PI * (!smooth ? progress : Cos((progress - 1) * PI))) - 1))
+                + (progress * translation.y)),
                 initialPosition.z);
             yield return null;
         }
@@ -182,7 +179,7 @@ public static class BattleAnim
     public static IEnumerator EllipseSmart(Transform sprite, float depth, float width, float duration, bool smooth,
         float initialAngle, float angleRange, Vector2 translation)
     {
-        Vector3 originPosition = new Vector3(
+        Vector3 originPosition = new(
             (float)(sprite.position.x - (width * Sin(initialAngle * PI / 180.0F))),
             (float)(sprite.position.y - (depth * Cos(initialAngle * PI / 180.0F) / 2)),
             sprite.position.z);
@@ -210,11 +207,11 @@ public static class BattleAnim
         Vector3 initialPosition = sprite.position;
         float baseTime = Time.time;
         float endTime = Time.time + duration;
-        while(Time.time < endTime)
+        while (Time.time < endTime)
         {
             sprite.position = new Vector3(
-                initialPosition.x + translation.x * (Time.time - baseTime) / duration,
-                initialPosition.y + translation.y * (Time.time - baseTime) / duration,
+                initialPosition.x + (translation.x * (Time.time - baseTime) / duration),
+                initialPosition.y + (translation.y * (Time.time - baseTime) / duration),
                 initialPosition.z
                 );
             yield return null;
@@ -257,14 +254,14 @@ public static class BattleAnim
 
     public static IEnumerator Fall(Transform sprite, float rate, Vector2 initialMomentum, float duration)
     {
-        Vector2 momentum = new Vector2(initialMomentum.x, initialMomentum.y);
+        Vector2 momentum = new(initialMomentum.x, initialMomentum.y);
         float updateTime = Time.time;
         float endTime = Time.time;
         while (Time.time < endTime)
         {
             sprite.position = new Vector3(
-                sprite.position.x + (Time.time - updateTime) * momentum.x,
-                sprite.position.y + (Time.time - updateTime) * momentum.y,
+                sprite.position.x + ((Time.time - updateTime) * momentum.x),
+                sprite.position.y + ((Time.time - updateTime) * momentum.y),
                 sprite.position.z);
             momentum.y -= (Time.time - updateTime) * rate;
             updateTime = Time.time;
@@ -363,16 +360,17 @@ public static class BattleAnim
     public static IEnumerator SwordsDanceSword(Battle battle, int index, int whichSword)
     {
         GameObject sword = NewSpriteFromTexture("Sprites/Battle/Sword_new", battle.spriteTransform[index],
-            new Vector2(1.0F, 1.0F), new Vector2(0.0F, 1.5F));
+            new Vector2(1.0F, 1.0F), new Vector2(0.0F, 1.0F));
+        sword.transform.parent = null;
         yield return Ellipse(sword.transform, 0.7F, 2.5F, 1.0F, false); //1.00
-        yield return EllipseSmart(sword.transform, 0.7F, 2.5F, 1.0F - whichSword * 0.20F, false, 0.0F,
-            360.0F - whichSword * 72.0F, new Vector2(0.0F, 0.0F)); //2.00 - 0.24 * whichSword
-        yield return EllipseSmart(sword.transform, 0.7F, 2.5F, 0.42F, false, 360.0F - whichSword * 72.0F, 
+        yield return EllipseSmart(sword.transform, 0.7F, 2.5F, 1.0F - (whichSword * 0.20F), false, 0.0F,
+            360.0F - (whichSword * 72.0F), new Vector2(0.0F, 0.0F)); //2.00 - 0.24 * whichSword
+        yield return EllipseSmart(sword.transform, 0.7F, 2.5F, 0.42F, false, 360.0F - (whichSword * 72.0F),
     180.0F, new Vector2(0.0F, 0.2F)); //up to 2.42
-        yield return EllipseSmart(sword.transform, 0.7F, 2.5F, 0.36F, false, 180.0F - whichSword * 72.0F,
+        yield return EllipseSmart(sword.transform, 0.7F, 2.5F, 0.36F, false, 180.0F - (whichSword * 72.0F),
 180.0F, new Vector2(0.0F, 0.2F)); //up to 2.80
         battle.StartCoroutine(FadeDelete(sword.GetComponent<SpriteRenderer>(), 0.65F)); //up to 3.30-3.95
-        yield return EllipseSmart(sword.transform, 0.7F, 2.5F, 0.6F, false, 360.0F - whichSword * 72.0F,
+        yield return EllipseSmart(sword.transform, 0.7F, 2.5F, 0.6F, false, 360.0F - (whichSword * 72.0F),
     360.0F, new Vector2(0.0F, 0.7F)); //up to 3.40
         yield return null;
 
@@ -396,6 +394,9 @@ public static class BattleAnim
                 yield return new WaitForSeconds(0.5F); //0.80
                 break;
             case MoveID.SwordsDance:
+                AudioClip swordsDanceClangClip = Resources.Load<AudioClip>("Sound/Battle SFX/Clang");
+                battle.StartCoroutine(Ellipse(battle.spriteTransform[index], 0.2F, 0.5F, 0.4F, true));
+                battle.audioSource.PlayOneShot(swordsDanceClangClip);
                 battle.StartCoroutine(SwordsDanceSword(battle, index, 0)); //0.00 - 3.40
                 yield return new WaitForSeconds(0.2F);
                 battle.StartCoroutine(SwordsDanceSword(battle, index, 1)); //0.20 - 3.40
@@ -404,6 +405,8 @@ public static class BattleAnim
                 yield return new WaitForSeconds(0.2F);
                 battle.StartCoroutine(SwordsDanceSword(battle, index, 3)); //0.60 - 3.40
                 yield return new WaitForSeconds(0.2F);
+                battle.StartCoroutine(Ellipse(battle.spriteTransform[index], 0.2F, 0.5F, 0.4F, true));
+                battle.audioSource.PlayOneShot(swordsDanceClangClip);
                 yield return SwordsDanceSword(battle, index, 4); //3.40
                 break;
             case MoveID.DoubleSlap:
@@ -419,7 +422,7 @@ public static class BattleAnim
 
     public static IEnumerator DefenderAnims(Battle battle, int index, MoveID move)
     {
-        switch(move)
+        switch (move)
         {
             case MoveID.Pound:
                 battle.audioSource.volume = 1;

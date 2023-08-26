@@ -95,7 +95,7 @@ public class MenuManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         box5.color = new Color(240F / 255F, 160F / 255F, 160F / 255F);
         menuMode = MenuMode.Main;
@@ -105,9 +105,10 @@ public class MenuManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        switch (battle.state) {
+        switch (battle.state)
+        {
             case BattleState.PlayerInput:
                 announce.enabled = false;
                 switch (menuMode)

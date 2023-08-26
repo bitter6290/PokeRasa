@@ -23,21 +23,21 @@ public class MaskManager : MonoBehaviour
         float initTime = Time.time;
         for (int i = 0; i < 10; i++)
         {
-            float targetTime = initTime + i * fadeTime / 10.0F;
-            maskRenderer.color = new Color(1, 1, 1, i * maxAlpha / 10.0F);
+            float targetTime = initTime + (i * fadeTime / 10.0F);
+            maskRenderer.color = new(1, 1, 1, i * maxAlpha / 10.0F);
             while (Time.time < targetTime)
             {
                 yield return null;
             }
         }
         float plateauTargetTime = Time.time + plateauTime;
-        while(Time.time < plateauTargetTime)
+        while (Time.time < plateauTargetTime)
         {
             yield return null;
         }
         for (int i = 0; i < 10; i++)
         {
-            float targetTime = initTime + i * fadeTime / 10.0F;
+            float targetTime = initTime + (i * fadeTime / 10.0F);
             maskRenderer.color = new Color(1, 1, 1, (10 - i) * maxAlpha / 10.0F);
             while (Time.time < targetTime)
             {
@@ -57,7 +57,7 @@ public class MaskManager : MonoBehaviour
         float initTime = Time.time;
         for (int i = 0; i < 10; i++)
         {
-            float targetTime = initTime + i * fadeTime / 10.0F;
+            float targetTime = initTime + (i * fadeTime / 10.0F);
             maskRenderer.color = new Color(color.r, color.g, color.b, i * maxAlpha / 10.0F);
             while (Time.time < targetTime)
             {
@@ -71,7 +71,7 @@ public class MaskManager : MonoBehaviour
         }
         for (int i = 0; i < 10; i++)
         {
-            float targetTime = initTime + i * fadeTime / 10.0F;
+            float targetTime = initTime + (i * fadeTime / 10.0F);
             maskRenderer.color = new Color(color.r, color.g, color.b, (10 - i) * maxAlpha / 10.0F);
             while (Time.time < targetTime)
             {
@@ -82,13 +82,13 @@ public class MaskManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         maskRenderer.color = new Color(1.0F, 1.0F, 1.0F, 0.0F);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         mask.enabled = !battle.PokemonOnField[index].PokemonData.fainted;
         mask.sprite = baseSprite.sprite;

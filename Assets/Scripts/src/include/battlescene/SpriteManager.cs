@@ -32,7 +32,8 @@ public class SpriteManager : MonoBehaviour
     private void updateSpecies()
     {
         Texture2D[] allTextures = Resources.LoadAll<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation);
-        foreach (Texture2D i in allTextures){
+        foreach (Texture2D i in allTextures)
+        {
             if (isBack)
             {
                 if (i.name == "back")
@@ -41,7 +42,8 @@ public class SpriteManager : MonoBehaviour
                     hasSecondFrame = false;
                 }
             }
-            else {
+            else
+            {
                 if (i.name == "front_1")
                 {
                     Sprite1 = Sprite.Create(i, new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
@@ -59,19 +61,20 @@ public class SpriteManager : MonoBehaviour
                 }
             }
         }
-        if (isBack) {
+        if (isBack)
+        {
             position.position = new Vector3(position.position.x, basePosition - (3 * Species.SpeciesTable[(int)currentMon].backSpriteHeight / 64.0F), position.position.z);
         }
     }
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         basePosition = position.position.y;
         updateSpecies();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (currentMon != battle.PokemonOnField[index].PokemonData.species)
         {
