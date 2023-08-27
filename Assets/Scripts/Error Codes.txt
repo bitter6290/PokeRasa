@@ -6,3 +6,4 @@
 103 - invalid move with MoveEffect.None
 301 - tried to assign invalid Continuous Damage
 302 - tried to do damage because of invalid Continuous Damage
+401 - trainer name was never set
