@@ -8,14 +8,16 @@ public class OverallTest : MonoBehaviour
     private readonly Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Ivysaur, 10);
     private readonly Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Ivysaur, 10);
     private readonly Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
+    private readonly Pokemon testPokemon4 = Pokemon.WildPokemon(SpeciesID.Wartortle, 10);
     // Start is called before the first frame update
     public void Start()
     {
         testPokemon2.item = ItemID.Venusaurite;
         battle.PlayerPokemon[0] = testPokemon2;
+        battle.PlayerPokemon[1] = testPokemon4;
         battle.OpponentPokemon[0] = testPokemon;
         battle.OpponentPokemon[1] = testPokemon3;
-        battle.StartBattle();
+        battle.StartCoroutine(battle.StartBattle());
     }
 
     // Update is called once per frame

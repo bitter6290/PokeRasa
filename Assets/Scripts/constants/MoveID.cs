@@ -172,8 +172,12 @@ public enum MoveID
     RazorWindAttack,
     DigAttack,
     FlyAttack,
+    SolarBeamAttack,
 
     Count,
+
+    Switch,
+    UseItem,
 
     StandardCount = Struggle + 1,
 }

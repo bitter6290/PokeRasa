@@ -11,12 +11,16 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Image box3;
     [SerializeField] private Image box4;
     [SerializeField] private Image box5;
+    [SerializeField] private Image box6;
+    [SerializeField] private Image box7;
+
 
     [SerializeField] private TextMeshProUGUI text1;
     [SerializeField] private TextMeshProUGUI text2;
     [SerializeField] private TextMeshProUGUI text3;
     [SerializeField] private TextMeshProUGUI text4;
     [SerializeField] private TextMeshProUGUI text5;
+    [SerializeField] private TextMeshProUGUI text7;
 
     [SerializeField] private TextMeshProUGUI pp1;
     [SerializeField] private TextMeshProUGUI pp2;
@@ -29,6 +33,23 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private SpriteRenderer selector3;
     [SerializeField] private SpriteRenderer selector4;
     [SerializeField] private SpriteRenderer selector5;
+    [SerializeField] private SpriteRenderer selector6;
+    [SerializeField] private SpriteRenderer selector7;
+
+
+    [SerializeField] private SpriteRenderer partyMon1;
+    [SerializeField] private SpriteRenderer partyMon2;
+    [SerializeField] private SpriteRenderer partyMon3;
+    [SerializeField] private SpriteRenderer partyMon4;
+    [SerializeField] private SpriteRenderer partyMon5;
+    [SerializeField] private SpriteRenderer partyMon6;
+
+    [SerializeField] private TextMeshProUGUI partyText1;
+    [SerializeField] private TextMeshProUGUI partyText2;
+    [SerializeField] private TextMeshProUGUI partyText3;
+    [SerializeField] private TextMeshProUGUI partyText4;
+    [SerializeField] private TextMeshProUGUI partyText5;
+    [SerializeField] private TextMeshProUGUI partyText6;
 
     [SerializeField] private TextMeshProUGUI announce;
 
@@ -43,6 +64,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private int currentMon = 3;
     [SerializeField] private int currentMove = 1; //0 means Back
 
+    [SerializeField] private int currentPartyMon = 1; //0 means Back
+
     private bool megaEvolving;
 
     private int menuMode;
@@ -55,6 +78,11 @@ public class MenuManager : MonoBehaviour
 
     private static Color megaNoColor = new(220.0F / 255.0F, 239.0F / 255.0F, 1);
     private static Color megaYesColor = new(0, 137.0F / 255.0F, 1);
+
+    private static Color partyOK = new(25.0F / 255.0F, 25.0F / 255.0F, 128.0F / 255.0F);
+    private static Color partyFainted = new(128.0F / 255.0F, 25.0F / 255.0F, 25.0F / 255.0F);
+
+    private static Color backColor = new(240F / 255F, 160F / 255F, 160F / 255F);
 
     private void _()
     {
@@ -87,11 +115,24 @@ public class MenuManager : MonoBehaviour
         yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true) + "'s "
             + Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(currentMove)].name
             + " is disabled!");
+        battle.state = BattleState.PlayerInput;
+    }
+
+    private IEnumerator MonFainted(int currentMon)
+    {
+        yield return battle.Announce(battle.PlayerPokemon[currentMon].monName
+            + " has no energy to battle!");
+        battle.state = BattleState.PlayerInput;
     }
 
     private string LeadingZero(string input)
     {
         return input.Length == 1 ? "0" + input : input;
+    }
+
+    private Color partyMonColor(int index)
+    {
+        return battle.PlayerPokemon[index].fainted ? partyFainted : partyOK;
     }
 
     // Start is called before the first frame update
@@ -150,11 +191,31 @@ public class MenuManager : MonoBehaviour
                         box5.enabled = true;
                         text5.text = "Back";
 
+                        text7.enabled = false;
+                        box6.enabled = false;
+                        box7.enabled = false;
+
                         selector1.enabled = currentMove == 1;
                         selector2.enabled = currentMove == 2;
                         selector3.enabled = currentMove == 3;
                         selector4.enabled = currentMove == 4;
                         selector5.enabled = currentMove == 0;
+                        selector6.enabled = false;
+                        selector7.enabled = false;
+
+                        partyText1.enabled = false;
+                        partyText2.enabled = false;
+                        partyText3.enabled = false;
+                        partyText4.enabled = false;
+                        partyText5.enabled = false;
+                        partyText6.enabled = false;
+
+                        partyMon1.enabled = false;
+                        partyMon2.enabled = false;
+                        partyMon3.enabled = false;
+                        partyMon4.enabled = false;
+                        partyMon5.enabled = false;
+                        partyMon6.enabled = false;
 
 
                         if (battle.CanMegaEvolve(currentMon))
@@ -416,6 +477,234 @@ public class MenuManager : MonoBehaviour
                                 case 1:
                                     menuMode = MenuMode.Moves;
                                     break;
+                                case 3:
+                                    menuMode = MenuMode.Party;
+                                    break;
+                                default:
+                                    break;
+
+                            }
+                        }
+                        break;
+                    case MenuMode.Party:
+                        announce.enabled = false;
+
+                        box1.enabled = battle.PlayerPokemon[0].exists;
+                        box2.enabled = battle.PlayerPokemon[2].exists;
+                        box3.enabled = battle.PlayerPokemon[1].exists;
+                        box4.enabled = battle.PlayerPokemon[3].exists;
+                        box5.enabled = battle.PlayerPokemon[4].exists;
+                        box6.enabled = battle.PlayerPokemon[5].exists;
+                        box7.enabled = true;
+
+                        box1.color = partyMonColor(0);
+                        box2.color = partyMonColor(2);
+                        box3.color = partyMonColor(1);
+                        box4.color = partyMonColor(3);
+                        box5.color = partyMonColor(4);
+                        box6.color = partyMonColor(5);
+                        box7.color = backColor;
+
+                        text1.enabled = false;
+                        text2.enabled = false;
+                        text3.enabled = false;
+                        text4.enabled = false;
+                        text5.enabled = false;
+                        text7.enabled = true;
+
+                        text7.text = "Back";
+
+                        selector1.enabled = currentPartyMon == 1;
+                        selector2.enabled = currentPartyMon == 3;
+                        selector3.enabled = currentPartyMon == 2;
+                        selector4.enabled = currentPartyMon == 4;
+                        selector5.enabled = currentPartyMon == 5;
+                        selector6.enabled = currentPartyMon == 6;
+                        selector7.enabled = currentPartyMon == 0;
+
+                        pp1.enabled = false;
+                        pp2.enabled = false;
+                        pp3.enabled = false;
+                        pp4.enabled = false;
+
+                        partyText1.enabled = battle.PlayerPokemon[0].exists;
+                        partyText2.enabled = battle.PlayerPokemon[2].exists;
+                        partyText3.enabled = battle.PlayerPokemon[1].exists;
+                        partyText4.enabled = battle.PlayerPokemon[3].exists;
+                        partyText5.enabled = battle.PlayerPokemon[4].exists;
+                        partyText6.enabled = battle.PlayerPokemon[5].exists;
+
+                        partyText1.text = battle.PlayerPokemon[0].monName;
+                        partyText2.text = battle.PlayerPokemon[2].monName;
+                        partyText3.text = battle.PlayerPokemon[1].monName;
+                        partyText4.text = battle.PlayerPokemon[3].monName;
+                        partyText5.text = battle.PlayerPokemon[4].monName;
+                        partyText6.text = battle.PlayerPokemon[5].monName;
+
+                        partyMon1.enabled = battle.PlayerPokemon[0].exists;
+                        partyMon2.enabled = battle.PlayerPokemon[2].exists;
+                        partyMon3.enabled = battle.PlayerPokemon[1].exists;
+                        partyMon4.enabled = battle.PlayerPokemon[3].exists;
+                        partyMon5.enabled = battle.PlayerPokemon[4].exists;
+                        partyMon6.enabled = battle.PlayerPokemon[5].exists;
+
+                        partyMon1.sprite = battle.playerMonIcons[0];
+                        partyMon2.sprite = battle.playerMonIcons[2];
+                        partyMon3.sprite = battle.playerMonIcons[1];
+                        partyMon4.sprite = battle.playerMonIcons[3];
+                        partyMon5.sprite = battle.playerMonIcons[4];
+                        partyMon6.sprite = battle.playerMonIcons[5];
+
+                        megaIndicator.SetActive(false);
+
+                        if (Input.GetKeyDown(KeyCode.RightArrow))
+                        {
+                            switch (currentPartyMon)
+                            {
+                                case 1:
+                                    currentPartyMon = box2.enabled ? 3 : 0;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 2:
+                                    currentPartyMon = box4.enabled ? 4 : 0;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 3:
+                                    currentMove = box5.enabled ? 5 : 0;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 4:
+                                    currentPartyMon = box6.enabled ? 6 : 0;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 5:
+                                    currentPartyMon = 0;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 6:
+                                    currentPartyMon = 0;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        if (Input.GetKeyDown(KeyCode.LeftArrow))
+                        {
+                            switch (currentPartyMon)
+                            {
+                                case 3:
+                                    currentPartyMon = 1;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 4:
+                                    currentPartyMon = 2;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 5:
+                                    currentPartyMon = 3;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 6:
+                                    currentPartyMon = 4;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 0:
+                                    currentPartyMon =
+                                        box5.enabled ? 5 :
+                                        box2.enabled ? 3 : 1;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        if (Input.GetKeyDown(KeyCode.DownArrow))
+                        {
+                            switch (currentPartyMon)
+                            {
+                                case 1:
+                                    if (box3.enabled)
+                                    {
+                                        currentPartyMon = 2;
+                                        battle.audioSource.PlayOneShot(MoveCursor);
+                                    }
+                                    break;
+                                case 3:
+                                    currentPartyMon = box4.enabled ? 4 : 2;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 5:
+                                    currentPartyMon = box6.enabled ? 6 : 4;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        if (Input.GetKeyDown(KeyCode.UpArrow))
+                        {
+                            switch (currentPartyMon)
+                            {
+                                case 2:
+                                    currentPartyMon = 1;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 4:
+                                    currentPartyMon = 3;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                case 6:
+                                    currentPartyMon = 5;
+                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        if (Input.GetKeyDown(KeyCode.Return))
+                        {
+                            battle.audioSource.volume = 0.6F;
+                            battle.audioSource.PlayOneShot(SelectMove);
+                            switch (currentPartyMon)
+                            {
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                case 5:
+                                case 6:
+                                    if (battle.PlayerPokemon[currentPartyMon - 1].fainted)
+                                    {
+                                        battle.state = BattleState.Announcement;
+                                        StartCoroutine(MonFainted(currentPartyMon));
+                                    }
+                                    else
+                                    {
+                                        battle.PokemonOnField[currentMon].choseMove = true;
+                                        battle.Moves[currentMon] = MoveID.Switch;
+                                        battle.SwitchTargets[currentMon] = (byte)(currentPartyMon - 1);
+                                        if (GetNextPokemon())
+                                        {
+                                            battle.state = BattleState.Announcement;
+                                            menuMode = MenuMode.Main;
+                                            currentMove = 1;
+                                            currentMon = 2;
+                                            GetNextPokemon();
+                                            battle.DoNextMove();
+                                        }
+                                        else
+                                        {
+                                            menuMode = MenuMode.Main;
+                                            currentMove = 1;
+                                        }
+                                    }
+                                    break;
+                                case 0:
+                                    menuMode = MenuMode.Main;
+                                    battle.audioSource.volume = 0.6F;
+                                    battle.audioSource.PlayOneShot(SelectMove);
+                                    break;
                                 default:
                                     break;
 
@@ -431,20 +720,37 @@ public class MenuManager : MonoBehaviour
                 box3.enabled = false;
                 box4.enabled = false;
                 box5.enabled = false;
+                box6.enabled = false;
+                box7.enabled = false;
                 text1.enabled = false;
                 text2.enabled = false;
                 text3.enabled = false;
                 text4.enabled = false;
                 text5.enabled = false;
+                text7.enabled = false;
                 selector1.enabled = false;
                 selector2.enabled = false;
                 selector3.enabled = false;
                 selector4.enabled = false;
                 selector5.enabled = false;
+                selector6.enabled = false;
+                selector7.enabled = false;
                 pp1.enabled = false;
                 pp2.enabled = false;
                 pp3.enabled = false;
                 pp4.enabled = false;
+                partyText1.enabled = false;
+                partyText2.enabled = false;
+                partyText3.enabled = false;
+                partyText4.enabled = false;
+                partyText5.enabled = false;
+                partyText6.enabled = false;
+                partyMon1.enabled = false;
+                partyMon2.enabled = false;
+                partyMon3.enabled = false;
+                partyMon4.enabled = false;
+                partyMon5.enabled = false;
+                partyMon6.enabled = false;
                 megaIndicator.SetActive(false);
                 break;
         }

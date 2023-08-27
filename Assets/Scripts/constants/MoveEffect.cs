@@ -14,6 +14,10 @@ public enum MoveEffect
     Freeze,
     Sleep,
     Confuse,
+    TriAttack,
+    //Non-status status moves
+    LeechSeed,
+    Disable,
     //Stat changes
     AttackUp1,
     AttackUp2,
@@ -45,6 +49,7 @@ public enum MoveEffect
     Flinch,
     Absorb50,
     PayDay,
+    ForcedSwitch,
     //Special attack types
     ChargingAttack,
     RechargeAttack,
@@ -56,6 +61,8 @@ public enum MoveEffect
     OHKO,
     Psywave,
     SuperFang,
+    //Field effects
+    Mist,
     //Self-targeting effects
     Rest,
     Heal50,

@@ -86,7 +86,8 @@ public static class Move
         "Gust", Type.Flying,
         40, 100, 0,
         MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 35); //Needs effect (hits mons in air) and anim
+        false, TargetID.Opponent + TargetID.Ally, 35,
+        MoveFlags.hitFlyingMon); //Needs anim
     public static MoveData WingAttack = new(
         "Wing Attack", Type.Flying,
         60, 100, 0,
@@ -95,13 +96,13 @@ public static class Move
     public static MoveData Whirlwind = new(
         "Whirlwind", Type.Normal,
         0, AlwaysHit, -6,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+        MoveEffect.ForcedSwitch, 100,
+        false, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
     public static MoveData Fly = new(
         "Fly", Type.Flying,
         0, 100, 0,
         MoveEffect.ChargingAttack, 0,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
     public static MoveData Bind = new(
         "Bind", Type.Normal,
         15, 85, 0,
@@ -235,8 +236,8 @@ public static class Move
     public static MoveData Roar = new(
         "Roar", Type.Normal,
         0, AlwaysHit, -6,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+        MoveEffect.ForcedSwitch, 100,
+        false, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
     public static MoveData Sing = new(
         "Sing", Type.Normal,
         0, 55, 0,
@@ -255,8 +256,8 @@ public static class Move
     public static MoveData Disable = new(
         "Disable", Type.Normal,
         0, 100, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+        MoveEffect.Disable, 100,
+        false, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
     public static MoveData Acid = new(
         "Acid", Type.Poison,
         40, 100, 0,
@@ -275,8 +276,8 @@ public static class Move
     public static MoveData Mist = new(
         "Mist", Type.Ice,
         0, AlwaysHit, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Field, 30); //Needs effect and anim
+        MoveEffect.Mist, 100,
+        false, TargetID.Field, 30); //Needs anim
     public static MoveData WaterGun = new(
         "Water Gun", Type.Water,
         40, 100, 0,
@@ -321,7 +322,7 @@ public static class Move
         "Hyper Beam", Type.Normal,
         150, 90, 0,
         MoveEffect.Recharge, 0,
-        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs anim
     public static MoveData Peck = new(
         "Peck", Type.Flying,
         35, 100, 0,
@@ -372,8 +373,8 @@ public static class Move
     public static MoveData LeechSeed = new(
         "Leech Seed", Type.Grass,
         0, 90, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+        MoveEffect.LeechSeed, 100,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData Growth = new(
         "Growth", Type.Normal,
         0, AlwaysHit, 0,
@@ -387,8 +388,8 @@ public static class Move
     public static MoveData SolarBeam = new(
         "Solar Beam", Type.Grass,
         120, 100, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+        MoveEffect.ChargingAttack, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData PoisonPowder = new(
         "Poison Powder", Type.Poison,
         0, 75, 0,
@@ -789,8 +790,8 @@ public static class Move
     public static MoveData Rest = new(
         "Rest", Type.Psychic,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Self, 10); //Needs effect and anim
+        MoveEffect.Rest, 0,
+        false, TargetID.Self, 10); //Needs anim
     public static MoveData RockSlide = new(
         "Rock Slide", Type.Rock,
         75, 90, 0,
@@ -814,13 +815,13 @@ public static class Move
     public static MoveData TriAttack = new(
         "Tri Attack", Type.Normal,
         80, 100, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+        MoveEffect.TriAttack, 20,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData SuperFang = new(
         "Super Fang", Type.Normal,
         0, 90, 0,
         MoveEffect.SuperFang, 0,
-        true, TargetID.Opponent + TargetID.Ally, 10);
+        true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData Slash = new(
         "Slash", Type.Normal,
         70, 100, 0,
@@ -863,6 +864,12 @@ public static class Move
         50, 100, 0,
         MoveEffect.Recoil25Max, 100,
         true, TargetID.Opponent + TargetID.Ally, 0); //Meeds anim
+    public static MoveData SolarBeamAttack = new(
+        "Solar Beam", Type.Grass,
+        120, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10,
+        MoveFlags.halfPowerInBadWeather); //Needs anim
 
     public static MoveData[] MoveTable = new MoveData[(int)MoveID.Count] {
         None,
@@ -1037,5 +1044,6 @@ public static class Move
         RazorWindAttack,
         DigAttack,
         FlyAttack,
+        SolarBeamAttack,
     };
 }

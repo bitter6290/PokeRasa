@@ -32,8 +32,12 @@ public static class BattleEffect
         }
     }
 
-    public static IEnumerator StatDown(Battle battle, int index, byte statID, int amount)
+    public static IEnumerator StatDown(Battle battle, int index, byte statID, int amount, int attacker)
     {
+        if (battle.Sides[battle.GetSide(index)].mist && battle.GetSide(attacker) != battle.GetSide(index))
+        {
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is protected by Mist!");
+        }
         int stagesLowered = battle.PokemonOnField[index].LowerStat(statID, amount);
         switch (stagesLowered)
         {
@@ -91,6 +95,22 @@ public static class BattleEffect
             yield return BattleAnim.ShowParalysis(battle.maskManager[index]);
             battle.PokemonOnField[index].PokemonData.status = Status.Paralysis;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was paralyzed!");
+        }
+    }
+    public static IEnumerator TriAttack(Battle battle, int index)
+    {
+        var random = new System.Random();
+        switch (random.Next() % 3)
+        {
+            case 0:
+                yield return GetBurn(battle, index);
+                break;
+            case 1:
+                yield return GetParalysis(battle, index);
+                break;
+            case 2:
+                yield return GetFreeze(battle, index);
+                break;
         }
     }
     public static IEnumerator GetPoison(Battle battle, int index)
@@ -219,17 +239,31 @@ public static class BattleEffect
 
     public static IEnumerator Disable(Battle battle, int index)
     {
-        if (battle.PokemonOnField[index].disabled)
+        if (battle.PokemonOnField[index].disabled
+            || battle.PokemonOnField[index].lastMoveUsed is MoveID.None or MoveID.Struggle)
         {
+            yield return battle.Announce(BattleText.MoveFailed);
             yield break;
-        }
-        if (battle.PokemonOnField[index].lastMoveUsed is MoveID.None or MoveID.Struggle)
-        {
-
         }
         battle.PokemonOnField[index].disabled = true;
         battle.PokemonOnField[index].disable = battle.PokemonOnField[index].lastMoveUsed;
         battle.PokemonOnField[index].disableTimer = 4;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s "
+            + Move.MoveTable[(int)battle.PokemonOnField[index].lastMoveUsed].name
+            + " was disabled!");
+    }
+
+    public static IEnumerator StartMist(Battle battle, int side)
+    {
+        if (battle.Sides[side].mist)
+        {
+            yield break;
+        }
+        else
+        {
+            battle.Sides[side].mist = true;
+            battle.Sides[side].mistTurns = 5;
+        }
     }
 
     public static IEnumerator Heal(Battle battle, int index, int amount)
@@ -303,6 +337,51 @@ public static class BattleEffect
                 break;
         }
 
+    }
+
+    public static IEnumerator VoluntarySwitch(Battle battle, int index, int partyIndex)
+    {
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "! Come back!");
+        battle.PokemonOnField[index] = new BattlePokemon(
+                        battle.PlayerPokemon[partyIndex], index > 2, index % 3, index > 2);
+        yield return battle.Announce("Go! " + battle.MonNameWithPrefix(index, true) + "!");
+    }
+
+    public static IEnumerator ForcedSwitch(Battle battle, int index)
+    {
+        var random = new System.Random();
+        switch (battle.battleType) //Todo: Implement Multi Battle functionality
+        { 
+            case BattleType.Single:
+            default:
+                List<Pokemon> RemainingPokemon = new List<Pokemon>();
+                Pokemon[] PokemonArray = index < 3 ? battle.OpponentPokemon : battle.PlayerPokemon;
+                for (int i = 0; i < 6; i++)
+                {
+                    if (PokemonArray[i] == battle.PokemonOnField[index].PokemonData) { continue; }
+                    if (PokemonArray[i].exists
+                            && !PokemonArray[i].fainted)
+                        {
+                            RemainingPokemon.Add(battle.OpponentPokemon[i]);
+                        }
+                }
+                if (RemainingPokemon.Count == 0)
+                {
+                    yield return battle.Announce("But it failed!");
+                }
+                else
+                {
+                    battle.LeaveFieldCleanup(index);
+                    battle.Moves[index] = MoveID.None;
+                    battle.PokemonOnField[index] = new BattlePokemon(
+                        RemainingPokemon[random.Next() % RemainingPokemon.Count],
+                        index > 2, index % 3, index > 2);
+                    yield return battle.Announce(battle.PokemonOnField[index].PokemonData.monName
+                        + " was dragged out!");
+                }
+                break;
+
+        }
     }
 
     public static IEnumerator DoContinuousDamage(Battle battle, int index, ContinuousDamage type)
@@ -416,7 +495,7 @@ public static class BattleEffect
             battle.PokemonOnField[index].PokemonData.status = Status.Sleep;
             battle.PokemonOnField[index].PokemonData.sleepTurns = 2;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                + " rested and became healthy!");
+                + " slept and became healthy!");
             yield return Heal(battle, index,
                 battle.PokemonOnField[index].PokemonData.hpMax);
         }
@@ -424,5 +503,41 @@ public static class BattleEffect
         {
             yield return battle.Announce(BattleText.MoveFailed);
         }
+    }
+
+    public static IEnumerator GetLeechSeed(Battle battle, int index, int attacker)
+    {
+        if (battle.PokemonOnField[index].seeded)
+        {
+            yield break;
+        }
+        else
+        {
+            battle.PokemonOnField[index].seeded = true;
+            battle.PokemonOnField[index].seedingSlot = attacker;
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was seeded!");
+        }
+    }
+
+    public static IEnumerator DoLeechSeed(Battle battle, int index)
+    {
+        if (!battle.PokemonOnField[battle.PokemonOnField[index].seedingSlot].exists)
+        {
+            yield break;
+        }
+        //yield return BattleAnim.LeechSeed(battle, index, battle.PokemonOnField[index].seedingSlot);
+        int healthAmount = battle.PokemonOnField[index].PokemonData.hpMax >> 3;
+        if (healthAmount > battle.PokemonOnField[index].PokemonData.HP)
+        {
+            healthAmount = battle.PokemonOnField[index].PokemonData.HP;
+            battle.PokemonOnField[index].PokemonData.HP = 0;
+            battle.PokemonOnField[index].PokemonData.fainted = true;
+        }
+        else
+        {
+            battle.PokemonOnField[index].PokemonData.HP -= (ushort)healthAmount;
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s health was sapped by Leech Seed!");
+        }
+        yield return Heal(battle, battle.PokemonOnField[index].seedingSlot, healthAmount);
     }
 }

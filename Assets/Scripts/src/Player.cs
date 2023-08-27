@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     public BitArray HM = new(8);
     public BitArray keyItem = new(0);
 
+    Pokemon[] Party = new Pokemon[6];
+    int monsInParty = 0;
+
 
     private IEnumerator OnItemGet(ushort item)
     {
@@ -24,7 +27,39 @@ public class Player : MonoBehaviour
         }
         yield return null;
     }
-    Pokemon[] Team = new Pokemon[6];
+
+    private bool TryAddMon(Pokemon mon)
+    {
+        SortParty();
+        if(monsInParty >= 6)
+        {
+            return false;
+        }
+        else
+        {
+            Party[monsInParty] = mon;
+            SortParty();
+            return true;
+        }
+    }
+
+    private void SortParty()
+    {
+        int currentPos = 0;
+        for(int i = 0; i < 6; i++)
+        {
+            if (Party[i].exists)
+            {
+                Party[currentPos] = Party[i];
+                currentPos++;
+            }
+        }
+        monsInParty = currentPos;
+        for (int i = currentPos; i < 6; i++)
+        {
+            Party[i] = Pokemon.MakeEmptyMon;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

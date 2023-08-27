@@ -27,6 +27,7 @@ public class BattlePokemon
 
     public bool side;
     public int position;
+    public int index;
 
     public bool exists;
     public bool player;
@@ -83,6 +84,9 @@ public class BattlePokemon
 
     public bool gotAbilityEffect = false;
 
+    public bool seeded = false;
+    public int seedingSlot = 0;
+
     public bool biding = false;
     public int bideDamage = 0;
 
@@ -121,6 +125,23 @@ public class BattlePokemon
                 return PokemonData.move4;
             default:
                 return MoveID.None;
+        }
+    }
+
+    public byte GetPP(int index)
+    {
+        switch (index)
+        {
+            case 1:
+                return PokemonData.pp1;
+            case 2:
+                return PokemonData.pp2;
+            case 3:
+                return PokemonData.pp3;
+            case 4:
+                return PokemonData.pp4;
+            default:
+                return 0;
         }
     }
 
