@@ -1,5 +1,5 @@
 # PokeRasa
-Implementation of the Pokemon battle engine in Unity, with a few overworld functions as well.
+Implementation of the Pokemon battle engine in Unity, with a few overworld functions planned as well.
 
 
 # Features
