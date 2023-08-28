@@ -812,7 +812,7 @@ public static class Move
     public static MoveData Conversion = new(
         "Conversion", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
+        MoveEffect.Conversion, 101,
         false, TargetID.Self, 30); //Needs effect and anim
     public static MoveData TriAttack = new(
         "Tri Attack", Type.Normal,

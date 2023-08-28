@@ -1385,6 +1385,9 @@ public class Battle : MonoBehaviour
             case MoveEffect.Mimic:
                 yield return BattleEffect.DoMimic(this, attacker, index);
                 break;
+            case MoveEffect.Conversion:
+                yield return BattleEffect.Conversion(this, index);
+                break;
             case MoveEffect.Heal50:
                 yield return BattleEffect.Heal(this, index, PokemonOnField[index].PokemonData.hpMax >> 1);
                 break;

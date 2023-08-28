@@ -79,6 +79,7 @@ public enum MoveEffect
     Teleport,
     MirrorMove,
     Metronome,
+    Conversion,
     Heal50,
     //Nonstandard effects
     Recharge,

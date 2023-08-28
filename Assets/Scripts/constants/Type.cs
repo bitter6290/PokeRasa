@@ -44,6 +44,28 @@ public static class Type
          { 2, 1, 2, 2, 2, 2, 2, 3, 2, 2, 1, 2, 2, 2, 3, 3, 1, 2 }  //Fairy
         };
 
+    public static readonly string[] typeName = new string[18]
+    {
+        "Normal",
+        "Fire",
+        "Water",
+        "Grass",
+        "Electric",
+        "Ice",
+        "Ground",
+        "Fighting",
+        "Flying",
+        "Rock",
+        "Poison",
+        "Bug",
+        "Psychic",
+        "Ghost",
+        "Dragon",
+        "Dark",
+        "Steel",
+        "Fairy"
+    };
+
     public static readonly Color[] typeColor = new Color[18]
     {
         new Color(242F/255F, 242F/255F, 242F/255F), //Normal

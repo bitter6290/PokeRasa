@@ -644,6 +644,14 @@ public static class BattleEffect
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " mimicked " + Move.MoveTable[(int)battle.PokemonOnField[index].mimicMove].name + "!");
     }
 
+    public static IEnumerator Conversion(Battle battle, int index)
+    {
+        byte newType = Move.MoveTable[(int)battle.PokemonOnField[index].GetMove(0)].type;
+        battle.PokemonOnField[index].newType1 = newType;
+        battle.PokemonOnField[index].newType2 = newType;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " became the " + Type.typeName[newType] + " type!");
+    }
+
     public static IEnumerator Haze(Battle battle)
     {
         for(int i = 0; i < 6; i++)

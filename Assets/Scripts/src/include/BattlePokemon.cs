@@ -165,9 +165,9 @@ public class BattlePokemon
             || (hasType3 && Type3 == type);
     }
 
-    public byte Type1 => isTransformed ? transformedMon.SpeciesData.type1 : PokemonData.SpeciesData.type1;
+    public byte Type1 => isTransformed ? transformedMon.SpeciesData.type1 : typesOverriden ? newType1 : PokemonData.SpeciesData.type1;
 
-    public byte Type2 => isTransformed ? transformedMon.SpeciesData.type2 : PokemonData.SpeciesData.type2;
+    public byte Type2 => isTransformed ? transformedMon.SpeciesData.type2 : typesOverriden ? newType2 : PokemonData.SpeciesData.type2;
 
     public static float StageToModifierNormal(sbyte stage)
     {
