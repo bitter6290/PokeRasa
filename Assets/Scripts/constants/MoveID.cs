@@ -173,6 +173,10 @@ public enum MoveID
     DigAttack,
     FlyAttack,
     SolarBeamAttack,
+    SkyAttackAttack,
+    SkullBashAttack,
+    BideMiddle,
+    BideAttack,
 
     Count,
 

@@ -6,6 +6,7 @@ public enum MoveEffect
     //Multi-hit moves
     MultiHit2,
     MultiHit2to5,
+    Twineedle,
     //Status
     Burn,
     Paralyze,
@@ -18,6 +19,8 @@ public enum MoveEffect
     //Non-status status moves
     LeechSeed,
     Disable,
+    ForcedSwitch,
+    Mimic,
     //Stat changes
     AttackUp1,
     AttackUp2,
@@ -49,7 +52,6 @@ public enum MoveEffect
     Flinch,
     Absorb50,
     PayDay,
-    ForcedSwitch,
     //Special attack types
     ChargingAttack,
     RechargeAttack,
@@ -61,10 +63,22 @@ public enum MoveEffect
     OHKO,
     Psywave,
     SuperFang,
+    Rage,
+    //Paired effects
+    Bide,
+    BideHit,
     //Field effects
     Mist,
+    Haze,
+    Reflect,
+    LightScreen,
     //Self-targeting effects
     Rest,
+    Substitute,
+    Transform,
+    Teleport,
+    MirrorMove,
+    Metronome,
     Heal50,
     //Nonstandard effects
     Recharge,

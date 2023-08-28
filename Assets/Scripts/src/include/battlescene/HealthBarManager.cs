@@ -19,7 +19,7 @@ public class HealthBarManager : MonoBehaviour
     public Battle battle;
     public int index;
 
-    public void SetParameters(ushort HP, ushort maxHP)
+    public void SetParameters(int HP, int maxHP)
     {
         healthSlider.minValue = -0.85F * maxHP;
         healthSlider.maxValue = maxHP;

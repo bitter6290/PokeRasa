@@ -19,11 +19,11 @@ public class BattlePokemon
     public sbyte accuracyStage = 0;
     public byte critStage = 0;
 
-    public ushort attack;
-    public ushort defense;
-    public ushort spAtk;
-    public ushort spDef;
-    public ushort speed;
+    public int attack;
+    public int defense;
+    public int spAtk;
+    public int spDef;
+    public int speed;
 
     public bool side;
     public int position;
@@ -78,9 +78,8 @@ public class BattlePokemon
     public int lastDamageDoer = 0;
 
     public bool disabled = false;
-    public MoveID disable = 0;
+    public MoveID disabledMove = 0;
     public int disableTimer = 0;
-    public int lastUsedMove = 0;
 
     public bool gotAbilityEffect = false;
 
@@ -90,14 +89,35 @@ public class BattlePokemon
     public bool biding = false;
     public int bideDamage = 0;
 
+    public bool hasSubstitute = false;
+    public int substituteHP = 0;
+
+    public bool isEnraged = false;
+
+    public bool isTransformed = false;
+    public Pokemon transformedMon = Pokemon.MakeEmptyMon;
+
     public Ability ability;
-    public ushort item;
+    public int item;
+
+    public byte newType1 = Type.Typeless;
+    public byte newType2 = Type.Typeless;
+    public bool typesOverriden = false;
 
     public bool hasType3 = false;
     public byte Type3 = Type.Typeless;
 
+    public bool mimicking = false;
+    public int mimicSlot = 0;
+    public MoveID mimicMove = MoveID.None;
+    public byte mimicPP = 0;
+    public byte mimicMaxPP = 0;
+
+    public MoveID lastTargetedMove = MoveID.None;
+
     public BattlePokemon(Pokemon pokemonData, bool side, int position, bool player, bool exists = true)
     {
+        pokemonData.onField = true;
         this.PokemonData = pokemonData;
         attack = PokemonData.attack;
         defense = PokemonData.defense;
@@ -111,38 +131,31 @@ public class BattlePokemon
         ability = Species.SpeciesTable[(int)pokemonData.species].abilities[pokemonData.whichAbility];
     }
 
+    public SpeciesID apparentSpecies => isTransformed ? transformedMon.species : PokemonData.species;
+
     public MoveID GetMove(int index)
     {
-        switch (index)
-        {
-            case 1:
-                return PokemonData.move1;
-            case 2:
-                return PokemonData.move2;
-            case 3:
-                return PokemonData.move3;
-            case 4:
-                return PokemonData.move4;
-            default:
-                return MoveID.None;
-        }
+        return mimicking && (index == mimicSlot - 1) ?
+            mimicMove : isTransformed ? transformedMon.MoveIDs[index] : PokemonData.MoveIDs[index];
     }
 
     public byte GetPP(int index)
     {
-        switch (index)
-        {
-            case 1:
-                return PokemonData.pp1;
-            case 2:
-                return PokemonData.pp2;
-            case 3:
-                return PokemonData.pp3;
-            case 4:
-                return PokemonData.pp4;
-            default:
-                return 0;
-        }
+        return mimicking && (index == mimicSlot - 1) ?
+            mimicPP : isTransformed ? transformedMon.PP[index] : PokemonData.PP[index];
+    }
+
+    public byte GetMaxPP(int index)
+    {
+        return mimicking && (index == mimicSlot - 1) ?
+            mimicMaxPP : isTransformed ? (byte)5 : index switch
+            {
+                0 => PokemonData.maxPp1,
+                1 => PokemonData.maxPp2,
+                2 => PokemonData.maxPp3,
+                3 => PokemonData.maxPp4,
+                _ => (byte)0
+            };
     }
 
     public bool HasType(byte type)
@@ -152,9 +165,9 @@ public class BattlePokemon
             || (hasType3 && Type3 == type);
     }
 
-    public byte Type1 => PokemonData.SpeciesData.type1;
+    public byte Type1 => isTransformed ? transformedMon.SpeciesData.type1 : PokemonData.SpeciesData.type1;
 
-    public byte Type2 => PokemonData.SpeciesData.type2;
+    public byte Type2 => isTransformed ? transformedMon.SpeciesData.type2 : PokemonData.SpeciesData.type2;
 
     public static float StageToModifierNormal(sbyte stage)
     {
@@ -166,19 +179,38 @@ public class BattlePokemon
         return stage < 0 ? 3.0F / (3 - stage) : (3 + stage) / 3.0F;
     }
 
+    private int BaseAttack => isTransformed ? transformedMon.attack : PokemonData.attack;
+    private int BaseDefense => isTransformed ? transformedMon.defense : PokemonData.defense;
+    private int BaseSpAtk => isTransformed ? transformedMon.spAtk : PokemonData.spAtk;
+    private int BaseSpDef => isTransformed ? transformedMon.spDef : PokemonData.spDef;
+    private int BaseSpeed => isTransformed ? transformedMon.speed : PokemonData.speed;
+
     public void CalculateStats()
     {
-        attack = ToUInt16(PokemonData.attack * StageToModifierNormal(attackStage));
-        defense = ToUInt16(PokemonData.defense * StageToModifierNormal(defenseStage));
-        spAtk = ToUInt16(PokemonData.spAtk * StageToModifierNormal(spAtkStage));
-        spDef = ToUInt16(PokemonData.spDef * StageToModifierNormal(spDefStage));
-        speed = ToUInt16(PokemonData.speed * StageToModifierNormal(speedStage));
+        attack = (int)(BaseAttack * StageToModifierNormal(attackStage));
+        defense = (int)(BaseDefense * StageToModifierNormal(defenseStage));
+        spAtk = (int)(BaseSpAtk * StageToModifierNormal(spAtkStage));
+        spDef = (int)(BaseSpDef * StageToModifierNormal(spDefStage));
+        speed = (int)(BaseSpeed * StageToModifierNormal(speedStage));
     }
 
     public static BattlePokemon MakeEmptyBattleMon(bool side, int position)
     {
         Pokemon emptyMon = Pokemon.MakeEmptyMon;
         return new BattlePokemon(emptyMon, side, position, false, false);
+    }
+
+    public void CopyStatChanges(BattlePokemon monIn)
+    {
+        attackStage = monIn.attackStage;
+        defenseStage = monIn.defenseStage;
+        spAtkStage = monIn.spAtkStage;
+        spDefStage = monIn.spDefStage;
+        speedStage = monIn.speedStage;
+        accuracyStage = monIn.accuracyStage;
+        evasionStage = monIn.evasionStage;
+        critStage = monIn.critStage;
+        CalculateStats();
     }
 
     public int RaiseStat(byte statID, int amount)

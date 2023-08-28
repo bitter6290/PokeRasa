@@ -269,6 +269,93 @@ public static class BattleAnim
         }
     }
 
+    public static IEnumerator Sinusoidal(Transform sprite, Vector3 translation, float amplitude, int halfPeriods, float duration, bool smooth)
+    {
+        float xComponent = translation.x / translation.magnitude;
+        float yComponent = translation.y / translation.magnitude;
+        float baseTime = Time.time;
+        float endTime = baseTime + duration;
+        Vector3 initialPosition = sprite.position;
+        float progress = 0;
+        float sinAtTime = 0;
+        while (Time.time < endTime)
+        {
+            progress = (Time.time - baseTime) / duration;
+            if (smooth) { progress = 2 * (float)Cos((progress - 1) * PI) - 1; }
+            sinAtTime = amplitude * (float)Sin(progress * halfPeriods * PI);
+            sprite.position = new Vector3(
+                initialPosition.x + progress * translation.x - yComponent * sinAtTime,
+                initialPosition.y + progress * translation.y + xComponent * sinAtTime,
+                initialPosition.z);
+            yield return null;
+        }
+        sprite.position = initialPosition + translation;
+    }
+
+    public static IEnumerator DoubleSinusoidal(Transform sprite, Vector3 translation, float amplitude, int halfPeriods,
+        float oscillationFrequency, float oscillationOffset, float duration, bool smooth)
+    {
+        float xComponent = translation.x / translation.magnitude;
+        float yComponent = translation.y / translation.magnitude;
+        float baseTime = Time.time;
+        float oscZero = baseTime - oscillationOffset;
+        float endTime = baseTime + duration;
+        Vector3 initialPosition = sprite.position;
+        float progress = 0;
+        float sinAtTime = 0;
+        float oscillationAtTime = 0;
+        {
+            progress = (Time.time - baseTime) / duration;
+            if (smooth) { progress = 2 * (float)Cos((progress - 1) * PI) - 1; }
+            sinAtTime = amplitude * (float)Sin(progress * halfPeriods * PI);
+            oscillationAtTime = (float)Sin((Time.time - oscZero) / oscillationFrequency * 2 * PI);
+            sprite.position = new Vector3(
+                initialPosition.x + progress * translation.x - yComponent * sinAtTime * oscillationAtTime,
+                initialPosition.y + progress * translation.y + xComponent * sinAtTime * oscillationAtTime,
+                initialPosition.z);
+            yield return null;
+        }
+        sprite.position = initialPosition + translation;
+    }
+
+    public static IEnumerator AcceleratingSlide(Transform sprite, Vector3 translation, float duration, float sharpness, bool smooth)
+    {
+        Vector3 initialPosition = sprite.position;
+        float baseTime = Time.time;
+        float endTime = baseTime + duration;
+        float progress = 0;
+        while (Time.time < endTime)
+        {
+            progress = (Time.time - baseTime) / duration;
+            if (smooth) { progress = 2 * (float)Cos((progress - 1) * PI) - 1; }
+            progress = (float)Pow(progress, 1 + sharpness);
+            sprite.position = new Vector3(
+                initialPosition.x + translation.x * progress,
+                initialPosition.y + translation.y * progress,
+                initialPosition.z);
+            yield return null;
+        }
+        sprite.position = sprite.position + translation;
+    }
+
+    public static IEnumerator Rotate(Transform sprite, float degrees, float duration)
+    {
+        float baseTime = Time.time;
+        float endTime = baseTime + duration;
+        float initialAngle = sprite.localEulerAngles.z;
+        while (Time.time < endTime)
+        {
+            sprite.localEulerAngles = new Vector3(
+                0, 0, initialAngle + degrees * (Time.time - baseTime) / duration);
+            yield return null;
+        }
+        sprite.localEulerAngles = new Vector3(0, 0, initialAngle + degrees);
+    }
+
+    public static Vector2 spriteDistance(Transform sprite1, Transform sprite2)
+    {
+        return sprite2.position - sprite1.position;
+    }
 
     //Specific procedures
     public static IEnumerator StatUp(AudioSource audio, MaskManager maskManager)
@@ -378,7 +465,7 @@ public static class BattleAnim
 
 
     //Move animation sequences
-    public static IEnumerator AttackerAnims(Battle battle, int index, MoveID move)
+    public static IEnumerator AttackerAnims(Battle battle, int index, MoveID move, int defender)
     {
         switch (move)
         {

@@ -3,7 +3,7 @@ using static System.Convert;
 using System;
 
 [Serializable]
-public class Pokemon
+public class Pokemon : ICloneable
 {
     public SpeciesID species;
 
@@ -30,17 +30,17 @@ public class Pokemon
     public byte evSpAtk;
     public byte evSpDef;
     public byte evSpeed;
-    public ushort totalEv;
+    public int totalEv;
 
     private byte nature;
     public byte whichAbility;
 
-    public ushort hpMax;
-    public ushort attack;
-    public ushort defense;
-    public ushort spAtk;
-    public ushort spDef;
-    public ushort speed;
+    public int hpMax;
+    public int attack;
+    public int defense;
+    public int spAtk;
+    public int spDef;
+    public int speed;
 
     public MoveID move1;
     public byte maxPp1;
@@ -55,7 +55,7 @@ public class Pokemon
     public byte maxPp4;
     public byte pp4;
 
-    public ushort HP;
+    public int HP;
     public byte status;
     public byte sleepTurns;
 
@@ -63,7 +63,9 @@ public class Pokemon
 
     public bool exists;
 
-    public ushort item;
+    public int item;
+
+    public bool onField = false;
 
     public bool transformed;
     public SpeciesID temporarySpecies;
@@ -71,17 +73,42 @@ public class Pokemon
     public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
         (int)temporarySpecies : (int)species];
 
-    private ushort CalculateHP()
+
+    public MoveID[] MoveIDs => new MoveID[4]
+    {
+        move1,
+        move2,
+        move3,
+        move4
+    };
+
+    public byte[] PP => new byte[4]
+    {
+        pp1,
+        pp2,
+        pp3,
+        pp4
+    };
+
+    public void SetTransformPP()
+    {
+        pp1 = 5;
+        pp2 = 5;
+        pp3 = 5;
+        pp4 = 5;
+    }
+
+    private int CalculateHPMax()
     {
         return ToUInt16(((2 * SpeciesData.baseHP) + ivHP + (evHP >> 2)) * level / 100 + level + 10);
     }
-    private ushort CalculateStat(byte statID, byte baseStat, byte statIv, byte statEv)
+    private int CalculateStat(byte statID, byte baseStat, byte statIv, byte statEv)
     {
         return ToUInt16(Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * Natures.NatureEffect(nature, statID)));
     }
     public void CalculateStats()
     {
-        hpMax = CalculateHP();
+        hpMax = CalculateHPMax();
         attack = CalculateStat(0, SpeciesData.baseAttack, ivAttack, evAttack);
         defense = CalculateStat(1, SpeciesData.baseDefense, ivDefense, evDefense);
         spAtk = CalculateStat(3, SpeciesData.baseSpAtk, ivSpAtk, evSpAtk);
@@ -145,7 +172,7 @@ public class Pokemon
         byte IvHP, byte IvAttack, byte IvDefense, byte IvSpAtk, byte IvSpDef, byte IvSpeed,
         byte EvHP, byte EvAttack, byte EvDefense, byte EvSpAtk, byte EvSpDef, byte EvSpeed,
         byte thisNature, MoveID Move1, MoveID Move2, MoveID Move3, MoveID Move4,
-        byte WhichAbility, ushort Item, bool Exists = true)
+        byte WhichAbility, int Item, bool Exists = true)
     {
         species = thisSpecies;
         gender = Gender;
@@ -170,7 +197,7 @@ public class Pokemon
         evSpAtk = EvSpAtk;
         evSpDef = EvSpDef;
         evSpeed = EvSpeed;
-        totalEv = (ushort)(evHP + evAttack + evDefense + evSpAtk + evSpDef + evSpeed);
+        totalEv = (int)(evHP + evAttack + evDefense + evSpAtk + evSpDef + evSpeed);
 
         nature = thisNature;
         whichAbility = WhichAbility;
@@ -233,4 +260,5 @@ public class Pokemon
     }
     public static Pokemon MakeEmptyMon => new
         (SpeciesID.Missingno, false, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Natures.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, ItemID.None, false);
+    public object Clone() => MemberwiseClone() as Pokemon;
 }

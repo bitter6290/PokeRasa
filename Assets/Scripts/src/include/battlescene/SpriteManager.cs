@@ -76,9 +76,9 @@ public class SpriteManager : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (currentMon != battle.PokemonOnField[index].PokemonData.species)
+        if (currentMon != battle.PokemonOnField[index].apparentSpecies)
         {
-            currentMon = battle.PokemonOnField[index].PokemonData.species;
+            currentMon = battle.PokemonOnField[index].apparentSpecies;
             updateSpecies();
         }
         sprite.sprite = hasSecondFrame && secondFrame ? Sprite2 : Sprite1;
