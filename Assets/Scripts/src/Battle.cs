@@ -19,7 +19,7 @@ public class Battle : MonoBehaviour
     public byte state;
     public int currentPlayerMon = 4;
 
-    public string OpponentName = "Null";
+    public string OpponentName = "Error 401";
 
     public TextMeshProUGUI Announcer;
 
