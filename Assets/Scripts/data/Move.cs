@@ -136,7 +136,7 @@ public static class Move
     public static MoveData JumpKick = new(
         "Jump Kick", Type.Fighting,
         100, 20, 0,
-        MoveEffect.Crash50, 0,
+        MoveEffect.Crash50Max, 0,
         true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData RollingKick = new(
         "Rolling Kick", Type.Fighting,
@@ -689,7 +689,7 @@ public static class Move
     public static MoveData HighJumpKick = new(
         "High Jump Kick", Type.Fighting,
         130, 90, 0,
-        MoveEffect.Crash50, 0,
+        MoveEffect.Crash50Max, 0,
         true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData Glare = new(
         "Glare", Type.Normal,

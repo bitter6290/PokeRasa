@@ -1175,7 +1175,7 @@ public class Battle : MonoBehaviour
                     PokemonOnField[index].thrashing = false;
                 }
                 break;
-            case MoveEffect.Crash50 when PokemonOnField[index].moveDamageDone == 0:
+            case MoveEffect.Crash50Max when PokemonOnField[index].moveDamageDone == 0:
                 if (PokemonOnField[index].PokemonData.hpMax >> 1 > PokemonOnField[index].PokemonData.HP)
                 {
                     PokemonOnField[index].PokemonData.HP = 0;

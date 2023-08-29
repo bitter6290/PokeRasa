@@ -31,30 +31,26 @@ public class SpriteManager : MonoBehaviour
 
     private void updateSpecies()
     {
-        Texture2D[] allTextures = Resources.LoadAll<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation);
-        foreach (Texture2D i in allTextures)
+        if (isBack)
         {
-            if (isBack)
+            Sprite1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation + "/back"),
+                new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+            hasSecondFrame = false;
+        }
+        else
+        {
+            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation + "/anim_front");
+            if (test == null)
             {
-                if (i.name == "back")
-                {
-                    Sprite1 = Sprite.Create(i, new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
-                    hasSecondFrame = false;
-                }
+                Sprite1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation + "/front"),
+                    new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+                hasSecondFrame = false;
             }
             else
             {
-                if (i.name == "anim_front")
-                {
-                    Sprite1 = Sprite.Create(i, new Rect(0.0f, 64.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
-                    Sprite2 = Sprite.Create(i, new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
-                    hasSecondFrame = true;
-                }
-                if (i.name == "front")
-                {
-                    Sprite1 = Sprite.Create(i, new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
-                    hasSecondFrame = false;
-                }
+                Sprite1 = Sprite.Create(test, new Rect(0.0f, 64.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+                Sprite2 = Sprite.Create(test, new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+                hasSecondFrame = true;
             }
         }
         if (isBack)

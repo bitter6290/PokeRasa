@@ -7,7 +7,7 @@ public enum MoveEffect
     MultiHit2,
     MultiHit2to5,
     Twineedle,
-    //Status
+    //Status-inducing moves
     Burn,
     Paralyze,
     Poison,
@@ -16,11 +16,6 @@ public enum MoveEffect
     Sleep,
     Confuse,
     TriAttack,
-    //Non-status status moves
-    LeechSeed,
-    Disable,
-    ForcedSwitch,
-    Mimic,
     //Stat changes
     AttackUp1,
     AttackUp2,
@@ -40,19 +35,25 @@ public enum MoveEffect
     Growth,
     Minimize,
     DefenseCurl,
+    //Other status moves
+    LeechSeed,
+    Disable,
+    ForcedSwitch,
     //Direct damage
     Direct20,
     DirectLevel,
+    Psywave,
+    SuperFang,
     //Recoil
     Recoil33,
     Recoil25,
     Recoil25Max,
-    Crash50,
+    Crash50Max,
     //Other added effects
     Flinch,
     Absorb50,
     PayDay,
-    //Special attack types
+    //Unique attack types
     ChargingAttack,
     RechargeAttack,
     ContinuousDamage,
@@ -61,8 +62,6 @@ public enum MoveEffect
     SelfDestruct,
     DreamEater,
     OHKO,
-    Psywave,
-    SuperFang,
     Rage,
     WeightPower,
     //Paired effects
@@ -79,6 +78,7 @@ public enum MoveEffect
     Transform,
     Teleport,
     MirrorMove,
+    Mimic,
     Metronome,
     Conversion,
     Heal50,
