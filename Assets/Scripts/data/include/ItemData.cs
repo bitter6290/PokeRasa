@@ -12,15 +12,15 @@ public class ItemData
 public struct ItemSubdata
 {
     [System.Runtime.InteropServices.FieldOffset(0)]
-    public ushort fieldEffect;
+    public FieldEffect fieldEffect;
     [System.Runtime.InteropServices.FieldOffset(4)]
     public ushort fieldEffectData;
     [System.Runtime.InteropServices.FieldOffset(6)]
-    public ushort battleEffect;
+    public BattleItemEffect battleEffect;
     [System.Runtime.InteropServices.FieldOffset(8)]
     public ushort battleEffectData;
     [System.Runtime.InteropServices.FieldOffset(10)]
-    public ushort heldEffect;
+    public HeldEffect heldEffect;
     [System.Runtime.InteropServices.FieldOffset(12)]
     public byte heldEffectData;
     [System.Runtime.InteropServices.FieldOffset(0)]
@@ -32,8 +32,8 @@ public struct ItemSubdata
     [System.Runtime.InteropServices.FieldOffset(2)]
     public SpeciesID destinationSpecies;
 
-    public static ItemSubdata NormalItem(ushort fieldEffect, ushort fieldEffectData,
-        ushort battleEffect, ushort battleEffectData, ushort heldEffect, byte heldEffectData)
+    public static ItemSubdata NormalItem(FieldEffect fieldEffect, ushort fieldEffectData,
+        BattleItemEffect battleEffect, ushort battleEffectData, HeldEffect heldEffect, byte heldEffectData)
     {
         ItemSubdata subdata = new()
         {

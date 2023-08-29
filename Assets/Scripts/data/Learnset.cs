@@ -4,7 +4,7 @@ public static class Learnset
     {
         new LearnsetMove(0, MoveID.None)
     };
-    public static LearnsetMove[] BulbusaurLearnset = new LearnsetMove[]
+    public static LearnsetMove[] BulbasaurLearnset = new LearnsetMove[]
     {
         new LearnsetMove(1, MoveID.Pound),
         new LearnsetMove(5, MoveID.CometPunch)

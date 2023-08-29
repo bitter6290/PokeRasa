@@ -104,15 +104,20 @@ public static class Type
         return 1.0F;
     }
 
-    public static float GetTypeEffectiveness(MoveID move, Pokemon defender)
+    public static float GetTypeEffectiveness(MoveID move, BattlePokemon defender)
     {
-        return (defender.SpeciesData.type1 == defender.SpeciesData.type2) ?
-            Effectiveness(Move.MoveTable[(int)move].type, defender.SpeciesData.type1)
-            : Effectiveness(Move.MoveTable[(int)move].type, defender.SpeciesData.type1)
-            * Effectiveness(Move.MoveTable[(int)move].type, defender.SpeciesData.type2);
+        float effectiveness = (defender.Type1 == defender.Type2) ?
+            Effectiveness(Move.MoveTable[(int)move].type, defender.Type1)
+            : Effectiveness(Move.MoveTable[(int)move].type, defender.Type1)
+            * Effectiveness(Move.MoveTable[(int)move].type, defender.Type2);
+        if (defender.hasType3)
+        {
+            effectiveness *= Effectiveness(Move.MoveTable[(int)move].type, defender.Type3);
+        }
+        return effectiveness;
     }
 
-    public static bool IsImmune(MoveID move, Pokemon defender)
+    public static bool IsImmune(MoveID move, BattlePokemon defender)
     {
         return GetTypeEffectiveness(move, defender) == 0;
     }

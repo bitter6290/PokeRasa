@@ -63,7 +63,7 @@ public class Pokemon : ICloneable
 
     public bool exists;
 
-    public int item;
+    public ItemID item;
 
     public bool onField = false;
 
@@ -130,7 +130,7 @@ public class Pokemon : ICloneable
         }
         return (false, SpeciesID.Missingno);
     }
-    public bool CheckEvolutionMethod(byte method, int data)
+    public bool CheckEvolutionMethod(EvolutionMethod method, int data)
     {
         switch (method)
         {
@@ -172,7 +172,7 @@ public class Pokemon : ICloneable
         byte IvHP, byte IvAttack, byte IvDefense, byte IvSpAtk, byte IvSpDef, byte IvSpeed,
         byte EvHP, byte EvAttack, byte EvDefense, byte EvSpAtk, byte EvSpDef, byte EvSpeed,
         byte thisNature, MoveID Move1, MoveID Move2, MoveID Move3, MoveID Move4,
-        byte WhichAbility, int Item, bool Exists = true)
+        byte WhichAbility, ItemID Item, bool Exists = true)
     {
         species = thisSpecies;
         gender = Gender;

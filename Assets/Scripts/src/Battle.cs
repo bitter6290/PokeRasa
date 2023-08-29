@@ -101,6 +101,20 @@ public class Battle : MonoBehaviour
         return index < 3 ? 0 : 1;
     }
 
+
+    private static byte WeightMovePower(int weight)
+    {
+        return weight switch
+        {
+            < 10000 => 20,
+            < 25000 => 40,
+            < 50000 => 60,
+            < 100000 => 80,
+            < 200000 => 100,
+            _ => 120
+        };
+    }
+
     private bool AbilitiesSuppressed()
     {
         bool result = false;
@@ -212,10 +226,14 @@ public class Battle : MonoBehaviour
         {
             effectivePower >>= 1;
         }
+        if ((Move.MoveTable[(int)move].effect == MoveEffect.WeightPower))
+        {
+            effectivePower = WeightMovePower(defender.PokemonData.SpeciesData.pokedexData.weight);
+        }
         float critical = isCritical ? 1.5F : 1.0F;
         float stab = (
-            Move.MoveTable[(int)move].type == attacker.PokemonData.SpeciesData.type1
-            || Move.MoveTable[(int)move].type == attacker.PokemonData.SpeciesData.type2)
+            Move.MoveTable[(int)move].type == attacker.Type1
+            || Move.MoveTable[(int)move].type == attacker.Type2)
             ? 1.5F : 1.0F;
         float multitarget = isMultiTarget ? 0.75F : 1.0F;
         float attackOverDefense = Move.MoveTable[(int)move].physical
@@ -250,7 +268,7 @@ public class Battle : MonoBehaviour
 
         int result = (int)Floor(((((2.0F * attacker.PokemonData.level / 5) + 2)
             * effectivePower * attackOverDefense / 50) + 2)
-            * Type.GetTypeEffectiveness(move, defender.PokemonData)
+            * Type.GetTypeEffectiveness(move, defender)
             * stab * multitarget * critical * burn * screen
             * invulnerabiltyBonus * roll / 100);
         Debug.Log(result);
@@ -345,7 +363,7 @@ public class Battle : MonoBehaviour
                     PokemonOnField[i].isHit = false;
                     PokemonOnField[i].isTarget = false; //Make ExecuteMove announce move failure
                 }
-                if (Type.IsImmune(move, PokemonOnField[i].PokemonData)
+                if (Type.IsImmune(move, PokemonOnField[i])
                     && Move.MoveTable[(int)move].power > 0
                     || move == MoveID.ThunderWave
                     && PokemonOnField[i].HasType(Type.Ground))
@@ -826,6 +844,7 @@ public class Battle : MonoBehaviour
                     switchingMon = index;
                     choseSwitchMon = false;
                     yield return BattleAnim.AttackerAnims(this, index, MoveID.Teleport, 0);
+                    menuManager.currentPartyMon = 1;
                     menuManager.menuMode = MenuMode.Party;
                     state = BattleState.PlayerInput;
                     while (!choseSwitchMon)
@@ -1020,7 +1039,7 @@ public class Battle : MonoBehaviour
                     {
                         if (PokemonOnField[i].isHit)
                         {
-                            float effectiveness = Type.GetTypeEffectiveness(Moves[index], PokemonOnField[i].PokemonData);
+                            float effectiveness = Type.GetTypeEffectiveness(Moves[index], PokemonOnField[i]);
                             yield return AnnounceTypeEffectiveness(effectiveness, isMultiTarget, i);
                             targetsAnyone = true;
                         }
@@ -1064,7 +1083,7 @@ public class Battle : MonoBehaviour
                                 (MoveEffect.Direct20 or MoveEffect.DirectLevel
                                 or MoveEffect.Counter))
                             {
-                                float effectiveness = Type.GetTypeEffectiveness(Moves[index], PokemonOnField[i].PokemonData);
+                                float effectiveness = Type.GetTypeEffectiveness(Moves[index], PokemonOnField[i]);
                                 yield return AnnounceTypeEffectiveness(effectiveness, isMultiTarget, i);
                             }
                         }
@@ -1108,17 +1127,41 @@ public class Battle : MonoBehaviour
         switch (GetMove(index).effect)
         {
             case MoveEffect.Recoil33:
-                PokemonOnField[index].PokemonData.HP -= Max(1, PokemonOnField[index].moveDamageDone / 3);
+                if (Max(1, PokemonOnField[index].moveDamageDone / 3) > PokemonOnField[index].PokemonData.HP)
+                {
+                    PokemonOnField[index].PokemonData.HP = 0;
+                    PokemonOnField[index].PokemonData.fainted = true;
+                }
+                else
+                {
+                    PokemonOnField[index].PokemonData.HP -= Max(1, PokemonOnField[index].moveDamageDone / 3);
+                }
                 yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
                 yield return ProcessFaintingSingle(index);
                 break;
             case MoveEffect.Recoil25:
-                PokemonOnField[index].PokemonData.HP -= Max(1, PokemonOnField[index].moveDamageDone / 4);
+                if (Max(1, PokemonOnField[index].moveDamageDone / 4) > PokemonOnField[index].PokemonData.HP)
+                {
+                    PokemonOnField[index].PokemonData.HP = 0;
+                    PokemonOnField[index].PokemonData.fainted = true;
+                }
+                else
+                {
+                    PokemonOnField[index].PokemonData.HP -= Max(1, PokemonOnField[index].moveDamageDone / 4);
+                }
                 yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
                 yield return ProcessFaintingSingle(index);
                 break;
             case MoveEffect.Recoil25Max:
-                PokemonOnField[index].PokemonData.HP -= Max(1, PokemonOnField[index].PokemonData.hpMax / 4);
+                if ((Max(1, PokemonOnField[index].PokemonData.hpMax / 4) > PokemonOnField[index].PokemonData.HP))
+                {
+                    PokemonOnField[index].PokemonData.HP = 0;
+                    PokemonOnField[index].PokemonData.fainted = true;
+                }
+                else
+                {
+                    PokemonOnField[index].PokemonData.HP -= Max(1, PokemonOnField[index].PokemonData.hpMax / 4);
+                }
                 yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
                 yield return ProcessFaintingSingle(index);
                 break;
@@ -1176,7 +1219,7 @@ public class Battle : MonoBehaviour
         {
             if (PokemonOnField[i].isHit)
             {
-                float thisEff = Type.GetTypeEffectiveness(Moves[index], PokemonOnField[i].PokemonData);
+                float thisEff = Type.GetTypeEffectiveness(Moves[index], PokemonOnField[i]);
                 effectiveness = thisEff > effectiveness ? thisEff : effectiveness;
                 doWait = true;
                 StartCoroutine(DoHitFlash(i));

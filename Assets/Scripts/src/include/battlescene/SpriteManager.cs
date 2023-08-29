@@ -44,13 +44,9 @@ public class SpriteManager : MonoBehaviour
             }
             else
             {
-                if (i.name == "front_1")
+                if (i.name == "anim_front")
                 {
-                    Sprite1 = Sprite.Create(i, new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
-                    hasSecondFrame = true;
-                }
-                if (i.name == "front_2")
-                {
+                    Sprite1 = Sprite.Create(i, new Rect(0.0f, 64.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
                     Sprite2 = Sprite.Create(i, new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
                     hasSecondFrame = true;
                 }

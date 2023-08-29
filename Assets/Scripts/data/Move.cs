@@ -340,8 +340,8 @@ public static class Move
         true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
     public static MoveData LowKick = new(
         "Low Kick", Type.Fighting,
-        0, 100, 0,
-        MoveEffect.Hit, 0,
+        1, 100, 0,
+        MoveEffect.WeightPower, 0,
         true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
     public static MoveData Counter = new(
         "Counter", Type.Fighting,
@@ -813,7 +813,7 @@ public static class Move
         "Conversion", Type.Normal,
         0, 101, 0,
         MoveEffect.Conversion, 101,
-        false, TargetID.Self, 30); //Needs effect and anim
+        false, TargetID.Self, 30); //Needs anim
     public static MoveData TriAttack = new(
         "Tri Attack", Type.Normal,
         80, 100, 0,

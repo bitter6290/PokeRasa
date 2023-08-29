@@ -7,3 +7,4 @@
 301 - tried to assign invalid Continuous Damage
 302 - tried to do damage because of invalid Continuous Damage
 401 - trainer name was never set
+901 - showing data for item None

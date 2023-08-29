@@ -64,6 +64,7 @@ public enum MoveEffect
     Psywave,
     SuperFang,
     Rage,
+    WeightPower,
     //Paired effects
     Bide,
     BideHit,

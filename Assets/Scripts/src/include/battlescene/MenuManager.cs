@@ -64,7 +64,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private int currentMon = 3;
     [SerializeField] private int currentMove = 1; //0 means Back
 
-    [SerializeField] private int currentPartyMon = 1; //0 means Back
+    public int currentPartyMon = 1; //0 means Back
 
     private bool megaEvolving;
 
@@ -514,7 +514,36 @@ public class MenuManager : MonoBehaviour
                             switch (currentMove)
                             {
                                 case 1:
-                                    menuMode = MenuMode.Moves;
+                                    if(text1.text == "Struggle")
+                                    {
+                                        battle.Moves[currentMon] = MoveID.Struggle;
+                                        battle.PokemonOnField[currentMon].dontCheckPP = true;
+                                        battle.PokemonOnField[currentMon].choseMove = true;
+                                        switch (battle.battleType)
+                                        {
+                                            case BattleType.Single:
+                                                battle.Targets[currentMon] = 0;
+                                                break;
+                                        }
+                                        if (GetNextPokemon())
+                                        {
+                                            battle.state = BattleState.Announcement;
+                                            menuMode = MenuMode.Main;
+                                            currentMove = 1;
+                                            currentMon = 2;
+                                            GetNextPokemon();
+                                            battle.DoNextMove();
+                                        }
+                                        else
+                                        {
+                                            menuMode = MenuMode.Main;
+                                            currentMove = 1;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        menuMode = MenuMode.Moves;
+                                    }
                                     break;
                                 case 3:
                                     menuMode = MenuMode.Party;
@@ -534,7 +563,7 @@ public class MenuManager : MonoBehaviour
                         box4.enabled = battle.PlayerPokemon[3].exists;
                         box5.enabled = battle.PlayerPokemon[4].exists;
                         box6.enabled = battle.PlayerPokemon[5].exists;
-                        box7.enabled = true;
+                        box7.enabled = !battle.switchDuringTurn;
 
                         box1.color = partyMonColor(0);
                         box2.color = partyMonColor(2);
@@ -549,7 +578,7 @@ public class MenuManager : MonoBehaviour
                         text3.enabled = false;
                         text4.enabled = false;
                         text5.enabled = false;
-                        text7.enabled = true;
+                        text7.enabled = !battle.switchDuringTurn;
 
                         text7.text = "Back";
 
@@ -601,28 +630,38 @@ public class MenuManager : MonoBehaviour
                             switch (currentPartyMon)
                             {
                                 case 1:
-                                    currentPartyMon = box2.enabled ? 3 : 0;
-                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    currentPartyMon = box2.enabled ? 3 :
+                                        battle.switchDuringTurn ? 1 : 0;
+                                    if (currentPartyMon != 1) { battle.audioSource.PlayOneShot(MoveCursor); }
                                     break;
                                 case 2:
-                                    currentPartyMon = box4.enabled ? 4 : 0;
-                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    currentPartyMon = box4.enabled ? 4 :
+                                        battle.switchDuringTurn ? 2 : 0;
+                                    if (currentPartyMon != 2) { battle.audioSource.PlayOneShot(MoveCursor); }
                                     break;
                                 case 3:
-                                    currentMove = box5.enabled ? 5 : 0;
-                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    currentMove = box5.enabled ? 5 :
+                                        battle.switchDuringTurn ? 3 : 0;
+                                    if (currentPartyMon != 3) { battle.audioSource.PlayOneShot(MoveCursor); }
                                     break;
                                 case 4:
-                                    currentPartyMon = box6.enabled ? 6 : 0;
-                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    currentPartyMon = box6.enabled ? 6 :
+                                        battle.switchDuringTurn ? 4 : 0;
+                                    if (currentPartyMon != 4) { battle.audioSource.PlayOneShot(MoveCursor); }
                                     break;
                                 case 5:
-                                    currentPartyMon = 0;
-                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    if (!battle.switchDuringTurn)
+                                    {
+                                        currentPartyMon = 0;
+                                        battle.audioSource.PlayOneShot(MoveCursor);
+                                    }
                                     break;
                                 case 6:
-                                    currentPartyMon = 0;
-                                    battle.audioSource.PlayOneShot(MoveCursor);
+                                    if (!battle.switchDuringTurn)
+                                    {
+                                        currentPartyMon = 0;
+                                        battle.audioSource.PlayOneShot(MoveCursor);
+                                    }
                                     break;
                                 default:
                                     break;
@@ -718,7 +757,7 @@ public class MenuManager : MonoBehaviour
                                         battle.state = BattleState.Announcement;
                                         StartCoroutine(MonFainted(currentPartyMon - 1));
                                     }
-                                    if (battle.PlayerPokemon[currentPartyMon - 1].onField)
+                                    else if (battle.PlayerPokemon[currentPartyMon - 1].onField)
                                     {
                                         battle.state = BattleState.Announcement;
                                         StartCoroutine(MonOnField(currentPartyMon - 1));

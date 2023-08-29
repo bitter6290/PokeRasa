@@ -6,9 +6,9 @@ public class OverallTest : MonoBehaviour
 {
     public Battle battle;
     private readonly Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Ivysaur, 10);
-    private readonly Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Ivysaur, 10);
+    private readonly Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Aerodactyl, 10);
     private readonly Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
-    private readonly Pokemon testPokemon4 = Pokemon.WildPokemon(SpeciesID.Wartortle, 10);
+    private readonly Pokemon testPokemon4 = Pokemon.WildPokemon(SpeciesID.NidoranM, 10);
     // Start is called before the first frame update
     public void Start()
     {

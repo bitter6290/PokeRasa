@@ -649,6 +649,7 @@ public static class BattleEffect
         byte newType = Move.MoveTable[(int)battle.PokemonOnField[index].GetMove(0)].type;
         battle.PokemonOnField[index].newType1 = newType;
         battle.PokemonOnField[index].newType2 = newType;
+        battle.PokemonOnField[index].typesOverriden = true;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " became the " + Type.typeName[newType] + " type!");
     }
 

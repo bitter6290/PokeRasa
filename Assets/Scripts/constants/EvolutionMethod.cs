@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class EvolutionMethod
+public enum EvolutionMethod
 {
-    public const byte LevelUp = 0;
-    public const byte Never = 255;
+    LevelUp,
+    Item,
+    Trade,
+    Never,
 }

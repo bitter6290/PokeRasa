@@ -42,12 +42,12 @@ public static class XP
     {
         switch (XPClass)
         {
-            case XPClassID.Erratic: return ErraticXP(level);
-            case XPClassID.Fast: return FastXP(level);
-            case XPClassID.MediumFast: return MediumFastXP(level);
-            case XPClassID.MediumSlow: return MediumSlowXP(level);
-            case XPClassID.Slow: return SlowXP(level);
-            case XPClassID.Fluctuating: return FluctuatingXP(level);
+            case global::XPClass.Erratic: return ErraticXP(level);
+            case global::XPClass.Fast: return FastXP(level);
+            case global::XPClass.MediumFast: return MediumFastXP(level);
+            case global::XPClass.MediumSlow: return MediumSlowXP(level);
+            case global::XPClass.Slow: return SlowXP(level);
+            case global::XPClass.Fluctuating: return FluctuatingXP(level);
         }
         return 0;
     }
