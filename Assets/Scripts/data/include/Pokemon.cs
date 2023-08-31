@@ -56,7 +56,7 @@ public class Pokemon : ICloneable
     public byte pp4;
 
     public int HP;
-    public byte status;
+    public Status status;
     public byte sleepTurns;
 
     public bool fainted;

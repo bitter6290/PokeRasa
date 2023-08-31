@@ -11,27 +11,32 @@ public static class Move
         "Pound", Type.Normal,
         40, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 35); //Done
+        true, TargetID.Opponent + TargetID.Ally, 35,
+        MoveFlags.makesContact); //Done
     public static MoveData KarateChop = new(
         "Karate Chop", Type.Fighting,
         50, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 25, MoveFlags.highCrit); //Done
+        true, TargetID.Opponent + TargetID.Ally, 25,
+        MoveFlags.highCrit + MoveFlags.makesContact); //Done
     public static MoveData DoubleSlap = new(
         "Double Slap", Type.Normal,
         15, 85, 0,
         MoveEffect.MultiHit2to5, 0,
-        true, TargetID.Opponent + TargetID.Ally, 10); //Done
+        true, TargetID.Opponent + TargetID.Ally, 10,
+        MoveFlags.makesContact); //Done
     public static MoveData CometPunch = new(
         "Comet Punch", Type.Normal,
         18, 85, 0,
         MoveEffect.MultiHit2to5, 0,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+         MoveFlags.makesContact); //Needs anim
     public static MoveData MegaPunch = new(
         "Mega Punch", Type.Normal,
         80, 85, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+         MoveFlags.makesContact); //Needs anim
     public static MoveData PayDay = new(
         "Pay Day", Type.Normal,
         40, 100, 0,
@@ -41,32 +46,38 @@ public static class Move
         "Fire Punch", Type.Fire,
         75, 100, 0,
         MoveEffect.Burn, 10,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData IcePunch = new(
         "Ice Punch", Type.Ice,
         75, 100, 0,
         MoveEffect.Freeze, 10,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData ThunderPunch = new(
         "Thunder Punch", Type.Electric,
         75, 100, 0,
         MoveEffect.Paralyze, 10,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Scratch = new(
         "Scratch", Type.Normal,
         40, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 35); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 35,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData ViceGrip = new(
         "Vice Grip", Type.Normal,
         55, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 30); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 30,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Guillotine = new(
         "Guillotine", Type.Normal,
         1, 30, 0,
         MoveEffect.OHKO, 0,
-        true, TargetID.Opponent + TargetID.Ally, 5); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 5,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData RazorWind = new(
         "Razor Wind", Type.Normal,
         80, 100, 0,
@@ -81,7 +92,8 @@ public static class Move
         "Cut", Type.Normal,
         50, 95, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 30); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 30,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Gust = new(
         "Gust", Type.Flying,
         40, 100, 0,
@@ -92,7 +104,8 @@ public static class Move
         "Wing Attack", Type.Flying,
         60, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 35); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 35,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Whirlwind = new(
         "Whirlwind", Type.Normal,
         0, AlwaysHit, -6,
@@ -107,42 +120,50 @@ public static class Move
         "Bind", Type.Normal,
         15, 85, 0,
         MoveEffect.ContinuousDamage, 100,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Slam = new(
         "Slam", Type.Normal,
         80, 75, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData VineWhip = new(
         "Vine Whip", Type.Grass,
         45, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 25); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 25,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Stomp = new(
         "Stomp", Type.Normal,
         65, 100, 0,
         MoveEffect.Flinch, 30,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData DoubleKick = new(
         "Double Kick", Type.Fighting,
         30, 100, 0,
         MoveEffect.MultiHit2, 0,
-        true, TargetID.Opponent + TargetID.Ally, 30); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 30,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData MegaKick = new(
         "Mega Kick", Type.Normal,
         120, 75, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 5); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 5,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData JumpKick = new(
         "Jump Kick", Type.Fighting,
         100, 20, 0,
         MoveEffect.Crash50Max, 0,
-        true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 10,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData RollingKick = new(
         "Rolling Kick", Type.Fighting,
         60, 85, 0,
         MoveEffect.Flinch, 30,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData SandAttack = new(
         "Sand Attack", Type.Ground,
         0, 100, 0,
@@ -152,52 +173,62 @@ public static class Move
         "Headbutt", Type.Normal,
         70, 100, 0,
         MoveEffect.Flinch, 30,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs field effect and anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs field effect and anim
     public static MoveData HornAttack = new(
         "Horn Attack", Type.Normal,
         65, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 25); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 25,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData FuryAttack = new(
         "Fury Attack", Type.Normal,
         15, 85, 0,
         MoveEffect.MultiHit2to5, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData HornDrill = new(
         "Horn Drill", Type.Normal,
         1, 30, 0,
         MoveEffect.OHKO, 0,
-        true, TargetID.Opponent + TargetID.Ally, 5); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 5,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Tackle = new(
         "Tackle", Type.Normal,
         40, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 35); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 35,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData BodySlam = new(
         "Body Slam", Type.Normal,
         85, 100, 0,
         MoveEffect.Paralyze, 30,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Wrap = new(
         "Wrap", Type.Normal,
         15, 90, 0,
         MoveEffect.ContinuousDamage, 100,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData TakeDown = new(
         "Take Down", Type.Normal,
         90, 85, 0,
         MoveEffect.Recoil25, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Thrash = new(
         "Thrash", Type.Normal,
         120, 100, 0,
         MoveEffect.Thrash, 0,
-        true, TargetID.Self, 10); //Needs anim
+        true, TargetID.Self, 10,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData DoubleEdge = new(
         "Double Edge", Type.Normal,
         120, 100, 0,
         MoveEffect.Recoil33, 0,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData TailWhip = new(
         "Tail Whip", Type.Normal,
         0, 100, 0,
@@ -227,7 +258,8 @@ public static class Move
         "Bite", Type.Dark,
         60, 100, 0,
         MoveEffect.Flinch, 30,
-        true, TargetID.Opponent + TargetID.Ally, 25); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 25,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Growl = new(
         "Growl", Type.Normal,
         0, 100, 0,
@@ -327,37 +359,44 @@ public static class Move
         "Peck", Type.Flying,
         35, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 35); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 35,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData DrillPeck = new(
         "Drill Peck", Type.Flying,
         80, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Submission = new(
         "Submission", Type.Fighting,
         80, 80, 0,
         MoveEffect.Recoil25, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData LowKick = new(
         "Low Kick", Type.Fighting,
         1, 100, 0,
         MoveEffect.WeightPower, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs effect and anim
     public static MoveData Counter = new(
         "Counter", Type.Fighting,
         1, 100, -5,
         MoveEffect.Counter, 0,
-        true, TargetID.None, 20); //Needs anim
+        true, TargetID.None, 20,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData SeismicToss = new(
         "Seismic Toss", Type.Fighting,
         0, 100, 0,
         MoveEffect.DirectLevel, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Strength = new(
         "Strength", Type.Normal,
         80, 100, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Absorb = new(
         "Absorb", Type.Grass,
         20, 100, 0,
@@ -409,7 +448,8 @@ public static class Move
         "Petal Dance", Type.Grass,
         120, 100, 0,
         MoveEffect.Thrash, 0,
-        false, TargetID.Self, 10); //Needs anim
+        false, TargetID.Self, 10,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData StringShot = new(
         "String Shot", Type.Bug,
         0, 95, 0,
@@ -418,7 +458,7 @@ public static class Move
     public static MoveData DragonRage = new(
         "Dragon Rage", Type.Dragon,
         1, 100, 0,
-        MoveEffect.Direct20, 0,
+        MoveEffect.Direct40, 0,
         false, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData FireSpin = new(
         "Fire Spin", Type.Fire,
@@ -499,12 +539,14 @@ public static class Move
         "Quick Attack", Type.Normal,
         40, 100, 1,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 30); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 30,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Rage = new(
         "Rage", Type.Normal,
         20, 100, 0,
         MoveEffect.Rage, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim and test
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.makesContact); //Needs anim and test
     public static MoveData Teleport = new(
         "Teleport", Type.Psychic,
         0, AlwaysHit, -6,
@@ -620,7 +662,8 @@ public static class Move
         "Lick", Type.Ghost,
         30, 100, 0,
         MoveEffect.Paralyze, 30,
-        true, TargetID.Opponent + TargetID.Ally, 30); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 30,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Smog = new(
         "Smog", Type.Poison,
         30, 70, 0,
@@ -645,12 +688,14 @@ public static class Move
         "Waterfall", Type.Water,
         80, 100, 0,
         MoveEffect.Flinch, 20,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Clamp = new(
         "Clamp", Type.Water,
         35, 85, 0,
         MoveEffect.ContinuousDamage, 100,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Swift = new(
         "Swift", Type.Normal,
         60, 101, 0,
@@ -660,7 +705,8 @@ public static class Move
         "Skull Bash", Type.Normal,
         130, 100, 0,
         MoveEffect.ChargingAttack, 0,
-        true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 10,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData SpikeCannon = new(
         "Spike Cannon", Type.Normal,
         20, 100, 0,
@@ -670,7 +716,8 @@ public static class Move
         "Constrict", Type.Normal,
         10, 100, 0,
         MoveEffect.SpeedDown1, 10,
-        true, TargetID.Opponent + TargetID.Ally, 35); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 35,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Amnesia = new(
         "Amnesia", Type.Psychic,
         0, 101, 0,
@@ -690,7 +737,8 @@ public static class Move
         "High Jump Kick", Type.Fighting,
         130, 90, 0,
         MoveEffect.Crash50Max, 0,
-        true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 10,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Glare = new(
         "Glare", Type.Normal,
         0, 100, 0,
@@ -715,7 +763,8 @@ public static class Move
         "Leech Life", Type.Bug,
         80, 100, 0,
         MoveEffect.Absorb50, 0,
-        true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 10,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData LovelyKiss = new(
         "Lovely Kiss", Type.Normal,
         0, 75, 0,
@@ -741,7 +790,8 @@ public static class Move
         "Dizzy Punch", Type.Normal,
         70, 100, 0,
         MoveEffect.Confuse, 20,
-        true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 10,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Spore = new(
         "Spore", Type.Grass,
         0, 100, 0,
@@ -772,7 +822,7 @@ public static class Move
         100, 90, 0,
         MoveEffect.Hit, 0,
         true, TargetID.Opponent + TargetID.Ally, 10,
-        MoveFlags.highCrit); //Needs anim
+        MoveFlags.highCrit + MoveFlags.makesContact); //Needs anim
     public static MoveData Explosion = new(
         "Explosion", Type.Normal,
         250, 100, 0,
@@ -783,7 +833,8 @@ public static class Move
         "Fury Swipes", Type.Normal,
         18, 80, 0,
         MoveEffect.MultiHit2to5, 0,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Bonemerang = new(
         "Bonemerang", Type.Ground,
         50, 90, 0,
@@ -803,7 +854,8 @@ public static class Move
         "Hyper Fang", Type.Normal,
         80, 90, 0,
         MoveEffect.Flinch, 10,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 15,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Sharpen = new(
         "Sharpen", Type.Normal,
         0, 101, 0,
@@ -823,13 +875,14 @@ public static class Move
         "Super Fang", Type.Normal,
         0, 90, 0,
         MoveEffect.SuperFang, 0,
-        true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
+        true, TargetID.Opponent + TargetID.Ally, 10,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Slash = new(
         "Slash", Type.Normal,
         70, 100, 0,
         MoveEffect.Hit, 0,
         true, TargetID.Opponent + TargetID.Ally, 20,
-        MoveFlags.highCrit); //Needs anim
+        MoveFlags.highCrit + MoveFlags.makesContact); //Needs anim
     public static MoveData Substitute = new(
         "Substitute", Type.Normal,
         0, 101, 0,
@@ -859,13 +912,13 @@ public static class Move
         80, 100, 0,
         MoveEffect.Hit, 0,
         false, TargetID.Opponent + TargetID.Spread, 0,
-        MoveFlags.mimicBypass); //Needs anim
+        MoveFlags.mimicBypass + MoveFlags.makesContact); //Needs anim
     public static MoveData FlyAttack = new(
         "Fly", Type.Flying,
         90, 95, 0,
         MoveEffect.Hit, 0,
         false, TargetID.Opponent + TargetID.Spread, 0,
-        MoveFlags.mimicBypass); //Needs anim
+        MoveFlags.mimicBypass + MoveFlags.makesContact); //Needs anim
     public static MoveData SolarBeamAttack = new(
         "Solar Beam", Type.Grass,
         120, 100, 0,
@@ -894,7 +947,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.BideHit, 0,
         false, TargetID.Opponent, 0,
-        MoveFlags.mimicBypass); //Needs anim
+        MoveFlags.mimicBypass + MoveFlags.makesContact); //Needs anim
     public static MoveData Struggle = new(
         "Struggle", Type.Typeless,
         50, 100, 0,

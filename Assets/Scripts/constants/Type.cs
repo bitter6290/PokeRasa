@@ -104,21 +104,4 @@ public static class Type
         return 1.0F;
     }
 
-    public static float GetTypeEffectiveness(MoveID move, BattlePokemon defender)
-    {
-        float effectiveness = (defender.Type1 == defender.Type2) ?
-            Effectiveness(Move.MoveTable[(int)move].type, defender.Type1)
-            : Effectiveness(Move.MoveTable[(int)move].type, defender.Type1)
-            * Effectiveness(Move.MoveTable[(int)move].type, defender.Type2);
-        if (defender.hasType3)
-        {
-            effectiveness *= Effectiveness(Move.MoveTable[(int)move].type, defender.Type3);
-        }
-        return effectiveness;
-    }
-
-    public static bool IsImmune(MoveID move, BattlePokemon defender)
-    {
-        return GetTypeEffectiveness(move, defender) == 0;
-    }
 }

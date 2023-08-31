@@ -40,6 +40,8 @@ public class BattlePokemon
     public bool isUnaffected = false;
     public bool isCrit = false;
     public bool gotMoveEffect = false;
+    public bool abilityHealed25 = false;
+    public bool abilityActivated = false;
 
     public bool confused = false;
     public byte confusionCounter = 0;
@@ -82,12 +84,15 @@ public class BattlePokemon
     public int disableTimer = 0;
 
     public bool gotAbilityEffect = false;
+    public Ability affectingAbility = Ability.None;
 
     public bool seeded = false;
     public int seedingSlot = 0;
 
     public bool biding = false;
     public int bideDamage = 0;
+
+    public bool flashFire = false;
 
     public bool hasSubstitute = false;
     public int substituteHP = 0;
@@ -217,7 +222,7 @@ public class BattlePokemon
     {
         switch (statID)
         {
-            case StatID.Attack:
+            case Stat.Attack:
                 if (attackStage == 6)
                 {
                     return 0;
@@ -229,7 +234,7 @@ public class BattlePokemon
                     CalculateStats();
                     return raisedStages;
                 }
-            case StatID.Defense:
+            case Stat.Defense:
                 if (defenseStage == 6)
                 {
                     return 0;
@@ -241,7 +246,7 @@ public class BattlePokemon
                     CalculateStats();
                     return raisedStages;
                 }
-            case StatID.SpAtk:
+            case Stat.SpAtk:
                 if (spAtkStage == 6)
                 {
                     return 0;
@@ -253,7 +258,7 @@ public class BattlePokemon
                     CalculateStats();
                     return raisedStages;
                 }
-            case StatID.SpDef:
+            case Stat.SpDef:
                 if (spDefStage == 6)
                 {
                     return 0;
@@ -265,7 +270,7 @@ public class BattlePokemon
                     CalculateStats();
                     return raisedStages;
                 }
-            case StatID.Speed:
+            case Stat.Speed:
                 if (speedStage == 6)
                 {
                     return 0;
@@ -277,7 +282,7 @@ public class BattlePokemon
                     CalculateStats();
                     return raisedStages;
                 }
-            case StatID.Accuracy:
+            case Stat.Accuracy:
                 if (accuracyStage == 6)
                 {
                     return 0;
@@ -289,7 +294,7 @@ public class BattlePokemon
                     CalculateStats();
                     return raisedStages;
                 }
-            case StatID.Evasion:
+            case Stat.Evasion:
                 if (evasionStage == 6)
                 {
                     return 0;
@@ -310,7 +315,7 @@ public class BattlePokemon
     {
         switch (statID)
         {
-            case StatID.Attack:
+            case Stat.Attack:
                 if (attackStage == -6)
                 {
                     return 0;
@@ -322,7 +327,7 @@ public class BattlePokemon
                     CalculateStats();
                     return loweredStages;
                 }
-            case StatID.Defense:
+            case Stat.Defense:
                 if (defenseStage == -6)
                 {
                     return 0;
@@ -334,7 +339,7 @@ public class BattlePokemon
                     CalculateStats();
                     return loweredStages;
                 }
-            case StatID.SpAtk:
+            case Stat.SpAtk:
                 if (spAtkStage == -6)
                 {
                     return 0;
@@ -346,7 +351,7 @@ public class BattlePokemon
                     CalculateStats();
                     return loweredStages;
                 }
-            case StatID.SpDef:
+            case Stat.SpDef:
                 if (spDefStage == -6)
                 {
                     return 0;
@@ -358,7 +363,7 @@ public class BattlePokemon
                     CalculateStats();
                     return loweredStages;
                 }
-            case StatID.Speed:
+            case Stat.Speed:
                 if (speedStage == -6)
                 {
                     return 0;
@@ -370,7 +375,7 @@ public class BattlePokemon
                     CalculateStats();
                     return loweredStages;
                 }
-            case StatID.Accuracy:
+            case Stat.Accuracy:
                 if (accuracyStage == -6)
                 {
                     return 0;
@@ -382,7 +387,7 @@ public class BattlePokemon
                     CalculateStats();
                     return raisedStages;
                 }
-            case StatID.Evasion:
+            case Stat.Evasion:
                 if (evasionStage == -6)
                 {
                     return 0;

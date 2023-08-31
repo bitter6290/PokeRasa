@@ -12,22 +12,22 @@ public static class BattleEffect
         {
             case 0:
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.CantGoHigher);
+                    + "'s " + Stat.statName[statID] + BattleText.CantGoHigher);
                 break;
             case 1:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.Rose);
+                    + "'s " + Stat.statName[statID] + BattleText.Rose);
                 break;
             case 2:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.RoseSharply);
+                    + "'s " + Stat.statName[statID] + BattleText.RoseSharply);
                 break;
             default:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.RoseDrastically);
+                    + "'s " + Stat.statName[statID] + BattleText.RoseDrastically);
                 break;
         }
     }
@@ -43,22 +43,22 @@ public static class BattleEffect
         {
             case 0:
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.CantGoLower);
+                    + "'s " + Stat.statName[statID] + BattleText.CantGoLower);
                 break;
             case 1:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.Fell);
+                    + "'s " + Stat.statName[statID] + BattleText.Fell);
                 break;
             case 2:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.FellSharply);
+                    + "'s " + Stat.statName[statID] + BattleText.FellSharply);
                 break;
             default:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + StatID.statName[statID] + BattleText.FellDrastically);
+                    + "'s " + Stat.statName[statID] + BattleText.FellDrastically);
                 break;
         }
     }
@@ -86,8 +86,13 @@ public static class BattleEffect
         {
             yield return battle.Announce(BattleText.MoveFailed);
         }
-        if (battle.PokemonOnField[index].HasType(Type.Electric))
+        else if (battle.PokemonOnField[index].HasType(Type.Electric))
         {
+            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+        }
+        else if (battle.HasAbility(index, Ability.Limber))
+        {
+            //Add ability popup
             yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
         }
         else
@@ -119,10 +124,15 @@ public static class BattleEffect
         {
             yield return battle.Announce(BattleText.MoveFailed);
         }
-        if (battle.PokemonOnField[index].HasType(Type.Poison)
+        else if (battle.PokemonOnField[index].HasType(Type.Poison)
             || battle.PokemonOnField[index].HasType(Type.Steel))
         {
             yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+        }
+        else if (battle.EffectiveAbility(index) == Ability.Immunity)
+        {
+            //Add ability popup
+            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
         }
         else
         {
@@ -137,10 +147,15 @@ public static class BattleEffect
         {
             yield return battle.Announce(BattleText.MoveFailed);
         }
-        if (battle.PokemonOnField[index].HasType(Type.Poison)
+        else if (battle.PokemonOnField[index].HasType(Type.Poison)
     || battle.PokemonOnField[index].HasType(Type.Steel))
         {
             yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+        }
+        else if (battle.EffectiveAbility(index) == Ability.Immunity)
+        {
+            //Add ability popup
+            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
         }
         else
         {
@@ -172,6 +187,11 @@ public static class BattleEffect
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
             yield return null;
+        }
+        else if (battle.EffectiveAbility(index) is Ability.Insomnia or Ability.VitalSpirit)
+        {
+            //Add ability popup
+            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
         }
         else
         {
@@ -406,16 +426,18 @@ public static class BattleEffect
             < battle.PokemonOnField[index].PokemonData.hpMax >> 2)
         {
             yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                + "doesn't have enough HP left to make a substitute!");
+                + " doesn't have enough HP left to make a substitute!");
             yield break;
         }
         else
         {
+            battle.PokemonOnField[index].hasSubstitute = true;
             battle.PokemonOnField[index].substituteHP
                 = battle.PokemonOnField[index].PokemonData.hpMax >> 2;
             battle.PokemonOnField[index].PokemonData.HP
                 -= battle.PokemonOnField[index].substituteHP;
-
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+    + " cut its own HP to make a substitute!");
         }
     }
 

@@ -11,7 +11,7 @@ public class StatusManager : MonoBehaviour
     public int index;
     public Sprite[] sprites = new Sprite[6];
     [SerializeField]
-    private byte currentStatus;
+    private Status currentStatus;
 
     public StatusManager(SpriteRenderer Statusbar, Battle Battle, int Index, Sprite[] sprites)
     {

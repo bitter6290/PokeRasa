@@ -41,6 +41,7 @@ public enum MoveEffect
     ForcedSwitch,
     //Direct damage
     Direct20,
+    Direct40,
     DirectLevel,
     Psywave,
     SuperFang,

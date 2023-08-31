@@ -1,4 +1,4 @@
-public static class StatID
+public static class Stat
 {
     public const byte HP = 0;
     public const byte Attack = 1;

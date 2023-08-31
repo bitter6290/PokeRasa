@@ -17,5 +17,5 @@
     CharizarditeX,
     CharizarditeY,
     Blastoisinite,
-    Count
+    Count,
 }

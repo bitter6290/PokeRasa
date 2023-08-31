@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class StatusTest : MonoBehaviour
 {
     public Battle battle;
-    public byte status;
+    public Status status;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class StatusTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            status = (byte)((status + 1) % 7);
+            status = (Status)(((int)status + 1) % 7);
         }
         battle.PokemonOnField[3].PokemonData.status = status;
     }

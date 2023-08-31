@@ -11,4 +11,5 @@ public static class MoveFlags
     public const int halfPowerInBadWeather = 1 << 7;
     public const int mimicBypass = 1 << 8;
     public const int cannotMimic = 1 << 9;
+    public const int makesContact = 1 << 10;
 }

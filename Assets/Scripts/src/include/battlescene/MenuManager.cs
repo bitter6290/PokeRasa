@@ -133,6 +133,13 @@ public class MenuManager : MonoBehaviour
         battle.state = BattleState.PlayerInput;
     }
 
+    private IEnumerator MonTrapped(int currentMon)
+    {
+        yield return battle.Announce(battle.PlayerPokemon[currentMon].monName
+            + " is trapped and cannot switch!");
+        battle.state = BattleState.PlayerInput;
+    }
+
     private string LeadingZero(string input)
     {
         return input.Length == 1 ? "0" + input : input;
@@ -239,6 +246,7 @@ public class MenuManager : MonoBehaviour
                             if (Input.GetKeyDown(KeyCode.M))
                             {
                                 megaEvolving = !megaEvolving;
+                                battle.megaEvolveOnMove[currentMove] = megaEvolving;
                                 battle.audioSource.PlayOneShot(SelectMove);
                             }
                             megaIndicator.GetComponent<SpriteRenderer>().color = megaEvolving ? megaYesColor : megaNoColor;
@@ -360,7 +368,7 @@ public class MenuManager : MonoBehaviour
                                             currentMove = 1;
                                             currentMon = 2;
                                             GetNextPokemon();
-                                            battle.DoNextMove();
+                                            battle.StartCoroutine(battle.StartTurnEffects());
                                         }
                                         else
                                         {
@@ -532,7 +540,7 @@ public class MenuManager : MonoBehaviour
                                             currentMove = 1;
                                             currentMon = 2;
                                             GetNextPokemon();
-                                            battle.DoNextMove();
+                                            battle.StartCoroutine(battle.StartTurnEffects());
                                         }
                                         else
                                         {
@@ -762,6 +770,13 @@ public class MenuManager : MonoBehaviour
                                         battle.state = BattleState.Announcement;
                                         StartCoroutine(MonOnField(currentPartyMon - 1));
                                     }
+                                    else if (battle.AbilityOnSide(Ability.ShadowTag, 0)
+                                        || (battle.AbilityOnSide(Ability.ArenaTrap, 0)
+                                        && battle.IsGrounded(currentMon)))
+                                    {
+                                        battle.state = BattleState.Announcement;
+                                        StartCoroutine(MonTrapped(currentMon));
+                                    }
                                     else
                                     {
                                         if (battle.switchDuringTurn)
@@ -782,7 +797,7 @@ public class MenuManager : MonoBehaviour
                                                 currentMove = 1;
                                                 currentMon = 2;
                                                 GetNextPokemon();
-                                                battle.DoNextMove();
+                                                battle.StartCoroutine(battle.StartTurnEffects());
                                             }
                                             else
                                             {
