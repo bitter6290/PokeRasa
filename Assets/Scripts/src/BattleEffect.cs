@@ -5,63 +5,73 @@ using UnityEngine;
 public static class BattleEffect
 {
     public static System.Random random = new();
-    public static IEnumerator StatUp(Battle battle, int index, byte statID, int amount)
+    public static IEnumerator StatUp(Battle battle, int index, Stat statID, int amount)
     {
         int stagesRaised = battle.PokemonOnField[index].RaiseStat(statID, amount);
         switch (stagesRaised)
         {
             case 0:
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.CantGoHigher);
+                    + "'s " + NameTable.Stat[(int)statID] + BattleText.CantGoHigher);
                 break;
             case 1:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.StatRose);
+                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRose);
                 break;
             case 2:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.StatRoseSharply);
+                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRoseSharply);
                 break;
             default:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.StatRoseDrastically);
+                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRoseDrastically);
                 break;
         }
     }
 
-    public static IEnumerator StatDown(Battle battle, int index, byte statID, int amount, int attacker)
+    public static IEnumerator StatDown(Battle battle, int index, Stat statID, int amount, int attacker)
     {
         if (battle.GetSide(attacker) != battle.GetSide(index)
-            && (battle.Sides[battle.GetSide(index)].mist
-            || battle.EffectiveAbility(index) is
-            Ability.WhiteSmoke or Ability.ClearBody))
+            &&battle.Sides[battle.GetSide(index)].mist)
         {
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is protected by Mist!");
+            yield break;
+        }
+        else if (battle.EffectiveAbility(index) is
+            Ability.WhiteSmoke or Ability.ClearBody)
+        {
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s stats weren't lowered because of "
+               + NameTable.Ability[(int)battle.EffectiveAbility(index)]);
+            yield break;
+        }
+        else if (statID == Stat.Attack)
+        {
+
         }
         int stagesLowered = battle.PokemonOnField[index].LowerStat(statID, amount);
         switch (stagesLowered)
         {
             case 0:
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.CantGoLower);
+                    + "'s " + NameTable.Stat[(int)statID] + BattleText.CantGoLower);
                 break;
             case 1:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.StatFell);
+                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFell);
                 break;
             case 2:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.StatFellSharply);
+                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFellSharply);
                 break;
             default:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.StatFellDrastically);
+                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFellDrastically);
                 break;
         }
     }
@@ -409,7 +419,7 @@ public static class BattleEffect
         {
             case BattleType.Single:
             default:
-                List<Pokemon> RemainingPokemon = new List<Pokemon>();
+                List<Pokemon> RemainingPokemon = new();
                 Pokemon[] PokemonArray = index < 3 ? battle.OpponentPokemon : battle.PlayerPokemon;
                 for (int i = 0; i < 6; i++)
                 {

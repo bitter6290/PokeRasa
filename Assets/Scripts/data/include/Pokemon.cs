@@ -70,6 +70,8 @@ public class Pokemon : ICloneable
     public bool transformed;
     public SpeciesID temporarySpecies;
 
+    public byte friendship;
+
     public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
         (int)temporarySpecies : (int)species];
 
@@ -104,7 +106,7 @@ public class Pokemon : ICloneable
     }
     private int CalculateStat(byte statID, byte baseStat, byte statIv, byte statEv)
     {
-        return ToUInt16(Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * Natures.NatureEffect(nature, statID)));
+        return ToUInt16(Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * Nature.NatureEffect(nature, statID)));
     }
     public void CalculateStats()
     {
@@ -172,7 +174,7 @@ public class Pokemon : ICloneable
         byte IvHP, byte IvAttack, byte IvDefense, byte IvSpAtk, byte IvSpDef, byte IvSpeed,
         byte EvHP, byte EvAttack, byte EvDefense, byte EvSpAtk, byte EvSpDef, byte EvSpeed,
         byte thisNature, MoveID Move1, MoveID Move2, MoveID Move3, MoveID Move4,
-        byte WhichAbility, ItemID Item, bool Exists = true)
+        byte WhichAbility, byte Friendship, ItemID Item, bool Exists = true)
     {
         species = thisSpecies;
         gender = Gender;
@@ -205,11 +207,11 @@ public class Pokemon : ICloneable
         xp = XP.LevelToXP(level, SpeciesData.xpClass);
 
         hpMax = ToUInt16(((2 * SpeciesData.baseHP) + ivHP) * level / 100 + level + 10);
-        attack = ToUInt16(Floor((((2 * SpeciesData.baseAttack) + ivAttack + (evHP >> 2)) * level / 100 + 5) * Natures.NatureEffect(nature, 0)));
-        defense = ToUInt16(Floor((((2 * SpeciesData.baseDefense) + ivDefense) * level / 100 + 5) * Natures.NatureEffect(nature, 1)));
-        spAtk = ToUInt16(Floor((((2 * SpeciesData.baseSpAtk) + ivSpAtk) * level / 100 + 5) * Natures.NatureEffect(nature, 3)));
-        spDef = ToUInt16(Floor((((2 * SpeciesData.baseSpDef) + ivSpDef) * level / 100 + 5) * Natures.NatureEffect(nature, 4)));
-        speed = ToUInt16(Floor((((2 * SpeciesData.baseSpeed) + ivSpeed) * level / 100 + 5) * Natures.NatureEffect(nature, 2)));
+        attack = ToUInt16(Floor((((2 * SpeciesData.baseAttack) + ivAttack + (evHP >> 2)) * level / 100 + 5) * Nature.NatureEffect(nature, 0)));
+        defense = ToUInt16(Floor((((2 * SpeciesData.baseDefense) + ivDefense) * level / 100 + 5) * Nature.NatureEffect(nature, 1)));
+        spAtk = ToUInt16(Floor((((2 * SpeciesData.baseSpAtk) + ivSpAtk) * level / 100 + 5) * Nature.NatureEffect(nature, 3)));
+        spDef = ToUInt16(Floor((((2 * SpeciesData.baseSpDef) + ivSpDef) * level / 100 + 5) * Nature.NatureEffect(nature, 4)));
+        speed = ToUInt16(Floor((((2 * SpeciesData.baseSpeed) + ivSpeed) * level / 100 + 5) * Nature.NatureEffect(nature, 2)));
 
         move1 = Move1;
         move2 = Move2;
@@ -234,6 +236,7 @@ public class Pokemon : ICloneable
         transformed = false;
         temporarySpecies = species;
 
+        friendship = Friendship;
         item = Item;
 
         exists = Exists;
@@ -251,14 +254,17 @@ public class Pokemon : ICloneable
         byte IvSpeed = (byte)(ivBytes[5] >> 3);
 
         int personality = random.Next();
-        bool Gender = personality % 2 == 1 ? true : false;
+        bool Gender = personality % 100 > Species.SpeciesTable[(int)species].malePercent ? true : false;
         byte Nature = (byte)((personality >> 1) % 25);
 
         MoveID[] Moves = Learnset.GetMoves(Species.SpeciesTable[(int)species].learnset, level);
 
-        return new Pokemon(species, Gender, level, IvHP, IvAttack, IvDefense, IvSpAtk, IvSpDef, IvSpeed, 0, 0, 0, 0, 0, 0, Nature, Moves[0], Moves[1], Moves[2], Moves[3], (byte)Floor(random.NextDouble() * 2), ItemID.None);
+        return new Pokemon(species, Gender, level, IvHP, IvAttack, IvDefense, IvSpAtk, IvSpDef, IvSpeed,
+            0, 0, 0, 0, 0, 0,
+            Nature, Moves[0], Moves[1], Moves[2], Moves[3], (byte)Floor(random.NextDouble() * 2),
+            Species.SpeciesTable[(int)species].baseFriendship, ItemID.None);
     }
     public static Pokemon MakeEmptyMon => new
-        (SpeciesID.Missingno, false, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Natures.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, ItemID.None, false);
+        (SpeciesID.Missingno, false, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Nature.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, 0, ItemID.None, false);
     public object Clone() => MemberwiseClone() as Pokemon;
 }

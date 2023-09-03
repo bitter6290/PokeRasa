@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Natures
+public static class Nature
 {
     public const byte Hardy = 0;
     public const byte Lonely = 1;

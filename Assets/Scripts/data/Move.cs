@@ -1067,8 +1067,8 @@ public static class Move
     public static MoveData Sandstorm = new(
         "Sandstorm", Type.Rock,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Field, 10); //Needs effect and anim
+        MoveEffect.Weather, 100,
+        false, TargetID.Field, 10); //Needs anim
     public static MoveData GigaDrain = new(
         "Giga Drain", Type.Grass,
         75, 100, 0,
@@ -1082,8 +1082,8 @@ public static class Move
     public static MoveData Charm = new(
         "Charm", Type.Fairy,
         0, 100, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+        MoveEffect.AttackDown2, 100,
+        false, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
     public static MoveData Rollout = new(
         "Rollout", Type.Rock,
         30, 90, 0,
@@ -1094,22 +1094,22 @@ public static class Move
         "False Swipe", Type.Normal,
         40, 100, 0,
         MoveEffect.FalseSwipe, 0,
-        true, TargetID.Opponent + TargetID.Ally, 40); //Needs effect and anim
+        true, TargetID.Opponent + TargetID.Ally, 40); //Needs anim
     public static MoveData Swagger = new(
         "Swagger", Type.Normal,
         0, 85, 0,
         MoveEffect.Swagger, 0,
-        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
     public static MoveData MilkDrink = new(
         "Milk Drink", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Self, 10); //Needs effect and anim
+        MoveEffect.Heal50, 100,
+        false, TargetID.Self, 10); //Needs anim
     public static MoveData Spark = new(
         "Spark", Type.Electric,
         65, 100, 0,
-        MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+        MoveEffect.Paralyze, 30,
+        true, TargetID.Opponent + TargetID.Ally, 20); //Need anim
     public static MoveData FuryCutter = new(
         "Fury Cutter", Type.Bug,
         40, 95, 0,
@@ -1178,17 +1178,17 @@ public static class Move
     public static MoveData DynamicPunch = new(
         "Dynamic Punch", Type.Fighting,
         100, 50, 0,
-        MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+        MoveEffect.Confuse, 100,
+        true, TargetID.Opponent + TargetID.Ally, 5); //Needs anim
     public static MoveData Megahorn = new(
         "Megahorn", Type.Bug,
         120, 85, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+        true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData DragonBreath = new(
         "Dragon Breath", Type.Dragon,
         60, 100, 0,
-        MoveEffect.Hit, 0,
+        MoveEffect.Paralyze, 30,
         false, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
     public static MoveData BatonPass = new(
         "Baton Pass", Type.Normal,
@@ -1213,7 +1213,7 @@ public static class Move
     public static MoveData SweetScent = new(
         "Sweet Scent", Type.Normal,
         0, 100, 0,
-        MoveEffect.Hit, 0,
+        MoveEffect.EvasionDown2, 100,
         false, TargetID.Opponent + TargetID.Spread, 20); //Needs effect and anim
     public static MoveData IronTail = new(
         "Iron Tail", Type.Steel,

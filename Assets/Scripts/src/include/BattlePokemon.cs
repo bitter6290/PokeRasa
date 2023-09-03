@@ -223,7 +223,7 @@ public class BattlePokemon
         CalculateStats();
     }
 
-    public int RaiseStat(byte statID, int amount)
+    public int RaiseStat(Stat statID, int amount)
     {
         switch (statID)
         {
@@ -316,7 +316,7 @@ public class BattlePokemon
         }
     }
 
-    public int LowerStat(byte statID, int amount)
+    public int LowerStat(Stat statID, int amount)
     {
         switch (statID)
         {

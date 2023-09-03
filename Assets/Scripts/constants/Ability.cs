@@ -91,7 +91,7 @@ public enum Ability
     Download, //Not done
     IronFist, //Not done
     PoisonHeal,
-    Adaptability, //Not done
+    Adaptability,
     SkillLink, //Not done
     Hydration, //Not done
     SolarPower, //Not done

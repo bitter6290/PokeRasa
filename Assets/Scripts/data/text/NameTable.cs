@@ -304,4 +304,16 @@
     "SupersweetSyrup",
     "Hospitality",
     };
+    public static string[] Stat = new string[9]
+    {
+        "HP",
+        "Attack",
+        "Defense",
+        "Special Attack",
+        "Special Defense",
+        "Speed",
+        "accuracy",
+        "evasion",
+        "critical-hit ratio",
+    };
 }

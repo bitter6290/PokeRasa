@@ -507,7 +507,7 @@ public static class BattleAnim
     }
 
 
-    public static IEnumerator DefenderAnims(Battle battle, int index, MoveID move)
+    public static IEnumerator DefenderAnims(Battle battle, int index, MoveID move, int attacker)
     {
         switch (move)
         {
