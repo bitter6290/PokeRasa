@@ -92,6 +92,8 @@ public class BattlePokemon
     public bool biding = false;
     public int bideDamage = 0;
 
+    public byte moveIntensity = 0; //Used for Rollout/Ice Ball
+
     public bool flashFire = false;
 
     public bool hasSubstitute = false;
@@ -134,6 +136,7 @@ public class BattlePokemon
         this.position = position;
         this.player = player;
         ability = Species.SpeciesTable[(int)pokemonData.species].abilities[pokemonData.whichAbility];
+        CalculateStats();
     }
 
     public SpeciesID apparentSpecies => isTransformed ? transformedMon.species : PokemonData.species;
@@ -197,6 +200,8 @@ public class BattlePokemon
         spAtk = (int)(BaseSpAtk * StageToModifierNormal(spAtkStage));
         spDef = (int)(BaseSpDef * StageToModifierNormal(spDefStage));
         speed = (int)(BaseSpeed * StageToModifierNormal(speedStage));
+
+        if (ability is Ability.HugePower or Ability.PurePower) { attack <<= 1; }
     }
 
     public static BattlePokemon MakeEmptyBattleMon(bool side, int position)

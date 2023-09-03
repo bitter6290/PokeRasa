@@ -11,13 +11,13 @@ public static class BattleText
 
     public static string AvoidedAttack = " avoided the attack!";
 
-    public static string Rose = " rose!";
-    public static string RoseSharply = " rose sharply!";
-    public static string RoseDrastically = " rose drastically!";
+    public static string StatRose = " rose!";
+    public static string StatRoseSharply = " rose sharply!";
+    public static string StatRoseDrastically = " rose drastically!";
     public static string CantGoHigher = " can't go any higher!";
-    public static string Fell = " fell!";
-    public static string FellSharply = " fell sharply!";
-    public static string FellDrastically = " fell drastically!";
+    public static string StatFell = " fell!";
+    public static string StatFellSharply = " fell sharply!";
+    public static string StatFellDrastically = " fell drastically!";
     public static string CantGoLower = " can't go any lower!";
 
     public static string FrozenSolid = " is frozen solid!";

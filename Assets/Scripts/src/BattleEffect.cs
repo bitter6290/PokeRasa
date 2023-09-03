@@ -17,24 +17,27 @@ public static class BattleEffect
             case 1:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.Rose);
+                    + "'s " + Stat.statName[statID] + BattleText.StatRose);
                 break;
             case 2:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.RoseSharply);
+                    + "'s " + Stat.statName[statID] + BattleText.StatRoseSharply);
                 break;
             default:
                 yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.RoseDrastically);
+                    + "'s " + Stat.statName[statID] + BattleText.StatRoseDrastically);
                 break;
         }
     }
 
     public static IEnumerator StatDown(Battle battle, int index, byte statID, int amount, int attacker)
     {
-        if (battle.Sides[battle.GetSide(index)].mist && battle.GetSide(attacker) != battle.GetSide(index))
+        if (battle.GetSide(attacker) != battle.GetSide(index)
+            && (battle.Sides[battle.GetSide(index)].mist
+            || battle.EffectiveAbility(index) is
+            Ability.WhiteSmoke or Ability.ClearBody))
         {
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is protected by Mist!");
         }
@@ -48,17 +51,17 @@ public static class BattleEffect
             case 1:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.Fell);
+                    + "'s " + Stat.statName[statID] + BattleText.StatFell);
                 break;
             case 2:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.FellSharply);
+                    + "'s " + Stat.statName[statID] + BattleText.StatFellSharply);
                 break;
             default:
                 yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + Stat.statName[statID] + BattleText.FellDrastically);
+                    + "'s " + Stat.statName[statID] + BattleText.StatFellDrastically);
                 break;
         }
     }
@@ -115,6 +118,8 @@ public static class BattleEffect
                 break;
             case 2:
                 yield return GetFreeze(battle, index);
+                break;
+            default:
                 break;
         }
     }
@@ -219,8 +224,14 @@ public static class BattleEffect
 
     public static IEnumerator PoisonHurt(Battle battle, int index)
     {
-        yield return BattleAnim.ShowPoison(battle.maskManager[index]);
         int poisonDamage = battle.PokemonOnField[index].PokemonData.hpMax >> 3;
+        if (battle.HasAbility(index, Ability.PoisonHeal))
+        {
+            Heal(battle, index, poisonDamage);
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is healed by Poison Heal!");
+            yield break;
+        }
+        yield return BattleAnim.ShowPoison(battle.maskManager[index]);
         if (poisonDamage > battle.PokemonOnField[index].PokemonData.HP)
         {
             battle.PokemonOnField[index].PokemonData.HP = 0;
@@ -235,6 +246,12 @@ public static class BattleEffect
 
     public static IEnumerator ToxicPoisonHurt(Battle battle, int index)
     {
+        if (battle.HasAbility(index, Ability.PoisonHeal))
+        {
+            Heal(battle, index, battle.PokemonOnField[index].PokemonData.hpMax >> 3);
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is healed by Poison Heal!");
+            yield break;
+        }
         yield return BattleAnim.ShowPoison(battle.maskManager[index]);
         battle.PokemonOnField[index].toxicCounter++;
         int toxicDamage = (battle.PokemonOnField[index].PokemonData.hpMax >> 4) * battle.PokemonOnField[index].toxicCounter;
@@ -361,23 +378,27 @@ public static class BattleEffect
 
     public static IEnumerator VoluntarySwitch(Battle battle, int index, int partyIndex)
     {
-        if (index < 3) {
+        if (index < 3)
+        {
             battle.LeaveFieldCleanup(index);
+            yield return battle.Announce(battle.OpponentName + " sent out "
+                + battle.OpponentPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
-                            battle.OpponentPokemon[partyIndex], index > 2, index % 3, false);
-            yield return battle.Announce(battle.OpponentName + " sent out " + battle.PokemonOnField[index].PokemonData.monName + "!");
+                battle.OpponentPokemon[partyIndex], index > 2, index % 3, false);
             battle.audioSource.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
                 + battle.PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
+            yield return battle.MonEntersField(index);
         }
         else
         {
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "! Come back!");
             battle.LeaveFieldCleanup(index);
+            yield return battle.Announce("Go! " + battle.PlayerPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
                             battle.PlayerPokemon[partyIndex], index > 2, index % 3, true);
-            yield return battle.Announce("Go! " + battle.MonNameWithPrefix(index, true) + "!");
             battle.audioSource.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
                 + battle.PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
+            yield return battle.MonEntersField(index);
         }
     }
 
@@ -385,7 +406,7 @@ public static class BattleEffect
     {
         var random = new System.Random();
         switch (battle.battleType) //Todo: Implement Multi Battle functionality
-        { 
+        {
             case BattleType.Single:
             default:
                 List<Pokemon> RemainingPokemon = new List<Pokemon>();
@@ -395,9 +416,9 @@ public static class BattleEffect
                     if (PokemonArray[i] == battle.PokemonOnField[index].PokemonData) { continue; }
                     if (PokemonArray[i].exists
                             && !PokemonArray[i].fainted)
-                        {
-                            RemainingPokemon.Add(battle.OpponentPokemon[i]);
-                        }
+                    {
+                        RemainingPokemon.Add(battle.OpponentPokemon[i]);
+                    }
                 }
                 if (RemainingPokemon.Count == 0)
                 {
@@ -552,7 +573,8 @@ public static class BattleEffect
             battle.weatherTimer--;
         }
     }
-    public static IEnumerator Rest(Battle battle, int index) {
+    public static IEnumerator Rest(Battle battle, int index)
+    {
         if (battle.PokemonOnField[index].PokemonData.HP
             < battle.PokemonOnField[index].PokemonData.hpMax)
         {
@@ -677,7 +699,7 @@ public static class BattleEffect
 
     public static IEnumerator Haze(Battle battle)
     {
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             battle.PokemonOnField[i].attackStage = 0;
             battle.PokemonOnField[i].defenseStage = 0;

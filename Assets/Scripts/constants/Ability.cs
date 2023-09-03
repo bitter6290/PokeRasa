@@ -13,7 +13,7 @@ public enum Ability
     VoltAbsorb,
     WaterAbsorb,
     Oblivious, //Not done
-    CloudNine, 
+    CloudNine,
     CompoundEyes,
     Insomnia,
     ColorChange, //Not done
@@ -25,19 +25,19 @@ public enum Ability
     Intimidate,
     ShadowTag,
     RoughSkin, //Not done
-    WonderGuard, //Not done
+    WonderGuard,
     Levitate,
     EffectSpore, //Not done
     Synchronize, //Not done
     ClearBody, //Not done
     NaturalCure, //Not done
     LightningRod, //Not done
-    SereneGrace, //Not done
+    SereneGrace,
     SwiftSwim,
     Chlorophyll,
     Illuminate,
-    Trace, //Not done
-    HugePower, //Not done
+    Trace,
+    HugePower,
     PoisonPoint, //Not done
     InnerFocus, //Not done
     MagmaArmor, //Not done
@@ -65,18 +65,18 @@ public enum Ability
     Guts, //Not done
     MarvelScale, //Not done
     LiquidOoze, //Not done
-    Overgrow, //Not done
-    Blaze, //Not done
-    Torrent, //Not done
+    Overgrow,
+    Blaze,
+    Torrent,
     Swarm, //Not done
     RockHead, //Not done
     Drought, //Not done
     ArenaTrap, //Not done
     VitalSpirit, //Not done
     WhiteSmoke, //Not done
-    PurePower, //Not done
-    ShellArmor, //Not done
-    AirLock, //Not done
+    PurePower,
+    ShellArmor,
+    AirLock,
     TangledFeet, //Not done
     MotorDrive, //Not done
     Rivalry, //Not done
@@ -90,7 +90,7 @@ public enum Ability
     DrySkin, //Not done
     Download, //Not done
     IronFist, //Not done
-    PoisonHeal, //Not done
+    PoisonHeal,
     Adaptability, //Not done
     SkillLink, //Not done
     Hydration, //Not done
@@ -99,9 +99,9 @@ public enum Ability
     Normalize, //Not done
     Sniper, //Not done
     MagicGuard, //Not done
-    NoGuard, //Not done
-    Stall, //Not done
-    Technician, //Not done
+    NoGuard,
+    Stall,
+    Technician,
     LeafGuard, //Not done
     Klutz, //Not done
     MoldBreaker, //Not done

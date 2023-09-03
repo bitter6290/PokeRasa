@@ -378,7 +378,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.WeightPower, 0,
         true, TargetID.Opponent + TargetID.Ally, 20,
-        MoveFlags.makesContact); //Needs effect and anim
+        MoveFlags.makesContact); //Needs anim
     public static MoveData Counter = new(
         "Counter", Type.Fighting,
         1, 100, -5,
@@ -888,15 +888,449 @@ public static class Move
         0, 101, 0,
         MoveEffect.Substitute, 100,
         false, TargetID.Self, 10); //Needs anim
+    public static MoveData Sketch = new(
+     "Sketch", Type.Normal,
+     0, 101, 0,
+     MoveEffect.Hit, 0,
+     false, TargetID.Opponent + TargetID.Ally, 1); //Needs effect and anim
+    public static MoveData TripleKick = new(
+        "Triple Kick", Type.Fighting,
+        10, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData Thief = new(
+        "Thief", Type.Dark,
+        60, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 25); //Needs effect and anim
+    public static MoveData SpiderWeb = new(
+        "Spider Web", Type.Bug,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData MindReader = new(
+        "Mind Reader", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData Nightmare = new(
+        "Nightmare", Type.Ghost,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData FlameWheel = new(
+        "Flame Wheel", Type.Fire,
+        60, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 25); //Needs effect and anim
+    public static MoveData Snore = new(
+        "Snore", Type.Normal,
+        50, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData Curse = new(
+        "Curse", Type.Ghost,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10); //Needs effect and anim
+    public static MoveData Flail = new(
+        "Flail", Type.Normal,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData Conversion2 = new(
+        "Conversion 2", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 30); //Needs effect and anim
+    public static MoveData Aeroblast = new(
+        "Aeroblast", Type.Flying,
+        100, 95, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData CottonSpore = new(
+        "Cotton Spore", Type.Grass,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Spread, 40); //Needs effect and anim
+    public static MoveData Reversal = new(
+        "Reversal", Type.Fighting,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData Spite = new(
+        "Spite", Type.Ghost,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData PowderSnow = new(
+        "Powder Snow", Type.Ice,
+        40, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Spread, 25); //Needs effect and anim
+    public static MoveData Protect = new(
+        "Protect", Type.Normal,
+        0, 101, 4,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10); //Needs effect and anim
+    public static MoveData MachPunch = new(
+        "Mach Punch", Type.Fighting,
+        40, 100, 1,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 30); //Needs effect and anim
+    public static MoveData ScaryFace = new(
+        "Scary Face", Type.Normal,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData FeintAttack = new(
+        "Feint Attack", Type.Dark,
+        60, 101, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+    public static MoveData SweetKiss = new(
+        "Sweet Kiss", Type.Fairy,
+        0, 75, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData BellyDrum = new(
+        "Belly Drum", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10); //Needs effect and anim
+    public static MoveData SludgeBomb = new(
+        "Sludge Bomb", Type.Poison,
+        90, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData MudSlap = new(
+        "Mud Slap", Type.Ground,
+        20, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData Octazooka = new(
+        "Octazooka", Type.Water,
+        65, 85, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData Spikes = new(
+        "Spikes", Type.Ground,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Field, 20); //Needs effect and anim
+    public static MoveData ZapCannon = new(
+        "Zap Cannon", Type.Electric,
+        120, 50, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData Foresight = new(
+        "Foresight", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 40); //Needs effect and anim
+    public static MoveData DestinyBond = new(
+        "Destiny Bond", Type.Ghost,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 5); //Needs effect and anim
+    public static MoveData PerishSong = new(
+        "Perish Song", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Self + TargetID.Ally + TargetID.Spread + TargetID.Ranged, 5); //Needs effect and anim
+    public static MoveData IcyWind = new(
+        "Icy Wind", Type.Ice,
+        55, 95, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Spread, 15); //Needs effect and anim
+    public static MoveData Detect = new(
+        "Detect", Type.Fighting,
+        0, 101, 4,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 5); //Needs effect and anim
+    public static MoveData BoneRush = new(
+        "Bone Rush", Type.Ground,
+        25, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData LockOn = new(
+        "Lock On", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData Outrage = new(
+        "Outrage", Type.Dragon,
+        120, 100, 0,
+        MoveEffect.Thrash, 0,
+        true, TargetID.Self, 10,
+        MoveFlags.makesContact); //Needs anim
+    public static MoveData Sandstorm = new(
+        "Sandstorm", Type.Rock,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Field, 10); //Needs effect and anim
+    public static MoveData GigaDrain = new(
+        "Giga Drain", Type.Grass,
+        75, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData Endure = new(
+        "Endure", Type.Normal,
+        0, 101, 4,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10); //Needs effect and anim
+    public static MoveData Charm = new(
+        "Charm", Type.Fairy,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+    public static MoveData Rollout = new(
+        "Rollout", Type.Rock,
+        30, 90, 0,
+        MoveEffect.Rollout, 100,
+        true, TargetID.Opponent + TargetID.Ally, 20,
+        MoveFlags.effectOnSelfOnly); //Needs anim
+    public static MoveData FalseSwipe = new(
+        "False Swipe", Type.Normal,
+        40, 100, 0,
+        MoveEffect.FalseSwipe, 0,
+        true, TargetID.Opponent + TargetID.Ally, 40); //Needs effect and anim
+    public static MoveData Swagger = new(
+        "Swagger", Type.Normal,
+        0, 85, 0,
+        MoveEffect.Swagger, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData MilkDrink = new(
+        "Milk Drink", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10); //Needs effect and anim
+    public static MoveData Spark = new(
+        "Spark", Type.Electric,
+        65, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+    public static MoveData FuryCutter = new(
+        "Fury Cutter", Type.Bug,
+        40, 95, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+    public static MoveData SteelWing = new(
+        "Steel Wing", Type.Steel,
+        70, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 25); //Needs effect and anim
+    public static MoveData MeanLook = new(
+        "Mean Look", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData Attract = new(
+        "Attract", Type.Normal,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData SleepTalk = new(
+        "Sleep Talk", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 10); //Needs effect and anim
+    public static MoveData HealBell = new(
+        "Heal Bell", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self + TargetID.Ally + TargetID.Spread + TargetID.Ranged, 5); //Needs effect and anim
+    public static MoveData Return = new(
+        "Return", Type.Normal,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+    public static MoveData Present = new(
+        "Present", Type.Normal,
+        0, 90, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData Frustration = new(
+        "Frustration", Type.Normal,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+    public static MoveData Safeguard = new(
+        "Safeguard", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Field, 25); //Needs effect and anim
+    public static MoveData PainSplit = new(
+        "Pain Split", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+    public static MoveData SacredFire = new(
+        "Sacred Fire", Type.Fire,
+        100, 95, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData Magnitude = new(
+        "Magnitude", Type.Ground,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 30); //Needs effect and anim
+    public static MoveData DynamicPunch = new(
+        "Dynamic Punch", Type.Fighting,
+        100, 50, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData Megahorn = new(
+        "Megahorn", Type.Bug,
+        120, 85, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData DragonBreath = new(
+        "Dragon Breath", Type.Dragon,
+        60, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+    public static MoveData BatonPass = new(
+        "Baton Pass", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 40); //Needs effect and anim
+    public static MoveData Encore = new(
+        "Encore", Type.Normal,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData Pursuit = new(
+        "Pursuit", Type.Dark,
+        40, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+    public static MoveData RapidSpin = new(
+        "Rapid Spin", Type.Normal,
+        50, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 40); //Needs effect and anim
+    public static MoveData SweetScent = new(
+        "Sweet Scent", Type.Normal,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Spread, 20); //Needs effect and anim
+    public static MoveData IronTail = new(
+        "Iron Tail", Type.Steel,
+        100, 75, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData MetalClaw = new(
+        "Metal Claw", Type.Steel,
+        50, 95, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 35); //Needs effect and anim
+    public static MoveData VitalThrow = new(
+        "Vital Throw", Type.Fighting,
+        70, 101, -1,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData MorningSun = new(
+        "Morning Sun", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 5); //Needs effect and anim
+    public static MoveData Synthesis = new(
+        "Synthesis", Type.Grass,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 5); //Needs effect and anim
+    public static MoveData Moonlight = new(
+        "Moonlight", Type.Fairy,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 5); //Needs effect and anim
+    public static MoveData HiddenPower = new(
+        "Hidden Power", Type.Normal,
+        60, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData CrossChop = new(
+        "Cross Chop", Type.Fighting,
+        100, 80, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData Twister = new(
+        "Twister", Type.Dragon,
+        40, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Spread, 20); //Needs effect and anim
+    public static MoveData RainDance = new(
+        "Rain Dance", Type.Water,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Field, 5); //Needs effect and anim
+    public static MoveData SunnyDay = new(
+        "Sunny Day", Type.Fire,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Field, 5); //Needs effect and anim
+    public static MoveData Crunch = new(
+        "Crunch", Type.Dark,
+        80, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData MirrorCoat = new(
+        "Mirror Coat", Type.Psychic,
+        0, 100, -5,
+        MoveEffect.Hit, 0,
+        false, TargetID.Self, 20); //Needs effect and anim
+    public static MoveData PsychUp = new(
+        "Psych Up", Type.Normal,
+        0, 101, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData ExtremeSpeed = new(
+        "Extreme Speed", Type.Normal,
+        80, 100, 2,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData AncientPower = new(
+        "Ancient Power", Type.Rock,
+        60, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+    public static MoveData ShadowBall = new(
+        "Shadow Ball", Type.Ghost,
+        80, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData FutureSight = new(
+        "Future Sight", Type.Psychic,
+        120, 100, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+    public static MoveData RockSmash = new(
+        "Rock Smash", Type.Fighting,
+        40, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData Whirlpool = new(
+        "Whirlpool", Type.Water,
+        35, 85, 0,
+        MoveEffect.Hit, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+    public static MoveData BeatUp = new(
+        "Beat Up", Type.Dark,
+        0, 100, 0,
+        MoveEffect.Hit, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+
 
     //Non-standard moves
-    public static MoveData ConfusionHit = new("Null", Type.Typeless,
+    public static MoveData ConfusionHit = new(
+        "a move it shouldn't be able to! (ConfusionHit)", Type.Typeless,
         40, 101, 0,
         MoveEffect.Hit, 0,
         true, TargetID.Self, 0,
         MoveFlags.mimicBypass);
     public static MoveData Recharge = new(
-        "Null", Type.Typeless,
+        "a move it shouldn't be able to! (Recharge)", Type.Typeless,
         0, 0, 0,
         MoveEffect.None, 0,
         false, 0, 0,
@@ -954,6 +1388,7 @@ public static class Move
         MoveEffect.Recoil25Max, 100,
         true, TargetID.Opponent + TargetID.Ally, 0,
         MoveFlags.cannotMimic); //Meeds anim
+
 
     public static MoveData[] MoveTable = new MoveData[(int)MoveID.Count] {
         None,
@@ -1122,6 +1557,92 @@ public static class Move
         Slash,
         Substitute,
         Struggle,
+        Sketch,
+        TripleKick,
+        Thief,
+        SpiderWeb,
+        MindReader,
+        Nightmare,
+        FlameWheel,
+        Snore,
+        Curse,
+        Flail,
+        Conversion2,
+        Aeroblast,
+        CottonSpore,
+        Reversal,
+        Spite,
+        PowderSnow,
+        Protect,
+        MachPunch,
+        ScaryFace,
+        FeintAttack,
+        SweetKiss,
+        BellyDrum,
+        SludgeBomb,
+        MudSlap,
+        Octazooka,
+        Spikes,
+        ZapCannon,
+        Foresight,
+        DestinyBond,
+        PerishSong,
+        IcyWind,
+        Detect,
+        BoneRush,
+        LockOn,
+        Outrage,
+        Sandstorm,
+        GigaDrain,
+        Endure,
+        Charm,
+        Rollout,
+        FalseSwipe,
+        Swagger,
+        MilkDrink,
+        Spark,
+        FuryCutter,
+        SteelWing,
+        MeanLook,
+        Attract,
+        SleepTalk,
+        HealBell,
+        Return,
+        Present,
+        Frustration,
+        Safeguard,
+        PainSplit,
+        SacredFire,
+        Magnitude,
+        DynamicPunch,
+        Megahorn,
+        DragonBreath,
+        BatonPass,
+        Encore,
+        Pursuit,
+        RapidSpin,
+        SweetScent,
+        IronTail,
+        MetalClaw,
+        VitalThrow,
+        MorningSun,
+        Synthesis,
+        Moonlight,
+        HiddenPower,
+        CrossChop,
+        Twister,
+        RainDance,
+        SunnyDay,
+        Crunch,
+        MirrorCoat,
+        PsychUp,
+        ExtremeSpeed,
+        AncientPower,
+        ShadowBall,
+        FutureSight,
+        RockSmash,
+        Whirlpool,
+        BeatUp,
         //Nonstandard moves
         ConfusionHit,
         Recharge,

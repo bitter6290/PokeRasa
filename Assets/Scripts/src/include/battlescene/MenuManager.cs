@@ -356,7 +356,8 @@ public class MenuManager : MonoBehaviour
                                     else if (battle.TryAddMove(currentMon, currentMove))
                                     {
                                         battle.PokemonOnField[currentMon].choseMove = true;
-                                        switch (battle.battleType) {
+                                        switch (battle.battleType)
+                                        {
                                             case BattleType.Single:
                                                 battle.Targets[currentMon] = 0;
                                                 break;
@@ -522,7 +523,7 @@ public class MenuManager : MonoBehaviour
                             switch (currentMove)
                             {
                                 case 1:
-                                    if(text1.text == "Struggle")
+                                    if (text1.text == "Struggle")
                                     {
                                         battle.Moves[currentMon] = MoveID.Struggle;
                                         battle.PokemonOnField[currentMon].dontCheckPP = true;

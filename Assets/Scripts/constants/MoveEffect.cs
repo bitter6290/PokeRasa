@@ -16,6 +16,7 @@ public enum MoveEffect
     Sleep,
     Confuse,
     TriAttack,
+    Swagger,
     //Stat changes
     AttackUp1,
     AttackUp2,
@@ -65,6 +66,8 @@ public enum MoveEffect
     OHKO,
     Rage,
     WeightPower,
+    Rollout,
+    FalseSwipe,
     //Paired effects
     Bide,
     BideHit,

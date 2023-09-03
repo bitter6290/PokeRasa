@@ -1,16 +1,21 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Player : MonoBehaviour
 {
 
 
-    public BitArray TM = new(96);
-    public BitArray HM = new(8);
-    public BitArray keyItem = new(0);
+    public bool[] TM = new bool[96];
+    public bool[] HM = new bool[8];
+    public bool[] keyItem = new bool[8];
 
-    Pokemon[] Party = new Pokemon[6];
+    public bool[] storyFlags = new bool[100];
+
+
+    public Pokemon[] Party = new Pokemon[6];
     int monsInParty = 0;
 
 
@@ -31,7 +36,7 @@ public class Player : MonoBehaviour
     private bool TryAddMon(Pokemon mon)
     {
         SortParty();
-        if(monsInParty >= 6)
+        if (monsInParty >= 6)
         {
             return false;
         }
@@ -46,7 +51,7 @@ public class Player : MonoBehaviour
     private void SortParty()
     {
         int currentPos = 0;
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < 6; i++)
         {
             if (Party[i].exists)
             {
