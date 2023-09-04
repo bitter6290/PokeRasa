@@ -42,6 +42,7 @@ public class BattlePokemon
     public bool gotMoveEffect = false;
     public bool abilityHealed25 = false;
     public bool abilityActivated = false;
+    public bool wasProtected = false;
 
     public bool confused = false;
     public byte confusionCounter = 0;
@@ -50,6 +51,9 @@ public class BattlePokemon
     public ContinuousDamage continuousDamageType = ContinuousDamage.None;
     public int continuousDamageSource = 0;
     public int continuousDamageTimer = 0;
+
+    public bool trapped = false;
+    public int trappingSlot = 0;
 
     public bool thrashing = false;
     public byte thrashingTimer;
@@ -68,9 +72,6 @@ public class BattlePokemon
 
     public bool usedDefenseCurl = false;
     public bool minimized = false;
-
-    public bool protect = false;
-    public byte protectCounter = 0;
 
     public int toxicCounter = 0;
 
@@ -92,7 +93,7 @@ public class BattlePokemon
     public bool biding = false;
     public int bideDamage = 0;
 
-    public byte moveIntensity = 0; //Used for Rollout/Ice Ball
+    public byte rolloutIntensity = 0;
 
     public bool flashFire = false;
 
@@ -101,11 +102,18 @@ public class BattlePokemon
 
     public bool isEnraged = false;
 
+    public bool perishSong = false;
+    public int perishCounter = 0;
+
     public bool isTransformed = false;
     public Pokemon transformedMon = Pokemon.MakeEmptyMon;
 
     public Ability ability;
     public int item;
+
+    public bool endure = false;
+    public bool protect = false;
+    public int protectCounter = 0;
 
     public byte newType1 = Type.Typeless;
     public byte newType2 = Type.Typeless;
@@ -210,17 +218,52 @@ public class BattlePokemon
         return new BattlePokemon(emptyMon, side, position, false, false);
     }
 
-    public void CopyStatChanges(BattlePokemon monIn)
+    public StatStruct MakeStatStruct()
     {
-        attackStage = monIn.attackStage;
-        defenseStage = monIn.defenseStage;
-        spAtkStage = monIn.spAtkStage;
-        spDefStage = monIn.spDefStage;
-        speedStage = monIn.speedStage;
-        accuracyStage = monIn.accuracyStage;
-        evasionStage = monIn.evasionStage;
-        critStage = monIn.critStage;
-        CalculateStats();
+        return new StatStruct()
+        {
+            attack = attackStage,
+            defense = defenseStage,
+            spAtk = spAtkStage,
+            spDef = spDefStage,
+            speed = speedStage,
+            accuracy = accuracyStage,
+            evasion = evasionStage,
+            critRatio = critStage,
+        };
+    }
+
+    public void ApplyStatStruct(StatStruct statStruct)
+    {
+        attackStage = statStruct.attack;
+        defenseStage = statStruct.defense;
+        spAtkStage = statStruct.spAtk;
+        spDefStage = statStruct.spDef;
+        speedStage = statStruct.speed;
+        accuracyStage = statStruct.accuracy;
+        evasionStage = statStruct.evasion;
+        critStage = statStruct.critRatio;
+    }
+
+    public BatonPassStruct MakeBatonPassStruct()
+    {
+        return new BatonPassStruct()
+        {
+            statStruct = MakeStatStruct(),
+            substitute = hasSubstitute,
+            substituteHP = substituteHP,
+            seeded = seeded,
+            seedingSlot = seedingSlot,
+        };
+    }
+
+    public void ApplyBatonPassStruct(BatonPassStruct batonPassStruct)
+    {
+        ApplyStatStruct(batonPassStruct.statStruct);
+        hasSubstitute = batonPassStruct.substitute;
+        substituteHP = batonPassStruct.substituteHP;
+        seeded = batonPassStruct.seeded;
+        seedingSlot = batonPassStruct.seedingSlot;
     }
 
     public int RaiseStat(Stat statID, int amount)

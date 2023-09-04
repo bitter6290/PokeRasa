@@ -3,8 +3,9 @@
 
 01- Pokemon data None
 10 - used move None
+101 - illegal move
 103 - invalid move with MoveEffect.None
-301 - tried to assign invalid Continuous Damage
-302 - tried to do damage because of invalid Continuous Damage
+111 - tried to assign invalid Continuous Damage
+112 - tried to do damage because of invalid Continuous Damage
 401 - trainer name was never set
 901 - showing data for item None

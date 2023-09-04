@@ -29,7 +29,7 @@ public enum Ability
     Levitate,
     EffectSpore, //Not done
     Synchronize, //Not done
-    ClearBody, //Not done
+    ClearBody,
     NaturalCure, //Not done
     LightningRod, //Not done
     SereneGrace,
@@ -43,9 +43,9 @@ public enum Ability
     MagmaArmor, //Not done
     WaterVeil, //Not done
     MagnetPull, //Not done
-    Soundproof, //Not done
+    Soundproof,
     RainDish, //Not done
-    SandStream, //Not done
+    SandStream,
     Pressure, //Not done
     ThickFat, //Not done
     EarlyBird, //Not done
@@ -62,13 +62,13 @@ public enum Ability
     Forecast, //Not done
     StickyHold, //Not done
     ShedSkin, //Not done
-    Guts, //Not done
+    Guts,
     MarvelScale, //Not done
     LiquidOoze, //Not done
     Overgrow,
     Blaze,
     Torrent,
-    Swarm, //Not done
+    Swarm,
     RockHead, //Not done
     Drought, //Not done
     ArenaTrap, //Not done
@@ -86,18 +86,18 @@ public enum Ability
     AngerPoint, //Not done
     Unburden, //Not done
     Heatproof, //Not done
-    Simple, //Not done
+    Simple,
     DrySkin, //Not done
     Download, //Not done
     IronFist, //Not done
     PoisonHeal,
     Adaptability,
-    SkillLink, //Not done
+    SkillLink,
     Hydration, //Not done
     SolarPower, //Not done
     QuickFeet, //Not done
-    Normalize, //Not done
-    Sniper, //Not done
+    Normalize,
+    Sniper,
     MagicGuard, //Not done
     NoGuard,
     Stall,
@@ -109,7 +109,7 @@ public enum Ability
     Aftermath, //Not done
     Anticipation, //Not done
     Forewarn, //Not done
-    Unaware, //Not done
+    Unaware,
     TintedLens, //Not done
     Filter, //Not done
     SlowStart, //Not done
@@ -128,7 +128,7 @@ public enum Ability
     SheerForce, //Not done
     Contrary, //Not done
     Unnerve, //Not done
-    Defiant, //Not done
+    Defiant,
     Defeatist, //Not done
     CursedBody, //Not done
     Healer, //Not done
@@ -172,9 +172,9 @@ public enum Ability
     FurCoat, //Not done
     Magician, //Not done
     Bulletproof, //Not done
-    Competitive, //Not done
+    Competitive,
     StrongJaw, //Not done
-    Refrigerate, //Not done
+    Refrigerate,
     SweetVeil, //Not done
     StanceChange, //Not done
     GaleWings, //Not done
@@ -184,7 +184,7 @@ public enum Ability
     ToughClaws, //Not done
     Pixilate, //Not done
     Gooey, //Not done
-    Aerilate, //Not done
+    Aerilate,
     ParentalBond, //Not done
     DarkAura, //Not done
     FairyAura, //Not done

@@ -773,7 +773,9 @@ public class MenuManager : MonoBehaviour
                                     }
                                     else if (battle.AbilityOnSide(Ability.ShadowTag, 0)
                                         || (battle.AbilityOnSide(Ability.ArenaTrap, 0)
-                                        && battle.IsGrounded(currentMon)))
+                                        && battle.IsGrounded(currentMon))
+                                        || battle.PokemonOnField[currentMon].trapped
+                                        || battle.PokemonOnField[currentMon].getsContinuousDamage)
                                     {
                                         battle.state = BattleState.Announcement;
                                         StartCoroutine(MonTrapped(currentMon));

@@ -12,4 +12,9 @@ public static class MoveFlags
     public const int mimicBypass = 1 << 8;
     public const int cannotMimic = 1 << 9;
     public const int makesContact = 1 << 10;
+    public const int usesProtectCounter = 1 << 11;
+    public const int soundMove = 1 << 12;
+    public const int powderMove = 1 << 13;
+    public const int bulletMove = 1 << 14;
+    public const int megaLauncherMove = 1 << 15;
 }
