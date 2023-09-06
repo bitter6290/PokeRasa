@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public static class BattleEffect
@@ -871,5 +872,19 @@ public static class BattleEffect
                 }
             }
         }
+    }
+
+    public static IEnumerator GhostCurse(Battle battle, int attacker, int defender)
+    {
+        battle.PokemonOnField[attacker].DoNonMoveDamage(battle.PokemonOnField[attacker].PokemonData.hpMax >> 1);
+        battle.PokemonOnField[defender].cursed = true;
+        yield return battle.Announce(battle.MonNameWithPrefix(attacker, true) + " cut its own HP to put a curse on "
+            + battle.MonNameWithPrefix(defender, false) + "!");
+    }
+
+    public static IEnumerator DoCurse(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].DoNonMoveDamage(battle.PokemonOnField[index].PokemonData.hpMax >> 2);
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Curse!");
     }
 }

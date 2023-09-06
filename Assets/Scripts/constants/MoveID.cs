@@ -252,7 +252,9 @@ public enum MoveID
     RockSmash,
     Whirlpool,
     BeatUp,
+
     //Nonstandard moves
+
     ConfusionHit,
     Recharge,
     RazorWindAttack,
@@ -265,6 +267,12 @@ public enum MoveID
     BideAttack,
 
     Count,
+
+    //Fake moves
+
+    NonGhostCurse,
+
+    //Non-moves
 
     Switch,
     UseItem,

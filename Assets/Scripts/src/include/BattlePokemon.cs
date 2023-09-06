@@ -118,6 +118,8 @@ public class BattlePokemon
     public bool infatuated = false;
     public int infatuationTarget = 0;
 
+    public bool cursed = false;
+
     public byte newType1 = Type.Typeless;
     public byte newType2 = Type.Typeless;
     public bool typesOverriden = false;
@@ -156,6 +158,19 @@ public class BattlePokemon
     {
         return mimicking && (index == mimicSlot - 1) ?
             mimicMove : isTransformed ? transformedMon.MoveIDs[index] : PokemonData.MoveIDs[index];
+    }
+
+    public void DoNonMoveDamage(int damage)
+    {
+        if(damage > PokemonData.HP)
+        {
+            PokemonData.fainted = true;
+            PokemonData.HP = 0;
+        }
+        else
+        {
+            PokemonData.HP -= damage;
+        }
     }
 
     public byte GetPP(int index)

@@ -894,10 +894,10 @@ public static class Move
         MoveEffect.Substitute, 100,
         false, TargetID.Self, 10); //Needs anim
     public static MoveData Sketch = new(
-     "Sketch", Type.Normal,
-     0, 101, 0,
-     MoveEffect.Hit, 0,
-     false, TargetID.Opponent + TargetID.Ally, 1); //Needs effect and anim
+         "Sketch", Type.Normal,
+         0, 101, 0,
+         MoveEffect.Sketch, 0,
+         false, TargetID.Opponent + TargetID.Ally, 1); //Needs anim
     public static MoveData TripleKick = new(
         "Triple Kick", Type.Fighting,
         10, 90, 0,
@@ -912,7 +912,7 @@ public static class Move
         "Spider Web", Type.Bug,
         0, 101, 0,
         MoveEffect.Trap, 100,
-        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData MindReader = new(
         "Mind Reader", Type.Normal,
         0, 101, 0,
@@ -935,9 +935,9 @@ public static class Move
         false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
     public static MoveData Curse = new(
         "Curse", Type.Ghost,
-        0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Self, 10); //Needs effect and anim
+        0, 100, 0,
+        MoveEffect.Curse, 100,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
     public static MoveData Flail = new(
         "Flail", Type.Normal,
         0, 100, 0,
@@ -1135,7 +1135,7 @@ public static class Move
         "Mean Look", Type.Normal,
         0, 101, 0,
         MoveEffect.Trap, 100,
-        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs anim
     public static MoveData Attract = new(
         "Attract", Type.Normal,
         0, 100, 0,
@@ -1150,7 +1150,7 @@ public static class Move
         "Heal Bell", Type.Normal,
         0, 101, 0,
         MoveEffect.HealBell, 100,
-        false, TargetID.Field, 5); //Needs effect and anim
+        false, TargetID.Field, 5); //Needs anim
     public static MoveData Return = new(
         "Return", Type.Normal,
         1, 100, 0,

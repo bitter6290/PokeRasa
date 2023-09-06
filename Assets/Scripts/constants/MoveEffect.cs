@@ -48,6 +48,7 @@ public enum MoveEffect
     PerishSong,
     Attract,
     Trap,
+    Curse,
     //Direct damage
     Direct20,
     Direct40,
@@ -102,6 +103,7 @@ public enum MoveEffect
     HealBell,
     Heal50,
     HealWeather,
+    Sketch,
     //Nonstandard effects
     Recharge,
 }

@@ -20,7 +20,7 @@ public static class BattleAnim
     }
     public static AudioClip BattleFX(string path)
     {
-        return Resources.Load<AudioClip>("Sound/Battle/" + path);
+        return Resources.Load<AudioClip>("Sound/Battle SFX/" + path);
     }
 
     //Sprite constructors
@@ -485,35 +485,33 @@ public static class BattleAnim
         UnityEngine.Object.Destroy(mask);
     }
 
-    public static IEnumerator AttractHeart(Battle battle, int index, float xDisplacement) //duration 1.50
+    public static IEnumerator AttractHeart(Battle battle, int index, float xDisplacement) //duration 0.60
     {
         GameObject heart = NewSpriteFromTexturePart("Sprites/Battle/pink_heart_2", battle.spriteTransform[index],
             new Vector2(1.0F, 1.0F), new Vector2(0.0F, 0.0F), new Rect(0.0F, 0.0F, 32.0F, 32.0F));
-        battle.StartCoroutine(FadeIn(heart.GetComponent<SpriteRenderer>(), 0.3F)); //0.00 - 0.30
-        battle.StartCoroutine(DoublePower(heart.GetComponent<Transform>(), new Vector2(xDisplacement, 1.5F), 0.5F, 1.5F, 1.0F)); //0.00 - 1.00
-        yield return new WaitForSeconds(0.9F); //0.90
-        yield return FadeDelete(heart.GetComponent<SpriteRenderer>(), 0.2F); //1.10
+        battle.StartCoroutine(FadeIn(heart.GetComponent<SpriteRenderer>(), 0.2F)); //0.00 - 0.20
+        battle.StartCoroutine(DoublePower(heart.GetComponent<Transform>(), new Vector2(xDisplacement, 1.5F), 0.5F, 1.5F, 0.6F)); //0.00 - 0.60
+        yield return new WaitForSeconds(0.45F); //0.45
+        yield return FadeDelete(heart.GetComponent<SpriteRenderer>(), 0.15F); //0.60
     }
 
     public static IEnumerator Infatuated(Battle battle, int index)
     {
-        battle.StartCoroutine(battle.maskManager[index].MaskColor(0.2F, 1.6F, 160.0F / 255.0F, new Color(1, 0.75F, 0.9F))); //0.00 - 2.00
         AudioSource leftSource = battle.gameObject.AddComponent<AudioSource>();
         AudioSource rightSource = battle.gameObject.AddComponent<AudioSource>();
         AudioClip heartSound = Resources.Load<AudioClip>("Sound/Battle SFX/Charm");
-        yield return new WaitForSeconds(0.1F); //0.10
         rightSource.PlayOneShot(heartSound);
         rightSource.panStereo = 0.2F;
-        battle.StartCoroutine(AttractHeart(battle, index, 0.9F)); //0.10 - 1.20
+        yield return null; //negligible
+        battle.StartCoroutine(AttractHeart(battle, index, 0.9F)); //0.00 - 0.60
         yield return new WaitForSeconds(0.5F); //0.60
         leftSource.PlayOneShot(heartSound);
         leftSource.panStereo = -0.2F;
-        battle.StartCoroutine(AttractHeart(battle, index, -0.7F)); //0.60 - 1.70
+        battle.StartCoroutine(AttractHeart(battle, index, -0.75F)); //0.60 - 1.20
         yield return new WaitForSeconds(0.2F); //0.80
         rightSource.PlayOneShot(heartSound);
         rightSource.panStereo = 0.06F;
-        yield return AttractHeart(battle, index, 0.2F); //1.90
-        yield return new WaitForSeconds(0.1F); //2.00
+        yield return AttractHeart(battle, index, 0.3F); //1.40
         UnityEngine.Object.Destroy(leftSource);
         UnityEngine.Object.Destroy(rightSource);
 

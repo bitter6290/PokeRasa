@@ -135,7 +135,7 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator MonTrapped(int currentMon)
     {
-        yield return battle.Announce(battle.PlayerPokemon[currentMon].monName
+        yield return battle.Announce(battle.PokemonOnField[currentMon].PokemonData.monName
             + " is trapped and cannot switch!");
         battle.state = BattleState.PlayerInput;
     }
@@ -576,6 +576,7 @@ public class MenuManager : MonoBehaviour
                                     }
                                     break;
                                 case 3:
+                                    battle.switchDuringTurn = false;
                                     menuMode = MenuMode.Party;
                                     break;
                                 default:
@@ -676,7 +677,7 @@ public class MenuManager : MonoBehaviour
                                     }
                                     break;
                                 case 3:
-                                    currentMove = box5.enabled ? 5 :
+                                    currentPartyMon = box5.enabled ? 5 :
                                         battle.switchDuringTurn ? 3 : 0;
                                     if (currentPartyMon != 3) {
                                         battle.audioSource.PlayOneShot(MoveCursor);

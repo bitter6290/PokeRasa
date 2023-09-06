@@ -1328,6 +1328,7 @@ public class Battle : MonoBehaviour
             PokemonOnField[index].PokemonData.HP -= damage;
         }
         yield return DoHitFlash(index);
+        yield return Announce(MonNameWithPrefix(index, true) + " hurt itself in confusion!");
         yield return ProcessFainting();
     }
 
@@ -1382,19 +1383,55 @@ public class Battle : MonoBehaviour
         }
         yield return Announce(PokemonOnField[index].PokemonData.monName + " used " + GetMove(index).name + "!");
 
-        if (GetMove(index).effect == MoveEffect.MirrorMove)
+        switch (GetMove(index).effect)
         {
-            PokemonOnField[index].dontCheckPP = true;
-            Moves[index] = PokemonOnField[index].lastTargetedMove;
-            yield return ExecuteMove(index);
-            yield break;
-        }
-        if (GetMove(index).effect == MoveEffect.Metronome)
-        {
-            PokemonOnField[index].dontCheckPP = true;
-            Moves[index] = (MoveID)(random.Next() % (int)MoveID.Count); //Todo: Add double or multi-battle functionality (targeting)
-            yield return ExecuteMove(index);
-            yield break;
+            case MoveEffect.MirrorMove:
+                PokemonOnField[index].dontCheckPP = true;
+                Moves[index] = PokemonOnField[index].lastTargetedMove;
+                yield return ExecuteMove(index);
+                yield break;
+            case MoveEffect.Metronome:
+                PokemonOnField[index].dontCheckPP = true;
+                Moves[index] = (MoveID)(random.Next() % (int)MoveID.Count); //Todo: Add double or multi-battle functionality (targeting)
+                yield return ExecuteMove(index);
+                yield break;
+            case MoveEffect.Sketch:
+                {
+                    MoveID targetMove = PokemonOnField[Targets[index]].lastMoveUsed;
+                    if (targetMove == MoveID.None)
+                    {
+                        yield return Announce(BattleText.MoveFailed);
+                        PokemonOnField[index].done = true;
+                        MoveCleanup();
+                        yield break;
+                    }
+                    else
+                    {
+                        yield return DoMoveAnimation(index, Moves[index]);
+                        PokemonOnField[index].PokemonData.AddMove(MoveNums[index], targetMove);
+                        yield return Announce(MonNameWithPrefix(index, true) + " sketched " + MonNameWithPrefix(Targets[index], false) + "'s "
+                            + Move.MoveTable[(int)targetMove].name + "!");
+                        PokemonOnField[index].done = true;
+                        MoveCleanup();
+                        yield break;
+                    }
+                }
+            case MoveEffect.Curse:
+                if (!PokemonOnField[index].HasType(Type.Ghost))
+                {
+                    if (PokemonOnField[index].attackStage < 6 || PokemonOnField[index].defenseStage < 6
+                        || PokemonOnField[index].speedStage > -6)
+                    {
+                        yield return BattleAnim.AttackerAnims(this, index, MoveID.NonGhostCurse, 0);
+                    }
+                    yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, index);
+                    yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, index);
+                    yield return BattleEffect.StatDown(this, index, Stat.Speed, 1, index);
+                    PokemonOnField[index].done = true;
+                    MoveCleanup();
+                    yield break;
+                }
+                break;
         }
         if (GetMove(index).targets == TargetID.Field)
         {
@@ -2135,6 +2172,10 @@ public class Battle : MonoBehaviour
                     yield return Announce("Coins were scattered everywhere!");
                 }
                 break;
+            case MoveEffect.Curse:
+                yield return BattleEffect.GhostCurse(this, attacker, index);
+                ProcessFaintingSingle(attacker);
+                break;
             case MoveEffect.ForcedSwitch:
                 yield return BattleEffect.ForcedSwitch(this, index);
                 break;
@@ -2293,6 +2334,12 @@ public class Battle : MonoBehaviour
                     yield return BattleEffect.DoLeechSeed(this, i);
                 }
                 yield return ProcessFainting();
+                if (PokemonOnField[i].PokemonData.fainted) { continue; }
+                if (PokemonOnField[i].cursed)
+                {
+                    yield return BattleEffect.DoCurse(this, i);
+                }
+                yield return ProcessFaintingSingle(i);
                 if (PokemonOnField[i].PokemonData.fainted) { continue; }
             }
             if (PokemonOnField[i].ability == Ability.SpeedBoost)

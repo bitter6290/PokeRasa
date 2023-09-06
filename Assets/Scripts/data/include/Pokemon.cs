@@ -170,6 +170,32 @@ public class Pokemon : ICloneable
     {
         return move2 == MoveID.None ? 1 : move3 == MoveID.None ? 2 : move4 == MoveID.None ? 3 : 4;
     }
+    public void AddMove(int slot, MoveID move)
+    {
+        switch (slot)
+        {
+            case 1:
+                move1 = move;
+                maxPp1 = Move.MoveTable[(int)move].pp;
+                pp1 = maxPp1;
+                break;
+            case 2:
+                move2 = move;
+                maxPp2 = Move.MoveTable[(int)move].pp;
+                pp2 = maxPp2;
+                break;
+            case 3:
+                move3 = move;
+                maxPp3 = Move.MoveTable[(int)move].pp;
+                pp3 = maxPp3;
+                break;
+            case 4:
+                move4 = move;
+                maxPp4 = Move.MoveTable[(int)move].pp;
+                pp4 = maxPp4;
+                break;
+        }
+    }
     public Pokemon(SpeciesID thisSpecies, Gender Gender, byte Level,
         byte IvHP, byte IvAttack, byte IvDefense, byte IvSpAtk, byte IvSpDef, byte IvSpeed,
         byte EvHP, byte EvAttack, byte EvDefense, byte EvSpAtk, byte EvSpDef, byte EvSpeed,
