@@ -117,6 +117,16 @@ public class Battle : MonoBehaviour
                 : PokemonOnField[index].PokemonData.monName;
     }
 
+    public bool OppositeGenders(int indexA, int indexB)
+    {
+        return PokemonOnField[indexA].PokemonData.gender switch
+        {
+            Gender.Male => PokemonOnField[indexB].PokemonData.gender == Gender.Female,
+            Gender.Female => PokemonOnField[indexB].PokemonData.gender == Gender.Male,
+            _ => false
+        };
+    }
+
     private MoveData GetMove(int index)
     {
         return Move.MoveTable[(int)Moves[index]];
@@ -343,6 +353,7 @@ public class Battle : MonoBehaviour
         return PokemonOnField[index].ability switch
         {
             Ability.CompoundEyes => 1.3F,
+            Ability.Hustle => 0.8F,
             _ => 1.0F,
         };
     }
@@ -482,15 +493,16 @@ public class Battle : MonoBehaviour
             * effectivePower * attackOverDefense / 50) + 2)
             * effectiveTypeModifier
             * stab * multitarget * critical * burn * screen
-            * (AbilitiesSuppressed ? 1.0F : AttackerAbilityModifier(attacker, move))
+            * AttackerAbilityModifier(attacker, move)
+            * DefenderAbilityModifier(defender, move)
             * invulnerabiltyBonus * roll / 100);
         Debug.Log(result);
         return (result < 1) ? 1 : result;
     }
 
-    public static float AttackerAbilityModifier(BattlePokemon attacker, MoveID move)
+    private float AttackerAbilityModifier(BattlePokemon attacker, MoveID move)
     {
-        return attacker.ability switch
+        return EffectiveAbility(attacker.index) switch
         {
             Ability.FlashFire =>
                     attacker.flashFire
@@ -498,21 +510,36 @@ public class Battle : MonoBehaviour
                     ? 1.5F : 1.0F,
             Ability.Overgrow =>
                     Move.MoveTable[(int)move].type == Type.Grass
-                    && attacker.PokemonData.HP * 3 < attacker.PokemonData.hpMax
+                    && attacker.PokemonData.HP * 3 <= attacker.PokemonData.hpMax
                     ? 1.5F : 1.0F,
             Ability.Blaze =>
                     Move.MoveTable[(int)move].type == Type.Fire
-                    && attacker.PokemonData.HP * 3 < attacker.PokemonData.hpMax
+                    && attacker.PokemonData.HP * 3 <= attacker.PokemonData.hpMax
                     ? 1.5F : 1.0F,
             Ability.Torrent =>
                     Move.MoveTable[(int)move].type == Type.Water
-                    && attacker.PokemonData.HP * 3 < attacker.PokemonData.hpMax
+                    && attacker.PokemonData.HP * 3 <= attacker.PokemonData.hpMax
                     ? 1.5F : 1.0F,
             Ability.Swarm =>
                     Move.MoveTable[(int)move].type == Type.Bug
-                    && attacker.PokemonData.HP * 3 < attacker.PokemonData.hpMax
+                    && attacker.PokemonData.HP * 3 <= attacker.PokemonData.hpMax
                     ? 1.5F : 1.0F,
+            Ability.SolarPower =>
+                    weather == Weather.Sun ? 1.5F : 1.0F,
+            Ability.Hustle =>
+                    Move.MoveTable[(int)move].physical ? 1.5F : 1.0F,
             _ => 1.0F,
+        };
+    }
+
+    private float DefenderAbilityModifier(BattlePokemon defender, MoveID move)
+    {
+        return EffectiveAbility(defender.index) switch
+        {
+            Ability.Multiscale or Ability.ShadowShield =>
+                    defender.PokemonData.HP == defender.PokemonData.hpMax ? 0.5F : 1.0F,
+            _ => 1.0F,
+
         };
     }
 
@@ -657,6 +684,14 @@ public class Battle : MonoBehaviour
                         {
                             PokemonOnField[i].gotAbilityEffect = true;
                             PokemonOnField[i].affectingAbility = Ability.Bulletproof;
+                            continue;
+                        }
+                        break;
+                    case Ability.DrySkin:
+                        if ((Move.MoveTable[(int)move].type == Type.Water)
+                            && !HasAbility(attacker, Ability.MoldBreaker))
+                        {
+                            PokemonOnField[i].abilityHealed25 = true;
                             continue;
                         }
                         break;
@@ -1027,6 +1062,13 @@ public class Battle : MonoBehaviour
                 }
             }
         }
+        for (int i = 0; i < 6; i++)
+        {
+            if (PokemonOnField[i].infatuationTarget == index)
+            {
+                PokemonOnField[i].infatuated = false;
+            }
+        }
         if (!PokemonOnField[index].PokemonData.fainted && HasAbility(index, Ability.Regenerator))
         { PokemonOnField[index].PokemonData.HP += PokemonOnField[index].PokemonData.hpMax / 3; }
         PokemonOnField[index].PokemonData.onField = false;
@@ -1044,41 +1086,41 @@ public class Battle : MonoBehaviour
         var random = new System.Random();
         bool goAhead = true;
         PokemonOnField[index].invulnerability = Invulnerability.None;
-        if (PokemonOnField[index].PokemonData.status == Status.Paralysis)
+        switch (PokemonOnField[index].PokemonData.status)
         {
-            //Debug.Log("Checking para");
-            if (random.NextDouble() < 0.25F)
-            {
-                yield return FullParalysis(index);
-                //Debug.Log("Full para");
-                goAhead = false;
-            }
-        }
-        else if (PokemonOnField[index].PokemonData.status == Status.Sleep)
-        {
-            if (TryWakeUp(index))
-            {
-                yield return WokeUp(index);
-                PokemonOnField[index].PokemonData.status = Status.None;
-            }
-            else
-            {
-                yield return MonAsleep(index);
-                goAhead = false;
-            }
-        }
-        else if (PokemonOnField[index].PokemonData.status == Status.Freeze)
-        {
-            if (random.NextDouble() < 0.8)
-            {
-                yield return MonFrozen(index);
-                goAhead = false;
-            }
-            else
-            {
-                yield return ThawedOut(index);
-                PokemonOnField[index].PokemonData.status = Status.None;
-            }
+            case Status.Paralysis:
+                //Debug.Log("Checking para");
+                if (random.NextDouble() < 0.25F)
+                {
+                    yield return FullParalysis(index);
+                    //Debug.Log("Full para");
+                    goAhead = false;
+                }
+                break;
+            case Status.Sleep:
+                if (TryWakeUp(index))
+                {
+                    yield return WokeUp(index);
+                    PokemonOnField[index].PokemonData.status = Status.None;
+                }
+                else
+                {
+                    yield return MonAsleep(index);
+                    goAhead = false;
+                }
+                break;
+            case Status.Freeze:
+                if (random.NextDouble() < 0.8)
+                {
+                    yield return MonFrozen(index);
+                    goAhead = false;
+                }
+                else
+                {
+                    yield return ThawedOut(index);
+                    PokemonOnField[index].PokemonData.status = Status.None;
+                }
+                break;
         }
         if (goAhead && PokemonOnField[index].flinched)
         {
@@ -1091,6 +1133,16 @@ public class Battle : MonoBehaviour
             if (random.NextDouble() < 1.0F / 3.0F)
             {
                 yield return HurtByConfusion(index);
+                goAhead = false;
+            }
+        }
+        if (goAhead && PokemonOnField[index].infatuated)
+        {
+            yield return Announce(MonNameWithPrefix(index, true) + " is infatuated!");
+            yield return BattleAnim.Infatuated(this, index);
+            if (random.NextDouble() < 1.0F / 2.0F)
+            {
+                yield return Announce(MonNameWithPrefix(index, true) + " is immobilized by love!");
                 goAhead = false;
             }
         }
@@ -1144,7 +1196,7 @@ public class Battle : MonoBehaviour
 
     private IEnumerator FullParalysis(int index)
     {
-        yield return BattleAnim.ShowParalysis(maskManager[index]);
+        yield return BattleAnim.ShowParalysis(this, index);
         yield return Announce(MonNameWithPrefix(index, true) + " is paralyzed! It can't move!");
     }
 
@@ -1180,6 +1232,18 @@ public class Battle : MonoBehaviour
             case Ability.Drizzle:
                 //Ability popup
                 yield return BattleEffect.StartWeather(this, Weather.Rain, 5);
+                break;
+            case Ability.Drought:
+                //Ability popup
+                yield return BattleEffect.StartWeather(this, Weather.Sun, 5);
+                break;
+            case Ability.SandStream:
+                //Ability popup
+                yield return BattleEffect.StartWeather(this, Weather.Sand, 5);
+                break;
+            case Ability.SnowWarning:
+                //Ability popup
+                yield return BattleEffect.StartWeather(this, Weather.Snow, 5);
                 break;
             case Ability.Intimidate:
                 //Todo: double/multi battle effect
@@ -1253,6 +1317,7 @@ public class Battle : MonoBehaviour
         int damage = DamageCalc(PokemonOnField[index], PokemonOnField[index], MoveID.ConfusionHit, false, false, GetSide(index));
         yield return BattleAnim.DefenderAnims(this, index, MoveID.Pound, 0);
         audioSource.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Neutral Hit"));
+        audioSource.panStereo = index < 3 ? 0.5F : -0.5F;
         if (damage >= PokemonOnField[index].PokemonData.HP)
         {
             PokemonOnField[index].PokemonData.HP = 0;
@@ -1331,7 +1396,7 @@ public class Battle : MonoBehaviour
             yield return ExecuteMove(index);
             yield break;
         }
-        if (GetMove(index).targets is TargetID.Field)
+        if (GetMove(index).targets == TargetID.Field)
         {
             yield return DoFieldEffect(index, GetMove(index).effect);
             PokemonOnField[index].done = true;
@@ -1614,7 +1679,7 @@ public class Battle : MonoBehaviour
                                 && random.NextDouble() > GetAccuracy(Moves[index], index, Targets[index])
                                 && !HasAbility(index, Ability.SkillLink))
                             {
-                                hits = i;
+                                hits = i + 1;
                                 break;
                             }
                         }
@@ -1837,16 +1902,17 @@ public class Battle : MonoBehaviour
                 effectiveness = thisEff > effectiveness ? thisEff : effectiveness;
                 doWait = true;
                 StartCoroutine(DoHitFlash(i));
-            }
-        }
-        if (effectiveness > 0)
-        {
-            AudioClip hitSound = effectiveness < 1
-                ? Resources.Load<AudioClip>("Sound/Battle SFX/Weak Hit")
-                : effectiveness == 1
-                    ? Resources.Load<AudioClip>("Sound/Battle SFX/Neutral Hit")
+                if (effectiveness > 0)
+                {
+                    AudioClip hitSound = effectiveness < 1
+                    ? Resources.Load<AudioClip>("Sound/Battle SFX/Weak Hit")
+                    : effectiveness == 1
+                        ? Resources.Load<AudioClip>("Sound/Battle SFX/Neutral Hit")
                     : Resources.Load<AudioClip>("Sound/Battle SFX/Strong Hit");
-            audioSource.PlayOneShot(hitSound);
+                    audioSource.PlayOneShot(hitSound);
+                    audioSource.panStereo = i > 3 ? 0.5F : -0.5F;
+                }
+            }
         }
         yield return doWait ? new WaitForSeconds(0.6F) : null;
     }
@@ -2093,7 +2159,10 @@ public class Battle : MonoBehaviour
                 });
                 break;
             case MoveEffect.PerishSong:
-                BattleEffect.DoPerishSong(this, index);
+                yield return BattleEffect.DoPerishSong(this, index);
+                break;
+            case MoveEffect.Attract:
+                yield return BattleEffect.Infatuate(this, index, attacker);
                 break;
             case MoveEffect.ContinuousDamage:
                 yield return BattleEffect.GetContinuousDamage(this, attacker, index, Moves[attacker]);
@@ -2138,6 +2207,9 @@ public class Battle : MonoBehaviour
                         break;
                 }
                 break;
+            case MoveEffect.HealBell:
+                yield return BattleEffect.HealBell(this, index);
+                break;
             case MoveEffect.Hit:
             default:
                 yield break;
@@ -2161,6 +2233,33 @@ public class Battle : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
+            switch (EffectiveAbility(i))
+            {
+                case Ability.SolarPower:
+                    if (weather == Weather.Sun)
+                    {
+                        PokemonOnField[i].PokemonData.HP -= PokemonOnField[i].PokemonData.hpMax << 3;
+                        Announce(MonNameWithPrefix(i, true) + " is hurt by Solar Power!");
+                    }
+                    break;
+                case Ability.DrySkin:
+                    switch (weather)
+                    {
+                        case Weather.Sun:
+                            PokemonOnField[i].PokemonData.HP -= PokemonOnField[i].PokemonData.hpMax << 3;
+                            Announce(MonNameWithPrefix(i, true) + " is hurt by Dry Skin!");
+                            break;
+                        case Weather.Rain:
+                            yield return BattleEffect.Heal(this, i, PokemonOnField[i].PokemonData.hpMax << 3);
+                            Announce(MonNameWithPrefix(i, true) + " is healed by Dry Skin!");
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
             if (!HasAbility(i, Ability.MagicGuard))
             {
                 switch (PokemonOnField[i].PokemonData.status)
@@ -2413,6 +2512,7 @@ public class Battle : MonoBehaviour
             }
             audioSource.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
                 + PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
+            audioSource.panStereo = player ? -0.5F : 0.5F;
             yield return MonEntersField(index);
         }
     }

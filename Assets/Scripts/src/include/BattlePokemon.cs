@@ -115,6 +115,9 @@ public class BattlePokemon
     public bool protect = false;
     public int protectCounter = 0;
 
+    public bool infatuated = false;
+    public int infatuationTarget = 0;
+
     public byte newType1 = Type.Typeless;
     public byte newType2 = Type.Typeless;
     public bool typesOverriden = false;

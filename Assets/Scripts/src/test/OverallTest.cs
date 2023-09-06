@@ -32,6 +32,11 @@ public class OverallTest : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            battle.PokemonOnField[0].PokemonData.gender = Gender.Female;
+            battle.PokemonOnField[3].PokemonData.gender = Gender.Male;
+            battle.PokemonOnField[3].PokemonData.move1 = MoveID.Attract;
+        }
     }
 }

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using static System.Math;
 
@@ -15,6 +17,10 @@ public static class BattleAnim
     public static AudioClip G4MoveFX(string path)
     {
         return Resources.Load<AudioClip>("Sound/G4 MoveFX/" + path);
+    }
+    public static AudioClip BattleFX(string path)
+    {
+        return Resources.Load<AudioClip>("Sound/Battle/" + path);
     }
 
     //Sprite constructors
@@ -132,7 +138,7 @@ public static class BattleAnim
             sprite.color = new(firstColor[0], firstColor[1], firstColor[2], firstColor[3] * (endTime - Time.time) / duration);
             yield return null;
         }
-        Object.Destroy(sprite.gameObject);
+        UnityEngine.Object.Destroy(sprite.gameObject);
     }
 
     public static IEnumerator Ellipse(Transform sprite, float depth, float width, float duration, bool smooth)
@@ -256,7 +262,7 @@ public static class BattleAnim
     {
         Vector2 momentum = new(initialMomentum.x, initialMomentum.y);
         float updateTime = Time.time;
-        float endTime = Time.time;
+        float endTime = Time.time + duration;
         while (Time.time < endTime)
         {
             sprite.position = new Vector3(
@@ -352,47 +358,82 @@ public static class BattleAnim
         sprite.localEulerAngles = new Vector3(0, 0, initialAngle + degrees);
     }
 
-    public static Vector2 spriteDistance(Transform sprite1, Transform sprite2)
+    public static IEnumerator DoublePower(Transform sprite, Vector2 translation, float powerX, float powerY, float duration)
+    {
+        float baseTime = Time.time;
+        float endTime = Time.time + duration;
+        float progress = 0;
+        Vector3 initialPosition = sprite.position;
+        while (Time.time < endTime)
+        {
+            progress = (Time.time - baseTime) / duration;
+            float progressX = Mathf.Pow(progress, powerX);
+            float progressY = Mathf.Pow(progress, powerY);
+            sprite.position = new Vector3(
+                initialPosition.x + translation.x * progressX,
+                initialPosition.y + translation.y * progressY,
+                initialPosition.z);
+            yield return null;
+        }
+    }
+
+    public static IEnumerator FadeIn(SpriteRenderer sprite, float duration)
+    {
+        float baseTime = Time.time;
+        float endTime = baseTime + duration;
+        Color initialColor = sprite.color;
+        while (Time.time < endTime)
+        {
+            sprite.color = new Color(initialColor.r, initialColor.g, initialColor.b,
+                (Time.time - baseTime) / duration);
+            yield return null;
+        }
+    }
+
+    public static Vector2 SpriteDistance(Transform sprite1, Transform sprite2)
     {
         return sprite2.position - sprite1.position;
     }
 
     //Specific procedures
-    public static IEnumerator StatUp(AudioSource audio, MaskManager maskManager)
+    public static IEnumerator StatUp(Battle battle, int index)
     {
-        audio.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/StatUp"));
-        yield return maskManager.MaskAnimation(0.3F, 0.6F, 160.0F / 255.0F, "BattleMasks/Animations/StatUp_0");
+        battle.audioSource.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/StatUp"));
+        yield return battle.maskManager[index].MaskAnimation(0.3F, 0.6F, 160.0F / 255.0F, "BattleMasks/Animations/StatUp_0");
     }
 
-    public static IEnumerator StatDown(AudioSource audio, MaskManager maskManager)
+    public static IEnumerator StatDown(Battle battle, int index)
     {
-        audio.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/StatDown"));
-        yield return maskManager.MaskAnimation(0.3F, 0.6F, 160.0F / 255.0F, "BattleMasks/Animations/StatDown_0");
+        battle.audioSource.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/StatDown"));
+        yield return battle.maskManager[index].MaskAnimation(0.3F, 0.6F, 160.0F / 255.0F, "BattleMasks/Animations/StatDown_0");
     }
 
-    public static IEnumerator ShowBurn(MaskManager maskManager)
+    public static IEnumerator ShowBurn(Battle battle, int index)
     {
-        yield return maskManager.MaskColor(0.1F, 0.4F, 160.0F / 255.0F, new Color(200.0F / 255.0F, 0, 0));
+        AudioClip burnSound = Resources.Load<AudioClip>("Sound/Battle SFX/Burn");
+        battle.audioSource.PlayOneShot(burnSound);
+        battle.audioSource.panStereo = index < 3 ? 0.5F : -0.5F;
+        yield return battle.maskManager[index].MaskColor(0.1F, 0.4F, 160.0F / 255.0F, new Color(200.0F / 255.0F, 0, 0));
     }
 
-    public static IEnumerator ShowPoison(MaskManager maskManager)
+    public static IEnumerator ShowPoison(Battle battle, int index)
     {
-        yield return maskManager.MaskColor(0.2F, 0.6F, 160.0F / 255.0F, Type.typeColor[Type.Poison]);
+        yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 160.0F / 255.0F, Type.typeColor[Type.Poison]);
     }
 
-    public static IEnumerator ShowToxicPoison(MaskManager maskManager)
+    public static IEnumerator ShowToxicPoison(Battle battle, int index)
     {
-        yield return maskManager.MaskColor(0.2F, 0.6F, 200.0F / 255.0F, Type.typeColor[Type.Poison]);
+        yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 200.0F / 255.0F, Type.typeColor[Type.Poison]);
     }
 
-    public static IEnumerator ShowParalysis(MaskManager maskManager)
+    public static IEnumerator ShowParalysis(Battle battle, int index)
     {
-        yield return maskManager.MaskColor(0.2F, 0.6F, 160.0F / 255.0F, new Color(1, 1, 0));
+        yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 160.0F / 255.0F, new Color(1, 1, 0));
     }
 
-    public static IEnumerator ShowFreeze(MaskManager maskManager)
+    public static IEnumerator ShowFreeze(Battle battle, int index)
     {
-        yield return maskManager.MaskColor(0.2F, 0.6F, 160.0F / 255.0F, new Color(0, 1, 1));
+        yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 160.0F / 255.0F, new Color(0, 1, 1));
     }
 
     public static IEnumerator HealStar(Battle battle, int index, Vector2 location, float translationRate) //0.60
@@ -441,8 +482,44 @@ public static class BattleAnim
         battle.audioSource.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Faint"));
         yield return Slide(battle.spriteTransform[index], new Vector3(0.0F, -3.0F, 0.0F), 0.3F);
         battle.spriteTransform[index].position = initialPosition;
-        Object.Destroy(mask);
+        UnityEngine.Object.Destroy(mask);
     }
+
+    public static IEnumerator AttractHeart(Battle battle, int index, float xDisplacement) //duration 1.50
+    {
+        GameObject heart = NewSpriteFromTexturePart("Sprites/Battle/pink_heart_2", battle.spriteTransform[index],
+            new Vector2(1.0F, 1.0F), new Vector2(0.0F, 0.0F), new Rect(0.0F, 0.0F, 32.0F, 32.0F));
+        battle.StartCoroutine(FadeIn(heart.GetComponent<SpriteRenderer>(), 0.3F)); //0.00 - 0.30
+        battle.StartCoroutine(DoublePower(heart.GetComponent<Transform>(), new Vector2(xDisplacement, 1.5F), 0.5F, 1.5F, 1.0F)); //0.00 - 1.00
+        yield return new WaitForSeconds(0.9F); //0.90
+        yield return FadeDelete(heart.GetComponent<SpriteRenderer>(), 0.2F); //1.10
+    }
+
+    public static IEnumerator Infatuated(Battle battle, int index)
+    {
+        battle.StartCoroutine(battle.maskManager[index].MaskColor(0.2F, 1.6F, 160.0F / 255.0F, new Color(1, 0.75F, 0.9F))); //0.00 - 2.00
+        AudioSource leftSource = battle.gameObject.AddComponent<AudioSource>();
+        AudioSource rightSource = battle.gameObject.AddComponent<AudioSource>();
+        AudioClip heartSound = Resources.Load<AudioClip>("Sound/Battle SFX/Charm");
+        yield return new WaitForSeconds(0.1F); //0.10
+        rightSource.PlayOneShot(heartSound);
+        rightSource.panStereo = 0.2F;
+        battle.StartCoroutine(AttractHeart(battle, index, 0.9F)); //0.10 - 1.20
+        yield return new WaitForSeconds(0.5F); //0.60
+        leftSource.PlayOneShot(heartSound);
+        leftSource.panStereo = -0.2F;
+        battle.StartCoroutine(AttractHeart(battle, index, -0.7F)); //0.60 - 1.70
+        yield return new WaitForSeconds(0.2F); //0.80
+        rightSource.PlayOneShot(heartSound);
+        rightSource.panStereo = 0.06F;
+        yield return AttractHeart(battle, index, 0.2F); //1.90
+        yield return new WaitForSeconds(0.1F); //2.00
+        UnityEngine.Object.Destroy(leftSource);
+        UnityEngine.Object.Destroy(rightSource);
+
+    }
+
+    //Components
 
     public static IEnumerator SwordsDanceSword(Battle battle, int index, int whichSword)
     {
@@ -513,7 +590,8 @@ public static class BattleAnim
         {
             case MoveID.Pound:
                 battle.audioSource.volume = 1;
-                battle.audioSource.PlayOneShot(G4MoveFX("Pound"));
+                battle.audioSource.PlayOneShot(BattleFX("Pound"));
+                battle.audioSource.panStereo = index < 3 ? 0.5F : -0.5F;
                 GameObject poundSprite = NewSpriteFromTexture("Sprites/Battle/impact", battle.spriteTransform[index],
                     new Vector2(0.3F, 0.3F), new Vector2(0.0F, 0.0F));
                 battle.StartCoroutine(Sway(battle.spriteTransform[index], 0.05F, 0.1F, 0.05F, 2)); //0.00 - 0.30
@@ -542,7 +620,7 @@ public static class BattleAnim
                 doubleSlapSprite.transform.Rotate(new Vector3(0, 0, 90));
                 battle.StartCoroutine(Delay(Swing(doubleSlapSprite.transform, new Vector2(-1.6F, 0.0F), 0.2F, 0.3F), 0.1F)); //0.00 - 0.50
                 yield return new WaitForSeconds(0.25F); //0.25
-                battle.audioSource.PlayOneShot(G4MoveFX("Pound"));
+                battle.audioSource.PlayOneShot(BattleFX("Pound"));
                 doubleSlapSprite.GetComponent<SpriteRenderer>().flipY = true;
                 GameObject doubleSlapImpactSprite = NewSpriteFromTexture("Sprites/Battle/impact", battle.spriteTransform[index],
                     new Vector2(0.2F, 0.2F), new Vector2(0.0F, 0.0F));

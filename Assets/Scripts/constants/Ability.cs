@@ -12,7 +12,7 @@ public enum Ability
     Static,
     VoltAbsorb,
     WaterAbsorb,
-    Oblivious, //Not done
+    Oblivious,
     CloudNine,
     CompoundEyes,
     Insomnia,
@@ -55,7 +55,7 @@ public enum Ability
     HyperCutter, //Not done
     Pickup, //Not done
     Truant, //Not done
-    Hustle, //Not done
+    Hustle,
     CuteCharm, //Not done
     Plus, //Not done
     Minus, //Not done
@@ -70,7 +70,7 @@ public enum Ability
     Torrent,
     Swarm,
     RockHead, //Not done
-    Drought, //Not done
+    Drought,
     ArenaTrap, //Not done
     VitalSpirit, //Not done
     WhiteSmoke, //Not done
@@ -81,13 +81,13 @@ public enum Ability
     MotorDrive, //Not done
     Rivalry, //Not done
     Steadfast, //Not done
-    SnowCloak, //Not done
+    SnowCloak,
     Gluttony, //Not done
     AngerPoint, //Not done
     Unburden, //Not done
     Heatproof, //Not done
     Simple,
-    DrySkin, //Not done
+    DrySkin,
     Download, //Not done
     IronFist, //Not done
     PoisonHeal,
@@ -144,7 +144,7 @@ public enum Ability
     Moody, //Not done
     Overcoat, //Not done
     PoisonTouch, //Not done
-    Regenerator, //Not done
+    Regenerator,
     BigPecks, //Not done
     SandRush,
     WonderSkin, //Not done
@@ -182,7 +182,7 @@ public enum Ability
     GrassPelt, //Not done
     Symbiosis, //Not done
     ToughClaws, //Not done
-    Pixilate, //Not done
+    Pixilate,
     Gooey, //Not done
     Aerilate,
     ParentalBond, //Not done

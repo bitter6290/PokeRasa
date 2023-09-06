@@ -1139,8 +1139,8 @@ public static class Move
     public static MoveData Attract = new(
         "Attract", Type.Normal,
         0, 100, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+        MoveEffect.Attract, 100,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
     public static MoveData SleepTalk = new(
         "Sleep Talk", Type.Normal,
         0, 101, 0,
@@ -1149,8 +1149,8 @@ public static class Move
     public static MoveData HealBell = new(
         "Heal Bell", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Self + TargetID.Ally + TargetID.Spread + TargetID.Ranged, 5); //Needs effect and anim
+        MoveEffect.HealBell, 100,
+        false, TargetID.Field, 5); //Needs effect and anim
     public static MoveData Return = new(
         "Return", Type.Normal,
         1, 100, 0,

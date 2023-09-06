@@ -9,7 +9,7 @@ public class Pokemon : ICloneable
 
 
     public string monName;
-    public bool gender;
+    public Gender gender;
 
     public int xp;
     public byte level;
@@ -170,7 +170,7 @@ public class Pokemon : ICloneable
     {
         return move2 == MoveID.None ? 1 : move3 == MoveID.None ? 2 : move4 == MoveID.None ? 3 : 4;
     }
-    public Pokemon(SpeciesID thisSpecies, bool Gender, byte Level,
+    public Pokemon(SpeciesID thisSpecies, Gender Gender, byte Level,
         byte IvHP, byte IvAttack, byte IvDefense, byte IvSpAtk, byte IvSpDef, byte IvSpeed,
         byte EvHP, byte EvAttack, byte EvDefense, byte EvSpAtk, byte EvSpDef, byte EvSpeed,
         byte thisNature, MoveID Move1, MoveID Move2, MoveID Move3, MoveID Move4,
@@ -254,17 +254,20 @@ public class Pokemon : ICloneable
         byte IvSpeed = (byte)(ivBytes[5] >> 3);
 
         int personality = random.Next();
-        bool Gender = personality % 100 > Species.SpeciesTable[(int)species].malePercent ? true : false;
+        Gender gender = Species.SpeciesTable[(int)species].malePercent == SpeciesData.Genderless
+            ? Gender.Genderless
+            : personality % 100 > Species.SpeciesTable[(int)species].malePercent
+            ? Gender.Female : Gender.Male;
         byte Nature = (byte)((personality >> 1) % 25);
 
         MoveID[] Moves = Learnset.GetMoves(Species.SpeciesTable[(int)species].learnset, level);
 
-        return new Pokemon(species, Gender, level, IvHP, IvAttack, IvDefense, IvSpAtk, IvSpDef, IvSpeed,
+        return new Pokemon(species, gender, level, IvHP, IvAttack, IvDefense, IvSpAtk, IvSpDef, IvSpeed,
             0, 0, 0, 0, 0, 0,
             Nature, Moves[0], Moves[1], Moves[2], Moves[3], (byte)Floor(random.NextDouble() * 2),
             Species.SpeciesTable[(int)species].baseFriendship, ItemID.None);
     }
     public static Pokemon MakeEmptyMon => new
-        (SpeciesID.Missingno, false, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Nature.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, 0, ItemID.None, false);
+        (SpeciesID.Missingno, Gender.Genderless, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Nature.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, 0, ItemID.None, false);
     public object Clone() => MemberwiseClone() as Pokemon;
 }

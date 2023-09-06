@@ -46,6 +46,7 @@ public enum MoveEffect
     Disable,
     ForcedSwitch,
     PerishSong,
+    Attract,
     Trap,
     //Direct damage
     Direct20,
@@ -97,8 +98,9 @@ public enum MoveEffect
     Mimic,
     Metronome,
     Conversion,
-    Heal50,
     Protect,
+    HealBell,
+    Heal50,
     HealWeather,
     //Nonstandard effects
     Recharge,

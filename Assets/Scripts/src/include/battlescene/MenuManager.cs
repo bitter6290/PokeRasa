@@ -248,6 +248,7 @@ public class MenuManager : MonoBehaviour
                                 megaEvolving = !megaEvolving;
                                 battle.megaEvolveOnMove[currentMove] = megaEvolving;
                                 battle.audioSource.PlayOneShot(SelectMove);
+                                battle.audioSource.panStereo = 0;
                             }
                             megaIndicator.GetComponent<SpriteRenderer>().color = megaEvolving ? megaYesColor : megaNoColor;
                         }
@@ -263,16 +264,19 @@ public class MenuManager : MonoBehaviour
                                 case 1:
                                     currentMove = battle.PokemonOnField[currentMon].GetMove(1) == MoveID.None ? 0 : 2;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 2:
                                     currentMove = 0;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 3:
                                     if (battle.PokemonOnField[currentMon].GetMove(3) != MoveID.None)
                                     {
                                         currentMove = 4;
                                         battle.audioSource.PlayOneShot(MoveCursor);
+                                        battle.audioSource.panStereo = 0;
                                     }
                                     break;
                                 default:
@@ -286,14 +290,17 @@ public class MenuManager : MonoBehaviour
                                 case 0:
                                     currentMove = battle.PokemonOnField[currentMon].GetMove(1) == MoveID.None ? 1 : 2;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 2:
                                     currentMove = 1;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 4:
                                     currentMove = 3;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 default:
                                     break;
@@ -308,6 +315,7 @@ public class MenuManager : MonoBehaviour
                                     {
                                         currentMove = 3;
                                         battle.audioSource.PlayOneShot(MoveCursor);
+                                        battle.audioSource.panStereo = 0;
                                     }
                                     break;
                                 case 2:
@@ -315,6 +323,7 @@ public class MenuManager : MonoBehaviour
                                     {
                                         currentMove = 4;
                                         battle.audioSource.PlayOneShot(MoveCursor);
+                                        battle.audioSource.panStereo = 0;
                                     }
                                     break;
                                 default:
@@ -328,10 +337,12 @@ public class MenuManager : MonoBehaviour
                                 case 3:
                                     currentMove = 1;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 4:
                                     currentMove = 2;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 default:
                                     break;
@@ -340,6 +351,7 @@ public class MenuManager : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.Return))
                         {
                             battle.audioSource.PlayOneShot(SelectMove);
+                            battle.audioSource.panStereo = 0;
                             switch (currentMove)
                             {
                                 case 1:
@@ -459,10 +471,12 @@ public class MenuManager : MonoBehaviour
                                 case 1:
                                     currentMove = 2;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 3:
                                     currentMove = 4;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 default:
                                     break;
@@ -475,10 +489,12 @@ public class MenuManager : MonoBehaviour
                                 case 2:
                                     currentMove = 1;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 4:
                                     currentMove = 3;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 default:
                                     break;
@@ -491,10 +507,12 @@ public class MenuManager : MonoBehaviour
                                 case 1:
                                     currentMove = 3;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 2:
                                     currentMove = 4;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 default:
                                     break;
@@ -507,10 +525,12 @@ public class MenuManager : MonoBehaviour
                                 case 3:
                                     currentMove = 1;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 4:
                                     currentMove = 2;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 default:
                                     break;
@@ -520,6 +540,7 @@ public class MenuManager : MonoBehaviour
                         {
                             battle.audioSource.volume = 0.6F;
                             battle.audioSource.PlayOneShot(SelectMove);
+                            battle.audioSource.panStereo = 0;
                             switch (currentMove)
                             {
                                 case 1:
@@ -641,28 +662,41 @@ public class MenuManager : MonoBehaviour
                                 case 1:
                                     currentPartyMon = box2.enabled ? 3 :
                                         battle.switchDuringTurn ? 1 : 0;
-                                    if (currentPartyMon != 1) { battle.audioSource.PlayOneShot(MoveCursor); }
+                                    if (currentPartyMon != 1) {
+                                        battle.audioSource.PlayOneShot(MoveCursor);
+                                        battle.audioSource.panStereo = 0;
+                                    }
                                     break;
                                 case 2:
                                     currentPartyMon = box4.enabled ? 4 :
                                         battle.switchDuringTurn ? 2 : 0;
-                                    if (currentPartyMon != 2) { battle.audioSource.PlayOneShot(MoveCursor); }
+                                    if (currentPartyMon != 2) {
+                                        battle.audioSource.PlayOneShot(MoveCursor);
+                                        battle.audioSource.panStereo = 0;
+                                    }
                                     break;
                                 case 3:
                                     currentMove = box5.enabled ? 5 :
                                         battle.switchDuringTurn ? 3 : 0;
-                                    if (currentPartyMon != 3) { battle.audioSource.PlayOneShot(MoveCursor); }
+                                    if (currentPartyMon != 3) {
+                                        battle.audioSource.PlayOneShot(MoveCursor);
+                                        battle.audioSource.panStereo = 0;
+                                    }
                                     break;
                                 case 4:
                                     currentPartyMon = box6.enabled ? 6 :
                                         battle.switchDuringTurn ? 4 : 0;
-                                    if (currentPartyMon != 4) { battle.audioSource.PlayOneShot(MoveCursor); }
+                                    if (currentPartyMon != 4) {
+                                        battle.audioSource.PlayOneShot(MoveCursor);
+                                        battle.audioSource.panStereo = 0;
+                                    }
                                     break;
                                 case 5:
                                     if (!battle.switchDuringTurn)
                                     {
                                         currentPartyMon = 0;
                                         battle.audioSource.PlayOneShot(MoveCursor);
+                                        battle.audioSource.panStereo = 0;
                                     }
                                     break;
                                 case 6:
@@ -670,6 +704,7 @@ public class MenuManager : MonoBehaviour
                                     {
                                         currentPartyMon = 0;
                                         battle.audioSource.PlayOneShot(MoveCursor);
+                                        battle.audioSource.panStereo = 0;
                                     }
                                     break;
                                 default:
@@ -683,24 +718,29 @@ public class MenuManager : MonoBehaviour
                                 case 3:
                                     currentPartyMon = 1;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 4:
                                     currentPartyMon = 2;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 5:
                                     currentPartyMon = 3;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 6:
                                     currentPartyMon = 4;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 0:
                                     currentPartyMon =
                                         box5.enabled ? 5 :
                                         box2.enabled ? 3 : 1;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 default:
                                     break;
@@ -715,15 +755,18 @@ public class MenuManager : MonoBehaviour
                                     {
                                         currentPartyMon = 2;
                                         battle.audioSource.PlayOneShot(MoveCursor);
+                                        battle.audioSource.panStereo = 0;
                                     }
                                     break;
                                 case 3:
                                     currentPartyMon = box4.enabled ? 4 : 2;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 5:
                                     currentPartyMon = box6.enabled ? 6 : 4;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 default:
                                     break;
@@ -736,14 +779,17 @@ public class MenuManager : MonoBehaviour
                                 case 2:
                                     currentPartyMon = 1;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 4:
                                     currentPartyMon = 3;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 case 6:
                                     currentPartyMon = 5;
                                     battle.audioSource.PlayOneShot(MoveCursor);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 default:
                                     break;
@@ -753,6 +799,7 @@ public class MenuManager : MonoBehaviour
                         {
                             battle.audioSource.volume = 0.6F;
                             battle.audioSource.PlayOneShot(SelectMove);
+                            battle.audioSource.panStereo = 0;
                             switch (currentPartyMon)
                             {
                                 case 1:
@@ -814,6 +861,7 @@ public class MenuManager : MonoBehaviour
                                     menuMode = MenuMode.Main;
                                     battle.audioSource.volume = 0.6F;
                                     battle.audioSource.PlayOneShot(SelectMove);
+                                    battle.audioSource.panStereo = 0;
                                     break;
                                 default:
                                     break;

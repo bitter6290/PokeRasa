@@ -24,17 +24,17 @@ public static class BattleEffect
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.CantGoHigher);
                 break;
             case 1:
-                yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
+                yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRose);
                 break;
             case 2:
-                yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
+                yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRoseSharply);
                 break;
             default:
-                yield return BattleAnim.StatUp(battle.audioSource, battle.maskManager[index]);
+                yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRoseDrastically);
                 break;
@@ -78,17 +78,17 @@ public static class BattleEffect
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.CantGoLower);
                 break;
             case 1:
-                yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
+                yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFell);
                 break;
             case 2:
-                yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
+                yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFellSharply);
                 break;
             default:
-                yield return BattleAnim.StatDown(battle.audioSource, battle.maskManager[index]);
+                yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFellDrastically);
                 break;
@@ -111,7 +111,7 @@ public static class BattleEffect
         }
         else
         {
-            yield return BattleAnim.ShowBurn(battle.maskManager[index]);
+            yield return BattleAnim.ShowBurn(battle, index);
             battle.PokemonOnField[index].PokemonData.status = Status.Burn;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was burned!");
         }
@@ -133,7 +133,7 @@ public static class BattleEffect
         }
         else
         {
-            yield return BattleAnim.ShowParalysis(battle.maskManager[index]);
+            yield return BattleAnim.ShowParalysis(battle, index);
             battle.PokemonOnField[index].PokemonData.status = Status.Paralysis;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was paralyzed!");
         }
@@ -174,7 +174,7 @@ public static class BattleEffect
         }
         else
         {
-            yield return BattleAnim.ShowPoison(battle.maskManager[index]);
+            yield return BattleAnim.ShowPoison(battle, index);
             battle.PokemonOnField[index].PokemonData.status = Status.Poison;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was poisoned!");
         }
@@ -197,7 +197,7 @@ public static class BattleEffect
         }
         else
         {
-            yield return BattleAnim.ShowToxicPoison(battle.maskManager[index]);
+            yield return BattleAnim.ShowToxicPoison(battle, index);
             battle.PokemonOnField[index].PokemonData.status = Status.ToxicPoison;
             battle.PokemonOnField[index].toxicCounter = 0;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was badly poisoned!");
@@ -215,7 +215,7 @@ public static class BattleEffect
         }
         else
         {
-            yield return BattleAnim.ShowFreeze(battle.maskManager[index]);
+            yield return BattleAnim.ShowFreeze(battle, index);
             battle.PokemonOnField[index].PokemonData.status = Status.Freeze;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was frozen solid!");
         }
@@ -241,7 +241,7 @@ public static class BattleEffect
 
     public static IEnumerator BurnHurt(Battle battle, int index)
     {
-        yield return BattleAnim.ShowBurn(battle.maskManager[index]);
+        yield return BattleAnim.ShowBurn(battle, index);
         int burnDamage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
         if (burnDamage > battle.PokemonOnField[index].PokemonData.HP)
         {
@@ -264,7 +264,7 @@ public static class BattleEffect
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is healed by Poison Heal!");
             yield break;
         }
-        yield return BattleAnim.ShowPoison(battle.maskManager[index]);
+        yield return BattleAnim.ShowPoison(battle, index);
         if (poisonDamage > battle.PokemonOnField[index].PokemonData.HP)
         {
             battle.PokemonOnField[index].PokemonData.HP = 0;
@@ -285,7 +285,7 @@ public static class BattleEffect
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is healed by Poison Heal!");
             yield break;
         }
-        yield return BattleAnim.ShowPoison(battle.maskManager[index]);
+        yield return BattleAnim.ShowPoison(battle, index);
         battle.PokemonOnField[index].toxicCounter++;
         int toxicDamage = (battle.PokemonOnField[index].PokemonData.hpMax >> 4) * battle.PokemonOnField[index].toxicCounter;
         if (toxicDamage > battle.PokemonOnField[index].PokemonData.HP)
@@ -792,6 +792,84 @@ public static class BattleEffect
         {
             battle.PokemonOnField[index].PokemonData.HP = 0;
             battle.PokemonOnField[index].PokemonData.fainted = true;
+        }
+    }
+
+    public static IEnumerator Infatuate(Battle battle, int index, int attacker)
+    {
+        if (battle.OppositeGenders(index, attacker) && !battle.PokemonOnField[index].infatuated)
+        {
+            if (battle.HasAbility(index, Ability.Oblivious))
+            {
+                //Ability popup
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is protected by Oblivious!");
+            }
+            else
+            {
+                battle.PokemonOnField[index].infatuated = true;
+                battle.PokemonOnField[index].infatuationTarget = attacker;
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " became infatuated!");
+            }
+        }
+        else
+        {
+            yield return battle.Announce("But it failed!");
+        }
+
+    }
+
+    public static IEnumerator CureStatusHealBell(Battle battle, Pokemon mon)
+    {
+        switch (mon.status)
+        {
+            case Status.Burn:
+                yield return battle.Announce(mon.monName + " was cured of its burn!");
+                goto case Status.None;
+            case Status.Paralysis:
+                yield return battle.Announce(mon.monName + " was cured of its paralysis!");
+                goto case Status.None;
+            case Status.Sleep:
+                yield return battle.Announce(mon.monName + " woke up!");
+                goto case Status.None;
+            case Status.Poison:
+            case Status.ToxicPoison:
+                yield return battle.Announce(mon.monName + " was cured of its poisoning!");
+                goto case Status.None;
+            case Status.Freeze:
+                yield return battle.Announce(mon.monName + " thawed out!");
+                goto case Status.None;
+            case Status.None:
+                mon.status = Status.None;
+                break;
+        }
+    }
+
+    public static IEnumerator HealBell(Battle battle, int index)
+    {
+        yield return battle.Announce("A bell chimed!");
+        if (index < 3)
+        {
+            for(int i = 0; i < 6; i++)
+            {
+                if (battle.OpponentPokemon[i].exists
+                    && battle.OpponentPokemon[i].SpeciesData.abilities[battle.OpponentPokemon[i].whichAbility] != Ability.Soundproof
+                    )
+                {
+                    yield return CureStatusHealBell(battle, battle.OpponentPokemon[i]);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                if (battle.PlayerPokemon[i].exists
+                    && battle.PlayerPokemon[i].SpeciesData.abilities[battle.PlayerPokemon[i].whichAbility] != Ability.Soundproof
+                    )
+                {
+                    yield return CureStatusHealBell(battle, battle.PlayerPokemon[i]);
+                }
+            }
         }
     }
 }
