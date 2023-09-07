@@ -80,6 +80,11 @@ public enum MoveEffect
     Rollout,
     FalseSwipe,
     PainSplit,
+    Thief,
+    Snore,
+    Magnitude,
+    Reversal,
+    HiddenPower,
     //Paired effects
     Bide,
     BideHit,
@@ -89,6 +94,7 @@ public enum MoveEffect
     Reflect,
     LightScreen,
     Weather,
+    Spikes,
     //Self-targeting effects
     Rest,
     Substitute,

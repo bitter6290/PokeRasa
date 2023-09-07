@@ -75,6 +75,8 @@ public class Pokemon : ICloneable
     public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
         (int)temporarySpecies : (int)species];
 
+    public byte hiddenPowerType;
+
 
     public MoveID[] MoveIDs => new MoveID[4]
     {
@@ -200,7 +202,7 @@ public class Pokemon : ICloneable
         byte IvHP, byte IvAttack, byte IvDefense, byte IvSpAtk, byte IvSpDef, byte IvSpeed,
         byte EvHP, byte EvAttack, byte EvDefense, byte EvSpAtk, byte EvSpDef, byte EvSpeed,
         byte thisNature, MoveID Move1, MoveID Move2, MoveID Move3, MoveID Move4,
-        byte WhichAbility, byte Friendship, ItemID Item, bool Exists = true)
+        byte WhichAbility, byte Friendship, ItemID Item, byte HiddenPowerType, bool Exists = true)
     {
         species = thisSpecies;
         gender = Gender;
@@ -257,6 +259,8 @@ public class Pokemon : ICloneable
         status = Status.None;
         sleepTurns = 0;
 
+        hiddenPowerType = HiddenPowerType;
+
         fainted = false;
 
         transformed = false;
@@ -291,9 +295,9 @@ public class Pokemon : ICloneable
         return new Pokemon(species, gender, level, IvHP, IvAttack, IvDefense, IvSpAtk, IvSpDef, IvSpeed,
             0, 0, 0, 0, 0, 0,
             Nature, Moves[0], Moves[1], Moves[2], Moves[3], (byte)Floor(random.NextDouble() * 2),
-            Species.SpeciesTable[(int)species].baseFriendship, ItemID.None);
+            Species.SpeciesTable[(int)species].baseFriendship, ItemID.None, (byte)(random.Next() % 18));
     }
     public static Pokemon MakeEmptyMon => new
-        (SpeciesID.Missingno, Gender.Genderless, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Nature.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, 0, ItemID.None, false);
+        (SpeciesID.Missingno, Gender.Genderless, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Nature.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, 0, ItemID.None, Type.Normal, false);
     public object Clone() => MemberwiseClone() as Pokemon;
 }

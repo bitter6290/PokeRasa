@@ -8,6 +8,7 @@ public class Side
     public byte auroraVeilTurns = 0;
     public bool mist = false;
     public byte mistTurns = 0;
+    public int spikes = 0;
     public readonly bool whichSide;
     public Side(bool side)
     {

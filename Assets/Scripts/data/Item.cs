@@ -1,6 +1,7 @@
 ﻿using System;
-public class Item
+public static class Item
 {
+    public static bool CanBeStolen(ItemID item) => ItemTable[(int)item].type is ItemType.FieldItem or ItemType.BattleItem or ItemType.Medicine;
 
     public static ItemData None = new()
     {

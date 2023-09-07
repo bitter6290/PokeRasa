@@ -304,6 +304,7 @@
     "SupersweetSyrup",
     "Hospitality",
     };
+
     public static string[] Stat = new string[9]
     {
         "HP",

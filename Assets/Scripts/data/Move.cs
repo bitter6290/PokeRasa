@@ -906,8 +906,9 @@ public static class Move
     public static MoveData Thief = new(
         "Thief", Type.Dark,
         60, 100, 0,
-        MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 25); //Needs effect and anim
+        MoveEffect.Thief, 100,
+        true, TargetID.Opponent + TargetID.Ally, 25,
+        MoveFlags.makesContact); //Needs anim
     public static MoveData SpiderWeb = new(
         "Spider Web", Type.Bug,
         0, 101, 0,
@@ -931,18 +932,18 @@ public static class Move
     public static MoveData Snore = new(
         "Snore", Type.Normal,
         50, 100, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+        MoveEffect.Snore, 30,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
     public static MoveData Curse = new(
         "Curse", Type.Ghost,
         0, 100, 0,
         MoveEffect.Curse, 100,
-        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData Flail = new(
         "Flail", Type.Normal,
-        0, 100, 0,
-        MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+        1, 100, 0,
+        MoveEffect.Reversal, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
     public static MoveData Conversion2 = new(
         "Conversion 2", Type.Normal,
         0, 101, 0,
@@ -961,9 +962,9 @@ public static class Move
         false, TargetID.Opponent + TargetID.Spread, 40); //Needs anim
     public static MoveData Reversal = new(
         "Reversal", Type.Fighting,
-        0, 100, 0,
-        MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+        1, 100, 0,
+        MoveEffect.Reversal, 0,
+        true, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
     public static MoveData Spite = new(
         "Spite", Type.Ghost,
         0, 100, 0,
@@ -977,8 +978,8 @@ public static class Move
     public static MoveData Protect = new(
         "Protect", Type.Normal,
         0, 101, 4,
-        MoveEffect.Hit, 0,
-        false, TargetID.Self, 10); //Needs effect and anim
+        MoveEffect.Protect, 100,
+        false, TargetID.Self, 10); //Needs anim
     public static MoveData MachPunch = new(
         "Mach Punch", Type.Fighting,
         40, 100, 1,
@@ -1023,7 +1024,7 @@ public static class Move
     public static MoveData Spikes = new(
         "Spikes", Type.Ground,
         0, 101, 0,
-        MoveEffect.Hit, 0,
+        MoveEffect.Spikes, 100,
         false, TargetID.Field, 20); //Needs effect and anim
     public static MoveData ZapCannon = new(
         "Zap Cannon", Type.Electric,
@@ -1044,10 +1045,10 @@ public static class Move
     public static MoveData PerishSong = new(
         "Perish Song", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Self + TargetID.Ally + TargetID.Spread + TargetID.Ranged, 5,
+        MoveEffect.PerishSong, 100,
+        false, TargetID.All, 5,
         MoveFlags.soundMove
-        ); //Needs effect and anim
+        ); //Needs anim
     public static MoveData IcyWind = new(
         "Icy Wind", Type.Ice,
         55, 95, 0,
@@ -1056,8 +1057,8 @@ public static class Move
     public static MoveData Detect = new(
         "Detect", Type.Fighting,
         0, 101, 4,
-        MoveEffect.Hit, 0,
-        false, TargetID.Self, 5); //Needs effect and anim
+        MoveEffect.Protect, 100,
+        false, TargetID.Self, 5); //Needs anim
     public static MoveData BoneRush = new(
         "Bone Rush", Type.Ground,
         25, 90, 0,
@@ -1082,7 +1083,7 @@ public static class Move
     public static MoveData GigaDrain = new(
         "Giga Drain", Type.Grass,
         75, 100, 0,
-        MoveEffect.Absorb50, 0,
+        MoveEffect.Absorb50, 100,
         false, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData Endure = new(
         "Endure", Type.Normal,
@@ -1183,9 +1184,9 @@ public static class Move
         true, TargetID.Opponent + TargetID.Ally, 5); //Needs anim
     public static MoveData Magnitude = new(
         "Magnitude", Type.Ground,
-        0, 100, 0,
-        MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 30); //Needs effect and anim
+        1, 100, 0,
+        MoveEffect.Magnitude, 0,
+        true, TargetID.Opponent + TargetID.Ally, 30); //Needs anim
     public static MoveData DynamicPunch = new(
         "Dynamic Punch", Type.Fighting,
         100, 50, 0,
@@ -1260,8 +1261,8 @@ public static class Move
     public static MoveData HiddenPower = new(
         "Hidden Power", Type.Normal,
         60, 100, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+        MoveEffect.HiddenPower, 0,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
     public static MoveData CrossChop = new(
         "Cross Chop", Type.Fighting,
         100, 80, 0,

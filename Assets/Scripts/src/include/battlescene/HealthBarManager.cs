@@ -13,6 +13,8 @@ public class HealthBarManager : MonoBehaviour
     private double duration;
     [SerializeField]
     private float interval;
+    [SerializeField]
+    private GameObject wholeBar;
     public bool changed = false;
     private float nextTime;
 
@@ -31,6 +33,11 @@ public class HealthBarManager : MonoBehaviour
         duration = Sqrt(Abs(healthSlider.value - battle.PokemonOnField[index].PokemonData.HP) / 4.0F);
         interval = (float)Abs((healthSlider.value - battle.PokemonOnField[index].PokemonData.HP) / duration / 10.0F);
         changed = true;
+    }
+    public void SnapHealth(int HP)
+    {
+        healthSlider.value = HP;
+        changed = false;
     }
     public void UpdateColor()
     {
@@ -55,6 +62,7 @@ public class HealthBarManager : MonoBehaviour
     }
     public void Update()
     {
+        wholeBar.SetActive(battle.PokemonOnField[index].exists);
         healthSlider.minValue = -0.85F * battle.PokemonOnField[index].PokemonData.hpMax;
         healthSlider.maxValue = battle.PokemonOnField[index].PokemonData.hpMax;
         if (healthSlider.value == battle.PokemonOnField[index].PokemonData.HP)

@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class StatusManager : MonoBehaviour
 {
     public SpriteRenderer statusbar;
+    public TilemapRenderer bubbleRenderer;
     public Battle battle;
     public int index;
     public Sprite[] sprites = new Sprite[6];
@@ -24,6 +26,8 @@ public class StatusManager : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        statusbar.enabled = battle.PokemonOnField[index].exists;
+        bubbleRenderer.enabled = battle.PokemonOnField[index].exists;
         if (currentStatus != battle.PokemonOnField[index].PokemonData.status)
         {
             currentStatus = battle.PokemonOnField[index].PokemonData.status;

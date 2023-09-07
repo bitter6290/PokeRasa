@@ -1516,6 +1516,7 @@ GameObject:
   - component: {fileID: 479158825}
   - component: {fileID: 479158824}
   - component: {fileID: 479158826}
+  - component: {fileID: 479158827}
   m_Layer: 0
   m_Name: OpponentMon
   m_TagString: Untagged
@@ -1609,6 +1610,26 @@ MonoBehaviour:
   maskRenderer: {fileID: 1581459744}
   anim: {fileID: 1581459742}
   baseSprite: {fileID: 479158824}
+--- !u!114 &479158827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479158823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7788cd816d50e4107843de3e443f1e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 1322025948}
+  healthBar: {fileID: 1300887812}
+  duration: 0
+  interval: 0
+  wholeBar: {fileID: 1322025945}
+  changed: 0
+  battle: {fileID: 1034585559}
+  index: 0
 --- !u!1 &528755272
 GameObject:
   m_ObjectHideFlags: 0
@@ -2690,6 +2711,202 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &833436939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833436942}
+  - component: {fileID: 833436941}
+  - component: {fileID: 833436940}
+  m_Layer: 0
+  m_Name: Opponent Bubble
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!483693784 &833436940
+TilemapRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833436939}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -2
+  m_ChunkSize: {x: 32, y: 32, z: 32}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_MaxChunkCount: 16
+  m_MaxFrameAge: 16
+  m_SortOrder: 0
+  m_Mode: 0
+  m_DetectChunkCullingBounds: 0
+  m_MaskInteraction: 0
+--- !u!1839735485 &833436941
+Tilemap:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833436939}
+  m_Enabled: 1
+  m_Tiles:
+  - first: {x: -5, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -4, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -3, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 2
+      m_TileSpriteIndex: 2
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -2, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  m_AnimatedTiles: {}
+  m_TileAssetArray:
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: aba0d53cb9282407b850cf47413c4a1a, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 6754c760d46ae41fc814a5e39346faa1, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 1391f61b6408547398ea5d9f4aad0d33, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: f2dcb621f08484e069b189153d463ee2, type: 2}
+  m_TileSpriteArray:
+  - m_RefCount: 1
+    m_Data: {fileID: -376525864, guid: c5ee4436d79884ed7b34332aec952fb5, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -1878853194, guid: c5ee4436d79884ed7b34332aec952fb5, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 1473226821, guid: c5ee4436d79884ed7b34332aec952fb5, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -909591434, guid: c5ee4436d79884ed7b34332aec952fb5, type: 3}
+  m_TileMatrixArray:
+  - m_RefCount: 4
+    m_Data:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  m_TileColorArray:
+  - m_RefCount: 4
+    m_Data: {r: 1, g: 1, b: 1, a: 1}
+  m_TileObjectToInstantiateArray: []
+  m_AnimationFrameRate: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Origin: {x: -5, y: 0, z: 0}
+  m_Size: {x: 5, y: 4, z: 1}
+  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileOrientation: 0
+  m_TileOrientationMatrix:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+--- !u!4 &833436942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833436939}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2096507370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &917973816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2950,7 +3167,7 @@ GameObject:
   - component: {fileID: 960758592}
   - component: {fileID: 960758591}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Battle Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10634,6 +10851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusbar: {fileID: 1005518771}
+  bubbleRenderer: {fileID: 1908819233}
   battle: {fileID: 1034585559}
   index: 3
   sprites:
@@ -10717,8 +10935,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   - species: 0
     monName: 
     gender: 0
@@ -10759,8 +10980,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   - species: 0
     monName: 
     gender: 0
@@ -10801,8 +11025,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   - species: 0
     monName: 
     gender: 0
@@ -10843,8 +11070,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   - species: 0
     monName: 
     gender: 0
@@ -10885,8 +11115,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   - species: 0
     monName: 
     gender: 0
@@ -10927,8 +11160,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   PlayerPokemon:
   - species: 0
     monName: 
@@ -10970,8 +11206,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   - species: 0
     monName: 
     gender: 0
@@ -11012,8 +11251,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   - species: 0
     monName: 
     gender: 0
@@ -11054,8 +11296,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   - species: 0
     monName: 
     gender: 0
@@ -11096,8 +11341,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   - species: 0
     monName: 
     gender: 0
@@ -11138,8 +11386,11 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   - species: 0
     monName: 
     gender: 0
@@ -11180,11 +11431,14 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    onField: 0
     transformed: 0
     temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
   state: 0
   currentPlayerMon: 3
-  OpponentName: Null
+  OpponentName: Test Pilot
   Announcer: {fileID: 1818380923}
   maskManager:
   - {fileID: 479158826}
@@ -11194,6 +11448,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   menuManager: {fileID: 1034585560}
+  healthBarManager:
+  - {fileID: 479158827}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1474041821}
+  - {fileID: 0}
+  - {fileID: 0}
   spriteRenderer:
   - {fileID: 479158824}
   - {fileID: 0}
@@ -11208,17 +11469,32 @@ MonoBehaviour:
   - {fileID: 1474041819}
   - {fileID: 0}
   - {fileID: 0}
-  audioSource: {fileID: 1034585565}
+  audioSource0: {fileID: 0}
+  audioSource1: {fileID: 0}
   megaEvolveOnMove: 000000000000
   hasPlayerMegaEvolved: 0
   hasOpponentMegaEvolved: 0
   textSpeed: 10
   persistenceTime: 2
+  switchDuringTurn: 0
+  switchingMon: 0
+  switchingTarget: 0
+  choseSwitchMon: 0
+  continueMultiHitMove: 0
   payDay: 0
   weather: 0
   weatherTimer: 0
   terrain: 0
   terrainTimer: 0
+  gravity: 0
+  gravityTimer: 0
+  wonderRoom: 0
+  wonderRoomTimer: 0
+  magicRoom: 0
+  magicRoomTimer: 0
+  trickRoom: 0
+  trickRoomTimer: 0
+  oneAnnouncementDone: 0
   PokemonOnField:
   - PokemonData:
       species: 0
@@ -11261,8 +11537,11 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      onField: 1
       transformed: 0
       temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -11288,12 +11567,17 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
+    abilityHealed25: 0
+    abilityActivated: 0
+    wasProtected: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
     continuousDamageTimer: 0
+    trapped: 0
+    trappingSlot: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -11306,26 +11590,93 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
-    protect: 0
-    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
     disabled: 0
-    disable: 0
+    disabledMove: 0
     disableTimer: 0
-    lastUsedMove: 0
     gotAbilityEffect: 0
+    affectingAbility: 0
     seeded: 0
     seedingSlot: 0
     biding: 0
     bideDamage: 0
+    rolloutIntensity: 0
+    flashFire: 0
+    hasSubstitute: 0
+    substituteHP: 0
+    isEnraged: 0
+    perishSong: 0
+    perishCounter: 0
+    isTransformed: 0
+    transformedMon:
+      species: 0
+      monName: Missingno
+      gender: 2
+      xp: 0
+      level: 0
+      currentLevelXP: 0
+      nextLevelXP: 0
+      levelProgress: 0
+      evHP: 0
+      evAttack: 0
+      evDefense: 0
+      evSpAtk: 0
+      evSpDef: 0
+      evSpeed: 0
+      totalEv: 0
+      whichAbility: 0
+      hpMax: 10
+      attack: 5
+      defense: 5
+      spAtk: 5
+      spDef: 5
+      speed: 5
+      move1: 0
+      maxPp1: 0
+      pp1: 0
+      move2: 0
+      maxPp2: 0
+      pp2: 0
+      move3: 0
+      maxPp3: 0
+      pp3: 0
+      move4: 0
+      maxPp4: 0
+      pp4: 0
+      HP: 10
+      status: 0
+      sleepTurns: 0
+      fainted: 0
+      exists: 0
+      item: 0
+      onField: 0
+      transformed: 0
+      temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     ability: 0
     item: 0
+    endure: 0
+    protect: 0
+    protectCounter: 0
+    infatuated: 0
+    infatuationTarget: 0
+    cursed: 0
+    newType1: 255
+    newType2: 255
+    typesOverriden: 0
     hasType3: 0
     Type3: 255
+    mimicking: 0
+    mimicSlot: 0
+    mimicMove: 0
+    mimicPP: 0
+    mimicMaxPP: 0
+    lastTargetedMove: 0
   - PokemonData:
       species: 0
       monName: Null
@@ -11367,8 +11718,11 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      onField: 1
       transformed: 0
       temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -11394,12 +11748,17 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
+    abilityHealed25: 0
+    abilityActivated: 0
+    wasProtected: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
     continuousDamageTimer: 0
+    trapped: 0
+    trappingSlot: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -11412,26 +11771,93 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
-    protect: 0
-    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
     disabled: 0
-    disable: 0
+    disabledMove: 0
     disableTimer: 0
-    lastUsedMove: 0
     gotAbilityEffect: 0
+    affectingAbility: 0
     seeded: 0
     seedingSlot: 0
     biding: 0
     bideDamage: 0
+    rolloutIntensity: 0
+    flashFire: 0
+    hasSubstitute: 0
+    substituteHP: 0
+    isEnraged: 0
+    perishSong: 0
+    perishCounter: 0
+    isTransformed: 0
+    transformedMon:
+      species: 0
+      monName: Missingno
+      gender: 2
+      xp: 0
+      level: 0
+      currentLevelXP: 0
+      nextLevelXP: 0
+      levelProgress: 0
+      evHP: 0
+      evAttack: 0
+      evDefense: 0
+      evSpAtk: 0
+      evSpDef: 0
+      evSpeed: 0
+      totalEv: 0
+      whichAbility: 0
+      hpMax: 10
+      attack: 5
+      defense: 5
+      spAtk: 5
+      spDef: 5
+      speed: 5
+      move1: 0
+      maxPp1: 0
+      pp1: 0
+      move2: 0
+      maxPp2: 0
+      pp2: 0
+      move3: 0
+      maxPp3: 0
+      pp3: 0
+      move4: 0
+      maxPp4: 0
+      pp4: 0
+      HP: 10
+      status: 0
+      sleepTurns: 0
+      fainted: 0
+      exists: 0
+      item: 0
+      onField: 0
+      transformed: 0
+      temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     ability: 0
     item: 0
+    endure: 0
+    protect: 0
+    protectCounter: 0
+    infatuated: 0
+    infatuationTarget: 0
+    cursed: 0
+    newType1: 255
+    newType2: 255
+    typesOverriden: 0
     hasType3: 0
     Type3: 255
+    mimicking: 0
+    mimicSlot: 0
+    mimicMove: 0
+    mimicPP: 0
+    mimicMaxPP: 0
+    lastTargetedMove: 0
   - PokemonData:
       species: 0
       monName: Null
@@ -11473,8 +11899,11 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      onField: 1
       transformed: 0
       temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -11500,12 +11929,17 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
+    abilityHealed25: 0
+    abilityActivated: 0
+    wasProtected: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
     continuousDamageTimer: 0
+    trapped: 0
+    trappingSlot: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -11518,26 +11952,93 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
-    protect: 0
-    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
     disabled: 0
-    disable: 0
+    disabledMove: 0
     disableTimer: 0
-    lastUsedMove: 0
     gotAbilityEffect: 0
+    affectingAbility: 0
     seeded: 0
     seedingSlot: 0
     biding: 0
     bideDamage: 0
+    rolloutIntensity: 0
+    flashFire: 0
+    hasSubstitute: 0
+    substituteHP: 0
+    isEnraged: 0
+    perishSong: 0
+    perishCounter: 0
+    isTransformed: 0
+    transformedMon:
+      species: 0
+      monName: Missingno
+      gender: 2
+      xp: 0
+      level: 0
+      currentLevelXP: 0
+      nextLevelXP: 0
+      levelProgress: 0
+      evHP: 0
+      evAttack: 0
+      evDefense: 0
+      evSpAtk: 0
+      evSpDef: 0
+      evSpeed: 0
+      totalEv: 0
+      whichAbility: 0
+      hpMax: 10
+      attack: 5
+      defense: 5
+      spAtk: 5
+      spDef: 5
+      speed: 5
+      move1: 0
+      maxPp1: 0
+      pp1: 0
+      move2: 0
+      maxPp2: 0
+      pp2: 0
+      move3: 0
+      maxPp3: 0
+      pp3: 0
+      move4: 0
+      maxPp4: 0
+      pp4: 0
+      HP: 10
+      status: 0
+      sleepTurns: 0
+      fainted: 0
+      exists: 0
+      item: 0
+      onField: 0
+      transformed: 0
+      temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     ability: 0
     item: 0
+    endure: 0
+    protect: 0
+    protectCounter: 0
+    infatuated: 0
+    infatuationTarget: 0
+    cursed: 0
+    newType1: 255
+    newType2: 255
+    typesOverriden: 0
     hasType3: 0
     Type3: 255
+    mimicking: 0
+    mimicSlot: 0
+    mimicMove: 0
+    mimicPP: 0
+    mimicMaxPP: 0
+    lastTargetedMove: 0
   - PokemonData:
       species: 0
       monName: Null
@@ -11579,8 +12080,11 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      onField: 1
       transformed: 0
       temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -11606,12 +12110,17 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
+    abilityHealed25: 0
+    abilityActivated: 0
+    wasProtected: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
     continuousDamageTimer: 0
+    trapped: 0
+    trappingSlot: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -11624,26 +12133,93 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
-    protect: 0
-    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
     disabled: 0
-    disable: 0
+    disabledMove: 0
     disableTimer: 0
-    lastUsedMove: 0
     gotAbilityEffect: 0
+    affectingAbility: 0
     seeded: 0
     seedingSlot: 0
     biding: 0
     bideDamage: 0
+    rolloutIntensity: 0
+    flashFire: 0
+    hasSubstitute: 0
+    substituteHP: 0
+    isEnraged: 0
+    perishSong: 0
+    perishCounter: 0
+    isTransformed: 0
+    transformedMon:
+      species: 0
+      monName: Missingno
+      gender: 2
+      xp: 0
+      level: 0
+      currentLevelXP: 0
+      nextLevelXP: 0
+      levelProgress: 0
+      evHP: 0
+      evAttack: 0
+      evDefense: 0
+      evSpAtk: 0
+      evSpDef: 0
+      evSpeed: 0
+      totalEv: 0
+      whichAbility: 0
+      hpMax: 10
+      attack: 5
+      defense: 5
+      spAtk: 5
+      spDef: 5
+      speed: 5
+      move1: 0
+      maxPp1: 0
+      pp1: 0
+      move2: 0
+      maxPp2: 0
+      pp2: 0
+      move3: 0
+      maxPp3: 0
+      pp3: 0
+      move4: 0
+      maxPp4: 0
+      pp4: 0
+      HP: 10
+      status: 0
+      sleepTurns: 0
+      fainted: 0
+      exists: 0
+      item: 0
+      onField: 0
+      transformed: 0
+      temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     ability: 0
     item: 0
+    endure: 0
+    protect: 0
+    protectCounter: 0
+    infatuated: 0
+    infatuationTarget: 0
+    cursed: 0
+    newType1: 255
+    newType2: 255
+    typesOverriden: 0
     hasType3: 0
     Type3: 255
+    mimicking: 0
+    mimicSlot: 0
+    mimicMove: 0
+    mimicPP: 0
+    mimicMaxPP: 0
+    lastTargetedMove: 0
   - PokemonData:
       species: 0
       monName: Null
@@ -11685,8 +12261,11 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      onField: 1
       transformed: 0
       temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -11712,12 +12291,17 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
+    abilityHealed25: 0
+    abilityActivated: 0
+    wasProtected: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
     continuousDamageTimer: 0
+    trapped: 0
+    trappingSlot: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -11730,26 +12314,93 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
-    protect: 0
-    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
     disabled: 0
-    disable: 0
+    disabledMove: 0
     disableTimer: 0
-    lastUsedMove: 0
     gotAbilityEffect: 0
+    affectingAbility: 0
     seeded: 0
     seedingSlot: 0
     biding: 0
     bideDamage: 0
+    rolloutIntensity: 0
+    flashFire: 0
+    hasSubstitute: 0
+    substituteHP: 0
+    isEnraged: 0
+    perishSong: 0
+    perishCounter: 0
+    isTransformed: 0
+    transformedMon:
+      species: 0
+      monName: Missingno
+      gender: 2
+      xp: 0
+      level: 0
+      currentLevelXP: 0
+      nextLevelXP: 0
+      levelProgress: 0
+      evHP: 0
+      evAttack: 0
+      evDefense: 0
+      evSpAtk: 0
+      evSpDef: 0
+      evSpeed: 0
+      totalEv: 0
+      whichAbility: 0
+      hpMax: 10
+      attack: 5
+      defense: 5
+      spAtk: 5
+      spDef: 5
+      speed: 5
+      move1: 0
+      maxPp1: 0
+      pp1: 0
+      move2: 0
+      maxPp2: 0
+      pp2: 0
+      move3: 0
+      maxPp3: 0
+      pp3: 0
+      move4: 0
+      maxPp4: 0
+      pp4: 0
+      HP: 10
+      status: 0
+      sleepTurns: 0
+      fainted: 0
+      exists: 0
+      item: 0
+      onField: 0
+      transformed: 0
+      temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     ability: 0
     item: 0
+    endure: 0
+    protect: 0
+    protectCounter: 0
+    infatuated: 0
+    infatuationTarget: 0
+    cursed: 0
+    newType1: 255
+    newType2: 255
+    typesOverriden: 0
     hasType3: 0
     Type3: 255
+    mimicking: 0
+    mimicSlot: 0
+    mimicMove: 0
+    mimicPP: 0
+    mimicMaxPP: 0
+    lastTargetedMove: 0
   - PokemonData:
       species: 0
       monName: Null
@@ -11791,8 +12442,11 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      onField: 1
       transformed: 0
       temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -11818,12 +12472,17 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
+    abilityHealed25: 0
+    abilityActivated: 0
+    wasProtected: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
     continuousDamageType: 0
     continuousDamageSource: 0
     continuousDamageTimer: 0
+    trapped: 0
+    trappingSlot: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -11836,29 +12495,98 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
-    protect: 0
-    protectCounter: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
     disabled: 0
-    disable: 0
+    disabledMove: 0
     disableTimer: 0
-    lastUsedMove: 0
     gotAbilityEffect: 0
+    affectingAbility: 0
     seeded: 0
     seedingSlot: 0
     biding: 0
     bideDamage: 0
+    rolloutIntensity: 0
+    flashFire: 0
+    hasSubstitute: 0
+    substituteHP: 0
+    isEnraged: 0
+    perishSong: 0
+    perishCounter: 0
+    isTransformed: 0
+    transformedMon:
+      species: 0
+      monName: Missingno
+      gender: 2
+      xp: 0
+      level: 0
+      currentLevelXP: 0
+      nextLevelXP: 0
+      levelProgress: 0
+      evHP: 0
+      evAttack: 0
+      evDefense: 0
+      evSpAtk: 0
+      evSpDef: 0
+      evSpeed: 0
+      totalEv: 0
+      whichAbility: 0
+      hpMax: 10
+      attack: 5
+      defense: 5
+      spAtk: 5
+      spDef: 5
+      speed: 5
+      move1: 0
+      maxPp1: 0
+      pp1: 0
+      move2: 0
+      maxPp2: 0
+      pp2: 0
+      move3: 0
+      maxPp3: 0
+      pp3: 0
+      move4: 0
+      maxPp4: 0
+      pp4: 0
+      HP: 10
+      status: 0
+      sleepTurns: 0
+      fainted: 0
+      exists: 0
+      item: 0
+      onField: 0
+      transformed: 0
+      temporarySpecies: 0
+      friendship: 0
+      hiddenPowerType: 0
     ability: 0
     item: 0
+    endure: 0
+    protect: 0
+    protectCounter: 0
+    infatuated: 0
+    infatuationTarget: 0
+    cursed: 0
+    newType1: 255
+    newType2: 255
+    typesOverriden: 0
     hasType3: 0
     Type3: 255
+    mimicking: 0
+    mimicSlot: 0
+    mimicMove: 0
+    mimicPP: 0
+    mimicMaxPP: 0
+    lastTargetedMove: 0
   battleType: 0
   Moves: 000000000000000000000000000000000000000000000000
   SwitchTargets: 000000000000
+  Targets: 000000000000
+  MoveNums: 000000000000
   playerMonIcons:
   - {fileID: 0}
   - {fileID: 0}
@@ -11920,6 +12648,7 @@ MonoBehaviour:
   currentMon: 3
   currentMove: 1
   currentPartyMon: 0
+  menuMode: 0
 --- !u!114 &1034585561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12116,6 +12845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusbar: {fileID: 291250902}
+  bubbleRenderer: {fileID: 833436940}
   battle: {fileID: 1034585559}
   index: 0
   sprites:
@@ -12763,7 +13493,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1322025946}
   - component: {fileID: 1322025948}
-  - component: {fileID: 1322025947}
   m_Layer: 0
   m_Name: HPBarOpponent
   m_TagString: Untagged
@@ -12793,25 +13522,6 @@ RectTransform:
   m_AnchoredPosition: {x: -243.2625, y: 279.264}
   m_SizeDelta: {x: 3, y: -0.81073}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1322025947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322025945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7788cd816d50e4107843de3e443f1e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 1322025948}
-  healthBar: {fileID: 1300887812}
-  duration: 0
-  interval: 0
-  changed: 0
-  battle: {fileID: 1034585559}
-  index: 0
 --- !u!114 &1322025948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12873,7 +13583,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1333135494}
   - component: {fileID: 1333135495}
-  - component: {fileID: 1333135496}
   m_Layer: 0
   m_Name: HPBarPlayer
   m_TagString: Untagged
@@ -12954,25 +13663,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1333135496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333135493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7788cd816d50e4107843de3e443f1e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 1333135495}
-  healthBar: {fileID: 1589590601}
-  duration: 0
-  interval: 0
-  changed: 0
-  battle: {fileID: 1034585559}
-  index: 3
 --- !u!1 &1365671567
 GameObject:
   m_ObjectHideFlags: 0
@@ -13419,6 +14109,7 @@ GameObject:
   - component: {fileID: 1474041819}
   - component: {fileID: 1474041818}
   - component: {fileID: 1474041820}
+  - component: {fileID: 1474041821}
   m_Layer: 0
   m_Name: PlayerMon
   m_TagString: Untagged
@@ -13512,6 +14203,26 @@ MonoBehaviour:
   maskRenderer: {fileID: 1152319970}
   anim: {fileID: 1152319971}
   baseSprite: {fileID: 1474041818}
+--- !u!114 &1474041821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474041817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7788cd816d50e4107843de3e443f1e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 1333135495}
+  healthBar: {fileID: 1589590601}
+  duration: 0
+  interval: 0
+  wholeBar: {fileID: 1333135493}
+  changed: 0
+  battle: {fileID: 1034585559}
+  index: 3
 --- !u!1 &1503983640
 GameObject:
   m_ObjectHideFlags: 0
@@ -15335,7 +16046,7 @@ GameObject:
   - component: {fileID: 1908819233}
   - component: {fileID: 1908819235}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Player Bubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15494,56 +16205,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -5, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -4, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -3, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -2, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 3
-      m_TileSpriteIndex: 3
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: aba0d53cb9282407b850cf47413c4a1a, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 6754c760d46ae41fc814a5e39346faa1, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 1391f61b6408547398ea5d9f4aad0d33, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: f2dcb621f08484e069b189153d463ee2, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 6ddb820f981054d7e9e0b004484c38c9, type: 2}
   - m_RefCount: 1
@@ -15561,14 +16232,14 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 8fee5002b922a415db49cde3f31c9422, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: -376525864, guid: c5ee4436d79884ed7b34332aec952fb5, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1878853194, guid: c5ee4436d79884ed7b34332aec952fb5, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1473226821, guid: c5ee4436d79884ed7b34332aec952fb5, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -909591434, guid: c5ee4436d79884ed7b34332aec952fb5, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1551031827, guid: f548f992c4abb4279918e073f5f76c5d, type: 3}
   - m_RefCount: 1
@@ -15586,7 +16257,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -32580302, guid: f548f992c4abb4279918e073f5f76c5d, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 12
+  - m_RefCount: 8
     m_Data:
       e00: 1
       e01: 0
@@ -15605,7 +16276,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 12
+  - m_RefCount: 8
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -16118,6 +16789,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1908819232}
+  - {fileID: 833436942}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2118641924

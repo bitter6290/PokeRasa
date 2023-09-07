@@ -430,7 +430,7 @@ public static class BattleEffect
                 + battle.OpponentPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
                 battle.OpponentPokemon[partyIndex], index > 2, index % 3, false);
-            battle.audioSource.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
+            battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
                 + battle.PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
             yield return battle.MonEntersField(index);
         }
@@ -441,7 +441,7 @@ public static class BattleEffect
             yield return battle.Announce("Go! " + battle.PlayerPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
                             battle.PlayerPokemon[partyIndex], index > 2, index % 3, true);
-            battle.audioSource.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
+            battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
                 + battle.PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
             yield return battle.MonEntersField(index);
         }
@@ -474,7 +474,7 @@ public static class BattleEffect
                 }
                 if (RemainingPokemon.Count == 0)
                 {
-                    yield return battle.Announce("But it failed!");
+                    yield return battle.Announce(BattleText.MoveFailed);
                 }
                 else
                 {
@@ -661,7 +661,7 @@ public static class BattleEffect
     {
         if (battle.PokemonOnField[index].isTransformed || battle.PokemonOnField[target].isTransformed)
         {
-            yield return battle.Announce("But it failed!");
+            yield return battle.Announce(BattleText.MoveFailed);
         }
         else
         {
@@ -707,7 +707,7 @@ public static class BattleEffect
     {
         if (battle.PokemonOnField[attacker].PokemonData.HP > battle.PokemonOnField[target].PokemonData.HP)
         {
-            yield return battle.Announce("But it failed!");
+            yield return battle.Announce(BattleText.MoveFailed);
             yield break;
         }
         int newHP = (battle.PokemonOnField[attacker].PokemonData.HP + battle.PokemonOnField[target].PokemonData.HP) >> 1;
@@ -789,7 +789,7 @@ public static class BattleEffect
     {
         battle.PokemonOnField[index].perishCounter--;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s perish counter fell to " + battle.PokemonOnField[index].perishCounter + "!");
-        if(battle.PokemonOnField[index].perishCounter <= 0)
+        if (battle.PokemonOnField[index].perishCounter <= 0)
         {
             battle.PokemonOnField[index].PokemonData.HP = 0;
             battle.PokemonOnField[index].PokemonData.fainted = true;
@@ -814,7 +814,7 @@ public static class BattleEffect
         }
         else
         {
-            yield return battle.Announce("But it failed!");
+            yield return battle.Announce(BattleText.MoveFailed);
         }
 
     }
@@ -850,7 +850,7 @@ public static class BattleEffect
         yield return battle.Announce("A bell chimed!");
         if (index < 3)
         {
-            for(int i = 0; i < 6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 if (battle.OpponentPokemon[i].exists
                     && battle.OpponentPokemon[i].SpeciesData.abilities[battle.OpponentPokemon[i].whichAbility] != Ability.Soundproof
@@ -874,6 +874,20 @@ public static class BattleEffect
         }
     }
 
+    public static IEnumerator Thief(Battle battle, int attacker, int defender)
+    {
+        if (battle.PokemonOnField[attacker].PokemonData.item == ItemID.None
+            && Item.CanBeStolen(battle.PokemonOnField[defender].PokemonData.item)
+            && !battle.HasAbility(defender, Ability.StickyHold))
+        {
+            battle.PokemonOnField[attacker].PokemonData.item = battle.PokemonOnField[defender].PokemonData.item;
+            battle.PokemonOnField[defender].PokemonData.item = ItemID.None;
+            yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
+                + " stole " + battle.MonNameWithPrefix(defender, false) + "'s "
+                + Item.ItemTable[(int)battle.PokemonOnField[attacker].PokemonData.item].itemName + "!");
+        }
+    }
+
     public static IEnumerator GhostCurse(Battle battle, int attacker, int defender)
     {
         battle.PokemonOnField[attacker].DoNonMoveDamage(battle.PokemonOnField[attacker].PokemonData.hpMax >> 1);
@@ -886,5 +900,18 @@ public static class BattleEffect
     {
         battle.PokemonOnField[index].DoNonMoveDamage(battle.PokemonOnField[index].PokemonData.hpMax >> 2);
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Curse!");
+    }
+
+    public static IEnumerator Spikes(Battle battle, int index)
+    {
+        if (battle.Sides[battle.GetSide(5 - index)].spikes < 3)
+        {
+            battle.Sides[battle.GetSide(5 - index)].spikes++;
+            yield return battle.Announce("Spikes littered the ground around " + (index < 3 ? "your Pokémon!" : "the opponent's Pokémon!"));
+        }
+        else
+        {
+            yield return battle.Announce(BattleText.MoveFailed);
+        }
     }
 }

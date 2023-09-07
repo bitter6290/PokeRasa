@@ -162,7 +162,7 @@ public class BattlePokemon
 
     public void DoNonMoveDamage(int damage)
     {
-        if(damage > PokemonData.HP)
+        if (damage > PokemonData.HP)
         {
             PokemonData.fainted = true;
             PokemonData.HP = 0;
