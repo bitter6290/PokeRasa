@@ -7,11 +7,11 @@ using static System.Math;
 public static class BattleEffect
 {
     public static System.Random random = new();
-    public static IEnumerator StatUp(Battle battle, int index, Stat statID, int amount, int attacker, bool checkContrary = true)
+    public static IEnumerator StatUp(Battle battle, int index, Stat statID, int amount, int attacker, bool doAnimation = true, bool checkContrary = true)
     {
         if (battle.HasAbility(index, Ability.Contrary) && checkContrary)
         {
-            yield return StatDown(battle, index, statID, amount, attacker, false);
+            yield return StatDown(battle, index, statID, amount, attacker, doAnimation, false);
             yield break;
         }
         if (battle.HasAbility(index, Ability.Simple))
@@ -26,28 +26,28 @@ public static class BattleEffect
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.CantGoHigher);
                 break;
             case 1:
-                yield return BattleAnim.StatUp(battle, index);
+                if (doAnimation) yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRose);
                 break;
             case 2:
-                yield return BattleAnim.StatUp(battle, index);
+                if (doAnimation) yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRoseSharply);
                 break;
             default:
-                yield return BattleAnim.StatUp(battle, index);
+                if (doAnimation) yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRoseDrastically);
                 break;
         }
     }
 
-    public static IEnumerator StatDown(Battle battle, int index, Stat statID, int amount, int attacker, bool checkContrary = true)
+    public static IEnumerator StatDown(Battle battle, int index, Stat statID, int amount, int attacker, bool doAnimation = true, bool checkContrary = true)
     {
         if (battle.HasAbility(index, Ability.Contrary) && checkContrary)
         {
-            yield return StatUp(battle, index, statID, amount, attacker, false);
+            yield return StatUp(battle, index, statID, amount, attacker, doAnimation, false);
             yield break;
         }
         if (battle.HasAbility(index, Ability.Simple))
@@ -80,17 +80,17 @@ public static class BattleEffect
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.CantGoLower);
                 break;
             case 1:
-                yield return BattleAnim.StatDown(battle, index);
+                if (doAnimation) yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFell);
                 break;
             case 2:
-                yield return BattleAnim.StatDown(battle, index);
+                if (doAnimation) yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFellSharply);
                 break;
             default:
-                yield return BattleAnim.StatDown(battle, index);
+                if (doAnimation) yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFellDrastically);
                 break;
@@ -336,6 +336,13 @@ public static class BattleEffect
             battle.PokemonOnField[index].PokemonData.HP -= toxicDamage;
         }
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by poison!");
+    }
+
+    public static IEnumerator WakeUp(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].PokemonData.status = Status.None;
+        battle.PokemonOnField[index].nightmare = false;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.WokeUp);
     }
 
     public static IEnumerator Confuse(Battle battle, int index)
@@ -999,7 +1006,54 @@ public static class BattleEffect
             default: worked = false; break;
         }
         if (worked) yield return battle.Announce("It reduced the PP of " + battle.MonNameWithPrefix(index, false)
-            + "'s " + Move.MoveTable[(int)battle.PokemonOnField[index].GetMove(battle.PokemonOnField[index].lastMoveSlot)].name + " by 4!");
+            + "'s " + battle.GetMove(index).name + " by 4!");
         else yield return battle.Announce(BattleText.MoveFailed);
+    }
+
+    public static IEnumerator GetNightmare(Battle battle, int index)
+    {
+        if (battle.PokemonOnField[index].PokemonData.status != Status.Sleep || battle.PokemonOnField[index].nightmare)
+            yield return battle.Announce(BattleText.MoveFailed);
+        else
+        {
+            battle.PokemonOnField[index].nightmare = true;
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " began having a nightmare!");
+        }
+    }
+
+    public static IEnumerator DoNightmare(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].DoNonMoveDamage(battle.PokemonOnField[index].PokemonData.hpMax >> 2);
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is locked in a nightmare!");
+    }
+
+    public static IEnumerator GetMindReader(Battle battle, int user, int target)
+    {
+        battle.PokemonOnField[user].usedMindReader = true;
+        battle.PokemonOnField[user].mindReaderTarget = target;
+        yield return battle.Announce(battle.MonNameWithPrefix(user, true) + " took aim at "
+            + battle.MonNameWithPrefix(target, false));
+    }
+
+    public static IEnumerator BellyDrum(Battle battle, int index)
+    {
+        if (battle.PokemonOnField[index].PokemonData.HP * 2 > battle.PokemonOnField[index].PokemonData.hpMax)
+        {
+            if (battle.PokemonOnField[index].attackStage == 6)
+            {
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + "'s Attack won't go any higher!");
+                yield break;
+            }
+            battle.PokemonOnField[index].DoNonMoveDamage(battle.PokemonOnField[index].PokemonData.hpMax >> 1);
+            yield return BattleAnim.StatUp(battle, index);
+            battle.PokemonOnField[index].attackStage = 6;
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                + " cut its own HP to maximize its Attack!");
+        }
+        else
+        {
+            yield return battle.Announce(BattleText.MoveFailed);
+        }
     }
 }

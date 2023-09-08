@@ -917,13 +917,13 @@ public static class Move
     public static MoveData MindReader = new(
         "Mind Reader", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+        MoveEffect.MindReader, 100,
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs testing and anim
     public static MoveData Nightmare = new(
         "Nightmare", Type.Ghost,
         0, 100, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+        MoveEffect.Nightmare, 101,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
     public static MoveData FlameWheel = new(
         "Flame Wheel", Type.Fire,
         60, 100, 0,
@@ -994,7 +994,7 @@ public static class Move
         "Feint Attack", Type.Dark,
         60, 101, 0,
         MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
     public static MoveData SweetKiss = new(
         "Sweet Kiss", Type.Fairy,
         0, 75, 0,

@@ -41,6 +41,7 @@ public enum MoveEffect
     Minimize,
     DefenseCurl,
     AllUp1,
+    BellyDrum,
     //Other status moves
     LeechSeed,
     Disable,
@@ -51,6 +52,8 @@ public enum MoveEffect
     Curse,
     PsychUp,
     Spite,
+    Nightmare,
+    MindReader,
     //Direct damage
     Direct20,
     Direct40,

@@ -95,6 +95,10 @@ public class BattlePokemon
 
     public bool flashFire = false;
 
+    public bool usedMindReader = false;
+    public bool hasMindReader = false;
+    public int mindReaderTarget = 0;
+
     public bool hasSubstitute = false;
     public int substituteHP = 0;
 
@@ -117,6 +121,8 @@ public class BattlePokemon
     public int infatuationTarget = 0;
 
     public bool cursed = false;
+
+    public bool nightmare = false;
 
     public byte furyCutterIntensity = 0;
 
