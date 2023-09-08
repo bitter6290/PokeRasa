@@ -1206,7 +1206,7 @@ public static class Move
         "Baton Pass", Type.Normal,
         0, 101, 0,
         MoveEffect.BatonPass, 100,
-        false, TargetID.Self, 40); //Needs anim
+        false, TargetID.Self, 40); //Needs testing and anim
     public static MoveData Encore = new(
         "Encore", Type.Normal,
         0, 100, 0,
