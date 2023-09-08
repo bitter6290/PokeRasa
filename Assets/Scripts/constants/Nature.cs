@@ -30,6 +30,8 @@ public static class Nature
     public const byte Careful = 23;
     public const byte Quirky = 24;
 
+    public const byte Any = 255;
+
     public static float NatureEffect(byte nature, byte stat)
     {
         int loweredStat = nature % 5;

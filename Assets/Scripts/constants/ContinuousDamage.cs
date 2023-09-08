@@ -5,4 +5,5 @@ public enum ContinuousDamage : byte
     Bind,
     FireSpin,
     Clamp,
+    Whirlpool,
 }

@@ -9,7 +9,11 @@ public class Side
     public bool mist = false;
     public byte mistTurns = 0;
     public int spikes = 0;
+    public bool safeguard = false;
+    public int safeguardTurns = 0;
+
     public readonly bool whichSide;
+
     public Side(bool side)
     {
         whichSide = side;

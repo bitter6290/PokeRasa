@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public bool[] HM = new bool[8];
     public bool[] keyItem = new bool[8];
 
+    public Dictionary<ItemID, int> Bag;
+
     public bool[] storyFlags = new bool[100];
 
 
@@ -19,15 +21,27 @@ public class Player : MonoBehaviour
     int monsInParty = 0;
 
 
-    private IEnumerator OnItemGet(ushort item)
+    private IEnumerator GetItem(ItemID item, int amount)
     {
-        switch (Item.ItemTable[item].type)
+        switch (Item.ItemTable[(int)item].type)
         {
             case ItemType.TM:
                 //yield return Field.Announce("Received" + Item.ItemTable[item].name");
-                TM[Item.ItemTable[item].itemData.tmID] = true;
+                TM[Item.ItemTable[(int)item].ItemSubdata[0]] = true;
+                break;
+            case ItemType.KeyItem:
+                //yield return Field.Announce("Received" + Item.ItemTable[item].name");
+                keyItem[Item.ItemTable[(int)item].ItemSubdata[0]] = true;
                 break;
             default:
+                if (Bag.ContainsKey(item))
+                {
+                    Bag[item] += amount;
+                }
+                else
+                {
+                    Bag.Add(item, amount);
+                }
                 break;
         }
         yield return null;

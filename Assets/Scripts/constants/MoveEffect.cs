@@ -49,6 +49,8 @@ public enum MoveEffect
     Attract,
     Trap,
     Curse,
+    PsychUp,
+    Spite,
     //Direct damage
     Direct20,
     Direct40,
@@ -85,11 +87,13 @@ public enum MoveEffect
     Magnitude,
     Reversal,
     HiddenPower,
+    FuryCutter,
     //Paired effects
     Bide,
     BideHit,
     //Field effects
     Mist,
+    Safeguard,
     Haze,
     Reflect,
     LightScreen,
@@ -101,6 +105,7 @@ public enum MoveEffect
     Transform,
     Teleport,
     BatonPass,
+    SleepTalk,
     MirrorMove,
     Mimic,
     Metronome,

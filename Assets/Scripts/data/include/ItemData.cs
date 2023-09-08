@@ -1,77 +1,94 @@
 ﻿using System;
-public class ItemData
+public abstract class ItemData
 {
     public string itemName;
     public int price;
     public ItemType type;
-    public ItemSubdata itemData;
+    public abstract int[] ItemSubdata { get; }
+}
+
+public class FieldItem : ItemData //subdata length 2
+{
+    public FieldEffect fieldEffect;
+    public int fieldEffectIntensity;
+    public override int[] ItemSubdata => new int[2]
+        {
+            (int)fieldEffect,
+            fieldEffectIntensity,
+        };
+
+    public FieldItem()
+    {
+        type = ItemType.FieldItem;
+    }
 
 }
 
-[System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Explicit)]
-public struct ItemSubdata
+public class BattleItem : ItemData //subdata length 2
 {
-    [System.Runtime.InteropServices.FieldOffset(0)]
-    public FieldEffect fieldEffect;
-    [System.Runtime.InteropServices.FieldOffset(4)]
-    public ushort fieldEffectData;
-    [System.Runtime.InteropServices.FieldOffset(6)]
     public BattleItemEffect battleEffect;
-    [System.Runtime.InteropServices.FieldOffset(8)]
-    public ushort battleEffectData;
-    [System.Runtime.InteropServices.FieldOffset(10)]
-    public HeldEffect heldEffect;
-    [System.Runtime.InteropServices.FieldOffset(12)]
-    public byte heldEffectData;
-    [System.Runtime.InteropServices.FieldOffset(0)]
-    public byte tmID;
-    [System.Runtime.InteropServices.FieldOffset(0)]
-    public byte keyItemID;
-    [System.Runtime.InteropServices.FieldOffset(0)]
+    public int battleEffectIntensity;
+    public override int[] ItemSubdata => new int[2]
+        {
+            (int)battleEffect,
+            battleEffectIntensity,
+        };
+    public BattleItem()
+    {
+        type = ItemType.BattleItem;
+    }
+}
+
+public class Medicine : ItemData //subdata length 4
+{
+    public FieldEffect fieldEffect;
+    public int fieldEffectIntensity;
+    public BattleItemEffect battleEffect;
+    public int battleEffectIntensity;
+    public override int[] ItemSubdata => new int[4]
+        {
+            (int)fieldEffect,
+            fieldEffectIntensity,
+            (int)battleEffect,
+            battleEffectIntensity,
+        };
+    public Medicine()
+    {
+        type = ItemType.Medicine;
+    }
+}
+
+public class TM : ItemData //subdata length 1
+{
+    public TMID TMID;
+    public override int[] ItemSubdata => new int[1] { (int)TMID };
+    public TM()
+    {
+        type = ItemType.TM;
+    }
+}
+
+public class MegaStone : ItemData //subdata length 2
+{
     public SpeciesID originalSpecies;
-    [System.Runtime.InteropServices.FieldOffset(2)]
     public SpeciesID destinationSpecies;
-
-    public static ItemSubdata NormalItem(FieldEffect fieldEffect, ushort fieldEffectData,
-        BattleItemEffect battleEffect, ushort battleEffectData, HeldEffect heldEffect, byte heldEffectData)
+    public override int[] ItemSubdata => new int[2]
     {
-        ItemSubdata subdata = new()
-        {
-            fieldEffect = fieldEffect,
-            fieldEffectData = fieldEffectData,
-            battleEffect = battleEffect,
-            battleEffectData = battleEffectData,
-            heldEffect = heldEffect,
-            heldEffectData = heldEffectData
-        };
-        return subdata;
+        (int)originalSpecies,
+        (int)destinationSpecies,
+    };
+    public MegaStone()
+    {
+        type = ItemType.MegaStone;
     }
+}
 
-    public static ItemSubdata TM(byte tmID)
+public class KeyItem : ItemData //subdata length 1
+{
+    public int KeyItemID;
+    public override int[] ItemSubdata => new int[1] { KeyItemID };
+    public KeyItem()
     {
-        ItemSubdata subdata = new()
-        {
-            tmID = tmID
-        };
-        return subdata;
-    }
-
-    public static ItemSubdata KeyItem(byte keyItemID)
-    {
-        ItemSubdata subdata = new()
-        {
-            keyItemID = keyItemID
-        };
-        return subdata;
-    }
-
-    public static ItemSubdata MegaStone(SpeciesID originalSpecies, SpeciesID destinationSpecies)
-    {
-        ItemSubdata subdata = new()
-        {
-            originalSpecies = originalSpecies,
-            destinationSpecies = destinationSpecies
-        };
-        return subdata;
+        type = ItemType.KeyItem;
     }
 }

@@ -3,124 +3,112 @@ public static class Item
 {
     public static bool CanBeStolen(ItemID item) => ItemTable[(int)item].type is ItemType.FieldItem or ItemType.BattleItem or ItemType.Medicine;
 
-    public static ItemData None = new()
+    public static FieldItem None = new()
     {
         itemName = "Error 901",
-        type = ItemType.FieldItem,
         price = 100,
-        itemData = ItemSubdata.NormalItem(FieldEffect.None, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
     };
 
-    public static ItemData FireStone = new()
+    public static FieldItem FireStone = new()
     {
         itemName = "Fire Stone",
-        type = ItemType.FieldItem,
-        price = 5000,
-        itemData = ItemSubdata.NormalItem(FieldEffect.Evolution, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution
     };
 
-    public static ItemData WaterStone = new()
+    public static FieldItem WaterStone = new()
     {
         itemName = "Water Stone",
-        type = ItemType.FieldItem,
-        price = 5000,
-        itemData = ItemSubdata.NormalItem(FieldEffect.Evolution, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution
     };
 
-    public static ItemData ThunderStone = new()
+    public static FieldItem ThunderStone = new()
     {
         itemName = "Thunder Stone",
-        type = ItemType.FieldItem,
-        price = 5000,
-        itemData = ItemSubdata.NormalItem(FieldEffect.Evolution, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution
     };
 
-    public static ItemData LeafStone = new()
+    public static FieldItem LeafStone = new()
     {
         itemName = "Leaf Stone",
-        type = ItemType.FieldItem,
-        price = 5000,
-        itemData = ItemSubdata.NormalItem(FieldEffect.Evolution, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution
     };
 
-    public static ItemData MoonStone = new()
+    public static FieldItem MoonStone = new()
     {
         itemName = "Moon Stone",
-        type = ItemType.FieldItem,
-        price = 5000,
-        itemData = ItemSubdata.NormalItem(FieldEffect.Evolution, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution
     };
 
-    public static ItemData SunStone = new()
+    public static FieldItem SunStone = new()
     {
         itemName = "Sun Stone",
-        type = ItemType.FieldItem,
-        price = 5000,
-        itemData = ItemSubdata.NormalItem(FieldEffect.Evolution, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution
     };
 
-    public static ItemData ShinyStone = new()
+    public static FieldItem ShinyStone = new()
     {
         itemName = "Shiny Stone",
-        type = ItemType.FieldItem,
-        price = 5000,
-        itemData = ItemSubdata.NormalItem(FieldEffect.Evolution, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution
     };
 
-    public static ItemData DawnStone = new()
-    {
-        itemName = "Dawn Stone",
-        type = ItemType.FieldItem,
-        price = 5000,
-        itemData = ItemSubdata.NormalItem(FieldEffect.Evolution, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
-    };
-
-    public static ItemData DuskStone = new()
+    public static FieldItem DuskStone = new()
     {
         itemName = "Dusk Stone",
-        type = ItemType.FieldItem,
-        price = 5000,
-        itemData = ItemSubdata.NormalItem(FieldEffect.Evolution, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution
     };
 
-    public static ItemData IceStone = new()
+    public static FieldItem DawnStone = new()
+    {
+        itemName = "Dawn Stone",
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution
+    };
+
+    public static FieldItem IceStone = new()
     {
         itemName = "Ice Stone",
-        type = ItemType.FieldItem,
-        price = 5000,
-        itemData = ItemSubdata.NormalItem(FieldEffect.Evolution, 0, BattleItemEffect.None, 0, HeldEffect.None, 0)
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution
     };
 
-    public static ItemData Venusaurite = new()
+    public static MegaStone Venusaurite = new()
     {
         itemName = "Venusaurite",
-        type = ItemType.MegaStone,
-        price = 10000,
-        itemData = ItemSubdata.MegaStone(SpeciesID.Ivysaur, SpeciesID.Venusaur) //Must change
+        price = 40000,
+        originalSpecies = SpeciesID.Ivysaur,
+        destinationSpecies = SpeciesID.Venusaur,  //Replace when megas are implemented
     };
 
-    public static ItemData CharizarditeX = new()
+    public static MegaStone CharizarditeX = new()
     {
-        itemName = "Charizardite X",
-        type = ItemType.MegaStone,
-        price = 10000,
-        itemData = ItemSubdata.MegaStone(SpeciesID.Ivysaur, SpeciesID.Venusaur) //Must change
+        itemName = "Venusaurite",
+        price = 40000,
+        originalSpecies = SpeciesID.Ivysaur,
+        destinationSpecies = SpeciesID.Venusaur,  //Replace when megas are implemented
     };
 
-    public static ItemData CharizarditeY = new()
+    public static MegaStone CharizarditeY = new()
     {
-        itemName = "Charizardite Y",
-        type = ItemType.MegaStone,
-        price = 10000,
-        itemData = ItemSubdata.MegaStone(SpeciesID.Ivysaur, SpeciesID.Venusaur) //Must change
+        itemName = "Venusaurite",
+        price = 40000,
+        originalSpecies = SpeciesID.Ivysaur,
+        destinationSpecies = SpeciesID.Venusaur,  //Replace when megas are implemented
     };
 
-    public static ItemData Blastoisinite = new()
+    public static MegaStone Blastoisinite = new()
     {
-        itemName = "Blastoisinite",
-        type = ItemType.MegaStone,
-        price = 10000,
-        itemData = ItemSubdata.MegaStone(SpeciesID.Ivysaur, SpeciesID.Venusaur) //Must change
+        itemName = "Venusaurite",
+        price = 40000,
+        originalSpecies = SpeciesID.Ivysaur,
+        destinationSpecies = SpeciesID.Venusaur,  //Replace when megas are implemented
     };
 
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]

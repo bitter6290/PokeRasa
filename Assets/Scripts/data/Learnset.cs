@@ -34,7 +34,7 @@ public static class Learnset
         while (i < Learnset.Length)
         {
             if (Learnset[i].level > Level) { break; }
-            result[i % 4] = Learnset[i].move;
+            result[i & 3] = Learnset[i].move;
             i++;
         };
         return result;

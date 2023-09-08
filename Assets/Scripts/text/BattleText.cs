@@ -49,4 +49,6 @@ public static class BattleText
     public static string SnowStart = "It started to snow!";
     public static string SnowContinue = "Snow continues to fall.";
     public static string SnowEnd = "The snow stopped.";
+
+    public static string Safeguard = " is protected by Safeguard!";
 }

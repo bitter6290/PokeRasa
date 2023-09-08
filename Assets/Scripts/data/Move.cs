@@ -968,8 +968,8 @@ public static class Move
     public static MoveData Spite = new(
         "Spite", Type.Ghost,
         0, 100, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+        MoveEffect.Spite, 100,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData PowderSnow = new(
         "Powder Snow", Type.Ice,
         40, 100, 0,
@@ -1025,7 +1025,7 @@ public static class Move
         "Spikes", Type.Ground,
         0, 101, 0,
         MoveEffect.Spikes, 100,
-        false, TargetID.Field, 20); //Needs effect and anim
+        false, TargetID.Field, 20); //Needs anim
     public static MoveData ZapCannon = new(
         "Zap Cannon", Type.Electric,
         120, 50, 0,
@@ -1062,8 +1062,8 @@ public static class Move
     public static MoveData BoneRush = new(
         "Bone Rush", Type.Ground,
         25, 90, 0,
-        MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+        MoveEffect.MultiHit2to5, 0,
+        true, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData LockOn = new(
         "Lock On", Type.Normal,
         0, 101, 0,
@@ -1124,8 +1124,8 @@ public static class Move
     public static MoveData FuryCutter = new(
         "Fury Cutter", Type.Bug,
         40, 95, 0,
-        MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+        MoveEffect.FuryCutter, 0,
+        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
     public static MoveData SteelWing = new(
         "Steel Wing", Type.Steel,
         70, 90, 0,
@@ -1145,8 +1145,8 @@ public static class Move
     public static MoveData SleepTalk = new(
         "Sleep Talk", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Self, 10); //Needs effect and anim
+        MoveEffect.SleepTalk, 100,
+        false, TargetID.Self, 10); //Needs testing and anim
     public static MoveData HealBell = new(
         "Heal Bell", Type.Normal,
         0, 101, 0,
@@ -1170,8 +1170,8 @@ public static class Move
     public static MoveData Safeguard = new(
         "Safeguard", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Field, 25); //Needs effect and anim
+        MoveEffect.Safeguard, 100,
+        false, TargetID.Field, 25); //Needs anim
     public static MoveData PainSplit = new(
         "Pain Split", Type.Normal,
         0, 101, 0,
@@ -1205,8 +1205,8 @@ public static class Move
     public static MoveData BatonPass = new(
         "Baton Pass", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Self, 40); //Needs effect and anim
+        MoveEffect.BatonPass, 100,
+        false, TargetID.Self, 40); //Needs anim
     public static MoveData Encore = new(
         "Encore", Type.Normal,
         0, 100, 0,
@@ -1293,13 +1293,13 @@ public static class Move
     public static MoveData MirrorCoat = new(
         "Mirror Coat", Type.Psychic,
         0, 100, -5,
-        MoveEffect.Hit, 0,
-        false, TargetID.Self, 20); //Needs effect and anim
+        MoveEffect.Counter, 0,
+        false, TargetID.Self, 20); //Needs testing and anim
     public static MoveData PsychUp = new(
         "Psych Up", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 10); //Needs effect and anim
+        MoveEffect.PsychUp, 100,
+        false, TargetID.Opponent + TargetID.Ally, 10); //Needs anim
     public static MoveData ExtremeSpeed = new(
         "Extreme Speed", Type.Normal,
         80, 100, 2,
@@ -1330,8 +1330,8 @@ public static class Move
     public static MoveData Whirlpool = new(
         "Whirlpool", Type.Water,
         35, 85, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 15); //Needs effect and anim
+        MoveEffect.ContinuousDamage, 100,
+        false, TargetID.Opponent + TargetID.Ally, 15); //Needs anim
     public static MoveData BeatUp = new(
         "Beat Up", Type.Dark,
         0, 100, 0,

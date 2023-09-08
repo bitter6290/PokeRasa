@@ -66,8 +66,6 @@ public class BattlePokemon
 
     public bool choseMove = false;
 
-    public MoveID lastMoveUsed = MoveID.None;
-
     public bool flinched = false;
 
     public bool usedDefenseCurl = false;
@@ -120,6 +118,8 @@ public class BattlePokemon
 
     public bool cursed = false;
 
+    public byte furyCutterIntensity = 0;
+
     public byte newType1 = Type.Typeless;
     public byte newType2 = Type.Typeless;
     public bool typesOverriden = false;
@@ -132,6 +132,10 @@ public class BattlePokemon
     public MoveID mimicMove = MoveID.None;
     public byte mimicPP = 0;
     public byte mimicMaxPP = 0;
+
+    public MoveID moveUsedThisTurn = MoveID.None;
+    public MoveID lastMoveUsed = MoveID.None;
+    public int lastMoveSlot = 0;
 
     public MoveID lastTargetedMove = MoveID.None;
 

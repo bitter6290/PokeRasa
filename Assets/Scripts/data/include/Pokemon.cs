@@ -17,9 +17,9 @@ public class Pokemon : ICloneable
     public int nextLevelXP;
     public byte levelProgress;
 
-    private readonly byte ivHP;
-    private readonly byte ivAttack;
-    private readonly byte ivDefense;
+    private byte ivHP;
+    private byte ivAttack;
+    private byte ivDefense;
     private byte ivSpAtk;
     private byte ivSpDef;
     private byte ivSpeed;
@@ -72,11 +72,12 @@ public class Pokemon : ICloneable
 
     public byte friendship;
 
-    public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
-        (int)temporarySpecies : (int)species];
-
     public byte hiddenPowerType;
 
+
+
+    public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
+        (int)temporarySpecies : (int)species];
 
     public MoveID[] MoveIDs => new MoveID[4]
     {
@@ -102,14 +103,47 @@ public class Pokemon : ICloneable
         pp4 = 5;
     }
 
+    public void SetEvIv(EvIvSpread spread)
+    {
+            ivHP = spread.ivHP;
+            ivAttack = spread.ivAttack;
+            ivDefense = spread.ivDefense;
+            ivSpAtk = spread.ivSpAtk;
+            ivSpDef = spread.ivSpDef;
+            ivSpeed = spread.ivSpeed;
+
+            evHP = spread.evHP;
+            evAttack = spread.evAttack;
+            evDefense = spread.evDefense;
+            evSpAtk = spread.evSpAtk;
+            evSpDef = spread.evSpDef;
+            evSpeed = spread.evSpeed;
+        CalculateStats();
+    }
+
+    public void SetNature(byte nature) => this.nature = nature;
+
+    public void AbilityCapsule()
+    {
+        whichAbility = whichAbility switch
+        {
+            0 => 1,
+            1 => 0,
+            2 => 2,
+            _ => whichAbility
+        };
+    }
+
     private int CalculateHPMax()
     {
-        return ToUInt16(((2 * SpeciesData.baseHP) + ivHP + (evHP >> 2)) * level / 100 + level + 10);
+        return (((2 * SpeciesData.baseHP) + ivHP + (evHP >> 2)) * level / 100 + level + 10);
     }
+
     private int CalculateStat(byte statID, byte baseStat, byte statIv, byte statEv)
     {
-        return ToUInt16(Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * Nature.NatureEffect(nature, statID)));
+        return (int)Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * Nature.NatureEffect(nature, statID));
     }
+
     public void CalculateStats()
     {
         hpMax = CalculateHPMax();
@@ -119,6 +153,7 @@ public class Pokemon : ICloneable
         spDef = CalculateStat(4, SpeciesData.baseSpDef, ivSpDef, evSpDef);
         speed = CalculateStat(2, SpeciesData.baseSpeed, ivSpeed, evSpeed);
     }
+
     public bool ShouldLevelUp()
     {
         return level < PokemonConst.maxLevel && xp > nextLevelXP;
