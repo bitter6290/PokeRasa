@@ -476,7 +476,10 @@ public static class BattleEffect
     {
         if (index < 3)
         {
+
             battle.LeaveFieldCleanup(index);
+            yield return battle.Announce(battle.OpponentName + " withdrew " + battle.MonNameWithPrefix(index, false) + "!");
+            battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(false, index);
             yield return battle.Announce(battle.OpponentName + " sent out "
                 + battle.OpponentPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
@@ -489,6 +492,7 @@ public static class BattleEffect
         {
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "! Come back!");
             battle.LeaveFieldCleanup(index);
+            battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(true, index - 3);
             yield return battle.Announce("Go! " + battle.PlayerPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
                             battle.PlayerPokemon[partyIndex], index > 2, index % 3, true);
@@ -1032,7 +1036,7 @@ public static class BattleEffect
         battle.PokemonOnField[user].usedMindReader = true;
         battle.PokemonOnField[user].mindReaderTarget = target;
         yield return battle.Announce(battle.MonNameWithPrefix(user, true) + " took aim at "
-            + battle.MonNameWithPrefix(target, false));
+            + battle.MonNameWithPrefix(target, false) + "!");
     }
 
     public static IEnumerator BellyDrum(Battle battle, int index)
@@ -1055,5 +1059,22 @@ public static class BattleEffect
         {
             yield return battle.Announce(BattleText.MoveFailed);
         }
+    }
+
+    public static IEnumerator RemoveHazards(Battle battle, int index)
+    {
+        Side side = battle.Sides[index / 3];
+        string teamText = index > 2 ? "your Pokémon!" : "the opponent's Pokémon!";
+        if (side.spikes > 0)
+        {
+            yield return battle.Announce("The spikes disappeared from around " + teamText);
+            side.spikes = 0;
+        }
+    }
+
+    public static IEnumerator Identify(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].identified = true;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was identified!");
     }
 }

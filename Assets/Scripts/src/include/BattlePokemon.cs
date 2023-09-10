@@ -124,6 +124,13 @@ public class BattlePokemon
 
     public bool nightmare = false;
 
+    public bool identified = false;
+    public bool identifiedByMiracleEye = false;
+
+    public bool usedLockOn = false;
+    public bool hasLockOn = false;
+    public int lockOnTarget = 0;
+
     public byte furyCutterIntensity = 0;
 
     public byte newType1 = Type.Typeless;
@@ -163,6 +170,8 @@ public class BattlePokemon
     }
 
     public SpeciesID apparentSpecies => isTransformed ? transformedMon.species : PokemonData.species;
+
+    public bool AtFullHealth => PokemonData.HP == PokemonData.hpMax;
 
     public MoveID GetMove(int index)
     {

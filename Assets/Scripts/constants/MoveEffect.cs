@@ -1,4 +1,4 @@
-public enum MoveEffect
+public enum MoveEffect : ushort
 {
     //No added effect
     None,
@@ -45,6 +45,7 @@ public enum MoveEffect
     //Other status moves
     LeechSeed,
     Disable,
+    Encore,
     ForcedSwitch,
     PerishSong,
     Attract,
@@ -54,6 +55,7 @@ public enum MoveEffect
     Spite,
     Nightmare,
     MindReader,
+    Foresight,
     //Direct damage
     Direct20,
     Direct40,
@@ -91,6 +93,8 @@ public enum MoveEffect
     Reversal,
     HiddenPower,
     FuryCutter,
+    Pursuit,
+    RapidSpin,
     //Paired effects
     Bide,
     BideHit,
@@ -113,6 +117,7 @@ public enum MoveEffect
     Mimic,
     Metronome,
     Conversion,
+    Conversion2,
     Protect,
     HealBell,
     Heal50,

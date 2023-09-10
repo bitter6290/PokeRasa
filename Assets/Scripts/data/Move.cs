@@ -1035,8 +1035,8 @@ public static class Move
     public static MoveData Foresight = new(
         "Foresight", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 40); //Needs effect and anim
+        MoveEffect.Foresight, 100,
+        false, TargetID.Opponent + TargetID.Ally, 40); //Needs anim
     public static MoveData DestinyBond = new(
         "Destiny Bond", Type.Ghost,
         0, 101, 0,
@@ -1067,8 +1067,8 @@ public static class Move
     public static MoveData LockOn = new(
         "Lock On", Type.Normal,
         0, 101, 0,
-        MoveEffect.Hit, 0,
-        false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
+        MoveEffect.MindReader, 100,
+        false, TargetID.Opponent + TargetID.Ally, 5); //Needs anim
     public static MoveData Outrage = new(
         "Outrage", Type.Dragon,
         120, 100, 0,
@@ -1210,18 +1210,19 @@ public static class Move
     public static MoveData Encore = new(
         "Encore", Type.Normal,
         0, 100, 0,
-        MoveEffect.Hit, 0,
+        MoveEffect.Encore, 100,
         false, TargetID.Opponent + TargetID.Ally, 5); //Needs effect and anim
     public static MoveData Pursuit = new(
         "Pursuit", Type.Dark,
         40, 100, 0,
-        MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 20); //Needs effect and anim
+        MoveEffect.Pursuit, 100,
+        true, TargetID.Opponent + TargetID.Ally, 20); //Needs anim
     public static MoveData RapidSpin = new(
         "Rapid Spin", Type.Normal,
         50, 100, 0,
-        MoveEffect.Hit, 0,
-        true, TargetID.Opponent + TargetID.Ally, 40); //Needs effect and anim
+        MoveEffect.RapidSpin, 100,
+        true, TargetID.Opponent + TargetID.Ally, 40,
+        MoveFlags.effectOnSelfOnly); //Needs anim
     public static MoveData SweetScent = new(
         "Sweet Scent", Type.Normal,
         0, 100, 0,

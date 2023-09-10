@@ -45,6 +45,8 @@ public class Battle : MonoBehaviour
     public int switchingTarget;
     public bool choseSwitchMon;
 
+    public bool pursuitHitsOnSwitch;
+
     public List<string> announcementLog = new();
 
     private byte singleMovePower; //used for Magnitude
@@ -211,26 +213,14 @@ public class Battle : MonoBehaviour
     {
         byte effectiveType1 = defender.Type1;
         byte effectiveType2 = defender.Type2;
-        byte type = Move.MoveTable[(int)move].type;
-        if (type == Type.Ground)
-        {
-            if (IsGrounded(defender.index))
-            {
-                effectiveType1 = effectiveType1 == Type.Flying ? Type.Normal : effectiveType1;
-                effectiveType2 = effectiveType2 == Type.Flying ? Type.Normal : effectiveType2;
-            }
-            else
-            {
-                return 0.0F;
-            }
-        }
+        byte type = GetEffectiveType(move, attacker.index);
         float effectiveness = (effectiveType1 == effectiveType2) ?
-            Type.Effectiveness(type, effectiveType1)
-            : Type.Effectiveness(type, effectiveType1)
-            * Type.Effectiveness(type, effectiveType2);
+            realEffectiveness(attacker.index, defender.index, effectiveType1, move)
+            : realEffectiveness(attacker.index, defender.index, effectiveType1, move)
+            * realEffectiveness(attacker.index, defender.index, effectiveType2, move);
         if (defender.hasType3)
         {
-            effectiveness *= Type.Effectiveness(type, defender.Type3);
+            effectiveness *= realEffectiveness(attacker.index, defender.index, defender.Type3, move);
         }
         return effectiveness;
     }
@@ -238,40 +228,26 @@ public class Battle : MonoBehaviour
     public bool IsImmune(BattlePokemon attacker, BattlePokemon defender, MoveID move)
         => GetTypeEffectiveness(attacker, defender, move) == 0;
 
+    public float realEffectiveness(int attacker, int defender, byte defenderType, MoveID move)
+    {
+        byte moveType = GetEffectiveType(move, attacker);
+        if (moveType == Type.Ground)
+        {
+            if (!IsGrounded(attacker)) return 0.0F;
+            else if (IsGrounded(attacker) && defenderType == Type.Flying) return 1.0F;
+        }
+        if (defenderType == Type.Ghost && moveType is Type.Normal or Type.Fighting
+            && PokemonOnField[defender].identified) return 1.0F;
+        return Type.Effectiveness(moveType, defenderType);
+    }
+
     public bool IsGrounded(int index)
     {
-        if (gravity) { return true; }
+        if (gravity) return true;
         if (PokemonOnField[index].HasType(Type.Flying)
             || HasAbility(index, Ability.Levitate)) //Todo: add other sources of non-grounding
         { return false; }
         return true;
-    }
-
-    private int GetSpeed(int index)
-    {
-        PokemonOnField[index].CalculateStats();
-        int speed = PokemonOnField[index].speed;
-        if (PokemonOnField[index].PokemonData.status == Status.Paralysis)
-        {
-            speed >>= 1;
-        }
-        switch (PokemonOnField[index].ability)
-        {
-            case Ability.SwiftSwim:
-                if (IsWeatherAffected(index, Weather.Rain)) { speed <<= 1; }
-                break;
-            case Ability.Chlorophyll:
-                if (IsWeatherAffected(index, Weather.Sun)) { speed <<= 1; }
-                break;
-            case Ability.SandRush:
-                if (IsWeatherAffected(index, Weather.Sand)) { speed <<= 1; }
-                break;
-            case Ability.SlushRush:
-                if (IsWeatherAffected(index, Weather.Snow)) { speed <<= 1; }
-                break;
-            default: break;
-        }
-        return speed;
     }
 
     public bool HasAbility(int index, Ability ability)
@@ -321,8 +297,53 @@ public class Battle : MonoBehaviour
         return effectiveType;
     }
 
+    private int GetSpeed(int index)
+    {
+        PokemonOnField[index].CalculateStats();
+        int speed = PokemonOnField[index].speed;
+        if (PokemonOnField[index].PokemonData.status == Status.Paralysis)
+        {
+            speed >>= 1;
+        }
+        switch (PokemonOnField[index].ability)
+        {
+            case Ability.SwiftSwim:
+                if (IsWeatherAffected(index, Weather.Rain)) { speed <<= 1; }
+                break;
+            case Ability.Chlorophyll:
+                if (IsWeatherAffected(index, Weather.Sun)) { speed <<= 1; }
+                break;
+            case Ability.SandRush:
+                if (IsWeatherAffected(index, Weather.Sand)) { speed <<= 1; }
+                break;
+            case Ability.SlushRush:
+                if (IsWeatherAffected(index, Weather.Snow)) { speed <<= 1; }
+                break;
+            default: break;
+        }
+        if (trickRoom) speed = 10000 - speed;
+        if (HasAbility(index, Ability.Stall)) speed -= 32768;
+        return speed;
+    }
+
+    private sbyte GetPriority(int index)
+    {
+        sbyte priority = GetMove(index).priority;
+        switch (EffectiveAbility(index))
+        {
+            case Ability.GaleWings:
+                if (PokemonOnField[index].AtFullHealth && GetMove(index).type == Type.Flying) priority += 1;
+                break;
+            case Ability.Prankster:
+                if (GetMove(index).power == 0) priority += 1;
+                break;
+        }
+        return priority;
+    }
+
     private int FindNextToMove()
     {
+        const sbyte switchPriority = 31;
         sbyte currentPriority = -127;
         int currentSpeed = 0;
         int currentMove = TurnOver;
@@ -332,23 +353,44 @@ public class Battle : MonoBehaviour
             {
                 if (Moves[i] == MoveID.Switch)
                 {
-                    return i;
+                    if (currentPriority < switchPriority)
+                    {
+                        currentPriority = switchPriority;
+                        currentSpeed = GetSpeed(i);
+                        currentMove = i;
+                        Debug.Log("Index " + i + " has speed " + currentSpeed);
+                    }
+                    if (PokemonOnField[i].speed > currentSpeed)
+                    {
+                        currentSpeed = GetSpeed(i);
+                        currentMove = i;
+                        Debug.Log("Index " + i + " has speed " + currentSpeed);
+                    }
                 }
-                if (Move.MoveTable[(int)Moves[i]].priority > currentPriority)
+                else if (Move.MoveTable[(int)Moves[i]].priority > currentPriority)
                 {
                     currentPriority = Move.MoveTable[(int)Moves[i]].priority;
-                    currentSpeed = HasAbility(i, Ability.Stall) ? GetSpeed(i) - 16384 : GetSpeed(i);
+                    currentSpeed = GetSpeed(i);
                     currentMove = i;
                     Debug.Log("Index " + i + " has priority " + currentPriority
                         + " and speed " + currentSpeed);
                 }
                 else if (Move.MoveTable[(int)Moves[i]].priority == currentPriority
-                    && PokemonOnField[i].speed > currentSpeed)
+                    && GetSpeed(i) > currentSpeed)
                 {
-                    currentSpeed = HasAbility(i, Ability.Stall) ? GetSpeed(i) - 16384 : GetSpeed(i);
+                    currentSpeed = GetSpeed(i);
                     currentMove = i;
                     Debug.Log("Index " + i + " has speed " + currentSpeed);
                 }
+            }
+        }
+        pursuitHitsOnSwitch = false;
+        if (currentPriority == switchPriority)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                if (Moves[i] > MoveID.StandardCount) continue;
+                if (GetMove(i).effect == MoveEffect.Pursuit && Targets[i] == currentMove) return i;
             }
         }
         return currentMove;
@@ -2247,13 +2289,17 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.AllUp1:
                 yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
-                yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker);
-                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
-                yield return BattleEffect.StatUp(this, index, Stat.SpDef, 1, attacker);
-                yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker, true);
+                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker, true);
+                yield return BattleEffect.StatUp(this, index, Stat.SpDef, 1, attacker, true);
+                yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker, true);
                 break;
             case MoveEffect.BellyDrum:
                 yield return BattleEffect.BellyDrum(this, index);
+                break;
+            case MoveEffect.RapidSpin:
+                yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
+                yield return BattleEffect.RemoveHazards(this, index);
                 break;
             case MoveEffect.Minimize:
                 PokemonOnField[index].minimized = true;
@@ -2266,7 +2312,10 @@ public class Battle : MonoBehaviour
                 PokemonOnField[index].flinched = true;
                 break;
             case MoveEffect.MindReader:
-                BattleEffect.GetMindReader(this, attacker, index);
+                yield return BattleEffect.GetMindReader(this, attacker, index);
+                break;
+            case MoveEffect.Foresight:
+                yield return BattleEffect.Identify(this, index);
                 break;
             case MoveEffect.Substitute:
                 yield return BattleEffect.MakeSubstitute(this, index);
@@ -2279,7 +2328,7 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.Absorb50:
             case MoveEffect.DreamEater:
-                if (PokemonOnField[index].moveDamageDone == 0) { break; }
+                if (PokemonOnField[index].moveDamageDone == 0) break;
                 bool doAnnouncement = PokemonOnField[index].PokemonData.HP == PokemonOnField[index].PokemonData.hpMax
                     ? false : true;
                 yield return BattleEffect.Heal(this, index, Max(1, PokemonOnField[index].moveDamageDone / 2));
@@ -2747,6 +2796,7 @@ public class Battle : MonoBehaviour
         {
             Moves[index] = PokemonOnField[index].GetMove(move - 1);
             MoveNums[index] = (byte)move;
+            if (battleType == BattleType.Single) Targets[index] = (byte)(3 - index);
             return true;
         }
         else { return false; }
