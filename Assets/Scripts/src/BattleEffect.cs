@@ -1077,4 +1077,117 @@ public static class BattleEffect
         battle.PokemonOnField[index].identified = true;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was identified!");
     }
+
+    public static List<byte> GetConversion2Types(int type)
+    {
+        switch (type)
+        {
+            case Type.Normal:
+                return new List<byte>() { Type.Rock, Type.Steel, Type.Ghost };
+            case Type.Fire:
+                return new List<byte>() { Type.Water, Type.Fire, Type.Rock, Type.Dragon };
+            case Type.Water:
+                return new List<byte>() { Type.Grass, Type.Water, Type.Dragon };
+            case Type.Grass:
+                return new List<byte>() { Type.Fire, Type.Grass, Type.Bug, Type.Flying, Type.Poison, Type.Steel, Type.Dragon };
+            case Type.Electric:
+                return new List<byte>() { Type.Electric, Type.Grass, Type.Dragon, Type.Ground };
+            case Type.Ice:
+                return new List<byte>() { Type.Fire, Type.Water, Type.Ice, Type.Steel };
+            case Type.Ground:
+                return new List<byte>() { Type.Grass, Type.Bug, Type.Flying };
+            case Type.Rock:
+                return new List<byte>() { Type.Ground, Type.Fighting, Type.Steel };
+            case Type.Fighting:
+                return new List<byte>() { Type.Psychic, Type.Flying, Type.Bug, Type.Fairy, Type.Ghost, Type.Poison };
+            case Type.Flying:
+                return new List<byte>() { Type.Rock, Type.Electric, Type.Steel };
+            case Type.Bug:
+                return new List<byte>() { Type.Fire, Type.Flying, Type.Steel, Type.Poison, Type.Fairy, Type.Fighting, Type.Ghost };
+            case Type.Poison:
+                return new List<byte>() { Type.Ground, Type.Rock, Type.Poison, Type.Steel, Type.Ghost };
+            case Type.Psychic:
+                return new List<byte>() { Type.Psychic, Type.Dark, Type.Steel };
+            case Type.Ghost:
+                return new List<byte>() { Type.Dark, Type.Normal };
+            case Type.Dragon:
+                return new List<byte>() { Type.Steel, Type.Fairy };
+            case Type.Dark:
+                return new List<byte>() { Type.Fighting, Type.Dark, Type.Fairy };
+            case Type.Steel:
+                return new List<byte>() { Type.Fire, Type.Water, Type.Electric, Type.Steel };
+            case Type.Fairy:
+                return new List<byte>() { Type.Steel, Type.Poison, Type.Fire };
+            default: return new List<byte>();
+        }
+    }
+
+    public static IEnumerator Conversion2(Battle battle, int index, int target)
+    {
+        var random = new System.Random();
+        List<byte> possibleTypes = new();
+        foreach (byte i in GetConversion2Types(Move.MoveTable[(int)battle.PokemonOnField[target].lastMoveUsed].type))
+            if (!battle.PokemonOnField[index].HasType(i)) possibleTypes.Add(i);
+        if(possibleTypes.Count == 0)
+        {
+            yield return battle.Announce(BattleText.MoveFailed);
+            yield break;
+        }
+        int whichType = random.Next() % possibleTypes.Count;
+        battle.PokemonOnField[index].newType1 = possibleTypes[whichType];
+        battle.PokemonOnField[index].newType2 = possibleTypes[whichType];
+        battle.PokemonOnField[index].typesOverriden = true;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " transformed into the "
+            + Type.typeName[possibleTypes[whichType]] + " type!");
+    }
+
+    public static IEnumerator GetFutureSight(Battle battle, int target, int user)
+    {
+        var random = new System.Random();
+        (int spAtk, sbyte stage, int level, bool stab, bool critical) futureSightData = new()
+        {
+            level = battle.PokemonOnField[user].PokemonData.level,
+            spAtk = battle.PokemonOnField[user].PokemonData.spAtk,
+            stage = battle.PokemonOnField[user].spAtkStage,
+            stab = battle.PokemonOnField[user].HasType(battle.GetMove(user).type),
+            critical = random.NextDouble() < battle.GetCritChance(user, battle.Moves[user]),
+        };
+        battle.PokemonOnField[target].futureSight = true;
+        battle.PokemonOnField[target].futureSightUser = user;
+        battle.PokemonOnField[target].futureSightData = futureSightData;
+        battle.PokemonOnField[target].futureSightTimer = 3;
+        battle.PokemonOnField[target].futureSightType = battle.GetEffectiveType(battle.Moves[user], user);
+        battle.PokemonOnField[target].futureSightMove = battle.Moves[user];
+        yield return battle.Announce(battle.MonNameWithPrefix(user, true) + " foresaw an attack!");
+    }
+
+    public static IEnumerator FutureSightAttack(Battle battle, int target)
+    {
+        BattlePokemon targetMon = battle.PokemonOnField[target];
+        yield return battle.Announce(battle.MonNameWithPrefix(target, true) + " took the Future Sight attack!");
+        float effectiveness = battle.GetEffectivenessForFutureSight((byte)target, targetMon);
+        int damage = battle.FutureSightDamageCalc(targetMon);
+        if(damage > targetMon.PokemonData.HP)
+        {
+            if (targetMon.ability == Ability.Sturdy && targetMon.AtFullHealth
+                && !battle.HasAbility(targetMon.futureSightUser, Ability.MoldBreaker))
+            {
+                targetMon.PokemonData.HP = 1;
+            }
+            else if (targetMon.endure && targetMon.futureSightUserOnField)
+            {
+                targetMon.PokemonData.HP = 1;
+            }
+            else
+            {
+                battle.PokemonOnField[target].PokemonData.HP = 0;
+                battle.PokemonOnField[target].PokemonData.fainted = true;
+            }
+        }
+        else
+        {
+            targetMon.PokemonData.HP -= damage;
+        }
+        yield return battle.AnnounceTypeEffectiveness(effectiveness, false, target);
+    }
 }

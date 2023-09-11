@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class TargetID
+public static class Target
 {
     public const byte None = 0;
     public const byte Opponent = 1 << 0;

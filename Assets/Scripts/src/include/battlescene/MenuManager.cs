@@ -70,6 +70,8 @@ public class MenuManager : MonoBehaviour
 
     public int menuMode;
 
+    private static Color transparent = new(0, 0, 0, 0);
+
     private static Color moveColor = new(88.0F / 255.0F, 146.0F / 255.0F, 232.0F / 255.0F);
     private static Color struggleColor = new(160.0F / 255.0F, 200.0F / 255.0F, 245.0F / 255.0F);
     private static Color bagColor = new(80.0F / 255.0F, 179.0F / 255.0F, 95.0F / 255.0F);
@@ -177,9 +179,12 @@ public class MenuManager : MonoBehaviour
                 {
                     case MenuMode.Moves:
                         box1.color = Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(0)].type];
-                        box2.color = Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(1)].type];
-                        box3.color = Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(2)].type];
-                        box4.color = Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(3)].type];
+                        box2.color = battle.PokemonOnField[currentMon].GetMove(1) == MoveID.None
+                            ? transparent : Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(1)].type];
+                        box3.color = battle.PokemonOnField[currentMon].GetMove(2) == MoveID.None
+                            ? transparent : Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(2)].type];
+                        box4.color = battle.PokemonOnField[currentMon].GetMove(3) == MoveID.None
+                            ? transparent : Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(3)].type];
                         box5.color = backColor;
 
                         text1.text = Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(0)].name;

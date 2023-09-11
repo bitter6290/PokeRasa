@@ -34,6 +34,7 @@ public class BattlePokemon
 
     public bool done = true;
 
+    //Reset after every move
     public bool isTarget = false;
     public bool isHit = false;
     public bool isMissed = false;
@@ -43,6 +44,7 @@ public class BattlePokemon
     public bool abilityHealed25 = false;
     public bool abilityActivated = false;
     public bool wasProtected = false;
+    public bool enduredHit = false;
 
     public bool confused = false;
     public byte confusionCounter = 0;
@@ -107,6 +109,14 @@ public class BattlePokemon
     public bool perishSong = false;
     public int perishCounter = 0;
 
+    public bool futureSight = false;
+    public int futureSightTimer = 0;
+    public int futureSightUser = 0;
+    public bool futureSightUserOnField = true;
+    public (int spAtk, sbyte stage, int level, bool stab, bool critical) futureSightData = (0, 0, 1, false, false);
+    public byte futureSightType;
+    public MoveID futureSightMove = MoveID.None;
+
     public bool isTransformed = false;
     public Pokemon transformedMon = Pokemon.MakeEmptyMon;
 
@@ -131,6 +141,10 @@ public class BattlePokemon
     public bool hasLockOn = false;
     public int lockOnTarget = 0;
 
+    public bool destinyBond = false;
+    public bool gotDestinyBondHit = false;
+    public string destinyBondAttacker = "";
+
     public byte furyCutterIntensity = 0;
 
     public byte newType1 = Type.Typeless;
@@ -151,6 +165,7 @@ public class BattlePokemon
     public int lastMoveSlot = 0;
 
     public MoveID lastTargetedMove = MoveID.None;
+
 
     public BattlePokemon(Pokemon pokemonData, bool side, int position, bool player, bool exists = true)
     {
@@ -191,6 +206,8 @@ public class BattlePokemon
             PokemonData.HP -= damage;
         }
     }
+
+    public void DoProportionalDamage(float proportion) => DoNonMoveDamage((int)(PokemonData.hpMax * proportion));
 
     public byte GetPP(int index)
     {
@@ -488,5 +505,4 @@ public class BattlePokemon
                 return 0;
         }
     }
-
 }
