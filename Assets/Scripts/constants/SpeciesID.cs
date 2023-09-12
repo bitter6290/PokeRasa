@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SpeciesID : ushort
+public enum SpeciesID
 {
+    //Gen 1
     Missingno,
     Bulbasaur,
     Ivysaur,
@@ -156,6 +157,7 @@ public enum SpeciesID : ushort
     Dragonite,
     Mewtwo,
     Mew,
+    //Gen 2
     Chikorita,
     Bayleef,
     Meganium,
@@ -257,8 +259,36 @@ public enum SpeciesID : ushort
     HoOh,
     Celebi,
 
+    //Forms
+
+    Unown_B,
+    Unown_C,
+    Unown_D,
+    Unown_E,
+    Unown_F,
+    Unown_G,
+    Unown_H,
+    Unown_I,
+    Unown_J,
+    Unown_K,
+    Unown_L,
+    Unown_M,
+    Unown_N,
+    Unown_O,
+    Unown_P,
+    Unown_Q,
+    Unown_R,
+    Unown_S,
+    Unown_T,
+    Unown_U,
+    Unown_V,
+    Unown_W,
+    Unown_X,
+    Unown_Y,
+    Unown_Z,
+
     Count,
 
-    Egg = 65535,
+    Egg = Count + 1,
 
 }

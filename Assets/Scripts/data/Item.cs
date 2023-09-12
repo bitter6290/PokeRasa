@@ -79,6 +79,38 @@ public static class Item
         fieldEffect = FieldEffect.Evolution
     };
 
+    //Held items
+
+    public static HeldItem KingsRock = new()
+    {
+        itemName = "King's Rock",
+        price = 15000,
+        heldEffect = HeldEffect.KingsRock,
+    };
+
+    public static HeldItem MetalCoat = new()
+    {
+        itemName = "Metal Coat",
+        price = 15000,
+        heldEffect = HeldEffect.MetalCoat,
+    };
+
+    //Abstract items - only used for evolutions/specific item checks
+
+    public static AbstractItem DragonScale = new()
+    {
+        itemName = "Dragon Scale",
+        price = 10000,
+    };
+
+    public static AbstractItem UpGrade = new()
+    {
+        itemName = "Up-Grade",
+        price = 10000,
+    };
+
+    //Mega stones
+
     public static MegaStone Venusaurite = new()
     {
         itemName = "Venusaurite",
@@ -125,6 +157,12 @@ public static class Item
     DuskStone,
     DawnStone,
     IceStone,
+    //Held items
+    KingsRock,
+    MetalCoat,
+    //Abstract items
+    DragonScale,
+    UpGrade,
     //Mega stones
     Venusaurite,
     CharizarditeX,

@@ -5,7 +5,15 @@ using UnityEngine;
 public enum EvolutionMethod
 {
     LevelUp,
-    Item,
+    EvolutionItem,
     Trade,
+    TradeItem,
+    Friendship,
+    FriendshipDay,
+    FriendshipNight,
+    LevelUpHighAttack,
+    LevelUpHighDefense,
+    LevelUpEqualAttackDefense,
+
     Never,
 }

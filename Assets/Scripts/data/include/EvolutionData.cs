@@ -5,8 +5,18 @@ public readonly struct EvolutionData
     public readonly SpeciesID Destination;
     public EvolutionData(EvolutionMethod method, int data, SpeciesID destination)
     {
-        this.Method = method;
-        this.Data = data;
-        this.Destination = destination;
+        Method = method;
+        Data = data;
+        Destination = destination;
     }
+    public EvolutionData(EvolutionMethod method, ItemID data, SpeciesID destination)
+    {
+        Method = method;
+        Data = (int)data;
+        Destination = destination;
+    }
+    public static EvolutionData[] SingleEvolution(EvolutionMethod method, int data, SpeciesID destination)
+        => new EvolutionData[1] { new(method, data, destination) };
+    public static EvolutionData[] SingleEvolution(EvolutionMethod method, ItemID data, SpeciesID destination)
+        => new EvolutionData[1] { new(method, (int)data, destination) };
 }

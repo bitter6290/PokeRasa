@@ -7,6 +7,15 @@ public abstract class ItemData
     public abstract int[] ItemSubdata { get; }
 }
 
+public class AbstractItem : ItemData
+{
+    public override int[] ItemSubdata => new int[0];
+    public AbstractItem()
+    {
+        type = ItemType.AbstractItem;
+    }
+}
+
 public class FieldItem : ItemData //subdata length 2
 {
     public FieldEffect fieldEffect;
@@ -36,6 +45,61 @@ public class BattleItem : ItemData //subdata length 2
     public BattleItem()
     {
         type = ItemType.BattleItem;
+    }
+}
+
+public class HeldItem : ItemData //subdata length 2
+{
+    public HeldEffect heldEffect;
+    public int heldEffectIntensity;
+    public override int[] ItemSubdata => new int[2]
+    {
+        (int)heldEffect,
+        heldEffectIntensity
+    };
+    public HeldItem()
+    {
+        type = ItemType.HeldItem;
+    }
+}
+
+public class HeldFieldItem : ItemData //subdata length 4
+{
+    public HeldEffect heldEffect;
+    public int heldEffectIntensity;
+    public FieldEffect fieldEffect;
+    public int fieldEffectIntensity;
+    public override int[] ItemSubdata => new int[4]
+    {
+        (int)heldEffect,
+        heldEffectIntensity,
+        (int)fieldEffect,
+        fieldEffectIntensity
+    };
+}
+
+public class Berry : ItemData //subdata length 7
+{
+    public HeldEffect heldEffect;
+    public int heldEffectIntensity;
+    public BattleItemEffect battleEffect;
+    public int battleEffectIntensity;
+    public FieldEffect fieldEffect;
+    public int fieldEffectIntensity;
+    public int hoursToGrow;
+    public override int[] ItemSubdata => new int[7]
+    {
+        (int)heldEffect,
+        heldEffectIntensity,
+        (int)battleEffect,
+        battleEffectIntensity,
+        (int)fieldEffect,
+        fieldEffectIntensity,
+        hoursToGrow
+    };
+    public Berry()
+    {
+        type = ItemType.Berry;
     }
 }
 
@@ -90,5 +154,63 @@ public class KeyItem : ItemData //subdata length 1
     public KeyItem()
     {
         type = ItemType.KeyItem;
+    }
+}
+
+public static class ItemUtils
+{
+    public static HeldEffect heldEffect(this ItemID item)
+    {
+        switch (Item.ItemTable[(int)item].type)
+        {
+            case ItemType.HeldItem:
+            case ItemType.HeldFieldItem:
+            case ItemType.Berry:
+                return (HeldEffect)Item.ItemTable[(int)item].ItemSubdata[0];
+            default:
+                return HeldEffect.None;
+        }
+    }
+    public static int heldEffectIntensity(this ItemID item)
+    {
+        switch (Item.ItemTable[(int)item].type)
+        {
+            case ItemType.HeldItem:
+            case ItemType.HeldFieldItem:
+            case ItemType.Berry:
+                return Item.ItemTable[(int)item].ItemSubdata[1];
+            default:
+                return 0;
+        }
+    }
+    public static FieldEffect fieldEffect(this ItemID item)
+    {
+        switch (Item.ItemTable[(int)item].type)
+        {
+            case ItemType.FieldItem:
+            case ItemType.Medicine:
+                return (FieldEffect)Item.ItemTable[(int)item].ItemSubdata[0];
+            case ItemType.HeldFieldItem:
+                return (FieldEffect)Item.ItemTable[(int)item].ItemSubdata[2];
+            case ItemType.Berry:
+                return (FieldEffect)Item.ItemTable[(int)item].ItemSubdata[4];
+            default:
+                return FieldEffect.None;
+        }
+    }
+    public static int fieldEffectIntensity(this ItemID item)
+    {
+        switch (Item.ItemTable[(int)item].type)
+        {
+            case ItemType.FieldItem:
+            case ItemType.Medicine:
+                return Item.ItemTable[(int)item].ItemSubdata[1];
+            case ItemType.HeldFieldItem:
+                return Item.ItemTable[(int)item].ItemSubdata[3];
+            case ItemType.Berry:
+                return Item.ItemTable[(int)item].ItemSubdata[5];
+            default:
+                return 0;
+        }
     }
 }

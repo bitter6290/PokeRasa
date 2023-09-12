@@ -12,6 +12,12 @@
     DuskStone,
     DawnStone,
     IceStone,
+    //Held items
+    KingsRock,
+    MetalCoat,
+    //Abstract items
+    DragonScale,
+    UpGrade,
     //Mega stones
     Venusaurite,
     CharizarditeX,

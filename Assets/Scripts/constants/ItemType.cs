@@ -3,7 +3,11 @@
     FieldItem,
     BattleItem,
     Medicine,
+    HeldItem,
+    HeldFieldItem,
+    Berry,
     TM,
     MegaStone,
     KeyItem,
+    AbstractItem,
 }
