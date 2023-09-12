@@ -2896,6 +2896,7 @@ public class Battle : MonoBehaviour
                     switchDuringTurn = true;
                     switchingMon = 3;
                     choseSwitchMon = false;
+                    menuManager.currentPartyMon = 1;
                     menuManager.menuMode = MenuMode.Party;
                     state = BattleState.PlayerInput;
                     while (!choseSwitchMon)

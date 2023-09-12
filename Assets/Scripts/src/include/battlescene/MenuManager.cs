@@ -598,6 +598,7 @@ public class MenuManager : MonoBehaviour
                                     break;
                                 case 3:
                                     battle.switchDuringTurn = false;
+                                    currentPartyMon = 1;
                                     menuMode = MenuMode.Party;
                                     break;
                                 default:
