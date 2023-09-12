@@ -38,16 +38,16 @@ public static class XP
             _ => ToInt32(level * level * level * (((level + 1) / 3) + 24) / 50)
         };
     }
-    public static int LevelToXP(byte level, byte XPClass)
+    public static int LevelToXP(byte level, XPClass XPClass)
     {
         switch (XPClass)
         {
-            case global::XPClass.Erratic: return ErraticXP(level);
-            case global::XPClass.Fast: return FastXP(level);
-            case global::XPClass.MediumFast: return MediumFastXP(level);
-            case global::XPClass.MediumSlow: return MediumSlowXP(level);
-            case global::XPClass.Slow: return SlowXP(level);
-            case global::XPClass.Fluctuating: return FluctuatingXP(level);
+            case XPClass.Erratic: return ErraticXP(level);
+            case XPClass.Fast: return FastXP(level);
+            case XPClass.MediumFast: return MediumFastXP(level);
+            case XPClass.MediumSlow: return MediumSlowXP(level);
+            case XPClass.Slow: return SlowXP(level);
+            case XPClass.Fluctuating: return FluctuatingXP(level);
         }
         return 0;
     }

@@ -20,8 +20,8 @@ public struct SpeciesData
     public short evYield;
 
     public EvolutionData[] evolution;
-    public byte xpClass;
-    public ushort xpYield;
+    public XPClass xpClass;
+    public int xpYield;
 
     public LearnsetMove[] learnset;
 
