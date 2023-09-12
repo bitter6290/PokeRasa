@@ -37,10 +37,10 @@ public readonly struct MoveData
     }
 
     public static MoveData SingleTargetStatusMove(string name, byte type, byte accuracy, sbyte priority, MoveEffect effect, byte pp, int moveFlags = 0)
-        => new MoveData(name, type, 0, accuracy, priority, effect, 101, false, Target.Opponent + Target.Ally, pp, moveFlags);
+        => new(name, type, 0, accuracy, priority, effect, 101, false, Target.Opponent + Target.Ally, pp, moveFlags);
 
     public static MoveData SelfTargetingMove(string name, byte type, sbyte priority, MoveEffect effect, byte pp, int moveFlags = 0)
-        => new MoveData(name, type, 0, 101, priority, effect, 101, false, Target.Self, pp, moveFlags);
+        => new(name, type, 0, 101, priority, effect, 101, false, Target.Self, pp, moveFlags);
 
     public static MoveData FieldMove(string name, byte type, sbyte priority, MoveEffect effect, byte pp, int moveFlags = 0)
         => new(name, type, 0, 101, priority, effect, 101, false, Target.Field, pp, moveFlags);

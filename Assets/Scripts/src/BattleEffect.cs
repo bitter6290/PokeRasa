@@ -1132,7 +1132,7 @@ public static class BattleEffect
         List<byte> possibleTypes = new();
         foreach (byte i in GetConversion2Types(Move.MoveTable[(int)battle.PokemonOnField[target].lastMoveUsed].type))
             if (!battle.PokemonOnField[index].HasType(i)) possibleTypes.Add(i);
-        if(possibleTypes.Count == 0)
+        if (possibleTypes.Count == 0)
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;
@@ -1171,7 +1171,7 @@ public static class BattleEffect
         yield return battle.Announce(battle.MonNameWithPrefix(target, true) + " took the Future Sight attack!");
         float effectiveness = battle.GetEffectivenessForFutureSight((byte)target, targetMon);
         int damage = battle.FutureSightDamageCalc(targetMon);
-        if(damage > targetMon.PokemonData.HP)
+        if (damage > targetMon.PokemonData.HP)
         {
             if (targetMon.ability == Ability.Sturdy && targetMon.AtFullHealth
                 && !battle.HasAbility(targetMon.futureSightUser, Ability.MoldBreaker))
@@ -1198,7 +1198,7 @@ public static class BattleEffect
     public static IEnumerator GetEncored(Battle battle, int target)
     {
         BattlePokemon targetMon = battle.PokemonOnField[target];
-        if(targetMon.encored || targetMon.lastMoveUsed == MoveID.None)
+        if (targetMon.encored || targetMon.lastMoveUsed == MoveID.None)
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;

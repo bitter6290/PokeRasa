@@ -105,19 +105,19 @@ public class Pokemon : ICloneable
 
     public void SetEvIv(EvIvSpread spread)
     {
-            ivHP = spread.ivHP;
-            ivAttack = spread.ivAttack;
-            ivDefense = spread.ivDefense;
-            ivSpAtk = spread.ivSpAtk;
-            ivSpDef = spread.ivSpDef;
-            ivSpeed = spread.ivSpeed;
+        ivHP = spread.ivHP;
+        ivAttack = spread.ivAttack;
+        ivDefense = spread.ivDefense;
+        ivSpAtk = spread.ivSpAtk;
+        ivSpDef = spread.ivSpDef;
+        ivSpeed = spread.ivSpeed;
 
-            evHP = spread.evHP;
-            evAttack = spread.evAttack;
-            evDefense = spread.evDefense;
-            evSpAtk = spread.evSpAtk;
-            evSpDef = spread.evSpDef;
-            evSpeed = spread.evSpeed;
+        evHP = spread.evHP;
+        evAttack = spread.evAttack;
+        evDefense = spread.evDefense;
+        evSpAtk = spread.evSpAtk;
+        evSpDef = spread.evSpDef;
+        evSpeed = spread.evSpeed;
         CalculateStats();
     }
 
@@ -262,7 +262,7 @@ public class Pokemon : ICloneable
         evSpAtk = EvSpAtk;
         evSpDef = EvSpDef;
         evSpeed = EvSpeed;
-        totalEv = (int)(evHP + evAttack + evDefense + evSpAtk + evSpDef + evSpeed);
+        totalEv = evHP + evAttack + evDefense + evSpAtk + evSpDef + evSpeed;
 
         nature = thisNature;
         whichAbility = WhichAbility;

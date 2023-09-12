@@ -8497,9 +8497,9 @@ public static class Species
             Ability.Multiscale,
         },
     };
-    public static SpeciesData HoOh = new ()
-	{
-		id = SpeciesID.HoOh,
+    public static SpeciesData HoOh = new()
+    {
+        id = SpeciesID.HoOh,
         speciesName = "Ho Oh",
         type1 = Type.Fire,
         type2 = Type.Flying,
@@ -8621,7 +8621,7 @@ public static class Species
         = SpeciesData.Unown(SpeciesID.Unown_Z, "unown/z", 10);
 
 
-public static SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count] {
+    public static SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count] {
         Missingno,
         Bulbasaur,
         Ivysaur,

@@ -63,7 +63,7 @@ public struct SpeciesData
         xpClass = XPClass.MediumFast,
         xpYield = 118,
         learnset = Learnset.EmptyLearnset,
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 40,
