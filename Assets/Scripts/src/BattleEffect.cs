@@ -736,8 +736,12 @@ public static class BattleEffect
             battle.PokemonOnField[index].transformedMon = battle.PokemonOnField[target].PokemonData.Clone() as Pokemon;
             battle.PokemonOnField[index].transformedMon.SetTransformPP();
             battle.PokemonOnField[index].ability = battle.PokemonOnField[target].ability;
+            battle.PokemonOnField[index].ApplyStatStruct(
+                battle.PokemonOnField[target].MakeStatStruct()
+                );
             yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                 + " transformed into " + battle.MonNameWithPrefix(target, false));
+            yield return battle.EntryAbilityCheck(index);
         }
     }
 
@@ -1189,5 +1193,21 @@ public static class BattleEffect
             targetMon.PokemonData.HP -= damage;
         }
         yield return battle.AnnounceTypeEffectiveness(effectiveness, false, target);
+    }
+
+    public static IEnumerator GetEncored(Battle battle, int target)
+    {
+        BattlePokemon targetMon = battle.PokemonOnField[target];
+        if(targetMon.encored || targetMon.lastMoveUsed == MoveID.None)
+        {
+            yield return battle.Announce(BattleText.MoveFailed);
+            yield break;
+        }
+        targetMon.encored = true;
+        targetMon.encoreTimer = 3;
+        targetMon.encoredMove = targetMon.lastMoveUsed;
+        if (!targetMon.done) battle.Moves[target] = targetMon.encoredMove;
+        yield return battle.Announce(battle.MonNameWithPrefix(target, true)
+            + " received an encore!");
     }
 }

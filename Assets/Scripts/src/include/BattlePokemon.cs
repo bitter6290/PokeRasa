@@ -64,8 +64,6 @@ public class BattlePokemon
     public Invulnerability invulnerability;
     public bool dontCheckPP = false;
 
-    public bool rechargeNextTurn = false;
-
     public bool choseMove = false;
 
     public bool flinched = false;
@@ -130,6 +128,9 @@ public class BattlePokemon
     public bool infatuated = false;
     public int infatuationTarget = 0;
 
+    public bool taunted = false;
+    public int tauntTimer = 0;
+
     public bool cursed = false;
 
     public bool nightmare = false;
@@ -144,6 +145,10 @@ public class BattlePokemon
     public bool destinyBond = false;
     public bool gotDestinyBondHit = false;
     public string destinyBondAttacker = "";
+
+    public bool encored = false;
+    public int encoreTimer = 0;
+    public MoveID encoredMove = MoveID.None;
 
     public byte furyCutterIntensity = 0;
 
@@ -160,6 +165,7 @@ public class BattlePokemon
     public byte mimicPP = 0;
     public byte mimicMaxPP = 0;
 
+    public MoveID moveUsedLastTurn = MoveID.None;
     public MoveID moveUsedThisTurn = MoveID.None;
     public MoveID lastMoveUsed = MoveID.None;
     public int lastMoveSlot = 0;
@@ -193,6 +199,8 @@ public class BattlePokemon
         return mimicking && (index == mimicSlot - 1) ?
             mimicMove : isTransformed ? transformedMon.MoveIDs[index] : PokemonData.MoveIDs[index];
     }
+
+
 
     public void DoNonMoveDamage(int damage)
     {
@@ -235,9 +243,17 @@ public class BattlePokemon
             || (hasType3 && Type3 == type);
     }
 
-    public byte Type1 => isTransformed ? transformedMon.SpeciesData.type1 : typesOverriden ? newType1 : PokemonData.SpeciesData.type1;
+    public byte Type1 => isTransformed
+                            ? transformedMon.SpeciesData.type1
+                        : typesOverriden
+                            ? newType1
+                        : PokemonData.SpeciesData.type1;
 
-    public byte Type2 => isTransformed ? transformedMon.SpeciesData.type2 : typesOverriden ? newType2 : PokemonData.SpeciesData.type2;
+    public byte Type2 => isTransformed
+                            ? transformedMon.SpeciesData.type2
+                        : typesOverriden
+                            ? newType2
+                        : PokemonData.SpeciesData.type2;
 
     public static float StageToModifierNormal(sbyte stage)
     {

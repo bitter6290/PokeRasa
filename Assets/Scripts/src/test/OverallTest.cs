@@ -38,5 +38,14 @@ public class OverallTest : MonoBehaviour
             battle.PokemonOnField[3].PokemonData.gender = Gender.Male;
             battle.PokemonOnField[3].PokemonData.move1 = MoveID.Attract;
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            battle.PokemonOnField[0].PokemonData.move1 = MoveID.Encore;
+            battle.PokemonOnField[3].PokemonData.move1 = MoveID.Pound;
+            battle.PokemonOnField[3].PokemonData.move2 = MoveID.Scratch;
+            battle.PokemonOnField[3].PokemonData.move3 = MoveID.Tackle;
+            battle.PokemonOnField[3].PokemonData.pp2 = 30;
+            battle.PokemonOnField[3].PokemonData.pp3 = 30;
+        }
     }
 }

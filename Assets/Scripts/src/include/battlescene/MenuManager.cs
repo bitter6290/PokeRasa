@@ -109,15 +109,24 @@ public class MenuManager : MonoBehaviour
 
     private IEnumerator MoveNoPP(int currentMon, int currentMove)
     {
-        yield return battle.Announce(Move.MoveTable[(int)(int)battle.PokemonOnField[currentMon].GetMove(currentMove)].name + BattleText.NoPP);
+        yield return battle.Announce(Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(currentMove - 1)].name + BattleText.NoPP);
         battle.state = BattleState.PlayerInput;
     }
 
     private IEnumerator MoveDisabled(int currentMon, int currentMove)
     {
         yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true) + "'s "
-            + Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(currentMove)].name
+            + Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(currentMove - 1)].name
             + " is disabled!");
+        battle.state = BattleState.PlayerInput;
+    }
+
+    private IEnumerator MoveEncored(int currentMon)
+    {
+        yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true)
+            + " can only use "
+            + Move.MoveTable[(int)battle.PokemonOnField[currentMon].encoredMove].name
+            + "!");
         battle.state = BattleState.PlayerInput;
     }
 
@@ -364,11 +373,18 @@ public class MenuManager : MonoBehaviour
                                 case 3:
                                 case 4:
                                     if (battle.PokemonOnField[currentMon].disabled
-                                        && battle.PokemonOnField[currentMon].GetMove(currentMove)
+                                        && battle.PokemonOnField[currentMon].GetMove(currentMove - 1)
                                         == battle.PokemonOnField[currentMon].disabledMove)
                                     {
                                         battle.state = BattleState.Announcement;
                                         StartCoroutine(MoveDisabled(currentMon, currentMove));
+                                    }
+                                    else if (battle.PokemonOnField[currentMon].encored
+                                        && battle.PokemonOnField[currentMon].GetMove(currentMove - 1)
+                                        != battle.PokemonOnField[currentMon].encoredMove)
+                                    {
+                                        battle.state = BattleState.Announcement;
+                                        StartCoroutine(MoveEncored(currentMon));
                                     }
                                     else if (battle.TryAddMove(currentMon, currentMove))
                                     {

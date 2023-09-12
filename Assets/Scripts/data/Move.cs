@@ -1166,9 +1166,9 @@ public static class Move
         true, Target.Opponent + Target.Ally, 20); //Needs anim
     public static MoveData Present = new(
         "Present", Type.Normal,
-        0, 90, 0,
-        MoveEffect.Hit, 0,
-        true, Target.Opponent + Target.Ally, 15); //Needs effect and anim
+        1, 90, 0,
+        MoveEffect.Present, 0,
+        true, Target.Opponent + Target.Ally, 15); //Needs anim
     public static MoveData Frustration = new(
         "Frustration", Type.Normal,
         0, 100, 0,
@@ -1218,7 +1218,7 @@ public static class Move
         "Encore", Type.Normal,
         0, 100, 0,
         MoveEffect.Encore, 100,
-        false, Target.Opponent + Target.Ally, 5); //Needs effect and anim
+        false, Target.Opponent + Target.Ally, 5); //Needs testing and anim
     public static MoveData Pursuit = new(
         "Pursuit", Type.Dark,
         40, 100, 0,
@@ -1342,9 +1342,9 @@ public static class Move
         false, Target.Opponent + Target.Ally, 15); //Needs anim
     public static MoveData BeatUp = new(
         "Beat Up", Type.Dark,
-        0, 100, 0,
-        MoveEffect.Hit, 0,
-        true, Target.Opponent + Target.Ally, 10); //Needs effect and anim
+        1, 100, 0,
+        MoveEffect.BeatUp, 0,
+        true, Target.Opponent + Target.Ally, 10); //Needs anim
 
 
     //Non-standard moves
