@@ -12,28 +12,28 @@ public class Pokemon : ICloneable
     public Gender gender;
 
     public int xp;
-    public byte level;
+    public int level;
     public int currentLevelXP;
     public int nextLevelXP;
-    public byte levelProgress;
+    public int levelProgress;
 
-    private byte ivHP;
-    private byte ivAttack;
-    private byte ivDefense;
-    private byte ivSpAtk;
-    private byte ivSpDef;
-    private byte ivSpeed;
+    private int ivHP;
+    private int ivAttack;
+    private int ivDefense;
+    private int ivSpAtk;
+    private int ivSpDef;
+    private int ivSpeed;
 
-    public byte evHP;
-    public byte evAttack;
-    public byte evDefense;
-    public byte evSpAtk;
-    public byte evSpDef;
-    public byte evSpeed;
+    public int evHP;
+    public int evAttack;
+    public int evDefense;
+    public int evSpAtk;
+    public int evSpDef;
+    public int evSpeed;
     public int totalEv;
 
-    private byte nature;
-    public byte whichAbility;
+    private Nature nature;
+    public int whichAbility;
 
     public int hpMax;
     public int attack;
@@ -43,21 +43,21 @@ public class Pokemon : ICloneable
     public int speed;
 
     public MoveID move1;
-    public byte maxPp1;
-    public byte pp1;
+    public int maxPp1;
+    public int pp1;
     public MoveID move2;
-    public byte maxPp2;
-    public byte pp2;
+    public int maxPp2;
+    public int pp2;
     public MoveID move3;
-    public byte maxPp3;
-    public byte pp3;
+    public int maxPp3;
+    public int pp3;
     public MoveID move4;
-    public byte maxPp4;
-    public byte pp4;
+    public int maxPp4;
+    public int pp4;
 
     public int HP;
     public Status status;
-    public byte sleepTurns;
+    public int sleepTurns;
 
     public bool fainted;
 
@@ -70,14 +70,16 @@ public class Pokemon : ICloneable
     public bool transformed;
     public SpeciesID temporarySpecies;
 
-    public byte friendship;
+    public int friendship;
 
-    public byte hiddenPowerType;
+    public Type hiddenPowerType;
 
 
 
     public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
         (int)temporarySpecies : (int)species];
+
+    public SpeciesID getSpecies => transformed ? temporarySpecies : species;
 
     public MoveID[] MoveIDs => new MoveID[4]
     {
@@ -87,7 +89,7 @@ public class Pokemon : ICloneable
         move4
     };
 
-    public byte[] PP => new byte[4]
+    public int[] PP => new int[4]
     {
         pp1,
         pp2,
@@ -121,7 +123,7 @@ public class Pokemon : ICloneable
         CalculateStats();
     }
 
-    public void SetNature(byte nature) => this.nature = nature;
+    public void SetNature(Nature nature) => this.nature = nature;
 
     public void AbilityCapsule()
     {
@@ -139,9 +141,9 @@ public class Pokemon : ICloneable
         return (((2 * SpeciesData.baseHP) + ivHP + (evHP >> 2)) * level / 100 + level + 10);
     }
 
-    private int CalculateStat(byte statID, byte baseStat, byte statIv, byte statEv)
+    private int CalculateStat(int statID, int baseStat, int statIv, int statEv)
     {
-        return (int)Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * Nature.NatureEffect(nature, statID));
+        return (int)Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * NatureUtils.NatureEffect(nature, statID));
     }
 
     public void CalculateStats()
@@ -197,11 +199,13 @@ public class Pokemon : ICloneable
     }
     public void GetNextLevel()
     {
-        nextLevelXP = XP.LevelToXP(ToByte(level + 1), SpeciesData.xpClass);
+        nextLevelXP = XP.LevelToXP(level + 1, SpeciesData.xpClass);
     }
-    public byte GetLevelProgress()
+    public int GetLevelProgress()
     {
-        return level >= PokemonConst.maxLevel ? ToByte(0) : ToByte((xp - XP.LevelToXP(level, SpeciesData.xpClass)) * 8 / (nextLevelXP - XP.LevelToXP(level, SpeciesData.xpClass)));
+        return level >= PokemonConst.maxLevel ? 0 :
+            (xp - XP.LevelToXP(level, SpeciesData.xpClass)) * 8
+            / (nextLevelXP - XP.LevelToXP(level, SpeciesData.xpClass));
     }
     public int Moves()
     {
@@ -233,11 +237,11 @@ public class Pokemon : ICloneable
                 break;
         }
     }
-    public Pokemon(SpeciesID thisSpecies, Gender Gender, byte Level,
-        byte IvHP, byte IvAttack, byte IvDefense, byte IvSpAtk, byte IvSpDef, byte IvSpeed,
-        byte EvHP, byte EvAttack, byte EvDefense, byte EvSpAtk, byte EvSpDef, byte EvSpeed,
-        byte thisNature, MoveID Move1, MoveID Move2, MoveID Move3, MoveID Move4,
-        byte WhichAbility, byte Friendship, ItemID Item, byte HiddenPowerType, bool Exists = true)
+    public Pokemon(SpeciesID thisSpecies, Gender Gender, int Level,
+        int IvHP, int IvAttack, int IvDefense, int IvSpAtk, int IvSpDef, int IvSpeed,
+        int EvHP, int EvAttack, int EvDefense, int EvSpAtk, int EvSpDef, int EvSpeed,
+        Nature thisNature, MoveID Move1, MoveID Move2, MoveID Move3, MoveID Move4,
+        int WhichAbility, int Friendship, ItemID Item, Type HiddenPowerType, bool Exists = true)
     {
         species = thisSpecies;
         gender = Gender;
@@ -246,7 +250,7 @@ public class Pokemon : ICloneable
 
         level = Level;
         currentLevelXP = XP.LevelToXP(level, SpeciesData.xpClass);
-        nextLevelXP = level >= PokemonConst.maxLevel ? 0 : XP.LevelToXP(ToByte(level + 1), SpeciesData.xpClass);
+        nextLevelXP = level >= PokemonConst.maxLevel ? 0 : XP.LevelToXP(level + 1, SpeciesData.xpClass);
         levelProgress = 0;
 
         ivHP = IvHP;
@@ -270,11 +274,11 @@ public class Pokemon : ICloneable
         xp = XP.LevelToXP(level, SpeciesData.xpClass);
 
         hpMax = ToUInt16(((2 * SpeciesData.baseHP) + ivHP) * level / 100 + level + 10);
-        attack = ToUInt16(Floor((((2 * SpeciesData.baseAttack) + ivAttack + (evHP >> 2)) * level / 100 + 5) * Nature.NatureEffect(nature, 0)));
-        defense = ToUInt16(Floor((((2 * SpeciesData.baseDefense) + ivDefense) * level / 100 + 5) * Nature.NatureEffect(nature, 1)));
-        spAtk = ToUInt16(Floor((((2 * SpeciesData.baseSpAtk) + ivSpAtk) * level / 100 + 5) * Nature.NatureEffect(nature, 3)));
-        spDef = ToUInt16(Floor((((2 * SpeciesData.baseSpDef) + ivSpDef) * level / 100 + 5) * Nature.NatureEffect(nature, 4)));
-        speed = ToUInt16(Floor((((2 * SpeciesData.baseSpeed) + ivSpeed) * level / 100 + 5) * Nature.NatureEffect(nature, 2)));
+        attack = ToUInt16(Floor((((2 * SpeciesData.baseAttack) + ivAttack + (evHP >> 2)) * level / 100 + 5) * nature.NatureEffect(0)));
+        defense = ToUInt16(Floor((((2 * SpeciesData.baseDefense) + ivDefense) * level / 100 + 5) * nature.NatureEffect(1)));
+        spAtk = ToUInt16(Floor((((2 * SpeciesData.baseSpAtk) + ivSpAtk) * level / 100 + 5) * nature.NatureEffect(3)));
+        spDef = ToUInt16(Floor((((2 * SpeciesData.baseSpDef) + ivSpDef) * level / 100 + 5) * nature.NatureEffect(4)));
+        speed = ToUInt16(Floor((((2 * SpeciesData.baseSpeed) + ivSpeed) * level / 100 + 5) * nature.NatureEffect(2)));
 
         move1 = Move1;
         move2 = Move2;
@@ -306,31 +310,29 @@ public class Pokemon : ICloneable
 
         exists = Exists;
     }
-    public static Pokemon WildPokemon(SpeciesID species, byte level)
+    public static Pokemon WildPokemon(SpeciesID species, int level)
     {
         var random = new System.Random();
-        byte[] ivBytes = new byte[6];
-        random.NextBytes(ivBytes);
-        byte IvHP = (byte)(ivBytes[0] >> 3);
-        byte IvAttack = (byte)(ivBytes[1] >> 3);
-        byte IvDefense = (byte)(ivBytes[2] >> 3);
-        byte IvSpAtk = (byte)(ivBytes[3] >> 3);
-        byte IvSpDef = (byte)(ivBytes[4] >> 3);
-        byte IvSpeed = (byte)(ivBytes[5] >> 3);
+        int IvHP = random.Next() & 31;
+        int IvAttack = random.Next() & 31;
+        int IvDefense = random.Next() & 31;
+        int IvSpAtk = random.Next() & 31;
+        int IvSpDef = random.Next() & 31;
+        int IvSpeed = random.Next() & 31;
 
         int personality = random.Next();
         Gender gender = Species.SpeciesTable[(int)species].malePercent == SpeciesData.Genderless
             ? Gender.Genderless
             : personality % 100 > Species.SpeciesTable[(int)species].malePercent
             ? Gender.Female : Gender.Male;
-        byte Nature = (byte)((personality >> 1) % 25);
+        Nature Nature = (Nature)((personality >> 1) % 25);
 
         MoveID[] Moves = Learnset.GetMoves(Species.SpeciesTable[(int)species].learnset, level);
 
         return new Pokemon(species, gender, level, IvHP, IvAttack, IvDefense, IvSpAtk, IvSpDef, IvSpeed,
             0, 0, 0, 0, 0, 0,
-            Nature, Moves[0], Moves[1], Moves[2], Moves[3], (byte)Floor(random.NextDouble() * 2),
-            Species.SpeciesTable[(int)species].baseFriendship, ItemID.None, (byte)(random.Next() % 18));
+            Nature, Moves[0], Moves[1], Moves[2], Moves[3], (int)Floor(random.NextDouble() * 2),
+            Species.SpeciesTable[(int)species].baseFriendship, ItemID.None, (Type)(random.Next() % 18));
     }
     public static Pokemon MakeEmptyMon => new
         (SpeciesID.Missingno, Gender.Genderless, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Nature.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, 0, ItemID.None, Type.Normal, false);

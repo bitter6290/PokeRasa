@@ -2,20 +2,20 @@ using System;
 
 public struct SpeciesData
 {
-    public const byte Genderless = 255;
+    public const int Genderless = 255;
     public SpeciesID id;
 
     public string speciesName;
 
-    public byte type1;
-    public byte type2;
+    public Type type1;
+    public Type type2;
 
-    public byte baseHP;
-    public byte baseAttack;
-    public byte baseDefense;
-    public byte baseSpAtk;
-    public byte baseSpDef;
-    public byte baseSpeed;
+    public int baseHP;
+    public int baseAttack;
+    public int baseDefense;
+    public int baseSpAtk;
+    public int baseSpDef;
+    public int baseSpeed;
 
     public short evYield;
 
@@ -25,14 +25,14 @@ public struct SpeciesData
 
     public LearnsetMove[] learnset;
 
-    public byte malePercent;
+    public int malePercent;
 
-    public byte eggCycles;
+    public int eggCycles;
     public EggGroup eggGroup1;
     public EggGroup eggGroup2;
 
-    public byte catchRate;
-    public byte baseFriendship;
+    public int catchRate;
+    public int baseFriendship;
 
     public string cryLocation;
 

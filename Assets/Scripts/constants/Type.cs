@@ -2,28 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Type
+public enum Type
 {
-    public const byte Normal = 0;
-    public const byte Fire = 1;
-    public const byte Water = 2;
-    public const byte Grass = 3;
-    public const byte Electric = 4;
-    public const byte Ice = 5;
-    public const byte Ground = 6;
-    public const byte Fighting = 7;
-    public const byte Flying = 8;
-    public const byte Rock = 9;
-    public const byte Poison = 10;
-    public const byte Bug = 11;
-    public const byte Psychic = 12;
-    public const byte Ghost = 13;
-    public const byte Dragon = 14;
-    public const byte Dark = 15;
-    public const byte Steel = 16;
-    public const byte Fairy = 17;
-    public const byte Typeless = 255;
-    private static readonly byte[,] typeChart = new byte[18, 18]
+    Normal,
+    Fire,
+    Water,
+    Grass,
+    Electric,
+    Ice,
+    Ground,
+    Fighting,
+    Flying,
+    Rock,
+    Poison,
+    Bug,
+    Psychic,
+    Ghost,
+    Dragon,
+    Dark,
+    Steel,
+    Fairy,
+
+    Typeless = 63
+}
+
+public static class TypeUtils
+{
+    private static readonly int[,] typeChart = new int[18, 18]
         {{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 0, 2, 2, 1, 2 }, //Normal
          { 2, 1, 1, 3, 2, 3, 2, 2, 2, 1, 2, 3, 2, 2, 1, 2, 3, 2 }, //Fire
          { 2, 3, 1, 1, 2, 2, 3, 2, 2, 3, 2, 2, 2, 2, 1, 2, 2, 2 }, //Water
@@ -89,11 +94,11 @@ public static class Type
 
     };
 
-    public static float Effectiveness(byte Attacker, byte Defender)
+    public static float Effectiveness(Type Attacker, Type Defender)
     {
-        if (Attacker < 18 && Defender < 18)
+        if ((int)Attacker < 18 && (int)Defender < 18)
         {
-            switch (typeChart[Attacker, Defender])
+            switch (typeChart[(int)Attacker, (int)Defender])
             {
                 case 0: { return 0.0F; }
                 case 1: { return 0.5F; }

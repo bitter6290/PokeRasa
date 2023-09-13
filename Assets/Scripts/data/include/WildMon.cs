@@ -2,6 +2,6 @@
 {
     public SpeciesID species;
     public int freq;
-    public byte minLevel;
-    public byte maxLevel;
+    public int minLevel;
+    public int maxLevel;
 }

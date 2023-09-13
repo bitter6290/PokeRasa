@@ -2,8 +2,8 @@
 {
     public SpeciesID species;
     public EvIvSpread evIv;
-    public byte nature;
-    public byte level;
+    public Nature nature;
+    public int level;
     public Gender gender;
     public MoveID[] moves; /*Supplying an array with less than 4 moves 
                             * will only overwrite as many moves as you supply;

@@ -269,10 +269,15 @@ public static class BattleEffect
             //Add ability popup
             yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
         }
+        else if (battle.Uproar)
+        {
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                + " is protected by the uproar!");
+        }
         else
         {
             battle.PokemonOnField[index].PokemonData.status = Status.Sleep;
-            battle.PokemonOnField[index].PokemonData.sleepTurns = (byte)(1 + (random.Next() % 3));
+            battle.PokemonOnField[index].PokemonData.sleepTurns = 1 + (random.Next() % 3);
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " fell asleep!");
         }
     }
@@ -620,7 +625,7 @@ public static class BattleEffect
             battle.PokemonOnField[index].PokemonData.HP -= damage;
         }
     }
-    public static IEnumerator StartWeather(Battle battle, Weather weather, byte turns)
+    public static IEnumerator StartWeather(Battle battle, Weather weather, int turns)
     {
         battle.weather = weather;
         battle.weatherTimer = turns;
@@ -687,7 +692,8 @@ public static class BattleEffect
     }
     public static IEnumerator Rest(Battle battle, int index)
     {
-        if (battle.Sides[index < 3 ? 0 : 1].safeguard)
+        if (battle.Sides[index < 3 ? 0 : 1].safeguard
+            || battle.Uproar)
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;
@@ -826,11 +832,11 @@ public static class BattleEffect
 
     public static IEnumerator Conversion(Battle battle, int index)
     {
-        byte newType = Move.MoveTable[(int)battle.PokemonOnField[index].GetMove(0)].type;
+        Type newType = Move.MoveTable[(int)battle.PokemonOnField[index].GetMove(0)].type;
         battle.PokemonOnField[index].newType1 = newType;
         battle.PokemonOnField[index].newType2 = newType;
         battle.PokemonOnField[index].typesOverriden = true;
-        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " became the " + Type.typeName[newType] + " type!");
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " became the " + TypeUtils.typeName[(int)newType] + " type!");
     }
 
     public static IEnumerator Haze(Battle battle)
@@ -1007,10 +1013,10 @@ public static class BattleEffect
         bool worked = true;
         switch (battle.PokemonOnField[index].lastMoveSlot)
         {
-            case 1: battle.PokemonOnField[index].PokemonData.pp1 = (byte)Max(0, battle.PokemonOnField[index].PokemonData.pp1 - amount); break;
-            case 2: battle.PokemonOnField[index].PokemonData.pp2 = (byte)Max(0, battle.PokemonOnField[index].PokemonData.pp2 - amount); break;
-            case 3: battle.PokemonOnField[index].PokemonData.pp3 = (byte)Max(0, battle.PokemonOnField[index].PokemonData.pp3 - amount); break;
-            case 4: battle.PokemonOnField[index].PokemonData.pp4 = (byte)Max(0, battle.PokemonOnField[index].PokemonData.pp4 - amount); break;
+            case 1: battle.PokemonOnField[index].PokemonData.pp1 = (int)Max(0, battle.PokemonOnField[index].PokemonData.pp1 - amount); break;
+            case 2: battle.PokemonOnField[index].PokemonData.pp2 = (int)Max(0, battle.PokemonOnField[index].PokemonData.pp2 - amount); break;
+            case 3: battle.PokemonOnField[index].PokemonData.pp3 = (int)Max(0, battle.PokemonOnField[index].PokemonData.pp3 - amount); break;
+            case 4: battle.PokemonOnField[index].PokemonData.pp4 = (int)Max(0, battle.PokemonOnField[index].PokemonData.pp4 - amount); break;
             default: worked = false; break;
         }
         if (worked) yield return battle.Announce("It reduced the PP of " + battle.MonNameWithPrefix(index, false)
@@ -1082,55 +1088,55 @@ public static class BattleEffect
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was identified!");
     }
 
-    public static List<byte> GetConversion2Types(int type)
+    public static List<Type> GetConversion2Types(Type type)
     {
         switch (type)
         {
             case Type.Normal:
-                return new List<byte>() { Type.Rock, Type.Steel, Type.Ghost };
+                return new List<Type>() { Type.Rock, Type.Steel, Type.Ghost };
             case Type.Fire:
-                return new List<byte>() { Type.Water, Type.Fire, Type.Rock, Type.Dragon };
+                return new List<Type>() { Type.Water, Type.Fire, Type.Rock, Type.Dragon };
             case Type.Water:
-                return new List<byte>() { Type.Grass, Type.Water, Type.Dragon };
+                return new List<Type>() { Type.Grass, Type.Water, Type.Dragon };
             case Type.Grass:
-                return new List<byte>() { Type.Fire, Type.Grass, Type.Bug, Type.Flying, Type.Poison, Type.Steel, Type.Dragon };
+                return new List<Type>() { Type.Fire, Type.Grass, Type.Bug, Type.Flying, Type.Poison, Type.Steel, Type.Dragon };
             case Type.Electric:
-                return new List<byte>() { Type.Electric, Type.Grass, Type.Dragon, Type.Ground };
+                return new List<Type>() { Type.Electric, Type.Grass, Type.Dragon, Type.Ground };
             case Type.Ice:
-                return new List<byte>() { Type.Fire, Type.Water, Type.Ice, Type.Steel };
+                return new List<Type>() { Type.Fire, Type.Water, Type.Ice, Type.Steel };
             case Type.Ground:
-                return new List<byte>() { Type.Grass, Type.Bug, Type.Flying };
+                return new List<Type>() { Type.Grass, Type.Bug, Type.Flying };
             case Type.Rock:
-                return new List<byte>() { Type.Ground, Type.Fighting, Type.Steel };
+                return new List<Type>() { Type.Ground, Type.Fighting, Type.Steel };
             case Type.Fighting:
-                return new List<byte>() { Type.Psychic, Type.Flying, Type.Bug, Type.Fairy, Type.Ghost, Type.Poison };
+                return new List<Type>() { Type.Psychic, Type.Flying, Type.Bug, Type.Fairy, Type.Ghost, Type.Poison };
             case Type.Flying:
-                return new List<byte>() { Type.Rock, Type.Electric, Type.Steel };
+                return new List<Type>() { Type.Rock, Type.Electric, Type.Steel };
             case Type.Bug:
-                return new List<byte>() { Type.Fire, Type.Flying, Type.Steel, Type.Poison, Type.Fairy, Type.Fighting, Type.Ghost };
+                return new List<Type>() { Type.Fire, Type.Flying, Type.Steel, Type.Poison, Type.Fairy, Type.Fighting, Type.Ghost };
             case Type.Poison:
-                return new List<byte>() { Type.Ground, Type.Rock, Type.Poison, Type.Steel, Type.Ghost };
+                return new List<Type>() { Type.Ground, Type.Rock, Type.Poison, Type.Steel, Type.Ghost };
             case Type.Psychic:
-                return new List<byte>() { Type.Psychic, Type.Dark, Type.Steel };
+                return new List<Type>() { Type.Psychic, Type.Dark, Type.Steel };
             case Type.Ghost:
-                return new List<byte>() { Type.Dark, Type.Normal };
+                return new List<Type>() { Type.Dark, Type.Normal };
             case Type.Dragon:
-                return new List<byte>() { Type.Steel, Type.Fairy };
+                return new List<Type>() { Type.Steel, Type.Fairy };
             case Type.Dark:
-                return new List<byte>() { Type.Fighting, Type.Dark, Type.Fairy };
+                return new List<Type>() { Type.Fighting, Type.Dark, Type.Fairy };
             case Type.Steel:
-                return new List<byte>() { Type.Fire, Type.Water, Type.Electric, Type.Steel };
+                return new List<Type>() { Type.Fire, Type.Water, Type.Electric, Type.Steel };
             case Type.Fairy:
-                return new List<byte>() { Type.Steel, Type.Poison, Type.Fire };
-            default: return new List<byte>();
+                return new List<Type>() { Type.Steel, Type.Poison, Type.Fire };
+            default: return new List<Type>();
         }
     }
 
     public static IEnumerator Conversion2(Battle battle, int index, int target)
     {
         var random = new System.Random();
-        List<byte> possibleTypes = new();
-        foreach (byte i in GetConversion2Types(Move.MoveTable[(int)battle.PokemonOnField[target].lastMoveUsed].type))
+        List<Type> possibleTypes = new();
+        foreach (Type i in GetConversion2Types(Move.MoveTable[(int)battle.PokemonOnField[target].lastMoveUsed].type))
             if (!battle.PokemonOnField[index].HasType(i)) possibleTypes.Add(i);
         if (possibleTypes.Count == 0)
         {
@@ -1142,13 +1148,13 @@ public static class BattleEffect
         battle.PokemonOnField[index].newType2 = possibleTypes[whichType];
         battle.PokemonOnField[index].typesOverriden = true;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " transformed into the "
-            + Type.typeName[possibleTypes[whichType]] + " type!");
+            + TypeUtils.typeName[(int)possibleTypes[whichType]] + " type!");
     }
 
     public static IEnumerator GetFutureSight(Battle battle, int target, int user)
     {
         var random = new System.Random();
-        (int spAtk, sbyte stage, int level, bool stab, bool critical) futureSightData = new()
+        (int spAtk, int stage, int level, bool stab, bool critical) futureSightData = new()
         {
             level = battle.PokemonOnField[user].PokemonData.level,
             spAtk = battle.PokemonOnField[user].PokemonData.spAtk,
@@ -1169,7 +1175,7 @@ public static class BattleEffect
     {
         BattlePokemon targetMon = battle.PokemonOnField[target];
         yield return battle.Announce(battle.MonNameWithPrefix(target, true) + " took the Future Sight attack!");
-        float effectiveness = battle.GetEffectivenessForFutureSight((byte)target, targetMon);
+        float effectiveness = battle.GetEffectivenessForFutureSight(targetMon.futureSightType, targetMon);
         int damage = battle.FutureSightDamageCalc(targetMon);
         if (damage > targetMon.PokemonData.HP)
         {
@@ -1209,5 +1215,45 @@ public static class BattleEffect
         if (!targetMon.done) battle.Moves[target] = targetMon.encoredMove;
         yield return battle.Announce(battle.MonNameWithPrefix(target, true)
             + " received an encore!");
+    }
+
+    public static IEnumerator StartUproar(Battle battle, int index)
+    {
+        BattlePokemon user = battle.PokemonOnField[index];
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " caused an uproar!");
+        for (int i = 0; i < 6; i++)
+        {
+            if (battle.PokemonOnField[i].exists
+                && battle.PokemonOnField[i].PokemonData.status == Status.Sleep)
+            {
+                yield return WakeUp(battle, i);
+            }
+        }
+    }
+
+    public static IEnumerator Stockpile(Battle battle, int index)
+    {
+        if (battle.PokemonOnField[index].stockpile >= 3) yield break;
+        battle.PokemonOnField[index].stockpile++;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " stockpiled " + battle.PokemonOnField[index].stockpile + "!");
+        yield return StatUp(battle, index, Stat.Defense, 1, index);
+        yield return StatUp(battle, index, Stat.SpDef, 1, index, false);
+    }
+
+    public static IEnumerator Swallow(Battle battle, int index)
+    {
+        BattlePokemon user = battle.PokemonOnField[index];
+        switch (user.stockpile)
+        {
+            case 1: yield return Heal(battle, index, user.PokemonData.hpMax >> 2); break;
+            case 2: yield return Heal(battle, index, user.PokemonData.hpMax >> 1); break;
+            case 3: yield return Heal(battle, index, user.PokemonData.hpMax); break;
+            default: yield break;
+        }
+        yield return battle.Announce("The stockpiled effect wore off!");
+        user.defenseStage = Max(-6, user.defenseStage - user.stockpile);
+        user.spDefStage = Max(-6, user.spDefStage - user.stockpile);
+        user.stockpile = 0;
     }
 }

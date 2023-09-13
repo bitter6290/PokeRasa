@@ -419,12 +419,12 @@ public static class BattleAnim
 
     public static IEnumerator ShowPoison(Battle battle, int index)
     {
-        yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 160.0F / 255.0F, Type.typeColor[Type.Poison]);
+        yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 160.0F / 255.0F, TypeUtils.typeColor[(int)Type.Poison]);
     }
 
     public static IEnumerator ShowToxicPoison(Battle battle, int index)
     {
-        yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 200.0F / 255.0F, Type.typeColor[Type.Poison]);
+        yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 200.0F / 255.0F, TypeUtils.typeColor[(int)Type.Poison]);
     }
 
     public static IEnumerator ShowParalysis(Battle battle, int index)

@@ -1,11 +1,11 @@
 ﻿public struct StatStruct
 {
-    public sbyte attack;
-    public sbyte defense;
-    public sbyte spAtk;
-    public sbyte spDef;
-    public sbyte speed;
-    public sbyte accuracy;
-    public sbyte evasion;
-    public byte critRatio;
+    public int attack;
+    public int defense;
+    public int spAtk;
+    public int spDef;
+    public int speed;
+    public int accuracy;
+    public int evasion;
+    public int critRatio;
 }

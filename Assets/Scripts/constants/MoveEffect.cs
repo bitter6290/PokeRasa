@@ -69,6 +69,7 @@ public enum MoveEffect : ushort
     Crash50Max,
     //Other added effects
     Flinch,
+    FakeOut,
     Absorb50,
     PayDay,
     //Unique attack types
@@ -98,9 +99,13 @@ public enum MoveEffect : ushort
     FutureSight,
     Present,
     BeatUp,
+    Uproar,
     //Paired effects
     Bide,
     BideHit,
+    Stockpile,
+    Swallow,
+    SpitUp,
     //Field effects
     Mist,
     Safeguard,

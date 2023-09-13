@@ -1,4 +1,4 @@
 ﻿public static class TMLearnset
 {
-    public static TMLearnsetData NoTMs = new(new byte[0]);
+    public static TMLearnsetData NoTMs = new(new int[0]);
 }

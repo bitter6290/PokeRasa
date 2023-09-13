@@ -1,4 +1,4 @@
 public static class PokemonConst
 {
-    public const byte maxLevel = 100;
+    public const int maxLevel = 100;
 }

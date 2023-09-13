@@ -253,6 +253,11 @@ public enum MoveID
     Whirlpool,
     BeatUp,
 
+    //Gen 3
+    Stockpile,
+    SpitUp,
+    Swallow,
+
     //Nonstandard moves
 
     ConfusionHit,
@@ -277,5 +282,5 @@ public enum MoveID
     Switch,
     UseItem,
 
-    StandardCount = Struggle + 1,
+    StandardCount = ConfusionHit - 1,
 }

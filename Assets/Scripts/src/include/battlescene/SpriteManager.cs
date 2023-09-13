@@ -17,7 +17,7 @@ public class SpriteManager : MonoBehaviour
     private Sprite Sprite2;
 
     public Battle battle;
-    public byte index;
+    public int index;
 
     private float basePosition;
 

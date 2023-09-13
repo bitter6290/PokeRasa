@@ -1,9 +1,9 @@
 ﻿public struct TMLearnsetData
 {
     public static bool[] learnableTMs = new bool[(int)TMID.Count];
-    public TMLearnsetData(byte[] allowedTMs)
+    public TMLearnsetData(int[] allowedTMs)
     {
-        foreach (byte i in allowedTMs)
+        foreach (int i in allowedTMs)
         {
             learnableTMs[i] = true;
         }

@@ -1,4 +1,5 @@
-﻿
+﻿This is outdated!
+
 Pokemon:
 
 27 bytes, 12 ints, 4 bools, 1 ItemID => int, 2 SpeciesID => ushort, 4 MoveID => ushort, 1 Status => byte, 1 Gender => byte,

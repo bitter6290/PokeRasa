@@ -47,5 +47,15 @@ public class OverallTest : MonoBehaviour
             battle.PokemonOnField[3].PokemonData.pp2 = 30;
             battle.PokemonOnField[3].PokemonData.pp3 = 30;
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Pokemon tester = battle.PokemonOnField[3].PokemonData;
+            tester.move1 = MoveID.Stockpile;
+            tester.move2 = MoveID.SpitUp;
+            tester.move3 = MoveID.Swallow;
+            tester.pp1 = 40;
+            tester.pp2 = 40;
+            tester.pp3 = 40;
+        }
     }
 }

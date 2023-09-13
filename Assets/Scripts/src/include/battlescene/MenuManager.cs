@@ -68,7 +68,7 @@ public class MenuManager : MonoBehaviour
 
     private bool megaEvolving;
 
-    public int menuMode;
+    public MenuMode menuMode;
 
     private static Color transparent = new(0, 0, 0, 0);
 
@@ -187,13 +187,13 @@ public class MenuManager : MonoBehaviour
                 switch (menuMode)
                 {
                     case MenuMode.Moves:
-                        box1.color = Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(0)].type];
+                        box1.color = TypeUtils.typeColor[(int)Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(0)].type];
                         box2.color = battle.PokemonOnField[currentMon].GetMove(1) == MoveID.None
-                            ? transparent : Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(1)].type];
+                            ? transparent : TypeUtils.typeColor[(int)Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(1)].type];
                         box3.color = battle.PokemonOnField[currentMon].GetMove(2) == MoveID.None
-                            ? transparent : Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(2)].type];
+                            ? transparent : TypeUtils.typeColor[(int)Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(2)].type];
                         box4.color = battle.PokemonOnField[currentMon].GetMove(3) == MoveID.None
-                            ? transparent : Type.typeColor[Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(3)].type];
+                            ? transparent : TypeUtils.typeColor[(int)Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(3)].type];
                         box5.color = backColor;
 
                         text1.text = Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(0)].name;
@@ -866,7 +866,7 @@ public class MenuManager : MonoBehaviour
                                         {
                                             battle.PokemonOnField[currentMon].choseMove = true;
                                             battle.Moves[currentMon] = MoveID.Switch;
-                                            battle.SwitchTargets[currentMon] = (byte)(currentPartyMon - 1);
+                                            battle.SwitchTargets[currentMon] = currentPartyMon - 1;
                                             if (GetNextPokemon())
                                             {
                                                 battle.state = BattleState.Announcement;
