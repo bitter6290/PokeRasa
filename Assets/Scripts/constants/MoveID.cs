@@ -254,11 +254,19 @@ public enum MoveID
     BeatUp,
 
     //Gen 3
+    FakeOut,
+    Uproar,
     Stockpile,
     SpitUp,
     Swallow,
     HeatWave,
     Hail,
+    Torment,
+    Flatter,
+    WillOWisp,
+    Memento,
+    Facade,
+    FocusPunch,
 
     //Nonstandard moves
 
@@ -272,6 +280,7 @@ public enum MoveID
     SkullBashAttack,
     BideMiddle,
     BideAttack,
+    FocusPunchAttack,
 
     Count,
 

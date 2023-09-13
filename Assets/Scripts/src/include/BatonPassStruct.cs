@@ -8,5 +8,8 @@
     public int substituteHP;
     public bool perishSong;
     public bool perishTimer;
+    public bool trapped;
+    public int trappingSlot;
+    public bool cursed;
 }
 

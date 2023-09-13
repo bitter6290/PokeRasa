@@ -488,6 +488,9 @@ public class Battle : MonoBehaviour
             case MoveEffect.Reversal:
                 effectivePower = ReversalPower(attacker.PokemonData.HP, attacker.PokemonData.hpMax);
                 break;
+            case MoveEffect.Facade when attacker.PokemonData.status != Status.None:
+                effectivePower <<= 1;
+                break;
             default: break;
         }
         if (HasAbility(attacker.index, Technician) && effectivePower <= 60)
@@ -1037,7 +1040,7 @@ public class Battle : MonoBehaviour
                 case RoughSkin:
                     PokemonOnField[index].DoProportionalDamage(0.125F);
                     yield return Announce(MonNameWithPrefix(index, true) + " was hurt by Rough Skin!");
-                    ProcessFaintingSingle(index);
+                    yield return ProcessFaintingSingle(index);
                     break;
                 case FlashFire:
                     PokemonOnField[index].flashFire = true;
@@ -1154,6 +1157,7 @@ public class Battle : MonoBehaviour
                 }
                 else
                 {
+                    PokemonOnField[i].focused = false;
                     if (damage >= PokemonOnField[i].PokemonData.HP)
                     {
                         if (move.Data().effect == MoveEffect.FalseSwipe)
@@ -1331,6 +1335,13 @@ public class Battle : MonoBehaviour
         bool goAhead = true;
         PokemonOnField[index].invulnerability = Invulnerability.None;
         PokemonOnField[index].destinyBond = false;
+        if(GetMove(index).effect == MoveEffect.FocusPunchWindup)
+        {
+            Debug.Log("Executing");
+            yield return ExecuteMove(index);
+            DoNextMove();
+            yield break;
+        }
         switch (PokemonOnField[index].PokemonData.status)
         {
             case Status.Paralysis:
@@ -1387,7 +1398,7 @@ public class Battle : MonoBehaviour
                 goAhead = false;
             }
         }
-        if (Moves[index] is MoveID.SelfDestruct or MoveID.Explosion)
+        if (GetMove(index).effect == MoveEffect.SelfDestruct)
         {
             for (int i = 0; i < 6; i++)
             {
@@ -1424,8 +1435,8 @@ public class Battle : MonoBehaviour
         else { PokemonOnField[index].protectCounter = 0; }
         if (goAhead)
         {
-            yield return ExecuteMove(index);
             Debug.Log("Executing");
+            yield return ExecuteMove(index);
         }
         else
         {
@@ -1659,6 +1670,14 @@ public class Battle : MonoBehaviour
           && user.encored
           && Moves[index] == user.encoredMove)
             user.encored = false;
+        if (GetMove(index).effect == MoveEffect.FocusPunchWindup)
+        {
+            Moves[index] = MoveID.FocusPunchAttack;
+            PokemonOnField[index].focused = true;
+            yield return Announce(MonNameWithPrefix(index, true) + " is tightening its focus!");
+            yield break;
+        }
+
         yield return Announce(user.PokemonData.monName + " used " + GetMove(index).name + "!");
 
         switch (GetMove(index).effect)
@@ -1716,6 +1735,12 @@ public class Battle : MonoBehaviour
             case MoveEffect.SpitUp when user.stockpile == 0:
             case MoveEffect.Swallow when user.stockpile == 0 || user.AtFullHealth:
                 yield return Announce(BattleText.MoveFailed);
+                user.done = true;
+                MoveCleanup();
+                yield break;
+            case MoveEffect.FocusPunchAttack when !user.focused:
+                yield return Announce(MonNameWithPrefix(index, true)
+                    + " lost its focus and couldn't move!");
                 user.done = true;
                 MoveCleanup();
                 yield break;
@@ -2336,7 +2361,7 @@ public class Battle : MonoBehaviour
                 yield return Announce(MonNameWithPrefix(index, true) + " kept going and crashed!");
                 yield return ProcessFaintingSingle(index);
                 break;
-            case MoveEffect.SelfDestruct:
+            case MoveEffect.SelfDestruct or MoveEffect.Memento:
                 yield return ProcessFaintingSingle(index);
                 break;
             case MoveEffect.SpitUp:
@@ -2491,6 +2516,9 @@ public class Battle : MonoBehaviour
             case MoveEffect.Swagger:
                 yield return BattleEffect.StatUp(this, index, Stat.Attack, 2, attacker);
                 goto case MoveEffect.Confuse;
+            case MoveEffect.Flatter:
+                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
+                goto case MoveEffect.Confuse;
             case MoveEffect.TriAttack:
                 yield return BattleEffect.TriAttack(this, index);
                 break;
@@ -2502,6 +2530,9 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.Spite:
                 yield return BattleEffect.DrainPP(this, index, 4);
+                break;
+            case MoveEffect.Torment:
+                yield return BattleEffect.Torment(this, index);
                 break;
             case MoveEffect.Disable:
                 yield return BattleEffect.Disable(this, index);
@@ -2587,10 +2618,6 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
                 yield return BattleEffect.RemoveHazards(this, index);
                 break;
-            case MoveEffect.DestinyBond:
-                PokemonOnField[index].destinyBond = true;
-                yield return Announce(MonNameWithPrefix(index, true) + " is trying to take its attacker down with it!");
-                break;
             case MoveEffect.Minimize:
                 PokemonOnField[index].minimized = true;
                 goto case MoveEffect.EvasionUp2;
@@ -2607,6 +2634,12 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.Swallow:
                 yield return BattleEffect.Swallow(this, index);
+                break;
+            case MoveEffect.Memento:
+                yield return BattleEffect.StatDown(this, index, Stat.Attack, 2, attacker);
+                yield return BattleEffect.StatDown(this, index, Stat.SpAtk, 2, attacker, false);
+                PokemonOnField[attacker].PokemonData.HP = 0;
+                PokemonOnField[attacker].PokemonData.fainted = true;
                 break;
             case MoveEffect.MindReader:
                 yield return BattleEffect.GetMindReader(this, attacker, index);
@@ -2625,6 +2658,10 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.FutureSight:
                 yield return BattleEffect.GetFutureSight(this, index, attacker);
+                break;
+            case MoveEffect.DestinyBond:
+                PokemonOnField[index].destinyBond = true;
+                yield return Announce(MonNameWithPrefix(index, true) + " is trying to take its attacker down with it!");
                 break;
             case MoveEffect.Thief:
                 yield return BattleEffect.Thief(this, attacker, index);
@@ -3039,6 +3076,7 @@ public class Battle : MonoBehaviour
         if (!menuManager.GetNextPokemon())
         {
             menuManager.menuMode = MenuMode.Main;
+            menuManager.megaEvolving = false;
             state = BattleState.PlayerInput;
         }
         else
@@ -3157,16 +3195,8 @@ public class Battle : MonoBehaviour
         for (int i = 1; i <= 4; i++)
         {
             MoveID tryMove = PokemonOnField[index].GetMove(i - 1);
-            if (tryMove == MoveID.None
-                || (tryMove == PokemonOnField[index].disabledMove
-                    && PokemonOnField[index].disabled)
-                || PokemonOnField[index].GetPP(i - 1) <= 0
-                || (PokemonOnField[index].encored
-                    && tryMove != PokemonOnField[index].encoredMove))
-            {
-                continue;
-            }
-            possibleMoves.Add((tryMove, i));
+            if (PokemonOnField[index].CanUseMove(i - 1) == MoveSelectOutcome.Success)
+                possibleMoves.Add((tryMove, i));
         }
         switch (battleType)
         {
@@ -3219,20 +3249,25 @@ public class Battle : MonoBehaviour
 
     public bool CanMegaEvolve(int index)
     {
-        //Appears to be broken, but I haven't figured out why yet!
-        return (index >= 3 || !hasOpponentMegaEvolved) && (index < 3 || !hasPlayerMegaEvolved)
-            && Item.ItemTable[PokemonOnField[index].item].type == ItemType.MegaStone
-            && Item.ItemTable[PokemonOnField[index].item].ItemSubdata[0]
-            == (int)PokemonOnField[index].PokemonData.species;
+        //Appears to be broken, but I haven't figured out why yet
+        if (index > 2 && hasPlayerMegaEvolved) return false;
+        if (index < 3 && hasOpponentMegaEvolved) return false;
+        if (PokemonOnField[index].item.megaStoneUser() == PokemonOnField[index].PokemonData.getSpecies) return true;
+        else return false;
     }
 
     public IEnumerator DoMegaEvolution(int index)
     {
         //Todo: Add mega animation
+        megaEvolveOnMove[index] = false;
+        if (index > 2) hasPlayerMegaEvolved = true;
+        else hasOpponentMegaEvolved = true;
         PokemonOnField[index].PokemonData.temporarySpecies =
             (SpeciesID)Item.ItemTable[(int)PokemonOnField[index].PokemonData.item].ItemSubdata[1];
+        PokemonOnField[index].PokemonData.transformed = true;
+        PokemonOnField[index].PokemonData.CalculateStats();
         yield return Announce(MonNameWithPrefix(index, true) + " has Mega Evolved into "
-            + Species.SpeciesTable[(int)PokemonOnField[index].PokemonData.temporarySpecies].speciesName + "!");
+            + PokemonOnField[index].PokemonData.SpeciesData.speciesName + "!");
         hasPlayerMegaEvolved = true;
     }
 

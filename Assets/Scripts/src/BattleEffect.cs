@@ -502,7 +502,8 @@ public static class BattleEffect
         }
         else
         {
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "! Come back!");
+            if (battle.PokemonOnField[index].exists)
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "! Come back!");
             battle.LeaveFieldCleanup(index);
             battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(true, index - 3);
             yield return battle.Announce("Go! " + battle.PlayerPokemon[partyIndex].monName + "!");
@@ -1015,10 +1016,10 @@ public static class BattleEffect
         bool worked = true;
         switch (target.lastMoveSlot)
         {
-            case 1: target.PokemonData.pp1 = (int)Max(0, target.PokemonData.pp1 - amount); break;
-            case 2: target.PokemonData.pp2 = (int)Max(0, target.PokemonData.pp2 - amount); break;
-            case 3: target.PokemonData.pp3 = (int)Max(0, target.PokemonData.pp3 - amount); break;
-            case 4: target.PokemonData.pp4 = (int)Max(0, target.PokemonData.pp4 - amount); break;
+            case 1: target.PokemonData.pp1 = Max(0, target.PokemonData.pp1 - amount); break;
+            case 2: target.PokemonData.pp2 = Max(0, target.PokemonData.pp2 - amount); break;
+            case 3: target.PokemonData.pp3 = Max(0, target.PokemonData.pp3 - amount); break;
+            case 4: target.PokemonData.pp4 = Max(0, target.PokemonData.pp4 - amount); break;
             default: worked = false; break;
         }
         if (worked) yield return battle.Announce("It reduced the PP of " + battle.MonNameWithPrefix(index, false)
@@ -1257,5 +1258,12 @@ public static class BattleEffect
         user.defenseStage = Max(-6, user.defenseStage - user.stockpile);
         user.spDefStage = Max(-6, user.spDefStage - user.stockpile);
         user.stockpile = 0;
+    }
+
+    public static IEnumerator Torment(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].tormented = true;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " was subjected to torment!");
     }
 }

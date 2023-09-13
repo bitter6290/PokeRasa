@@ -1399,7 +1399,28 @@ public static class Move
         MoveEffect.Burn, 10,
         false, Target.Opponent + Target.Spread, 10); //Needs anim
     public static MoveData Hail = FieldMove(
-        "Hail", Ice, 0, MoveEffect.Weather, 10);
+        "Hail", Ice, 0, MoveEffect.Weather, 10); //Needs anim
+    public static MoveData Torment = SingleTargetStatusMove(
+        "Torment", Dark, 100, 0, MoveEffect.Torment, 15); //Needs anim
+    public static MoveData Flatter = SingleTargetStatusMove(
+        "Flatter", Dark, 100, 0, MoveEffect.Flatter, 15); //Needs anim
+    public static MoveData WillOWisp = SingleTargetStatusMove(
+        "Will-O-Wisp", Fire, 85, 0, MoveEffect.Burn, 15); //Needs anim
+    public static MoveData Memento = SingleTargetStatusMove(
+        "Memento", Dark, 100, 0, MoveEffect.Memento, 10); //Needs anim
+    public static MoveData Facade = new(
+        "Facade", Normal,
+        70, 100, 0,
+        MoveEffect.Facade, 0,
+        true, Target.Single, 20,
+        makesContact);
+    public static MoveData FocusPunch = new(
+        "Focus Punch", Fighting,
+        0, 100, 9,
+        MoveEffect.FocusPunchWindup, 100,
+        true, Target.Single, 20,
+        effectOnSelfOnly);
+
 
 
 
@@ -1463,6 +1484,12 @@ public static class Move
         MoveEffect.BideHit, 0,
         false, Target.Opponent, 0,
         mimicBypass + makesContact); //Needs anim
+    public static MoveData FocusPunchAttack = new(
+        "Focus Punch", Fighting,
+        150, 100, -3,
+        MoveEffect.FocusPunchAttack, 0,
+        true, Target.Single, 20,
+        makesContact);
     public static MoveData Struggle = new(
         "Struggle", Typeless,
         50, 100, 0,
@@ -1728,11 +1755,19 @@ public static class Move
         BeatUp,
 
         //Gen 3
+        FakeOut,
+        Uproar,
         Stockpile,
         SpitUp,
         Swallow,
         HeatWave,
         Hail,
+        Torment,
+        Flatter,
+        WillOWisp,
+        Memento,
+        Facade,
+        FocusPunch,
 
         //Nonstandard moves
         ConfusionHit,
@@ -1745,5 +1780,6 @@ public static class Move
         SkullBashAttack,
         BideMiddle,
         BideAttack,
+        FocusPunchAttack,
     };
 }

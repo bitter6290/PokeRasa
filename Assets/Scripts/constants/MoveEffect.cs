@@ -18,6 +18,7 @@ public enum MoveEffect : ushort
     Confuse,
     TriAttack,
     Swagger,
+    Flatter,
     //Stat changes
     AttackUp1,
     AttackUp2,
@@ -45,6 +46,7 @@ public enum MoveEffect : ushort
     //Other status moves
     LeechSeed,
     Disable,
+    Torment,
     Encore,
     ForcedSwitch,
     PerishSong,
@@ -56,6 +58,7 @@ public enum MoveEffect : ushort
     Nightmare,
     MindReader,
     Foresight,
+    Memento,
     //Direct damage
     Direct20,
     Direct40,
@@ -100,12 +103,15 @@ public enum MoveEffect : ushort
     Present,
     BeatUp,
     Uproar,
+    Facade,
     //Paired effects
     Bide,
     BideHit,
     Stockpile,
     Swallow,
     SpitUp,
+    FocusPunchWindup,
+    FocusPunchAttack,
     //Field effects
     Mist,
     Safeguard,

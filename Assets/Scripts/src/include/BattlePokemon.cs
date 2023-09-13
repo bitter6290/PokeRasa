@@ -93,6 +93,8 @@ public class BattlePokemon
     public bool seeded = false;
     public int seedingSlot = 0;
 
+    public bool focused = false;
+
     public bool biding = false;
     public int bideDamage = 0;
 
@@ -124,7 +126,7 @@ public class BattlePokemon
     public Pokemon transformedMon = Pokemon.MakeEmptyMon;
 
     public Ability ability;
-    public int item;
+    public ItemID item;
 
     public bool endure = false;
     public bool protect = false;
@@ -135,6 +137,8 @@ public class BattlePokemon
 
     public bool taunted = false;
     public int tauntTimer = 0;
+
+    public bool tormented = false;
 
     public bool cursed = false;
 
@@ -193,6 +197,7 @@ public class BattlePokemon
         this.side = side;
         this.position = position;
         this.player = player;
+        item = PokemonData.item;
         ability = Species.SpeciesTable[(int)pokemonData.species].abilities[pokemonData.whichAbility];
         CalculateStats();
     }
@@ -204,10 +209,35 @@ public class BattlePokemon
     public MoveID GetMove(int index)
     {
         return mimicking && (index == mimicSlot - 1) ?
-            mimicMove : isTransformed ? transformedMon.MoveIDs[index] : PokemonData.MoveIDs[index];
+                mimicMove
+            : isTransformed
+                ? transformedMon.MoveIDs[index]
+            : PokemonData.MoveIDs[index];
     }
 
+    public MoveSelectOutcome CanUseMove(int move)
+    {
+        if (GetMove(move) == MoveID.None)
+        { Debug.Log("NoMove"); return MoveSelectOutcome.NoMove; }
+        if (disabled && GetMove(move) == disabledMove)
+        { Debug.Log("Disabled"); return MoveSelectOutcome.Disabled; }
+        if (encored && GetMove(move) != encoredMove)
+        { Debug.Log("Encored"); return MoveSelectOutcome.Encored; }
+        if (tormented && GetMove(move) == moveUsedLastTurn)
+        { Debug.Log("Tormented"); return MoveSelectOutcome.Tormented; }
+        if (GetPP(move) <= 0)
+        { Debug.Log("No PP"); return MoveSelectOutcome.LowPP; }
+        if (taunted && GetMove(move).Data().power == 0)
+        { Debug.Log("Taunted"); return MoveSelectOutcome.Taunted; }
+        Debug.Log("Success");
+        return MoveSelectOutcome.Success;
+    }
 
+    public bool CanUseAnyMove =>
+        CanUseMove(0) == MoveSelectOutcome.Success
+        || CanUseMove(1) == MoveSelectOutcome.Success
+        || CanUseMove(2) == MoveSelectOutcome.Success
+        || CanUseMove(3) == MoveSelectOutcome.Success;
 
     public void DoNonMoveDamage(int damage)
     {
@@ -226,8 +256,11 @@ public class BattlePokemon
 
     public int GetPP(int index)
     {
-        return mimicking && (index == mimicSlot - 1) ?
-            mimicPP : isTransformed ? transformedMon.PP[index] : PokemonData.PP[index];
+        return mimicking && (index == mimicSlot - 1)
+                ? mimicPP
+            : isTransformed
+                ? transformedMon.PP[index]
+            : PokemonData.PP[index];
     }
 
     public int GetMaxPP(int index)
@@ -331,6 +364,9 @@ public class BattlePokemon
             substituteHP = substituteHP,
             seeded = seeded,
             seedingSlot = seedingSlot,
+            trapped = trapped,
+            trappingSlot = trappingSlot,
+            cursed = cursed
         };
     }
 
@@ -341,6 +377,9 @@ public class BattlePokemon
         substituteHP = batonPassStruct.substituteHP;
         seeded = batonPassStruct.seeded;
         seedingSlot = batonPassStruct.seedingSlot;
+        trapped = batonPassStruct.trapped;
+        trappingSlot = batonPassStruct.trappingSlot;
+        cursed = batonPassStruct.cursed;
     }
 
     public int RaiseStat(Stat statID, int amount)

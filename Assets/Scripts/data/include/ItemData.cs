@@ -213,4 +213,15 @@ public static class ItemUtils
                 return 0;
         }
     }
+
+    public static SpeciesID megaStoneUser(this ItemID item)
+    {
+        switch (Item.ItemTable[(int)item].type)
+        {
+            case ItemType.MegaStone:
+                return (SpeciesID)Item.ItemTable[(int)item].ItemSubdata[0];
+            default:
+                return SpeciesID.Missingno;
+        }
+    }
 }

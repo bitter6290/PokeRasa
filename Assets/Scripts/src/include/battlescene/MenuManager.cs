@@ -66,9 +66,11 @@ public class MenuManager : MonoBehaviour
 
     public int currentPartyMon = 1; //0 means Back
 
-    private bool megaEvolving;
+    public bool megaEvolving;
 
     public MenuMode menuMode;
+
+    private BattlePokemon mon;
 
     private static Color transparent = new(0, 0, 0, 0);
 
@@ -130,6 +132,13 @@ public class MenuManager : MonoBehaviour
         battle.state = BattleState.PlayerInput;
     }
 
+    private IEnumerator MonTormented(int currentMon)
+    {
+        yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true)
+            + " can't use the same move again because of the torment!");
+        battle.state = BattleState.PlayerInput;
+    }
+
     private IEnumerator MonFainted(int currentMon)
     {
         yield return battle.Announce(battle.PlayerPokemon[currentMon].monName
@@ -187,41 +196,42 @@ public class MenuManager : MonoBehaviour
                 switch (menuMode)
                 {
                     case MenuMode.Moves:
-                        box1.color = TypeUtils.typeColor[(int)Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(0)].type];
-                        box2.color = battle.PokemonOnField[currentMon].GetMove(1) == MoveID.None
-                            ? transparent : TypeUtils.typeColor[(int)Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(1)].type];
-                        box3.color = battle.PokemonOnField[currentMon].GetMove(2) == MoveID.None
-                            ? transparent : TypeUtils.typeColor[(int)Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(2)].type];
-                        box4.color = battle.PokemonOnField[currentMon].GetMove(3) == MoveID.None
-                            ? transparent : TypeUtils.typeColor[(int)Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(3)].type];
+                        mon = battle.PokemonOnField[currentMon];
+                        box1.color = TypeUtils.typeColor[(int)mon.GetMove(0).Data().type];
+                        box2.color = mon.GetMove(1) == MoveID.None
+                            ? transparent : TypeUtils.typeColor[(int)mon.GetMove(1).Data().type];
+                        box3.color = mon.GetMove(2) == MoveID.None
+                            ? transparent : TypeUtils.typeColor[(int)mon.GetMove(2).Data().type];
+                        box4.color = mon.GetMove(3) == MoveID.None
+                            ? transparent : TypeUtils.typeColor[(int)mon.GetMove(3).Data().type];
                         box5.color = backColor;
 
-                        text1.text = Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(0)].name;
-                        text2.text = Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(1)].name;
-                        text3.text = Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(2)].name;
-                        text4.text = Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(3)].name;
+                        text1.text = mon.GetMove(0).Data().name;
+                        text2.text = mon.GetMove(1).Data().name;
+                        text3.text = mon.GetMove(2).Data().name;
+                        text4.text = mon.GetMove(3).Data().name;
 
-                        pp1.text = LeadingZero(battle.PokemonOnField[currentMon].GetPP(0).ToString()) + " / " +
-                            LeadingZero(battle.PokemonOnField[currentMon].GetMaxPP(0).ToString());
-                        pp2.text = LeadingZero(battle.PokemonOnField[currentMon].GetPP(1).ToString()) + " / " +
-                            LeadingZero(battle.PokemonOnField[currentMon].GetMaxPP(1).ToString());
-                        pp3.text = LeadingZero(battle.PokemonOnField[currentMon].GetPP(2).ToString()) + " / " +
-                            LeadingZero(battle.PokemonOnField[currentMon].GetMaxPP(2).ToString());
-                        pp4.text = LeadingZero(battle.PokemonOnField[currentMon].GetPP(3).ToString()) + " / " +
-                            LeadingZero(battle.PokemonOnField[currentMon].GetMaxPP(3).ToString());
+                        pp1.text = LeadingZero(mon.GetPP(0).ToString()) + " / " +
+                            LeadingZero(mon.GetMaxPP(0).ToString());
+                        pp2.text = LeadingZero(mon.GetPP(1).ToString()) + " / " +
+                            LeadingZero(mon.GetMaxPP(1).ToString());
+                        pp3.text = LeadingZero(mon.GetPP(2).ToString()) + " / " +
+                            LeadingZero(mon.GetMaxPP(2).ToString());
+                        pp4.text = LeadingZero(mon.GetPP(3).ToString()) + " / " +
+                            LeadingZero(mon.GetMaxPP(3).ToString());
 
-                        box1.enabled = !(battle.PokemonOnField[currentMon].GetMove(0) == MoveID.None);
-                        box2.enabled = !(battle.PokemonOnField[currentMon].GetMove(1) == MoveID.None);
-                        box3.enabled = !(battle.PokemonOnField[currentMon].GetMove(2) == MoveID.None);
-                        box4.enabled = !(battle.PokemonOnField[currentMon].GetMove(3) == MoveID.None);
-                        text1.enabled = !(battle.PokemonOnField[currentMon].GetMove(0) == MoveID.None);
-                        text2.enabled = !(battle.PokemonOnField[currentMon].GetMove(1) == MoveID.None);
-                        text3.enabled = !(battle.PokemonOnField[currentMon].GetMove(2) == MoveID.None);
-                        text4.enabled = !(battle.PokemonOnField[currentMon].GetMove(3) == MoveID.None);
-                        pp1.enabled = !(battle.PokemonOnField[currentMon].GetMove(0) == MoveID.None);
-                        pp2.enabled = !(battle.PokemonOnField[currentMon].GetMove(1) == MoveID.None);
-                        pp3.enabled = !(battle.PokemonOnField[currentMon].GetMove(2) == MoveID.None);
-                        pp4.enabled = !(battle.PokemonOnField[currentMon].GetMove(3) == MoveID.None);
+                        box1.enabled = !(mon.GetMove(0) == MoveID.None);
+                        box2.enabled = !(mon.GetMove(1) == MoveID.None);
+                        box3.enabled = !(mon.GetMove(2) == MoveID.None);
+                        box4.enabled = !(mon.GetMove(3) == MoveID.None);
+                        text1.enabled = !(mon.GetMove(0) == MoveID.None);
+                        text2.enabled = !(mon.GetMove(1) == MoveID.None);
+                        text3.enabled = !(mon.GetMove(2) == MoveID.None);
+                        text4.enabled = !(mon.GetMove(3) == MoveID.None);
+                        pp1.enabled = !(mon.GetMove(0) == MoveID.None);
+                        pp2.enabled = !(mon.GetMove(1) == MoveID.None);
+                        pp3.enabled = !(mon.GetMove(2) == MoveID.None);
+                        pp4.enabled = !(mon.GetMove(3) == MoveID.None);
 
                         text5.enabled = true;
                         box5.enabled = true;
@@ -260,7 +270,7 @@ public class MenuManager : MonoBehaviour
                             if (Input.GetKeyDown(KeyCode.M))
                             {
                                 megaEvolving = !megaEvolving;
-                                battle.megaEvolveOnMove[currentMove] = megaEvolving;
+                                battle.megaEvolveOnMove[currentMon] = megaEvolving;
                                 battle.audioSource0.PlayOneShot(SelectMove);
                                 battle.audioSource0.panStereo = 0;
                             }
@@ -276,7 +286,7 @@ public class MenuManager : MonoBehaviour
                             switch (currentMove)
                             {
                                 case 1:
-                                    currentMove = battle.PokemonOnField[currentMon].GetMove(1) == MoveID.None ? 0 : 2;
+                                    currentMove = mon.GetMove(1) == MoveID.None ? 0 : 2;
                                     battle.audioSource0.PlayOneShot(MoveCursor);
                                     battle.audioSource0.panStereo = 0;
                                     break;
@@ -286,7 +296,7 @@ public class MenuManager : MonoBehaviour
                                     battle.audioSource0.panStereo = 0;
                                     break;
                                 case 3:
-                                    if (battle.PokemonOnField[currentMon].GetMove(3) != MoveID.None)
+                                    if (mon.GetMove(3) != MoveID.None)
                                     {
                                         currentMove = 4;
                                         battle.audioSource0.PlayOneShot(MoveCursor);
@@ -302,7 +312,7 @@ public class MenuManager : MonoBehaviour
                             switch (currentMove)
                             {
                                 case 0:
-                                    currentMove = battle.PokemonOnField[currentMon].GetMove(1) == MoveID.None ? 1 : 2;
+                                    currentMove = mon.GetMove(1) == MoveID.None ? 1 : 2;
                                     battle.audioSource0.PlayOneShot(MoveCursor);
                                     battle.audioSource0.panStereo = 0;
                                     break;
@@ -325,7 +335,7 @@ public class MenuManager : MonoBehaviour
                             switch (currentMove)
                             {
                                 case 1:
-                                    if (battle.PokemonOnField[currentMon].GetMove(2) != MoveID.None)
+                                    if (mon.GetMove(2) != MoveID.None)
                                     {
                                         currentMove = 3;
                                         battle.audioSource0.PlayOneShot(MoveCursor);
@@ -333,7 +343,7 @@ public class MenuManager : MonoBehaviour
                                     }
                                     break;
                                 case 2:
-                                    if (battle.PokemonOnField[currentMon].GetMove(3) != MoveID.None)
+                                    if (mon.GetMove(3) != MoveID.None)
                                     {
                                         currentMove = 4;
                                         battle.audioSource0.PlayOneShot(MoveCursor);
@@ -372,50 +382,57 @@ public class MenuManager : MonoBehaviour
                                 case 2:
                                 case 3:
                                 case 4:
-                                    if (battle.PokemonOnField[currentMon].disabled
-                                        && battle.PokemonOnField[currentMon].GetMove(currentMove - 1)
-                                        == battle.PokemonOnField[currentMon].disabledMove)
+                                    switch(mon.CanUseMove(currentMove - 1))
                                     {
-                                        battle.state = BattleState.Announcement;
-                                        StartCoroutine(MoveDisabled(currentMon, currentMove));
-                                    }
-                                    else if (battle.PokemonOnField[currentMon].encored
-                                        && battle.PokemonOnField[currentMon].GetMove(currentMove - 1)
-                                        != battle.PokemonOnField[currentMon].encoredMove)
-                                    {
-                                        battle.state = BattleState.Announcement;
-                                        StartCoroutine(MoveEncored(currentMon));
-                                    }
-                                    else if (battle.TryAddMove(currentMon, currentMove))
-                                    {
-                                        battle.PokemonOnField[currentMon].choseMove = true;
-                                        switch (battle.battleType)
-                                        {
-                                            case BattleType.Single:
-                                                battle.Targets[currentMon] = 0;
-                                                break;
-                                        }
-                                        if (GetNextPokemon())
-                                        {
+                                        case MoveSelectOutcome.LowPP:
                                             battle.state = BattleState.Announcement;
-                                            menuMode = MenuMode.Main;
-                                            currentMove = 1;
-                                            currentMon = 2;
-                                            GetNextPokemon();
-                                            battle.StartCoroutine(battle.StartTurnEffects());
-                                        }
-                                        else
-                                        {
-                                            menuMode = MenuMode.Main;
-                                            currentMove = 1;
+                                            StartCoroutine(MoveNoPP(currentMon, currentMove - 1));
+                                            break;
+                                        case MoveSelectOutcome.Encored:
+                                            battle.state = BattleState.Announcement;
+                                            StartCoroutine(MoveEncored(currentMon));
+                                            break;
+                                        case MoveSelectOutcome.Disabled:
+                                            battle.state = BattleState.Announcement;
+                                            StartCoroutine(MoveDisabled(currentMon, currentMove - 1));
+                                            break;
+                                        case MoveSelectOutcome.Tormented:
+                                            battle.state = BattleState.Announcement;
+                                            StartCoroutine(MonTormented(currentMon));
+                                            break;
+                                        case MoveSelectOutcome.Success:
+                                            if (battle.TryAddMove(currentMon, currentMove))
+                                            {
+                                                mon.choseMove = true;
+                                                switch (battle.battleType)
+                                                {
+                                                    case BattleType.Single:
+                                                        battle.Targets[currentMon] = 0;
+                                                        break;
+                                                }
+                                                if (GetNextPokemon())
+                                                {
+                                                    battle.state = BattleState.Announcement;
+                                                    menuMode = MenuMode.Main;
+                                                    currentMove = 1;
+                                                    currentMon = 2;
+                                                    GetNextPokemon();
+                                                    battle.StartCoroutine(battle.StartTurnEffects());
+                                                }
+                                                else
+                                                {
+                                                    menuMode = MenuMode.Main;
+                                                    currentMove = 1;
 
-                                        }
-                                    }
-                                    else
-                                    {
-                                        battle.state = BattleState.Announcement;
-                                        StartCoroutine(MoveNoPP(currentMon, currentMove));
-                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                battle.state = BattleState.Announcement;
+                                                StartCoroutine(MoveNoPP(currentMon, currentMove));
+                                            }
+                                            break;
+                            }
                                     break;
                                 case 0:
                                     currentMove = 1;
@@ -425,10 +442,9 @@ public class MenuManager : MonoBehaviour
                         }
                         break;
                     case MenuMode.Main:
-                        box1.color = battle.PokemonOnField[currentMon].GetPP(0)
-                            + battle.PokemonOnField[currentMon].GetPP(1)
-                            + battle.PokemonOnField[currentMon].GetPP(2)
-                            + battle.PokemonOnField[currentMon].GetPP(3) == 0 ? struggleColor : moveColor;
+                        bool canUseAnyMove = battle.PokemonOnField[currentMon].CanUseAnyMove;
+
+                        box1.color = canUseAnyMove ? moveColor : struggleColor;
                         box2.color = bagColor;
                         box3.color = switchColor;
                         box4.color = runColor;
@@ -441,10 +457,7 @@ public class MenuManager : MonoBehaviour
                         box6.enabled = false;
                         box7.enabled = false;
 
-                        text1.text = battle.PokemonOnField[currentMon].GetPP(0)
-                            + battle.PokemonOnField[currentMon].GetPP(1)
-                            + battle.PokemonOnField[currentMon].GetPP(2)
-                            + battle.PokemonOnField[currentMon].GetPP(3) == 0 ? "Struggle" : "Moves";
+                        text1.text = canUseAnyMove ? "Moves" : "Struggle";
                         text2.text = "Bag";
                         text3.text = "Switch";
                         text4.text = "Run";
@@ -565,7 +578,7 @@ public class MenuManager : MonoBehaviour
                             switch (currentMove)
                             {
                                 case 1:
-                                    if (text1.text == "Struggle")
+                                    if (!canUseAnyMove)
                                     {
                                         battle.Moves[currentMon] = MoveID.Struggle;
                                         battle.PokemonOnField[currentMon].dontCheckPP = true;
