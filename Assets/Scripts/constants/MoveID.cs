@@ -257,6 +257,8 @@ public enum MoveID
     Stockpile,
     SpitUp,
     Swallow,
+    HeatWave,
+    Hail,
 
     //Nonstandard moves
 
@@ -283,4 +285,9 @@ public enum MoveID
     UseItem,
 
     StandardCount = ConfusionHit - 1,
+}
+
+public static class MoveUtils
+{
+    public static MoveData Data(this MoveID move) => Move.MoveTable[(int)move];
 }

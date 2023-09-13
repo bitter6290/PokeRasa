@@ -1393,6 +1393,13 @@ public static class Move
         false, Target.Single, 10); //Needs anim
     public static MoveData Swallow = SelfTargetingMove(
         "Swallow", Normal, 0, MoveEffect.Swallow, 10); //Needs anim
+    public static MoveData HeatWave = new(
+        "Heat Wave", Fire,
+        95, 90, 0,
+        MoveEffect.Burn, 10,
+        false, Target.Opponent + Target.Spread, 10); //Needs anim
+    public static MoveData Hail = FieldMove(
+        "Hail", Ice, 0, MoveEffect.Weather, 10);
 
 
 
@@ -1724,6 +1731,8 @@ public static class Move
         Stockpile,
         SpitUp,
         Swallow,
+        HeatWave,
+        Hail,
 
         //Nonstandard moves
         ConfusionHit,

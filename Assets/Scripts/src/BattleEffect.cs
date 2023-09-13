@@ -201,18 +201,19 @@ public static class BattleEffect
     }
     public static IEnumerator GetBadPoison(Battle battle, int index)
     {
+        BattlePokemon target = battle.PokemonOnField[index];
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
             yield break;
         }
-        if (battle.PokemonOnField[index].PokemonData.status != Status.None)
+        if (target.PokemonData.status != Status.None)
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;
         }
-        else if (battle.PokemonOnField[index].HasType(Type.Poison)
-    || battle.PokemonOnField[index].HasType(Type.Steel))
+        else if (target.HasType(Type.Poison)
+    || target.HasType(Type.Steel))
         {
             yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
         }
@@ -224,8 +225,8 @@ public static class BattleEffect
         else
         {
             yield return BattleAnim.ShowToxicPoison(battle, index);
-            battle.PokemonOnField[index].PokemonData.status = Status.ToxicPoison;
-            battle.PokemonOnField[index].toxicCounter = 0;
+            target.PokemonData.status = Status.ToxicPoison;
+            target.toxicCounter = 0;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was badly poisoned!");
         }
     }
@@ -284,23 +285,25 @@ public static class BattleEffect
 
     public static IEnumerator BurnHurt(Battle battle, int index)
     {
+        BattlePokemon target = battle.PokemonOnField[index];
         yield return BattleAnim.ShowBurn(battle, index);
-        int burnDamage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
-        if (burnDamage > battle.PokemonOnField[index].PokemonData.HP)
+        int burnDamage = target.PokemonData.hpMax >> 4;
+        if (burnDamage > target.PokemonData.HP)
         {
-            battle.PokemonOnField[index].PokemonData.HP = 0;
-            battle.PokemonOnField[index].PokemonData.fainted = true;
+            target.PokemonData.HP = 0;
+            target.PokemonData.fainted = true;
         }
         else
         {
-            battle.PokemonOnField[index].PokemonData.HP -= burnDamage;
+            target.PokemonData.HP -= burnDamage;
         }
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by its burn!");
     }
 
     public static IEnumerator PoisonHurt(Battle battle, int index)
     {
-        int poisonDamage = battle.PokemonOnField[index].PokemonData.hpMax >> 3;
+        BattlePokemon target = battle.PokemonOnField[index];
+        int poisonDamage = target.PokemonData.hpMax >> 3;
         if (battle.HasAbility(index, Ability.PoisonHeal))
         {
             Heal(battle, index, poisonDamage);
@@ -308,37 +311,38 @@ public static class BattleEffect
             yield break;
         }
         yield return BattleAnim.ShowPoison(battle, index);
-        if (poisonDamage > battle.PokemonOnField[index].PokemonData.HP)
+        if (poisonDamage > target.PokemonData.HP)
         {
-            battle.PokemonOnField[index].PokemonData.HP = 0;
-            battle.PokemonOnField[index].PokemonData.fainted = true;
+            target.PokemonData.HP = 0;
+            target.PokemonData.fainted = true;
         }
         else
         {
-            battle.PokemonOnField[index].PokemonData.HP -= poisonDamage;
+            target.PokemonData.HP -= poisonDamage;
         }
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by poison!");
     }
 
     public static IEnumerator ToxicPoisonHurt(Battle battle, int index)
     {
+        BattlePokemon target = battle.PokemonOnField[index];
         if (battle.HasAbility(index, Ability.PoisonHeal))
         {
-            Heal(battle, index, battle.PokemonOnField[index].PokemonData.hpMax >> 3);
+            Heal(battle, index, target.PokemonData.hpMax >> 3);
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is healed by Poison Heal!");
             yield break;
         }
         yield return BattleAnim.ShowPoison(battle, index);
-        battle.PokemonOnField[index].toxicCounter++;
-        int toxicDamage = (battle.PokemonOnField[index].PokemonData.hpMax >> 4) * battle.PokemonOnField[index].toxicCounter;
-        if (toxicDamage > battle.PokemonOnField[index].PokemonData.HP)
+        target.toxicCounter++;
+        int toxicDamage = (target.PokemonData.hpMax >> 4) * target.toxicCounter;
+        if (toxicDamage > target.PokemonData.HP)
         {
-            battle.PokemonOnField[index].PokemonData.HP = 0;
-            battle.PokemonOnField[index].PokemonData.fainted = true;
+            target.PokemonData.HP = 0;
+            target.PokemonData.fainted = true;
         }
         else
         {
-            battle.PokemonOnField[index].PokemonData.HP -= toxicDamage;
+            target.PokemonData.HP -= toxicDamage;
         }
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by poison!");
     }
@@ -359,17 +363,18 @@ public static class BattleEffect
 
     public static IEnumerator Disable(Battle battle, int index)
     {
-        if (battle.PokemonOnField[index].disabled
-            || battle.PokemonOnField[index].lastMoveUsed is MoveID.None or MoveID.Struggle)
+        BattlePokemon target = battle.PokemonOnField[index];
+        if (target.disabled
+            || target.lastMoveUsed is MoveID.None or MoveID.Struggle)
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;
         }
-        battle.PokemonOnField[index].disabled = true;
-        battle.PokemonOnField[index].disabledMove = battle.PokemonOnField[index].lastMoveUsed;
-        battle.PokemonOnField[index].disableTimer = 4;
+        target.disabled = true;
+        target.disabledMove = target.lastMoveUsed;
+        target.disableTimer = 4;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s "
-            + Move.MoveTable[(int)battle.PokemonOnField[index].lastMoveUsed].name
+            + Move.MoveTable[(int)target.lastMoveUsed].name
             + " was disabled!");
     }
 
@@ -388,16 +393,17 @@ public static class BattleEffect
 
     public static IEnumerator Heal(Battle battle, int index, int amount)
     {
-        if (battle.PokemonOnField[index].PokemonData.HP < battle.PokemonOnField[index].PokemonData.hpMax)
+        BattlePokemon target = battle.PokemonOnField[index];
+        if (target.PokemonData.HP < target.PokemonData.hpMax)
         {
             yield return BattleAnim.Heal(battle, index);
-            if (battle.PokemonOnField[index].PokemonData.HP + amount > battle.PokemonOnField[index].PokemonData.hpMax)
+            if (target.PokemonData.HP + amount > target.PokemonData.hpMax)
             {
-                battle.PokemonOnField[index].PokemonData.HP = battle.PokemonOnField[index].PokemonData.hpMax;
+                target.PokemonData.HP = target.PokemonData.hpMax;
             }
             else
             {
-                battle.PokemonOnField[index].PokemonData.HP += amount;
+                target.PokemonData.HP += amount;
             }
         }
         else
@@ -429,51 +435,52 @@ public static class BattleEffect
 
     public static IEnumerator GetContinuousDamage(Battle battle, int attacker, int index, MoveID move)
     {
-        if (battle.PokemonOnField[index].getsContinuousDamage)
+        BattlePokemon target = battle.PokemonOnField[index];
+        if (target.getsContinuousDamage)
         {
             yield break;
         }
         switch (move)
         {
             case MoveID.Wrap:
-                battle.PokemonOnField[index].getsContinuousDamage = true;
-                battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.Wrap;
-                battle.PokemonOnField[index].continuousDamageSource = attacker;
+                target.getsContinuousDamage = true;
+                target.continuousDamageType = ContinuousDamage.Wrap;
+                target.continuousDamageSource = attacker;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was wrapped by "
-                    + battle.MonNameWithPrefix(battle.PokemonOnField[index].continuousDamageSource, false) + "!");
+                    + battle.MonNameWithPrefix(target.continuousDamageSource, false) + "!");
                 break;
             case MoveID.Bind:
-                battle.PokemonOnField[index].getsContinuousDamage = true;
-                battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.Bind;
-                battle.PokemonOnField[index].continuousDamageSource = attacker;
+                target.getsContinuousDamage = true;
+                target.continuousDamageType = ContinuousDamage.Bind;
+                target.continuousDamageSource = attacker;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is squeezed by "
-                    + battle.MonNameWithPrefix(battle.PokemonOnField[index].continuousDamageSource, false)
+                    + battle.MonNameWithPrefix(target.continuousDamageSource, false)
                     + "'s Bind!");
                 break;
             case MoveID.FireSpin:
-                battle.PokemonOnField[index].getsContinuousDamage = true;
-                battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.FireSpin;
-                battle.PokemonOnField[index].continuousDamageSource = attacker;
+                target.getsContinuousDamage = true;
+                target.continuousDamageType = ContinuousDamage.FireSpin;
+                target.continuousDamageSource = attacker;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was trapped in the vortex!");
                 break;
             case MoveID.Clamp:
-                battle.PokemonOnField[index].getsContinuousDamage = true;
-                battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.Clamp;
-                battle.PokemonOnField[index].continuousDamageSource = attacker;
+                target.getsContinuousDamage = true;
+                target.continuousDamageType = ContinuousDamage.Clamp;
+                target.continuousDamageSource = attacker;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was clamped by "
-                    + battle.MonNameWithPrefix(battle.PokemonOnField[index].continuousDamageSource, false) + "!");
+                    + battle.MonNameWithPrefix(target.continuousDamageSource, false) + "!");
                 break;
             case MoveID.Whirlpool:
-                battle.PokemonOnField[index].getsContinuousDamage = true;
-                battle.PokemonOnField[index].continuousDamageType = ContinuousDamage.Whirlpool;
-                battle.PokemonOnField[index].continuousDamageSource = attacker;
+                target.getsContinuousDamage = true;
+                target.continuousDamageType = ContinuousDamage.Whirlpool;
+                target.continuousDamageSource = attacker;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was trapped in the vortex!");
                 break;
             default:
                 yield return battle.Announce("Error 111");
                 yield break;
         }
-        battle.PokemonOnField[index].continuousDamageTimer = 4 + (random.Next() & 1);
+        target.continuousDamageTimer = 4 + (random.Next() & 1);
 
     }
 
@@ -555,8 +562,9 @@ public static class BattleEffect
 
     public static IEnumerator MakeSubstitute(Battle battle, int index)
     {
-        if (battle.PokemonOnField[index].PokemonData.HP
-            < battle.PokemonOnField[index].PokemonData.hpMax >> 2)
+        BattlePokemon user = battle.PokemonOnField[index];
+        if (user.PokemonData.HP
+            < user.PokemonData.hpMax >> 2)
         {
             yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                 + " doesn't have enough HP left to make a substitute!");
@@ -564,11 +572,11 @@ public static class BattleEffect
         }
         else
         {
-            battle.PokemonOnField[index].hasSubstitute = true;
-            battle.PokemonOnField[index].substituteHP
-                = battle.PokemonOnField[index].PokemonData.hpMax >> 2;
-            battle.PokemonOnField[index].PokemonData.HP
-                -= battle.PokemonOnField[index].substituteHP;
+            user.hasSubstitute = true;
+            user.substituteHP
+                = user.PokemonData.hpMax >> 2;
+            user.PokemonData.HP
+                -= user.substituteHP;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true)
     + " cut its own HP to make a substitute!");
         }
@@ -583,46 +591,47 @@ public static class BattleEffect
 
     public static IEnumerator DoContinuousDamage(Battle battle, int index, ContinuousDamage type)
     {
+        BattlePokemon target = battle.PokemonOnField[index];
         int damage = 0;
         switch (type)
         {
             case ContinuousDamage.Wrap:
                 //yield return BattleAnim.Wrap(battle, index);
-                damage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 4;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Wrap!");
                 break;
             case ContinuousDamage.Bind:
                 //yield return BattleAnim.Bind(battle, index);
-                damage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 4;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Bind!");
                 break;
             case ContinuousDamage.FireSpin:
                 //yield return BattleAnim.FireSpin(battle, index);
-                damage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 4;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Fire Spin!");
                 break;
             case ContinuousDamage.Clamp:
                 //yield return BattleAnim.Clamp(battle, index);
-                damage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 4;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Clamp!");
                 break;
             case ContinuousDamage.Whirlpool:
                 //yield return BattleAnim.Whirlpool(battle, index);
-                damage = battle.PokemonOnField[index].PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 4;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Whirlpool!");
                 break;
             default:
                 yield return battle.Announce("Error 112");
                 break;
         }
-        if (damage > battle.PokemonOnField[index].PokemonData.HP)
+        if (damage > target.PokemonData.HP)
         {
-            battle.PokemonOnField[index].PokemonData.HP = 0;
-            battle.PokemonOnField[index].PokemonData.fainted = true;
+            target.PokemonData.HP = 0;
+            target.PokemonData.fainted = true;
         }
         else
         {
-            battle.PokemonOnField[index].PokemonData.HP -= damage;
+            target.PokemonData.HP -= damage;
         }
     }
     public static IEnumerator StartWeather(Battle battle, Weather weather, int turns)
@@ -692,22 +701,23 @@ public static class BattleEffect
     }
     public static IEnumerator Rest(Battle battle, int index)
     {
+        BattlePokemon user = battle.PokemonOnField[index];
         if (battle.Sides[index < 3 ? 0 : 1].safeguard
             || battle.Uproar)
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;
         }
-        if (battle.PokemonOnField[index].PokemonData.HP
-            < battle.PokemonOnField[index].PokemonData.hpMax
-            && battle.PokemonOnField[index].PokemonData.status != Status.Sleep)
+        if (user.PokemonData.HP
+            < user.PokemonData.hpMax
+            && user.PokemonData.status != Status.Sleep)
         {
-            battle.PokemonOnField[index].PokemonData.status = Status.Sleep;
-            battle.PokemonOnField[index].PokemonData.sleepTurns = 2;
+            user.PokemonData.status = Status.Sleep;
+            user.PokemonData.sleepTurns = 2;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                 + " slept and became healthy!");
             yield return Heal(battle, index,
-                battle.PokemonOnField[index].PokemonData.hpMax);
+                user.PokemonData.hpMax);
         }
         else
         {
@@ -731,18 +741,19 @@ public static class BattleEffect
 
     public static IEnumerator TransformMon(Battle battle, int index, int target)
     {
-        if (battle.PokemonOnField[index].isTransformed || battle.PokemonOnField[target].isTransformed)
+        BattlePokemon user = battle.PokemonOnField[index];
+        if (user.isTransformed || battle.PokemonOnField[target].isTransformed)
         {
             yield return battle.Announce(BattleText.MoveFailed);
         }
         else
         {
             //BattleAnim.TransformMon(Battle battle, int index, int target)
-            battle.PokemonOnField[index].isTransformed = true;
-            battle.PokemonOnField[index].transformedMon = battle.PokemonOnField[target].PokemonData.Clone() as Pokemon;
-            battle.PokemonOnField[index].transformedMon.SetTransformPP();
-            battle.PokemonOnField[index].ability = battle.PokemonOnField[target].ability;
-            battle.PokemonOnField[index].ApplyStatStruct(
+            user.isTransformed = true;
+            user.transformedMon = battle.PokemonOnField[target].PokemonData.Clone() as Pokemon;
+            user.transformedMon.SetTransformPP();
+            user.ability = battle.PokemonOnField[target].ability;
+            user.ApplyStatStruct(
                 battle.PokemonOnField[target].MakeStatStruct()
                 );
             yield return battle.Announce(battle.MonNameWithPrefix(index, true)
@@ -795,39 +806,29 @@ public static class BattleEffect
 
     public static IEnumerator DoLeechSeed(Battle battle, int index)
     {
-        if (!battle.PokemonOnField[battle.PokemonOnField[index].seedingSlot].exists)
-        {
-            yield break;
-        }
-        //yield return BattleAnim.LeechSeed(battle, index, battle.PokemonOnField[index].seedingSlot);
-        int healthAmount = battle.PokemonOnField[index].PokemonData.hpMax >> 3;
-        if (healthAmount > battle.PokemonOnField[index].PokemonData.HP)
-        {
-            healthAmount = battle.PokemonOnField[index].PokemonData.HP;
-            battle.PokemonOnField[index].PokemonData.HP = 0;
-            battle.PokemonOnField[index].PokemonData.fainted = true;
-        }
-        else
-        {
-            battle.PokemonOnField[index].PokemonData.HP -= healthAmount;
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s health was sapped by Leech Seed!");
-        }
+        BattlePokemon target = battle.PokemonOnField[index];
+        if (!battle.PokemonOnField[target.seedingSlot].exists) yield break;
+        //yield return BattleAnim.LeechSeed(battle, index, target.seedingSlot);
+        int healthAmount = target.PokemonData.hpMax >> 3;
+        target.DoNonMoveDamage(healthAmount);
         yield return Heal(battle, battle.PokemonOnField[index].seedingSlot, healthAmount);
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s health was sapped by Leech Seed!");
     }
 
     public static IEnumerator DoMimic(Battle battle, int index, int target)
     {
+        BattlePokemon user = battle.PokemonOnField[index];
         if ((Move.MoveTable[(int)battle.PokemonOnField[target].lastMoveUsed].moveFlags & MoveFlags.cannotMimic) != 0)
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;
         }
-        battle.PokemonOnField[index].mimicking = true;
-        battle.PokemonOnField[index].mimicSlot = battle.MoveNums[index];
-        battle.PokemonOnField[index].mimicMove = battle.PokemonOnField[target].lastMoveUsed;
-        battle.PokemonOnField[index].mimicMaxPP = Move.MoveTable[(int)battle.PokemonOnField[index].mimicMove].pp;
-        battle.PokemonOnField[index].mimicPP = battle.PokemonOnField[index].mimicMaxPP;
-        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " mimicked " + Move.MoveTable[(int)battle.PokemonOnField[index].mimicMove].name + "!");
+        user.mimicking = true;
+        user.mimicSlot = battle.MoveNums[index];
+        user.mimicMove = battle.PokemonOnField[target].lastMoveUsed;
+        user.mimicMaxPP = Move.MoveTable[(int)user.mimicMove].pp;
+        user.mimicPP = user.mimicMaxPP;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " mimicked " + Move.MoveTable[(int)user.mimicMove].name + "!");
     }
 
     public static IEnumerator Conversion(Battle battle, int index)
@@ -1010,13 +1011,14 @@ public static class BattleEffect
 
     public static IEnumerator DrainPP(Battle battle, int index, int amount)
     {
+        BattlePokemon target = battle.PokemonOnField[index];
         bool worked = true;
-        switch (battle.PokemonOnField[index].lastMoveSlot)
+        switch (target.lastMoveSlot)
         {
-            case 1: battle.PokemonOnField[index].PokemonData.pp1 = (int)Max(0, battle.PokemonOnField[index].PokemonData.pp1 - amount); break;
-            case 2: battle.PokemonOnField[index].PokemonData.pp2 = (int)Max(0, battle.PokemonOnField[index].PokemonData.pp2 - amount); break;
-            case 3: battle.PokemonOnField[index].PokemonData.pp3 = (int)Max(0, battle.PokemonOnField[index].PokemonData.pp3 - amount); break;
-            case 4: battle.PokemonOnField[index].PokemonData.pp4 = (int)Max(0, battle.PokemonOnField[index].PokemonData.pp4 - amount); break;
+            case 1: target.PokemonData.pp1 = (int)Max(0, target.PokemonData.pp1 - amount); break;
+            case 2: target.PokemonData.pp2 = (int)Max(0, target.PokemonData.pp2 - amount); break;
+            case 3: target.PokemonData.pp3 = (int)Max(0, target.PokemonData.pp3 - amount); break;
+            case 4: target.PokemonData.pp4 = (int)Max(0, target.PokemonData.pp4 - amount); break;
             default: worked = false; break;
         }
         if (worked) yield return battle.Announce("It reduced the PP of " + battle.MonNameWithPrefix(index, false)
