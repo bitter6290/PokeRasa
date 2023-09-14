@@ -1,10 +1,15 @@
 ﻿using System;
+using UnityEngine;
+
 public abstract class ItemData
 {
     public string itemName;
     public int price;
     public ItemType type;
+    public string graphicsPath;
     public abstract int[] ItemSubdata { get; }
+
+    public Texture2D ItemSprite => Resources.Load<Texture2D>("Sprites/Items/" + graphicsPath);
 }
 
 public class AbstractItem : ItemData

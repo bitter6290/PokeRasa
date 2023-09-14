@@ -8327,8 +8327,9 @@ public static class Species
         baseSpDef: 120,
         baseSpeed: 80,
         backSpriteHeight: 8,
-        pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.ThickFat);
+        pokedexData: Pokedex.Venusaur, //Not done
+        ability: Ability.ThickFat
+    );
 
     public static SpeciesData CharizardMegaX = SpeciesData.Mega(
         baseSpecies: Charizard,
@@ -8344,7 +8345,8 @@ public static class Species
         graphics: "charizard/mega_x",
         backSpriteHeight: 1,
         pokedexData: Pokedex.Charizard, //Not done
-        ability: Ability.ToughClaws);
+        ability: Ability.ToughClaws
+    );
 
     public static SpeciesData CharizardMegaY= SpeciesData.Mega(
         baseSpecies: Charizard,
@@ -8358,7 +8360,8 @@ public static class Species
         graphics: "charizard/mega_y",
         backSpriteHeight: 1,
         pokedexData: Pokedex.Charizard, //Not done
-        ability: Ability.Drought);
+        ability: Ability.Drought
+    );
 
     public static SpeciesData BlastoiseMega = SpeciesData.Mega(
         baseSpecies: Blastoise,
@@ -8368,9 +8371,45 @@ public static class Species
         baseSpDef: 115,
         baseSpeed: 78,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Blastoise,
+        pokedexData: Pokedex.Blastoise, //Not done
         ability: Ability.MegaLauncher
-        );
+    );
+
+    public static SpeciesData BeedrillMega = SpeciesData.Mega(
+        baseSpecies: Beedrill,
+        baseAttack: 150,
+        baseDefense: 40,
+        baseSpAtk: 15,
+        baseSpDef: 80,
+        baseSpeed: 145,
+        backSpriteHeight: 5,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.Adaptability
+    );
+
+    public static SpeciesData PidgeotMega = SpeciesData.Mega(
+        baseSpecies: Pidgeot,
+        baseAttack: 80,
+        baseDefense: 80,
+        baseSpAtk: 135,
+        baseSpDef: 80,
+        baseSpeed: 121,
+        backSpriteHeight: 7,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.NoGuard
+    );
+
+    public static SpeciesData AlakazamMega = SpeciesData.Mega(
+        baseSpecies: Alakazam,
+        baseAttack: 50,
+        baseDefense: 65,
+        baseSpAtk: 175,
+        baseSpDef: 95,
+        baseSpeed: 150,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur,
+        ability: Ability.Trace
+    );
 
     public static SpeciesData Unown_B
         = SpeciesData.Unown("unown/b", 9);

@@ -417,7 +417,7 @@ public class MenuManager : MonoBehaviour
                                                     currentMove = 1;
                                                     currentMon = 2;
                                                     GetNextPokemon();
-                                                    battle.StartCoroutine(battle.StartTurnEffects());
+                                                    battle.DoNextMove();
                                                 }
                                                 else
                                                 {
@@ -596,7 +596,7 @@ public class MenuManager : MonoBehaviour
                                             currentMove = 1;
                                             currentMon = 2;
                                             GetNextPokemon();
-                                            battle.StartCoroutine(battle.StartTurnEffects());
+                                            battle.DoNextMove();
                                         }
                                         else
                                         {
@@ -887,7 +887,7 @@ public class MenuManager : MonoBehaviour
                                                 currentMove = 1;
                                                 currentMon = 2;
                                                 GetNextPokemon();
-                                                battle.StartCoroutine(battle.StartTurnEffects());
+                                                battle.DoNextMove();
                                             }
                                             else
                                             {

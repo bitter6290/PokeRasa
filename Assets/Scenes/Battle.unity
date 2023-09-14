@@ -11480,12 +11480,17 @@ MonoBehaviour:
   switchingMon: 0
   switchingTarget: 0
   choseSwitchMon: 0
+  turnsElapsed: 0
+  pursuitHitsOnSwitch: 0
+  followMeActive: 0
+  announcementLog: []
   continueMultiHitMove: 0
   payDay: 0
   weather: 0
   weatherTimer: 0
   terrain: 0
   terrainTimer: 0
+  battleTerrain: 0
   gravity: 0
   gravityTimer: 0
   wonderRoom: 0
@@ -11558,6 +11563,7 @@ MonoBehaviour:
     side: 0
     position: 0
     index: 0
+    turnOnField: 0
     exists: 0
     player: 0
     done: 1
@@ -11570,6 +11576,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    enduredHit: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
@@ -11584,12 +11591,11 @@ MonoBehaviour:
     lockedInMove: 0
     invulnerability: 0
     dontCheckPP: 0
-    rechargeNextTurn: 0
     choseMove: 0
-    lastMoveUsed: 0
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    charged: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
@@ -11598,19 +11604,33 @@ MonoBehaviour:
     disabled: 0
     disabledMove: 0
     disableTimer: 0
+    uproar: 0
+    uproarTimer: 0
     gotAbilityEffect: 0
     affectingAbility: 0
     seeded: 0
     seedingSlot: 0
+    focused: 0
     biding: 0
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    usedMindReader: 0
+    hasMindReader: 0
+    mindReaderTarget: 0
     hasSubstitute: 0
     substituteHP: 0
     isEnraged: 0
     perishSong: 0
     perishCounter: 0
+    followMe: 0
+    helpingHand: 0
+    futureSight: 0
+    futureSightTimer: 0
+    futureSightUser: 0
+    futureSightUserOnField: 1
+    futureSightType: 0
+    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -11665,10 +11685,27 @@ MonoBehaviour:
     protectCounter: 0
     infatuated: 0
     infatuationTarget: 0
+    taunted: 0
+    tauntTimer: 0
+    tormented: 0
     cursed: 0
+    nightmare: 0
+    identified: 0
+    identifiedByMiracleEye: 0
+    usedLockOn: 0
+    hasLockOn: 0
+    lockOnTarget: 0
+    destinyBond: 0
+    gotDestinyBondHit: 0
+    destinyBondAttacker: 
+    encored: 0
+    encoreTimer: 0
+    encoredMove: 0
+    furyCutterIntensity: 0
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    stockpile: 0
     hasType3: 0
     Type3: 255
     mimicking: 0
@@ -11676,6 +11713,10 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    moveUsedLastTurn: 0
+    moveUsedThisTurn: 0
+    lastMoveUsed: 0
+    lastMoveSlot: 0
     lastTargetedMove: 0
   - PokemonData:
       species: 0
@@ -11739,6 +11780,7 @@ MonoBehaviour:
     side: 0
     position: 1
     index: 0
+    turnOnField: 0
     exists: 0
     player: 0
     done: 1
@@ -11751,6 +11793,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    enduredHit: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
@@ -11765,12 +11808,11 @@ MonoBehaviour:
     lockedInMove: 0
     invulnerability: 0
     dontCheckPP: 0
-    rechargeNextTurn: 0
     choseMove: 0
-    lastMoveUsed: 0
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    charged: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
@@ -11779,19 +11821,33 @@ MonoBehaviour:
     disabled: 0
     disabledMove: 0
     disableTimer: 0
+    uproar: 0
+    uproarTimer: 0
     gotAbilityEffect: 0
     affectingAbility: 0
     seeded: 0
     seedingSlot: 0
+    focused: 0
     biding: 0
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    usedMindReader: 0
+    hasMindReader: 0
+    mindReaderTarget: 0
     hasSubstitute: 0
     substituteHP: 0
     isEnraged: 0
     perishSong: 0
     perishCounter: 0
+    followMe: 0
+    helpingHand: 0
+    futureSight: 0
+    futureSightTimer: 0
+    futureSightUser: 0
+    futureSightUserOnField: 1
+    futureSightType: 0
+    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -11846,10 +11902,27 @@ MonoBehaviour:
     protectCounter: 0
     infatuated: 0
     infatuationTarget: 0
+    taunted: 0
+    tauntTimer: 0
+    tormented: 0
     cursed: 0
+    nightmare: 0
+    identified: 0
+    identifiedByMiracleEye: 0
+    usedLockOn: 0
+    hasLockOn: 0
+    lockOnTarget: 0
+    destinyBond: 0
+    gotDestinyBondHit: 0
+    destinyBondAttacker: 
+    encored: 0
+    encoreTimer: 0
+    encoredMove: 0
+    furyCutterIntensity: 0
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    stockpile: 0
     hasType3: 0
     Type3: 255
     mimicking: 0
@@ -11857,6 +11930,10 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    moveUsedLastTurn: 0
+    moveUsedThisTurn: 0
+    lastMoveUsed: 0
+    lastMoveSlot: 0
     lastTargetedMove: 0
   - PokemonData:
       species: 0
@@ -11920,6 +11997,7 @@ MonoBehaviour:
     side: 0
     position: 2
     index: 0
+    turnOnField: 0
     exists: 0
     player: 0
     done: 1
@@ -11932,6 +12010,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    enduredHit: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
@@ -11946,12 +12025,11 @@ MonoBehaviour:
     lockedInMove: 0
     invulnerability: 0
     dontCheckPP: 0
-    rechargeNextTurn: 0
     choseMove: 0
-    lastMoveUsed: 0
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    charged: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
@@ -11960,19 +12038,33 @@ MonoBehaviour:
     disabled: 0
     disabledMove: 0
     disableTimer: 0
+    uproar: 0
+    uproarTimer: 0
     gotAbilityEffect: 0
     affectingAbility: 0
     seeded: 0
     seedingSlot: 0
+    focused: 0
     biding: 0
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    usedMindReader: 0
+    hasMindReader: 0
+    mindReaderTarget: 0
     hasSubstitute: 0
     substituteHP: 0
     isEnraged: 0
     perishSong: 0
     perishCounter: 0
+    followMe: 0
+    helpingHand: 0
+    futureSight: 0
+    futureSightTimer: 0
+    futureSightUser: 0
+    futureSightUserOnField: 1
+    futureSightType: 0
+    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -12027,10 +12119,27 @@ MonoBehaviour:
     protectCounter: 0
     infatuated: 0
     infatuationTarget: 0
+    taunted: 0
+    tauntTimer: 0
+    tormented: 0
     cursed: 0
+    nightmare: 0
+    identified: 0
+    identifiedByMiracleEye: 0
+    usedLockOn: 0
+    hasLockOn: 0
+    lockOnTarget: 0
+    destinyBond: 0
+    gotDestinyBondHit: 0
+    destinyBondAttacker: 
+    encored: 0
+    encoreTimer: 0
+    encoredMove: 0
+    furyCutterIntensity: 0
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    stockpile: 0
     hasType3: 0
     Type3: 255
     mimicking: 0
@@ -12038,6 +12147,10 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    moveUsedLastTurn: 0
+    moveUsedThisTurn: 0
+    lastMoveUsed: 0
+    lastMoveSlot: 0
     lastTargetedMove: 0
   - PokemonData:
       species: 0
@@ -12101,6 +12214,7 @@ MonoBehaviour:
     side: 1
     position: 0
     index: 0
+    turnOnField: 0
     exists: 0
     player: 0
     done: 1
@@ -12113,6 +12227,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    enduredHit: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
@@ -12127,12 +12242,11 @@ MonoBehaviour:
     lockedInMove: 0
     invulnerability: 0
     dontCheckPP: 0
-    rechargeNextTurn: 0
     choseMove: 0
-    lastMoveUsed: 0
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    charged: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
@@ -12141,19 +12255,33 @@ MonoBehaviour:
     disabled: 0
     disabledMove: 0
     disableTimer: 0
+    uproar: 0
+    uproarTimer: 0
     gotAbilityEffect: 0
     affectingAbility: 0
     seeded: 0
     seedingSlot: 0
+    focused: 0
     biding: 0
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    usedMindReader: 0
+    hasMindReader: 0
+    mindReaderTarget: 0
     hasSubstitute: 0
     substituteHP: 0
     isEnraged: 0
     perishSong: 0
     perishCounter: 0
+    followMe: 0
+    helpingHand: 0
+    futureSight: 0
+    futureSightTimer: 0
+    futureSightUser: 0
+    futureSightUserOnField: 1
+    futureSightType: 0
+    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -12208,10 +12336,27 @@ MonoBehaviour:
     protectCounter: 0
     infatuated: 0
     infatuationTarget: 0
+    taunted: 0
+    tauntTimer: 0
+    tormented: 0
     cursed: 0
+    nightmare: 0
+    identified: 0
+    identifiedByMiracleEye: 0
+    usedLockOn: 0
+    hasLockOn: 0
+    lockOnTarget: 0
+    destinyBond: 0
+    gotDestinyBondHit: 0
+    destinyBondAttacker: 
+    encored: 0
+    encoreTimer: 0
+    encoredMove: 0
+    furyCutterIntensity: 0
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    stockpile: 0
     hasType3: 0
     Type3: 255
     mimicking: 0
@@ -12219,6 +12364,10 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    moveUsedLastTurn: 0
+    moveUsedThisTurn: 0
+    lastMoveUsed: 0
+    lastMoveSlot: 0
     lastTargetedMove: 0
   - PokemonData:
       species: 0
@@ -12282,6 +12431,7 @@ MonoBehaviour:
     side: 1
     position: 1
     index: 0
+    turnOnField: 0
     exists: 0
     player: 0
     done: 1
@@ -12294,6 +12444,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    enduredHit: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
@@ -12308,12 +12459,11 @@ MonoBehaviour:
     lockedInMove: 0
     invulnerability: 0
     dontCheckPP: 0
-    rechargeNextTurn: 0
     choseMove: 0
-    lastMoveUsed: 0
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    charged: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
@@ -12322,19 +12472,33 @@ MonoBehaviour:
     disabled: 0
     disabledMove: 0
     disableTimer: 0
+    uproar: 0
+    uproarTimer: 0
     gotAbilityEffect: 0
     affectingAbility: 0
     seeded: 0
     seedingSlot: 0
+    focused: 0
     biding: 0
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    usedMindReader: 0
+    hasMindReader: 0
+    mindReaderTarget: 0
     hasSubstitute: 0
     substituteHP: 0
     isEnraged: 0
     perishSong: 0
     perishCounter: 0
+    followMe: 0
+    helpingHand: 0
+    futureSight: 0
+    futureSightTimer: 0
+    futureSightUser: 0
+    futureSightUserOnField: 1
+    futureSightType: 0
+    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -12389,10 +12553,27 @@ MonoBehaviour:
     protectCounter: 0
     infatuated: 0
     infatuationTarget: 0
+    taunted: 0
+    tauntTimer: 0
+    tormented: 0
     cursed: 0
+    nightmare: 0
+    identified: 0
+    identifiedByMiracleEye: 0
+    usedLockOn: 0
+    hasLockOn: 0
+    lockOnTarget: 0
+    destinyBond: 0
+    gotDestinyBondHit: 0
+    destinyBondAttacker: 
+    encored: 0
+    encoreTimer: 0
+    encoredMove: 0
+    furyCutterIntensity: 0
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    stockpile: 0
     hasType3: 0
     Type3: 255
     mimicking: 0
@@ -12400,6 +12581,10 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    moveUsedLastTurn: 0
+    moveUsedThisTurn: 0
+    lastMoveUsed: 0
+    lastMoveSlot: 0
     lastTargetedMove: 0
   - PokemonData:
       species: 0
@@ -12463,6 +12648,7 @@ MonoBehaviour:
     side: 1
     position: 2
     index: 0
+    turnOnField: 0
     exists: 0
     player: 0
     done: 1
@@ -12475,6 +12661,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    enduredHit: 0
     confused: 0
     confusionCounter: 0
     getsContinuousDamage: 0
@@ -12489,12 +12676,11 @@ MonoBehaviour:
     lockedInMove: 0
     invulnerability: 0
     dontCheckPP: 0
-    rechargeNextTurn: 0
     choseMove: 0
-    lastMoveUsed: 0
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    charged: 0
     toxicCounter: 0
     moveDamageDone: 0
     damageTaken: 0
@@ -12503,19 +12689,33 @@ MonoBehaviour:
     disabled: 0
     disabledMove: 0
     disableTimer: 0
+    uproar: 0
+    uproarTimer: 0
     gotAbilityEffect: 0
     affectingAbility: 0
     seeded: 0
     seedingSlot: 0
+    focused: 0
     biding: 0
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    usedMindReader: 0
+    hasMindReader: 0
+    mindReaderTarget: 0
     hasSubstitute: 0
     substituteHP: 0
     isEnraged: 0
     perishSong: 0
     perishCounter: 0
+    followMe: 0
+    helpingHand: 0
+    futureSight: 0
+    futureSightTimer: 0
+    futureSightUser: 0
+    futureSightUserOnField: 1
+    futureSightType: 0
+    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -12570,10 +12770,27 @@ MonoBehaviour:
     protectCounter: 0
     infatuated: 0
     infatuationTarget: 0
+    taunted: 0
+    tauntTimer: 0
+    tormented: 0
     cursed: 0
+    nightmare: 0
+    identified: 0
+    identifiedByMiracleEye: 0
+    usedLockOn: 0
+    hasLockOn: 0
+    lockOnTarget: 0
+    destinyBond: 0
+    gotDestinyBondHit: 0
+    destinyBondAttacker: 
+    encored: 0
+    encoreTimer: 0
+    encoredMove: 0
+    furyCutterIntensity: 0
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    stockpile: 0
     hasType3: 0
     Type3: 255
     mimicking: 0
@@ -12581,12 +12798,16 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    moveUsedLastTurn: 0
+    moveUsedThisTurn: 0
+    lastMoveUsed: 0
+    lastMoveSlot: 0
     lastTargetedMove: 0
   battleType: 0
   Moves: 000000000000000000000000000000000000000000000000
-  SwitchTargets: 000000000000
-  Targets: 000000000000
-  MoveNums: 000000000000
+  SwitchTargets: 00000000
+  Targets: 00000000
+  MoveNums: 00000000
   playerMonIcons:
   - {fileID: 0}
   - {fileID: 0}
@@ -12648,6 +12869,7 @@ MonoBehaviour:
   currentMon: 3
   currentMove: 1
   currentPartyMon: 0
+  megaEvolving: 0
   menuMode: 0
 --- !u!114 &1034585561
 MonoBehaviour:

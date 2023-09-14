@@ -14,6 +14,7 @@ public class Battle : MonoBehaviour
 {
     private const int TurnOver = 63;
     private const int NoMons = 63;
+    private const int HandleMega = 127;
 
     public bool wildBattle;
     public Pokemon[] OpponentPokemon = new Pokemon[6];
@@ -39,6 +40,7 @@ public class Battle : MonoBehaviour
     public bool[] megaEvolveOnMove = new bool[6];
     public bool hasPlayerMegaEvolved = false;
     public bool hasOpponentMegaEvolved = false;
+    private int monToMega = 0;
 
     public int textSpeed = 25;
     public float persistenceTime = 1.5F;
@@ -375,10 +377,20 @@ public class Battle : MonoBehaviour
 
     private int FindNextToMove()
     {
+        const int megaPriority = 29;
+        const int itemPriority = 30;
         const int switchPriority = 31;
         int currentPriority = -127;
         int currentSpeed = 0;
         int currentMove = TurnOver;
+        for (int i = 0; i < 6; i++)
+        {
+            if (megaEvolveOnMove[i])
+            {
+                currentPriority = megaPriority;
+                currentMove = HandleMega;
+            }
+        }
         for (int i = 0; i < 6; i++)
         {
             if (!PokemonOnField[i].done)
@@ -397,6 +409,31 @@ public class Battle : MonoBehaviour
                         currentSpeed = GetSpeed(i);
                         currentMove = i;
                         Debug.Log("Index " + i + " has speed " + currentSpeed);
+                    }
+                }
+                else if (Moves[i] == MoveID.UseItem)
+                {
+                    if (currentPriority < itemPriority)
+                    {
+                        currentPriority = itemPriority;
+                        currentSpeed = GetSpeed(i);
+                        currentMove = i;
+                    }
+                }
+                else if (megaEvolveOnMove[i])
+                {
+                    if (currentPriority < megaPriority)
+                    {
+                        currentPriority = megaPriority;
+                        currentSpeed = GetSpeed(i);
+                        currentMove = HandleMega;
+                        monToMega = i;
+                    }
+                    else if (currentPriority == megaPriority
+                        && GetSpeed(i) > currentSpeed)
+                    {
+                        currentSpeed = GetSpeed(i);
+                        monToMega = i;
                     }
                 }
                 else if (GetPriority(i) > currentPriority)
@@ -2962,6 +2999,12 @@ public class Battle : MonoBehaviour
         {
             StartCoroutine(EndTurn());
         }
+        else if (index == HandleMega)
+        {
+            for (int i = 0; i < 6; i++)
+                if (megaEvolveOnMove[i])
+                    StartCoroutine(DoMegaEvolution(i));
+        }
         else
         {
             StartCoroutine(TryMove(index));
@@ -3138,18 +3181,6 @@ public class Battle : MonoBehaviour
         yield return null;
     }
 
-    public IEnumerator StartTurnEffects()
-    {
-        for (int i = 0; i < 6; i++)
-        {
-            if (megaEvolveOnMove[i])
-            {
-                yield return DoMegaEvolution(i);
-            }
-        }
-        DoNextMove();
-    }
-
     public IEnumerator StartTurn()
     {
         state = BattleState.Announcement;
@@ -3237,12 +3268,8 @@ public class Battle : MonoBehaviour
                 currentMon.dontCheckPP = true;
                 currentMon.choseMove = true;
             }
-            if (currentMon.exists && !currentMon.player
-                && !currentMon.choseMove)
+            if (currentMon.exists && !currentMon.player && !currentMon.choseMove)
             { ChooseAIMove(i); }
-            if (currentMon.exists && !currentMon.player
-                && CanMegaEvolve(i))
-            { megaEvolveOnMove[i] = true; }
         }
         if (!menuManager.GetNextPokemon())
         {
@@ -3351,6 +3378,8 @@ public class Battle : MonoBehaviour
 
     private MoveID ChooseAIMove(int index)
     {
+        Debug.Log(CanMegaEvolve(index));
+        if (CanMegaEvolve(index)) megaEvolveOnMove[index] = true;
         var random = new System.Random();
         //if (wildBattle)
         //{
@@ -3422,7 +3451,11 @@ public class Battle : MonoBehaviour
 
     public bool CanMegaEvolve(int index)
     {
-        //Appears to be broken, but I haven't figured out why yet
+        if (index < 3)
+        {
+            Debug.Log("Has Opponent evolved: " + hasOpponentMegaEvolved);
+            Debug.Log("Opponent's mega stone user: " + PokemonOnField[index].item.megaStoneUser());
+        }
         if (index > 2 && hasPlayerMegaEvolved) return false;
         if (index < 3 && hasOpponentMegaEvolved) return false;
         if (PokemonOnField[index].item.megaStoneUser() == PokemonOnField[index].PokemonData.getSpecies) return true;
@@ -3433,6 +3466,8 @@ public class Battle : MonoBehaviour
     {
         BattlePokemon mon = PokemonOnField[index];
         //Todo: Add mega animation
+        StartCoroutine(BattleAnim.MegaEvolution(this, index)); //0.00 - 4.20
+        yield return new WaitForSeconds(2.0F); //2.00
         megaEvolveOnMove[index] = false;
         if (index > 2) hasPlayerMegaEvolved = true;
         else hasOpponentMegaEvolved = true;
@@ -3440,11 +3475,15 @@ public class Battle : MonoBehaviour
             (SpeciesID)Item.ItemTable[(int)mon.PokemonData.item].ItemSubdata[1];
         mon.PokemonData.transformed = true;
         mon.PokemonData.CalculateStats();
+        yield return new WaitForSeconds(2.0F); //4.00
+        BattleAnim.Cry(mon.PokemonData.getSpecies, audioSource0);
+        yield return new WaitForSeconds(1.0F); //5.00
         yield return Announce(MonNameWithPrefix(index, true) + " has Mega Evolved into "
             + mon.PokemonData.SpeciesData.speciesName + "!");
         mon.ability = mon.PokemonData.SpeciesData.abilities[0];
         yield return EntryAbilityCheck(index);
-        hasPlayerMegaEvolved = true;
+        megaEvolveOnMove[index] = false;
+        DoNextMove();
     }
 
     public IEnumerator EndBattle()

@@ -391,6 +391,21 @@ public static class BattleAnim
         }
     }
 
+    public static IEnumerator Fade(SpriteRenderer sprite, float newAlpha, float duration)
+    {
+        {
+            float baseTime = Time.time;
+            float endTime = baseTime + duration;
+            Color initialColor = sprite.color;
+            while (Time.time < endTime)
+            {
+                sprite.color = new Color(initialColor.r, initialColor.g, initialColor.b,
+                    ((endTime - Time.time) * initialColor.a + (Time.time - baseTime) * newAlpha) / duration);
+                yield return null;
+            }
+        }
+    }
+
     public static Vector2 SpriteDistance(Transform sprite1, Transform sprite2)
     {
         return sprite2.position - sprite1.position;
@@ -472,7 +487,7 @@ public static class BattleAnim
         GameObject mask = new();
         mask.transform.parent = battle.spriteTransform[index];
         mask.transform.localPosition = new Vector2(0.0F, 0.0F);
-        mask.transform.localScale = new Vector3(1.0F, 1.0F, 1.0F);
+        mask.transform.localScale = new Vector3(1.5F, 1.5F, 1.5F);
         mask.transform.SetParent(null, true);
         SpriteMask faintMask = mask.AddComponent<SpriteMask>();
         faintMask.isCustomRangeActive = true;
@@ -511,6 +526,29 @@ public static class BattleAnim
         battle.audioSource0.PlayOneShot(heartSound);
         battle.audioSource0.panStereo = 0.06F;
         yield return AttractHeart(battle, index, 0.3F); //1.40
+    }
+
+    public static IEnumerator MegaEvolution(Battle battle, int index)
+    {
+        GameObject megaCircle = NewSpriteFromTexture("Sprites/Circle", battle.spriteTransform[index],
+            new Vector2(0.05F, 0.05F), new Vector2(0.0F, 0.0F));
+        SpriteRenderer renderer = megaCircle.GetComponent<SpriteRenderer>();
+        Transform transform = megaCircle.GetComponent<Transform>();
+        battle.StartCoroutine(FadeIn(renderer, 0.7F)); //0.00 - 0.70
+        yield return Grow(transform, 10, 0.7F); //0.70
+        battle.StartCoroutine(Fade(renderer, 30, 0.5F)); //0.70 - 1.20
+        yield return Grow(transform, 0.75F, 0.5F); //1.20
+        battle.StartCoroutine(Fade(renderer, 1, 0.7F)); //1.20-1.90
+        yield return Grow(transform, 1.7F, 0.7F); //1.90
+        yield return Grow(transform, 0.8F, 0.3F); //2.20
+        yield return Grow(transform, 1.25F, 0.5F); //2.70
+        yield return Grow(transform, 0.8F, 0.7F); //3.40
+        GameObject megaSymbol = NewSpriteFromTexture("Sprites/Battle/mega_symbol", battle.spriteTransform[index],
+            new Vector2(1.0F, 1.0F), new Vector2(0.0F, 2.0F));
+        battle.StartCoroutine(Sinusoidal(megaSymbol.GetComponent<Transform>(), new Vector3(0.0F, 1.0F), 0.4F, 6, 0.8F, true)); //3.40 - 4.20
+        battle.StartCoroutine(FadeDelete(renderer, 0.5F)); //3.40-3.90
+        yield return Grow(transform, 4.0F, 0.5F); //3.90
+        yield return FadeDelete(megaSymbol.GetComponent<SpriteRenderer>(), 0.3F); //4.20
     }
 
     //Components
