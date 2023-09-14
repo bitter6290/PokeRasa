@@ -293,6 +293,11 @@ public enum SpeciesID
     CharizardMegaX,
     CharizardMegaY,
     BlastoiseMega,
+    BeedrillMega,
+    PidgeotMega,
+    AlakazamMega,
+    SlowbroMega,
+    GengarMega,
 
     Count,
 

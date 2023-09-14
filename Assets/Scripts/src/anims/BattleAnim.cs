@@ -530,25 +530,30 @@ public static class BattleAnim
 
     public static IEnumerator MegaEvolution(Battle battle, int index)
     {
-        GameObject megaCircle = NewSpriteFromTexture("Sprites/Circle", battle.spriteTransform[index],
-            new Vector2(0.05F, 0.05F), new Vector2(0.0F, 0.0F));
+        GameObject megaCircle = NewSpriteFromTexture("Sprites/Battle/MegaCircle", battle.spriteTransform[index],
+            new Vector2(0.06F, 0.06F), new Vector2(0.0F, 0.0F));
         SpriteRenderer renderer = megaCircle.GetComponent<SpriteRenderer>();
         Transform transform = megaCircle.GetComponent<Transform>();
-        battle.StartCoroutine(FadeIn(renderer, 0.7F)); //0.00 - 0.70
-        yield return Grow(transform, 10, 0.7F); //0.70
-        battle.StartCoroutine(Fade(renderer, 30, 0.5F)); //0.70 - 1.20
-        yield return Grow(transform, 0.75F, 0.5F); //1.20
-        battle.StartCoroutine(Fade(renderer, 1, 0.7F)); //1.20-1.90
-        yield return Grow(transform, 1.7F, 0.7F); //1.90
-        yield return Grow(transform, 0.8F, 0.3F); //2.20
-        yield return Grow(transform, 1.25F, 0.5F); //2.70
-        yield return Grow(transform, 0.8F, 0.7F); //3.40
+        battle.StartCoroutine(FadeIn(renderer, 0.6F)); //0.00 - 0.60
+        yield return Grow(transform, 10, 0.6F); //0.60
+        battle.StartCoroutine(Fade(renderer, 30, 0.45F)); //0.60 - 1.05
+        yield return Grow(transform, 0.75F, 0.45F); //1.05
+        battle.StartCoroutine(Fade(renderer, 1, 0.6F)); //1.05 - 1.65
+        yield return Grow(transform, 1.7F, 0.6F); //1.65
+        yield return Grow(transform, 0.8F, 0.3F); //1.95
+        yield return Grow(transform, 1.25F, 0.45F); //2.40
+        GameObject megaStone = NewSpriteFromTexture("Sprites/Battle/mega_stone", battle.spriteTransform[index],
+            new Vector2(1.0F, 1.0F), new Vector2(0.0F, 0.0F), 2);
+        battle.StartCoroutine(FadeIn(megaStone.GetComponent<SpriteRenderer>(), 0.7F)); //2.40 - 3.10
+        battle.StartCoroutine(Grow(megaStone.GetComponent<Transform>(), 1.66F, 0.7F)); //2.40 - 3.10
+        yield return Grow(transform, 0.8F, 0.7F); //3.10
         GameObject megaSymbol = NewSpriteFromTexture("Sprites/Battle/mega_symbol", battle.spriteTransform[index],
             new Vector2(1.0F, 1.0F), new Vector2(0.0F, 2.0F));
-        battle.StartCoroutine(Sinusoidal(megaSymbol.GetComponent<Transform>(), new Vector3(0.0F, 1.0F), 0.4F, 6, 0.8F, true)); //3.40 - 4.20
-        battle.StartCoroutine(FadeDelete(renderer, 0.5F)); //3.40-3.90
-        yield return Grow(transform, 4.0F, 0.5F); //3.90
-        yield return FadeDelete(megaSymbol.GetComponent<SpriteRenderer>(), 0.3F); //4.20
+        battle.StartCoroutine(FadeDelete(renderer, 0.1F)); //3.10 - 3.20
+        battle.StartCoroutine(Sinusoidal(megaSymbol.GetComponent<Transform>(), new Vector3(0.0F, 1.0F), 0.4F, 6, 0.8F, true)); //3.10 - 3.90
+        battle.StartCoroutine(FadeDelete(megaStone.GetComponent<SpriteRenderer>(), 0.5F)); //3.10 - 3.60
+        yield return Grow(megaStone.GetComponent<Transform>(), 3.5F, 0.5F); //3.60
+        yield return FadeDelete(megaSymbol.GetComponent<SpriteRenderer>(), 0.3F); //3.90
     }
 
     //Components

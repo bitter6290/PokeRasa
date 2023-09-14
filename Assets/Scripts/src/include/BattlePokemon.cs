@@ -172,6 +172,8 @@ public class BattlePokemon
     public bool typesOverriden = false;
 
     public int stockpile = 0;
+    public int stockpileDef = 0;
+    public int stockpileSpDef = 0;
 
     public bool hasType3 = false;
     public Type Type3 = Type.Typeless;
@@ -181,6 +183,8 @@ public class BattlePokemon
     public MoveID mimicMove = MoveID.None;
     public int mimicPP = 0;
     public int mimicMaxPP = 0;
+
+    public bool ingrained = false;
 
     public MoveID moveUsedLastTurn = MoveID.None;
     public MoveID moveUsedThisTurn = MoveID.None;

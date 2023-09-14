@@ -11,5 +11,6 @@
     public bool trapped;
     public int trappingSlot;
     public bool cursed;
+    public bool ingrained;
 }
 

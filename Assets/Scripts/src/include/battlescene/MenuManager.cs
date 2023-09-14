@@ -858,11 +858,15 @@ public class MenuManager : MonoBehaviour
                                         battle.state = BattleState.Announcement;
                                         StartCoroutine(MonOnField(currentPartyMon - 1));
                                     }
-                                    else if (battle.AbilityOnSide(Ability.ShadowTag, 0)
-                                        || (battle.AbilityOnSide(Ability.ArenaTrap, 0)
-                                        && battle.IsGrounded(currentMon))
-                                        || battle.PokemonOnField[currentMon].trapped
-                                        || battle.PokemonOnField[currentMon].getsContinuousDamage)
+                                    else if ((battle.AbilityOnSide(Ability.ShadowTag, 0)
+                                            || (battle.AbilityOnSide(Ability.ArenaTrap, 0)
+                                                && battle.IsGrounded(currentMon))
+                                            || (battle.AbilityOnSide(Ability.MagnetPull, 0)
+                                                && battle.PokemonOnField[currentMon].HasType(Type.Steel))
+                                            || battle.PokemonOnField[currentMon].trapped
+                                            || battle.PokemonOnField[currentMon].getsContinuousDamage
+                                            || battle.PokemonOnField[currentMon].ingrained)
+                                        && !battle.PokemonOnField[currentMon].HasType(Type.Ghost))
                                     {
                                         battle.state = BattleState.Announcement;
                                         StartCoroutine(MonTrapped(currentMon));

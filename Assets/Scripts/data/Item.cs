@@ -154,11 +154,47 @@ public static class Item
 
     public static MegaStone Blastoisinite = new()
     {
-        itemName = "Venusaurite",
+        itemName = "Blastoisinite",
         price = 40000,
         originalSpecies = SpeciesID.Blastoise,
         destinationSpecies = SpeciesID.BlastoiseMega,
         graphicsPath = "blastoisinite",
+    };
+
+    public static MegaStone Beedrillite = new()
+    {
+        itemName = "Beedrillite",
+        price = 40000,
+        originalSpecies = SpeciesID.Beedrill,
+        destinationSpecies = SpeciesID.BeedrillMega,
+        graphicsPath = "beedrillite",
+    };
+
+    public static MegaStone Pidgeotite = new()
+    {
+        itemName = "Pidgeotite",
+        price = 40000,
+        originalSpecies = SpeciesID.Pidgeot,
+        destinationSpecies = SpeciesID.PidgeotMega,
+        graphicsPath = "pidgeotite"
+    };
+
+    public static MegaStone Alakazite = new()
+    {
+        itemName = "Alakazite",
+        price = 40000,
+        originalSpecies = SpeciesID.Alakazam,
+        destinationSpecies = SpeciesID.AlakazamMega,
+        graphicsPath = "alakazite",
+    };
+
+    public static MegaStone Slowbronite = new()
+    {
+        itemName = "Slowbronite",
+        price = 40000,
+        originalSpecies = SpeciesID.Slowbro,
+        destinationSpecies = SpeciesID.SlowbroMega,
+        graphicsPath = "slowbronite",
     };
 
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
@@ -186,6 +222,10 @@ public static class Item
     CharizarditeX,
     CharizarditeY,
     Blastoisinite,
+    Beedrillite,
+    Pidgeotite,
+    Alakazite,
+    Slowbronite,
     };
 }
 

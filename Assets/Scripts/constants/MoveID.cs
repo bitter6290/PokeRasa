@@ -278,6 +278,9 @@ public enum MoveID
     Trick,
     RolePlay,
     Wish,
+    Assist,
+    Ingrain,
+    Superpower,
 
     //Nonstandard moves
 

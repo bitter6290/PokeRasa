@@ -8407,8 +8407,32 @@ public static class Species
         baseSpDef: 95,
         baseSpeed: 150,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur,
+        pokedexData: Pokedex.Bulbasaur, //Not done
         ability: Ability.Trace
+    );
+
+    public static SpeciesData SlowbroMega = SpeciesData.Mega(
+        baseSpecies: Slowbro,
+        baseAttack: 75,
+        baseDefense: 180,
+        baseSpAtk: 130,
+        baseSpDef: 80,
+        baseSpeed: 30,
+        backSpriteHeight: 9,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.ShellArmor
+    );
+
+    public static SpeciesData GengarMega = SpeciesData.Mega(
+        baseSpecies: Gengar,
+        baseAttack: 65,
+        baseDefense: 80,
+        baseSpAtk: 170,
+        baseSpDef: 95,
+        baseSpeed: 130,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.ShadowTag
     );
 
     public static SpeciesData Unown_B
@@ -8752,5 +8776,10 @@ public static class Species
         CharizardMegaX,
         CharizardMegaY,
         BlastoiseMega,
+        BeedrillMega,
+        PidgeotMega,
+        AlakazamMega,
+        SlowbroMega,
+        GengarMega,
     };
 }

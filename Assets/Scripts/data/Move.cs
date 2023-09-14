@@ -1448,6 +1448,16 @@ public static class Move
         "Role Play", Type.Psychic, 100, 0, MoveEffect.RolePlay, 10);
     public static MoveData Wish = SelfTargetingMove(
         "Wish", Normal, 0, MoveEffect.Wish, 10);
+    public static MoveData Assist = SelfTargetingMove(
+        "Assist", Normal, 0, MoveEffect.Assist, 20);
+    public static MoveData Ingrain = SelfTargetingMove(
+        "Ingrain", Grass, 0, MoveEffect.Ingrain, 20);
+    public static MoveData Superpower = new(
+        "Superpower", Fighting,
+        120, 100, 0,
+        MoveEffect.Superpower, 100,
+        true, Target.Single, 5,
+        effectOnSelfOnly);
 
 
 
@@ -1804,6 +1814,9 @@ public static class Move
         Trick,
         RolePlay,
         Wish,
+        Assist,
+        Ingrain,
+        Superpower,
 
         //Nonstandard moves
         ConfusionHit,

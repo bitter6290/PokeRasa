@@ -23,5 +23,9 @@
     CharizarditeX,
     CharizarditeY,
     Blastoisinite,
+    Beedrillite,
+    Pidgeotite,
+    Alakazite,
+    Slowbronite,
     Count,
 }

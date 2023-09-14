@@ -1245,10 +1245,13 @@ public static class BattleEffect
 
     public static IEnumerator Stockpile(Battle battle, int index)
     {
-        if (battle.PokemonOnField[index].stockpile >= 3) yield break;
-        battle.PokemonOnField[index].stockpile++;
+        BattlePokemon mon = battle.PokemonOnField[index];
+        if (mon.stockpile >= 3) yield break;
+        mon.stockpile++;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-            + " stockpiled " + battle.PokemonOnField[index].stockpile + "!");
+            + " stockpiled " + mon.stockpile + "!");
+        if (mon.defenseStage < 6) mon.stockpileDef++;
+        if (mon.spDefStage < 6) mon.stockpileSpDef++;
         yield return StatUp(battle, index, Stat.Defense, 1, index);
         yield return StatUp(battle, index, Stat.SpDef, 1, index, false);
     }
@@ -1263,9 +1266,12 @@ public static class BattleEffect
             case 3: yield return Heal(battle, index, user.PokemonData.hpMax); break;
             default: yield break;
         }
-        yield return battle.Announce("The stockpiled effect wore off!");
-        user.defenseStage = Max(-6, user.defenseStage - user.stockpile);
-        user.spDefStage = Max(-6, user.spDefStage - user.stockpile);
+        if (user.stockpileDef > 0 || user.stockpileSpDef > 0)
+            yield return battle.Announce("The stockpiled effect wore off!");
+        user.defenseStage = Max(-6, user.defenseStage - user.stockpileDef);
+        user.spDefStage = Max(-6, user.spDefStage - user.stockpileSpDef);
+        user.stockpileDef = 0;
+        user.stockpileSpDef = 0;
         user.stockpile = 0;
     }
 
@@ -1338,5 +1344,12 @@ public static class BattleEffect
         battle.PokemonOnField[target].helpingHand++;
         yield return battle.Announce(battle.MonNameWithPrefix(user, true)
             + " is ready to help " + battle.MonNameWithPrefix(target, false) + "!");
+    }
+
+    public static IEnumerator Ingrain(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].ingrained = true;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " planted its roots!");
     }
 }
