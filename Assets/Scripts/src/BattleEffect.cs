@@ -1330,6 +1330,7 @@ public static class BattleEffect
         yield return battle.Announce(battle.MonNameWithPrefix(user, true)
             + " copied " + battle.MonNameWithPrefix(target, false) + "'s "
             + NameTable.Ability[(int)battle.PokemonOnField[user].ability] + "!");
+        yield return battle.EntryAbilityCheck(user);
     }
 
     public static IEnumerator HelpingHand(Battle battle, int user, int target)
