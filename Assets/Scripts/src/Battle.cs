@@ -611,6 +611,14 @@ public class Battle : MonoBehaviour
             || (defender.invulnerability == Invulnerability.Fly
             && (move.Data().moveFlags & MoveFlags.hitFlyingMon) != 0)
             ? 2.0F : 1.0F;
+        float weather = effectiveType switch
+        {
+            Type.Fire when IsWeatherAffected(defender.index, Weather.Sun) => 1.5F,
+            Type.Fire when IsWeatherAffected(defender.index, Weather.Rain) => 0.5F,
+            Type.Water when IsWeatherAffected(defender.index, Weather.Rain) => 1.5F,
+            Type.Water when IsWeatherAffected(defender.index, Weather.Sun) => 0.5F,
+            _ => 1.0F,
+        };
         float effectiveTypeModifier = GetTypeEffectiveness(attacker, defender, move);
         if (effectiveTypeModifier < 1 && HasAbility(attacker.index, TintedLens))
         {
@@ -632,7 +640,7 @@ public class Battle : MonoBehaviour
 
         int result = (int)Floor(((((2.0F * attacker.PokemonData.level / 5) + 2)
             * effectivePower * attackOverDefense / 50) + 2)
-            * effectiveTypeModifier * helpingHand
+            * effectiveTypeModifier * helpingHand * weather
             * stab * multitarget * critical * burn * screen
             * AttackerAbilityModifier(attacker, move)
             * DefenderAbilityModifier(defender, move)
@@ -1787,6 +1795,7 @@ public class Battle : MonoBehaviour
                 yield break;
             case MoveEffect.Metronome:
                 user.dontCheckPP = true;
+                yield return DoMoveAnimation(index, Moves[index]);
                 Moves[index] = (MoveID)(random.Next() % (int)MoveID.Count); //Todo: Add double or multi-battle functionality (targeting)
                 yield return ExecuteMove(index);
                 yield break;
@@ -1982,7 +1991,7 @@ public class Battle : MonoBehaviour
                     }
                     else
                     {
-                        yield return BattleAnim.AttackerAnims(this, index, MoveID.Teleport, 0);
+                        yield return DoMoveAnimation(index, Moves[index]);
                         yield return SwitchMove(index);
                     }
                 }
@@ -1996,7 +2005,7 @@ public class Battle : MonoBehaviour
                         yield break;
 
                     }
-                    yield return BattleAnim.AttackerAnims(this, index, MoveID.Teleport, 0);
+                    yield return DoMoveAnimation(index, Moves[index]);
                     LeaveFieldCleanup(index);
                     yield return BattleEffect.VoluntarySwitch(this, 0, nextMon);
                 }
@@ -2013,7 +2022,7 @@ public class Battle : MonoBehaviour
                         switchDuringTurn = true;
                         switchingMon = index;
                         choseSwitchMon = false;
-                        yield return BattleAnim.AttackerAnims(this, index, MoveID.BatonPass, 0);
+                        yield return DoMoveAnimation(index, Moves[index]);
                         menuManager.currentPartyMon = 1;
                         menuManager.menuMode = MenuMode.Party;
                         state = BattleState.PlayerInput;
@@ -2035,7 +2044,7 @@ public class Battle : MonoBehaviour
                         yield break;
 
                     }
-                    yield return BattleAnim.AttackerAnims(this, index, MoveID.BatonPass, 0);
+                    yield return DoMoveAnimation(index, Moves[index]);
                     LeaveFieldCleanup(index, false);
                     yield return BattleEffect.BatonPass(this, 0, nextMon);
                 }
@@ -3070,8 +3079,9 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.StatUp(this, i, Stat.Speed, 1, i);
             }
         }
-        if (wishes.Count > 0)
+        while (wishes.Count > 0)
             if (wishes.Peek().turn == turnsElapsed) yield return BattleEffect.GetWish(this);
+            else break;
         for (int i = 0; i < 2; i++)
         {
             if (Sides[i].lightScreen)
@@ -3230,6 +3240,9 @@ public class Battle : MonoBehaviour
             if (currentMon.exists && !currentMon.player
                 && !currentMon.choseMove)
             { ChooseAIMove(i); }
+            if (currentMon.exists && !currentMon.player
+                && CanMegaEvolve(i))
+            { megaEvolveOnMove[i] = true; }
         }
         if (!menuManager.GetNextPokemon())
         {
@@ -3267,6 +3280,7 @@ public class Battle : MonoBehaviour
         announcementLog = new();
         MoveNums = new int[6];
         Targets = new int[6];
+        SwitchTargets = new int[6];
         wishes = new();
         turnsElapsed = 0;
         for (int i = 0; i < 6; i++)

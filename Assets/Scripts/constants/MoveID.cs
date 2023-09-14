@@ -166,6 +166,8 @@ public enum MoveID
     Slash,
     Substitute,
     Struggle,
+
+    //Gen 2
     Sketch,
     TripleKick,
     Thief,

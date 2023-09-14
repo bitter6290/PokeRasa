@@ -115,32 +115,32 @@ public static class Item
     {
         itemName = "Venusaurite",
         price = 40000,
-        originalSpecies = SpeciesID.Ivysaur,
-        destinationSpecies = SpeciesID.Venusaur,  //Replace when megas are implemented
+        originalSpecies = SpeciesID.Venusaur,
+        destinationSpecies = SpeciesID.VenusaurMega,  //Replace when megas are implemented
     };
 
     public static MegaStone CharizarditeX = new()
     {
         itemName = "Venusaurite",
         price = 40000,
-        originalSpecies = SpeciesID.Ivysaur,
-        destinationSpecies = SpeciesID.Venusaur,  //Replace when megas are implemented
+        originalSpecies = SpeciesID.Charizard,
+        destinationSpecies = SpeciesID.CharizardMegaX,  //Replace when megas are implemented
     };
 
     public static MegaStone CharizarditeY = new()
     {
         itemName = "Venusaurite",
         price = 40000,
-        originalSpecies = SpeciesID.Ivysaur,
-        destinationSpecies = SpeciesID.Venusaur,  //Replace when megas are implemented
+        originalSpecies = SpeciesID.Charizard,
+        destinationSpecies = SpeciesID.CharizardMegaY,  //Replace when megas are implemented
     };
 
     public static MegaStone Blastoisinite = new()
     {
         itemName = "Venusaurite",
         price = 40000,
-        originalSpecies = SpeciesID.Ivysaur,
-        destinationSpecies = SpeciesID.Venusaur,  //Replace when megas are implemented
+        originalSpecies = SpeciesID.Blastoise,
+        destinationSpecies = SpeciesID.BlastoiseMega,  //Replace when megas are implemented
     };
 
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]

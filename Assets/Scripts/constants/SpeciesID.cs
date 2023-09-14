@@ -287,6 +287,13 @@ public enum SpeciesID
     Unown_Y,
     Unown_Z,
 
+    //Megas
+
+    VenusaurMega,
+    CharizardMegaX,
+    CharizardMegaY,
+    BlastoiseMega,
+
     Count,
 
     Egg = Count + 1,

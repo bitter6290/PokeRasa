@@ -4,7 +4,6 @@ public static class Species
 {
     public static SpeciesData Missingno = new()
     {
-        id = SpeciesID.Missingno,
         speciesName = "Missingno",
         type1 = Type.Typeless,
         type2 = Type.Typeless,
@@ -32,7 +31,6 @@ public static class Species
     };
     public static SpeciesData Bulbasaur = new()
     {
-        id = SpeciesID.Bulbasaur,
         speciesName = "Bulbasaur",
         type1 = Type.Grass,
         type2 = Type.Poison,
@@ -66,7 +64,6 @@ public static class Species
     };
     public static SpeciesData Ivysaur = new()
     {
-        id = SpeciesID.Ivysaur,
         speciesName = "Ivysaur",
         type1 = Type.Grass,
         type2 = Type.Poison,
@@ -100,7 +97,6 @@ public static class Species
     };
     public static SpeciesData Venusaur = new()
     {
-        id = SpeciesID.Venusaur,
         speciesName = "Venusaur",
         type1 = Type.Grass,
         type2 = Type.Poison,
@@ -134,7 +130,6 @@ public static class Species
     };
     public static SpeciesData Charmander = new()
     {
-        id = SpeciesID.Charmander,
         speciesName = "Charmander",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -168,7 +163,6 @@ public static class Species
     };
     public static SpeciesData Charmeleon = new()
     {
-        id = SpeciesID.Charmeleon,
         speciesName = "Charmeleon",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -202,7 +196,6 @@ public static class Species
     };
     public static SpeciesData Charizard = new()
     {
-        id = SpeciesID.Charizard,
         speciesName = "Charizard",
         type1 = Type.Fire,
         type2 = Type.Flying,
@@ -236,7 +229,6 @@ public static class Species
     };
     public static SpeciesData Squirtle = new()
     {
-        id = SpeciesID.Squirtle,
         speciesName = "Squirtle",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -270,7 +262,6 @@ public static class Species
     };
     public static SpeciesData Wartortle = new()
     {
-        id = SpeciesID.Wartortle,
         speciesName = "Wartortle",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -304,7 +295,6 @@ public static class Species
     };
     public static SpeciesData Blastoise = new()
     {
-        id = SpeciesID.Blastoise,
         speciesName = "Blastoise",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -338,7 +328,6 @@ public static class Species
     };
     public static SpeciesData Caterpie = new()
     {
-        id = SpeciesID.Caterpie,
         speciesName = "Caterpie",
         type1 = Type.Bug,
         type2 = Type.Bug,
@@ -372,7 +361,6 @@ public static class Species
     };
     public static SpeciesData Metapod = new()
     {
-        id = SpeciesID.Metapod,
         speciesName = "Metapod",
         type1 = Type.Bug,
         type2 = Type.Bug,
@@ -406,7 +394,6 @@ public static class Species
     };
     public static SpeciesData Butterfree = new()
     {
-        id = SpeciesID.Butterfree,
         speciesName = "Butterfree",
         type1 = Type.Bug,
         type2 = Type.Flying,
@@ -440,7 +427,6 @@ public static class Species
     };
     public static SpeciesData Weedle = new()
     {
-        id = SpeciesID.Weedle,
         speciesName = "Weedle",
         type1 = Type.Bug,
         type2 = Type.Poison,
@@ -474,7 +460,6 @@ public static class Species
     };
     public static SpeciesData Kakuna = new()
     {
-        id = SpeciesID.Kakuna,
         speciesName = "Kakuna",
         type1 = Type.Bug,
         type2 = Type.Poison,
@@ -508,7 +493,6 @@ public static class Species
     };
     public static SpeciesData Beedrill = new()
     {
-        id = SpeciesID.Beedrill,
         speciesName = "Beedrill",
         type1 = Type.Bug,
         type2 = Type.Poison,
@@ -542,7 +526,6 @@ public static class Species
     };
     public static SpeciesData Pidgey = new()
     {
-        id = SpeciesID.Pidgey,
         speciesName = "Pidgey",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -576,7 +559,6 @@ public static class Species
     };
     public static SpeciesData Pidgeotto = new()
     {
-        id = SpeciesID.Pidgeotto,
         speciesName = "Pidgeotto",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -610,7 +592,6 @@ public static class Species
     };
     public static SpeciesData Pidgeot = new()
     {
-        id = SpeciesID.Pidgeot,
         speciesName = "Pidgeot",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -644,7 +625,6 @@ public static class Species
     };
     public static SpeciesData Rattata = new()
     {
-        id = SpeciesID.Rattata,
         speciesName = "Rattata",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -678,7 +658,6 @@ public static class Species
     };
     public static SpeciesData Raticate = new()
     {
-        id = SpeciesID.Raticate,
         speciesName = "Raticate",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -712,7 +691,6 @@ public static class Species
     };
     public static SpeciesData Spearow = new()
     {
-        id = SpeciesID.Spearow,
         speciesName = "Spearow",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -745,7 +723,6 @@ public static class Species
     };
     public static SpeciesData Fearow = new()
     {
-        id = SpeciesID.Fearow,
         speciesName = "Fearow",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -779,7 +756,6 @@ public static class Species
     };
     public static SpeciesData Ekans = new()
     {
-        id = SpeciesID.Ekans,
         speciesName = "Ekans",
         type1 = Type.Poison,
         type2 = Type.Poison,
@@ -813,7 +789,6 @@ public static class Species
     };
     public static SpeciesData Arbok = new()
     {
-        id = SpeciesID.Arbok,
         speciesName = "Arbok",
         type1 = Type.Poison,
         type2 = Type.Poison,
@@ -847,7 +822,6 @@ public static class Species
     };
     public static SpeciesData Pikachu = new()
     {
-        id = SpeciesID.Pikachu,
         speciesName = "Pikachu",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -881,7 +855,6 @@ public static class Species
     };
     public static SpeciesData Raichu = new()
     {
-        id = SpeciesID.Raichu,
         speciesName = "Raichu",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -915,7 +888,6 @@ public static class Species
     };
     public static SpeciesData Sandshrew = new()
     {
-        id = SpeciesID.Sandshrew,
         speciesName = "Sandshrew",
         type1 = Type.Ground,
         type2 = Type.Ground,
@@ -949,7 +921,6 @@ public static class Species
     };
     public static SpeciesData Sandslash = new()
     {
-        id = SpeciesID.Sandslash,
         speciesName = "Sandslash",
         type1 = Type.Ground,
         type2 = Type.Ground,
@@ -983,7 +954,6 @@ public static class Species
     };
     public static SpeciesData NidoranF = new()
     {
-        id = SpeciesID.NidoranF,
         speciesName = "Nidoran",
         type1 = Type.Poison,
         type2 = Type.Poison,
@@ -1018,7 +988,6 @@ public static class Species
     };
     public static SpeciesData Nidorina = new()
     {
-        id = SpeciesID.Nidorina,
         speciesName = "Nidorina",
         type1 = Type.Poison,
         type2 = Type.Poison,
@@ -1052,7 +1021,6 @@ public static class Species
     };
     public static SpeciesData Nidoqueen = new()
     {
-        id = SpeciesID.Nidoqueen,
         speciesName = "Nidoqueen",
         type1 = Type.Poison,
         type2 = Type.Ground,
@@ -1086,7 +1054,6 @@ public static class Species
     };
     public static SpeciesData NidoranM = new()
     {
-        id = SpeciesID.NidoranM,
         speciesName = "Nidoran",
         type1 = Type.Poison,
         type2 = Type.Poison,
@@ -1120,7 +1087,6 @@ public static class Species
     };
     public static SpeciesData Nidorino = new()
     {
-        id = SpeciesID.Nidorino,
         speciesName = "Nidorino",
         type1 = Type.Poison,
         type2 = Type.Poison,
@@ -1154,7 +1120,6 @@ public static class Species
     };
     public static SpeciesData Nidoking = new()
     {
-        id = SpeciesID.Nidoking,
         speciesName = "Nidoking",
         type1 = Type.Poison,
         type2 = Type.Ground,
@@ -1188,7 +1153,6 @@ public static class Species
     };
     public static SpeciesData Clefairy = new()
     {
-        id = SpeciesID.Clefairy,
         speciesName = "Clefairy",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -1222,7 +1186,6 @@ public static class Species
     };
     public static SpeciesData Clefable = new()
     {
-        id = SpeciesID.Clefable,
         speciesName = "Clefable",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -1256,7 +1219,6 @@ public static class Species
     };
     public static SpeciesData Vulpix = new()
     {
-        id = SpeciesID.Vulpix,
         speciesName = "Vulpix",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -1290,7 +1252,6 @@ public static class Species
     };
     public static SpeciesData Ninetales = new()
     {
-        id = SpeciesID.Ninetales,
         speciesName = "Ninetales",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -1324,7 +1285,6 @@ public static class Species
     };
     public static SpeciesData Jigglypuff = new()
     {
-        id = SpeciesID.Jigglypuff,
         speciesName = "Jigglypuff",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -1358,7 +1318,6 @@ public static class Species
     };
     public static SpeciesData Wigglytuff = new()
     {
-        id = SpeciesID.Wigglytuff,
         speciesName = "Wigglytuff",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -1392,7 +1351,6 @@ public static class Species
     };
     public static SpeciesData Zubat = new()
     {
-        id = SpeciesID.Zubat,
         speciesName = "Zubat",
         type1 = Type.Poison,
         type2 = Type.Flying,
@@ -1426,7 +1384,6 @@ public static class Species
     };
     public static SpeciesData Golbat = new()
     {
-        id = SpeciesID.Golbat,
         speciesName = "Golbat",
         type1 = Type.Poison,
         type2 = Type.Flying,
@@ -1460,7 +1417,6 @@ public static class Species
     };
     public static SpeciesData Oddish = new()
     {
-        id = SpeciesID.Oddish,
         speciesName = "Oddish",
         type1 = Type.Grass,
         type2 = Type.Poison,
@@ -1494,7 +1450,6 @@ public static class Species
     };
     public static SpeciesData Gloom = new()
     {
-        id = SpeciesID.Gloom,
         speciesName = "Gloom",
         type1 = Type.Grass,
         type2 = Type.Poison,
@@ -1528,7 +1483,6 @@ public static class Species
     };
     public static SpeciesData Vileplume = new()
     {
-        id = SpeciesID.Vileplume,
         speciesName = "Vileplume",
         type1 = Type.Grass,
         type2 = Type.Poison,
@@ -1562,7 +1516,6 @@ public static class Species
     };
     public static SpeciesData Paras = new()
     {
-        id = SpeciesID.Paras,
         speciesName = "Paras",
         type1 = Type.Bug,
         type2 = Type.Grass,
@@ -1596,7 +1549,6 @@ public static class Species
     };
     public static SpeciesData Parasect = new()
     {
-        id = SpeciesID.Parasect,
         speciesName = "Parasect",
         type1 = Type.Bug,
         type2 = Type.Grass,
@@ -1630,7 +1582,6 @@ public static class Species
     };
     public static SpeciesData Venonat = new()
     {
-        id = SpeciesID.Venonat,
         speciesName = "Venonat",
         type1 = Type.Bug,
         type2 = Type.Poison,
@@ -1664,7 +1615,6 @@ public static class Species
     };
     public static SpeciesData Venomoth = new()
     {
-        id = SpeciesID.Venomoth,
         speciesName = "Venomoth",
         type1 = Type.Bug,
         type2 = Type.Poison,
@@ -1698,7 +1648,6 @@ public static class Species
     };
     public static SpeciesData Diglett = new()
     {
-        id = SpeciesID.Diglett,
         speciesName = "Diglett",
         type1 = Type.Ground,
         type2 = Type.Ground,
@@ -1732,7 +1681,6 @@ public static class Species
     };
     public static SpeciesData Dugtrio = new()
     {
-        id = SpeciesID.Dugtrio,
         speciesName = "Dugtrio",
         type1 = Type.Ground,
         type2 = Type.Ground,
@@ -1766,7 +1714,6 @@ public static class Species
     };
     public static SpeciesData Meowth = new()
     {
-        id = SpeciesID.Meowth,
         speciesName = "Meowth",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -1800,7 +1747,6 @@ public static class Species
     };
     public static SpeciesData Persian = new()
     {
-        id = SpeciesID.Persian,
         speciesName = "Persian",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -1834,7 +1780,6 @@ public static class Species
     };
     public static SpeciesData Psyduck = new()
     {
-        id = SpeciesID.Psyduck,
         speciesName = "Psyduck",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -1868,7 +1813,6 @@ public static class Species
     };
     public static SpeciesData Golduck = new()
     {
-        id = SpeciesID.Golduck,
         speciesName = "Golduck",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -1902,7 +1846,6 @@ public static class Species
     };
     public static SpeciesData Mankey = new()
     {
-        id = SpeciesID.Mankey,
         speciesName = "Mankey",
         type1 = Type.Fighting,
         type2 = Type.Fighting,
@@ -1936,7 +1879,6 @@ public static class Species
     };
     public static SpeciesData Primeape = new()
     {
-        id = SpeciesID.Primeape,
         speciesName = "Primeape",
         type1 = Type.Fighting,
         type2 = Type.Fighting,
@@ -1970,7 +1912,6 @@ public static class Species
     };
     public static SpeciesData Growlithe = new()
     {
-        id = SpeciesID.Growlithe,
         speciesName = "Growlithe",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -2004,7 +1945,6 @@ public static class Species
     };
     public static SpeciesData Arcanine = new()
     {
-        id = SpeciesID.Arcanine,
         speciesName = "Arcanine",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -2038,7 +1978,6 @@ public static class Species
     };
     public static SpeciesData Poliwag = new()
     {
-        id = SpeciesID.Poliwag,
         speciesName = "Poliwag",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -2072,7 +2011,6 @@ public static class Species
     };
     public static SpeciesData Poliwhirl = new()
     {
-        id = SpeciesID.Poliwhirl,
         speciesName = "Poliwhirl",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -2106,7 +2044,6 @@ public static class Species
     };
     public static SpeciesData Poliwrath = new()
     {
-        id = SpeciesID.Poliwrath,
         speciesName = "Poliwrath",
         type1 = Type.Water,
         type2 = Type.Fighting,
@@ -2140,7 +2077,6 @@ public static class Species
     };
     public static SpeciesData Abra = new()
     {
-        id = SpeciesID.Abra,
         speciesName = "Abra",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -2174,7 +2110,6 @@ public static class Species
     };
     public static SpeciesData Kadabra = new()
     {
-        id = SpeciesID.Kadabra,
         speciesName = "Kadabra",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -2208,7 +2143,6 @@ public static class Species
     };
     public static SpeciesData Alakazam = new()
     {
-        id = SpeciesID.Alakazam,
         speciesName = "Alakazam",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -2242,7 +2176,6 @@ public static class Species
     };
     public static SpeciesData Machop = new()
     {
-        id = SpeciesID.Machop,
         speciesName = "Machop",
         type1 = Type.Fighting,
         type2 = Type.Fighting,
@@ -2276,7 +2209,6 @@ public static class Species
     };
     public static SpeciesData Machoke = new()
     {
-        id = SpeciesID.Machoke,
         speciesName = "Machoke",
         type1 = Type.Fighting,
         type2 = Type.Fighting,
@@ -2310,7 +2242,6 @@ public static class Species
     };
     public static SpeciesData Machamp = new()
     {
-        id = SpeciesID.Machamp,
         speciesName = "Machamp",
         type1 = Type.Fighting,
         type2 = Type.Fighting,
@@ -2344,7 +2275,6 @@ public static class Species
     };
     public static SpeciesData Bellsprout = new()
     {
-        id = SpeciesID.Bellsprout,
         speciesName = "Bellsprout",
         type1 = Type.Grass,
         type2 = Type.Poison,
@@ -2378,7 +2308,6 @@ public static class Species
     };
     public static SpeciesData Weepinbell = new()
     {
-        id = SpeciesID.Weepinbell,
         speciesName = "Weepinbell",
         type1 = Type.Grass,
         type2 = Type.Poison,
@@ -2412,7 +2341,6 @@ public static class Species
     };
     public static SpeciesData Victreebel = new()
     {
-        id = SpeciesID.Victreebel,
         speciesName = "Victreebel",
         type1 = Type.Grass,
         type2 = Type.Poison,
@@ -2446,7 +2374,6 @@ public static class Species
     };
     public static SpeciesData Tentacool = new()
     {
-        id = SpeciesID.Tentacool,
         speciesName = "Tentacool",
         type1 = Type.Water,
         type2 = Type.Poison,
@@ -2480,7 +2407,6 @@ public static class Species
     };
     public static SpeciesData Tentacruel = new()
     {
-        id = SpeciesID.Tentacruel,
         speciesName = "Tentacruel",
         type1 = Type.Water,
         type2 = Type.Poison,
@@ -2514,7 +2440,6 @@ public static class Species
     };
     public static SpeciesData Geodude = new()
     {
-        id = SpeciesID.Geodude,
         speciesName = "Geodude",
         type1 = Type.Rock,
         type2 = Type.Ground,
@@ -2548,7 +2473,6 @@ public static class Species
     };
     public static SpeciesData Graveler = new()
     {
-        id = SpeciesID.Graveler,
         speciesName = "Graveler",
         type1 = Type.Rock,
         type2 = Type.Ground,
@@ -2582,7 +2506,6 @@ public static class Species
     };
     public static SpeciesData Golem = new()
     {
-        id = SpeciesID.Golem,
         speciesName = "Golem",
         type1 = Type.Rock,
         type2 = Type.Ground,
@@ -2616,7 +2539,6 @@ public static class Species
     };
     public static SpeciesData Ponyta = new()
     {
-        id = SpeciesID.Ponyta,
         speciesName = "Ponyta",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -2650,7 +2572,6 @@ public static class Species
     };
     public static SpeciesData Rapidash = new()
     {
-        id = SpeciesID.Rapidash,
         speciesName = "Rapidash",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -2684,7 +2605,6 @@ public static class Species
     };
     public static SpeciesData Slowpoke = new()
     {
-        id = SpeciesID.Slowpoke,
         speciesName = "Slowpoke",
         type1 = Type.Water,
         type2 = Type.Psychic,
@@ -2718,7 +2638,6 @@ public static class Species
     };
     public static SpeciesData Slowbro = new()
     {
-        id = SpeciesID.Slowbro,
         speciesName = "Slowbro",
         type1 = Type.Water,
         type2 = Type.Psychic,
@@ -2752,7 +2671,6 @@ public static class Species
     };
     public static SpeciesData Magnemite = new()
     {
-        id = SpeciesID.Magnemite,
         speciesName = "Magnemite",
         type1 = Type.Electric,
         type2 = Type.Steel,
@@ -2786,7 +2704,6 @@ public static class Species
     };
     public static SpeciesData Magneton = new()
     {
-        id = SpeciesID.Magneton,
         speciesName = "Magneton",
         type1 = Type.Electric,
         type2 = Type.Steel,
@@ -2820,7 +2737,6 @@ public static class Species
     };
     public static SpeciesData Farfetchd = new()
     {
-        id = SpeciesID.Farfetchd,
         speciesName = "Farfetchd",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -2854,7 +2770,6 @@ public static class Species
     };
     public static SpeciesData Doduo = new()
     {
-        id = SpeciesID.Doduo,
         speciesName = "Doduo",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -2888,7 +2803,6 @@ public static class Species
     };
     public static SpeciesData Dodrio = new()
     {
-        id = SpeciesID.Dodrio,
         speciesName = "Dodrio",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -2922,7 +2836,6 @@ public static class Species
     };
     public static SpeciesData Seel = new()
     {
-        id = SpeciesID.Seel,
         speciesName = "Seel",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -2956,7 +2869,6 @@ public static class Species
     };
     public static SpeciesData Dewgong = new()
     {
-        id = SpeciesID.Dewgong,
         speciesName = "Dewgong",
         type1 = Type.Water,
         type2 = Type.Ice,
@@ -2990,7 +2902,6 @@ public static class Species
     };
     public static SpeciesData Grimer = new()
     {
-        id = SpeciesID.Grimer,
         speciesName = "Grimer",
         type1 = Type.Poison,
         type2 = Type.Poison,
@@ -3024,7 +2935,6 @@ public static class Species
     };
     public static SpeciesData Muk = new()
     {
-        id = SpeciesID.Muk,
         speciesName = "Muk",
         type1 = Type.Poison,
         type2 = Type.Poison,
@@ -3058,7 +2968,6 @@ public static class Species
     };
     public static SpeciesData Shellder = new()
     {
-        id = SpeciesID.Shellder,
         speciesName = "Shellder",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -3092,7 +3001,6 @@ public static class Species
     };
     public static SpeciesData Cloyster = new()
     {
-        id = SpeciesID.Cloyster,
         speciesName = "Cloyster",
         type1 = Type.Water,
         type2 = Type.Ice,
@@ -3126,7 +3034,6 @@ public static class Species
     };
     public static SpeciesData Gastly = new()
     {
-        id = SpeciesID.Gastly,
         speciesName = "Gastly",
         type1 = Type.Ghost,
         type2 = Type.Poison,
@@ -3160,7 +3067,6 @@ public static class Species
     };
     public static SpeciesData Haunter = new()
     {
-        id = SpeciesID.Haunter,
         speciesName = "Haunter",
         type1 = Type.Ghost,
         type2 = Type.Poison,
@@ -3193,7 +3099,6 @@ public static class Species
     };
     public static SpeciesData Gengar = new()
     {
-        id = SpeciesID.Gengar,
         speciesName = "Gengar",
         type1 = Type.Ghost,
         type2 = Type.Poison,
@@ -3227,7 +3132,6 @@ public static class Species
     };
     public static SpeciesData Onix = new()
     {
-        id = SpeciesID.Onix,
         speciesName = "Onix",
         type1 = Type.Rock,
         type2 = Type.Ground,
@@ -3261,7 +3165,6 @@ public static class Species
     };
     public static SpeciesData Drowzee = new()
     {
-        id = SpeciesID.Drowzee,
         speciesName = "Drowzee",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -3295,7 +3198,6 @@ public static class Species
     };
     public static SpeciesData Hypno = new()
     {
-        id = SpeciesID.Hypno,
         speciesName = "Hypno",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -3329,7 +3231,6 @@ public static class Species
     };
     public static SpeciesData Krabby = new()
     {
-        id = SpeciesID.Krabby,
         speciesName = "Krabby",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -3363,7 +3264,6 @@ public static class Species
     };
     public static SpeciesData Kingler = new()
     {
-        id = SpeciesID.Kingler,
         speciesName = "Kingler",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -3397,7 +3297,6 @@ public static class Species
     };
     public static SpeciesData Voltorb = new()
     {
-        id = SpeciesID.Voltorb,
         speciesName = "Voltorb",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -3431,7 +3330,6 @@ public static class Species
     };
     public static SpeciesData Electrode = new()
     {
-        id = SpeciesID.Electrode,
         speciesName = "Electrode",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -3465,7 +3363,6 @@ public static class Species
     };
     public static SpeciesData Exeggcute = new()
     {
-        id = SpeciesID.Exeggcute,
         speciesName = "Exeggcute",
         type1 = Type.Grass,
         type2 = Type.Psychic,
@@ -3499,7 +3396,6 @@ public static class Species
     };
     public static SpeciesData Exeggutor = new()
     {
-        id = SpeciesID.Exeggutor,
         speciesName = "Exeggutor",
         type1 = Type.Grass,
         type2 = Type.Psychic,
@@ -3533,7 +3429,6 @@ public static class Species
     };
     public static SpeciesData Cubone = new()
     {
-        id = SpeciesID.Cubone,
         speciesName = "Cubone",
         type1 = Type.Ground,
         type2 = Type.Ground,
@@ -3567,7 +3462,6 @@ public static class Species
     };
     public static SpeciesData Marowak = new()
     {
-        id = SpeciesID.Marowak,
         speciesName = "Marowak",
         type1 = Type.Ground,
         type2 = Type.Ground,
@@ -3601,7 +3495,6 @@ public static class Species
     };
     public static SpeciesData Hitmonlee = new()
     {
-        id = SpeciesID.Hitmonlee,
         speciesName = "Hitmonlee",
         type1 = Type.Fighting,
         type2 = Type.Fighting,
@@ -3635,7 +3528,6 @@ public static class Species
     };
     public static SpeciesData Hitmonchan = new()
     {
-        id = SpeciesID.Hitmonchan,
         speciesName = "Hitmonchan",
         type1 = Type.Fighting,
         type2 = Type.Fighting,
@@ -3669,7 +3561,6 @@ public static class Species
     };
     public static SpeciesData Lickitung = new()
     {
-        id = SpeciesID.Lickitung,
         speciesName = "Lickitung",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -3703,7 +3594,6 @@ public static class Species
     };
     public static SpeciesData Koffing = new()
     {
-        id = SpeciesID.Koffing,
         speciesName = "Koffing",
         type1 = Type.Poison,
         type2 = Type.Poison,
@@ -3737,7 +3627,6 @@ public static class Species
     };
     public static SpeciesData Weezing = new()
     {
-        id = SpeciesID.Weezing,
         speciesName = "Weezing",
         type1 = Type.Poison,
         type2 = Type.Poison,
@@ -3771,7 +3660,6 @@ public static class Species
     };
     public static SpeciesData Rhyhorn = new()
     {
-        id = SpeciesID.Rhyhorn,
         speciesName = "Rhyhorn",
         type1 = Type.Ground,
         type2 = Type.Rock,
@@ -3805,7 +3693,6 @@ public static class Species
     };
     public static SpeciesData Rhydon = new()
     {
-        id = SpeciesID.Rhydon,
         speciesName = "Rhydon",
         type1 = Type.Ground,
         type2 = Type.Rock,
@@ -3839,7 +3726,6 @@ public static class Species
     };
     public static SpeciesData Chansey = new()
     {
-        id = SpeciesID.Chansey,
         speciesName = "Chansey",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -3873,7 +3759,6 @@ public static class Species
     };
     public static SpeciesData Tangela = new()
     {
-        id = SpeciesID.Tangela,
         speciesName = "Tangela",
         type1 = Type.Grass,
         type2 = Type.Grass,
@@ -3907,7 +3792,6 @@ public static class Species
     };
     public static SpeciesData Kangaskhan = new()
     {
-        id = SpeciesID.Kangaskhan,
         speciesName = "Kangaskhan",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -3941,7 +3825,6 @@ public static class Species
     };
     public static SpeciesData Horsea = new()
     {
-        id = SpeciesID.Horsea,
         speciesName = "Horsea",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -3975,7 +3858,6 @@ public static class Species
     };
     public static SpeciesData Seadra = new()
     {
-        id = SpeciesID.Seadra,
         speciesName = "Seadra",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -4009,7 +3891,6 @@ public static class Species
     };
     public static SpeciesData Goldeen = new()
     {
-        id = SpeciesID.Goldeen,
         speciesName = "Goldeen",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -4043,7 +3924,6 @@ public static class Species
     };
     public static SpeciesData Seaking = new()
     {
-        id = SpeciesID.Seaking,
         speciesName = "Seaking",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -4077,7 +3957,6 @@ public static class Species
     };
     public static SpeciesData Staryu = new()
     {
-        id = SpeciesID.Staryu,
         speciesName = "Staryu",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -4111,7 +3990,6 @@ public static class Species
     };
     public static SpeciesData Starmie = new()
     {
-        id = SpeciesID.Starmie,
         speciesName = "Starmie",
         type1 = Type.Water,
         type2 = Type.Psychic,
@@ -4145,7 +4023,6 @@ public static class Species
     };
     public static SpeciesData MrMime = new()
     {
-        id = SpeciesID.MrMime,
         speciesName = "Mr. Mime",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -4179,7 +4056,6 @@ public static class Species
     };
     public static SpeciesData Scyther = new()
     {
-        id = SpeciesID.Scyther,
         speciesName = "Scyther",
         type1 = Type.Bug,
         type2 = Type.Flying,
@@ -4213,7 +4089,6 @@ public static class Species
     };
     public static SpeciesData Jynx = new()
     {
-        id = SpeciesID.Jynx,
         speciesName = "Jynx",
         type1 = Type.Ice,
         type2 = Type.Psychic,
@@ -4247,7 +4122,6 @@ public static class Species
     };
     public static SpeciesData Electabuzz = new()
     {
-        id = SpeciesID.Electabuzz,
         speciesName = "Electabuzz",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -4281,7 +4155,6 @@ public static class Species
     };
     public static SpeciesData Magmar = new()
     {
-        id = SpeciesID.Magmar,
         speciesName = "Magmar",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -4315,7 +4188,6 @@ public static class Species
     };
     public static SpeciesData Pinsir = new()
     {
-        id = SpeciesID.Pinsir,
         speciesName = "Pinsir",
         type1 = Type.Bug,
         type2 = Type.Bug,
@@ -4349,7 +4221,6 @@ public static class Species
     };
     public static SpeciesData Tauros = new()
     {
-        id = SpeciesID.Tauros,
         speciesName = "Tauros",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -4383,7 +4254,6 @@ public static class Species
     };
     public static SpeciesData Magikarp = new()
     {
-        id = SpeciesID.Magikarp,
         speciesName = "Magikarp",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -4417,7 +4287,6 @@ public static class Species
     };
     public static SpeciesData Gyarados = new()
     {
-        id = SpeciesID.Gyarados,
         speciesName = "Gyarados",
         type1 = Type.Water,
         type2 = Type.Flying,
@@ -4451,7 +4320,6 @@ public static class Species
     };
     public static SpeciesData Lapras = new()
     {
-        id = SpeciesID.Lapras,
         speciesName = "Lapras",
         type1 = Type.Water,
         type2 = Type.Ice,
@@ -4485,7 +4353,6 @@ public static class Species
     };
     public static SpeciesData Ditto = new()
     {
-        id = SpeciesID.Ditto,
         speciesName = "Ditto",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -4519,7 +4386,6 @@ public static class Species
     };
     public static SpeciesData Eevee = new()
     {
-        id = SpeciesID.Eevee,
         speciesName = "Eevee",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -4553,7 +4419,6 @@ public static class Species
     };
     public static SpeciesData Vaporeon = new()
     {
-        id = SpeciesID.Vaporeon,
         speciesName = "Vaporeon",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -4587,7 +4452,6 @@ public static class Species
     };
     public static SpeciesData Jolteon = new()
     {
-        id = SpeciesID.Jolteon,
         speciesName = "Jolteon",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -4621,7 +4485,6 @@ public static class Species
     };
     public static SpeciesData Flareon = new()
     {
-        id = SpeciesID.Flareon,
         speciesName = "Flareon",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -4655,7 +4518,6 @@ public static class Species
     };
     public static SpeciesData Porygon = new()
     {
-        id = SpeciesID.Porygon,
         speciesName = "Porygon",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -4689,7 +4551,6 @@ public static class Species
     };
     public static SpeciesData Omanyte = new()
     {
-        id = SpeciesID.Omanyte,
         speciesName = "Omanyte",
         type1 = Type.Rock,
         type2 = Type.Water,
@@ -4723,7 +4584,6 @@ public static class Species
     };
     public static SpeciesData Omastar = new()
     {
-        id = SpeciesID.Omastar,
         speciesName = "Omastar",
         type1 = Type.Rock,
         type2 = Type.Water,
@@ -4757,7 +4617,6 @@ public static class Species
     };
     public static SpeciesData Kabuto = new()
     {
-        id = SpeciesID.Kabuto,
         speciesName = "Kabuto",
         type1 = Type.Rock,
         type2 = Type.Water,
@@ -4791,7 +4650,6 @@ public static class Species
     };
     public static SpeciesData Kabutops = new()
     {
-        id = SpeciesID.Kabutops,
         speciesName = "Kabutops",
         type1 = Type.Rock,
         type2 = Type.Water,
@@ -4825,7 +4683,6 @@ public static class Species
     };
     public static SpeciesData Aerodactyl = new()
     {
-        id = SpeciesID.Aerodactyl,
         speciesName = "Aerodactyl",
         type1 = Type.Rock,
         type2 = Type.Flying,
@@ -4859,7 +4716,6 @@ public static class Species
     };
     public static SpeciesData Snorlax = new()
     {
-        id = SpeciesID.Snorlax,
         speciesName = "Snorlax",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -4893,7 +4749,6 @@ public static class Species
     };
     public static SpeciesData Articuno = new()
     {
-        id = SpeciesID.Articuno,
         speciesName = "Articuno",
         type1 = Type.Ice,
         type2 = Type.Flying,
@@ -4927,7 +4782,6 @@ public static class Species
     };
     public static SpeciesData Zapdos = new()
     {
-        id = SpeciesID.Zapdos,
         speciesName = "Zapdos",
         type1 = Type.Electric,
         type2 = Type.Flying,
@@ -4961,7 +4815,6 @@ public static class Species
     };
     public static SpeciesData Moltres = new()
     {
-        id = SpeciesID.Moltres,
         speciesName = "Moltres",
         type1 = Type.Fire,
         type2 = Type.Flying,
@@ -4995,7 +4848,6 @@ public static class Species
     };
     public static SpeciesData Dratini = new()
     {
-        id = SpeciesID.Dratini,
         speciesName = "Dratini",
         type1 = Type.Dragon,
         type2 = Type.Dragon,
@@ -5029,7 +4881,6 @@ public static class Species
     };
     public static SpeciesData Dragonair = new()
     {
-        id = SpeciesID.Dragonair,
         speciesName = "Dragonair",
         type1 = Type.Dragon,
         type2 = Type.Dragon,
@@ -5063,7 +4914,6 @@ public static class Species
     };
     public static SpeciesData Dragonite = new()
     {
-        id = SpeciesID.Dragonite,
         speciesName = "Dragonite",
         type1 = Type.Dragon,
         type2 = Type.Flying,
@@ -5097,7 +4947,6 @@ public static class Species
     };
     public static SpeciesData Mewtwo = new()
     {
-        id = SpeciesID.Mewtwo,
         speciesName = "Mewtwo",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -5131,7 +4980,6 @@ public static class Species
     };
     public static SpeciesData Mew = new()
     {
-        id = SpeciesID.Mew,
         speciesName = "Mew",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -5165,7 +5013,6 @@ public static class Species
     };
     public static SpeciesData Chikorita = new()
     {
-        id = SpeciesID.Chikorita,
         speciesName = "Chikorita",
         type1 = Type.Grass,
         type2 = Type.Grass,
@@ -5199,7 +5046,6 @@ public static class Species
     };
     public static SpeciesData Bayleef = new()
     {
-        id = SpeciesID.Bayleef,
         speciesName = "Bayleef",
         type1 = Type.Grass,
         type2 = Type.Grass,
@@ -5233,7 +5079,6 @@ public static class Species
     };
     public static SpeciesData Meganium = new()
     {
-        id = SpeciesID.Meganium,
         speciesName = "Meganium",
         type1 = Type.Grass,
         type2 = Type.Grass,
@@ -5267,7 +5112,6 @@ public static class Species
     };
     public static SpeciesData Cyndaquil = new()
     {
-        id = SpeciesID.Cyndaquil,
         speciesName = "Cyndaquil",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -5301,7 +5145,6 @@ public static class Species
     };
     public static SpeciesData Quilava = new()
     {
-        id = SpeciesID.Quilava,
         speciesName = "Quilava",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -5335,7 +5178,6 @@ public static class Species
     };
     public static SpeciesData Typhlosion = new()
     {
-        id = SpeciesID.Typhlosion,
         speciesName = "Typhlosion",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -5369,7 +5211,6 @@ public static class Species
     };
     public static SpeciesData Totodile = new()
     {
-        id = SpeciesID.Totodile,
         speciesName = "Totodile",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -5403,7 +5244,6 @@ public static class Species
     };
     public static SpeciesData Croconaw = new()
     {
-        id = SpeciesID.Croconaw,
         speciesName = "Croconaw",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -5437,7 +5277,6 @@ public static class Species
     };
     public static SpeciesData Feraligatr = new()
     {
-        id = SpeciesID.Feraligatr,
         speciesName = "Feraligatr",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -5471,7 +5310,6 @@ public static class Species
     };
     public static SpeciesData Sentret = new()
     {
-        id = SpeciesID.Sentret,
         speciesName = "Sentret",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -5505,7 +5343,6 @@ public static class Species
     };
     public static SpeciesData Furret = new()
     {
-        id = SpeciesID.Furret,
         speciesName = "Furret",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -5539,7 +5376,6 @@ public static class Species
     };
     public static SpeciesData Hoothoot = new()
     {
-        id = SpeciesID.Hoothoot,
         speciesName = "Hoothoot",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -5573,7 +5409,6 @@ public static class Species
     };
     public static SpeciesData Noctowl = new()
     {
-        id = SpeciesID.Noctowl,
         speciesName = "Noctowl",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -5607,7 +5442,6 @@ public static class Species
     };
     public static SpeciesData Ledyba = new()
     {
-        id = SpeciesID.Ledyba,
         speciesName = "Ledyba",
         type1 = Type.Bug,
         type2 = Type.Flying,
@@ -5641,7 +5475,6 @@ public static class Species
     };
     public static SpeciesData Ledian = new()
     {
-        id = SpeciesID.Ledian,
         speciesName = "Ledian",
         type1 = Type.Bug,
         type2 = Type.Flying,
@@ -5675,7 +5508,6 @@ public static class Species
     };
     public static SpeciesData Spinarak = new()
     {
-        id = SpeciesID.Spinarak,
         speciesName = "Spinarak",
         type1 = Type.Bug,
         type2 = Type.Poison,
@@ -5709,7 +5541,6 @@ public static class Species
     };
     public static SpeciesData Ariados = new()
     {
-        id = SpeciesID.Ariados,
         speciesName = "Ariados",
         type1 = Type.Bug,
         type2 = Type.Poison,
@@ -5743,7 +5574,6 @@ public static class Species
     };
     public static SpeciesData Crobat = new()
     {
-        id = SpeciesID.Crobat,
         speciesName = "Crobat",
         type1 = Type.Poison,
         type2 = Type.Flying,
@@ -5777,7 +5607,6 @@ public static class Species
     };
     public static SpeciesData Chinchou = new()
     {
-        id = SpeciesID.Chinchou,
         speciesName = "Chinchou",
         type1 = Type.Water,
         type2 = Type.Electric,
@@ -5811,7 +5640,6 @@ public static class Species
     };
     public static SpeciesData Lanturn = new()
     {
-        id = SpeciesID.Lanturn,
         speciesName = "Lanturn",
         type1 = Type.Water,
         type2 = Type.Electric,
@@ -5846,7 +5674,6 @@ public static class Species
 
     public static SpeciesData Pichu = new()
     {
-        id = SpeciesID.Pichu,
         speciesName = "Pichu",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -5881,7 +5708,6 @@ public static class Species
 
     public static SpeciesData Cleffa = new()
     {
-        id = SpeciesID.Cleffa,
         speciesName = "Cleffa",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -5915,7 +5741,6 @@ public static class Species
     };
     public static SpeciesData Igglybuff = new()
     {
-        id = SpeciesID.Igglybuff,
         speciesName = "Igglybuff",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -5949,7 +5774,6 @@ public static class Species
     };
     public static SpeciesData Togepi = new()
     {
-        id = SpeciesID.Togepi,
         speciesName = "Togepi",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -5983,7 +5807,6 @@ public static class Species
     };
     public static SpeciesData Togetic = new()
     {
-        id = SpeciesID.Togetic,
         speciesName = "Togetic",
         type1 = Type.Normal,
         type2 = Type.Flying,
@@ -6017,7 +5840,6 @@ public static class Species
     };
     public static SpeciesData Natu = new()
     {
-        id = SpeciesID.Natu,
         speciesName = "Natu",
         type1 = Type.Psychic,
         type2 = Type.Flying,
@@ -6051,7 +5873,6 @@ public static class Species
     };
     public static SpeciesData Xatu = new()
     {
-        id = SpeciesID.Xatu,
         speciesName = "Xatu",
         type1 = Type.Psychic,
         type2 = Type.Flying,
@@ -6085,7 +5906,6 @@ public static class Species
     };
     public static SpeciesData Mareep = new()
     {
-        id = SpeciesID.Mareep,
         speciesName = "Mareep",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -6119,7 +5939,6 @@ public static class Species
     };
     public static SpeciesData Flaaffy = new()
     {
-        id = SpeciesID.Flaaffy,
         speciesName = "Flaaffy",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -6153,7 +5972,6 @@ public static class Species
     };
     public static SpeciesData Ampharos = new()
     {
-        id = SpeciesID.Ampharos,
         speciesName = "Ampharos",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -6187,7 +6005,6 @@ public static class Species
     };
     public static SpeciesData Bellossom = new()
     {
-        id = SpeciesID.Bellossom,
         speciesName = "Bellossom",
         type1 = Type.Grass,
         type2 = Type.Grass,
@@ -6221,7 +6038,6 @@ public static class Species
     };
     public static SpeciesData Marill = new()
     {
-        id = SpeciesID.Marill,
         speciesName = "Marill",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -6255,7 +6071,6 @@ public static class Species
     };
     public static SpeciesData Azumarill = new()
     {
-        id = SpeciesID.Azumarill,
         speciesName = "Azumarill",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -6289,7 +6104,6 @@ public static class Species
     };
     public static SpeciesData Sudowoodo = new()
     {
-        id = SpeciesID.Sudowoodo,
         speciesName = "Sudowoodo",
         type1 = Type.Rock,
         type2 = Type.Rock,
@@ -6323,7 +6137,6 @@ public static class Species
     };
     public static SpeciesData Politoed = new()
     {
-        id = SpeciesID.Politoed,
         speciesName = "Politoed",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -6357,7 +6170,6 @@ public static class Species
     };
     public static SpeciesData Hoppip = new()
     {
-        id = SpeciesID.Hoppip,
         speciesName = "Hoppip",
         type1 = Type.Grass,
         type2 = Type.Flying,
@@ -6391,7 +6203,6 @@ public static class Species
     };
     public static SpeciesData Skiploom = new()
     {
-        id = SpeciesID.Skiploom,
         speciesName = "Skiploom",
         type1 = Type.Grass,
         type2 = Type.Flying,
@@ -6425,7 +6236,6 @@ public static class Species
     };
     public static SpeciesData Jumpluff = new()
     {
-        id = SpeciesID.Jumpluff,
         speciesName = "Jumpluff",
         type1 = Type.Grass,
         type2 = Type.Flying,
@@ -6459,7 +6269,6 @@ public static class Species
     };
     public static SpeciesData Aipom = new()
     {
-        id = SpeciesID.Aipom,
         speciesName = "Aipom",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -6493,7 +6302,6 @@ public static class Species
     };
     public static SpeciesData Sunkern = new()
     {
-        id = SpeciesID.Sunkern,
         speciesName = "Sunkern",
         type1 = Type.Grass,
         type2 = Type.Grass,
@@ -6527,7 +6335,6 @@ public static class Species
     };
     public static SpeciesData Sunflora = new()
     {
-        id = SpeciesID.Sunflora,
         speciesName = "Sunflora",
         type1 = Type.Grass,
         type2 = Type.Grass,
@@ -6561,7 +6368,6 @@ public static class Species
     };
     public static SpeciesData Yanma = new()
     {
-        id = SpeciesID.Yanma,
         speciesName = "Yanma",
         type1 = Type.Bug,
         type2 = Type.Flying,
@@ -6595,7 +6401,6 @@ public static class Species
     };
     public static SpeciesData Wooper = new()
     {
-        id = SpeciesID.Wooper,
         speciesName = "Wooper",
         type1 = Type.Water,
         type2 = Type.Ground,
@@ -6629,7 +6434,6 @@ public static class Species
     };
     public static SpeciesData Quagsire = new()
     {
-        id = SpeciesID.Quagsire,
         speciesName = "Quagsire",
         type1 = Type.Water,
         type2 = Type.Ground,
@@ -6663,7 +6467,6 @@ public static class Species
     };
     public static SpeciesData Espeon = new()
     {
-        id = SpeciesID.Espeon,
         speciesName = "Espeon",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -6697,7 +6500,6 @@ public static class Species
     };
     public static SpeciesData Umbreon = new()
     {
-        id = SpeciesID.Umbreon,
         speciesName = "Umbreon",
         type1 = Type.Dark,
         type2 = Type.Dark,
@@ -6731,7 +6533,6 @@ public static class Species
     };
     public static SpeciesData Murkrow = new()
     {
-        id = SpeciesID.Murkrow,
         speciesName = "Murkrow",
         type1 = Type.Dark,
         type2 = Type.Flying,
@@ -6765,7 +6566,6 @@ public static class Species
     };
     public static SpeciesData Slowking = new()
     {
-        id = SpeciesID.Slowking,
         speciesName = "Slowking",
         type1 = Type.Water,
         type2 = Type.Psychic,
@@ -6799,7 +6599,6 @@ public static class Species
     };
     public static SpeciesData Misdreavus = new()
     {
-        id = SpeciesID.Misdreavus,
         speciesName = "Misdreavus",
         type1 = Type.Ghost,
         type2 = Type.Ghost,
@@ -6833,7 +6632,6 @@ public static class Species
     };
     public static SpeciesData Unown = new()
     {
-        id = SpeciesID.Unown,
         speciesName = "Unown",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -6867,7 +6665,6 @@ public static class Species
     };
     public static SpeciesData Wobbuffet = new()
     {
-        id = SpeciesID.Wobbuffet,
         speciesName = "Wobbuffet",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -6901,7 +6698,6 @@ public static class Species
     };
     public static SpeciesData Girafarig = new()
     {
-        id = SpeciesID.Girafarig,
         speciesName = "Girafarig",
         type1 = Type.Normal,
         type2 = Type.Psychic,
@@ -6935,7 +6731,6 @@ public static class Species
     };
     public static SpeciesData Pineco = new()
     {
-        id = SpeciesID.Pineco,
         speciesName = "Pineco",
         type1 = Type.Bug,
         type2 = Type.Bug,
@@ -6969,7 +6764,6 @@ public static class Species
     };
     public static SpeciesData Forretress = new()
     {
-        id = SpeciesID.Forretress,
         speciesName = "Forretress",
         type1 = Type.Bug,
         type2 = Type.Steel,
@@ -7003,7 +6797,6 @@ public static class Species
     };
     public static SpeciesData Dunsparce = new()
     {
-        id = SpeciesID.Dunsparce,
         speciesName = "Dunsparce",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -7037,7 +6830,6 @@ public static class Species
     };
     public static SpeciesData Gligar = new()
     {
-        id = SpeciesID.Gligar,
         speciesName = "Gligar",
         type1 = Type.Ground,
         type2 = Type.Flying,
@@ -7071,7 +6863,6 @@ public static class Species
     };
     public static SpeciesData Steelix = new()
     {
-        id = SpeciesID.Steelix,
         speciesName = "Steelix",
         type1 = Type.Steel,
         type2 = Type.Ground,
@@ -7105,7 +6896,6 @@ public static class Species
     };
     public static SpeciesData Snubbull = new()
     {
-        id = SpeciesID.Snubbull,
         speciesName = "Snubbull",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -7139,7 +6929,6 @@ public static class Species
     };
     public static SpeciesData Granbull = new()
     {
-        id = SpeciesID.Granbull,
         speciesName = "Granbull",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -7173,7 +6962,6 @@ public static class Species
     };
     public static SpeciesData Qwilfish = new()
     {
-        id = SpeciesID.Qwilfish,
         speciesName = "Qwilfish",
         type1 = Type.Water,
         type2 = Type.Poison,
@@ -7207,7 +6995,6 @@ public static class Species
     };
     public static SpeciesData Scizor = new()
     {
-        id = SpeciesID.Scizor,
         speciesName = "Scizor",
         type1 = Type.Bug,
         type2 = Type.Steel,
@@ -7241,7 +7028,6 @@ public static class Species
     };
     public static SpeciesData Shuckle = new()
     {
-        id = SpeciesID.Shuckle,
         speciesName = "Shuckle",
         type1 = Type.Bug,
         type2 = Type.Rock,
@@ -7275,7 +7061,6 @@ public static class Species
     };
     public static SpeciesData Heracross = new()
     {
-        id = SpeciesID.Heracross,
         speciesName = "Heracross",
         type1 = Type.Bug,
         type2 = Type.Fighting,
@@ -7309,7 +7094,6 @@ public static class Species
     };
     public static SpeciesData Sneasel = new()
     {
-        id = SpeciesID.Sneasel,
         speciesName = "Sneasel",
         type1 = Type.Dark,
         type2 = Type.Ice,
@@ -7343,7 +7127,6 @@ public static class Species
     };
     public static SpeciesData Teddiursa = new()
     {
-        id = SpeciesID.Teddiursa,
         speciesName = "Teddiursa",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -7377,7 +7160,6 @@ public static class Species
     };
     public static SpeciesData Ursaring = new()
     {
-        id = SpeciesID.Ursaring,
         speciesName = "Ursaring",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -7411,7 +7193,6 @@ public static class Species
     };
     public static SpeciesData Slugma = new()
     {
-        id = SpeciesID.Slugma,
         speciesName = "Slugma",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -7445,7 +7226,6 @@ public static class Species
     };
     public static SpeciesData Magcargo = new()
     {
-        id = SpeciesID.Magcargo,
         speciesName = "Magcargo",
         type1 = Type.Fire,
         type2 = Type.Rock,
@@ -7479,7 +7259,6 @@ public static class Species
     };
     public static SpeciesData Swinub = new()
     {
-        id = SpeciesID.Swinub,
         speciesName = "Swinub",
         type1 = Type.Ice,
         type2 = Type.Ground,
@@ -7513,7 +7292,6 @@ public static class Species
     };
     public static SpeciesData Piloswine = new()
     {
-        id = SpeciesID.Piloswine,
         speciesName = "Piloswine",
         type1 = Type.Ice,
         type2 = Type.Ground,
@@ -7547,7 +7325,6 @@ public static class Species
     };
     public static SpeciesData Corsola = new()
     {
-        id = SpeciesID.Corsola,
         speciesName = "Corsola",
         type1 = Type.Water,
         type2 = Type.Rock,
@@ -7581,7 +7358,6 @@ public static class Species
     };
     public static SpeciesData Remoraid = new()
     {
-        id = SpeciesID.Remoraid,
         speciesName = "Remoraid",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -7615,7 +7391,6 @@ public static class Species
     };
     public static SpeciesData Octillery = new()
     {
-        id = SpeciesID.Octillery,
         speciesName = "Octillery",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -7649,7 +7424,6 @@ public static class Species
     };
     public static SpeciesData Delibird = new()
     {
-        id = SpeciesID.Delibird,
         speciesName = "Delibird",
         type1 = Type.Ice,
         type2 = Type.Flying,
@@ -7683,7 +7457,6 @@ public static class Species
     };
     public static SpeciesData Mantine = new()
     {
-        id = SpeciesID.Mantine,
         speciesName = "Mantine",
         type1 = Type.Water,
         type2 = Type.Flying,
@@ -7717,7 +7490,6 @@ public static class Species
     };
     public static SpeciesData Skarmory = new()
     {
-        id = SpeciesID.Skarmory,
         speciesName = "Skarmory",
         type1 = Type.Steel,
         type2 = Type.Flying,
@@ -7751,7 +7523,6 @@ public static class Species
     };
     public static SpeciesData Houndour = new()
     {
-        id = SpeciesID.Houndour,
         speciesName = "Houndour",
         type1 = Type.Dark,
         type2 = Type.Fire,
@@ -7785,7 +7556,6 @@ public static class Species
     };
     public static SpeciesData Houndoom = new()
     {
-        id = SpeciesID.Houndoom,
         speciesName = "Houndoom",
         type1 = Type.Dark,
         type2 = Type.Fire,
@@ -7819,7 +7589,6 @@ public static class Species
     };
     public static SpeciesData Kingdra = new()
     {
-        id = SpeciesID.Kingdra,
         speciesName = "Kingdra",
         type1 = Type.Water,
         type2 = Type.Dragon,
@@ -7853,7 +7622,6 @@ public static class Species
     };
     public static SpeciesData Phanpy = new()
     {
-        id = SpeciesID.Phanpy,
         speciesName = "Phanpy",
         type1 = Type.Ground,
         type2 = Type.Ground,
@@ -7887,7 +7655,6 @@ public static class Species
     };
     public static SpeciesData Donphan = new()
     {
-        id = SpeciesID.Donphan,
         speciesName = "Donphan",
         type1 = Type.Ground,
         type2 = Type.Ground,
@@ -7921,7 +7688,6 @@ public static class Species
     };
     public static SpeciesData Porygon2 = new()
     {
-        id = SpeciesID.Porygon2,
         speciesName = "Porygon2",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -7955,7 +7721,6 @@ public static class Species
     };
     public static SpeciesData Stantler = new()
     {
-        id = SpeciesID.Stantler,
         speciesName = "Stantler",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -7989,7 +7754,6 @@ public static class Species
     };
     public static SpeciesData Smeargle = new()
     {
-        id = SpeciesID.Smeargle,
         speciesName = "Smeargle",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -8023,7 +7787,6 @@ public static class Species
     };
     public static SpeciesData Tyrogue = new()
     {
-        id = SpeciesID.Tyrogue,
         speciesName = "Tyrogue",
         type1 = Type.Fighting,
         type2 = Type.Fighting,
@@ -8057,7 +7820,6 @@ public static class Species
     };
     public static SpeciesData Hitmontop = new()
     {
-        id = SpeciesID.Hitmontop,
         speciesName = "Hitmontop",
         type1 = Type.Fighting,
         type2 = Type.Fighting,
@@ -8091,7 +7853,6 @@ public static class Species
     };
     public static SpeciesData Smoochum = new()
     {
-        id = SpeciesID.Smoochum,
         speciesName = "Smoochum",
         type1 = Type.Ice,
         type2 = Type.Psychic,
@@ -8125,7 +7886,6 @@ public static class Species
     };
     public static SpeciesData Elekid = new()
     {
-        id = SpeciesID.Elekid,
         speciesName = "Elekid",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -8159,7 +7919,6 @@ public static class Species
     };
     public static SpeciesData Magby = new()
     {
-        id = SpeciesID.Magby,
         speciesName = "Magby",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -8193,7 +7952,6 @@ public static class Species
     };
     public static SpeciesData Miltank = new()
     {
-        id = SpeciesID.Miltank,
         speciesName = "Miltank",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -8227,7 +7985,6 @@ public static class Species
     };
     public static SpeciesData Blissey = new()
     {
-        id = SpeciesID.Blissey,
         speciesName = "Blissey",
         type1 = Type.Normal,
         type2 = Type.Normal,
@@ -8261,7 +8018,6 @@ public static class Species
     };
     public static SpeciesData Raikou = new()
     {
-        id = SpeciesID.Raikou,
         speciesName = "Raikou",
         type1 = Type.Electric,
         type2 = Type.Electric,
@@ -8295,7 +8051,6 @@ public static class Species
     };
     public static SpeciesData Entei = new()
     {
-        id = SpeciesID.Entei,
         speciesName = "Entei",
         type1 = Type.Fire,
         type2 = Type.Fire,
@@ -8329,7 +8084,6 @@ public static class Species
     };
     public static SpeciesData Suicune = new()
     {
-        id = SpeciesID.Suicune,
         speciesName = "Suicune",
         type1 = Type.Water,
         type2 = Type.Water,
@@ -8363,7 +8117,6 @@ public static class Species
     };
     public static SpeciesData Larvitar = new()
     {
-        id = SpeciesID.Larvitar,
         speciesName = "Larvitar",
         type1 = Type.Rock,
         type2 = Type.Ground,
@@ -8397,7 +8150,6 @@ public static class Species
     };
     public static SpeciesData Pupitar = new()
     {
-        id = SpeciesID.Pupitar,
         speciesName = "Pupitar",
         type1 = Type.Rock,
         type2 = Type.Ground,
@@ -8431,7 +8183,6 @@ public static class Species
     };
     public static SpeciesData Tyranitar = new()
     {
-        id = SpeciesID.Tyranitar,
         speciesName = "Tyranitar",
         type1 = Type.Rock,
         type2 = Type.Dark,
@@ -8465,7 +8216,6 @@ public static class Species
     };
     public static SpeciesData Lugia = new()
     {
-        id = SpeciesID.Lugia,
         speciesName = "Lugia",
         type1 = Type.Psychic,
         type2 = Type.Flying,
@@ -8499,7 +8249,6 @@ public static class Species
     };
     public static SpeciesData HoOh = new()
     {
-        id = SpeciesID.HoOh,
         speciesName = "Ho Oh",
         type1 = Type.Fire,
         type2 = Type.Flying,
@@ -8534,7 +8283,6 @@ public static class Species
     };
     public static SpeciesData Celebi = new()
     {
-        id = SpeciesID.Celebi,
         speciesName = "Celebi",
         type1 = Type.Psychic,
         type2 = Type.Grass,
@@ -8571,91 +8319,109 @@ public static class Species
 
     //Megas
 
-    public static SpeciesData VensuaurMega = new SpeciesData
-    {
-        id = SpeciesID.Venusaur,
-        speciesName = "Mega Venusaur",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
-        baseHP = 80,
-        baseAttack = 100,
-        baseDefense = 123,
-        baseSpAtk = 122,
-        baseSpDef = 120,
-        baseSpeed = 80,
-        evYield = 2 * EvYield.SpAtk + EvYield.SpDef,
-        evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
-        xpYield = 236,
-        learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = 87,
-        eggGroup1 = EggGroup.Monster,
-        eggGroup2 = EggGroup.Grass,
-        eggCycles = 20,
-        catchRate = 45,
-        baseFriendship = 70,
-        cryLocation = "mega_venusaur", //Verify
-        graphicsLocation = "venusaur/mega", //Verify
-        backSpriteHeight = 10,
-        pokedexData = Pokedex.Bulbasaur, //Not done
-        abilities = new Ability[3]
-        {
-            Ability.ThickFat,
-            Ability.ThickFat,
-            Ability.ThickFat,
-        },
-    };
+    public static SpeciesData VenusaurMega = SpeciesData.Mega(
+        baseSpecies: Venusaur,
+        baseAttack: 100,
+        baseDefense: 123,
+        baseSpAtk: 122,
+        baseSpDef: 120,
+        baseSpeed: 80,
+        backSpriteHeight: 8,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.ThickFat);
+
+    public static SpeciesData CharizardMegaX = SpeciesData.Mega(
+        baseSpecies: Charizard,
+        name: "Mega Charizard X",
+        type1: Type.Fire,
+        type2: Type.Dragon,
+        baseAttack: 130,
+        baseDefense: 111,
+        baseSpAtk: 130,
+        baseSpDef: 85,
+        baseSpeed: 100,
+        cry: "mega_charizard_x",
+        graphics: "charizard/mega_x",
+        backSpriteHeight: 1,
+        pokedexData: Pokedex.Charizard, //Not done
+        ability: Ability.ToughClaws);
+
+    public static SpeciesData CharizardMegaY= SpeciesData.Mega(
+        baseSpecies: Charizard,
+        name: "Mega Charizard Y",
+        baseAttack: 104,
+        baseDefense: 78,
+        baseSpAtk: 159,
+        baseSpDef: 115,
+        baseSpeed: 100,
+        cry: "mega_charizard_y",
+        graphics: "charizard/mega_y",
+        backSpriteHeight: 1,
+        pokedexData: Pokedex.Charizard, //Not done
+        ability: Ability.Drought);
+
+    public static SpeciesData BlastoiseMega = SpeciesData.Mega(
+        baseSpecies: Blastoise,
+        baseAttack: 103,
+        baseDefense: 120,
+        baseSpAtk: 135,
+        baseSpDef: 115,
+        baseSpeed: 78,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Blastoise,
+        ability: Ability.MegaLauncher
+        );
 
     public static SpeciesData Unown_B
-        = SpeciesData.Unown(SpeciesID.Unown_B, "unown/b", 9);
+        = SpeciesData.Unown("unown/b", 9);
     public static SpeciesData Unown_C
-        = SpeciesData.Unown(SpeciesID.Unown_C, "unown/c", 6);
+        = SpeciesData.Unown("unown/c", 6);
     public static SpeciesData Unown_D
-        = SpeciesData.Unown(SpeciesID.Unown_D, "unown/d", 8);
+        = SpeciesData.Unown("unown/d", 8);
     public static SpeciesData Unown_E
-        = SpeciesData.Unown(SpeciesID.Unown_E, "unown/e", 10);
+        = SpeciesData.Unown("unown/e", 10);
     public static SpeciesData Unown_F
-        = SpeciesData.Unown(SpeciesID.Unown_F, "unown/f", 10);
+        = SpeciesData.Unown("unown/f", 10);
     public static SpeciesData Unown_G
-        = SpeciesData.Unown(SpeciesID.Unown_G, "unown/g", 5);
+        = SpeciesData.Unown("unown/g", 5);
     public static SpeciesData Unown_H
-        = SpeciesData.Unown(SpeciesID.Unown_H, "unown/h", 8);
+        = SpeciesData.Unown("unown/h", 8);
     public static SpeciesData Unown_I
-        = SpeciesData.Unown(SpeciesID.Unown_I, "unown/i", 7);
+        = SpeciesData.Unown("unown/i", 7);
     public static SpeciesData Unown_J
-        = SpeciesData.Unown(SpeciesID.Unown_J, "unown/j", 9);
+        = SpeciesData.Unown("unown/j", 9);
     public static SpeciesData Unown_K
-        = SpeciesData.Unown(SpeciesID.Unown_K, "unown/k", 7);
+        = SpeciesData.Unown("unown/k", 7);
     public static SpeciesData Unown_L
-        = SpeciesData.Unown(SpeciesID.Unown_L, "unown/l", 10);
+        = SpeciesData.Unown("unown/l", 10);
     public static SpeciesData Unown_M
-        = SpeciesData.Unown(SpeciesID.Unown_M, "unown/m", 13);
+        = SpeciesData.Unown("unown/m", 13);
     public static SpeciesData Unown_N
-        = SpeciesData.Unown(SpeciesID.Unown_N, "unown/n", 13);
+        = SpeciesData.Unown("unown/n", 13);
     public static SpeciesData Unown_O
-        = SpeciesData.Unown(SpeciesID.Unown_O, "unown/o", 8);
+        = SpeciesData.Unown("unown/o", 8);
     public static SpeciesData Unown_P
-        = SpeciesData.Unown(SpeciesID.Unown_P, "unown/p", 10);
+        = SpeciesData.Unown("unown/p", 10);
     public static SpeciesData Unown_Q
-        = SpeciesData.Unown(SpeciesID.Unown_Q, "unown/q", 15);
+        = SpeciesData.Unown("unown/q", 15);
     public static SpeciesData Unown_R
-        = SpeciesData.Unown(SpeciesID.Unown_R, "unown/r", 12);
+        = SpeciesData.Unown("unown/r", 12);
     public static SpeciesData Unown_S
-        = SpeciesData.Unown(SpeciesID.Unown_S, "unown/s", 4);
+        = SpeciesData.Unown("unown/s", 4);
     public static SpeciesData Unown_T
-        = SpeciesData.Unown(SpeciesID.Unown_T, "unown/t", 13);
+        = SpeciesData.Unown("unown/t", 13);
     public static SpeciesData Unown_U
-        = SpeciesData.Unown(SpeciesID.Unown_U, "unown/u", 13);
+        = SpeciesData.Unown("unown/u", 13);
     public static SpeciesData Unown_V
-        = SpeciesData.Unown(SpeciesID.Unown_V, "unown/v", 11);
+        = SpeciesData.Unown("unown/v", 11);
     public static SpeciesData Unown_W
-        = SpeciesData.Unown(SpeciesID.Unown_W, "unown/w", 13);
+        = SpeciesData.Unown("unown/w", 13);
     public static SpeciesData Unown_X
-        = SpeciesData.Unown(SpeciesID.Unown_X, "unown/x", 15);
+        = SpeciesData.Unown("unown/x", 15);
     public static SpeciesData Unown_Y
-        = SpeciesData.Unown(SpeciesID.Unown_Y, "unown/y", 10);
+        = SpeciesData.Unown("unown/y", 10);
     public static SpeciesData Unown_Z
-        = SpeciesData.Unown(SpeciesID.Unown_Z, "unown/z", 10);
+        = SpeciesData.Unown("unown/z", 10);
 
 
     public static SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count] {
@@ -8811,6 +8577,8 @@ public static class Species
         Dragonite,
         Mewtwo,
         Mew,
+
+        //Gen 2
         Chikorita,
         Bayleef,
         Meganium,
@@ -8938,5 +8706,12 @@ public static class Species
         Unown_X,
         Unown_Y,
         Unown_Z,
+
+        //Megas
+
+        VenusaurMega,
+        CharizardMegaX,
+        CharizardMegaY,
+        BlastoiseMega,
     };
 }

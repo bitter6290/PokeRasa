@@ -1287,8 +1287,11 @@ public static class BattleEffect
     public static IEnumerator GetWish(Battle battle)
     {
         (int wishHP, int, int slot, string wisher) wishStruct = battle.wishes.Dequeue();
-        yield return battle.Announce(wishStruct.wisher + "'s wish came true!");
-        yield return Heal(battle, wishStruct.slot, wishStruct.wishHP);
+        if (battle.PokemonOnField[wishStruct.slot].exists && !battle.PokemonOnField[wishStruct.slot].AtFullHealth)
+        {
+            yield return battle.Announce(wishStruct.wisher + "'s wish came true!");
+            yield return Heal(battle, wishStruct.slot, wishStruct.wishHP);
+        }
     }
 
     public static IEnumerator GetTaunted(Battle battle, int index)

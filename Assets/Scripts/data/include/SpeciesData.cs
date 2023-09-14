@@ -3,7 +3,6 @@ using System;
 public struct SpeciesData
 {
     public const int Genderless = 255;
-    public SpeciesID id;
 
     public string speciesName;
 
@@ -46,9 +45,8 @@ public struct SpeciesData
     public Ability[] abilities;
 
     //Unown constructor
-    public static SpeciesData Unown(SpeciesID id, string path, int backSpriteHeight) => new()
+    public static SpeciesData Unown(string path, int backSpriteHeight) => new()
     {
-        id = id,
         speciesName = "Unown",
         type1 = Type.Psychic,
         type2 = Type.Psychic,
@@ -81,19 +79,41 @@ public struct SpeciesData
         },
     };
 
-    public static SpeciesData Mega(SpeciesData baseData) => new()
-    {
-        speciesName = "Mega " + baseData.speciesName,
-        baseHP = baseData.baseHP,
-        evYield = baseData.evYield,
-        evolution = baseData.evolution,
-        xpClass = baseData.xpClass,
-        learnset = baseData.learnset,
-        malePercent = baseData.malePercent,
-        eggGroup1 = baseData.eggGroup1,
-        eggGroup2 = baseData.eggGroup2,
-        eggCycles = baseData.eggCycles,
-        catchRate = baseData.catchRate,
-        baseFriendship = baseData.baseFriendship,
-    };
+    public static SpeciesData Mega(SpeciesData baseSpecies,
+    int baseAttack, int baseDefense, int baseSpAtk, int baseSpDef, int baseSpeed,
+    int backSpriteHeight, PokedexData pokedexData, Ability ability,
+     Type type1 = Type.Typeless, Type type2 = Type.Typeless,
+     string cry = "", string graphics = "", string name = "") => new()
+     {
+         speciesName = name == "" ? "Mega " + baseSpecies.speciesName : name,
+         type1 = type1 == Type.Typeless ? baseSpecies.type1 : type1,
+         type2 = type2 == Type.Typeless ? baseSpecies.type2 : type2,
+         baseHP = baseSpecies.baseHP,
+         baseAttack = baseAttack,
+         baseDefense = baseDefense,
+         baseSpAtk = baseSpAtk,
+         baseSpDef = baseSpDef,
+         baseSpeed = baseSpeed,
+         evYield = baseSpecies.evYield,
+         evolution = baseSpecies.evolution,
+         xpClass = baseSpecies.xpClass,
+         xpYield = baseSpecies.xpYield,
+         learnset = baseSpecies.learnset,
+         malePercent = baseSpecies.malePercent,
+         eggGroup1 = baseSpecies.eggGroup1,
+         eggGroup2 = baseSpecies.eggGroup2,
+         eggCycles = baseSpecies.eggCycles,
+         catchRate = baseSpecies.catchRate,
+         baseFriendship = baseSpecies.baseFriendship,
+         cryLocation = cry == "" ? "mega_" + baseSpecies.cryLocation : cry,
+         graphicsLocation = graphics == "" ? baseSpecies.graphicsLocation + "/mega" : graphics,
+         backSpriteHeight = backSpriteHeight,
+         pokedexData = pokedexData,
+         abilities = new Ability[3]
+         {
+                 ability,
+                 ability,
+                 ability,
+         }
+     };
 }
