@@ -152,6 +152,15 @@ public static class BattleEffect
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was paralyzed!");
         }
     }
+    public static IEnumerator HealParalysis(Battle battle, int index)
+    {
+        if (battle.PokemonOnField[index].PokemonData.status == Status.Paralysis)
+        {
+            battle.PokemonOnField[index].PokemonData.status = Status.None;
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                + " was cured of its paralysis!");
+        }
+    }
     public static IEnumerator TriAttack(Battle battle, int index)
     {
         var random = new System.Random();
@@ -1265,5 +1274,65 @@ public static class BattleEffect
         battle.PokemonOnField[index].tormented = true;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true)
             + " was subjected to torment!");
+    }
+
+    public static IEnumerator MakeWish(Battle battle, int index)
+    {
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " made a wish!");
+        battle.wishes.Enqueue((battle.PokemonOnField[index].PokemonData.hpMax >> 1,
+            battle.turnsElapsed + 1, index, battle.MonNameWithPrefix(index, true)));
+    }
+
+    public static IEnumerator GetWish(Battle battle)
+    {
+        (int wishHP, int, int slot, string wisher) wishStruct = battle.wishes.Dequeue();
+        yield return battle.Announce(wishStruct.wisher + "'s wish came true!");
+        yield return Heal(battle, wishStruct.slot, wishStruct.wishHP);
+    }
+
+    public static IEnumerator GetTaunted(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].taunted = true;
+        battle.PokemonOnField[index].tauntTimer
+            = battle.PokemonOnField[index].done ? 4 : 3;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " fell for the taunt!");
+    }
+
+    public static IEnumerator SwitchItems(Battle battle, int attacker, int defender)
+    {
+        if (battle.PokemonOnField[attacker].PokemonData.item == ItemID.None
+        && Item.CanBeStolen(battle.PokemonOnField[defender].item)
+        && Item.CanBeStolen(battle.PokemonOnField[attacker].item)
+        && !battle.HasAbility(defender, Ability.StickyHold))
+        {
+            ItemID attackerItem = battle.PokemonOnField[attacker].item;
+            battle.PokemonOnField[attacker].item = battle.PokemonOnField[defender].PokemonData.item;
+            battle.PokemonOnField[defender].item = attackerItem;
+            yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
+                + " switched items with " + battle.MonNameWithPrefix(defender, false) + "!");
+            yield return battle.Announce(battle.MonNameWithPrefix(defender, true)
+                + " obtained one " + battle.PokemonOnField[defender].item.Data().itemName + "!");
+            yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
+    + " obtained one " + battle.PokemonOnField[attacker].item.Data().itemName + "!");
+        }
+    }
+
+    public static IEnumerator RolePlay(Battle battle, int user, int target)
+    {
+        //Do AbilityUtils check for unchangeable abilities
+        //Ability switch anim for user
+        battle.PokemonOnField[user].ability = battle.PokemonOnField[target].ability;
+        yield return battle.Announce(battle.MonNameWithPrefix(user, true)
+            + " copied " + battle.MonNameWithPrefix(target, false) + "'s "
+            + NameTable.Ability[(int)battle.PokemonOnField[user].ability] + "!");
+    }
+
+    public static IEnumerator HelpingHand(Battle battle, int user, int target)
+    {
+        battle.PokemonOnField[target].helpingHand++;
+        yield return battle.Announce(battle.MonNameWithPrefix(user, true)
+            + " is ready to help " + battle.MonNameWithPrefix(target, false) + "!");
     }
 }

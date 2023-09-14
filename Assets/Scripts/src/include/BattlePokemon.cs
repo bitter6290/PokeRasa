@@ -73,6 +73,8 @@ public class BattlePokemon
     public bool usedDefenseCurl = false;
     public bool minimized = false;
 
+    public bool charged = false;
+
     public int toxicCounter = 0;
 
     public int moveDamageDone = 0;
@@ -113,6 +115,10 @@ public class BattlePokemon
 
     public bool perishSong = false;
     public int perishCounter = 0;
+
+    public bool followMe = false;
+
+    public int helpingHand = 0;
 
     public bool futureSight = false;
     public int futureSightTimer = 0;
@@ -218,23 +224,21 @@ public class BattlePokemon
     public MoveSelectOutcome CanUseMove(int move)
     {
         if (GetMove(move) == MoveID.None)
-        { Debug.Log("NoMove"); return MoveSelectOutcome.NoMove; }
+            return MoveSelectOutcome.NoMove;
         if (disabled && GetMove(move) == disabledMove)
-        { Debug.Log("Disabled"); return MoveSelectOutcome.Disabled; }
+            return MoveSelectOutcome.Disabled;
         if (encored && GetMove(move) != encoredMove)
-        { Debug.Log("Encored"); return MoveSelectOutcome.Encored; }
+            return MoveSelectOutcome.Encored;
         if (tormented && GetMove(move) == moveUsedLastTurn)
-        { Debug.Log("Tormented"); return MoveSelectOutcome.Tormented; }
+            return MoveSelectOutcome.Tormented;
         if (GetPP(move) <= 0)
-        { Debug.Log("No PP"); return MoveSelectOutcome.LowPP; }
+            return MoveSelectOutcome.LowPP;
         if (taunted && GetMove(move).Data().power == 0)
-        { Debug.Log("Taunted"); return MoveSelectOutcome.Taunted; }
-        Debug.Log("Success");
+            return MoveSelectOutcome.Taunted;
         return MoveSelectOutcome.Success;
     }
 
-    public bool CanUseAnyMove =>
-        CanUseMove(0) == MoveSelectOutcome.Success
+    public bool CanUseAnyMove => CanUseMove(0) == MoveSelectOutcome.Success
         || CanUseMove(1) == MoveSelectOutcome.Success
         || CanUseMove(2) == MoveSelectOutcome.Success
         || CanUseMove(3) == MoveSelectOutcome.Success;

@@ -8569,6 +8569,43 @@ public static class Species
 
     //Forms
 
+    //Megas
+
+    public static SpeciesData VensuaurMega = new SpeciesData
+    {
+        id = SpeciesID.Venusaur,
+        speciesName = "Mega Venusaur",
+        type1 = Type.Grass,
+        type2 = Type.Poison,
+        baseHP = 80,
+        baseAttack = 100,
+        baseDefense = 123,
+        baseSpAtk = 122,
+        baseSpDef = 120,
+        baseSpeed = 80,
+        evYield = 2 * EvYield.SpAtk + EvYield.SpDef,
+        evolution = Evolution.None,
+        xpClass = XPClass.MediumSlow,
+        xpYield = 236,
+        learnset = Learnset.EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "mega_venusaur", //Verify
+        graphicsLocation = "venusaur/mega", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Ability.ThickFat,
+            Ability.ThickFat,
+            Ability.ThickFat,
+        },
+    };
+
     public static SpeciesData Unown_B
         = SpeciesData.Unown(SpeciesID.Unown_B, "unown/b", 9);
     public static SpeciesData Unown_C

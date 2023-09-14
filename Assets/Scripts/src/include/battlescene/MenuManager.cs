@@ -382,7 +382,7 @@ public class MenuManager : MonoBehaviour
                                 case 2:
                                 case 3:
                                 case 4:
-                                    switch(mon.CanUseMove(currentMove - 1))
+                                    switch (mon.CanUseMove(currentMove - 1))
                                     {
                                         case MoveSelectOutcome.LowPP:
                                             battle.state = BattleState.Announcement;
@@ -432,7 +432,7 @@ public class MenuManager : MonoBehaviour
                                                 StartCoroutine(MoveNoPP(currentMon, currentMove));
                                             }
                                             break;
-                            }
+                                    }
                                     break;
                                 case 0:
                                     currentMove = 1;

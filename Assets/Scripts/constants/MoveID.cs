@@ -267,6 +267,15 @@ public enum MoveID
     Memento,
     Facade,
     FocusPunch,
+    SmellingSalts,
+    FollowMe,
+    NaturePower,
+    Charge,
+    Taunt,
+    HelpingHand,
+    Trick,
+    RolePlay,
+    Wish,
 
     //Nonstandard moves
 

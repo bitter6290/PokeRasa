@@ -224,4 +224,6 @@ public static class ItemUtils
                 return SpeciesID.Missingno;
         }
     }
+
+    public static ItemData Data(this ItemID item) => Item.ItemTable[(int)item];
 }

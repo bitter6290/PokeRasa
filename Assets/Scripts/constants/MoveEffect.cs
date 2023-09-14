@@ -43,10 +43,13 @@ public enum MoveEffect : ushort
     DefenseCurl,
     AllUp1,
     BellyDrum,
+    Charge,
+    Superpower,
     //Other status moves
     LeechSeed,
     Disable,
     Torment,
+    Taunt,
     Encore,
     ForcedSwitch,
     PerishSong,
@@ -59,6 +62,8 @@ public enum MoveEffect : ushort
     MindReader,
     Foresight,
     Memento,
+    Trick,
+    RolePlay,
     //Direct damage
     Direct20,
     Direct40,
@@ -75,6 +80,7 @@ public enum MoveEffect : ushort
     FakeOut,
     Absorb50,
     PayDay,
+    SmellingSalts,
     //Unique attack types
     ChargingAttack,
     RechargeAttack,
@@ -104,6 +110,7 @@ public enum MoveEffect : ushort
     BeatUp,
     Uproar,
     Facade,
+    NaturePower,
     //Paired effects
     Bide,
     BideHit,
@@ -139,6 +146,12 @@ public enum MoveEffect : ushort
     Heal50,
     HealWeather,
     Sketch,
+    Wish,
+    Assist,
+    Ingrain,
+    //Effects for doubles/triples
+    FollowMe,
+    HelpingHand,
     //Nonstandard effects
     Recharge,
 }

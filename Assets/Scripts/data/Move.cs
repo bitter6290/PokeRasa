@@ -1416,11 +1416,38 @@ public static class Move
         makesContact);
     public static MoveData FocusPunch = new(
         "Focus Punch", Fighting,
-        0, 100, 9,
+        150, 100, 9,
         MoveEffect.FocusPunchWindup, 100,
         true, Target.Single, 20,
         effectOnSelfOnly);
-
+    public static MoveData SmellingSalts = new(
+        "Smelling Salts", Normal,
+        70, 100, 0,
+        MoveEffect.SmellingSalts, 100,
+        true, Target.Single, 10,
+        makesContact);
+    public static MoveData FollowMe = SelfTargetingMove(
+        "Follow Me", Normal, 2, MoveEffect.FollowMe, 20);
+    public static MoveData NaturePower = new(
+        "Nature Power", Normal,
+        1, 100, 0,
+        MoveEffect.NaturePower, 0,
+        false, Target.Single, 20);
+    public static MoveData Charge = SelfTargetingMove(
+        "Charge", Electric, 0, MoveEffect.Charge, 20);
+    public static MoveData Taunt = SingleTargetStatusMove(
+        "Taunt", Dark, 100, 0, MoveEffect.Taunt, 20);
+    public static MoveData HelpingHand = new(
+        "Helping Hand", Normal,
+        0, 100, 5,
+        MoveEffect.HelpingHand, 100,
+        false, Target.Ally, 20);
+    public static MoveData Trick = SingleTargetStatusMove(
+        "Trick", Type.Psychic, 100, 0, MoveEffect.Trick, 10);
+    public static MoveData RolePlay = SingleTargetStatusMove(
+        "Role Play", Type.Psychic, 100, 0, MoveEffect.RolePlay, 10);
+    public static MoveData Wish = SelfTargetingMove(
+        "Wish", Normal, 0, MoveEffect.Wish, 10);
 
 
 
@@ -1768,6 +1795,15 @@ public static class Move
         Memento,
         Facade,
         FocusPunch,
+        SmellingSalts,
+        FollowMe,
+        NaturePower,
+        Charge,
+        Taunt,
+        HelpingHand,
+        Trick,
+        RolePlay,
+        Wish,
 
         //Nonstandard moves
         ConfusionHit,

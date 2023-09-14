@@ -1,0 +1,21 @@
+﻿public enum BattleTerrain
+{
+    Building,
+    Gym,
+    Cave,
+    Sand,
+    Rock,
+    Water,
+    Snow,
+    Ice,
+    Bridge,
+    Grass,
+    Woods,
+    Flowers,
+    Volcano,
+    Marsh,
+    Sky,
+    BurialGround,
+    UltraSpace,
+    Space,
+}

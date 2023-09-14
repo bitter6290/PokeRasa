@@ -15,4 +15,22 @@ public static class Target
 
     public const int Single = Opponent + Ally;
     public const int Surrounding = Opponent + Ally + Spread;
+
+    public static bool CanTarget(int attacker, int defender, MoveID move)
+    {
+        if ((move.Data().targets & (Spread + All + Field)) != 0) return false;
+        if(attacker < 3 == defender < 3)
+        {
+            if (attacker - defender is -2 or 2) return
+                (move.Data().targets & (Ally + Ranged)) == Ally + Ranged;
+            else return (move.Data().targets & Ally) != 0;
+        }
+        else
+        {
+            if (attacker - defender is -2 or 2) return
+                (move.Data().targets & (Opponent + Ranged)) == Opponent + Ranged;
+            else return (move.Data().targets & Opponent) != 0;
+        }
+
+    }
 }

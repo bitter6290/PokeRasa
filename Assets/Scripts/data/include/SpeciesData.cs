@@ -80,4 +80,20 @@ public struct SpeciesData
             Ability.Levitate,
         },
     };
+
+    public static SpeciesData Mega(SpeciesData baseData) => new()
+    {
+        speciesName = "Mega " + baseData.speciesName,
+        baseHP = baseData.baseHP,
+        evYield = baseData.evYield,
+        evolution = baseData.evolution,
+        xpClass = baseData.xpClass,
+        learnset = baseData.learnset,
+        malePercent = baseData.malePercent,
+        eggGroup1 = baseData.eggGroup1,
+        eggGroup2 = baseData.eggGroup2,
+        eggCycles = baseData.eggCycles,
+        catchRate = baseData.catchRate,
+        baseFriendship = baseData.baseFriendship,
+    };
 }
