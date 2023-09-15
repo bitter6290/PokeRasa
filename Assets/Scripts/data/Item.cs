@@ -9,6 +9,14 @@ public static class Item
         price = 100,
     };
 
+    public static Berry OccaBerry = new()
+    {
+        itemName = "Occa Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceFireDamage,
+        graphicsPath = "occa_berry"
+    };
+
     public static FieldItem FireStone = new()
     {
         itemName = "Fire Stone",
@@ -200,6 +208,8 @@ public static class Item
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
     {
     None,
+    //Berries
+    OccaBerry,
     //Evolution items
     FireStone,
     WaterStone,

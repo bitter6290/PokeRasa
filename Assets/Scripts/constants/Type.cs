@@ -109,4 +109,28 @@ public static class TypeUtils
         return 1.0F;
     }
 
+    public static BerryEffect[] typeBerries = new BerryEffect[18]
+    {
+        BerryEffect.ReduceNormalDamage,
+        BerryEffect.ReduceFireDamage,
+        BerryEffect.ReduceWaterDamage,
+        BerryEffect.ReduceGrassDamage,
+        BerryEffect.ReduceElectricDamage,
+        BerryEffect.ReduceIceDamage,
+        BerryEffect.ReduceGroundDamage,
+        BerryEffect.ReduceFightingDamage,
+        BerryEffect.ReduceFlyingDamage,
+        BerryEffect.ReduceRockDamage,
+        BerryEffect.ReducePoisonDamage,
+        BerryEffect.ReduceBugDamage,
+        BerryEffect.ReducePsychicDamage,
+        BerryEffect.ReduceGhostDamage,
+        BerryEffect.ReduceDragonDamage,
+        BerryEffect.ReduceDarkDamage,
+        BerryEffect.ReduceSteelDamage,
+        BerryEffect.ReduceFairyDamage
+    };
+
+    public static BerryEffect GetReducingBerry(this Type type) => type == Type.Typeless ? BerryEffect.NoneApply : typeBerries[(int)type];
+
 }

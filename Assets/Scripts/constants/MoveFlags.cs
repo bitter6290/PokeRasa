@@ -17,4 +17,5 @@ public static class MoveFlags
     public const int powderMove = 1 << 13;
     public const int bulletMove = 1 << 14;
     public const int megaLauncherMove = 1 << 15;
+    public const int magicBounceAffected = 1 << 16;
 }

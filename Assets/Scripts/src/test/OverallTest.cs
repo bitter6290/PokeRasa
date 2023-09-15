@@ -60,5 +60,17 @@ public class OverallTest : MonoBehaviour
             tester.pp2 = 40;
             tester.pp3 = 40;
         }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Pokemon tester = battle.PokemonOnField[3].PokemonData;
+            BattlePokemon defender = battle.PokemonOnField[0];
+            battle.Moves[0] = MoveID.Splash;
+            tester.move1 = MoveID.Flamethrower;
+            tester.pp1 = 40;
+            defender.typesOverriden = true;
+            defender.newType1 = Type.Grass;
+            defender.newType1 = Type.Grass;
+            defender.PokemonData.item = ItemID.OccaBerry;
+        }
     }
 }

@@ -1317,8 +1317,10 @@ public static class BattleEffect
         && !battle.HasAbility(defender, Ability.StickyHold))
         {
             ItemID attackerItem = battle.PokemonOnField[attacker].item;
-            battle.PokemonOnField[attacker].item = battle.PokemonOnField[defender].PokemonData.item;
-            battle.PokemonOnField[defender].item = attackerItem;
+            battle.PokemonOnField[attacker].PokemonData.newItem = battle.PokemonOnField[defender].item;
+            battle.PokemonOnField[defender].PokemonData.newItem = attackerItem;
+            battle.PokemonOnField[defender].PokemonData.itemChanged = true;
+            battle.PokemonOnField[attacker].PokemonData.itemChanged = true;
             yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
                 + " switched items with " + battle.MonNameWithPrefix(defender, false) + "!");
             yield return battle.Announce(battle.MonNameWithPrefix(defender, true)
@@ -1351,5 +1353,46 @@ public static class BattleEffect
         battle.PokemonOnField[index].ingrained = true;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true)
             + " planted its roots!");
+    }
+
+    public static IEnumerator Recycle(Battle battle, int index)
+    {
+        BattlePokemon user = battle.PokemonOnField[index];
+        if(user.item != ItemID.None || user.eatenBerry == ItemID.None)
+        {
+            yield return battle.Announce(BattleText.MoveFailed);
+            yield break;
+        }
+        else
+        {
+            if (battle.consumeItems)
+            {
+                user.PokemonData.item = user.eatenBerry;
+            }
+            else
+            {
+                user.PokemonData.newItem = user.eatenBerry;
+                user.PokemonData.itemChanged = true;
+            }
+            user.eatenBerry = ItemID.None;
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                + " found one " + user.item.Data().itemName + "!");
+        }
+    }
+
+    public static IEnumerator BreakScreens(Battle battle, int index)
+    {
+        Side side = battle.Sides[battle.GetSide(index)];
+        string sideText = index < 3 ? "The foes'" : "Your team's";
+        if (side.lightScreen)
+        {
+            side.lightScreen = false;
+            yield return battle.Announce(sideText + " Light Screen wore off!");
+        }
+        if (side.reflect)
+        {
+            side.reflect = false;
+            yield return battle.Announce(sideText + " Reflect wore off!");
+        }
     }
 }

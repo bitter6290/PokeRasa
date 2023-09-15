@@ -1,6 +1,8 @@
 ﻿public enum ItemID
 {
     None,
+    //Berries
+    OccaBerry,
     //Evolution items
     FireStone,
     WaterStone,

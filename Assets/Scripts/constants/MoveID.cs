@@ -281,6 +281,11 @@ public enum MoveID
     Assist,
     Ingrain,
     Superpower,
+    MagicCoat,
+    Recycle,
+    Revenge,
+    BrickBreak,
+    Yawn,
 
     //Nonstandard moves
 

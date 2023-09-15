@@ -132,11 +132,12 @@ public class BattlePokemon
     public Pokemon transformedMon = Pokemon.MakeEmptyMon;
 
     public Ability ability;
-    public ItemID item;
 
     public bool endure = false;
     public bool protect = false;
     public int protectCounter = 0;
+
+    public bool magicCoat = false;
 
     public bool infatuated = false;
     public int infatuationTarget = 0;
@@ -171,6 +172,10 @@ public class BattlePokemon
     public Type newType2 = Type.Typeless;
     public bool typesOverriden = false;
 
+    public ItemID eatenBerry = ItemID.None;
+
+    public bool gotReducingBerryEffect = false;
+
     public int stockpile = 0;
     public int stockpileDef = 0;
     public int stockpileSpDef = 0;
@@ -184,7 +189,14 @@ public class BattlePokemon
     public int mimicPP = 0;
     public int mimicMaxPP = 0;
 
+    public bool yawnNextTurn = false;
+    public bool yawnThisTurn = false;
+
+    public bool gotAteBoost = false; //Check for Aerilate, Pixilate, etc... 20% boost
+
     public bool ingrained = false;
+
+    public bool[] damagedByMon = new bool[6];
 
     public MoveID moveUsedLastTurn = MoveID.None;
     public MoveID moveUsedThisTurn = MoveID.None;
@@ -193,6 +205,7 @@ public class BattlePokemon
 
     public MoveID lastTargetedMove = MoveID.None;
 
+    public ItemID item => PokemonData.itemChanged ? PokemonData.newItem : PokemonData.item;
 
     public BattlePokemon(Pokemon pokemonData, bool side, int position, bool player, bool exists = true)
     {
@@ -207,7 +220,6 @@ public class BattlePokemon
         this.side = side;
         this.position = position;
         this.player = player;
-        item = PokemonData.item;
         ability = Species.SpeciesTable[(int)pokemonData.species].abilities[pokemonData.whichAbility];
         CalculateStats();
     }

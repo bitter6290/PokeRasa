@@ -421,9 +421,9 @@ public class MenuManager : MonoBehaviour
                                                 }
                                                 else
                                                 {
+                                                    megaEvolving = false;
                                                     menuMode = MenuMode.Main;
                                                     currentMove = 1;
-
                                                 }
                                             }
                                             else
@@ -437,6 +437,7 @@ public class MenuManager : MonoBehaviour
                                 case 0:
                                     currentMove = 1;
                                     menuMode = MenuMode.Main;
+                                    megaEvolving = false;
                                     break;
                             }
                         }

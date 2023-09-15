@@ -83,7 +83,7 @@ public class HeldFieldItem : ItemData //subdata length 4
     };
 }
 
-public class Berry : ItemData //subdata length 7
+public class Berry : ItemData //subdata length 8
 {
     public HeldEffect heldEffect;
     public int heldEffectIntensity;
@@ -91,8 +91,9 @@ public class Berry : ItemData //subdata length 7
     public int battleEffectIntensity;
     public FieldEffect fieldEffect;
     public int fieldEffectIntensity;
+    public BerryEffect berryEffect;
     public int hoursToGrow;
-    public override int[] ItemSubdata => new int[7]
+    public override int[] ItemSubdata => new int[8]
     {
         (int)heldEffect,
         heldEffectIntensity,
@@ -100,6 +101,7 @@ public class Berry : ItemData //subdata length 7
         battleEffectIntensity,
         (int)fieldEffect,
         fieldEffectIntensity,
+        (int)berryEffect,
         hoursToGrow
     };
     public Berry()
@@ -164,7 +166,7 @@ public class KeyItem : ItemData //subdata length 1
 
 public static class ItemUtils
 {
-    public static HeldEffect heldEffect(this ItemID item)
+    public static HeldEffect HeldEffect(this ItemID item)
     {
         switch (Item.ItemTable[(int)item].type)
         {
@@ -173,10 +175,10 @@ public static class ItemUtils
             case ItemType.Berry:
                 return (HeldEffect)Item.ItemTable[(int)item].ItemSubdata[0];
             default:
-                return HeldEffect.None;
+                return global::HeldEffect.None;
         }
     }
-    public static int heldEffectIntensity(this ItemID item)
+    public static int HeldEffectIntensity(this ItemID item)
     {
         switch (Item.ItemTable[(int)item].type)
         {
@@ -188,7 +190,7 @@ public static class ItemUtils
                 return 0;
         }
     }
-    public static FieldEffect fieldEffect(this ItemID item)
+    public static FieldEffect FieldEffect(this ItemID item)
     {
         switch (Item.ItemTable[(int)item].type)
         {
@@ -200,10 +202,10 @@ public static class ItemUtils
             case ItemType.Berry:
                 return (FieldEffect)Item.ItemTable[(int)item].ItemSubdata[4];
             default:
-                return FieldEffect.None;
+                return global::FieldEffect.None;
         }
     }
-    public static int fieldEffectIntensity(this ItemID item)
+    public static int FieldEffectIntensity(this ItemID item)
     {
         switch (Item.ItemTable[(int)item].type)
         {
@@ -219,7 +221,18 @@ public static class ItemUtils
         }
     }
 
-    public static SpeciesID megaStoneUser(this ItemID item)
+    public static BerryEffect BerryEffect(this ItemID item)
+    {
+        switch (Item.ItemTable[(int)item].type)
+        {
+            case ItemType.Berry:
+                return (BerryEffect)Item.ItemTable[(int)item].ItemSubdata[6];
+            default:
+                return global::BerryEffect.None;
+        }
+    }
+
+    public static SpeciesID MegaStoneUser(this ItemID item)
     {
         switch (Item.ItemTable[(int)item].type)
         {

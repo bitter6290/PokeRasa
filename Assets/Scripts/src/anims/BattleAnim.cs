@@ -452,7 +452,7 @@ public static class BattleAnim
         yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 160.0F / 255.0F, new Color(0, 1, 1));
     }
 
-    public static IEnumerator HealStar(Battle battle, int index, Vector2 location, float translationRate) //0.60
+    public static IEnumerator HealStar(Battle battle, int index, Vector2 location, float translationRate) //duration 0..60
     {
         GameObject healStar = NewSpriteFromTexturePart("Sprites/Battle/green_star", battle.spriteTransform[index],
     new Vector2(1.0F, 1.0F), location, new Rect(0.0F, 32.0F, 16.0F, 16.0F));
@@ -461,7 +461,7 @@ public static class BattleAnim
         yield return FadeDelete(healStar.GetComponent<SpriteRenderer>(), 0.1F); //0.60
     }
 
-    public static IEnumerator Heal(Battle battle, int index)
+    public static IEnumerator Heal(Battle battle, int index) //duration 1.10
     {
         battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Heal"));
         battle.StartCoroutine(battle.maskManager[index].MaskColor(0.1F, 0.9F, 160.0F / 255.0F, new Color(80.0F / 255.0F, 1, 0))); //0.00 - 1.10
@@ -477,12 +477,29 @@ public static class BattleAnim
         yield return new WaitForSeconds(0.10F); //1.10
     }
 
-    public static IEnumerator Faint(Battle battle, int index)
+    public static IEnumerator ItemRing(Battle battle, int index) //duration 0.40
+    {
+        GameObject ring = NewSpriteFromTexture("Sprites/Battle/thin_ring", battle.spriteTransform[index],
+            new Vector2(0.2F, 0.2F), new Vector2(0, 0));
+        yield return Grow(ring.GetComponent<Transform>(), 5, 0.3F); //0.30
+        yield return FadeDelete(ring.GetComponent<SpriteRenderer>(), 0.1F); //0.40
+    }
+
+    public static IEnumerator UseItem(Battle battle, int index) //duration 0.56
+    {
+        battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Item"));
+        battle.StartCoroutine(ItemRing(battle, index)); //0.00 - 0.40
+        yield return new WaitForSeconds(0.06F); //0.06
+        yield return ItemRing(battle, index); //0.46
+        yield return new WaitForSeconds(0.1F); //0.56
+    }
+
+    public static IEnumerator Faint(Battle battle, int index) //duration 1.60
     {
         Vector3 initialPosition = battle.spriteTransform[index].position;
         battle.audioSource0.pitch = 0.7F;
         Cry(battle.PokemonOnField[index].PokemonData.species, battle.audioSource0);
-        yield return new WaitForSeconds(1.3F);
+        yield return new WaitForSeconds(1.3F); //1.30
         battle.audioSource0.pitch = 1.0F;
         GameObject mask = new();
         mask.transform.parent = battle.spriteTransform[index];
@@ -496,7 +513,7 @@ public static class BattleAnim
         faintMask.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0.0F, 0.0F, 64.0F, 64.0F), new Vector2(0.5F, 0.5F));
         battle.spriteRenderer[index].maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Faint"));
-        yield return Slide(battle.spriteTransform[index], new Vector3(0.0F, -3.0F, 0.0F), 0.3F);
+        yield return Slide(battle.spriteTransform[index], new Vector3(0.0F, -3.0F, 0.0F), 0.3F); //1.60
         battle.spriteTransform[index].position = initialPosition;
         UnityEngine.Object.Destroy(mask);
     }

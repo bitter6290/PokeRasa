@@ -112,7 +112,8 @@ public static class Move
         "Whirlwind", Normal,
         0, AlwaysHit, -6,
         MoveEffect.ForcedSwitch, 100,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        magicBounceAffected); //Needs anim
     public static MoveData Fly = new(
         "Fly", Flying,
         0, 100, 0,
@@ -170,7 +171,8 @@ public static class Move
         "Sand Attack", Ground,
         0, 100, 0,
         MoveEffect.AccuracyDown1, 100,
-        false, Target.Single, 15); //Needs anim
+        false, Target.Single, 15,
+        magicBounceAffected); //Needs anim
     public static MoveData Headbutt = new(
         "Headbutt", Normal,
         70, 100, 0,
@@ -235,7 +237,8 @@ public static class Move
         "Tail Whip", Normal,
         0, 100, 0,
         MoveEffect.DefenseDown1, 100,
-        false, Target.Opponent + Target.Spread, 30); //Needs anim
+        false, Target.Opponent + Target.Spread, 30,
+        magicBounceAffected); //Needs anim
     public static MoveData PoisonSting = new(
         "Poison Sting", Poison,
         15, 100, 0,
@@ -255,7 +258,8 @@ public static class Move
         "Leer", Normal,
         0, 100, 0,
         MoveEffect.DefenseDown1, 100,
-        false, Target.Opponent + Target.Spread, 30); //Needs anim
+        false, Target.Opponent + Target.Spread, 30,
+        magicBounceAffected); //Needs anim
     public static MoveData Bite = new(
         "Bite", Dark,
         60, 100, 0,
@@ -267,25 +271,25 @@ public static class Move
         0, 100, 0,
         MoveEffect.AttackDown1, 100,
         false, Target.Opponent + Target.Spread, 40,
-        soundMove);
+        soundMove + magicBounceAffected);
     public static MoveData Roar = new(
         "Roar", Normal,
         0, AlwaysHit, -6,
         MoveEffect.ForcedSwitch, 100,
         false, Target.Single, 20,
-        soundMove); //Needs anim
+        soundMove + magicBounceAffected); //Needs anim
     public static MoveData Sing = new(
         "Sing", Normal,
         0, 55, 0,
         MoveEffect.Sleep, 100,
         false, Target.Single, 15,
-        soundMove); //Needs anim
+        soundMove + magicBounceAffected); //Needs anim
     public static MoveData Supersonic = new(
         "Supersonic", Normal,
         0, 55, 0,
         MoveEffect.Confuse, 100,
         false, Target.Single, 20,
-        soundMove); //Needs anim
+        soundMove + magicBounceAffected); //Needs anim
     public static MoveData SonicBoom = new(
         "Sonic Boom", Normal,
         1, 90, 0,
@@ -295,7 +299,8 @@ public static class Move
         "Disable", Normal,
         0, 100, 0,
         MoveEffect.Disable, 100,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        magicBounceAffected); //Needs anim
     public static MoveData Acid = new(
         "Acid", Poison,
         40, 100, 0,
@@ -419,7 +424,8 @@ public static class Move
         "Leech Seed", Grass,
         0, 90, 0,
         MoveEffect.LeechSeed, 100,
-        false, Target.Single, 10); //Needs anim
+        false, Target.Single, 10,
+        magicBounceAffected); //Needs anim
     public static MoveData Growth = new(
         "Growth", Normal,
         0, AlwaysHit, 0,
@@ -440,19 +446,19 @@ public static class Move
         0, 75, 0,
         MoveEffect.Poison, 100,
         false, Target.Single, 35,
-        powderMove); //Needs anim
+        powderMove + magicBounceAffected); //Needs anim
     public static MoveData StunSpore = new(
         "Stun Spore", Grass,
         0, 75, 0,
         MoveEffect.Paralyze, 100,
         false, Target.Single, 30,
-        powderMove); //Needs anim
+        powderMove + magicBounceAffected); //Needs anim
     public static MoveData SleepPowder = new(
         "Sleep Powder", Grass,
         0, 75, 0,
         MoveEffect.Sleep, 100,
         false, Target.Single, 15,
-        powderMove); //Needs anim
+        powderMove + magicBounceAffected); //Needs anim
     public static MoveData PetalDance = new(
         "Petal Dance", Grass,
         120, 100, 0,
@@ -463,7 +469,8 @@ public static class Move
         "String Shot", Bug,
         0, 95, 0,
         MoveEffect.SpeedDown1, 100,
-        false, Target.Opponent + Target.Spread, 40); //Needs anim
+        false, Target.Opponent + Target.Spread, 40,
+        magicBounceAffected); //Needs anim
     public static MoveData DragonRage = new(
         "Dragon Rage", Dragon,
         1, 100, 0,
@@ -488,7 +495,8 @@ public static class Move
         "Thunder Wave", Electric,
         0, 90, 0,
         MoveEffect.Paralyze, 100,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        magicBounceAffected); //Needs anim
     public static MoveData Thunder = new(
         "Thunder", Electric,
         110, 70, 0,
@@ -518,7 +526,8 @@ public static class Move
         "Toxic", Poison,
         0, 90, 0,
         MoveEffect.Toxic, 100,
-        false, Target.Single, 10); //Needs anim
+        false, Target.Single, 10,
+        magicBounceAffected); //Needs anim
     public static MoveData Confusion = new(
         "Confusion", Type.Psychic,
         50, 100, 0,
@@ -533,7 +542,8 @@ public static class Move
         "Hypnosis", Type.Psychic,
         0, 60, 0,
         MoveEffect.Sleep, 100,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        magicBounceAffected); //Needs anim
     public static MoveData Meditate = new(
         "Meditate", Type.Psychic,
         0, AlwaysHit, 0,
@@ -576,7 +586,7 @@ public static class Move
         0, 85, 0,
         MoveEffect.DefenseDown2, 100,
         false, Target.Single, 40,
-        soundMove); //Needs anim
+        soundMove + magicBounceAffected); //Needs anim
     public static MoveData DoubleTeam = new(
         "Double Team", Normal,
         0, 101, 0,
@@ -601,12 +611,14 @@ public static class Move
         "Smokescreen", Normal,
         0, 100, 0,
         MoveEffect.AccuracyDown1, 100,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        magicBounceAffected); //Needs anim
     public static MoveData ConfuseRay = new(
         "Confuse Ray", Ghost,
         0, 100, 0,
         MoveEffect.Confuse, 100,
-        false, Target.Single, 10); //Needs anim
+        false, Target.Single, 10,
+        magicBounceAffected); //Needs anim
     public static MoveData Withdraw = new(
         "Withdraw", Water,
         0, 101, 0,
@@ -737,7 +749,8 @@ public static class Move
         "Kinesis", Type.Psychic,
         0, 80, 0,
         MoveEffect.AccuracyDown1, 100,
-        false, Target.Single, 15); //Needs anim
+        false, Target.Single, 15,
+        magicBounceAffected); //Needs anim
     public static MoveData SoftBoiled = new(
         "Soft Boiled", Normal,
         0, 101, 0,
@@ -753,7 +766,8 @@ public static class Move
         "Glare", Normal,
         0, 100, 0,
         MoveEffect.Paralyze, 100,
-        false, Target.Single, 30); //Needs anim
+        false, Target.Single, 30,
+        magicBounceAffected); //Needs anim
     public static MoveData DreamEater = new(
         "Dream Eater", Type.Psychic,
         100, 100, 0,
@@ -763,7 +777,8 @@ public static class Move
         "Poison Gas", Poison,
         0, 90, 0,
         MoveEffect.Poison, 100,
-        false, Target.Opponent + Target.Spread, 40); //Needs anim
+        false, Target.Opponent + Target.Spread, 40,
+        magicBounceAffected); //Needs anim
     public static MoveData Barrage = new(
         "Barrage", Normal,
         15, 85, 0,
@@ -779,7 +794,8 @@ public static class Move
         "Lovely Kiss", Normal,
         0, 75, 0,
         MoveEffect.Sleep, 100,
-        false, Target.Single, 10); //Needs anim
+        false, Target.Single, 10,
+        magicBounceAffected); //Needs anim
     public static MoveData SkyAttack = new(
         "Sky Attack", Flying,
         0, 100, 0,
@@ -807,12 +823,13 @@ public static class Move
         0, 100, 0,
         MoveEffect.Sleep, 100,
         false, Target.Single, 15,
-        powderMove); //Needs anim
+        powderMove + magicBounceAffected); //Needs anim
     public static MoveData Flash = new(
         "Flash", Normal,
         0, 100, 0,
         MoveEffect.AccuracyDown1, 100,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        magicBounceAffected); //Needs anim
     public static MoveData Psywave = new(
         "Psywave", Type.Psychic,
         1, 100, 0,
@@ -923,7 +940,8 @@ public static class Move
         "Spider Web", Bug,
         0, 101, 0,
         MoveEffect.Trap, 100,
-        false, Target.Single, 10); //Needs anim
+        false, Target.Single, 10,
+        magicBounceAffected); //Needs anim
     public static MoveData MindReader = new(
         "Mind Reader", Normal,
         0, 101, 0,
@@ -972,7 +990,8 @@ public static class Move
         "Cotton Spore", Grass,
         0, 100, 0,
         MoveEffect.SpeedDown2, 100,
-        false, Target.Opponent + Target.Spread, 40); //Needs anim
+        false, Target.Opponent + Target.Spread, 40,
+        magicBounceAffected); //Needs anim
     public static MoveData Reversal = new(
         "Reversal", Fighting,
         1, 100, 0,
@@ -983,7 +1002,8 @@ public static class Move
         "Spite", Ghost,
         0, 100, 0,
         MoveEffect.Spite, 100,
-        false, Target.Single, 10); //Needs anim
+        false, Target.Single, 10,
+        magicBounceAffected); //Needs anim
     public static MoveData PowderSnow = new(
         "Powder Snow", Ice,
         40, 100, 0,
@@ -1005,7 +1025,8 @@ public static class Move
         "Scary Face", Normal,
         0, 100, 0,
         MoveEffect.SpeedDown2, 100,
-        false, Target.Single, 10); //Needs anim
+        false, Target.Single, 10,
+        magicBounceAffected); //Needs anim
     public static MoveData FeintAttack = new(
         "Feint Attack", Dark,
         60, 101, 0,
@@ -1016,7 +1037,8 @@ public static class Move
         "Sweet Kiss", Fairy,
         0, 75, 0,
         MoveEffect.Confuse, 100,
-        false, Target.Single, 10); //Needs anim
+        false, Target.Single, 10,
+        magicBounceAffected); //Needs anim
     public static MoveData BellyDrum = new(
         "Belly Drum", Normal,
         0, 101, 0,
@@ -1042,7 +1064,8 @@ public static class Move
         "Spikes", Ground,
         0, 101, 0,
         MoveEffect.Spikes, 100,
-        false, Target.Field, 20); //Needs anim
+        false, Target.Field, 20,
+        magicBounceAffected); //Needs anim
     public static MoveData ZapCannon = new(
         "Zap Cannon", Electric,
         120, 50, 0,
@@ -1053,7 +1076,8 @@ public static class Move
         "Foresight", Normal,
         0, 101, 0,
         MoveEffect.Foresight, 100,
-        false, Target.Single, 40); //Needs anim
+        false, Target.Single, 40,
+        magicBounceAffected); //Needs anim
     public static MoveData DestinyBond = new(
         "Destiny Bond", Ghost,
         0, 101, 0,
@@ -1113,7 +1137,8 @@ public static class Move
         "Charm", Fairy,
         0, 100, 0,
         MoveEffect.AttackDown2, 100,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        magicBounceAffected); //Needs anim
     public static MoveData Rollout = new(
         "Rollout", Rock,
         30, 90, 0,
@@ -1130,7 +1155,8 @@ public static class Move
         "Swagger", Normal,
         0, 85, 0,
         MoveEffect.Swagger, 0,
-        false, Target.Single, 15); //Needs anim
+        false, Target.Single, 15,
+        magicBounceAffected); //Needs anim
     public static MoveData MilkDrink = new(
         "Milk Drink", Normal,
         0, 101, 0,
@@ -1158,12 +1184,14 @@ public static class Move
         "Mean Look", Normal,
         0, 101, 0,
         MoveEffect.Trap, 100,
-        false, Target.Single, 5); //Needs anim
+        false, Target.Single, 5,
+        magicBounceAffected); //Needs anim
     public static MoveData Attract = new(
         "Attract", Normal,
         0, 100, 0,
         MoveEffect.Attract, 100,
-        false, Target.Single, 15); //Needs anim
+        false, Target.Single, 15,
+        magicBounceAffected); //Needs anim
     public static MoveData SleepTalk = new(
         "Sleep Talk", Normal,
         0, 101, 0,
@@ -1237,7 +1265,8 @@ public static class Move
         "Encore", Normal,
         0, 100, 0,
         MoveEffect.Encore, 100,
-        false, Target.Single, 5); //Needs testing and anim
+        false, Target.Single, 5,
+        magicBounceAffected); //Needs testing and anim
     public static MoveData Pursuit = new(
         "Pursuit", Dark,
         40, 100, 0,
@@ -1254,7 +1283,8 @@ public static class Move
         "Sweet Scent", Normal,
         0, 100, 0,
         MoveEffect.EvasionDown2, 100,
-        false, Target.Opponent + Target.Spread, 20); //Needs anim
+        false, Target.Opponent + Target.Spread, 20,
+        magicBounceAffected); //Needs anim
     public static MoveData IronTail = new(
         "Iron Tail", Steel,
         100, 75, 0,
@@ -1401,11 +1431,11 @@ public static class Move
     public static MoveData Hail = FieldMove(
         "Hail", Ice, 0, MoveEffect.Weather, 10); //Needs anim
     public static MoveData Torment = SingleTargetStatusMove(
-        "Torment", Dark, 100, 0, MoveEffect.Torment, 15); //Needs anim
+        "Torment", Dark, 100, 0, MoveEffect.Torment, 15, magicBounceAffected); //Needs anim
     public static MoveData Flatter = SingleTargetStatusMove(
-        "Flatter", Dark, 100, 0, MoveEffect.Flatter, 15); //Needs anim
+        "Flatter", Dark, 100, 0, MoveEffect.Flatter, 15, magicBounceAffected); //Needs anim
     public static MoveData WillOWisp = SingleTargetStatusMove(
-        "Will-O-Wisp", Fire, 85, 0, MoveEffect.Burn, 15); //Needs anim
+        "Will-O-Wisp", Fire, 85, 0, MoveEffect.Burn, 15, magicBounceAffected); //Needs anim
     public static MoveData Memento = SingleTargetStatusMove(
         "Memento", Dark, 100, 0, MoveEffect.Memento, 10); //Needs anim
     public static MoveData Facade = new(
@@ -1413,52 +1443,69 @@ public static class Move
         70, 100, 0,
         MoveEffect.Facade, 0,
         true, Target.Single, 20,
-        makesContact);
+        makesContact); //Needs anim
     public static MoveData FocusPunch = new(
         "Focus Punch", Fighting,
         150, 100, 9,
         MoveEffect.FocusPunchWindup, 100,
         true, Target.Single, 20,
-        effectOnSelfOnly);
+        effectOnSelfOnly); //Needs anim
     public static MoveData SmellingSalts = new(
         "Smelling Salts", Normal,
         70, 100, 0,
         MoveEffect.SmellingSalts, 100,
         true, Target.Single, 10,
-        makesContact);
+        makesContact); //Needs anim
     public static MoveData FollowMe = SelfTargetingMove(
-        "Follow Me", Normal, 2, MoveEffect.FollowMe, 20);
+        "Follow Me", Normal, 2, MoveEffect.FollowMe, 20); //Needs anim
     public static MoveData NaturePower = new(
         "Nature Power", Normal,
         1, 100, 0,
         MoveEffect.NaturePower, 0,
-        false, Target.Single, 20);
+        false, Target.Single, 20); //Needs anim
     public static MoveData Charge = SelfTargetingMove(
-        "Charge", Electric, 0, MoveEffect.Charge, 20);
+        "Charge", Electric, 0, MoveEffect.Charge, 20); //Needs anim
     public static MoveData Taunt = SingleTargetStatusMove(
-        "Taunt", Dark, 100, 0, MoveEffect.Taunt, 20);
+        "Taunt", Dark, 100, 0, MoveEffect.Taunt, 20, magicBounceAffected); //Needs anim
     public static MoveData HelpingHand = new(
         "Helping Hand", Normal,
         0, 100, 5,
         MoveEffect.HelpingHand, 100,
-        false, Target.Ally, 20);
+        false, Target.Ally, 20); //Needs anim
     public static MoveData Trick = SingleTargetStatusMove(
-        "Trick", Type.Psychic, 100, 0, MoveEffect.Trick, 10);
+        "Trick", Type.Psychic, 100, 0, MoveEffect.Trick, 10); //Needs anim
     public static MoveData RolePlay = SingleTargetStatusMove(
-        "Role Play", Type.Psychic, 100, 0, MoveEffect.RolePlay, 10);
+        "Role Play", Type.Psychic, 100, 0, MoveEffect.RolePlay, 10); //Needs anim
     public static MoveData Wish = SelfTargetingMove(
-        "Wish", Normal, 0, MoveEffect.Wish, 10);
+        "Wish", Normal, 0, MoveEffect.Wish, 10); //Needs anim
     public static MoveData Assist = SelfTargetingMove(
-        "Assist", Normal, 0, MoveEffect.Assist, 20);
+        "Assist", Normal, 0, MoveEffect.Assist, 20); //Needs anim
     public static MoveData Ingrain = SelfTargetingMove(
-        "Ingrain", Grass, 0, MoveEffect.Ingrain, 20);
+        "Ingrain", Grass, 0, MoveEffect.Ingrain, 20); //Needs anim
     public static MoveData Superpower = new(
         "Superpower", Fighting,
         120, 100, 0,
         MoveEffect.Superpower, 100,
         true, Target.Single, 5,
-        effectOnSelfOnly);
-
+        effectOnSelfOnly + makesContact); //Needs anim
+    public static MoveData MagicCoat = SelfTargetingMove(
+        "Magic Coat", Type.Psychic, 4, MoveEffect.MagicCoat, 15);
+    public static MoveData Recycle = SelfTargetingMove(
+        "Recycle", Normal, 0, MoveEffect.Recycle, 10);
+    public static MoveData Revenge = new(
+        "Revenge", Fighting,
+        60, 100, -4,
+        MoveEffect.Revenge, 0,
+        true, Target.Single, 10,
+        makesContact);
+    public static MoveData BrickBreak = new(
+        "Brick Break", Fighting,
+        75, 100, 0,
+        MoveEffect.BreakScreens, 100,
+        true, Target.Single, 15,
+        makesContact);
+    public static MoveData Yawn = SingleTargetStatusMove(
+        "Yawn", Normal, 100, 0, MoveEffect.Yawn, 10, magicBounceAffected);
 
 
     //Non-standard moves
@@ -1817,6 +1864,11 @@ public static class Move
         Assist,
         Ingrain,
         Superpower,
+        MagicCoat,
+        Recycle,
+        Revenge,
+        BrickBreak,
+        Yawn,
 
         //Nonstandard moves
         ConfusionHit,

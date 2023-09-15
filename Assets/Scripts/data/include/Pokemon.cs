@@ -64,6 +64,8 @@ public class Pokemon : ICloneable
     public bool exists;
 
     public ItemID item;
+    public bool itemChanged;
+    public ItemID newItem;
 
     public bool onField = false;
 
