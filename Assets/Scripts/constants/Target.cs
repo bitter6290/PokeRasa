@@ -27,7 +27,7 @@ public static class Target
         }
         else
         {
-            if (attacker - defender is -2 or 2) return
+            if (attacker - defender is -5 or -1 or 1 or 5) return
                 (move.Data().targets & (Opponent + Ranged)) == Opponent + Ranged;
             else return (move.Data().targets & Opponent) != 0;
         }

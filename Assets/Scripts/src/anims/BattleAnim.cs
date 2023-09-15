@@ -560,9 +560,9 @@ public static class BattleAnim
         yield return Grow(transform, 0.8F, 0.3F); //1.95
         yield return Grow(transform, 1.25F, 0.45F); //2.40
         GameObject megaStone = NewSpriteFromTexture("Sprites/Battle/mega_stone", battle.spriteTransform[index],
-            new Vector2(1.0F, 1.0F), new Vector2(0.0F, 0.0F), 2);
+            new Vector2(1.33F, 1.33F), new Vector2(0.0F, 0.0F), 2);
         battle.StartCoroutine(FadeIn(megaStone.GetComponent<SpriteRenderer>(), 0.7F)); //2.40 - 3.10
-        battle.StartCoroutine(Grow(megaStone.GetComponent<Transform>(), 1.66F, 0.7F)); //2.40 - 3.10
+        battle.StartCoroutine(Grow(megaStone.GetComponent<Transform>(), 1.25F, 0.7F)); //2.40 - 3.10
         yield return Grow(transform, 0.8F, 0.7F); //3.10
         GameObject megaSymbol = NewSpriteFromTexture("Sprites/Battle/mega_symbol", battle.spriteTransform[index],
             new Vector2(1.0F, 1.0F), new Vector2(0.0F, 2.0F));

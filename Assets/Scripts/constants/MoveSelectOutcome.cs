@@ -6,5 +6,6 @@
     Encored,
     Tormented,
     Taunted,
+    Imprisoned,
     NoMove,
 }

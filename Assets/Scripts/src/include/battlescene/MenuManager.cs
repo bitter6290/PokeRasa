@@ -123,6 +123,13 @@ public class MenuManager : MonoBehaviour
         battle.state = BattleState.PlayerInput;
     }
 
+    private IEnumerator MoveImprisoned(int currentMon, int currentMove)
+    {
+        yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true)
+            + " can't use the imprisoned move!");
+        battle.state = BattleState.PlayerInput;
+    }
+
     private IEnumerator MoveEncored(int currentMon)
     {
         yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true)
@@ -399,6 +406,10 @@ public class MenuManager : MonoBehaviour
                                         case MoveSelectOutcome.Tormented:
                                             battle.state = BattleState.Announcement;
                                             StartCoroutine(MonTormented(currentMon));
+                                            break;
+                                        case MoveSelectOutcome.Imprisoned:
+                                            battle.state = BattleState.Announcement;
+                                            StartCoroutine(MoveImprisoned(currentMon, currentMove));
                                             break;
                                         case MoveSelectOutcome.Success:
                                             if (battle.TryAddMove(currentMon, currentMove))

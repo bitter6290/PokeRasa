@@ -5,5 +5,5 @@
     Rain,
     Sand,
     Snow,
-
+    StrongWinds,
 }

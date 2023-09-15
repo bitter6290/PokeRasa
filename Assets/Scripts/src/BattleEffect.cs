@@ -161,6 +161,24 @@ public static class BattleEffect
                 + " was cured of its paralysis!");
         }
     }
+    public static IEnumerator HealBurn(Battle battle, int index)
+    {
+        if (battle.PokemonOnField[index].PokemonData.status == Status.Burn)
+        {
+            battle.PokemonOnField[index].PokemonData.status = Status.None;
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                + " was cured of its burn!");
+        }
+    }
+    public static IEnumerator HealPoison(Battle battle, int index)
+    {
+        if (battle.PokemonOnField[index].PokemonData.status is Status.Poison or Status.ToxicPoison)
+        {
+            battle.PokemonOnField[index].PokemonData.status = Status.None;
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                + " is no longer poisoned!");
+        }
+    }
     public static IEnumerator TriAttack(Battle battle, int index)
     {
         var random = new System.Random();
@@ -425,7 +443,7 @@ public static class BattleEffect
     {
         string faintedMonName = battle.MonNameWithPrefix(index, true);
         yield return BattleAnim.Faint(battle, index);
-        battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index > 2, index % 3);
+        battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index > 2, index % 3, battle);
         yield return null;
         battle.spriteRenderer[index].maskInteraction = SpriteMaskInteraction.None;
         yield return battle.Announce(faintedMonName + " fainted!");
@@ -500,11 +518,11 @@ public static class BattleEffect
 
             battle.LeaveFieldCleanup(index);
             yield return battle.Announce(battle.OpponentName + " withdrew " + battle.MonNameWithPrefix(index, false) + "!");
-            battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(false, index);
+            battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(false, index, battle);
             yield return battle.Announce(battle.OpponentName + " sent out "
                 + battle.OpponentPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
-                battle.OpponentPokemon[partyIndex], index > 2, index % 3, false);
+                battle.OpponentPokemon[partyIndex], index > 2, index % 3, false, battle);
             battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
                 + battle.PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
             yield return battle.MonEntersField(index);
@@ -514,10 +532,10 @@ public static class BattleEffect
             if (battle.PokemonOnField[index].exists)
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "! Come back!");
             battle.LeaveFieldCleanup(index);
-            battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(true, index - 3);
+            battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(true, index - 3, battle);
             yield return battle.Announce("Go! " + battle.PlayerPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
-                            battle.PlayerPokemon[partyIndex], index > 2, index % 3, true);
+                            battle.PlayerPokemon[partyIndex], index > 2, index % 3, true, battle);
             battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
                 + battle.PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
             yield return battle.MonEntersField(index);
@@ -558,7 +576,7 @@ public static class BattleEffect
                     battle.LeaveFieldCleanup(index);
                     battle.PokemonOnField[index] = new BattlePokemon(
                         RemainingPokemon[random.Next() % RemainingPokemon.Count],
-                        index > 2, index % 3, index > 2)
+                        index > 2, index % 3, index > 2, battle)
                     {
                         done = true
                     };
@@ -802,7 +820,8 @@ public static class BattleEffect
 
     public static IEnumerator PainSplit(Battle battle, int target, int attacker)
     {
-        if (battle.PokemonOnField[attacker].PokemonData.HP > battle.PokemonOnField[target].PokemonData.HP)
+        if (battle.PokemonOnField[attacker].PokemonData.HP
+            > battle.PokemonOnField[target].PokemonData.HP)
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;
@@ -822,7 +841,8 @@ public static class BattleEffect
         int healthAmount = target.PokemonData.hpMax >> 3;
         target.DoNonMoveDamage(healthAmount);
         yield return Heal(battle, battle.PokemonOnField[index].seedingSlot, healthAmount);
-        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s health was sapped by Leech Seed!");
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + "'s health was sapped by Leech Seed!");
     }
 
     public static IEnumerator DoMimic(Battle battle, int index, int target)
@@ -838,7 +858,8 @@ public static class BattleEffect
         user.mimicMove = battle.PokemonOnField[target].lastMoveUsed;
         user.mimicMaxPP = Move.MoveTable[(int)user.mimicMove].pp;
         user.mimicPP = user.mimicMaxPP;
-        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " mimicked " + Move.MoveTable[(int)user.mimicMove].name + "!");
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " mimicked " + Move.MoveTable[(int)user.mimicMove].name + "!");
     }
 
     public static IEnumerator Conversion(Battle battle, int index)
@@ -847,7 +868,41 @@ public static class BattleEffect
         battle.PokemonOnField[index].newType1 = newType;
         battle.PokemonOnField[index].newType2 = newType;
         battle.PokemonOnField[index].typesOverriden = true;
-        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " became the " + TypeUtils.typeName[(int)newType] + " type!");
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " became the " + TypeUtils.typeName[(int)newType] + " type!");
+    }
+
+    public static IEnumerator Camouflage(Battle battle, int index) {
+        Type newType = battle.terrain switch
+        {
+            Terrain.Electric => Type.Electric,
+            Terrain.Grassy => Type.Grass,
+            Terrain.Misty => Type.Fairy,
+            Terrain.Psychic => Type.Psychic,
+            _ => battle.battleTerrain switch
+            {
+                BattleTerrain.Building or BattleTerrain.Gym or BattleTerrain.Bridge
+                    => Type.Normal,
+                BattleTerrain.Cave => Type.Rock,
+                BattleTerrain.Sand or BattleTerrain.Rock or BattleTerrain.Marsh
+                    => Type.Ground,
+                BattleTerrain.Water => Type.Water,
+                BattleTerrain.Snow or BattleTerrain.Ice => Type.Ice,
+                BattleTerrain.Grass or BattleTerrain.Woods or BattleTerrain.Flowers
+                    => Type.Grass,
+                BattleTerrain.Volcano => Type.Fire,
+                BattleTerrain.Sky => Type.Flying,
+                BattleTerrain.BurialGround => Type.Ghost,
+                BattleTerrain.UltraSpace => Type.Psychic,
+                BattleTerrain.Space => Type.Dragon,
+                _ => Type.Normal,
+            }
+        };
+        battle.PokemonOnField[index].newType1 = newType;
+        battle.PokemonOnField[index].newType2 = newType;
+        battle.PokemonOnField[index].typesOverriden = true;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " became the " + TypeUtils.typeName[(int)newType] + " type!");
     }
 
     public static IEnumerator Haze(Battle battle)
@@ -884,7 +939,9 @@ public static class BattleEffect
     public static IEnumerator DoPerishSong(Battle battle, int index)
     {
         battle.PokemonOnField[index].perishCounter--;
-        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s perish counter fell to " + battle.PokemonOnField[index].perishCounter + "!");
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + "'s perish counter fell to "
+            + battle.PokemonOnField[index].perishCounter + "!");
         if (battle.PokemonOnField[index].perishCounter <= 0)
         {
             battle.PokemonOnField[index].PokemonData.HP = 0;
@@ -899,13 +956,15 @@ public static class BattleEffect
             if (battle.HasAbility(index, Ability.Oblivious))
             {
                 //Ability popup
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is protected by Oblivious!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " is protected by Oblivious!");
             }
             else
             {
                 battle.PokemonOnField[index].infatuated = true;
                 battle.PokemonOnField[index].infatuationTarget = attacker;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " became infatuated!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " became infatuated!");
             }
         }
         else
@@ -921,21 +980,21 @@ public static class BattleEffect
         {
             case Status.Burn:
                 yield return battle.Announce(mon.monName + " was cured of its burn!");
-                goto case Status.None;
+                goto default;
             case Status.Paralysis:
                 yield return battle.Announce(mon.monName + " was cured of its paralysis!");
-                goto case Status.None;
+                goto default;
             case Status.Sleep:
                 yield return battle.Announce(mon.monName + " woke up!");
-                goto case Status.None;
+                goto default;
             case Status.Poison:
             case Status.ToxicPoison:
                 yield return battle.Announce(mon.monName + " was cured of its poisoning!");
-                goto case Status.None;
+                goto default;
             case Status.Freeze:
                 yield return battle.Announce(mon.monName + " thawed out!");
-                goto case Status.None;
-            case Status.None:
+                goto default;
+            default:
                 mon.status = Status.None;
                 break;
         }
@@ -976,11 +1035,48 @@ public static class BattleEffect
             && Item.CanBeStolen(battle.PokemonOnField[defender].PokemonData.item)
             && !battle.HasAbility(defender, Ability.StickyHold))
         {
-            battle.PokemonOnField[attacker].PokemonData.item = battle.PokemonOnField[defender].PokemonData.item;
-            battle.PokemonOnField[defender].PokemonData.item = ItemID.None;
+            battle.PokemonOnField[attacker].PokemonData.newItem = battle.PokemonOnField[defender].PokemonData.item;
+            battle.PokemonOnField[defender].PokemonData.newItem = ItemID.None;
+            battle.PokemonOnField[defender].PokemonData.itemChanged = true;
+            battle.PokemonOnField[attacker].PokemonData.itemChanged = true;
             yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
                 + " stole " + battle.MonNameWithPrefix(defender, false) + "'s "
                 + Item.ItemTable[(int)battle.PokemonOnField[attacker].PokemonData.item].itemName + "!");
+        }
+    }
+
+
+    public static IEnumerator SwitchItems(Battle battle, int attacker, int defender)
+    {
+        if (battle.PokemonOnField[attacker].PokemonData.item == ItemID.None
+        && Item.CanBeStolen(battle.PokemonOnField[defender].item)
+        && Item.CanBeStolen(battle.PokemonOnField[attacker].item)
+        && !battle.HasAbility(defender, Ability.StickyHold))
+        {
+            ItemID attackerItem = battle.PokemonOnField[attacker].item;
+            battle.PokemonOnField[attacker].PokemonData.newItem = battle.PokemonOnField[defender].item;
+            battle.PokemonOnField[defender].PokemonData.newItem = attackerItem;
+            battle.PokemonOnField[defender].PokemonData.itemChanged = true;
+            battle.PokemonOnField[attacker].PokemonData.itemChanged = true;
+            yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
+                + " switched items with " + battle.MonNameWithPrefix(defender, false) + "!");
+            yield return battle.Announce(battle.MonNameWithPrefix(defender, true)
+                + " obtained one " + battle.PokemonOnField[defender].item.Data().itemName + "!");
+            yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
+    + " obtained one " + battle.PokemonOnField[attacker].item.Data().itemName + "!");
+        }
+    }
+
+    public static IEnumerator KnockOff(Battle battle, int attacker, int defender)
+    {
+        if (Item.CanBeStolen(battle.PokemonOnField[defender].PokemonData.item)
+            && !battle.HasAbility(defender, Ability.StickyHold))
+        {
+            yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
+                + " knocked off " + battle.MonNameWithPrefix(defender, false)
+                + "'s " + battle.PokemonOnField[defender].item.Data().itemName + "!");
+            battle.PokemonOnField[defender].PokemonData.newItem = ItemID.None;
+            battle.PokemonOnField[defender].PokemonData.itemChanged = true;
         }
     }
 
@@ -1019,7 +1115,7 @@ public static class BattleEffect
             + "'s stat changes!");
     }
 
-    public static IEnumerator DrainPP(Battle battle, int index, int amount)
+    public static IEnumerator DrainPP(Battle battle, int index, int amount, bool announce = true)
     {
         BattlePokemon target = battle.PokemonOnField[index];
         bool worked = true;
@@ -1031,7 +1127,7 @@ public static class BattleEffect
             case 4: target.PokemonData.pp4 = Max(0, target.PokemonData.pp4 - amount); break;
             default: worked = false; break;
         }
-        if (worked) yield return battle.Announce("It reduced the PP of " + battle.MonNameWithPrefix(index, false)
+        if (announce && worked) yield return battle.Announce("It reduced the PP of " + battle.MonNameWithPrefix(index, false)
             + "'s " + battle.GetMove(index).name + " by 4!");
         else yield return battle.Announce(BattleText.MoveFailed);
     }
@@ -1309,27 +1405,6 @@ public static class BattleEffect
             + " fell for the taunt!");
     }
 
-    public static IEnumerator SwitchItems(Battle battle, int attacker, int defender)
-    {
-        if (battle.PokemonOnField[attacker].PokemonData.item == ItemID.None
-        && Item.CanBeStolen(battle.PokemonOnField[defender].item)
-        && Item.CanBeStolen(battle.PokemonOnField[attacker].item)
-        && !battle.HasAbility(defender, Ability.StickyHold))
-        {
-            ItemID attackerItem = battle.PokemonOnField[attacker].item;
-            battle.PokemonOnField[attacker].PokemonData.newItem = battle.PokemonOnField[defender].item;
-            battle.PokemonOnField[defender].PokemonData.newItem = attackerItem;
-            battle.PokemonOnField[defender].PokemonData.itemChanged = true;
-            battle.PokemonOnField[attacker].PokemonData.itemChanged = true;
-            yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
-                + " switched items with " + battle.MonNameWithPrefix(defender, false) + "!");
-            yield return battle.Announce(battle.MonNameWithPrefix(defender, true)
-                + " obtained one " + battle.PokemonOnField[defender].item.Data().itemName + "!");
-            yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
-    + " obtained one " + battle.PokemonOnField[attacker].item.Data().itemName + "!");
-        }
-    }
-
     public static IEnumerator RolePlay(Battle battle, int user, int target)
     {
         //Do AbilityUtils check for unchangeable abilities
@@ -1339,6 +1414,27 @@ public static class BattleEffect
             + " copied " + battle.MonNameWithPrefix(target, false) + "'s "
             + NameTable.Ability[(int)battle.PokemonOnField[user].ability] + "!");
         yield return battle.EntryAbilityCheck(user);
+    }
+
+    public static IEnumerator SkillSwap(Battle battle, int user, int target)
+    {
+        Ability swappedAbility = battle.PokemonOnField[user].ability;
+        battle.PokemonOnField[user].ability = battle.PokemonOnField[target].ability;
+        battle.PokemonOnField[target].ability = swappedAbility;
+        yield return battle.Announce(battle.MonNameWithPrefix(user, true)
+           + " swapped Abilities with its target!");
+        if(battle.GetSpeed(user) > battle.GetSpeed(target)
+            || (battle.GetSpeed(user) == battle.GetSpeed(target)
+            && (battle.random.Next() & 1) == 1))
+        {
+            yield return battle.EntryAbilityCheck(user);
+            yield return battle.EntryAbilityCheck(target);
+        }
+        else
+        {
+            yield return battle.EntryAbilityCheck(target);
+            yield return battle.EntryAbilityCheck(user);
+        }
     }
 
     public static IEnumerator HelpingHand(Battle battle, int user, int target)
@@ -1393,6 +1489,27 @@ public static class BattleEffect
         {
             side.reflect = false;
             yield return battle.Announce(sideText + " Reflect wore off!");
+        }
+    }
+
+    public static IEnumerator HealStatus(Battle battle, int index)
+    {
+        switch (battle.PokemonOnField[index].PokemonData.status)
+        {
+            case Status.Paralysis:
+                yield return HealParalysis(battle, index);
+                break;
+            case Status.Burn:
+                yield return HealBurn(battle, index);
+                break;
+            case Status.Poison:
+            case Status.ToxicPoison:
+                yield return HealPoison(battle, index);
+                break;
+            case Status.Sleep:
+                yield return WakeUp(battle, index);
+                break;
+            default: break;
         }
     }
 }

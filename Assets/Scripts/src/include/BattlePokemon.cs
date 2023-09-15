@@ -196,6 +196,13 @@ public class BattlePokemon
 
     public bool ingrained = false;
 
+    public bool imprisoned = false;
+
+    public bool grudge = false;
+    public bool gotGrudgeEffect = false;
+
+    public bool snatch = false;
+
     public bool[] damagedByMon = new bool[6];
 
     public MoveID moveUsedLastTurn = MoveID.None;
@@ -203,11 +210,13 @@ public class BattlePokemon
     public MoveID lastMoveUsed = MoveID.None;
     public int lastMoveSlot = 0;
 
+    public Battle battle;
+
     public MoveID lastTargetedMove = MoveID.None;
 
     public ItemID item => PokemonData.itemChanged ? PokemonData.newItem : PokemonData.item;
 
-    public BattlePokemon(Pokemon pokemonData, bool side, int position, bool player, bool exists = true)
+    public BattlePokemon(Pokemon pokemonData, bool side, int position, bool player, Battle battle, bool exists = true)
     {
         pokemonData.onField = true;
         this.PokemonData = pokemonData;
@@ -221,6 +230,7 @@ public class BattlePokemon
         this.position = position;
         this.player = player;
         ability = Species.SpeciesTable[(int)pokemonData.species].abilities[pokemonData.whichAbility];
+        this.battle = battle;
         CalculateStats();
     }
 
@@ -251,6 +261,8 @@ public class BattlePokemon
             return MoveSelectOutcome.LowPP;
         if (taunted && GetMove(move).Data().power == 0)
             return MoveSelectOutcome.Taunted;
+        if (battle.MoveImprisoned(GetMove(move), index))
+            return MoveSelectOutcome.Imprisoned;
         return MoveSelectOutcome.Success;
     }
 
@@ -342,10 +354,10 @@ public class BattlePokemon
         if (ability is Ability.HugePower or Ability.PurePower) { attack <<= 1; }
     }
 
-    public static BattlePokemon MakeEmptyBattleMon(bool side, int position)
+    public static BattlePokemon MakeEmptyBattleMon(bool side, int position, Battle battle)
     {
         Pokemon emptyMon = Pokemon.MakeEmptyMon;
-        return new BattlePokemon(emptyMon, side, position, false, false);
+        return new BattlePokemon(emptyMon, side, position, false, battle, false);
     }
 
     public StatStruct MakeStatStruct()

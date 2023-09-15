@@ -3,7 +3,7 @@ public static class Item
 {
     public static bool CanBeStolen(ItemID item) => ItemTable[(int)item].type is ItemType.FieldItem or ItemType.BattleItem or ItemType.Medicine;
 
-    public static FieldItem None = new()
+    public static AbstractItem None = new()
     {
         itemName = "Error 901",
         price = 100,
