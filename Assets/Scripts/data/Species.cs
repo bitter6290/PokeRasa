@@ -8435,6 +8435,160 @@ public static class Species
         ability: Ability.ShadowTag
     );
 
+    public static SpeciesData KangaskhanMega = SpeciesData.Mega(
+        baseSpecies: Kangaskhan,
+        baseAttack: 125,
+        baseDefense: 100,
+        baseSpAtk: 60,
+        baseSpDef: 100,
+        baseSpeed: 100,
+        backSpriteHeight: 6,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.ParentalBond
+    );
+
+    public static SpeciesData PinsirMega = SpeciesData.Mega(
+        baseSpecies: Pinsir,
+        type2: Type.Flying,
+        baseAttack: 155,
+        baseDefense: 120,
+        baseSpAtk: 65,
+        baseSpDef: 90,
+        baseSpeed: 105,
+        backSpriteHeight: 7,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.Aerilate
+    );
+
+    public static SpeciesData GyaradosMega = SpeciesData.Mega(
+        baseSpecies: Gyarados,
+        type2: Type.Dark,
+        baseAttack: 155,
+        baseDefense: 109,
+        baseSpAtk: 70,
+        baseSpDef: 130,
+        baseSpeed: 81,
+        backSpriteHeight: 2,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.MoldBreaker
+    );
+
+    public static SpeciesData AerodactylMega = SpeciesData.Mega(
+        baseSpecies: Aerodactyl,
+        baseAttack: 135,
+        baseDefense: 85,
+        baseSpAtk: 70,
+        baseSpDef: 95,
+        baseSpeed: 150,
+        backSpriteHeight: 8,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.ToughClaws
+    );
+
+    public static SpeciesData MewtwoMegaX = SpeciesData.Mega(
+        baseSpecies: Mewtwo,
+        name: "Mega Mewtwo X",
+        type2: Type.Fighting,
+        baseAttack: 190,
+        baseDefense: 100,
+        baseSpAtk: 154,
+        baseSpDef: 100,
+        baseSpeed: 130,
+        backSpriteHeight: 1,
+        cry: "mega_mewtwo_x",
+        graphics: "mewtwo/mega_x",
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.Steadfast
+     );
+
+    public static SpeciesData MewtwoMegaY = SpeciesData.Mega(
+        baseSpecies: Mewtwo,
+        name: "Mega Mewtwo Y",
+        baseAttack: 150,
+        baseDefense: 70,
+        baseSpAtk: 194,
+        baseSpDef: 120,
+        baseSpeed: 140,
+        backSpriteHeight: 2,
+        cry: "mega_mewtwo_y",
+        graphics: "mewtwo/mega_y",
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.Insomnia
+    );
+
+    public static SpeciesData AmpharosMega = SpeciesData.Mega(
+        baseSpecies: Ampharos,
+        type2: Type.Dragon,
+        baseAttack: 95,
+        baseDefense: 105,
+        baseSpAtk: 165,
+        baseSpDef: 110,
+        baseSpeed: 45,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.MoldBreaker
+    );
+
+    public static SpeciesData SteelixMega = SpeciesData.Mega(
+        baseSpecies: Steelix,
+        baseAttack: 125,
+        baseDefense: 230,
+        baseSpAtk: 55,
+        baseSpDef: 95,
+        baseSpeed: 30,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done,
+        ability: Ability.SandForce
+    );
+
+    public static SpeciesData ScizorMega = SpeciesData.Mega(
+        baseSpecies: Scizor,
+        baseAttack: 150,
+        baseDefense: 140,
+        baseSpAtk: 65,
+        baseSpDef: 100,
+        baseSpeed: 75,
+        backSpriteHeight: 4,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.Technician
+    );
+
+    public static SpeciesData HeracrossMega = SpeciesData.Mega(
+        baseSpecies: Heracross,
+        baseAttack: 185,
+        baseDefense: 115,
+        baseSpAtk: 40,
+        baseSpDef: 105,
+        baseSpeed: 75,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.SkillLink
+    );
+
+    public static SpeciesData HoundoomMega = SpeciesData.Mega(
+        baseSpecies: Houndoom,
+        baseAttack: 90,
+        baseDefense: 90,
+        baseSpAtk: 140,
+        baseSpDef: 90,
+        baseSpeed: 115,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.SolarPower
+    );
+
+    public static SpeciesData TyranitarMega = SpeciesData.Mega(
+        baseSpecies: Tyranitar,
+        baseAttack: 164,
+        baseDefense: 150,
+        baseSpAtk: 95,
+        baseSpDef: 120,
+        baseSpeed: 71,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Ability.SandStream
+    );
+
     public static SpeciesData Unown_B
         = SpeciesData.Unown("unown/b", 9);
     public static SpeciesData Unown_C
@@ -8781,5 +8935,17 @@ public static class Species
         AlakazamMega,
         SlowbroMega,
         GengarMega,
+        KangaskhanMega,
+        PinsirMega,
+        GyaradosMega,
+        AerodactylMega,
+        MewtwoMegaX,
+        MewtwoMegaY,
+        AmpharosMega,
+        SteelixMega,
+        ScizorMega,
+        HeracrossMega,
+        HoundoomMega,
+        TyranitarMega,
     };
 }

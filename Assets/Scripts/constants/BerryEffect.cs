@@ -23,8 +23,8 @@
     //Damage reducing berries
     ReduceFireDamage, //Occa
     ReduceWaterDamage, //Passho
-    ReduceElectricDamage, //Wacan
     ReduceGrassDamage, //Rindo
+    ReduceElectricDamage, //Wacan
     ReduceIceDamage, //Yache
     ReduceFightingDamage, //Chople
     ReducePoisonDamage, //Kebia

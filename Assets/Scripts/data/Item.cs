@@ -17,6 +17,142 @@ public static class Item
         graphicsPath = "occa_berry"
     };
 
+    public static Berry PasshoBerry = new()
+    {
+        itemName = "Passho Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceWaterDamage,
+        graphicsPath = "passho_berry"
+    };
+
+    public static Berry WacanBerry = new()
+    {
+        itemName = "Wacan Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceElectricDamage,
+        graphicsPath = "wacan_berry"
+    };
+
+    public static Berry RindoBerry = new()
+    {
+        itemName = "Rindo Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceGrassDamage,
+        graphicsPath = "rindo_berry"
+    };
+
+    public static Berry YacheBerry = new()
+    {
+        itemName = "Yache Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceIceDamage,
+        graphicsPath = "yache_berry"
+    };
+
+    public static Berry ChopleBerry = new()
+    {
+        itemName = "Chople Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceFightingDamage,
+        graphicsPath = "chople_berry"
+    };
+
+    public static Berry KebiaBerry = new()
+    {
+        itemName = "Kebia Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReducePoisonDamage,
+        graphicsPath = "kebia_berry"
+    };
+
+    public static Berry ShucaBerry = new()
+    {
+        itemName = "Shuca Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceGroundDamage,
+        graphicsPath = "shuca_berry"
+    };
+
+    public static Berry CobaBerry = new()
+    {
+        itemName = "Coba Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceFlyingDamage,
+        graphicsPath = "coba_berry"
+    };
+
+    public static Berry PayapaBerry = new()
+    {
+        itemName = "Payapa Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReducePsychicDamage,
+        graphicsPath = "payapa_berry"
+    };
+
+    public static Berry TangaBerry = new()
+    {
+        itemName = "Tanga Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceBugDamage,
+        graphicsPath = "tanga_berry"
+    };
+
+    public static Berry ChartiBerry = new()
+    {
+        itemName = "Charti Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceRockDamage,
+        graphicsPath = "charti_berry"
+    };
+
+    public static Berry KasibBerry = new()
+    {
+        itemName = "Kasib Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceGhostDamage,
+        graphicsPath = "kasib_berry"
+    };
+
+    public static Berry HabanBerry = new()
+    {
+        itemName = "Haban Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceDragonDamage,
+        graphicsPath = "haban_berry"
+    };
+
+    public static Berry ColburBerry = new()
+    {
+        itemName = "Colbur Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceDarkDamage,
+        graphicsPath = "colbur_berry"
+    };
+
+    public static Berry BabiriBerry = new()
+    {
+        itemName = "Babiri Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceSteelDamage,
+        graphicsPath = "babiri_berry"
+    };
+
+    public static Berry RoseliBerry = new()
+    {
+        itemName = "Roseli Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceFairyDamage,
+        graphicsPath = "roseli_berry"
+    };
+
+    public static Berry ChilanBerry = new()
+    {
+        itemName = "Chilan Berry",
+        price = 2500,
+        berryEffect = BerryEffect.ReduceNormalDamage,
+        graphicsPath = "chilan_bery"
+    };
+
     public static FieldItem FireStone = new()
     {
         itemName = "Fire Stone",
@@ -205,11 +341,145 @@ public static class Item
         graphicsPath = "slowbronite",
     };
 
+    public static MegaStone Gengarite = new()
+    {
+        itemName = "Gengarite",
+        price = 40000,
+        originalSpecies = SpeciesID.Gengar,
+        destinationSpecies = SpeciesID.GengarMega,
+        graphicsPath = "gengarite",
+    };
+
+    public static MegaStone Kangaskhanite = new()
+    {
+        itemName = "Kangaskhanite",
+        price = 40000,
+        originalSpecies = SpeciesID.Kangaskhan,
+        destinationSpecies = SpeciesID.KangaskhanMega,
+        graphicsPath = "kangaskhanite",
+    };
+
+    public static MegaStone Pinsirite = new()
+    {
+        itemName = "Pinsirite",
+        price = 40000,
+        originalSpecies = SpeciesID.Pinsir,
+        destinationSpecies = SpeciesID.PinsirMega,
+        graphicsPath = "pinsirite",
+    };
+
+    public static MegaStone Gyaradosite = new()
+    {
+        itemName = "Gyaradosite",
+        price = 40000,
+        originalSpecies = SpeciesID.Gyarados,
+        destinationSpecies = SpeciesID.GyaradosMega,
+        graphicsPath = "gyaradosite"
+    };
+
+    public static MegaStone Aerodactylite = new()
+    {
+        itemName = "Aerodactylite",
+        price = 40000,
+        originalSpecies = SpeciesID.Aerodactyl,
+        destinationSpecies = SpeciesID.AerodactylMega,
+        graphicsPath = "aerodactylite",
+    };
+
+    public static MegaStone MewtwoniteX = new()
+    {
+        itemName = "Mewtwonite X",
+        price = 40000,
+        originalSpecies = SpeciesID.Mewtwo,
+        destinationSpecies = SpeciesID.MewtwoMegaX,
+        graphicsPath = "mewtwonite_x"
+    };
+
+    public static MegaStone MewtwoniteY = new()
+    {
+        itemName = "Mewtwonite Y",
+        price = 40000,
+        originalSpecies = SpeciesID.Mewtwo,
+        destinationSpecies = SpeciesID.MewtwoMegaY,
+        graphicsPath = "mewtwonite_y"
+    };
+
+    public static MegaStone Ampharosite = new()
+    {
+        itemName = "Ampharosite",
+        price = 40000,
+        originalSpecies = SpeciesID.Ampharos,
+        destinationSpecies = SpeciesID.AmpharosMega,
+        graphicsPath = "ampharosite",
+    };
+
+    public static MegaStone Steelixite = new()
+    {
+        itemName = "Steelixite",
+        price = 40000,
+        originalSpecies = SpeciesID.Steelix,
+        destinationSpecies = SpeciesID.SteelixMega,
+        graphicsPath = "steelixite",
+    };
+
+    public static MegaStone Scizorite = new()
+    {
+        itemName = "Scizorite",
+        price = 40000,
+        originalSpecies = SpeciesID.Scizor,
+        destinationSpecies = SpeciesID.ScizorMega,
+        graphicsPath = "scizorite",
+    };
+
+    public static MegaStone Heracronite = new()
+    {
+        itemName = "Heracronite",
+        price = 40000,
+        originalSpecies = SpeciesID.Heracross,
+        destinationSpecies = SpeciesID.HeracrossMega,
+        graphicsPath = "heracronite",
+    };
+
+    public static MegaStone Houndoominite = new()
+    {
+        itemName = "Houndoominite",
+        price = 40000,
+        originalSpecies = SpeciesID.Houndoom,
+        destinationSpecies = SpeciesID.HoundoomMega,
+        graphicsPath = "houndoominite",
+    };
+
+    public static MegaStone Tyranitarite = new()
+    {
+        itemName = "Tyranitarite",
+        price = 40000,
+        originalSpecies = SpeciesID.Tyranitar,
+        destinationSpecies = SpeciesID.TyranitarMega,
+        graphicsPath = "tyranitarite",
+    };
+
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
     {
     None,
     //Berries
     OccaBerry,
+    PasshoBerry,
+    RindoBerry,
+    WacanBerry,
+    YacheBerry,
+    ChopleBerry,
+    KebiaBerry,
+    ShucaBerry,
+    CobaBerry,
+    PayapaBerry,
+    TangaBerry,
+    ChartiBerry,
+    KasibBerry,
+    HabanBerry,
+    ColburBerry,
+    BabiriBerry,
+    RoseliBerry,
+    ChilanBerry,
     //Evolution items
     FireStone,
     WaterStone,
@@ -236,6 +506,19 @@ public static class Item
     Pidgeotite,
     Alakazite,
     Slowbronite,
+    Gengarite,
+    Kangaskhanite,
+    Pinsirite,
+    Gyaradosite,
+    Aerodactylite,
+    MewtwoniteX,
+    MewtwoniteY,
+    Ampharosite,
+    Steelixite,
+    Scizorite,
+    Heracronite,
+    Houndoominite,
+    Tyranitarite,
     };
 }
 

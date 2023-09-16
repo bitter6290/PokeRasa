@@ -298,6 +298,19 @@ public enum SpeciesID
     AlakazamMega,
     SlowbroMega,
     GengarMega,
+    KangaskhanMega,
+    PinsirMega,
+    GyaradosMega,
+    AerodactylMega,
+    MewtwoMegaX,
+    MewtwoMegaY,
+    AmpharosMega,
+    SteelixMega,
+    ScizorMega,
+    HeracrossMega,
+    HoundoomMega,
+    TyranitarMega,
+
 
     Count,
 
