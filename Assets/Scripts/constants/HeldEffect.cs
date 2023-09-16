@@ -3,4 +3,6 @@
     None,
     KingsRock,
     MetalCoat,
+    DeepSeaTooth,
+    DeepSeaScale,
 }

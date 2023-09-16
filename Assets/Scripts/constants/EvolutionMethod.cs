@@ -6,6 +6,7 @@ public enum EvolutionMethod
 {
     LevelUp,
     EvolutionItem,
+    ItemFemaleOnly,
     Trade,
     TradeItem,
     Friendship,
@@ -14,6 +15,12 @@ public enum EvolutionMethod
     LevelUpHighAttack,
     LevelUpHighDefense,
     LevelUpEqualAttackDefense,
+    LevelUpOddID,
+    LevelUpEvenID,
+    LevelUpMagneticField,
+    LevelUpMaxBeauty,
+
+    Incidental, //Shedinja
 
     Never,
 }

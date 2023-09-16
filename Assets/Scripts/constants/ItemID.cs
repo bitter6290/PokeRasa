@@ -34,8 +34,11 @@
     //Held items
     KingsRock,
     MetalCoat,
+    DeepSeaTooth,
+    DeepSeaScale,
     //Abstract items
     DragonScale,
+    PrismScale,
     UpGrade,
     //Mega stones
     Venusaurite,

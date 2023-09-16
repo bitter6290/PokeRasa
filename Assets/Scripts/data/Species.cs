@@ -8328,7 +8328,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 70,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Treecko,
         xpClass = XPClass.MediumSlow,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8361,7 +8361,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 95,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Grovyle,
         xpClass = XPClass.MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8394,7 +8394,7 @@ public static class Species
         baseSpDef = 85,
         baseSpeed = 120,
         evYield = 3 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 239,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8427,7 +8427,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 45,
         evYield = SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Torchic,
         xpClass = XPClass.MediumSlow,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8460,7 +8460,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 55,
         evYield = Attack + SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Combusken,
         xpClass = XPClass.MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8493,7 +8493,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 80,
         evYield = 3 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 239,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8526,7 +8526,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 40,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Mudkip,
         xpClass = XPClass.MediumSlow,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8559,7 +8559,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 50,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Marshtomp,
         xpClass = XPClass.MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8592,7 +8592,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 60,
         evYield = 3 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 241,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8625,7 +8625,7 @@ public static class Species
         baseSpDef = 30,
         baseSpeed = 35,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Poochyena,
         xpClass = XPClass.MediumFast,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8658,7 +8658,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 70,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 147,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8691,7 +8691,7 @@ public static class Species
         baseSpDef = 41,
         baseSpeed = 60,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Zigzagoon,
         xpClass = XPClass.MediumFast,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8724,7 +8724,7 @@ public static class Species
         baseSpDef = 61,
         baseSpeed = 100,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 147,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8757,7 +8757,7 @@ public static class Species
         baseSpDef = 30,
         baseSpeed = 20,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Wurmple,
         xpClass = XPClass.MediumFast,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8790,7 +8790,7 @@ public static class Species
         baseSpDef = 25,
         baseSpeed = 15,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Silcoon,
         xpClass = XPClass.MediumFast,
         xpYield = 72,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8823,7 +8823,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 65,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 178,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8856,7 +8856,7 @@ public static class Species
         baseSpDef = 25,
         baseSpeed = 15,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Cascoon,
         xpClass = XPClass.MediumFast,
         xpYield = 72,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8889,7 +8889,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 65,
         evYield = 3 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 173,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8922,7 +8922,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 30,
         evYield = SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Lotad,
         xpClass = XPClass.MediumSlow,
         xpYield = 44,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8955,7 +8955,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 50,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Lombre,
         xpClass = XPClass.MediumSlow,
         xpYield = 119,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -8988,7 +8988,7 @@ public static class Species
         baseSpDef = 100,
         baseSpeed = 70,
         evYield = 3 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 216,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9021,7 +9021,7 @@ public static class Species
         baseSpDef = 30,
         baseSpeed = 30,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Seedot,
         xpClass = XPClass.MediumSlow,
         xpYield = 44,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9054,7 +9054,7 @@ public static class Species
         baseSpDef = 40,
         baseSpeed = 60,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Nuzleaf,
         xpClass = XPClass.MediumSlow,
         xpYield = 119,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9087,7 +9087,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 80,
         evYield = 3 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 216,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9120,7 +9120,7 @@ public static class Species
         baseSpDef = 30,
         baseSpeed = 85,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Taillow,
         xpClass = XPClass.MediumSlow,
         xpYield = 54,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9153,7 +9153,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 125,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9186,7 +9186,7 @@ public static class Species
         baseSpDef = 30,
         baseSpeed = 85,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Wingull,
         xpClass = XPClass.MediumFast,
         xpYield = 54,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9219,7 +9219,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 65,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 154,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9252,7 +9252,7 @@ public static class Species
         baseSpDef = 35,
         baseSpeed = 40,
         evYield = SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Ralts,
         xpClass = XPClass.Slow,
         xpYield = 40,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9285,7 +9285,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 50,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Kirlia,
         xpClass = XPClass.Slow,
         xpYield = 97,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9318,7 +9318,7 @@ public static class Species
         baseSpDef = 115,
         baseSpeed = 80,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 233,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9351,7 +9351,7 @@ public static class Species
         baseSpDef = 52,
         baseSpeed = 65,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Surskit,
         xpClass = XPClass.MediumFast,
         xpYield = 54,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9384,7 +9384,7 @@ public static class Species
         baseSpDef = 82,
         baseSpeed = 60,
         evYield = SpAtk + SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9417,7 +9417,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 35,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Shroomish,
         xpClass = XPClass.Fluctuating,
         xpYield = 59,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9450,7 +9450,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 70,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fluctuating,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9483,7 +9483,7 @@ public static class Species
         baseSpDef = 35,
         baseSpeed = 30,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Slakoth,
         xpClass = XPClass.Slow,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9516,7 +9516,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 90,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Vigoroth,
         xpClass = XPClass.Slow,
         xpYield = 154,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9549,7 +9549,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 100,
         evYield = 3 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 252,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9582,7 +9582,7 @@ public static class Species
         baseSpDef = 30,
         baseSpeed = 40,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Nincada,
         xpClass = XPClass.Erratic,
         xpYield = 53,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9615,7 +9615,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 160,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Erratic,
         xpYield = 160,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9648,7 +9648,7 @@ public static class Species
         baseSpDef = 30,
         baseSpeed = 40,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Erratic,
         xpYield = 83,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9681,7 +9681,7 @@ public static class Species
         baseSpDef = 23,
         baseSpeed = 28,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Whismur,
         xpClass = XPClass.MediumSlow,
         xpYield = 48,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9714,7 +9714,7 @@ public static class Species
         baseSpDef = 43,
         baseSpeed = 48,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Loudred,
         xpClass = XPClass.MediumSlow,
         xpYield = 126,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9747,7 +9747,7 @@ public static class Species
         baseSpDef = 63,
         baseSpeed = 68,
         evYield = 3 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 221,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9780,7 +9780,7 @@ public static class Species
         baseSpDef = 30,
         baseSpeed = 25,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Makuhita,
         xpClass = XPClass.Fluctuating,
         xpYield = 47,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9813,7 +9813,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 50,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fluctuating,
         xpYield = 166,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9846,7 +9846,7 @@ public static class Species
         baseSpDef = 40,
         baseSpeed = 20,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Azurill,
         xpClass = XPClass.Fast,
         xpYield = 38,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9912,7 +9912,7 @@ public static class Species
         baseSpDef = 35,
         baseSpeed = 50,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Skitty,
         xpClass = XPClass.Fast,
         xpYield = 52,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9945,7 +9945,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 70,
         evYield = HP + Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fast,
         xpYield = 140,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -9978,7 +9978,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 50,
         evYield = Attack + Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 133,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10011,7 +10011,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 50,
         evYield = Attack + Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fast,
         xpYield = 133,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10044,7 +10044,7 @@ public static class Species
         baseSpDef = 40,
         baseSpeed = 30,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Aron,
         xpClass = XPClass.Slow,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10077,7 +10077,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 40,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Lairon,
         xpClass = XPClass.Slow,
         xpYield = 151,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10110,7 +10110,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 50,
         evYield = 3 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 239,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10143,7 +10143,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 60,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Meditite,
         xpClass = XPClass.MediumFast,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10176,7 +10176,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 80,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 144,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10209,7 +10209,7 @@ public static class Species
         baseSpDef = 40,
         baseSpeed = 65,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Electrike,
         xpClass = XPClass.Slow,
         xpYield = 59,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10242,7 +10242,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 105,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 166,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10275,7 +10275,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 95,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10308,7 +10308,7 @@ public static class Species
         baseSpDef = 85,
         baseSpeed = 95,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10341,7 +10341,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 85,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Erratic,
         xpYield = 151,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10374,7 +10374,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 85,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fluctuating,
         xpYield = 151,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10440,7 +10440,7 @@ public static class Species
         baseSpDef = 53,
         baseSpeed = 40,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Gulpin,
         xpClass = XPClass.Fluctuating,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10473,7 +10473,7 @@ public static class Species
         baseSpDef = 83,
         baseSpeed = 55,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fluctuating,
         xpYield = 163,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10506,7 +10506,7 @@ public static class Species
         baseSpDef = 20,
         baseSpeed = 65,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Carvanha,
         xpClass = XPClass.Slow,
         xpYield = 61,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10539,7 +10539,7 @@ public static class Species
         baseSpDef = 40,
         baseSpeed = 95,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10572,7 +10572,7 @@ public static class Species
         baseSpDef = 35,
         baseSpeed = 60,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Wailmer,
         xpClass = XPClass.Fluctuating,
         xpYield = 80,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10605,7 +10605,7 @@ public static class Species
         baseSpDef = 45,
         baseSpeed = 60,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fluctuating,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10638,7 +10638,7 @@ public static class Species
         baseSpDef = 45,
         baseSpeed = 35,
         evYield = SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Numel,
         xpClass = XPClass.MediumFast,
         xpYield = 61,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10671,7 +10671,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 40,
         evYield = Attack + SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10704,7 +10704,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 20,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 165,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10737,7 +10737,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 60,
         evYield = SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Spoink,
         xpClass = XPClass.Fast,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10770,7 +10770,7 @@ public static class Species
         baseSpDef = 110,
         baseSpeed = 80,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fast,
         xpYield = 165,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10803,7 +10803,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 60,
         evYield = SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fast,
         xpYield = 126,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10836,7 +10836,7 @@ public static class Species
         baseSpDef = 45,
         baseSpeed = 10,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Trapinch,
         xpClass = XPClass.MediumSlow,
         xpYield = 58,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10869,7 +10869,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 70,
         evYield = Attack + Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Vibrava,
         xpClass = XPClass.MediumSlow,
         xpYield = 119,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10902,7 +10902,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 100,
         evYield = Attack + 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 234,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10935,7 +10935,7 @@ public static class Species
         baseSpDef = 40,
         baseSpeed = 35,
         evYield = SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Cacnea,
         xpClass = XPClass.MediumSlow,
         xpYield = 67,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -10968,7 +10968,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 55,
         evYield = Attack + SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 166,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11001,7 +11001,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 50,
         evYield = SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Swablu,
         xpClass = XPClass.Erratic,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11034,7 +11034,7 @@ public static class Species
         baseSpDef = 105,
         baseSpeed = 80,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Erratic,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11067,7 +11067,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 90,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Erratic,
         xpYield = 160,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11100,7 +11100,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 65,
         evYield = Attack + SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fluctuating,
         xpYield = 160,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11133,7 +11133,7 @@ public static class Species
         baseSpDef = 85,
         baseSpeed = 70,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fast,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11166,7 +11166,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 70,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fast,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11199,7 +11199,7 @@ public static class Species
         baseSpDef = 41,
         baseSpeed = 60,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Barboach,
         xpClass = XPClass.MediumFast,
         xpYield = 58,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11232,7 +11232,7 @@ public static class Species
         baseSpDef = 71,
         baseSpeed = 60,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 164,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11265,7 +11265,7 @@ public static class Species
         baseSpDef = 35,
         baseSpeed = 35,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Corphish,
         xpClass = XPClass.Fluctuating,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11298,7 +11298,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 55,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fluctuating,
         xpYield = 164,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11331,7 +11331,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 55,
         evYield = SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Baltoy,
         xpClass = XPClass.MediumFast,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11364,7 +11364,7 @@ public static class Species
         baseSpDef = 120,
         baseSpeed = 75,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11397,7 +11397,7 @@ public static class Species
         baseSpDef = 87,
         baseSpeed = 23,
         evYield = SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Lileep,
         xpClass = XPClass.Erratic,
         xpYield = 71,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11430,7 +11430,7 @@ public static class Species
         baseSpDef = 107,
         baseSpeed = 43,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Erratic,
         xpYield = 173,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11463,7 +11463,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 75,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Anorith,
         xpClass = XPClass.Erratic,
         xpYield = 71,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11496,7 +11496,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 45,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Erratic,
         xpYield = 173,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11529,7 +11529,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 80,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Feebas,
         xpClass = XPClass.Erratic,
         xpYield = 40,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11562,7 +11562,7 @@ public static class Species
         baseSpDef = 125,
         baseSpeed = 81,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Erratic,
         xpYield = 189,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11599,7 +11599,7 @@ public static class Species
         baseSpDef = 120,
         baseSpeed = 40,
         evYield = SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 154,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11632,7 +11632,7 @@ public static class Species
         baseSpDef = 33,
         baseSpeed = 45,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Shuppet,
         xpClass = XPClass.Fast,
         xpYield = 59,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11665,7 +11665,7 @@ public static class Species
         baseSpDef = 63,
         baseSpeed = 65,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11698,7 +11698,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 25,
         evYield = SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Duskull,
         xpClass = XPClass.Fast,
         xpYield = 59,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11764,7 +11764,7 @@ public static class Species
         baseSpDef = 87,
         baseSpeed = 51,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11797,7 +11797,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 65,
         evYield = SpAtk + SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11830,7 +11830,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 75,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 163,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11863,7 +11863,7 @@ public static class Species
         baseSpDef = 48,
         baseSpeed = 23,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Wynaut,
         xpClass = XPClass.MediumFast,
         xpYield = 52,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11896,7 +11896,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 50,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Snorunt,
         xpClass = XPClass.MediumFast,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11929,7 +11929,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 80,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 168,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11962,7 +11962,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 25,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Spheal,
         xpClass = XPClass.MediumSlow,
         xpYield = 58,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -11995,7 +11995,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 45,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Sealeo,
         xpClass = XPClass.MediumSlow,
         xpYield = 144,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12028,7 +12028,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 65,
         evYield = 3 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.MediumSlow,
         xpYield = 239,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12061,7 +12061,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 32,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Clamperl,
         xpClass = XPClass.Erratic,
         xpYield = 69,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12094,7 +12094,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 52,
         evYield = Attack + Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Erratic,
         xpYield = 170,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12127,7 +12127,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 52,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Erratic,
         xpYield = 170,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12160,7 +12160,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 55,
         evYield = HP + Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 170,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12193,7 +12193,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 97,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Fast,
         xpYield = 116,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12226,7 +12226,7 @@ public static class Species
         baseSpDef = 30,
         baseSpeed = 50,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Bagon,
         xpClass = XPClass.Slow,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12259,7 +12259,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 50,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Shelgon,
         xpClass = XPClass.Slow,
         xpYield = 147,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12292,7 +12292,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 100,
         evYield = 3 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12325,7 +12325,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 30,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Beldum,
         xpClass = XPClass.Slow,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12358,7 +12358,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 50,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Metang,
         xpClass = XPClass.Slow,
         xpYield = 147,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12391,7 +12391,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 70,
         evYield = 3 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12424,7 +12424,7 @@ public static class Species
         baseSpDef = 100,
         baseSpeed = 50,
         evYield = 3 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12457,7 +12457,7 @@ public static class Species
         baseSpDef = 200,
         baseSpeed = 50,
         evYield = 3 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12490,7 +12490,7 @@ public static class Species
         baseSpDef = 150,
         baseSpeed = 50,
         evYield = 2 * Defense + SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12523,7 +12523,7 @@ public static class Species
         baseSpDef = 130,
         baseSpeed = 110,
         evYield = 3 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12556,7 +12556,7 @@ public static class Species
         baseSpDef = 110,
         baseSpeed = 110,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12589,7 +12589,7 @@ public static class Species
         baseSpDef = 140,
         baseSpeed = 90,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 302,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12622,7 +12622,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 90,
         evYield = 3 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 302,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12655,7 +12655,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 95,
         evYield = 2 * Attack + SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 306,
         learnset = Learnset.EmptyLearnset, //Not done
@@ -12688,7 +12688,7 @@ public static class Species
         baseSpDef = 100,
         baseSpeed = 100,
         evYield = 3 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = XPClass.Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done

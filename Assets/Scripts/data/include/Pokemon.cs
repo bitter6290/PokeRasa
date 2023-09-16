@@ -77,6 +77,8 @@ public class Pokemon : ICloneable
 
     public Type hiddenPowerType;
 
+    public int id;
+
 
 
     public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
@@ -300,6 +302,9 @@ public class Pokemon : ICloneable
         HP = hpMax;
         status = Status.None;
         sleepTurns = 0;
+
+        var random = new System.Random();
+        id = random.Next();
 
         hiddenPowerType = HiddenPowerType;
 

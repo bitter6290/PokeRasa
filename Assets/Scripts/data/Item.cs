@@ -251,6 +251,22 @@ public static class Item
         graphicsPath = "metal_coat",
     };
 
+    public static HeldItem DeepSeaTooth = new()
+    {
+        itemName = "Deep Sea Tooth",
+        price = 20000,
+        heldEffect = HeldEffect.DeepSeaTooth,
+        graphicsPath = "deep_sea_tooth"
+    };
+
+    public static HeldItem DeepSeaScale = new()
+    {
+        itemName = "Deep Sea Scale",
+        price = 20000,
+        heldEffect = HeldEffect.DeepSeaScale,
+        graphicsPath = "deep_sea_scale"
+    };
+
     //Abstract items - only used for evolutions/specific item checks
 
     public static AbstractItem DragonScale = new()
@@ -258,6 +274,13 @@ public static class Item
         itemName = "Dragon Scale",
         price = 10000,
         graphicsPath = "dragon_scale",
+    };
+
+    public static AbstractItem PrismScale = new()
+    {
+        itemName = "Prism Scale",
+        price = 10000,
+        graphicsPath = "prism_scale"
     };
 
     public static AbstractItem UpGrade = new()
@@ -494,8 +517,11 @@ public static class Item
     //Held items
     KingsRock,
     MetalCoat,
+    DeepSeaTooth,
+    DeepSeaScale,
     //Abstract items
     DragonScale,
+    PrismScale,
     UpGrade,
     //Mega stones
     Venusaurite,
