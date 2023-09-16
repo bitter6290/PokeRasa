@@ -60,7 +60,7 @@ public struct SpeciesData
         evolution = Evolution.None,
         xpClass = XPClass.MediumFast,
         xpYield = 118,
-        learnset = Learnset.EmptyLearnset,
+        learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -78,6 +78,79 @@ public struct SpeciesData
             Ability.Levitate,
         },
     };
+
+    //Castform constructor
+
+    public static SpeciesData Castform(Type type, string path, int backSpriteHeight) => new()
+    {
+        speciesName = "Castform",
+        type1 = type,
+        type2 = type,
+        baseHP = 70,
+        baseAttack = 70,
+        baseDefense = 70,
+        baseSpAtk = 70,
+        baseSpDef = 70,
+        baseSpeed = 70,
+        evYield = EvYield.HP,
+        evolution = Evolution.None,
+        xpClass = XPClass.MediumFast,
+        xpYield = 147,
+        learnset = Learnset.EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Fairy,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 25,
+        baseFriendship = 70,
+        cryLocation = "castform",
+        graphicsLocation = path,
+        backSpriteHeight = backSpriteHeight,
+        pokedexData = Pokedex.Castform, //Not done
+        abilities = new Ability[3]
+        {
+            Ability.Forecast,
+            Ability.Forecast,
+            Ability.Forecast
+        }
+    };
+
+    //Deoxys constructor
+    public static SpeciesData Deoxys(int baseHP, int baseAttack,
+        int baseDefense, int baseSpAtk, int baseSpDef, int baseSpeed,
+        short evYield, string graphics, int backSpriteHeight) => new()
+        {
+            speciesName = "Deoxys",
+            type1 = Type.Psychic,
+            type2 = Type.Psychic,
+            baseHP = baseHP,
+            baseAttack = baseAttack,
+            baseDefense = baseDefense,
+            baseSpAtk = baseSpAtk,
+            baseSpDef = baseSpDef,
+            baseSpeed = baseSpeed,
+            evYield = evYield,
+            evolution = Evolution.None,
+            xpClass = XPClass.Slow,
+            xpYield = 270,
+            learnset = Learnset.EmptyLearnset, //Not done
+            malePercent = Genderless,
+            eggGroup1 = EggGroup.Undiscovered,
+            eggGroup2 = EggGroup.Undiscovered,
+            eggCycles = 120,
+            baseFriendship = 0,
+            cryLocation = "deoxys",
+            graphicsLocation = graphics,
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Deoxys, //Not done
+            abilities = new Ability[3]
+            {
+                Ability.Pressure,
+                Ability.Pressure,
+                Ability.Pressure
+            }
+        };
+
+    //Mega constructor
 
     public static SpeciesData Mega(SpeciesData baseSpecies,
     int baseAttack, int baseDefense, int baseSpAtk, int baseSpDef, int baseSpeed,

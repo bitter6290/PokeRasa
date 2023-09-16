@@ -71,4 +71,20 @@
         height = 50,
         weight = 5000,
     };
+
+    public static PokedexData Castform = new()
+    {
+        pokedexNumber = 351,
+        pokedexName = "Castform",
+        height = 30,
+        weight = 800,
+    };
+
+    public static PokedexData Deoxys = new()
+    {
+        pokedexNumber = 386,
+        pokedexName = "Deoxys",
+        height = 170,
+        weight = 60800,
+    };
 }
