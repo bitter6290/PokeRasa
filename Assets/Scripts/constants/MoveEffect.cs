@@ -48,6 +48,10 @@ public enum MoveEffect : ushort
     AllUp1,
     BellyDrum,
     Charge,
+    AttackDefenseUp1,
+    AttackSpeedUp1,
+    DefenseSpDefUp1,
+    SpAtkSpDefUp1,
     AttackDefenseDown1,
     //Other status moves
     LeechSeed,
@@ -83,6 +87,7 @@ public enum MoveEffect : ushort
     Recoil25,
     Recoil25Max,
     Crash50Max,
+    VoltTackle,
     //Other added effects
     Flinch,
     FakeOut,
@@ -143,6 +148,7 @@ public enum MoveEffect : ushort
     Weather,
     Spikes,
     MudSport,
+    WaterSport,
     //Self-targeting effects
     Rest,
     Substitute,

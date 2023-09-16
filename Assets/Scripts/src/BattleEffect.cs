@@ -7,11 +7,11 @@ using static System.Math;
 public static class BattleEffect
 {
     public static System.Random random = new();
-    public static IEnumerator StatUp(Battle battle, int index, Stat statID, int amount, int attacker, bool doAnimation = true, bool checkContrary = true)
+    public static IEnumerator StatUp(Battle battle, int index, Stat statID, int amount, int attacker, bool checkContrary = true)
     {
         if (battle.HasAbility(index, Ability.Contrary) && checkContrary)
         {
-            yield return StatDown(battle, index, statID, amount, attacker, doAnimation, false);
+            yield return StatDown(battle, index, statID, amount, attacker, false);
             yield break;
         }
         if (battle.HasAbility(index, Ability.Simple))
@@ -26,28 +26,29 @@ public static class BattleEffect
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.CantGoHigher);
                 break;
             case 1:
-                if (doAnimation) yield return BattleAnim.StatUp(battle, index);
+                if (battle.doStatAnim) yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRose);
                 break;
             case 2:
-                if (doAnimation) yield return BattleAnim.StatUp(battle, index);
+                if (battle.doStatAnim) yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRoseSharply);
                 break;
             default:
-                if (doAnimation) yield return BattleAnim.StatUp(battle, index);
+                if (battle.doStatAnim) yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRoseDrastically);
                 break;
         }
+        if (stagesRaised > 0) battle.doStatAnim = false;
     }
 
-    public static IEnumerator StatDown(Battle battle, int index, Stat statID, int amount, int attacker, bool doAnimation = true, bool checkContrary = true)
+    public static IEnumerator StatDown(Battle battle, int index, Stat statID, int amount, int attacker, bool checkContrary = true)
     {
         if (battle.HasAbility(index, Ability.Contrary) && checkContrary)
         {
-            yield return StatUp(battle, index, statID, amount, attacker, doAnimation, false);
+            yield return StatUp(battle, index, statID, amount, attacker, false);
             yield break;
         }
         if (battle.HasAbility(index, Ability.Simple))
@@ -80,25 +81,33 @@ public static class BattleEffect
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.CantGoLower);
                 break;
             case 1:
-                if (doAnimation) yield return BattleAnim.StatDown(battle, index);
+                if (battle.doStatAnim) yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFell);
                 break;
             case 2:
-                if (doAnimation) yield return BattleAnim.StatDown(battle, index);
+                if (battle.doStatAnim) yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFellSharply);
                 break;
             default:
-                if (doAnimation) yield return BattleAnim.StatDown(battle, index);
+                if (battle.doStatAnim) yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFellDrastically);
                 break;
         }
+        if (stagesLowered > 0) battle.doStatAnim = false;
         if (battle.GetSide(attacker) != battle.GetSide(index) && battle.HasAbility(index, Ability.Defiant))
-        { yield return StatUp(battle, index, Stat.Attack, 2, attacker); }
+        {
+            battle.doStatAnim = true;
+            yield return StatUp(battle, index, Stat.Attack, 2, attacker);
+        }
         if (battle.GetSide(attacker) != battle.GetSide(index) && battle.HasAbility(index, Ability.Competitive))
-        { yield return StatUp(battle, index, Stat.SpAtk, 2, attacker); }
+        {
+            battle.doStatAnim = true;
+            yield return StatUp(battle, index, Stat.SpAtk, 2, attacker);
+        }
+
     }
 
     public static IEnumerator GetBurn(Battle battle, int index)
@@ -503,6 +512,13 @@ public static class BattleEffect
                 target.continuousDamageSource = attacker;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was trapped in the vortex!");
                 break;
+            case MoveID.SandTomb:
+                target.getsContinuousDamage = true;
+                target.continuousDamageType = ContinuousDamage.SandTomb;
+                target.continuousDamageSource = attacker;
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " was trapped by Sand Tomb!");
+                break;
             default:
                 yield return battle.Announce("Error 111");
                 yield break;
@@ -631,22 +647,32 @@ public static class BattleEffect
             case ContinuousDamage.Bind:
                 //yield return BattleAnim.Bind(battle, index);
                 damage = target.PokemonData.hpMax >> 4;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Bind!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " is hurt by Bind!");
                 break;
             case ContinuousDamage.FireSpin:
                 //yield return BattleAnim.FireSpin(battle, index);
                 damage = target.PokemonData.hpMax >> 4;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Fire Spin!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " is hurt by Fire Spin!");
                 break;
             case ContinuousDamage.Clamp:
                 //yield return BattleAnim.Clamp(battle, index);
                 damage = target.PokemonData.hpMax >> 4;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Clamp!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " is hurt by Clamp!");
                 break;
             case ContinuousDamage.Whirlpool:
                 //yield return BattleAnim.Whirlpool(battle, index);
                 damage = target.PokemonData.hpMax >> 4;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Whirlpool!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " is hurt by Whirlpool!");
+                break;
+            case ContinuousDamage.SandTomb:
+                //yield return BattleAnim.SandTomb(battle, index);
+                damage = target.PokemonData.hpMax >> 4;
+                    yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                        + " was hurt by Sand Tomb!");
                 break;
             default:
                 yield return battle.Announce("Error 112");
@@ -1262,51 +1288,57 @@ public static class BattleEffect
     public static IEnumerator GetFutureSight(Battle battle, int target, int user)
     {
         var random = new System.Random();
-        (int spAtk, int stage, int level, bool stab, bool critical) futureSightData = new()
+        FutureSightStruct futureSightData = new()
         {
-            level = battle.PokemonOnField[user].PokemonData.level,
+            turn = battle.turnsElapsed + 2,
+            target = target,
+            user = battle.PokemonOnField[user].PokemonData,
             spAtk = battle.PokemonOnField[user].PokemonData.spAtk,
-            stage = battle.PokemonOnField[user].spAtkStage,
+            spAtkStage = battle.PokemonOnField[user].spAtkStage,
+            level = battle.PokemonOnField[user].PokemonData.level,
             stab = battle.PokemonOnField[user].HasType(battle.GetMove(user).type),
             critical = random.NextDouble() < battle.GetCritChance(user, battle.Moves[user]),
+            type = battle.GetEffectiveType(battle.Moves[user], user),
+            move = battle.Moves[user],
         };
-        battle.PokemonOnField[target].futureSight = true;
-        battle.PokemonOnField[target].futureSightUser = user;
-        battle.PokemonOnField[target].futureSightData = futureSightData;
-        battle.PokemonOnField[target].futureSightTimer = 3;
-        battle.PokemonOnField[target].futureSightType = battle.GetEffectiveType(battle.Moves[user], user);
-        battle.PokemonOnField[target].futureSightMove = battle.Moves[user];
+        battle.futureSight.Enqueue(futureSightData);
         yield return battle.Announce(battle.MonNameWithPrefix(user, true) + " foresaw an attack!");
     }
 
-    public static IEnumerator FutureSightAttack(Battle battle, int target)
+    public static IEnumerator FutureSightAttack(Battle battle)
     {
-        BattlePokemon targetMon = battle.PokemonOnField[target];
-        yield return battle.Announce(battle.MonNameWithPrefix(target, true) + " took the Future Sight attack!");
-        float effectiveness = battle.GetEffectivenessForFutureSight(targetMon.futureSightType, targetMon);
-        int damage = battle.FutureSightDamageCalc(targetMon);
-        if (damage > targetMon.PokemonData.HP)
+        FutureSightStruct data = battle.futureSight.Dequeue();
+        BattlePokemon targetMon = battle.PokemonOnField[data.target];
+        yield return battle.Announce(battle.MonNameWithPrefix(data.target, true) + " took the "
+            + data.move.Data().name + " attack!");
+        float effectiveness = battle.GetEffectivenessForFutureSight(data.type, targetMon);
+        if (effectiveness > 0)
         {
-            if (targetMon.ability == Ability.Sturdy && targetMon.AtFullHealth
-                && !battle.HasAbility(targetMon.futureSightUser, Ability.MoldBreaker))
+            int damage = battle.FutureSightDamageCalc(data);
+            if (damage > targetMon.PokemonData.HP)
             {
-                targetMon.PokemonData.HP = 1;
-            }
-            else if (targetMon.endure && targetMon.futureSightUserOnField)
-            {
-                targetMon.PokemonData.HP = 1;
+                if (targetMon.ability == Ability.Sturdy && targetMon.AtFullHealth
+                    && !(battle.HasAbility(data.user.lastIndex, Ability.MoldBreaker)
+                    && data.user.onField))
+                {
+                    targetMon.PokemonData.HP = 1;
+                }
+                else if (targetMon.endure && data.user.onField)
+                {
+                    targetMon.PokemonData.HP = 1;
+                }
+                else
+                {
+                    targetMon.PokemonData.HP = 0;
+                    targetMon.PokemonData.fainted = true;
+                }
             }
             else
             {
-                battle.PokemonOnField[target].PokemonData.HP = 0;
-                battle.PokemonOnField[target].PokemonData.fainted = true;
+                targetMon.PokemonData.HP -= damage;
             }
         }
-        else
-        {
-            targetMon.PokemonData.HP -= damage;
-        }
-        yield return battle.AnnounceTypeEffectiveness(effectiveness, false, target);
+        yield return battle.AnnounceTypeEffectiveness(effectiveness, false, data.target);
     }
 
     public static IEnumerator GetEncored(Battle battle, int target)

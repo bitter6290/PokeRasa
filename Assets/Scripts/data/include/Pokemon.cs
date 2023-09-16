@@ -68,6 +68,7 @@ public class Pokemon : ICloneable
     public ItemID newItem;
 
     public bool onField = false;
+    public int lastIndex = 0;
 
     public bool transformed;
     public SpeciesID temporarySpecies;

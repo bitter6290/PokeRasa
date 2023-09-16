@@ -120,14 +120,6 @@ public class BattlePokemon
 
     public int helpingHand = 0;
 
-    public bool futureSight = false;
-    public int futureSightTimer = 0;
-    public int futureSightUser = 0;
-    public bool futureSightUserOnField = true;
-    public (int spAtk, int stage, int level, bool stab, bool critical) futureSightData = (0, 0, 1, false, false);
-    public Type futureSightType;
-    public MoveID futureSightMove = MoveID.None;
-
     public bool isTransformed = false;
     public Pokemon transformedMon = Pokemon.MakeEmptyMon;
 
@@ -231,6 +223,7 @@ public class BattlePokemon
         this.player = player;
         ability = Species.SpeciesTable[(int)pokemonData.species].abilities[pokemonData.whichAbility];
         this.battle = battle;
+        pokemonData.lastIndex = index;
         CalculateStats();
     }
 

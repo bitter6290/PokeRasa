@@ -64,6 +64,8 @@ public class Battle : MonoBehaviour
 
     public bool consumeItems = true;
 
+    public bool doStatAnim = true;
+
     // Field varibles
 
     public bool payDay;
@@ -97,6 +99,7 @@ public class Battle : MonoBehaviour
     public int snatchingMon;
 
     public Queue<(int wishHP, int turn, int slot, string wisher)> wishes = new();
+    public Queue<FutureSightStruct> futureSight = new();
 
     public bool oneAnnouncementDone; //Used for Perish Song
 
@@ -500,6 +503,15 @@ public class Battle : MonoBehaviour
 
     private float GetAccuracy(MoveID move, int attacker, int defender)
     {
+        if (move.Data().effect == MoveEffect.OHKO)
+        {
+            int levelDifference = PokemonOnField[attacker].PokemonData.level
+                - PokemonOnField[defender].PokemonData.level;
+            if (levelDifference < 0) return 0;
+            if (move == MoveID.SheerCold && !PokemonOnField[attacker].HasType(Type.Ice))
+                return (20 + levelDifference) / 100.0F;
+            else return (30 + levelDifference) / 100.0F;
+        }
         return move.Data().accuracy
             * BattlePokemon.StageToModifierAccEva(PokemonOnField[attacker].accuracyStage)
             / BattlePokemon.StageToModifierAccEva(PokemonOnField[defender].evasionStage)
@@ -743,43 +755,42 @@ public class Battle : MonoBehaviour
         return effectiveness;
     }
 
-    public int FutureSightDamageCalc(BattlePokemon defender)
+    public int FutureSightDamageCalc(FutureSightStruct data)
     {
-        (int spAtk, int stage, int level, bool stab, bool critical) futureSightData
-            = defender.futureSightData;
-        int effectiveSpAtk = (int)Floor(futureSightData.spAtk *
-            (futureSightData.critical && futureSightData.stage < 0
-            ? 1 : (2 + futureSightData.stage) / 2.0F));
+        BattlePokemon defender = PokemonOnField[data.target];
+        int effectiveSpAtk = (int)Floor(data.spAtk *
+            (data.critical && data.spAtkStage < 0
+            ? 1 : (2 + data.spAtkStage) / 2.0F));
         float attackOverDefense = effectiveSpAtk /
-            (futureSightData.critical && defender.spDefStage > 0
+            (data.critical && defender.spDefStage > 0
             ? defender.PokemonData.spDef : defender.spDef);
-        float critical = futureSightData.critical ?
-            defender.futureSightUserOnField
-            && HasAbility(defender.futureSightUser, Sniper)
+        float critical = data.critical ?
+            data.user.onField
+            && HasAbility(data.user.lastIndex, Sniper)
             ? 2.25F : 1.5F : 1.0F;
         float screen = (Sides[defender.side ? 1 : 0].lightScreen
             || Sides[defender.side ? 1 : 0].auroraVeil) ? 0.5F : 1.0F;
         int effectivePower = 120;
-        float effectiveTypeModifier = GetEffectivenessForFutureSight(defender.futureSightType, defender);
+        float effectiveTypeModifier = GetEffectivenessForFutureSight(data.type, defender);
         int roll = 100 - (random.Next() & 15);
-        float sport = defender.futureSightType switch
+        float sport = data.type switch
         {
             Type.Electric when mudSport => 1.0F / 3.0F,
             Type.Fire when waterSport => 1.0F / 3.0F,
             _ => 1.0F,
         };
         float invulnerabiltyBonus = (defender.invulnerability == Invulnerability.Dig
-            && (defender.futureSightMove.Data().moveFlags & MoveFlags.hitDiggingMon) != 0)
+            && (data.move.Data().moveFlags & MoveFlags.hitDiggingMon) != 0)
             || (defender.invulnerability == Invulnerability.Fly
-            && (defender.futureSightMove.Data().moveFlags & MoveFlags.hitFlyingMon) != 0)
+            && (data.move.Data().moveFlags & MoveFlags.hitFlyingMon) != 0)
             ? 2.0F : 1.0F;
-        return (int)Floor(((((2.0F * futureSightData.level / 5) + 2)
+        return (int)Floor(((((2.0F * data.level / 5) + 2)
             * effectivePower * attackOverDefense / 50) + 2)
             * effectiveTypeModifier * sport
-            * (futureSightData.stab ? 1.5 : 1.0) * critical * screen
-            * DefenderAbilityModifier(defender, defender.futureSightMove)
-            * (defender.futureSightUserOnField
-                ? AttackerAbilityModifier(PokemonOnField[defender.futureSightUser], defender.futureSightMove) : 1.0F)
+            * (data.stab ? 1.5 : 1.0) * critical * screen
+            * DefenderAbilityModifier(defender, data.move)
+            * (data.user.onField
+                ? AttackerAbilityModifier(PokemonOnField[data.user.lastIndex], data.move) : 1.0F)
             * invulnerabiltyBonus * roll / 100);
     }
 
@@ -1000,7 +1011,9 @@ public class Battle : MonoBehaviour
                         if ((IsImmune(PokemonOnField[attacker], target, move)
                             && move.Data().power > 0)
                             || (move == MoveID.ThunderWave
-                            && target.HasType(Type.Ground)))
+                            && target.HasType(Type.Ground))
+                            || (move == MoveID.SheerCold
+                            && target.HasType(Type.Ice)))
                         {
                             target.isUnaffected = true;
                         }
@@ -1386,7 +1399,11 @@ public class Battle : MonoBehaviour
                         defendingMon.damageTaken = damage;
                         defendingMon.damageWasPhysical = move.Data().physical;
                         defendingMon.lastDamageDoer = attacker;
-                        if (defendingMon.isEnraged) yield return BattleEffect.StatUp(this, i, Stat.Attack, 1, i);
+                        if (defendingMon.isEnraged)
+                        {
+                            doStatAnim = true;
+                            yield return BattleEffect.StatUp(this, i, Stat.Attack, 1, i);
+                        }
                     }
                 }
             }
@@ -1511,8 +1528,6 @@ public class Battle : MonoBehaviour
         {
             if (PokemonOnField[i].infatuationTarget == index)
                 PokemonOnField[i].infatuated = false;
-            if (PokemonOnField[i].futureSightUser == index)
-                PokemonOnField[i].futureSightUserOnField = false;
         }
         if (!PokemonOnField[index].PokemonData.fainted && HasAbility(index, Regenerator))
             PokemonOnField[index].PokemonData.HP += PokemonOnField[index].PokemonData.hpMax / 3;
@@ -1739,6 +1754,7 @@ public class Battle : MonoBehaviour
                 {
                     if (PokemonOnField[i].exists)
                     {
+                        doStatAnim = true;
                         yield return PokemonOnField[i].ability is
                             Oblivious or OwnTempo or InnerFocus
                             or Scrappy
@@ -1971,6 +1987,7 @@ public class Battle : MonoBehaviour
                     }
                     yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, index);
                     yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, index);
+                    doStatAnim = true;
                     yield return BattleEffect.StatDown(this, index, Stat.Speed, 1, index);
                     user.done = true;
                     MoveCleanup();
@@ -2287,6 +2304,12 @@ public class Battle : MonoBehaviour
                         user.lockedInMove = MoveID.DiveAttack;
                         yield return Announce(MonNameWithPrefix(index, true)
                             + " hid underwater!");
+                        break;
+                    case MoveID.Bounce:
+                        user.lockedInNextTurn = true;
+                        user.lockedInMove = MoveID.BounceAttack;
+                        yield return Announce(MonNameWithPrefix(index, true)
+                            + " sprang up!");
                         break;
                     default:
                         break;
@@ -2612,6 +2635,7 @@ public class Battle : MonoBehaviour
                 yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
                 yield return ProcessFaintingSingle(index);
                 break;
+            case MoveEffect.VoltTackle:
             case MoveEffect.Recoil25:
                 user.DoNonMoveDamage(Max(1, user.moveDamageDone / 4));
                 yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
@@ -2774,6 +2798,7 @@ public class Battle : MonoBehaviour
             if (PokemonOnField[i].gotMoveEffect && !PokemonOnField[i].PokemonData.fainted)
             {
                 Debug.Log("Index " + i + " gets effect");
+                doStatAnim = true;
                 yield return DoMoveEffect(i, Moves[index], index);
             }
         }
@@ -2829,6 +2854,7 @@ public class Battle : MonoBehaviour
             case MoveEffect.Burn:
                 yield return BattleEffect.GetBurn(this, index);
                 break;
+            case MoveEffect.VoltTackle:
             case MoveEffect.Paralyze:
                 yield return BattleEffect.GetParalysis(this, index);
                 break;
@@ -3048,10 +3074,10 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.AllUp1:
                 yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
-                yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker, true);
-                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker, true);
-                yield return BattleEffect.StatUp(this, index, Stat.SpDef, 1, attacker, true);
-                yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker, true);
+                yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.SpDef, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
                 break;
             case MoveEffect.BellyDrum:
                 yield return BattleEffect.BellyDrum(this, index);
@@ -3059,6 +3085,22 @@ public class Battle : MonoBehaviour
             case MoveEffect.RapidSpin:
                 yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
                 yield return BattleEffect.RemoveHazards(this, index);
+                break;
+            case MoveEffect.AttackDefenseUp1:
+                yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
+                break;
+            case MoveEffect.AttackSpeedUp1:
+                yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
+                break;
+            case MoveEffect.DefenseSpDefUp1:
+                yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.SpDef, 1, attacker);
+                break;
+            case MoveEffect.SpAtkSpDefUp1:
+                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.SpDef, 1, attacker);
                 break;
             case MoveEffect.AttackDefenseDown1:
                 yield return BattleEffect.StatDown(this, index, Stat.Attack, 1, index);
@@ -3092,7 +3134,7 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.Memento:
                 yield return BattleEffect.StatDown(this, index, Stat.Attack, 2, attacker);
-                yield return BattleEffect.StatDown(this, index, Stat.SpAtk, 2, attacker, false);
+                yield return BattleEffect.StatDown(this, index, Stat.SpAtk, 2, attacker);
                 PokemonOnField[attacker].PokemonData.HP = 0;
                 PokemonOnField[attacker].PokemonData.fainted = true;
                 break;
@@ -3331,6 +3373,11 @@ public class Battle : MonoBehaviour
                 mudSport = true;
                 mudSportTimer = 5;
                 break;
+            case MoveEffect.WaterSport:
+                yield return Announce("Fire's power was weakened!");
+                waterSport = true;
+                waterSportTimer = 5;
+                break;
             case MoveEffect.Hit:
             default:
                 yield break;
@@ -3442,13 +3489,6 @@ public class Battle : MonoBehaviour
                 }
                 yield return ProcessFaintingSingle(i);
                 if (mon.PokemonData.fainted) { continue; }
-                if (mon.futureSight)
-                {
-                    if (mon.futureSightTimer-- <= 1)
-                        yield return BattleEffect.FutureSightAttack(this, i);
-                }
-                yield return ProcessFaintingSingle(i);
-                if (mon.PokemonData.fainted) { continue; }
                 if (mon.ingrained && !mon.AtFullHealth)
                 {
                     //yield return BattleAnim.IngrainHeal(this, i);
@@ -3488,6 +3528,13 @@ public class Battle : MonoBehaviour
         }
         while (wishes.Count > 0)
             if (wishes.Peek().turn == turnsElapsed) yield return BattleEffect.GetWish(this);
+            else break;
+        while (futureSight.Count > 0)
+            if (futureSight.Peek().turn == turnsElapsed)
+            {
+                yield return BattleEffect.FutureSightAttack(this);
+                yield return ProcessFainting();
+            }
             else break;
         for (int i = 0; i < 2; i++)
         {
@@ -3544,6 +3591,12 @@ public class Battle : MonoBehaviour
                     mudSport = false;
                 }
         }
+        if (waterSport)
+            if (waterSportTimer-- <= 1)
+            {
+                yield return Announce("The effects of Water Sport wore off!");
+                waterSport = false;
+            }
 
         turnsElapsed++;
         yield return StartTurn();
@@ -3686,6 +3739,7 @@ public class Battle : MonoBehaviour
         Targets = new int[6];
         SwitchTargets = new int[6];
         wishes = new();
+        futureSight = new();
         turnsElapsed = 0;
         PokemonOnField = new BattlePokemon[6]
         {
