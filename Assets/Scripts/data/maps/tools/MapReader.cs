@@ -17,7 +17,7 @@ public class MapReader
         Tilemap wildData = mapHelper.wildDataMap;
         string path = Application.dataPath + "/Resources/Maps/" + mapHelper.mapData.path + ".pokemap";
         StreamReader reader = File.OpenText(path);
-        string inString = reader.ReadToEnd();
+        string inString = reader.ReadToEnd().Replace("?","AAAA").Replace("@","AA");
         Debug.Log(inString.Length);
         byte[] data = System.Convert.FromBase64String(inString);
         for (int x = 0; x < mapHelper.mapData.width; x++)
@@ -56,5 +56,6 @@ public class MapReader
 
             }
         }
+        Debug.Log("Loaded successfully");
     }
 }

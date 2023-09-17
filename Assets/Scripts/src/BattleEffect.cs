@@ -881,7 +881,8 @@ public static class BattleEffect
     public static IEnumerator DoMimic(Battle battle, int index, int target)
     {
         BattlePokemon user = battle.PokemonOnField[index];
-        if ((Move.MoveTable[(int)battle.PokemonOnField[target].lastMoveUsed].moveFlags & MoveFlags.cannotMimic) != 0)
+        if (((Move.MoveTable[(int)battle.PokemonOnField[target].lastMoveUsed].moveFlags & MoveFlags.cannotMimic) != 0)
+            || battle.PokemonOnField[index].PokemonData.HasMove(battle.PokemonOnField[target].lastMoveUsed))
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;

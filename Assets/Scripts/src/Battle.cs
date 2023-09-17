@@ -3980,6 +3980,8 @@ public class Battle : MonoBehaviour
         if (index > 2 && hasPlayerMegaEvolved) return false;
         if (index < 3 && hasOpponentMegaEvolved) return false;
         if (PokemonOnField[index].item.MegaStoneUser() == PokemonOnField[index].PokemonData.getSpecies) return true;
+        //else if PokemonOnField[index].PokemonData.species == SpeciesID.Rayquaza
+        //  && PokemonOnField[index].PokemonData.HasMove(MoveID.DragonAscent) return true;
         else return false;
     }
 
@@ -3993,6 +3995,8 @@ public class Battle : MonoBehaviour
         if (index > 2) hasPlayerMegaEvolved = true;
         else hasOpponentMegaEvolved = true;
         mon.PokemonData.temporarySpecies =
+            mon.PokemonData.species == SpeciesID.Rayquaza ?
+            SpeciesID.RayquazaMega : 
             (SpeciesID)Item.ItemTable[(int)mon.PokemonData.item].ItemSubdata[1];
         mon.PokemonData.transformed = true;
         mon.PokemonData.CalculateStats();

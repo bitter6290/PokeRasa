@@ -71,8 +71,7 @@ public class MapWriter
             }
             
         }
-        string outString = System.Convert.ToBase64String(data.ToArray());
-        Debug.Log(outString.Length);
+        string outString = System.Convert.ToBase64String(data.ToArray()).Replace("AA","@").Replace("@@","?");
         string path = Application.dataPath + "/Resources/Maps/" + mapHelper.mapData.path + ".pokemap";
         if (File.Exists(path))
         {
@@ -82,6 +81,7 @@ public class MapWriter
         }
         StreamWriter writer = File.CreateText(path);
         writer.Write(outString);
+        Debug.Log("Saved successfully");
         writer.Close();
         AssetDatabase.Refresh();
     }

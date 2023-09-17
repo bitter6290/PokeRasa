@@ -1,14 +1,16 @@
 using Unity.VisualScripting;
 using static EvYield;
 using static Ability;
+using static Type;
+using static SpeciesData;
 
 public static class Species
 {
     public static SpeciesData Missingno = new()
     {
         speciesName = "Missingno",
-        type1 = Type.Typeless,
-        type2 = Type.Typeless,
+        type1 = Typeless,
+        type2 = Typeless,
         baseHP = 0,
         baseAttack = 0,
         baseDefense = 0,
@@ -34,8 +36,8 @@ public static class Species
     public static SpeciesData Bulbasaur = new()
     {
         speciesName = "Bulbasaur",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
+        type1 = Grass,
+        type2 = Poison,
         baseHP = 45,
         baseAttack = 49,
         baseDefense = 49,
@@ -67,8 +69,8 @@ public static class Species
     public static SpeciesData Ivysaur = new()
     {
         speciesName = "Ivysaur",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
+        type1 = Grass,
+        type2 = Poison,
         baseHP = 60,
         baseAttack = 62,
         baseDefense = 63,
@@ -100,8 +102,8 @@ public static class Species
     public static SpeciesData Venusaur = new()
     {
         speciesName = "Venusaur",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
+        type1 = Grass,
+        type2 = Poison,
         baseHP = 80,
         baseAttack = 82,
         baseDefense = 83,
@@ -133,8 +135,8 @@ public static class Species
     public static SpeciesData Charmander = new()
     {
         speciesName = "Charmander",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 39,
         baseAttack = 52,
         baseDefense = 43,
@@ -166,8 +168,8 @@ public static class Species
     public static SpeciesData Charmeleon = new()
     {
         speciesName = "Charmeleon",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 58,
         baseAttack = 64,
         baseDefense = 58,
@@ -199,8 +201,8 @@ public static class Species
     public static SpeciesData Charizard = new()
     {
         speciesName = "Charizard",
-        type1 = Type.Fire,
-        type2 = Type.Flying,
+        type1 = Fire,
+        type2 = Flying,
         baseHP = 78,
         baseAttack = 84,
         baseDefense = 78,
@@ -232,8 +234,8 @@ public static class Species
     public static SpeciesData Squirtle = new()
     {
         speciesName = "Squirtle",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 44,
         baseAttack = 48,
         baseDefense = 65,
@@ -265,8 +267,8 @@ public static class Species
     public static SpeciesData Wartortle = new()
     {
         speciesName = "Wartortle",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 59,
         baseAttack = 63,
         baseDefense = 80,
@@ -298,8 +300,8 @@ public static class Species
     public static SpeciesData Blastoise = new()
     {
         speciesName = "Blastoise",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 79,
         baseAttack = 83,
         baseDefense = 100,
@@ -331,8 +333,8 @@ public static class Species
     public static SpeciesData Caterpie = new()
     {
         speciesName = "Caterpie",
-        type1 = Type.Bug,
-        type2 = Type.Bug,
+        type1 = Bug,
+        type2 = Bug,
         baseHP = 45,
         baseAttack = 30,
         baseDefense = 35,
@@ -364,8 +366,8 @@ public static class Species
     public static SpeciesData Metapod = new()
     {
         speciesName = "Metapod",
-        type1 = Type.Bug,
-        type2 = Type.Bug,
+        type1 = Bug,
+        type2 = Bug,
         baseHP = 50,
         baseAttack = 20,
         baseDefense = 55,
@@ -397,8 +399,8 @@ public static class Species
     public static SpeciesData Butterfree = new()
     {
         speciesName = "Butterfree",
-        type1 = Type.Bug,
-        type2 = Type.Flying,
+        type1 = Bug,
+        type2 = Flying,
         baseHP = 60,
         baseAttack = 45,
         baseDefense = 50,
@@ -430,8 +432,8 @@ public static class Species
     public static SpeciesData Weedle = new()
     {
         speciesName = "Weedle",
-        type1 = Type.Bug,
-        type2 = Type.Poison,
+        type1 = Bug,
+        type2 = Poison,
         baseHP = 40,
         baseAttack = 35,
         baseDefense = 30,
@@ -463,8 +465,8 @@ public static class Species
     public static SpeciesData Kakuna = new()
     {
         speciesName = "Kakuna",
-        type1 = Type.Bug,
-        type2 = Type.Poison,
+        type1 = Bug,
+        type2 = Poison,
         baseHP = 45,
         baseAttack = 25,
         baseDefense = 50,
@@ -496,8 +498,8 @@ public static class Species
     public static SpeciesData Beedrill = new()
     {
         speciesName = "Beedrill",
-        type1 = Type.Bug,
-        type2 = Type.Poison,
+        type1 = Bug,
+        type2 = Poison,
         baseHP = 65,
         baseAttack = 80,
         baseDefense = 40,
@@ -529,8 +531,8 @@ public static class Species
     public static SpeciesData Pidgey = new()
     {
         speciesName = "Pidgey",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 40,
         baseAttack = 45,
         baseDefense = 40,
@@ -562,8 +564,8 @@ public static class Species
     public static SpeciesData Pidgeotto = new()
     {
         speciesName = "Pidgeotto",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 63,
         baseAttack = 60,
         baseDefense = 55,
@@ -595,8 +597,8 @@ public static class Species
     public static SpeciesData Pidgeot = new()
     {
         speciesName = "Pidgeot",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 83,
         baseAttack = 80,
         baseDefense = 75,
@@ -628,8 +630,8 @@ public static class Species
     public static SpeciesData Rattata = new()
     {
         speciesName = "Rattata",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 30,
         baseAttack = 56,
         baseDefense = 35,
@@ -661,8 +663,8 @@ public static class Species
     public static SpeciesData Raticate = new()
     {
         speciesName = "Raticate",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 55,
         baseAttack = 81,
         baseDefense = 60,
@@ -694,8 +696,8 @@ public static class Species
     public static SpeciesData Spearow = new()
     {
         speciesName = "Spearow",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 40,
         baseAttack = 60,
         baseDefense = 30,
@@ -726,8 +728,8 @@ public static class Species
     public static SpeciesData Fearow = new()
     {
         speciesName = "Fearow",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 65,
         baseAttack = 90,
         baseDefense = 65,
@@ -759,8 +761,8 @@ public static class Species
     public static SpeciesData Ekans = new()
     {
         speciesName = "Ekans",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 35,
         baseAttack = 60,
         baseDefense = 44,
@@ -792,8 +794,8 @@ public static class Species
     public static SpeciesData Arbok = new()
     {
         speciesName = "Arbok",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 60,
         baseAttack = 85,
         baseDefense = 69,
@@ -825,8 +827,8 @@ public static class Species
     public static SpeciesData Pikachu = new()
     {
         speciesName = "Pikachu",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 35,
         baseAttack = 55,
         baseDefense = 40,
@@ -858,8 +860,8 @@ public static class Species
     public static SpeciesData Raichu = new()
     {
         speciesName = "Raichu",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 60,
         baseAttack = 90,
         baseDefense = 55,
@@ -891,8 +893,8 @@ public static class Species
     public static SpeciesData Sandshrew = new()
     {
         speciesName = "Sandshrew",
-        type1 = Type.Ground,
-        type2 = Type.Ground,
+        type1 = Ground,
+        type2 = Ground,
         baseHP = 50,
         baseAttack = 75,
         baseDefense = 85,
@@ -924,8 +926,8 @@ public static class Species
     public static SpeciesData Sandslash = new()
     {
         speciesName = "Sandslash",
-        type1 = Type.Ground,
-        type2 = Type.Ground,
+        type1 = Ground,
+        type2 = Ground,
         baseHP = 75,
         baseAttack = 100,
         baseDefense = 110,
@@ -957,8 +959,8 @@ public static class Species
     public static SpeciesData NidoranF = new()
     {
         speciesName = "Nidoran",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 55,
         baseAttack = 47,
         baseDefense = 52,
@@ -991,8 +993,8 @@ public static class Species
     public static SpeciesData Nidorina = new()
     {
         speciesName = "Nidorina",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 70,
         baseAttack = 62,
         baseDefense = 67,
@@ -1024,8 +1026,8 @@ public static class Species
     public static SpeciesData Nidoqueen = new()
     {
         speciesName = "Nidoqueen",
-        type1 = Type.Poison,
-        type2 = Type.Ground,
+        type1 = Poison,
+        type2 = Ground,
         baseHP = 90,
         baseAttack = 82,
         baseDefense = 87,
@@ -1057,8 +1059,8 @@ public static class Species
     public static SpeciesData NidoranM = new()
     {
         speciesName = "Nidoran",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 46,
         baseAttack = 57,
         baseDefense = 40,
@@ -1090,8 +1092,8 @@ public static class Species
     public static SpeciesData Nidorino = new()
     {
         speciesName = "Nidorino",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 61,
         baseAttack = 72,
         baseDefense = 57,
@@ -1123,8 +1125,8 @@ public static class Species
     public static SpeciesData Nidoking = new()
     {
         speciesName = "Nidoking",
-        type1 = Type.Poison,
-        type2 = Type.Ground,
+        type1 = Poison,
+        type2 = Ground,
         baseHP = 81,
         baseAttack = 92,
         baseDefense = 77,
@@ -1156,8 +1158,8 @@ public static class Species
     public static SpeciesData Clefairy = new()
     {
         speciesName = "Clefairy",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 70,
         baseAttack = 45,
         baseDefense = 48,
@@ -1189,8 +1191,8 @@ public static class Species
     public static SpeciesData Clefable = new()
     {
         speciesName = "Clefable",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 95,
         baseAttack = 70,
         baseDefense = 73,
@@ -1222,8 +1224,8 @@ public static class Species
     public static SpeciesData Vulpix = new()
     {
         speciesName = "Vulpix",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 38,
         baseAttack = 41,
         baseDefense = 40,
@@ -1255,8 +1257,8 @@ public static class Species
     public static SpeciesData Ninetales = new()
     {
         speciesName = "Ninetales",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 73,
         baseAttack = 76,
         baseDefense = 75,
@@ -1288,8 +1290,8 @@ public static class Species
     public static SpeciesData Jigglypuff = new()
     {
         speciesName = "Jigglypuff",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 115,
         baseAttack = 45,
         baseDefense = 20,
@@ -1321,8 +1323,8 @@ public static class Species
     public static SpeciesData Wigglytuff = new()
     {
         speciesName = "Wigglytuff",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 140,
         baseAttack = 70,
         baseDefense = 45,
@@ -1354,8 +1356,8 @@ public static class Species
     public static SpeciesData Zubat = new()
     {
         speciesName = "Zubat",
-        type1 = Type.Poison,
-        type2 = Type.Flying,
+        type1 = Poison,
+        type2 = Flying,
         baseHP = 40,
         baseAttack = 45,
         baseDefense = 35,
@@ -1387,8 +1389,8 @@ public static class Species
     public static SpeciesData Golbat = new()
     {
         speciesName = "Golbat",
-        type1 = Type.Poison,
-        type2 = Type.Flying,
+        type1 = Poison,
+        type2 = Flying,
         baseHP = 75,
         baseAttack = 80,
         baseDefense = 70,
@@ -1420,8 +1422,8 @@ public static class Species
     public static SpeciesData Oddish = new()
     {
         speciesName = "Oddish",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
+        type1 = Grass,
+        type2 = Poison,
         baseHP = 45,
         baseAttack = 50,
         baseDefense = 55,
@@ -1453,8 +1455,8 @@ public static class Species
     public static SpeciesData Gloom = new()
     {
         speciesName = "Gloom",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
+        type1 = Grass,
+        type2 = Poison,
         baseHP = 60,
         baseAttack = 65,
         baseDefense = 70,
@@ -1486,8 +1488,8 @@ public static class Species
     public static SpeciesData Vileplume = new()
     {
         speciesName = "Vileplume",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
+        type1 = Grass,
+        type2 = Poison,
         baseHP = 75,
         baseAttack = 80,
         baseDefense = 85,
@@ -1519,8 +1521,8 @@ public static class Species
     public static SpeciesData Paras = new()
     {
         speciesName = "Paras",
-        type1 = Type.Bug,
-        type2 = Type.Grass,
+        type1 = Bug,
+        type2 = Grass,
         baseHP = 35,
         baseAttack = 70,
         baseDefense = 55,
@@ -1552,8 +1554,8 @@ public static class Species
     public static SpeciesData Parasect = new()
     {
         speciesName = "Parasect",
-        type1 = Type.Bug,
-        type2 = Type.Grass,
+        type1 = Bug,
+        type2 = Grass,
         baseHP = 60,
         baseAttack = 95,
         baseDefense = 80,
@@ -1585,8 +1587,8 @@ public static class Species
     public static SpeciesData Venonat = new()
     {
         speciesName = "Venonat",
-        type1 = Type.Bug,
-        type2 = Type.Poison,
+        type1 = Bug,
+        type2 = Poison,
         baseHP = 60,
         baseAttack = 55,
         baseDefense = 50,
@@ -1618,8 +1620,8 @@ public static class Species
     public static SpeciesData Venomoth = new()
     {
         speciesName = "Venomoth",
-        type1 = Type.Bug,
-        type2 = Type.Poison,
+        type1 = Bug,
+        type2 = Poison,
         baseHP = 70,
         baseAttack = 65,
         baseDefense = 60,
@@ -1651,8 +1653,8 @@ public static class Species
     public static SpeciesData Diglett = new()
     {
         speciesName = "Diglett",
-        type1 = Type.Ground,
-        type2 = Type.Ground,
+        type1 = Ground,
+        type2 = Ground,
         baseHP = 10,
         baseAttack = 55,
         baseDefense = 25,
@@ -1684,8 +1686,8 @@ public static class Species
     public static SpeciesData Dugtrio = new()
     {
         speciesName = "Dugtrio",
-        type1 = Type.Ground,
-        type2 = Type.Ground,
+        type1 = Ground,
+        type2 = Ground,
         baseHP = 35,
         baseAttack = 80,
         baseDefense = 50,
@@ -1717,8 +1719,8 @@ public static class Species
     public static SpeciesData Meowth = new()
     {
         speciesName = "Meowth",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 40,
         baseAttack = 45,
         baseDefense = 35,
@@ -1750,8 +1752,8 @@ public static class Species
     public static SpeciesData Persian = new()
     {
         speciesName = "Persian",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 65,
         baseAttack = 70,
         baseDefense = 60,
@@ -1783,8 +1785,8 @@ public static class Species
     public static SpeciesData Psyduck = new()
     {
         speciesName = "Psyduck",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 50,
         baseAttack = 52,
         baseDefense = 48,
@@ -1816,8 +1818,8 @@ public static class Species
     public static SpeciesData Golduck = new()
     {
         speciesName = "Golduck",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 80,
         baseAttack = 82,
         baseDefense = 78,
@@ -1849,8 +1851,8 @@ public static class Species
     public static SpeciesData Mankey = new()
     {
         speciesName = "Mankey",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 40,
         baseAttack = 80,
         baseDefense = 35,
@@ -1882,8 +1884,8 @@ public static class Species
     public static SpeciesData Primeape = new()
     {
         speciesName = "Primeape",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 65,
         baseAttack = 105,
         baseDefense = 60,
@@ -1915,8 +1917,8 @@ public static class Species
     public static SpeciesData Growlithe = new()
     {
         speciesName = "Growlithe",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 55,
         baseAttack = 70,
         baseDefense = 45,
@@ -1948,8 +1950,8 @@ public static class Species
     public static SpeciesData Arcanine = new()
     {
         speciesName = "Arcanine",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 90,
         baseAttack = 110,
         baseDefense = 80,
@@ -1981,8 +1983,8 @@ public static class Species
     public static SpeciesData Poliwag = new()
     {
         speciesName = "Poliwag",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 40,
         baseAttack = 50,
         baseDefense = 40,
@@ -2014,8 +2016,8 @@ public static class Species
     public static SpeciesData Poliwhirl = new()
     {
         speciesName = "Poliwhirl",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 65,
         baseAttack = 65,
         baseDefense = 65,
@@ -2047,8 +2049,8 @@ public static class Species
     public static SpeciesData Poliwrath = new()
     {
         speciesName = "Poliwrath",
-        type1 = Type.Water,
-        type2 = Type.Fighting,
+        type1 = Water,
+        type2 = Fighting,
         baseHP = 90,
         baseAttack = 85,
         baseDefense = 95,
@@ -2080,8 +2082,8 @@ public static class Species
     public static SpeciesData Abra = new()
     {
         speciesName = "Abra",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 25,
         baseAttack = 20,
         baseDefense = 15,
@@ -2113,8 +2115,8 @@ public static class Species
     public static SpeciesData Kadabra = new()
     {
         speciesName = "Kadabra",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 40,
         baseAttack = 35,
         baseDefense = 30,
@@ -2146,8 +2148,8 @@ public static class Species
     public static SpeciesData Alakazam = new()
     {
         speciesName = "Alakazam",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 55,
         baseAttack = 50,
         baseDefense = 45,
@@ -2179,8 +2181,8 @@ public static class Species
     public static SpeciesData Machop = new()
     {
         speciesName = "Machop",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 70,
         baseAttack = 80,
         baseDefense = 50,
@@ -2212,8 +2214,8 @@ public static class Species
     public static SpeciesData Machoke = new()
     {
         speciesName = "Machoke",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 80,
         baseAttack = 100,
         baseDefense = 70,
@@ -2245,8 +2247,8 @@ public static class Species
     public static SpeciesData Machamp = new()
     {
         speciesName = "Machamp",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 90,
         baseAttack = 130,
         baseDefense = 80,
@@ -2278,8 +2280,8 @@ public static class Species
     public static SpeciesData Bellsprout = new()
     {
         speciesName = "Bellsprout",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
+        type1 = Grass,
+        type2 = Poison,
         baseHP = 50,
         baseAttack = 75,
         baseDefense = 35,
@@ -2311,8 +2313,8 @@ public static class Species
     public static SpeciesData Weepinbell = new()
     {
         speciesName = "Weepinbell",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
+        type1 = Grass,
+        type2 = Poison,
         baseHP = 65,
         baseAttack = 90,
         baseDefense = 50,
@@ -2344,8 +2346,8 @@ public static class Species
     public static SpeciesData Victreebel = new()
     {
         speciesName = "Victreebel",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
+        type1 = Grass,
+        type2 = Poison,
         baseHP = 80,
         baseAttack = 105,
         baseDefense = 65,
@@ -2377,8 +2379,8 @@ public static class Species
     public static SpeciesData Tentacool = new()
     {
         speciesName = "Tentacool",
-        type1 = Type.Water,
-        type2 = Type.Poison,
+        type1 = Water,
+        type2 = Poison,
         baseHP = 40,
         baseAttack = 40,
         baseDefense = 35,
@@ -2410,8 +2412,8 @@ public static class Species
     public static SpeciesData Tentacruel = new()
     {
         speciesName = "Tentacruel",
-        type1 = Type.Water,
-        type2 = Type.Poison,
+        type1 = Water,
+        type2 = Poison,
         baseHP = 80,
         baseAttack = 70,
         baseDefense = 65,
@@ -2443,8 +2445,8 @@ public static class Species
     public static SpeciesData Geodude = new()
     {
         speciesName = "Geodude",
-        type1 = Type.Rock,
-        type2 = Type.Ground,
+        type1 = Rock,
+        type2 = Ground,
         baseHP = 40,
         baseAttack = 80,
         baseDefense = 100,
@@ -2476,8 +2478,8 @@ public static class Species
     public static SpeciesData Graveler = new()
     {
         speciesName = "Graveler",
-        type1 = Type.Rock,
-        type2 = Type.Ground,
+        type1 = Rock,
+        type2 = Ground,
         baseHP = 55,
         baseAttack = 95,
         baseDefense = 115,
@@ -2509,8 +2511,8 @@ public static class Species
     public static SpeciesData Golem = new()
     {
         speciesName = "Golem",
-        type1 = Type.Rock,
-        type2 = Type.Ground,
+        type1 = Rock,
+        type2 = Ground,
         baseHP = 80,
         baseAttack = 110,
         baseDefense = 130,
@@ -2542,8 +2544,8 @@ public static class Species
     public static SpeciesData Ponyta = new()
     {
         speciesName = "Ponyta",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 50,
         baseAttack = 85,
         baseDefense = 55,
@@ -2575,8 +2577,8 @@ public static class Species
     public static SpeciesData Rapidash = new()
     {
         speciesName = "Rapidash",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 65,
         baseAttack = 100,
         baseDefense = 70,
@@ -2608,8 +2610,8 @@ public static class Species
     public static SpeciesData Slowpoke = new()
     {
         speciesName = "Slowpoke",
-        type1 = Type.Water,
-        type2 = Type.Psychic,
+        type1 = Water,
+        type2 = Psychic,
         baseHP = 90,
         baseAttack = 65,
         baseDefense = 65,
@@ -2641,8 +2643,8 @@ public static class Species
     public static SpeciesData Slowbro = new()
     {
         speciesName = "Slowbro",
-        type1 = Type.Water,
-        type2 = Type.Psychic,
+        type1 = Water,
+        type2 = Psychic,
         baseHP = 95,
         baseAttack = 75,
         baseDefense = 110,
@@ -2674,8 +2676,8 @@ public static class Species
     public static SpeciesData Magnemite = new()
     {
         speciesName = "Magnemite",
-        type1 = Type.Electric,
-        type2 = Type.Steel,
+        type1 = Electric,
+        type2 = Steel,
         baseHP = 25,
         baseAttack = 35,
         baseDefense = 70,
@@ -2687,7 +2689,7 @@ public static class Species
         xpClass = XPClass.MediumFast,
         xpYield = 65,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 20,
@@ -2707,8 +2709,8 @@ public static class Species
     public static SpeciesData Magneton = new()
     {
         speciesName = "Magneton",
-        type1 = Type.Electric,
-        type2 = Type.Steel,
+        type1 = Electric,
+        type2 = Steel,
         baseHP = 50,
         baseAttack = 60,
         baseDefense = 95,
@@ -2720,7 +2722,7 @@ public static class Species
         xpClass = XPClass.MediumFast,
         xpYield = 163,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 20,
@@ -2740,8 +2742,8 @@ public static class Species
     public static SpeciesData Farfetchd = new()
     {
         speciesName = "Farfetchd",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 52,
         baseAttack = 65,
         baseDefense = 55,
@@ -2773,8 +2775,8 @@ public static class Species
     public static SpeciesData Doduo = new()
     {
         speciesName = "Doduo",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 35,
         baseAttack = 85,
         baseDefense = 45,
@@ -2806,8 +2808,8 @@ public static class Species
     public static SpeciesData Dodrio = new()
     {
         speciesName = "Dodrio",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 60,
         baseAttack = 110,
         baseDefense = 70,
@@ -2839,8 +2841,8 @@ public static class Species
     public static SpeciesData Seel = new()
     {
         speciesName = "Seel",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 65,
         baseAttack = 45,
         baseDefense = 55,
@@ -2872,8 +2874,8 @@ public static class Species
     public static SpeciesData Dewgong = new()
     {
         speciesName = "Dewgong",
-        type1 = Type.Water,
-        type2 = Type.Ice,
+        type1 = Water,
+        type2 = Ice,
         baseHP = 90,
         baseAttack = 70,
         baseDefense = 80,
@@ -2905,8 +2907,8 @@ public static class Species
     public static SpeciesData Grimer = new()
     {
         speciesName = "Grimer",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 80,
         baseAttack = 80,
         baseDefense = 50,
@@ -2938,8 +2940,8 @@ public static class Species
     public static SpeciesData Muk = new()
     {
         speciesName = "Muk",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 105,
         baseAttack = 105,
         baseDefense = 75,
@@ -2971,8 +2973,8 @@ public static class Species
     public static SpeciesData Shellder = new()
     {
         speciesName = "Shellder",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 30,
         baseAttack = 65,
         baseDefense = 100,
@@ -3004,8 +3006,8 @@ public static class Species
     public static SpeciesData Cloyster = new()
     {
         speciesName = "Cloyster",
-        type1 = Type.Water,
-        type2 = Type.Ice,
+        type1 = Water,
+        type2 = Ice,
         baseHP = 50,
         baseAttack = 95,
         baseDefense = 180,
@@ -3037,8 +3039,8 @@ public static class Species
     public static SpeciesData Gastly = new()
     {
         speciesName = "Gastly",
-        type1 = Type.Ghost,
-        type2 = Type.Poison,
+        type1 = Ghost,
+        type2 = Poison,
         baseHP = 30,
         baseAttack = 35,
         baseDefense = 30,
@@ -3070,8 +3072,8 @@ public static class Species
     public static SpeciesData Haunter = new()
     {
         speciesName = "Haunter",
-        type1 = Type.Ghost,
-        type2 = Type.Poison,
+        type1 = Ghost,
+        type2 = Poison,
         baseHP = 45,
         baseAttack = 50,
         baseDefense = 45,
@@ -3102,8 +3104,8 @@ public static class Species
     public static SpeciesData Gengar = new()
     {
         speciesName = "Gengar",
-        type1 = Type.Ghost,
-        type2 = Type.Poison,
+        type1 = Ghost,
+        type2 = Poison,
         baseHP = 60,
         baseAttack = 65,
         baseDefense = 60,
@@ -3135,8 +3137,8 @@ public static class Species
     public static SpeciesData Onix = new()
     {
         speciesName = "Onix",
-        type1 = Type.Rock,
-        type2 = Type.Ground,
+        type1 = Rock,
+        type2 = Ground,
         baseHP = 35,
         baseAttack = 45,
         baseDefense = 160,
@@ -3168,8 +3170,8 @@ public static class Species
     public static SpeciesData Drowzee = new()
     {
         speciesName = "Drowzee",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 60,
         baseAttack = 48,
         baseDefense = 45,
@@ -3201,8 +3203,8 @@ public static class Species
     public static SpeciesData Hypno = new()
     {
         speciesName = "Hypno",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 85,
         baseAttack = 73,
         baseDefense = 70,
@@ -3234,8 +3236,8 @@ public static class Species
     public static SpeciesData Krabby = new()
     {
         speciesName = "Krabby",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 30,
         baseAttack = 105,
         baseDefense = 90,
@@ -3267,8 +3269,8 @@ public static class Species
     public static SpeciesData Kingler = new()
     {
         speciesName = "Kingler",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 55,
         baseAttack = 130,
         baseDefense = 115,
@@ -3300,8 +3302,8 @@ public static class Species
     public static SpeciesData Voltorb = new()
     {
         speciesName = "Voltorb",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 40,
         baseAttack = 30,
         baseDefense = 50,
@@ -3313,7 +3315,7 @@ public static class Species
         xpClass = XPClass.MediumFast,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 20,
@@ -3333,8 +3335,8 @@ public static class Species
     public static SpeciesData Electrode = new()
     {
         speciesName = "Electrode",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 60,
         baseAttack = 50,
         baseDefense = 70,
@@ -3346,7 +3348,7 @@ public static class Species
         xpClass = XPClass.MediumFast,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 20,
@@ -3366,8 +3368,8 @@ public static class Species
     public static SpeciesData Exeggcute = new()
     {
         speciesName = "Exeggcute",
-        type1 = Type.Grass,
-        type2 = Type.Psychic,
+        type1 = Grass,
+        type2 = Psychic,
         baseHP = 60,
         baseAttack = 40,
         baseDefense = 80,
@@ -3399,8 +3401,8 @@ public static class Species
     public static SpeciesData Exeggutor = new()
     {
         speciesName = "Exeggutor",
-        type1 = Type.Grass,
-        type2 = Type.Psychic,
+        type1 = Grass,
+        type2 = Psychic,
         baseHP = 95,
         baseAttack = 95,
         baseDefense = 85,
@@ -3432,8 +3434,8 @@ public static class Species
     public static SpeciesData Cubone = new()
     {
         speciesName = "Cubone",
-        type1 = Type.Ground,
-        type2 = Type.Ground,
+        type1 = Ground,
+        type2 = Ground,
         baseHP = 50,
         baseAttack = 50,
         baseDefense = 95,
@@ -3465,8 +3467,8 @@ public static class Species
     public static SpeciesData Marowak = new()
     {
         speciesName = "Marowak",
-        type1 = Type.Ground,
-        type2 = Type.Ground,
+        type1 = Ground,
+        type2 = Ground,
         baseHP = 60,
         baseAttack = 80,
         baseDefense = 110,
@@ -3498,8 +3500,8 @@ public static class Species
     public static SpeciesData Hitmonlee = new()
     {
         speciesName = "Hitmonlee",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 50,
         baseAttack = 120,
         baseDefense = 53,
@@ -3531,8 +3533,8 @@ public static class Species
     public static SpeciesData Hitmonchan = new()
     {
         speciesName = "Hitmonchan",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 50,
         baseAttack = 105,
         baseDefense = 79,
@@ -3564,8 +3566,8 @@ public static class Species
     public static SpeciesData Lickitung = new()
     {
         speciesName = "Lickitung",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 90,
         baseAttack = 55,
         baseDefense = 75,
@@ -3597,8 +3599,8 @@ public static class Species
     public static SpeciesData Koffing = new()
     {
         speciesName = "Koffing",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 40,
         baseAttack = 65,
         baseDefense = 95,
@@ -3630,8 +3632,8 @@ public static class Species
     public static SpeciesData Weezing = new()
     {
         speciesName = "Weezing",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 65,
         baseAttack = 90,
         baseDefense = 120,
@@ -3663,8 +3665,8 @@ public static class Species
     public static SpeciesData Rhyhorn = new()
     {
         speciesName = "Rhyhorn",
-        type1 = Type.Ground,
-        type2 = Type.Rock,
+        type1 = Ground,
+        type2 = Rock,
         baseHP = 80,
         baseAttack = 85,
         baseDefense = 95,
@@ -3696,8 +3698,8 @@ public static class Species
     public static SpeciesData Rhydon = new()
     {
         speciesName = "Rhydon",
-        type1 = Type.Ground,
-        type2 = Type.Rock,
+        type1 = Ground,
+        type2 = Rock,
         baseHP = 105,
         baseAttack = 130,
         baseDefense = 120,
@@ -3729,8 +3731,8 @@ public static class Species
     public static SpeciesData Chansey = new()
     {
         speciesName = "Chansey",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 250,
         baseAttack = 5,
         baseDefense = 5,
@@ -3762,8 +3764,8 @@ public static class Species
     public static SpeciesData Tangela = new()
     {
         speciesName = "Tangela",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 65,
         baseAttack = 55,
         baseDefense = 115,
@@ -3795,8 +3797,8 @@ public static class Species
     public static SpeciesData Kangaskhan = new()
     {
         speciesName = "Kangaskhan",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 105,
         baseAttack = 95,
         baseDefense = 80,
@@ -3828,8 +3830,8 @@ public static class Species
     public static SpeciesData Horsea = new()
     {
         speciesName = "Horsea",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 30,
         baseAttack = 40,
         baseDefense = 70,
@@ -3861,8 +3863,8 @@ public static class Species
     public static SpeciesData Seadra = new()
     {
         speciesName = "Seadra",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 55,
         baseAttack = 65,
         baseDefense = 95,
@@ -3894,8 +3896,8 @@ public static class Species
     public static SpeciesData Goldeen = new()
     {
         speciesName = "Goldeen",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 45,
         baseAttack = 67,
         baseDefense = 60,
@@ -3927,8 +3929,8 @@ public static class Species
     public static SpeciesData Seaking = new()
     {
         speciesName = "Seaking",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 80,
         baseAttack = 92,
         baseDefense = 65,
@@ -3960,8 +3962,8 @@ public static class Species
     public static SpeciesData Staryu = new()
     {
         speciesName = "Staryu",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 30,
         baseAttack = 45,
         baseDefense = 55,
@@ -3973,7 +3975,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 68,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
         eggCycles = 20,
@@ -3993,8 +3995,8 @@ public static class Species
     public static SpeciesData Starmie = new()
     {
         speciesName = "Starmie",
-        type1 = Type.Water,
-        type2 = Type.Psychic,
+        type1 = Water,
+        type2 = Psychic,
         baseHP = 60,
         baseAttack = 75,
         baseDefense = 85,
@@ -4006,7 +4008,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 182,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
         eggCycles = 20,
@@ -4026,8 +4028,8 @@ public static class Species
     public static SpeciesData MrMime = new()
     {
         speciesName = "Mr. Mime",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 40,
         baseAttack = 45,
         baseDefense = 65,
@@ -4059,8 +4061,8 @@ public static class Species
     public static SpeciesData Scyther = new()
     {
         speciesName = "Scyther",
-        type1 = Type.Bug,
-        type2 = Type.Flying,
+        type1 = Bug,
+        type2 = Flying,
         baseHP = 70,
         baseAttack = 110,
         baseDefense = 80,
@@ -4092,8 +4094,8 @@ public static class Species
     public static SpeciesData Jynx = new()
     {
         speciesName = "Jynx",
-        type1 = Type.Ice,
-        type2 = Type.Psychic,
+        type1 = Ice,
+        type2 = Psychic,
         baseHP = 65,
         baseAttack = 50,
         baseDefense = 35,
@@ -4125,8 +4127,8 @@ public static class Species
     public static SpeciesData Electabuzz = new()
     {
         speciesName = "Electabuzz",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 65,
         baseAttack = 83,
         baseDefense = 57,
@@ -4158,8 +4160,8 @@ public static class Species
     public static SpeciesData Magmar = new()
     {
         speciesName = "Magmar",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 65,
         baseAttack = 95,
         baseDefense = 57,
@@ -4191,8 +4193,8 @@ public static class Species
     public static SpeciesData Pinsir = new()
     {
         speciesName = "Pinsir",
-        type1 = Type.Bug,
-        type2 = Type.Bug,
+        type1 = Bug,
+        type2 = Bug,
         baseHP = 65,
         baseAttack = 125,
         baseDefense = 100,
@@ -4224,8 +4226,8 @@ public static class Species
     public static SpeciesData Tauros = new()
     {
         speciesName = "Tauros",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 75,
         baseAttack = 100,
         baseDefense = 95,
@@ -4257,8 +4259,8 @@ public static class Species
     public static SpeciesData Magikarp = new()
     {
         speciesName = "Magikarp",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 20,
         baseAttack = 10,
         baseDefense = 55,
@@ -4290,8 +4292,8 @@ public static class Species
     public static SpeciesData Gyarados = new()
     {
         speciesName = "Gyarados",
-        type1 = Type.Water,
-        type2 = Type.Flying,
+        type1 = Water,
+        type2 = Flying,
         baseHP = 95,
         baseAttack = 125,
         baseDefense = 79,
@@ -4323,8 +4325,8 @@ public static class Species
     public static SpeciesData Lapras = new()
     {
         speciesName = "Lapras",
-        type1 = Type.Water,
-        type2 = Type.Ice,
+        type1 = Water,
+        type2 = Ice,
         baseHP = 130,
         baseAttack = 85,
         baseDefense = 80,
@@ -4356,8 +4358,8 @@ public static class Species
     public static SpeciesData Ditto = new()
     {
         speciesName = "Ditto",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 48,
         baseAttack = 48,
         baseDefense = 48,
@@ -4369,7 +4371,7 @@ public static class Species
         xpClass = XPClass.MediumFast,
         xpYield = 101,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Ditto,
         eggGroup2 = EggGroup.Ditto,
         eggCycles = 20,
@@ -4389,8 +4391,8 @@ public static class Species
     public static SpeciesData Eevee = new()
     {
         speciesName = "Eevee",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 55,
         baseAttack = 55,
         baseDefense = 50,
@@ -4422,8 +4424,8 @@ public static class Species
     public static SpeciesData Vaporeon = new()
     {
         speciesName = "Vaporeon",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 130,
         baseAttack = 65,
         baseDefense = 60,
@@ -4455,8 +4457,8 @@ public static class Species
     public static SpeciesData Jolteon = new()
     {
         speciesName = "Jolteon",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 65,
         baseAttack = 65,
         baseDefense = 60,
@@ -4488,8 +4490,8 @@ public static class Species
     public static SpeciesData Flareon = new()
     {
         speciesName = "Flareon",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 65,
         baseAttack = 130,
         baseDefense = 60,
@@ -4521,8 +4523,8 @@ public static class Species
     public static SpeciesData Porygon = new()
     {
         speciesName = "Porygon",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 65,
         baseAttack = 60,
         baseDefense = 70,
@@ -4534,7 +4536,7 @@ public static class Species
         xpClass = XPClass.MediumFast,
         xpYield = 79,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 20,
@@ -4554,8 +4556,8 @@ public static class Species
     public static SpeciesData Omanyte = new()
     {
         speciesName = "Omanyte",
-        type1 = Type.Rock,
-        type2 = Type.Water,
+        type1 = Rock,
+        type2 = Water,
         baseHP = 35,
         baseAttack = 40,
         baseDefense = 100,
@@ -4587,8 +4589,8 @@ public static class Species
     public static SpeciesData Omastar = new()
     {
         speciesName = "Omastar",
-        type1 = Type.Rock,
-        type2 = Type.Water,
+        type1 = Rock,
+        type2 = Water,
         baseHP = 70,
         baseAttack = 60,
         baseDefense = 125,
@@ -4620,8 +4622,8 @@ public static class Species
     public static SpeciesData Kabuto = new()
     {
         speciesName = "Kabuto",
-        type1 = Type.Rock,
-        type2 = Type.Water,
+        type1 = Rock,
+        type2 = Water,
         baseHP = 30,
         baseAttack = 80,
         baseDefense = 90,
@@ -4653,8 +4655,8 @@ public static class Species
     public static SpeciesData Kabutops = new()
     {
         speciesName = "Kabutops",
-        type1 = Type.Rock,
-        type2 = Type.Water,
+        type1 = Rock,
+        type2 = Water,
         baseHP = 60,
         baseAttack = 115,
         baseDefense = 105,
@@ -4686,8 +4688,8 @@ public static class Species
     public static SpeciesData Aerodactyl = new()
     {
         speciesName = "Aerodactyl",
-        type1 = Type.Rock,
-        type2 = Type.Flying,
+        type1 = Rock,
+        type2 = Flying,
         baseHP = 80,
         baseAttack = 105,
         baseDefense = 65,
@@ -4719,8 +4721,8 @@ public static class Species
     public static SpeciesData Snorlax = new()
     {
         speciesName = "Snorlax",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 160,
         baseAttack = 110,
         baseDefense = 65,
@@ -4752,8 +4754,8 @@ public static class Species
     public static SpeciesData Articuno = new()
     {
         speciesName = "Articuno",
-        type1 = Type.Ice,
-        type2 = Type.Flying,
+        type1 = Ice,
+        type2 = Flying,
         baseHP = 90,
         baseAttack = 85,
         baseDefense = 100,
@@ -4765,7 +4767,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 80,
@@ -4785,8 +4787,8 @@ public static class Species
     public static SpeciesData Zapdos = new()
     {
         speciesName = "Zapdos",
-        type1 = Type.Electric,
-        type2 = Type.Flying,
+        type1 = Electric,
+        type2 = Flying,
         baseHP = 90,
         baseAttack = 90,
         baseDefense = 85,
@@ -4798,7 +4800,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 80,
@@ -4818,8 +4820,8 @@ public static class Species
     public static SpeciesData Moltres = new()
     {
         speciesName = "Moltres",
-        type1 = Type.Fire,
-        type2 = Type.Flying,
+        type1 = Fire,
+        type2 = Flying,
         baseHP = 90,
         baseAttack = 100,
         baseDefense = 90,
@@ -4831,7 +4833,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 80,
@@ -4851,8 +4853,8 @@ public static class Species
     public static SpeciesData Dratini = new()
     {
         speciesName = "Dratini",
-        type1 = Type.Dragon,
-        type2 = Type.Dragon,
+        type1 = Dragon,
+        type2 = Dragon,
         baseHP = 41,
         baseAttack = 64,
         baseDefense = 45,
@@ -4884,8 +4886,8 @@ public static class Species
     public static SpeciesData Dragonair = new()
     {
         speciesName = "Dragonair",
-        type1 = Type.Dragon,
-        type2 = Type.Dragon,
+        type1 = Dragon,
+        type2 = Dragon,
         baseHP = 61,
         baseAttack = 84,
         baseDefense = 65,
@@ -4917,8 +4919,8 @@ public static class Species
     public static SpeciesData Dragonite = new()
     {
         speciesName = "Dragonite",
-        type1 = Type.Dragon,
-        type2 = Type.Flying,
+        type1 = Dragon,
+        type2 = Flying,
         baseHP = 91,
         baseAttack = 134,
         baseDefense = 95,
@@ -4950,8 +4952,8 @@ public static class Species
     public static SpeciesData Mewtwo = new()
     {
         speciesName = "Mewtwo",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 106,
         baseAttack = 110,
         baseDefense = 90,
@@ -4963,7 +4965,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 306,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 120,
@@ -4983,8 +4985,8 @@ public static class Species
     public static SpeciesData Mew = new()
     {
         speciesName = "Mew",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 100,
         baseAttack = 100,
         baseDefense = 100,
@@ -4996,7 +4998,7 @@ public static class Species
         xpClass = XPClass.MediumSlow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 120,
@@ -5016,8 +5018,8 @@ public static class Species
     public static SpeciesData Chikorita = new()
     {
         speciesName = "Chikorita",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 45,
         baseAttack = 49,
         baseDefense = 65,
@@ -5049,8 +5051,8 @@ public static class Species
     public static SpeciesData Bayleef = new()
     {
         speciesName = "Bayleef",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 60,
         baseAttack = 62,
         baseDefense = 80,
@@ -5082,8 +5084,8 @@ public static class Species
     public static SpeciesData Meganium = new()
     {
         speciesName = "Meganium",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 80,
         baseAttack = 82,
         baseDefense = 100,
@@ -5115,8 +5117,8 @@ public static class Species
     public static SpeciesData Cyndaquil = new()
     {
         speciesName = "Cyndaquil",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 39,
         baseAttack = 52,
         baseDefense = 43,
@@ -5148,8 +5150,8 @@ public static class Species
     public static SpeciesData Quilava = new()
     {
         speciesName = "Quilava",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 58,
         baseAttack = 64,
         baseDefense = 58,
@@ -5181,8 +5183,8 @@ public static class Species
     public static SpeciesData Typhlosion = new()
     {
         speciesName = "Typhlosion",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 78,
         baseAttack = 84,
         baseDefense = 78,
@@ -5214,8 +5216,8 @@ public static class Species
     public static SpeciesData Totodile = new()
     {
         speciesName = "Totodile",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 50,
         baseAttack = 65,
         baseDefense = 64,
@@ -5247,8 +5249,8 @@ public static class Species
     public static SpeciesData Croconaw = new()
     {
         speciesName = "Croconaw",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 65,
         baseAttack = 80,
         baseDefense = 80,
@@ -5280,8 +5282,8 @@ public static class Species
     public static SpeciesData Feraligatr = new()
     {
         speciesName = "Feraligatr",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 85,
         baseAttack = 105,
         baseDefense = 100,
@@ -5313,8 +5315,8 @@ public static class Species
     public static SpeciesData Sentret = new()
     {
         speciesName = "Sentret",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 35,
         baseAttack = 46,
         baseDefense = 34,
@@ -5346,8 +5348,8 @@ public static class Species
     public static SpeciesData Furret = new()
     {
         speciesName = "Furret",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 85,
         baseAttack = 76,
         baseDefense = 64,
@@ -5379,8 +5381,8 @@ public static class Species
     public static SpeciesData Hoothoot = new()
     {
         speciesName = "Hoothoot",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 60,
         baseAttack = 30,
         baseDefense = 30,
@@ -5412,8 +5414,8 @@ public static class Species
     public static SpeciesData Noctowl = new()
     {
         speciesName = "Noctowl",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 100,
         baseAttack = 50,
         baseDefense = 50,
@@ -5445,8 +5447,8 @@ public static class Species
     public static SpeciesData Ledyba = new()
     {
         speciesName = "Ledyba",
-        type1 = Type.Bug,
-        type2 = Type.Flying,
+        type1 = Bug,
+        type2 = Flying,
         baseHP = 40,
         baseAttack = 20,
         baseDefense = 30,
@@ -5478,8 +5480,8 @@ public static class Species
     public static SpeciesData Ledian = new()
     {
         speciesName = "Ledian",
-        type1 = Type.Bug,
-        type2 = Type.Flying,
+        type1 = Bug,
+        type2 = Flying,
         baseHP = 55,
         baseAttack = 35,
         baseDefense = 50,
@@ -5511,8 +5513,8 @@ public static class Species
     public static SpeciesData Spinarak = new()
     {
         speciesName = "Spinarak",
-        type1 = Type.Bug,
-        type2 = Type.Poison,
+        type1 = Bug,
+        type2 = Poison,
         baseHP = 40,
         baseAttack = 60,
         baseDefense = 40,
@@ -5544,8 +5546,8 @@ public static class Species
     public static SpeciesData Ariados = new()
     {
         speciesName = "Ariados",
-        type1 = Type.Bug,
-        type2 = Type.Poison,
+        type1 = Bug,
+        type2 = Poison,
         baseHP = 70,
         baseAttack = 90,
         baseDefense = 70,
@@ -5577,8 +5579,8 @@ public static class Species
     public static SpeciesData Crobat = new()
     {
         speciesName = "Crobat",
-        type1 = Type.Poison,
-        type2 = Type.Flying,
+        type1 = Poison,
+        type2 = Flying,
         baseHP = 85,
         baseAttack = 90,
         baseDefense = 80,
@@ -5610,8 +5612,8 @@ public static class Species
     public static SpeciesData Chinchou = new()
     {
         speciesName = "Chinchou",
-        type1 = Type.Water,
-        type2 = Type.Electric,
+        type1 = Water,
+        type2 = Electric,
         baseHP = 75,
         baseAttack = 38,
         baseDefense = 38,
@@ -5643,8 +5645,8 @@ public static class Species
     public static SpeciesData Lanturn = new()
     {
         speciesName = "Lanturn",
-        type1 = Type.Water,
-        type2 = Type.Electric,
+        type1 = Water,
+        type2 = Electric,
         baseHP = 125,
         baseAttack = 58,
         baseDefense = 58,
@@ -5677,8 +5679,8 @@ public static class Species
     public static SpeciesData Pichu = new()
     {
         speciesName = "Pichu",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 20,
         baseAttack = 40,
         baseDefense = 15,
@@ -5711,8 +5713,8 @@ public static class Species
     public static SpeciesData Cleffa = new()
     {
         speciesName = "Cleffa",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 50,
         baseAttack = 25,
         baseDefense = 28,
@@ -5744,8 +5746,8 @@ public static class Species
     public static SpeciesData Igglybuff = new()
     {
         speciesName = "Igglybuff",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 90,
         baseAttack = 30,
         baseDefense = 15,
@@ -5777,8 +5779,8 @@ public static class Species
     public static SpeciesData Togepi = new()
     {
         speciesName = "Togepi",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 35,
         baseAttack = 20,
         baseDefense = 65,
@@ -5810,8 +5812,8 @@ public static class Species
     public static SpeciesData Togetic = new()
     {
         speciesName = "Togetic",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 55,
         baseAttack = 40,
         baseDefense = 85,
@@ -5843,8 +5845,8 @@ public static class Species
     public static SpeciesData Natu = new()
     {
         speciesName = "Natu",
-        type1 = Type.Psychic,
-        type2 = Type.Flying,
+        type1 = Psychic,
+        type2 = Flying,
         baseHP = 40,
         baseAttack = 50,
         baseDefense = 45,
@@ -5876,8 +5878,8 @@ public static class Species
     public static SpeciesData Xatu = new()
     {
         speciesName = "Xatu",
-        type1 = Type.Psychic,
-        type2 = Type.Flying,
+        type1 = Psychic,
+        type2 = Flying,
         baseHP = 65,
         baseAttack = 75,
         baseDefense = 70,
@@ -5909,8 +5911,8 @@ public static class Species
     public static SpeciesData Mareep = new()
     {
         speciesName = "Mareep",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 55,
         baseAttack = 40,
         baseDefense = 40,
@@ -5942,8 +5944,8 @@ public static class Species
     public static SpeciesData Flaaffy = new()
     {
         speciesName = "Flaaffy",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 70,
         baseAttack = 55,
         baseDefense = 55,
@@ -5975,8 +5977,8 @@ public static class Species
     public static SpeciesData Ampharos = new()
     {
         speciesName = "Ampharos",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 90,
         baseAttack = 75,
         baseDefense = 75,
@@ -6008,8 +6010,8 @@ public static class Species
     public static SpeciesData Bellossom = new()
     {
         speciesName = "Bellossom",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 75,
         baseAttack = 80,
         baseDefense = 85,
@@ -6041,8 +6043,8 @@ public static class Species
     public static SpeciesData Marill = new()
     {
         speciesName = "Marill",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 70,
         baseAttack = 20,
         baseDefense = 50,
@@ -6074,8 +6076,8 @@ public static class Species
     public static SpeciesData Azumarill = new()
     {
         speciesName = "Azumarill",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 100,
         baseAttack = 50,
         baseDefense = 80,
@@ -6107,8 +6109,8 @@ public static class Species
     public static SpeciesData Sudowoodo = new()
     {
         speciesName = "Sudowoodo",
-        type1 = Type.Rock,
-        type2 = Type.Rock,
+        type1 = Rock,
+        type2 = Rock,
         baseHP = 70,
         baseAttack = 100,
         baseDefense = 115,
@@ -6140,8 +6142,8 @@ public static class Species
     public static SpeciesData Politoed = new()
     {
         speciesName = "Politoed",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 90,
         baseAttack = 75,
         baseDefense = 75,
@@ -6173,8 +6175,8 @@ public static class Species
     public static SpeciesData Hoppip = new()
     {
         speciesName = "Hoppip",
-        type1 = Type.Grass,
-        type2 = Type.Flying,
+        type1 = Grass,
+        type2 = Flying,
         baseHP = 35,
         baseAttack = 35,
         baseDefense = 40,
@@ -6206,8 +6208,8 @@ public static class Species
     public static SpeciesData Skiploom = new()
     {
         speciesName = "Skiploom",
-        type1 = Type.Grass,
-        type2 = Type.Flying,
+        type1 = Grass,
+        type2 = Flying,
         baseHP = 55,
         baseAttack = 45,
         baseDefense = 50,
@@ -6239,8 +6241,8 @@ public static class Species
     public static SpeciesData Jumpluff = new()
     {
         speciesName = "Jumpluff",
-        type1 = Type.Grass,
-        type2 = Type.Flying,
+        type1 = Grass,
+        type2 = Flying,
         baseHP = 75,
         baseAttack = 55,
         baseDefense = 70,
@@ -6272,8 +6274,8 @@ public static class Species
     public static SpeciesData Aipom = new()
     {
         speciesName = "Aipom",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 55,
         baseAttack = 70,
         baseDefense = 55,
@@ -6305,8 +6307,8 @@ public static class Species
     public static SpeciesData Sunkern = new()
     {
         speciesName = "Sunkern",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 30,
         baseAttack = 30,
         baseDefense = 30,
@@ -6338,8 +6340,8 @@ public static class Species
     public static SpeciesData Sunflora = new()
     {
         speciesName = "Sunflora",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 75,
         baseAttack = 75,
         baseDefense = 55,
@@ -6371,8 +6373,8 @@ public static class Species
     public static SpeciesData Yanma = new()
     {
         speciesName = "Yanma",
-        type1 = Type.Bug,
-        type2 = Type.Flying,
+        type1 = Bug,
+        type2 = Flying,
         baseHP = 65,
         baseAttack = 65,
         baseDefense = 45,
@@ -6404,8 +6406,8 @@ public static class Species
     public static SpeciesData Wooper = new()
     {
         speciesName = "Wooper",
-        type1 = Type.Water,
-        type2 = Type.Ground,
+        type1 = Water,
+        type2 = Ground,
         baseHP = 55,
         baseAttack = 45,
         baseDefense = 45,
@@ -6437,8 +6439,8 @@ public static class Species
     public static SpeciesData Quagsire = new()
     {
         speciesName = "Quagsire",
-        type1 = Type.Water,
-        type2 = Type.Ground,
+        type1 = Water,
+        type2 = Ground,
         baseHP = 95,
         baseAttack = 85,
         baseDefense = 85,
@@ -6470,8 +6472,8 @@ public static class Species
     public static SpeciesData Espeon = new()
     {
         speciesName = "Espeon",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 65,
         baseAttack = 65,
         baseDefense = 60,
@@ -6503,8 +6505,8 @@ public static class Species
     public static SpeciesData Umbreon = new()
     {
         speciesName = "Umbreon",
-        type1 = Type.Dark,
-        type2 = Type.Dark,
+        type1 = Dark,
+        type2 = Dark,
         baseHP = 95,
         baseAttack = 65,
         baseDefense = 110,
@@ -6536,8 +6538,8 @@ public static class Species
     public static SpeciesData Murkrow = new()
     {
         speciesName = "Murkrow",
-        type1 = Type.Dark,
-        type2 = Type.Flying,
+        type1 = Dark,
+        type2 = Flying,
         baseHP = 60,
         baseAttack = 85,
         baseDefense = 42,
@@ -6569,8 +6571,8 @@ public static class Species
     public static SpeciesData Slowking = new()
     {
         speciesName = "Slowking",
-        type1 = Type.Water,
-        type2 = Type.Psychic,
+        type1 = Water,
+        type2 = Psychic,
         baseHP = 95,
         baseAttack = 75,
         baseDefense = 80,
@@ -6602,8 +6604,8 @@ public static class Species
     public static SpeciesData Misdreavus = new()
     {
         speciesName = "Misdreavus",
-        type1 = Type.Ghost,
-        type2 = Type.Ghost,
+        type1 = Ghost,
+        type2 = Ghost,
         baseHP = 60,
         baseAttack = 60,
         baseDefense = 60,
@@ -6635,8 +6637,8 @@ public static class Species
     public static SpeciesData Unown = new()
     {
         speciesName = "Unown",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 48,
         baseAttack = 72,
         baseDefense = 48,
@@ -6648,7 +6650,7 @@ public static class Species
         xpClass = XPClass.MediumFast,
         xpYield = 118,
         learnset = Learnset.EmptyLearnset,
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 40,
@@ -6668,8 +6670,8 @@ public static class Species
     public static SpeciesData Wobbuffet = new()
     {
         speciesName = "Wobbuffet",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 190,
         baseAttack = 33,
         baseDefense = 58,
@@ -6701,8 +6703,8 @@ public static class Species
     public static SpeciesData Girafarig = new()
     {
         speciesName = "Girafarig",
-        type1 = Type.Normal,
-        type2 = Type.Psychic,
+        type1 = Normal,
+        type2 = Psychic,
         baseHP = 70,
         baseAttack = 80,
         baseDefense = 65,
@@ -6734,8 +6736,8 @@ public static class Species
     public static SpeciesData Pineco = new()
     {
         speciesName = "Pineco",
-        type1 = Type.Bug,
-        type2 = Type.Bug,
+        type1 = Bug,
+        type2 = Bug,
         baseHP = 50,
         baseAttack = 65,
         baseDefense = 90,
@@ -6767,8 +6769,8 @@ public static class Species
     public static SpeciesData Forretress = new()
     {
         speciesName = "Forretress",
-        type1 = Type.Bug,
-        type2 = Type.Steel,
+        type1 = Bug,
+        type2 = Steel,
         baseHP = 75,
         baseAttack = 90,
         baseDefense = 140,
@@ -6800,8 +6802,8 @@ public static class Species
     public static SpeciesData Dunsparce = new()
     {
         speciesName = "Dunsparce",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 100,
         baseAttack = 70,
         baseDefense = 70,
@@ -6833,8 +6835,8 @@ public static class Species
     public static SpeciesData Gligar = new()
     {
         speciesName = "Gligar",
-        type1 = Type.Ground,
-        type2 = Type.Flying,
+        type1 = Ground,
+        type2 = Flying,
         baseHP = 65,
         baseAttack = 75,
         baseDefense = 105,
@@ -6866,8 +6868,8 @@ public static class Species
     public static SpeciesData Steelix = new()
     {
         speciesName = "Steelix",
-        type1 = Type.Steel,
-        type2 = Type.Ground,
+        type1 = Steel,
+        type2 = Ground,
         baseHP = 75,
         baseAttack = 85,
         baseDefense = 200,
@@ -6899,8 +6901,8 @@ public static class Species
     public static SpeciesData Snubbull = new()
     {
         speciesName = "Snubbull",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 60,
         baseAttack = 80,
         baseDefense = 50,
@@ -6932,8 +6934,8 @@ public static class Species
     public static SpeciesData Granbull = new()
     {
         speciesName = "Granbull",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 90,
         baseAttack = 120,
         baseDefense = 75,
@@ -6965,8 +6967,8 @@ public static class Species
     public static SpeciesData Qwilfish = new()
     {
         speciesName = "Qwilfish",
-        type1 = Type.Water,
-        type2 = Type.Poison,
+        type1 = Water,
+        type2 = Poison,
         baseHP = 65,
         baseAttack = 95,
         baseDefense = 75,
@@ -6998,8 +7000,8 @@ public static class Species
     public static SpeciesData Scizor = new()
     {
         speciesName = "Scizor",
-        type1 = Type.Bug,
-        type2 = Type.Steel,
+        type1 = Bug,
+        type2 = Steel,
         baseHP = 70,
         baseAttack = 130,
         baseDefense = 100,
@@ -7031,8 +7033,8 @@ public static class Species
     public static SpeciesData Shuckle = new()
     {
         speciesName = "Shuckle",
-        type1 = Type.Bug,
-        type2 = Type.Rock,
+        type1 = Bug,
+        type2 = Rock,
         baseHP = 20,
         baseAttack = 10,
         baseDefense = 230,
@@ -7064,8 +7066,8 @@ public static class Species
     public static SpeciesData Heracross = new()
     {
         speciesName = "Heracross",
-        type1 = Type.Bug,
-        type2 = Type.Fighting,
+        type1 = Bug,
+        type2 = Fighting,
         baseHP = 80,
         baseAttack = 125,
         baseDefense = 75,
@@ -7097,8 +7099,8 @@ public static class Species
     public static SpeciesData Sneasel = new()
     {
         speciesName = "Sneasel",
-        type1 = Type.Dark,
-        type2 = Type.Ice,
+        type1 = Dark,
+        type2 = Ice,
         baseHP = 55,
         baseAttack = 95,
         baseDefense = 55,
@@ -7130,8 +7132,8 @@ public static class Species
     public static SpeciesData Teddiursa = new()
     {
         speciesName = "Teddiursa",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 60,
         baseAttack = 80,
         baseDefense = 50,
@@ -7163,8 +7165,8 @@ public static class Species
     public static SpeciesData Ursaring = new()
     {
         speciesName = "Ursaring",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 90,
         baseAttack = 130,
         baseDefense = 75,
@@ -7196,8 +7198,8 @@ public static class Species
     public static SpeciesData Slugma = new()
     {
         speciesName = "Slugma",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 40,
         baseAttack = 40,
         baseDefense = 40,
@@ -7229,8 +7231,8 @@ public static class Species
     public static SpeciesData Magcargo = new()
     {
         speciesName = "Magcargo",
-        type1 = Type.Fire,
-        type2 = Type.Rock,
+        type1 = Fire,
+        type2 = Rock,
         baseHP = 50,
         baseAttack = 50,
         baseDefense = 120,
@@ -7262,8 +7264,8 @@ public static class Species
     public static SpeciesData Swinub = new()
     {
         speciesName = "Swinub",
-        type1 = Type.Ice,
-        type2 = Type.Ground,
+        type1 = Ice,
+        type2 = Ground,
         baseHP = 50,
         baseAttack = 50,
         baseDefense = 40,
@@ -7295,8 +7297,8 @@ public static class Species
     public static SpeciesData Piloswine = new()
     {
         speciesName = "Piloswine",
-        type1 = Type.Ice,
-        type2 = Type.Ground,
+        type1 = Ice,
+        type2 = Ground,
         baseHP = 100,
         baseAttack = 100,
         baseDefense = 80,
@@ -7328,8 +7330,8 @@ public static class Species
     public static SpeciesData Corsola = new()
     {
         speciesName = "Corsola",
-        type1 = Type.Water,
-        type2 = Type.Rock,
+        type1 = Water,
+        type2 = Rock,
         baseHP = 55,
         baseAttack = 55,
         baseDefense = 85,
@@ -7361,8 +7363,8 @@ public static class Species
     public static SpeciesData Remoraid = new()
     {
         speciesName = "Remoraid",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 35,
         baseAttack = 65,
         baseDefense = 35,
@@ -7394,8 +7396,8 @@ public static class Species
     public static SpeciesData Octillery = new()
     {
         speciesName = "Octillery",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 75,
         baseAttack = 105,
         baseDefense = 75,
@@ -7427,8 +7429,8 @@ public static class Species
     public static SpeciesData Delibird = new()
     {
         speciesName = "Delibird",
-        type1 = Type.Ice,
-        type2 = Type.Flying,
+        type1 = Ice,
+        type2 = Flying,
         baseHP = 45,
         baseAttack = 55,
         baseDefense = 45,
@@ -7460,8 +7462,8 @@ public static class Species
     public static SpeciesData Mantine = new()
     {
         speciesName = "Mantine",
-        type1 = Type.Water,
-        type2 = Type.Flying,
+        type1 = Water,
+        type2 = Flying,
         baseHP = 65,
         baseAttack = 40,
         baseDefense = 70,
@@ -7493,8 +7495,8 @@ public static class Species
     public static SpeciesData Skarmory = new()
     {
         speciesName = "Skarmory",
-        type1 = Type.Steel,
-        type2 = Type.Flying,
+        type1 = Steel,
+        type2 = Flying,
         baseHP = 65,
         baseAttack = 80,
         baseDefense = 140,
@@ -7526,8 +7528,8 @@ public static class Species
     public static SpeciesData Houndour = new()
     {
         speciesName = "Houndour",
-        type1 = Type.Dark,
-        type2 = Type.Fire,
+        type1 = Dark,
+        type2 = Fire,
         baseHP = 45,
         baseAttack = 60,
         baseDefense = 30,
@@ -7559,8 +7561,8 @@ public static class Species
     public static SpeciesData Houndoom = new()
     {
         speciesName = "Houndoom",
-        type1 = Type.Dark,
-        type2 = Type.Fire,
+        type1 = Dark,
+        type2 = Fire,
         baseHP = 75,
         baseAttack = 90,
         baseDefense = 50,
@@ -7592,8 +7594,8 @@ public static class Species
     public static SpeciesData Kingdra = new()
     {
         speciesName = "Kingdra",
-        type1 = Type.Water,
-        type2 = Type.Dragon,
+        type1 = Water,
+        type2 = Dragon,
         baseHP = 75,
         baseAttack = 95,
         baseDefense = 95,
@@ -7625,8 +7627,8 @@ public static class Species
     public static SpeciesData Phanpy = new()
     {
         speciesName = "Phanpy",
-        type1 = Type.Ground,
-        type2 = Type.Ground,
+        type1 = Ground,
+        type2 = Ground,
         baseHP = 90,
         baseAttack = 60,
         baseDefense = 60,
@@ -7658,8 +7660,8 @@ public static class Species
     public static SpeciesData Donphan = new()
     {
         speciesName = "Donphan",
-        type1 = Type.Ground,
-        type2 = Type.Ground,
+        type1 = Ground,
+        type2 = Ground,
         baseHP = 90,
         baseAttack = 120,
         baseDefense = 120,
@@ -7691,8 +7693,8 @@ public static class Species
     public static SpeciesData Porygon2 = new()
     {
         speciesName = "Porygon2",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 85,
         baseAttack = 80,
         baseDefense = 90,
@@ -7704,7 +7706,7 @@ public static class Species
         xpClass = XPClass.MediumFast,
         xpYield = 180,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 20,
@@ -7724,8 +7726,8 @@ public static class Species
     public static SpeciesData Stantler = new()
     {
         speciesName = "Stantler",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 73,
         baseAttack = 95,
         baseDefense = 62,
@@ -7757,8 +7759,8 @@ public static class Species
     public static SpeciesData Smeargle = new()
     {
         speciesName = "Smeargle",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 55,
         baseAttack = 20,
         baseDefense = 35,
@@ -7790,8 +7792,8 @@ public static class Species
     public static SpeciesData Tyrogue = new()
     {
         speciesName = "Tyrogue",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 35,
         baseAttack = 35,
         baseDefense = 35,
@@ -7823,8 +7825,8 @@ public static class Species
     public static SpeciesData Hitmontop = new()
     {
         speciesName = "Hitmontop",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 50,
         baseAttack = 95,
         baseDefense = 95,
@@ -7856,8 +7858,8 @@ public static class Species
     public static SpeciesData Smoochum = new()
     {
         speciesName = "Smoochum",
-        type1 = Type.Ice,
-        type2 = Type.Psychic,
+        type1 = Ice,
+        type2 = Psychic,
         baseHP = 45,
         baseAttack = 30,
         baseDefense = 15,
@@ -7889,8 +7891,8 @@ public static class Species
     public static SpeciesData Elekid = new()
     {
         speciesName = "Elekid",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 45,
         baseAttack = 63,
         baseDefense = 37,
@@ -7922,8 +7924,8 @@ public static class Species
     public static SpeciesData Magby = new()
     {
         speciesName = "Magby",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 45,
         baseAttack = 75,
         baseDefense = 37,
@@ -7955,8 +7957,8 @@ public static class Species
     public static SpeciesData Miltank = new()
     {
         speciesName = "Miltank",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 95,
         baseAttack = 80,
         baseDefense = 105,
@@ -7988,8 +7990,8 @@ public static class Species
     public static SpeciesData Blissey = new()
     {
         speciesName = "Blissey",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 255,
         baseAttack = 10,
         baseDefense = 10,
@@ -8021,8 +8023,8 @@ public static class Species
     public static SpeciesData Raikou = new()
     {
         speciesName = "Raikou",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 90,
         baseAttack = 85,
         baseDefense = 75,
@@ -8034,7 +8036,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 80,
@@ -8054,8 +8056,8 @@ public static class Species
     public static SpeciesData Entei = new()
     {
         speciesName = "Entei",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 115,
         baseAttack = 115,
         baseDefense = 85,
@@ -8067,7 +8069,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 80,
@@ -8087,8 +8089,8 @@ public static class Species
     public static SpeciesData Suicune = new()
     {
         speciesName = "Suicune",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 100,
         baseAttack = 75,
         baseDefense = 115,
@@ -8100,7 +8102,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 80,
@@ -8120,8 +8122,8 @@ public static class Species
     public static SpeciesData Larvitar = new()
     {
         speciesName = "Larvitar",
-        type1 = Type.Rock,
-        type2 = Type.Ground,
+        type1 = Rock,
+        type2 = Ground,
         baseHP = 50,
         baseAttack = 64,
         baseDefense = 50,
@@ -8153,8 +8155,8 @@ public static class Species
     public static SpeciesData Pupitar = new()
     {
         speciesName = "Pupitar",
-        type1 = Type.Rock,
-        type2 = Type.Ground,
+        type1 = Rock,
+        type2 = Ground,
         baseHP = 70,
         baseAttack = 84,
         baseDefense = 70,
@@ -8186,8 +8188,8 @@ public static class Species
     public static SpeciesData Tyranitar = new()
     {
         speciesName = "Tyranitar",
-        type1 = Type.Rock,
-        type2 = Type.Dark,
+        type1 = Rock,
+        type2 = Dark,
         baseHP = 100,
         baseAttack = 134,
         baseDefense = 110,
@@ -8219,8 +8221,8 @@ public static class Species
     public static SpeciesData Lugia = new()
     {
         speciesName = "Lugia",
-        type1 = Type.Psychic,
-        type2 = Type.Flying,
+        type1 = Psychic,
+        type2 = Flying,
         baseHP = 106,
         baseAttack = 90,
         baseDefense = 130,
@@ -8232,7 +8234,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 306,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 120,
@@ -8252,8 +8254,8 @@ public static class Species
     public static SpeciesData HoOh = new()
     {
         speciesName = "Ho Oh",
-        type1 = Type.Fire,
-        type2 = Type.Flying,
+        type1 = Fire,
+        type2 = Flying,
         baseHP = 106,
         baseAttack = 130,
         baseDefense = 90,
@@ -8265,7 +8267,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 306,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 120,
@@ -8286,8 +8288,8 @@ public static class Species
     public static SpeciesData Celebi = new()
     {
         speciesName = "Celebi",
-        type1 = Type.Psychic,
-        type2 = Type.Grass,
+        type1 = Psychic,
+        type2 = Grass,
         baseHP = 100,
         baseAttack = 100,
         baseDefense = 100,
@@ -8299,7 +8301,7 @@ public static class Species
         xpClass = XPClass.MediumSlow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 120,
@@ -8320,8 +8322,8 @@ public static class Species
     public static SpeciesData Treecko = new()
     {
         speciesName = "Treecko",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 40,
         baseAttack = 45,
         baseDefense = 35,
@@ -8353,8 +8355,8 @@ public static class Species
     public static SpeciesData Grovyle = new()
     {
         speciesName = "Grovyle",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 50,
         baseAttack = 65,
         baseDefense = 45,
@@ -8386,8 +8388,8 @@ public static class Species
     public static SpeciesData Sceptile = new()
     {
         speciesName = "Sceptile",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 70,
         baseAttack = 85,
         baseDefense = 65,
@@ -8419,8 +8421,8 @@ public static class Species
     public static SpeciesData Torchic = new()
     {
         speciesName = "Torchic",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 45,
         baseAttack = 60,
         baseDefense = 40,
@@ -8452,8 +8454,8 @@ public static class Species
     public static SpeciesData Combusken = new()
     {
         speciesName = "Combusken",
-        type1 = Type.Fire,
-        type2 = Type.Fighting,
+        type1 = Fire,
+        type2 = Fighting,
         baseHP = 60,
         baseAttack = 85,
         baseDefense = 60,
@@ -8485,8 +8487,8 @@ public static class Species
     public static SpeciesData Blaziken = new()
     {
         speciesName = "Blaziken",
-        type1 = Type.Fire,
-        type2 = Type.Fighting,
+        type1 = Fire,
+        type2 = Fighting,
         baseHP = 80,
         baseAttack = 120,
         baseDefense = 70,
@@ -8518,8 +8520,8 @@ public static class Species
     public static SpeciesData Mudkip = new()
     {
         speciesName = "Mudkip",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 50,
         baseAttack = 70,
         baseDefense = 50,
@@ -8551,8 +8553,8 @@ public static class Species
     public static SpeciesData Marshtomp = new()
     {
         speciesName = "Marshtomp",
-        type1 = Type.Water,
-        type2 = Type.Ground,
+        type1 = Water,
+        type2 = Ground,
         baseHP = 70,
         baseAttack = 85,
         baseDefense = 70,
@@ -8584,8 +8586,8 @@ public static class Species
     public static SpeciesData Swampert = new()
     {
         speciesName = "Swampert",
-        type1 = Type.Water,
-        type2 = Type.Ground,
+        type1 = Water,
+        type2 = Ground,
         baseHP = 100,
         baseAttack = 110,
         baseDefense = 90,
@@ -8617,8 +8619,8 @@ public static class Species
     public static SpeciesData Poochyena = new()
     {
         speciesName = "Poochyena",
-        type1 = Type.Dark,
-        type2 = Type.Dark,
+        type1 = Dark,
+        type2 = Dark,
         baseHP = 35,
         baseAttack = 55,
         baseDefense = 35,
@@ -8650,8 +8652,8 @@ public static class Species
     public static SpeciesData Mightyena = new()
     {
         speciesName = "Mightyena",
-        type1 = Type.Dark,
-        type2 = Type.Dark,
+        type1 = Dark,
+        type2 = Dark,
         baseHP = 70,
         baseAttack = 90,
         baseDefense = 70,
@@ -8683,8 +8685,8 @@ public static class Species
     public static SpeciesData Zigzagoon = new()
     {
         speciesName = "Zigzagoon",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 38,
         baseAttack = 30,
         baseDefense = 41,
@@ -8716,8 +8718,8 @@ public static class Species
     public static SpeciesData Linoone = new()
     {
         speciesName = "Linoone",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 78,
         baseAttack = 70,
         baseDefense = 61,
@@ -8749,8 +8751,8 @@ public static class Species
     public static SpeciesData Wurmple = new()
     {
         speciesName = "Wurmple",
-        type1 = Type.Bug,
-        type2 = Type.Bug,
+        type1 = Bug,
+        type2 = Bug,
         baseHP = 45,
         baseAttack = 45,
         baseDefense = 35,
@@ -8782,8 +8784,8 @@ public static class Species
     public static SpeciesData Silcoon = new()
     {
         speciesName = "Silcoon",
-        type1 = Type.Bug,
-        type2 = Type.Bug,
+        type1 = Bug,
+        type2 = Bug,
         baseHP = 50,
         baseAttack = 35,
         baseDefense = 55,
@@ -8815,8 +8817,8 @@ public static class Species
     public static SpeciesData Beautifly = new()
     {
         speciesName = "Beautifly",
-        type1 = Type.Bug,
-        type2 = Type.Flying,
+        type1 = Bug,
+        type2 = Flying,
         baseHP = 60,
         baseAttack = 70,
         baseDefense = 50,
@@ -8848,8 +8850,8 @@ public static class Species
     public static SpeciesData Cascoon = new()
     {
         speciesName = "Cascoon",
-        type1 = Type.Bug,
-        type2 = Type.Bug,
+        type1 = Bug,
+        type2 = Bug,
         baseHP = 50,
         baseAttack = 35,
         baseDefense = 55,
@@ -8881,8 +8883,8 @@ public static class Species
     public static SpeciesData Dustox = new()
     {
         speciesName = "Dustox",
-        type1 = Type.Bug,
-        type2 = Type.Poison,
+        type1 = Bug,
+        type2 = Poison,
         baseHP = 60,
         baseAttack = 50,
         baseDefense = 70,
@@ -8914,8 +8916,8 @@ public static class Species
     public static SpeciesData Lotad = new()
     {
         speciesName = "Lotad",
-        type1 = Type.Water,
-        type2 = Type.Grass,
+        type1 = Water,
+        type2 = Grass,
         baseHP = 40,
         baseAttack = 30,
         baseDefense = 30,
@@ -8947,8 +8949,8 @@ public static class Species
     public static SpeciesData Lombre = new()
     {
         speciesName = "Lombre",
-        type1 = Type.Water,
-        type2 = Type.Grass,
+        type1 = Water,
+        type2 = Grass,
         baseHP = 60,
         baseAttack = 50,
         baseDefense = 50,
@@ -8980,8 +8982,8 @@ public static class Species
     public static SpeciesData Ludicolo = new()
     {
         speciesName = "Ludicolo",
-        type1 = Type.Water,
-        type2 = Type.Grass,
+        type1 = Water,
+        type2 = Grass,
         baseHP = 80,
         baseAttack = 70,
         baseDefense = 70,
@@ -9013,8 +9015,8 @@ public static class Species
     public static SpeciesData Seedot = new()
     {
         speciesName = "Seedot",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 40,
         baseAttack = 40,
         baseDefense = 50,
@@ -9046,8 +9048,8 @@ public static class Species
     public static SpeciesData Nuzleaf = new()
     {
         speciesName = "Nuzleaf",
-        type1 = Type.Grass,
-        type2 = Type.Dark,
+        type1 = Grass,
+        type2 = Dark,
         baseHP = 70,
         baseAttack = 70,
         baseDefense = 40,
@@ -9079,8 +9081,8 @@ public static class Species
     public static SpeciesData Shiftry = new()
     {
         speciesName = "Shiftry",
-        type1 = Type.Grass,
-        type2 = Type.Dark,
+        type1 = Grass,
+        type2 = Dark,
         baseHP = 90,
         baseAttack = 100,
         baseDefense = 60,
@@ -9112,8 +9114,8 @@ public static class Species
     public static SpeciesData Taillow = new()
     {
         speciesName = "Taillow",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 40,
         baseAttack = 55,
         baseDefense = 30,
@@ -9145,8 +9147,8 @@ public static class Species
     public static SpeciesData Swellow = new()
     {
         speciesName = "Swellow",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 60,
         baseAttack = 85,
         baseDefense = 60,
@@ -9178,8 +9180,8 @@ public static class Species
     public static SpeciesData Wingull = new()
     {
         speciesName = "Wingull",
-        type1 = Type.Water,
-        type2 = Type.Flying,
+        type1 = Water,
+        type2 = Flying,
         baseHP = 40,
         baseAttack = 30,
         baseDefense = 30,
@@ -9211,8 +9213,8 @@ public static class Species
     public static SpeciesData Pelipper = new()
     {
         speciesName = "Pelipper",
-        type1 = Type.Water,
-        type2 = Type.Flying,
+        type1 = Water,
+        type2 = Flying,
         baseHP = 60,
         baseAttack = 50,
         baseDefense = 100,
@@ -9244,8 +9246,8 @@ public static class Species
     public static SpeciesData Ralts = new()
     {
         speciesName = "Ralts",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 28,
         baseAttack = 25,
         baseDefense = 25,
@@ -9277,8 +9279,8 @@ public static class Species
     public static SpeciesData Kirlia = new()
     {
         speciesName = "Kirlia",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 38,
         baseAttack = 35,
         baseDefense = 35,
@@ -9310,8 +9312,8 @@ public static class Species
     public static SpeciesData Gardevoir = new()
     {
         speciesName = "Gardevoir",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 68,
         baseAttack = 65,
         baseDefense = 65,
@@ -9343,8 +9345,8 @@ public static class Species
     public static SpeciesData Surskit = new()
     {
         speciesName = "Surskit",
-        type1 = Type.Bug,
-        type2 = Type.Water,
+        type1 = Bug,
+        type2 = Water,
         baseHP = 40,
         baseAttack = 30,
         baseDefense = 32,
@@ -9376,8 +9378,8 @@ public static class Species
     public static SpeciesData Masquerain = new()
     {
         speciesName = "Masquerain",
-        type1 = Type.Bug,
-        type2 = Type.Flying,
+        type1 = Bug,
+        type2 = Flying,
         baseHP = 70,
         baseAttack = 60,
         baseDefense = 62,
@@ -9409,8 +9411,8 @@ public static class Species
     public static SpeciesData Shroomish = new()
     {
         speciesName = "Shroomish",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 60,
         baseAttack = 40,
         baseDefense = 60,
@@ -9442,8 +9444,8 @@ public static class Species
     public static SpeciesData Breloom = new()
     {
         speciesName = "Breloom",
-        type1 = Type.Grass,
-        type2 = Type.Fighting,
+        type1 = Grass,
+        type2 = Fighting,
         baseHP = 60,
         baseAttack = 130,
         baseDefense = 80,
@@ -9475,8 +9477,8 @@ public static class Species
     public static SpeciesData Slakoth = new()
     {
         speciesName = "Slakoth",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 60,
         baseAttack = 60,
         baseDefense = 60,
@@ -9508,8 +9510,8 @@ public static class Species
     public static SpeciesData Vigoroth = new()
     {
         speciesName = "Vigoroth",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 80,
         baseAttack = 80,
         baseDefense = 80,
@@ -9541,8 +9543,8 @@ public static class Species
     public static SpeciesData Slaking = new()
     {
         speciesName = "Slaking",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 150,
         baseAttack = 160,
         baseDefense = 100,
@@ -9574,8 +9576,8 @@ public static class Species
     public static SpeciesData Nincada = new()
     {
         speciesName = "Nincada",
-        type1 = Type.Bug,
-        type2 = Type.Ground,
+        type1 = Bug,
+        type2 = Ground,
         baseHP = 31,
         baseAttack = 45,
         baseDefense = 90,
@@ -9607,8 +9609,8 @@ public static class Species
     public static SpeciesData Ninjask = new()
     {
         speciesName = "Ninjask",
-        type1 = Type.Bug,
-        type2 = Type.Flying,
+        type1 = Bug,
+        type2 = Flying,
         baseHP = 61,
         baseAttack = 90,
         baseDefense = 45,
@@ -9640,8 +9642,8 @@ public static class Species
     public static SpeciesData Shedinja = new()
     {
         speciesName = "Shedinja",
-        type1 = Type.Bug,
-        type2 = Type.Ghost,
+        type1 = Bug,
+        type2 = Ghost,
         baseHP = 1,
         baseAttack = 90,
         baseDefense = 45,
@@ -9653,7 +9655,7 @@ public static class Species
         xpClass = XPClass.Erratic,
         xpYield = 83,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 15,
@@ -9673,8 +9675,8 @@ public static class Species
     public static SpeciesData Whismur = new()
     {
         speciesName = "Whismur",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 64,
         baseAttack = 51,
         baseDefense = 23,
@@ -9706,8 +9708,8 @@ public static class Species
     public static SpeciesData Loudred = new()
     {
         speciesName = "Loudred",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 84,
         baseAttack = 71,
         baseDefense = 43,
@@ -9739,8 +9741,8 @@ public static class Species
     public static SpeciesData Exploud = new()
     {
         speciesName = "Exploud",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 104,
         baseAttack = 91,
         baseDefense = 63,
@@ -9772,8 +9774,8 @@ public static class Species
     public static SpeciesData Makuhita = new()
     {
         speciesName = "Makuhita",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 72,
         baseAttack = 60,
         baseDefense = 30,
@@ -9805,8 +9807,8 @@ public static class Species
     public static SpeciesData Hariyama = new()
     {
         speciesName = "Hariyama",
-        type1 = Type.Fighting,
-        type2 = Type.Fighting,
+        type1 = Fighting,
+        type2 = Fighting,
         baseHP = 144,
         baseAttack = 120,
         baseDefense = 60,
@@ -9838,8 +9840,8 @@ public static class Species
     public static SpeciesData Azurill = new()
     {
         speciesName = "Azurill",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 50,
         baseAttack = 20,
         baseDefense = 40,
@@ -9871,8 +9873,8 @@ public static class Species
     public static SpeciesData Nosepass = new()
     {
         speciesName = "Nosepass",
-        type1 = Type.Rock,
-        type2 = Type.Rock,
+        type1 = Rock,
+        type2 = Rock,
         baseHP = 30,
         baseAttack = 45,
         baseDefense = 135,
@@ -9904,8 +9906,8 @@ public static class Species
     public static SpeciesData Skitty = new()
     {
         speciesName = "Skitty",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 50,
         baseAttack = 45,
         baseDefense = 45,
@@ -9937,8 +9939,8 @@ public static class Species
     public static SpeciesData Delcatty = new()
     {
         speciesName = "Delcatty",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 70,
         baseAttack = 65,
         baseDefense = 65,
@@ -9970,8 +9972,8 @@ public static class Species
     public static SpeciesData Sableye = new()
     {
         speciesName = "Sableye",
-        type1 = Type.Dark,
-        type2 = Type.Ghost,
+        type1 = Dark,
+        type2 = Ghost,
         baseHP = 50,
         baseAttack = 75,
         baseDefense = 75,
@@ -10003,8 +10005,8 @@ public static class Species
     public static SpeciesData Mawile = new()
     {
         speciesName = "Mawile",
-        type1 = Type.Steel,
-        type2 = Type.Steel,
+        type1 = Steel,
+        type2 = Steel,
         baseHP = 50,
         baseAttack = 85,
         baseDefense = 85,
@@ -10036,8 +10038,8 @@ public static class Species
     public static SpeciesData Aron = new()
     {
         speciesName = "Aron",
-        type1 = Type.Steel,
-        type2 = Type.Rock,
+        type1 = Steel,
+        type2 = Rock,
         baseHP = 50,
         baseAttack = 70,
         baseDefense = 100,
@@ -10069,8 +10071,8 @@ public static class Species
     public static SpeciesData Lairon = new()
     {
         speciesName = "Lairon",
-        type1 = Type.Steel,
-        type2 = Type.Rock,
+        type1 = Steel,
+        type2 = Rock,
         baseHP = 60,
         baseAttack = 90,
         baseDefense = 140,
@@ -10102,8 +10104,8 @@ public static class Species
     public static SpeciesData Aggron = new()
     {
         speciesName = "Aggron",
-        type1 = Type.Steel,
-        type2 = Type.Rock,
+        type1 = Steel,
+        type2 = Rock,
         baseHP = 70,
         baseAttack = 110,
         baseDefense = 180,
@@ -10135,8 +10137,8 @@ public static class Species
     public static SpeciesData Meditite = new()
     {
         speciesName = "Meditite",
-        type1 = Type.Fighting,
-        type2 = Type.Psychic,
+        type1 = Fighting,
+        type2 = Psychic,
         baseHP = 30,
         baseAttack = 40,
         baseDefense = 55,
@@ -10168,8 +10170,8 @@ public static class Species
     public static SpeciesData Medicham = new()
     {
         speciesName = "Medicham",
-        type1 = Type.Fighting,
-        type2 = Type.Psychic,
+        type1 = Fighting,
+        type2 = Psychic,
         baseHP = 60,
         baseAttack = 60,
         baseDefense = 75,
@@ -10201,8 +10203,8 @@ public static class Species
     public static SpeciesData Electrike = new()
     {
         speciesName = "Electrike",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 40,
         baseAttack = 45,
         baseDefense = 40,
@@ -10234,8 +10236,8 @@ public static class Species
     public static SpeciesData Manectric = new()
     {
         speciesName = "Manectric",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 70,
         baseAttack = 75,
         baseDefense = 60,
@@ -10267,8 +10269,8 @@ public static class Species
     public static SpeciesData Plusle = new()
     {
         speciesName = "Plusle",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 60,
         baseAttack = 50,
         baseDefense = 40,
@@ -10300,8 +10302,8 @@ public static class Species
     public static SpeciesData Minun = new()
     {
         speciesName = "Minun",
-        type1 = Type.Electric,
-        type2 = Type.Electric,
+        type1 = Electric,
+        type2 = Electric,
         baseHP = 60,
         baseAttack = 40,
         baseDefense = 50,
@@ -10333,8 +10335,8 @@ public static class Species
     public static SpeciesData Volbeat = new()
     {
         speciesName = "Volbeat",
-        type1 = Type.Bug,
-        type2 = Type.Bug,
+        type1 = Bug,
+        type2 = Bug,
         baseHP = 65,
         baseAttack = 73,
         baseDefense = 55,
@@ -10366,8 +10368,8 @@ public static class Species
     public static SpeciesData Illumise = new()
     {
         speciesName = "Illumise",
-        type1 = Type.Bug,
-        type2 = Type.Bug,
+        type1 = Bug,
+        type2 = Bug,
         baseHP = 65,
         baseAttack = 47,
         baseDefense = 55,
@@ -10399,8 +10401,8 @@ public static class Species
     public static SpeciesData Roselia = new()
     {
         speciesName = "Roselia",
-        type1 = Type.Grass,
-        type2 = Type.Poison,
+        type1 = Grass,
+        type2 = Poison,
         baseHP = 50,
         baseAttack = 60,
         baseDefense = 45,
@@ -10432,8 +10434,8 @@ public static class Species
     public static SpeciesData Gulpin = new()
     {
         speciesName = "Gulpin",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 70,
         baseAttack = 43,
         baseDefense = 53,
@@ -10465,8 +10467,8 @@ public static class Species
     public static SpeciesData Swalot = new()
     {
         speciesName = "Swalot",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 100,
         baseAttack = 73,
         baseDefense = 83,
@@ -10498,8 +10500,8 @@ public static class Species
     public static SpeciesData Carvanha = new()
     {
         speciesName = "Carvanha",
-        type1 = Type.Water,
-        type2 = Type.Dark,
+        type1 = Water,
+        type2 = Dark,
         baseHP = 45,
         baseAttack = 90,
         baseDefense = 20,
@@ -10531,8 +10533,8 @@ public static class Species
     public static SpeciesData Sharpedo = new()
     {
         speciesName = "Sharpedo",
-        type1 = Type.Water,
-        type2 = Type.Dark,
+        type1 = Water,
+        type2 = Dark,
         baseHP = 70,
         baseAttack = 120,
         baseDefense = 40,
@@ -10564,8 +10566,8 @@ public static class Species
     public static SpeciesData Wailmer = new()
     {
         speciesName = "Wailmer",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 130,
         baseAttack = 70,
         baseDefense = 35,
@@ -10597,8 +10599,8 @@ public static class Species
     public static SpeciesData Wailord = new()
     {
         speciesName = "Wailord",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 170,
         baseAttack = 90,
         baseDefense = 45,
@@ -10630,8 +10632,8 @@ public static class Species
     public static SpeciesData Numel = new()
     {
         speciesName = "Numel",
-        type1 = Type.Fire,
-        type2 = Type.Ground,
+        type1 = Fire,
+        type2 = Ground,
         baseHP = 60,
         baseAttack = 60,
         baseDefense = 40,
@@ -10663,8 +10665,8 @@ public static class Species
     public static SpeciesData Camerupt = new()
     {
         speciesName = "Camerupt",
-        type1 = Type.Fire,
-        type2 = Type.Ground,
+        type1 = Fire,
+        type2 = Ground,
         baseHP = 70,
         baseAttack = 100,
         baseDefense = 70,
@@ -10696,8 +10698,8 @@ public static class Species
     public static SpeciesData Torkoal = new()
     {
         speciesName = "Torkoal",
-        type1 = Type.Fire,
-        type2 = Type.Fire,
+        type1 = Fire,
+        type2 = Fire,
         baseHP = 70,
         baseAttack = 85,
         baseDefense = 140,
@@ -10729,8 +10731,8 @@ public static class Species
     public static SpeciesData Spoink = new()
     {
         speciesName = "Spoink",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 60,
         baseAttack = 25,
         baseDefense = 35,
@@ -10762,8 +10764,8 @@ public static class Species
     public static SpeciesData Grumpig = new()
     {
         speciesName = "Grumpig",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 80,
         baseAttack = 45,
         baseDefense = 65,
@@ -10795,8 +10797,8 @@ public static class Species
     public static SpeciesData Spinda = new()
     {
         speciesName = "Spinda",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 60,
         baseAttack = 60,
         baseDefense = 60,
@@ -10828,8 +10830,8 @@ public static class Species
     public static SpeciesData Trapinch = new()
     {
         speciesName = "Trapinch",
-        type1 = Type.Ground,
-        type2 = Type.Ground,
+        type1 = Ground,
+        type2 = Ground,
         baseHP = 45,
         baseAttack = 100,
         baseDefense = 45,
@@ -10861,8 +10863,8 @@ public static class Species
     public static SpeciesData Vibrava = new()
     {
         speciesName = "Vibrava",
-        type1 = Type.Ground,
-        type2 = Type.Dragon,
+        type1 = Ground,
+        type2 = Dragon,
         baseHP = 50,
         baseAttack = 70,
         baseDefense = 50,
@@ -10894,8 +10896,8 @@ public static class Species
     public static SpeciesData Flygon = new()
     {
         speciesName = "Flygon",
-        type1 = Type.Ground,
-        type2 = Type.Dragon,
+        type1 = Ground,
+        type2 = Dragon,
         baseHP = 80,
         baseAttack = 100,
         baseDefense = 80,
@@ -10927,8 +10929,8 @@ public static class Species
     public static SpeciesData Cacnea = new()
     {
         speciesName = "Cacnea",
-        type1 = Type.Grass,
-        type2 = Type.Grass,
+        type1 = Grass,
+        type2 = Grass,
         baseHP = 50,
         baseAttack = 85,
         baseDefense = 40,
@@ -10960,8 +10962,8 @@ public static class Species
     public static SpeciesData Cacturne = new()
     {
         speciesName = "Cacturne",
-        type1 = Type.Grass,
-        type2 = Type.Dark,
+        type1 = Grass,
+        type2 = Dark,
         baseHP = 70,
         baseAttack = 115,
         baseDefense = 60,
@@ -10993,8 +10995,8 @@ public static class Species
     public static SpeciesData Swablu = new()
     {
         speciesName = "Swablu",
-        type1 = Type.Normal,
-        type2 = Type.Flying,
+        type1 = Normal,
+        type2 = Flying,
         baseHP = 45,
         baseAttack = 40,
         baseDefense = 60,
@@ -11026,8 +11028,8 @@ public static class Species
     public static SpeciesData Altaria = new()
     {
         speciesName = "Altaria",
-        type1 = Type.Dragon,
-        type2 = Type.Flying,
+        type1 = Dragon,
+        type2 = Flying,
         baseHP = 75,
         baseAttack = 70,
         baseDefense = 90,
@@ -11059,8 +11061,8 @@ public static class Species
     public static SpeciesData Zangoose = new()
     {
         speciesName = "Zangoose",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 73,
         baseAttack = 115,
         baseDefense = 60,
@@ -11092,8 +11094,8 @@ public static class Species
     public static SpeciesData Seviper = new()
     {
         speciesName = "Seviper",
-        type1 = Type.Poison,
-        type2 = Type.Poison,
+        type1 = Poison,
+        type2 = Poison,
         baseHP = 73,
         baseAttack = 100,
         baseDefense = 60,
@@ -11125,8 +11127,8 @@ public static class Species
     public static SpeciesData Lunatone = new()
     {
         speciesName = "Lunatone",
-        type1 = Type.Rock,
-        type2 = Type.Psychic,
+        type1 = Rock,
+        type2 = Psychic,
         baseHP = 70,
         baseAttack = 55,
         baseDefense = 65,
@@ -11138,7 +11140,7 @@ public static class Species
         xpClass = XPClass.Fast,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 25,
@@ -11158,8 +11160,8 @@ public static class Species
     public static SpeciesData Solrock = new()
     {
         speciesName = "Solrock",
-        type1 = Type.Rock,
-        type2 = Type.Psychic,
+        type1 = Rock,
+        type2 = Psychic,
         baseHP = 70,
         baseAttack = 95,
         baseDefense = 85,
@@ -11171,7 +11173,7 @@ public static class Species
         xpClass = XPClass.Fast,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 25,
@@ -11191,8 +11193,8 @@ public static class Species
     public static SpeciesData Barboach = new()
     {
         speciesName = "Barboach",
-        type1 = Type.Water,
-        type2 = Type.Ground,
+        type1 = Water,
+        type2 = Ground,
         baseHP = 50,
         baseAttack = 48,
         baseDefense = 43,
@@ -11224,8 +11226,8 @@ public static class Species
     public static SpeciesData Whiscash = new()
     {
         speciesName = "Whiscash",
-        type1 = Type.Water,
-        type2 = Type.Ground,
+        type1 = Water,
+        type2 = Ground,
         baseHP = 110,
         baseAttack = 78,
         baseDefense = 73,
@@ -11257,8 +11259,8 @@ public static class Species
     public static SpeciesData Corphish = new()
     {
         speciesName = "Corphish",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 43,
         baseAttack = 80,
         baseDefense = 65,
@@ -11290,8 +11292,8 @@ public static class Species
     public static SpeciesData Crawdaunt = new()
     {
         speciesName = "Crawdaunt",
-        type1 = Type.Water,
-        type2 = Type.Dark,
+        type1 = Water,
+        type2 = Dark,
         baseHP = 63,
         baseAttack = 120,
         baseDefense = 85,
@@ -11323,8 +11325,8 @@ public static class Species
     public static SpeciesData Baltoy = new()
     {
         speciesName = "Baltoy",
-        type1 = Type.Ground,
-        type2 = Type.Psychic,
+        type1 = Ground,
+        type2 = Psychic,
         baseHP = 40,
         baseAttack = 40,
         baseDefense = 55,
@@ -11336,7 +11338,7 @@ public static class Species
         xpClass = XPClass.MediumFast,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 20,
@@ -11356,8 +11358,8 @@ public static class Species
     public static SpeciesData Claydol = new()
     {
         speciesName = "Claydol",
-        type1 = Type.Ground,
-        type2 = Type.Psychic,
+        type1 = Ground,
+        type2 = Psychic,
         baseHP = 60,
         baseAttack = 70,
         baseDefense = 105,
@@ -11369,7 +11371,7 @@ public static class Species
         xpClass = XPClass.MediumFast,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 20,
@@ -11389,8 +11391,8 @@ public static class Species
     public static SpeciesData Lileep = new()
     {
         speciesName = "Lileep",
-        type1 = Type.Rock,
-        type2 = Type.Grass,
+        type1 = Rock,
+        type2 = Grass,
         baseHP = 66,
         baseAttack = 41,
         baseDefense = 77,
@@ -11422,8 +11424,8 @@ public static class Species
     public static SpeciesData Cradily = new()
     {
         speciesName = "Cradily",
-        type1 = Type.Rock,
-        type2 = Type.Grass,
+        type1 = Rock,
+        type2 = Grass,
         baseHP = 86,
         baseAttack = 81,
         baseDefense = 97,
@@ -11455,8 +11457,8 @@ public static class Species
     public static SpeciesData Anorith = new()
     {
         speciesName = "Anorith",
-        type1 = Type.Rock,
-        type2 = Type.Bug,
+        type1 = Rock,
+        type2 = Bug,
         baseHP = 45,
         baseAttack = 95,
         baseDefense = 50,
@@ -11488,8 +11490,8 @@ public static class Species
     public static SpeciesData Armaldo = new()
     {
         speciesName = "Armaldo",
-        type1 = Type.Rock,
-        type2 = Type.Bug,
+        type1 = Rock,
+        type2 = Bug,
         baseHP = 75,
         baseAttack = 125,
         baseDefense = 100,
@@ -11521,8 +11523,8 @@ public static class Species
     public static SpeciesData Feebas = new()
     {
         speciesName = "Feebas",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 20,
         baseAttack = 15,
         baseDefense = 20,
@@ -11554,8 +11556,8 @@ public static class Species
     public static SpeciesData Milotic = new()
     {
         speciesName = "Milotic",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 95,
         baseAttack = 60,
         baseDefense = 79,
@@ -11585,14 +11587,14 @@ public static class Species
         },
     };
 
-    public static SpeciesData Castform = SpeciesData.Castform(
-        Type.Normal, "castform/normal", 0);
+    public static SpeciesData Castform = Castform(
+        Normal, "castform/normal", 0);
 
     public static SpeciesData Kecleon = new()
     {
         speciesName = "Kecleon",
-        type1 = Type.Normal,
-        type2 = Type.Normal,
+        type1 = Normal,
+        type2 = Normal,
         baseHP = 60,
         baseAttack = 90,
         baseDefense = 70,
@@ -11624,8 +11626,8 @@ public static class Species
     public static SpeciesData Shuppet = new()
     {
         speciesName = "Shuppet",
-        type1 = Type.Ghost,
-        type2 = Type.Ghost,
+        type1 = Ghost,
+        type2 = Ghost,
         baseHP = 44,
         baseAttack = 75,
         baseDefense = 35,
@@ -11657,8 +11659,8 @@ public static class Species
     public static SpeciesData Banette = new()
     {
         speciesName = "Banette",
-        type1 = Type.Ghost,
-        type2 = Type.Ghost,
+        type1 = Ghost,
+        type2 = Ghost,
         baseHP = 64,
         baseAttack = 115,
         baseDefense = 65,
@@ -11690,8 +11692,8 @@ public static class Species
     public static SpeciesData Duskull = new()
     {
         speciesName = "Duskull",
-        type1 = Type.Ghost,
-        type2 = Type.Ghost,
+        type1 = Ghost,
+        type2 = Ghost,
         baseHP = 20,
         baseAttack = 40,
         baseDefense = 90,
@@ -11723,8 +11725,8 @@ public static class Species
     public static SpeciesData Dusclops = new()
     {
         speciesName = "Dusclops",
-        type1 = Type.Ghost,
-        type2 = Type.Ghost,
+        type1 = Ghost,
+        type2 = Ghost,
         baseHP = 40,
         baseAttack = 70,
         baseDefense = 130,
@@ -11756,8 +11758,8 @@ public static class Species
     public static SpeciesData Tropius = new()
     {
         speciesName = "Tropius",
-        type1 = Type.Grass,
-        type2 = Type.Flying,
+        type1 = Grass,
+        type2 = Flying,
         baseHP = 99,
         baseAttack = 68,
         baseDefense = 83,
@@ -11789,8 +11791,8 @@ public static class Species
     public static SpeciesData Chimecho = new()
     {
         speciesName = "Chimecho",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 65,
         baseAttack = 50,
         baseDefense = 70,
@@ -11822,8 +11824,8 @@ public static class Species
     public static SpeciesData Absol = new()
     {
         speciesName = "Absol",
-        type1 = Type.Dark,
-        type2 = Type.Dark,
+        type1 = Dark,
+        type2 = Dark,
         baseHP = 65,
         baseAttack = 130,
         baseDefense = 60,
@@ -11855,8 +11857,8 @@ public static class Species
     public static SpeciesData Wynaut = new()
     {
         speciesName = "Wynaut",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 95,
         baseAttack = 23,
         baseDefense = 48,
@@ -11888,8 +11890,8 @@ public static class Species
     public static SpeciesData Snorunt = new()
     {
         speciesName = "Snorunt",
-        type1 = Type.Ice,
-        type2 = Type.Ice,
+        type1 = Ice,
+        type2 = Ice,
         baseHP = 50,
         baseAttack = 50,
         baseDefense = 50,
@@ -11921,8 +11923,8 @@ public static class Species
     public static SpeciesData Glalie = new()
     {
         speciesName = "Glalie",
-        type1 = Type.Ice,
-        type2 = Type.Ice,
+        type1 = Ice,
+        type2 = Ice,
         baseHP = 80,
         baseAttack = 80,
         baseDefense = 80,
@@ -11954,8 +11956,8 @@ public static class Species
     public static SpeciesData Spheal = new()
     {
         speciesName = "Spheal",
-        type1 = Type.Ice,
-        type2 = Type.Water,
+        type1 = Ice,
+        type2 = Water,
         baseHP = 70,
         baseAttack = 40,
         baseDefense = 50,
@@ -11987,8 +11989,8 @@ public static class Species
     public static SpeciesData Sealeo = new()
     {
         speciesName = "Sealeo",
-        type1 = Type.Ice,
-        type2 = Type.Water,
+        type1 = Ice,
+        type2 = Water,
         baseHP = 90,
         baseAttack = 60,
         baseDefense = 70,
@@ -12020,8 +12022,8 @@ public static class Species
     public static SpeciesData Walrein = new()
     {
         speciesName = "Walrein",
-        type1 = Type.Ice,
-        type2 = Type.Water,
+        type1 = Ice,
+        type2 = Water,
         baseHP = 110,
         baseAttack = 80,
         baseDefense = 90,
@@ -12053,8 +12055,8 @@ public static class Species
     public static SpeciesData Clamperl = new()
     {
         speciesName = "Clamperl",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 35,
         baseAttack = 64,
         baseDefense = 85,
@@ -12086,8 +12088,8 @@ public static class Species
     public static SpeciesData Huntail = new()
     {
         speciesName = "Huntail",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 55,
         baseAttack = 104,
         baseDefense = 105,
@@ -12119,8 +12121,8 @@ public static class Species
     public static SpeciesData Gorebyss = new()
     {
         speciesName = "Gorebyss",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 55,
         baseAttack = 84,
         baseDefense = 105,
@@ -12152,8 +12154,8 @@ public static class Species
     public static SpeciesData Relicanth = new()
     {
         speciesName = "Relicanth",
-        type1 = Type.Water,
-        type2 = Type.Rock,
+        type1 = Water,
+        type2 = Rock,
         baseHP = 100,
         baseAttack = 90,
         baseDefense = 130,
@@ -12185,8 +12187,8 @@ public static class Species
     public static SpeciesData Luvdisc = new()
     {
         speciesName = "Luvdisc",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 43,
         baseAttack = 30,
         baseDefense = 55,
@@ -12218,8 +12220,8 @@ public static class Species
     public static SpeciesData Bagon = new()
     {
         speciesName = "Bagon",
-        type1 = Type.Dragon,
-        type2 = Type.Dragon,
+        type1 = Dragon,
+        type2 = Dragon,
         baseHP = 45,
         baseAttack = 75,
         baseDefense = 60,
@@ -12251,8 +12253,8 @@ public static class Species
     public static SpeciesData Shelgon = new()
     {
         speciesName = "Shelgon",
-        type1 = Type.Dragon,
-        type2 = Type.Dragon,
+        type1 = Dragon,
+        type2 = Dragon,
         baseHP = 65,
         baseAttack = 95,
         baseDefense = 100,
@@ -12284,8 +12286,8 @@ public static class Species
     public static SpeciesData Salamence = new()
     {
         speciesName = "Salamence",
-        type1 = Type.Dragon,
-        type2 = Type.Flying,
+        type1 = Dragon,
+        type2 = Flying,
         baseHP = 95,
         baseAttack = 135,
         baseDefense = 80,
@@ -12317,8 +12319,8 @@ public static class Species
     public static SpeciesData Beldum = new()
     {
         speciesName = "Beldum",
-        type1 = Type.Steel,
-        type2 = Type.Psychic,
+        type1 = Steel,
+        type2 = Psychic,
         baseHP = 40,
         baseAttack = 55,
         baseDefense = 80,
@@ -12330,7 +12332,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 40,
@@ -12350,8 +12352,8 @@ public static class Species
     public static SpeciesData Metang = new()
     {
         speciesName = "Metang",
-        type1 = Type.Steel,
-        type2 = Type.Psychic,
+        type1 = Steel,
+        type2 = Psychic,
         baseHP = 60,
         baseAttack = 75,
         baseDefense = 100,
@@ -12363,7 +12365,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 147,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 40,
@@ -12383,8 +12385,8 @@ public static class Species
     public static SpeciesData Metagross = new()
     {
         speciesName = "Metagross",
-        type1 = Type.Steel,
-        type2 = Type.Psychic,
+        type1 = Steel,
+        type2 = Psychic,
         baseHP = 80,
         baseAttack = 135,
         baseDefense = 130,
@@ -12396,7 +12398,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
         eggCycles = 40,
@@ -12416,8 +12418,8 @@ public static class Species
     public static SpeciesData Regirock = new()
     {
         speciesName = "Regirock",
-        type1 = Type.Rock,
-        type2 = Type.Rock,
+        type1 = Rock,
+        type2 = Rock,
         baseHP = 80,
         baseAttack = 100,
         baseDefense = 200,
@@ -12429,7 +12431,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 80,
@@ -12449,8 +12451,8 @@ public static class Species
     public static SpeciesData Regice = new()
     {
         speciesName = "Regice",
-        type1 = Type.Ice,
-        type2 = Type.Ice,
+        type1 = Ice,
+        type2 = Ice,
         baseHP = 80,
         baseAttack = 50,
         baseDefense = 100,
@@ -12462,7 +12464,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 80,
@@ -12482,8 +12484,8 @@ public static class Species
     public static SpeciesData Registeel = new()
     {
         speciesName = "Registeel",
-        type1 = Type.Steel,
-        type2 = Type.Steel,
+        type1 = Steel,
+        type2 = Steel,
         baseHP = 80,
         baseAttack = 75,
         baseDefense = 150,
@@ -12495,7 +12497,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 80,
@@ -12515,8 +12517,8 @@ public static class Species
     public static SpeciesData Latias = new()
     {
         speciesName = "Latias",
-        type1 = Type.Dragon,
-        type2 = Type.Psychic,
+        type1 = Dragon,
+        type2 = Psychic,
         baseHP = 80,
         baseAttack = 80,
         baseDefense = 90,
@@ -12548,8 +12550,8 @@ public static class Species
     public static SpeciesData Latios = new()
     {
         speciesName = "Latios",
-        type1 = Type.Dragon,
-        type2 = Type.Psychic,
+        type1 = Dragon,
+        type2 = Psychic,
         baseHP = 80,
         baseAttack = 90,
         baseDefense = 80,
@@ -12581,8 +12583,8 @@ public static class Species
     public static SpeciesData Kyogre = new()
     {
         speciesName = "Kyogre",
-        type1 = Type.Water,
-        type2 = Type.Water,
+        type1 = Water,
+        type2 = Water,
         baseHP = 100,
         baseAttack = 100,
         baseDefense = 90,
@@ -12594,7 +12596,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 302,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 120,
@@ -12614,8 +12616,8 @@ public static class Species
     public static SpeciesData Groudon = new()
     {
         speciesName = "Groudon",
-        type1 = Type.Ground,
-        type2 = Type.Ground,
+        type1 = Ground,
+        type2 = Ground,
         baseHP = 100,
         baseAttack = 150,
         baseDefense = 140,
@@ -12627,7 +12629,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 302,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 120,
@@ -12647,8 +12649,8 @@ public static class Species
     public static SpeciesData Rayquaza = new()
     {
         speciesName = "Rayquaza",
-        type1 = Type.Dragon,
-        type2 = Type.Flying,
+        type1 = Dragon,
+        type2 = Flying,
         baseHP = 105,
         baseAttack = 150,
         baseDefense = 90,
@@ -12660,7 +12662,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 306,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 120,
@@ -12680,8 +12682,8 @@ public static class Species
     public static SpeciesData Jirachi = new()
     {
         speciesName = "Jirachi",
-        type1 = Type.Steel,
-        type2 = Type.Psychic,
+        type1 = Steel,
+        type2 = Psychic,
         baseHP = 100,
         baseAttack = 100,
         baseDefense = 100,
@@ -12693,7 +12695,7 @@ public static class Species
         xpClass = XPClass.Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
-        malePercent = SpeciesData.Genderless,
+        malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
         eggCycles = 120,
@@ -12712,7 +12714,7 @@ public static class Species
     };
 
     public static SpeciesData Deoxys =
-        SpeciesData.Deoxys(
+        Deoxys(
             baseHP: 50,
             baseAttack: 150,
             baseDefense: 50,
@@ -12731,7 +12733,7 @@ public static class Species
 
     //Megas
 
-    public static SpeciesData VenusaurMega = SpeciesData.Mega(
+    public static SpeciesData VenusaurMega = Mega(
         baseSpecies: Venusaur,
         baseAttack: 100,
         baseDefense: 123,
@@ -12743,10 +12745,10 @@ public static class Species
         ability: ThickFat
     );
 
-    public static SpeciesData CharizardMegaX = SpeciesData.Mega(
+    public static SpeciesData CharizardMegaX = Mega(
         baseSpecies: Charizard,
         name: "Mega Charizard X",
-        type2: Type.Dragon,
+        type2: Dragon,
         baseAttack: 130,
         baseDefense: 111,
         baseSpAtk: 130,
@@ -12759,7 +12761,7 @@ public static class Species
         ability: ToughClaws
     );
 
-    public static SpeciesData CharizardMegaY= SpeciesData.Mega(
+    public static SpeciesData CharizardMegaY= Mega(
         baseSpecies: Charizard,
         name: "Mega Charizard Y",
         baseAttack: 104,
@@ -12774,7 +12776,7 @@ public static class Species
         ability: Drought
     );
 
-    public static SpeciesData BlastoiseMega = SpeciesData.Mega(
+    public static SpeciesData BlastoiseMega = Mega(
         baseSpecies: Blastoise,
         baseAttack: 103,
         baseDefense: 120,
@@ -12786,7 +12788,7 @@ public static class Species
         ability: MegaLauncher
     );
 
-    public static SpeciesData BeedrillMega = SpeciesData.Mega(
+    public static SpeciesData BeedrillMega = Mega(
         baseSpecies: Beedrill,
         baseAttack: 150,
         baseDefense: 40,
@@ -12798,7 +12800,7 @@ public static class Species
         ability: Adaptability
     );
 
-    public static SpeciesData PidgeotMega = SpeciesData.Mega(
+    public static SpeciesData PidgeotMega = Mega(
         baseSpecies: Pidgeot,
         baseAttack: 80,
         baseDefense: 80,
@@ -12810,7 +12812,7 @@ public static class Species
         ability: NoGuard
     );
 
-    public static SpeciesData AlakazamMega = SpeciesData.Mega(
+    public static SpeciesData AlakazamMega = Mega(
         baseSpecies: Alakazam,
         baseAttack: 50,
         baseDefense: 65,
@@ -12822,7 +12824,7 @@ public static class Species
         ability: Trace
     );
 
-    public static SpeciesData SlowbroMega = SpeciesData.Mega(
+    public static SpeciesData SlowbroMega = Mega(
         baseSpecies: Slowbro,
         baseAttack: 75,
         baseDefense: 180,
@@ -12834,7 +12836,7 @@ public static class Species
         ability: ShellArmor
     );
 
-    public static SpeciesData GengarMega = SpeciesData.Mega(
+    public static SpeciesData GengarMega = Mega(
         baseSpecies: Gengar,
         baseAttack: 65,
         baseDefense: 80,
@@ -12846,7 +12848,7 @@ public static class Species
         ability: ShadowTag
     );
 
-    public static SpeciesData KangaskhanMega = SpeciesData.Mega(
+    public static SpeciesData KangaskhanMega = Mega(
         baseSpecies: Kangaskhan,
         baseAttack: 125,
         baseDefense: 100,
@@ -12858,9 +12860,9 @@ public static class Species
         ability: ParentalBond
     );
 
-    public static SpeciesData PinsirMega = SpeciesData.Mega(
+    public static SpeciesData PinsirMega = Mega(
         baseSpecies: Pinsir,
-        type2: Type.Flying,
+        type2: Flying,
         baseAttack: 155,
         baseDefense: 120,
         baseSpAtk: 65,
@@ -12871,9 +12873,9 @@ public static class Species
         ability: Aerilate
     );
 
-    public static SpeciesData GyaradosMega = SpeciesData.Mega(
+    public static SpeciesData GyaradosMega = Mega(
         baseSpecies: Gyarados,
-        type2: Type.Dark,
+        type2: Dark,
         baseAttack: 155,
         baseDefense: 109,
         baseSpAtk: 70,
@@ -12884,7 +12886,7 @@ public static class Species
         ability: MoldBreaker
     );
 
-    public static SpeciesData AerodactylMega = SpeciesData.Mega(
+    public static SpeciesData AerodactylMega = Mega(
         baseSpecies: Aerodactyl,
         baseAttack: 135,
         baseDefense: 85,
@@ -12896,10 +12898,10 @@ public static class Species
         ability: ToughClaws
     );
 
-    public static SpeciesData MewtwoMegaX = SpeciesData.Mega(
+    public static SpeciesData MewtwoMegaX = Mega(
         baseSpecies: Mewtwo,
         name: "Mega Mewtwo X",
-        type2: Type.Fighting,
+        type2: Fighting,
         baseAttack: 190,
         baseDefense: 100,
         baseSpAtk: 154,
@@ -12912,7 +12914,7 @@ public static class Species
         ability: Steadfast
      );
 
-    public static SpeciesData MewtwoMegaY = SpeciesData.Mega(
+    public static SpeciesData MewtwoMegaY = Mega(
         baseSpecies: Mewtwo,
         name: "Mega Mewtwo Y",
         baseAttack: 150,
@@ -12927,9 +12929,9 @@ public static class Species
         ability: Insomnia
     );
 
-    public static SpeciesData AmpharosMega = SpeciesData.Mega(
+    public static SpeciesData AmpharosMega = Mega(
         baseSpecies: Ampharos,
-        type2: Type.Dragon,
+        type2: Dragon,
         baseAttack: 95,
         baseDefense: 105,
         baseSpAtk: 165,
@@ -12940,7 +12942,7 @@ public static class Species
         ability: MoldBreaker
     );
 
-    public static SpeciesData SteelixMega = SpeciesData.Mega(
+    public static SpeciesData SteelixMega = Mega(
         baseSpecies: Steelix,
         baseAttack: 125,
         baseDefense: 230,
@@ -12952,7 +12954,7 @@ public static class Species
         ability: SandForce
     );
 
-    public static SpeciesData ScizorMega = SpeciesData.Mega(
+    public static SpeciesData ScizorMega = Mega(
         baseSpecies: Scizor,
         baseAttack: 150,
         baseDefense: 140,
@@ -12964,7 +12966,7 @@ public static class Species
         ability: Technician
     );
 
-    public static SpeciesData HeracrossMega = SpeciesData.Mega(
+    public static SpeciesData HeracrossMega = Mega(
         baseSpecies: Heracross,
         baseAttack: 185,
         baseDefense: 115,
@@ -12976,7 +12978,7 @@ public static class Species
         ability: SkillLink
     );
 
-    public static SpeciesData HoundoomMega = SpeciesData.Mega(
+    public static SpeciesData HoundoomMega = Mega(
         baseSpecies: Houndoom,
         baseAttack: 90,
         baseDefense: 90,
@@ -12988,7 +12990,7 @@ public static class Species
         ability: SolarPower
     );
 
-    public static SpeciesData TyranitarMega = SpeciesData.Mega(
+    public static SpeciesData TyranitarMega = Mega(
         baseSpecies: Tyranitar,
         baseAttack: 164,
         baseDefense: 150,
@@ -13000,72 +13002,315 @@ public static class Species
         ability: SandStream
     );
 
+    public static SpeciesData SceptileMega = Mega(
+        baseSpecies: Sceptile,
+        type2: Dragon,
+        baseAttack: 110,
+        baseDefense: 75,
+        baseSpAtk: 145,
+        baseSpDef: 85,
+        baseSpeed: 145,
+        backSpriteHeight: 3,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: LightningRod
+    );
+
+    public static SpeciesData BlazikenMega = Mega(
+        baseSpecies: Blaziken,
+        baseAttack: 160,
+        baseDefense: 80,
+        baseSpAtk: 130,
+        baseSpDef: 80,
+        baseSpeed: 100,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: SpeedBoost
+    );
+
+    public static SpeciesData SwampertMega = Mega(
+        baseSpecies: Swampert,
+        baseAttack: 150,
+        baseDefense: 110,
+        baseSpAtk: 95,
+        baseSpDef: 110,
+        baseSpeed: 70,
+        backSpriteHeight: 6,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: SwiftSwim
+    );
+
+    public static SpeciesData GardevoirMega = Mega(
+        baseSpecies: Gardevoir,
+        baseAttack: 85,
+        baseDefense: 65,
+        baseSpAtk: 165,
+        baseSpDef: 135,
+        baseSpeed: 100,
+        backSpriteHeight: 6,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Pixilate
+    );
+
+    public static SpeciesData SableyeMega = Mega(
+        baseSpecies: Sableye,
+        baseAttack: 85,
+        baseDefense: 125,
+        baseSpAtk: 85,
+        baseSpDef: 115,
+        baseSpeed: 20,
+        backSpriteHeight: 13,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: MagicBounce
+    );
+
+    public static SpeciesData MawileMega = Mega(
+        baseSpecies: Mawile,
+        baseAttack: 105,
+        baseDefense: 125,
+        baseSpAtk: 55,
+        baseSpDef: 95,
+        baseSpeed: 50,
+        backSpriteHeight: 6,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: HugePower
+    );
+
+    public static SpeciesData AggronMega = Mega(
+        baseSpecies: Aggron,
+        type2: Steel,
+        baseAttack: 140,
+        baseDefense: 230,
+        baseSpAtk: 60,
+        baseSpDef: 80,
+        baseSpeed: 50,
+        backSpriteHeight: 7,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Filter
+    );
+
+    public static SpeciesData MedichamMega = Mega(
+        baseSpecies: Medicham,
+        baseAttack: 100,
+        baseDefense: 85,
+        baseSpAtk: 80,
+        baseSpDef: 85,
+        baseSpeed: 100,
+        backSpriteHeight: 1,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: PurePower
+    );
+
+    public static SpeciesData ManectricMega = Mega(
+        baseSpecies: Manectric,
+        baseAttack: 75,
+        baseDefense: 80,
+        baseSpAtk: 135,
+        baseSpDef: 80,
+        baseSpeed: 135,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Intimidate
+    );
+
+    public static SpeciesData SharpedoMega = Mega(
+        baseSpecies: Sharpedo,
+        baseAttack: 140,
+        baseDefense: 70,
+        baseSpAtk: 110,
+        baseSpDef: 65,
+        baseSpeed: 105,
+        backSpriteHeight: 3,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: StrongJaw 
+    );
+
+    public static SpeciesData CameruptMega = Mega(
+        baseSpecies: Camerupt,
+        baseAttack: 120,
+        baseDefense: 100,
+        baseSpAtk: 145,
+        baseSpDef: 105,
+        baseSpeed: 20,
+        backSpriteHeight: 9,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: SheerForce
+    );
+
+    public static SpeciesData AltariaMega = Mega(
+        baseSpecies: Altaria,
+        type2: Fairy,
+        baseAttack: 110,
+        baseDefense: 110,
+        baseSpAtk: 110,
+        baseSpDef: 105,
+        baseSpeed: 80,
+        backSpriteHeight: 10,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Pixilate
+    );
+
+    public static SpeciesData BanetteMega = Mega(
+        baseSpecies: Banette,
+        baseAttack: 165,
+        baseDefense: 75,
+        baseSpAtk: 93,
+        baseSpDef: 83,
+        baseSpeed: 75,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Prankster
+    );
+
+    public static SpeciesData AbsolMega = Mega(
+        baseSpecies: Absol,
+        baseAttack: 150,
+        baseDefense: 60,
+        baseSpAtk: 115,
+        baseSpDef: 60,
+        baseSpeed: 115,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: MagicBounce
+    );
+
+    public static SpeciesData GlalieMega = Mega(
+        baseSpecies: Glalie,
+        baseAttack: 120,
+        baseDefense: 80,
+        baseSpAtk: 120,
+        baseSpDef: 80,
+        baseSpeed: 100,
+        backSpriteHeight: 10,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Refrigerate
+    );
+
+    public static SpeciesData SalamenceMega = Mega(
+        baseSpecies: Salamence,
+        baseAttack: 145,
+        baseDefense: 130,
+        baseSpAtk: 120,
+        baseSpDef: 90,
+        baseSpeed: 120,
+        backSpriteHeight: 1,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Aerilate
+    );
+
+    public static SpeciesData MetagrossMega = Mega(
+        baseSpecies: Metagross,
+        baseAttack: 145,
+        baseDefense: 150,
+        baseSpAtk: 105,
+        baseSpDef: 110,
+        baseSpeed: 110,
+        backSpriteHeight: 6,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: ToughClaws
+    );
+
+    public static SpeciesData LatiasMega = Mega(
+        baseSpecies: Latias,
+        baseAttack: 100,
+        baseDefense: 120,
+        baseSpAtk: 140,
+        baseSpDef: 150,
+        baseSpeed: 110,
+        backSpriteHeight: 1,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Levitate
+    );
+
+    public static SpeciesData LatiosMega = Mega(
+        baseSpecies: Latios,
+        baseAttack: 130,
+        baseDefense: 100,
+        baseSpAtk: 160,
+        baseSpDef: 120,
+        baseSpeed: 110,
+        backSpriteHeight: 1,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Levitate
+    );
+
+    public static SpeciesData RayquazaMega = Mega(
+        baseSpecies: Rayquaza,
+        baseAttack: 180,
+        baseDefense: 100,
+        baseSpAtk: 180,
+        baseSpDef: 100,
+        baseSpeed: 115,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: DeltaStream
+    );
+
     //Unown forms
 
     public static SpeciesData Unown_B
-        = SpeciesData.Unown("unown/b", 9);
+        = Unown("unown/b", 9);
     public static SpeciesData Unown_C
-        = SpeciesData.Unown("unown/c", 6);
+        = Unown("unown/c", 6);
     public static SpeciesData Unown_D
-        = SpeciesData.Unown("unown/d", 8);
+        = Unown("unown/d", 8);
     public static SpeciesData Unown_E
-        = SpeciesData.Unown("unown/e", 10);
+        = Unown("unown/e", 10);
     public static SpeciesData Unown_F
-        = SpeciesData.Unown("unown/f", 10);
+        = Unown("unown/f", 10);
     public static SpeciesData Unown_G
-        = SpeciesData.Unown("unown/g", 5);
+        = Unown("unown/g", 5);
     public static SpeciesData Unown_H
-        = SpeciesData.Unown("unown/h", 8);
+        = Unown("unown/h", 8);
     public static SpeciesData Unown_I
-        = SpeciesData.Unown("unown/i", 7);
+        = Unown("unown/i", 7);
     public static SpeciesData Unown_J
-        = SpeciesData.Unown("unown/j", 9);
+        = Unown("unown/j", 9);
     public static SpeciesData Unown_K
-        = SpeciesData.Unown("unown/k", 7);
+        = Unown("unown/k", 7);
     public static SpeciesData Unown_L
-        = SpeciesData.Unown("unown/l", 10);
+        = Unown("unown/l", 10);
     public static SpeciesData Unown_M
-        = SpeciesData.Unown("unown/m", 13);
+        = Unown("unown/m", 13);
     public static SpeciesData Unown_N
-        = SpeciesData.Unown("unown/n", 13);
+        = Unown("unown/n", 13);
     public static SpeciesData Unown_O
-        = SpeciesData.Unown("unown/o", 8);
+        = Unown("unown/o", 8);
     public static SpeciesData Unown_P
-        = SpeciesData.Unown("unown/p", 10);
+        = Unown("unown/p", 10);
     public static SpeciesData Unown_Q
-        = SpeciesData.Unown("unown/q", 15);
+        = Unown("unown/q", 15);
     public static SpeciesData Unown_R
-        = SpeciesData.Unown("unown/r", 12);
+        = Unown("unown/r", 12);
     public static SpeciesData Unown_S
-        = SpeciesData.Unown("unown/s", 4);
+        = Unown("unown/s", 4);
     public static SpeciesData Unown_T
-        = SpeciesData.Unown("unown/t", 13);
+        = Unown("unown/t", 13);
     public static SpeciesData Unown_U
-        = SpeciesData.Unown("unown/u", 13);
+        = Unown("unown/u", 13);
     public static SpeciesData Unown_V
-        = SpeciesData.Unown("unown/v", 11);
+        = Unown("unown/v", 11);
     public static SpeciesData Unown_W
-        = SpeciesData.Unown("unown/w", 13);
+        = Unown("unown/w", 13);
     public static SpeciesData Unown_X
-        = SpeciesData.Unown("unown/x", 15);
+        = Unown("unown/x", 15);
     public static SpeciesData Unown_Y
-        = SpeciesData.Unown("unown/y", 10);
+        = Unown("unown/y", 10);
     public static SpeciesData Unown_Z
-        = SpeciesData.Unown("unown/z", 10);
+        = Unown("unown/z", 10);
 
     //Castform forms
 
     public static SpeciesData CastformSunny =
-        SpeciesData.Castform(Type.Fire, "castform/sunny", 0);
+        Castform(Fire, "castform/sunny", 0);
     public static SpeciesData CastformRainy =
-        SpeciesData.Castform(Type.Water, "castform/rainy", 0);
+        Castform(Water, "castform/rainy", 0);
     public static SpeciesData CastformSnowy =
-        SpeciesData.Castform(Type.Ice, "castform/snowy", 0);
+        Castform(Ice, "castform/snowy", 0);
 
     //Deoxys forms
 
     public static SpeciesData DeoxysAttack =
-        SpeciesData.Deoxys(
+        Deoxys(
             baseHP: 50,
             baseAttack: 180,
             baseDefense: 20,
@@ -13078,7 +13323,7 @@ public static class Species
         );
 
     public static SpeciesData DeoxysDefense =
-        SpeciesData.Deoxys(
+        Deoxys(
             baseHP: 50,
             baseAttack: 70,
             baseDefense: 160,
@@ -13091,7 +13336,7 @@ public static class Species
         );
 
     public static SpeciesData DeoxysSpeed =
-        SpeciesData.Deoxys(
+        Deoxys(
             baseHP: 50,
             baseAttack: 95,
             baseDefense: 90,
@@ -13555,5 +13800,25 @@ public static class Species
         HeracrossMega,
         HoundoomMega,
         TyranitarMega,
+        SceptileMega,
+        BlazikenMega,
+        SwampertMega,
+        GardevoirMega,
+        SableyeMega,
+        MawileMega,
+        AggronMega,
+        MedichamMega,
+        ManectricMega,
+        SharpedoMega,
+        CameruptMega,
+        AltariaMega,
+        BanetteMega,
+        AbsolMega,
+        GlalieMega,
+        SalamenceMega,
+        MetagrossMega,
+        LatiasMega,
+        LatiosMega,
+        RayquazaMega,
     };
 }
