@@ -8,7 +8,7 @@ public static class Tiles
     public static IndexedTile empty = IndexedTile.Create(TileID.NoTile, "primary_00", 0, 31);
     public static IndexedTile grassTile1 = IndexedTile.Create(TileID.GrassTile1, "primary_02", 2, 31);
     public static IndexedTile grassTile2 = IndexedTile.Create(TileID.GrassTile2, "primary_02", 3, 31);
-    public static IndexedTile[] TileTable = new IndexedTile[]
+    public static TileBase[] TileTable = new TileBase[]
     {
         empty,
         grassTile1,

@@ -2,20 +2,18 @@
 using UnityEngine.Tilemaps;
 using static TileConfig;
 
-public class AnimatedIndexedTile : IndexedTile
+public class AnimatedIndexedTile : AnimatedTile, IndexedObject
 {
-    public Sprite[] sprites;
-    public float secondsPerFrame;
-    public static AnimatedIndexedTile Create(TileID id, Sprite[] sprites, float secondsPerFrame)
+    public TileID tileID;
+    public int Index => (int)tileID;
+
+    public static AnimatedIndexedTile Create(TileID id, Sprite[] sprites, float speed)
     {
         AnimatedIndexedTile tile = CreateInstance<AnimatedIndexedTile>();
-        tile.gameObject = new();
-        TileAnimator animator = tile.gameObject.AddComponent<TileAnimator>();
-        animator.tile = tile;
-        tile.sprites = sprites;
-        tile.index = id;
-        tile.secondsPerFrame = secondsPerFrame;
-        tile.sprite = sprites[0];
+        tile.m_AnimatedSprites = sprites;
+        tile.tileID = id;
+        tile.m_MaxSpeed = speed;
+        tile.m_MinSpeed = speed;
         return tile;
     }
 }

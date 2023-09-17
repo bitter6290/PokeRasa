@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32b321cee0f98421696139d198eb391d, type: 3}
+  m_Script: {fileID: 11500000, guid: ccdae5fd2626242d28616b1d2ddccff5, type: 3}
   m_Name: tile_2
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 0}
@@ -34,4 +34,4 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
-  index: 2
+  tileID: 2

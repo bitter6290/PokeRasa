@@ -82,15 +82,54 @@ public class MapHelper : MapManager
 
     public void SyncTilesets()
     {
-        foreach (IndexedTile i in Tiles.TileTable)
+        foreach (TileBase i in Tiles.TileTable)
         {
-            if (i.index == TileID.NoTile) continue;
-            IndexedTile test = AssetDatabase.LoadAssetAtPath<IndexedTile>(
-                "Assets/Generated Palettes/General/tile_" + (int)i.index + ".asset"
-            );
-            if (test == null)
-                AssetDatabase.CreateAsset(i,
-                    "Assets/Generated Palettes/General/tile_" + (int)i.index + ".asset");
+            IndexedTile tile = i as IndexedTile;
+            if (tile == null)
+            {
+                AnimatedIndexedTile animTile = i as AnimatedIndexedTile;
+                if (animTile == null || animTile.Index == (int)TileID.NoTile) continue;
+                else
+                {
+                    AnimatedIndexedTile animTest = AssetDatabase.LoadAssetAtPath<AnimatedIndexedTile>(
+                        "Assets/Generated Palettes/General/tile_" + animTile.Index + ".asset"
+                    );
+                    if (animTest == null)
+                    {
+                        if (File.Exists("Assets/Generated Palettes/General/tile_" + animTile.Index + ".asset"))
+                        { File.Delete("Assets/Generated Palettes/General/tile_" + animTile.Index + ".asset"); }
+                        AssetDatabase.CreateAsset(i,
+                            "Assets/Generated Palettes/General/tile_" + animTile.Index + ".asset");
+                    }
+                    else
+                    {
+                        animTest.m_AnimatedSprites = animTile.m_AnimatedSprites;
+                        animTest.m_MaxSpeed = animTile.m_MaxSpeed;
+                        animTest.m_MinSpeed = animTile.m_MinSpeed;
+                        animTest.tileID = animTile.tileID;
+                    }
+                }
+
+            }
+            else
+            {
+                if (tile.Index == (int)TileID.NoTile) continue;
+                IndexedTile test = AssetDatabase.LoadAssetAtPath<IndexedTile>(
+                    "Assets/Generated Palettes/General/tile_" + tile.Index + ".asset"
+                );
+                if (test == null)
+                {
+                    if (File.Exists("Assets/Generated Palettes/General/tile_" + tile.Index + ".asset"))
+                    { File.Delete("Assets/Generated Palettes/General/tile_" + tile.Index + ".asset"); }
+                    AssetDatabase.CreateAsset(i,
+                        "Assets/Generated Palettes/General/tile_" + tile.Index + ".asset");
+                }
+                else
+                {
+                    test.sprite = tile.sprite;
+                    test.tileID = tile.tileID;
+                }
+            }
             AssetDatabase.SaveAssets();
         }
         foreach (CollisionTile i in Tiles.CollisionTileTable)
@@ -101,6 +140,11 @@ public class MapHelper : MapManager
             if (test == null)
                 AssetDatabase.CreateAsset(i,
                     "Assets/Generated Palettes/Collision/tile_" + (int)i.collisionID + ".asset");
+            else
+            {
+                test.sprite = i.sprite;
+                test.collisionID = i.collisionID;
+            }
             AssetDatabase.SaveAssets();
         }
     }
