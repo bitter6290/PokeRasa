@@ -23,6 +23,9 @@
 # DS_Store files from Mac
 .DS_Store
 
+# Map backups
+/[Aa]ssets/Resources/Maps/Old*
+
 # Visual Studio config
 .editorconfig
 
