@@ -1,4 +1,7 @@
 ﻿public enum MapID
 {
-    Test
+    None,
+    Test,
+    Test2,
+    Count
 }

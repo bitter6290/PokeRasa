@@ -8,8 +8,8 @@ public class MapManager : MonoBehaviour
     public Tilemap level2;
     public Tilemap level3;
 
-    public int[,] collision;
-    public int[,] wildData;
+    public byte[,] collision;
+    public byte[,] wildData;
 
     public MapData mapData => Map.MapTable[(int)mapID];
 }

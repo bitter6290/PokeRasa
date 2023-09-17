@@ -17,6 +17,14 @@ public class MapHelperEditor : Editor
         {
             mapHelper.WriteMap();
         }
+        if(GUILayout.Button("Close Map"))
+        {
+            mapHelper.CloseMap();
+        }
+        if(GUILayout.Button("Save and Close Map"))
+        {
+            mapHelper.SaveAndCloseMap();
+        }
         if(GUILayout.Button("Sync Tiles"))
         {
             mapHelper.SyncTilesets();
