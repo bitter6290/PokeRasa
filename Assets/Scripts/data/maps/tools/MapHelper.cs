@@ -72,7 +72,6 @@ public class MapHelper : MapManager
         level3.ClearAllTiles();
         collisionMap.ClearAllTiles();
         wildDataMap.ClearAllTiles();
-        mapID = MapID.None;
         openMap = MapID.None;
         open = false;
     }
