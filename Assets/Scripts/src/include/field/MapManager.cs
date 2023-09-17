@@ -12,4 +12,6 @@ public class MapManager : MonoBehaviour
     public byte[,] wildData;
 
     public MapData mapData => Map.MapTable[(int)mapID];
+
+    public void ReadMap() => MapReader.ReadForPlaytime(this);
 }

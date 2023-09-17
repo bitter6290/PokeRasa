@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using static CollisionID;
+using static AnimatedTiles;
 
 public static class Tiles
 {
@@ -12,6 +13,10 @@ public static class Tiles
         empty,
         grassTile1,
         grassTile2,
+        water0NW,
+        water0NE,
+        water0SW,
+        water0SE,
     };
 
     //Collision tiles

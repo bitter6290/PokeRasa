@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 [Serializable]
 public class Player : MonoBehaviour
@@ -17,7 +18,12 @@ public class Player : MonoBehaviour
     public bool[] storyFlags = new bool[100];
 
     public BattleTerrain currentTerrain;
+    public MapID currentMap;
+    public int xPos;
+    public int yPos;
 
+    public CollisionID currentHeight;
+    public MapManager mapManager;
 
     public Pokemon[] Party = new Pokemon[6];
     private int monsInParty
@@ -98,6 +104,28 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void RenderMap()
+    {
+        Grid grid = new GameObject("Grid").AddComponent<Grid>();
+        grid.cellSize = new Vector3(0.5F, 0.5F, 1.0F);
+        Tilemap level1 = new GameObject("Tilemap1").AddComponent<Tilemap>();
+        Tilemap level2 = new GameObject("Tilemap2").AddComponent<Tilemap>();
+        Tilemap level3 = new GameObject("Tilemap3").AddComponent<Tilemap>();
+        level1.transform.SetParent(grid.gameObject.transform);
+        level2.transform.SetParent(grid.gameObject.transform);
+        level3.transform.SetParent(grid.gameObject.transform);
+        mapManager.level1 = level1;
+        mapManager.level2 = level2;
+        mapManager.level3 = level3;
+        mapManager.mapID = currentMap;
+        mapManager.ReadMap();
+    }
+
+    private CollisionID checkCollision(int x, int y)
+    {
+        return (CollisionID)mapManager.collision[x + 1, y + 1];
+    }
+
     public void StartBattle(Pokemon[] opponentParty, BattleType battleType)
     {
         Pokemon[] useOpponentParty = new Pokemon[6];
@@ -119,9 +147,11 @@ public class Player : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-
+        mapManager = gameObject.AddComponent<MapManager>();
+        currentMap = MapID.Test;
+        RenderMap();
     }
 
     public void Awake()

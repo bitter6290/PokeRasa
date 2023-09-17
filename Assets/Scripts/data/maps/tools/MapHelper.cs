@@ -30,7 +30,7 @@ public class MapHelper : MapManager
         }
     }
 
-    public void ReadMap()
+    new public void ReadMap()
     {
         if (mapID == MapID.None)
         {
@@ -49,15 +49,13 @@ public class MapHelper : MapManager
                 return;
             openMap = mapID;
             open = true;
-            MapReader reader = new();
-            reader.CreateNewMap(this);
+            MapReader.CreateNewMap(this);
         }
         else
         {
             openMap = mapID;
             open = true;
-            MapReader reader = new();
-            reader.ReadForEditing(this);
+            MapReader.ReadForEditing(this);
         }
     }
 
@@ -88,31 +86,21 @@ public class MapHelper : MapManager
         {
             if (i.index == TileID.NoTile) continue;
             IndexedTile test = AssetDatabase.LoadAssetAtPath<IndexedTile>(
-                "Assets/Generated Palletes/General/tile_" + (int)i.index + ".asset"
+                "Assets/Generated Palettes/General/tile_" + (int)i.index + ".asset"
             );
             if (test == null)
                 AssetDatabase.CreateAsset(i,
                     "Assets/Generated Palettes/General/tile_" + (int)i.index + ".asset");
-            else
-            {
-                test.sprite = i.sprite;
-                test.index = i.index;
-            }
             AssetDatabase.SaveAssets();
         }
         foreach (CollisionTile i in Tiles.CollisionTileTable)
         {
             CollisionTile test = AssetDatabase.LoadAssetAtPath<CollisionTile>(
-                "Assets/Generated Palletes/Collision/tile_" + (int)i.collisionID + ".asset"
+                "Assets/Generated Palettes/Collision/tile_" + (int)i.collisionID + ".asset"
             );
             if (test == null)
                 AssetDatabase.CreateAsset(i,
                     "Assets/Generated Palettes/Collision/tile_" + (int)i.collisionID + ".asset");
-            else
-            {
-                test.sprite = i.sprite;
-                test.collisionID = i.collisionID;
-            }
             AssetDatabase.SaveAssets();
         }
     }

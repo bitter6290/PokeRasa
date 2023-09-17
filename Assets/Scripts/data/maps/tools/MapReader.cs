@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class MapReader
+public static class MapReader
 {
-    public void ReadForPlaytime(MapManager manager)
+    public static void ReadForPlaytime(MapManager manager)
     {
         Tilemap level1 = manager.level1;
         Tilemap level2 = manager.level2;
@@ -214,7 +214,7 @@ public class MapReader
         Debug.Log("Loaded successfully");
     }
 
-    public void RenderNeighborsForEditing(MapHelper mapHelper)
+    public static void RenderNeighborsForEditing(MapHelper mapHelper)
     {
         Tilemap level1 = mapHelper.level1;
         Tilemap level2 = mapHelper.level2;
@@ -368,7 +368,7 @@ public class MapReader
             }
         }
     }
-    public void ReadForEditing(MapHelper mapHelper)
+    public static void ReadForEditing(MapHelper mapHelper)
     {
         Tilemap level1 = mapHelper.level1;
         Tilemap level2 = mapHelper.level2;
@@ -425,7 +425,7 @@ public class MapReader
         Debug.Log("Loaded successfully");
     }
 
-    public void CreateNewMap(MapHelper mapHelper)
+    public static void CreateNewMap(MapHelper mapHelper)
     {
         Tilemap level1 = mapHelper.level1;
         Tilemap level2 = mapHelper.level2;
