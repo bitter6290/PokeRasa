@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using static EvYield;
+using static Ability;
 
 public static class Species
 {
@@ -25,9 +26,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur,
         abilities = new Ability[3]
         {
-            Ability.None,
-            Ability.None,
-            Ability.None,
+            None,
+            None,
+            None,
         }
     };
     public static SpeciesData Bulbasaur = new()
@@ -58,9 +59,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur,
         abilities = new Ability[3]
         {
-            Ability.Overgrow,
-            Ability.Overgrow,
-            Ability.Chlorophyll,
+            Overgrow,
+            Overgrow,
+            Chlorophyll,
         }
     };
     public static SpeciesData Ivysaur = new()
@@ -91,9 +92,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Overgrow,
-            Ability.Overgrow,
-            Ability.Chlorophyll,
+            Overgrow,
+            Overgrow,
+            Chlorophyll,
         },
     };
     public static SpeciesData Venusaur = new()
@@ -124,9 +125,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Overgrow,
-            Ability.Overgrow,
-            Ability.Chlorophyll,
+            Overgrow,
+            Overgrow,
+            Chlorophyll,
         },
     };
     public static SpeciesData Charmander = new()
@@ -157,9 +158,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Blaze,
-            Ability.Blaze,
-            Ability.SolarPower,
+            Blaze,
+            Blaze,
+            SolarPower,
         },
     };
     public static SpeciesData Charmeleon = new()
@@ -190,9 +191,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Blaze,
-            Ability.Blaze,
-            Ability.SolarPower,
+            Blaze,
+            Blaze,
+            SolarPower,
         },
     };
     public static SpeciesData Charizard = new()
@@ -223,9 +224,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Blaze,
-            Ability.Blaze,
-            Ability.SolarPower,
+            Blaze,
+            Blaze,
+            SolarPower,
         },
     };
     public static SpeciesData Squirtle = new()
@@ -256,9 +257,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Torrent,
-            Ability.Torrent,
-            Ability.RainDish,
+            Torrent,
+            Torrent,
+            RainDish,
         },
     };
     public static SpeciesData Wartortle = new()
@@ -289,9 +290,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Torrent,
-            Ability.Torrent,
-            Ability.RainDish,
+            Torrent,
+            Torrent,
+            RainDish,
         },
     };
     public static SpeciesData Blastoise = new()
@@ -322,9 +323,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Torrent,
-            Ability.Torrent,
-            Ability.RainDish,
+            Torrent,
+            Torrent,
+            RainDish,
         },
     };
     public static SpeciesData Caterpie = new()
@@ -355,9 +356,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShieldDust,
-            Ability.ShieldDust,
-            Ability.RunAway,
+            ShieldDust,
+            ShieldDust,
+            RunAway,
         },
     };
     public static SpeciesData Metapod = new()
@@ -388,9 +389,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShedSkin,
-            Ability.ShedSkin,
-            Ability.ShedSkin,
+            ShedSkin,
+            ShedSkin,
+            ShedSkin,
         },
     };
     public static SpeciesData Butterfree = new()
@@ -421,9 +422,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.CompoundEyes,
-            Ability.CompoundEyes,
-            Ability.TintedLens,
+            CompoundEyes,
+            CompoundEyes,
+            TintedLens,
         },
     };
     public static SpeciesData Weedle = new()
@@ -454,9 +455,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShieldDust,
-            Ability.ShieldDust,
-            Ability.RunAway,
+            ShieldDust,
+            ShieldDust,
+            RunAway,
         },
     };
     public static SpeciesData Kakuna = new()
@@ -487,9 +488,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShedSkin,
-            Ability.ShedSkin,
-            Ability.ShedSkin,
+            ShedSkin,
+            ShedSkin,
+            ShedSkin,
         },
     };
     public static SpeciesData Beedrill = new()
@@ -520,9 +521,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Swarm,
-            Ability.Swarm,
-            Ability.Sniper,
+            Swarm,
+            Swarm,
+            Sniper,
         },
     };
     public static SpeciesData Pidgey = new()
@@ -553,9 +554,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.KeenEye,
-            Ability.TangledFeet,
-            Ability.BigPecks,
+            KeenEye,
+            TangledFeet,
+            BigPecks,
         },
     };
     public static SpeciesData Pidgeotto = new()
@@ -586,9 +587,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.KeenEye,
-            Ability.TangledFeet,
-            Ability.BigPecks,
+            KeenEye,
+            TangledFeet,
+            BigPecks,
         },
     };
     public static SpeciesData Pidgeot = new()
@@ -619,9 +620,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.KeenEye,
-            Ability.TangledFeet,
-            Ability.BigPecks,
+            KeenEye,
+            TangledFeet,
+            BigPecks,
         },
     };
     public static SpeciesData Rattata = new()
@@ -652,9 +653,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RunAway,
-            Ability.Guts,
-            Ability.Hustle,
+            RunAway,
+            Guts,
+            Hustle,
         },
     };
     public static SpeciesData Raticate = new()
@@ -685,9 +686,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RunAway,
-            Ability.Guts,
-            Ability.Hustle,
+            RunAway,
+            Guts,
+            Hustle,
         },
     };
     public static SpeciesData Spearow = new()
@@ -717,9 +718,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.KeenEye,
-            Ability.KeenEye,
-            Ability.Sniper,
+            KeenEye,
+            KeenEye,
+            Sniper,
         },
     };
     public static SpeciesData Fearow = new()
@@ -750,9 +751,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.KeenEye,
-            Ability.KeenEye,
-            Ability.Sniper,
+            KeenEye,
+            KeenEye,
+            Sniper,
         },
     };
     public static SpeciesData Ekans = new()
@@ -783,9 +784,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Intimidate,
-            Ability.ShedSkin,
-            Ability.Unnerve,
+            Intimidate,
+            ShedSkin,
+            Unnerve,
         },
     };
     public static SpeciesData Arbok = new()
@@ -816,9 +817,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Intimidate,
-            Ability.ShedSkin,
-            Ability.Unnerve,
+            Intimidate,
+            ShedSkin,
+            Unnerve,
         },
     };
     public static SpeciesData Pikachu = new()
@@ -849,9 +850,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Static,
-            Ability.Static,
-            Ability.LightningRod,
+            Static,
+            Static,
+            LightningRod,
         },
     };
     public static SpeciesData Raichu = new()
@@ -882,9 +883,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Static,
-            Ability.Static,
-            Ability.LightningRod,
+            Static,
+            Static,
+            LightningRod,
         },
     };
     public static SpeciesData Sandshrew = new()
@@ -915,9 +916,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SandVeil,
-            Ability.SandVeil,
-            Ability.SandRush,
+            SandVeil,
+            SandVeil,
+            SandRush,
         },
     };
     public static SpeciesData Sandslash = new()
@@ -948,9 +949,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SandVeil,
-            Ability.SandVeil,
-            Ability.SandRush,
+            SandVeil,
+            SandVeil,
+            SandRush,
         },
     };
     public static SpeciesData NidoranF = new()
@@ -981,9 +982,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.PoisonPoint,
-            Ability.Rivalry,
-            Ability.Hustle,
+            PoisonPoint,
+            Rivalry,
+            Hustle,
         },
 
     };
@@ -1015,9 +1016,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.PoisonPoint,
-                Ability.Rivalry,
-                Ability.Hustle,
+                PoisonPoint,
+                Rivalry,
+                Hustle,
         },
     };
     public static SpeciesData Nidoqueen = new()
@@ -1048,9 +1049,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.PoisonPoint,
-                Ability.Rivalry,
-                Ability.SheerForce,
+                PoisonPoint,
+                Rivalry,
+                SheerForce,
         },
     };
     public static SpeciesData NidoranM = new()
@@ -1081,9 +1082,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.PoisonPoint,
-                Ability.Rivalry,
-                Ability.Hustle,
+                PoisonPoint,
+                Rivalry,
+                Hustle,
         },
     };
     public static SpeciesData Nidorino = new()
@@ -1114,9 +1115,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.PoisonPoint,
-                Ability.Rivalry,
-                Ability.Hustle,
+                PoisonPoint,
+                Rivalry,
+                Hustle,
         },
     };
     public static SpeciesData Nidoking = new()
@@ -1147,9 +1148,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.PoisonPoint,
-                Ability.Rivalry,
-                Ability.SheerForce,
+                PoisonPoint,
+                Rivalry,
+                SheerForce,
         },
     };
     public static SpeciesData Clefairy = new()
@@ -1180,9 +1181,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.CuteCharm,
-                Ability.MagicGuard,
-                Ability.FriendGuard,
+                CuteCharm,
+                MagicGuard,
+                FriendGuard,
         },
     };
     public static SpeciesData Clefable = new()
@@ -1213,9 +1214,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.CuteCharm,
-                Ability.MagicGuard,
-                Ability.Unaware,
+                CuteCharm,
+                MagicGuard,
+                Unaware,
         },
     };
     public static SpeciesData Vulpix = new()
@@ -1246,9 +1247,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.FlashFire,
-                Ability.FlashFire,
-                Ability.Drought,
+                FlashFire,
+                FlashFire,
+                Drought,
         },
     };
     public static SpeciesData Ninetales = new()
@@ -1279,9 +1280,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.FlashFire,
-                Ability.FlashFire,
-                Ability.Drought,
+                FlashFire,
+                FlashFire,
+                Drought,
         },
     };
     public static SpeciesData Jigglypuff = new()
@@ -1312,9 +1313,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.CuteCharm,
-                Ability.Competitive,
-                Ability.FriendGuard,
+                CuteCharm,
+                Competitive,
+                FriendGuard,
         },
     };
     public static SpeciesData Wigglytuff = new()
@@ -1345,9 +1346,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.CuteCharm,
-                Ability.Competitive,
-                Ability.Frisk,
+                CuteCharm,
+                Competitive,
+                Frisk,
         },
     };
     public static SpeciesData Zubat = new()
@@ -1378,9 +1379,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.InnerFocus,
-                Ability.InnerFocus,
-                Ability.Infiltrator,
+                InnerFocus,
+                InnerFocus,
+                Infiltrator,
         },
     };
     public static SpeciesData Golbat = new()
@@ -1411,9 +1412,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.InnerFocus,
-                Ability.InnerFocus,
-                Ability.Infiltrator,
+                InnerFocus,
+                InnerFocus,
+                Infiltrator,
         },
     };
     public static SpeciesData Oddish = new()
@@ -1444,9 +1445,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Chlorophyll,
-                Ability.Chlorophyll,
-                Ability.RunAway,
+                Chlorophyll,
+                Chlorophyll,
+                RunAway,
         },
     };
     public static SpeciesData Gloom = new()
@@ -1477,9 +1478,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Chlorophyll,
-                Ability.Chlorophyll,
-                Ability.Stench,
+                Chlorophyll,
+                Chlorophyll,
+                Stench,
         },
     };
     public static SpeciesData Vileplume = new()
@@ -1510,9 +1511,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Chlorophyll,
-                Ability.Chlorophyll,
-                Ability.EffectSpore,
+                Chlorophyll,
+                Chlorophyll,
+                EffectSpore,
         },
     };
     public static SpeciesData Paras = new()
@@ -1543,9 +1544,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.EffectSpore,
-                Ability.DrySkin,
-                Ability.Damp,
+                EffectSpore,
+                DrySkin,
+                Damp,
         },
     };
     public static SpeciesData Parasect = new()
@@ -1576,9 +1577,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.EffectSpore,
-                Ability.DrySkin,
-                Ability.Damp,
+                EffectSpore,
+                DrySkin,
+                Damp,
         },
     };
     public static SpeciesData Venonat = new()
@@ -1609,9 +1610,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.CompoundEyes,
-                Ability.TintedLens,
-                Ability.RunAway,
+                CompoundEyes,
+                TintedLens,
+                RunAway,
         },
     };
     public static SpeciesData Venomoth = new()
@@ -1642,9 +1643,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.ShieldDust,
-                Ability.TintedLens,
-                Ability.WonderSkin,
+                ShieldDust,
+                TintedLens,
+                WonderSkin,
         },
     };
     public static SpeciesData Diglett = new()
@@ -1675,9 +1676,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.SandVeil,
-                Ability.ArenaTrap,
-                Ability.SandForce,
+                SandVeil,
+                ArenaTrap,
+                SandForce,
         },
     };
     public static SpeciesData Dugtrio = new()
@@ -1708,9 +1709,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.SandVeil,
-                Ability.ArenaTrap,
-                Ability.SandForce,
+                SandVeil,
+                ArenaTrap,
+                SandForce,
         },
     };
     public static SpeciesData Meowth = new()
@@ -1741,9 +1742,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Pickup,
-                Ability.Technician,
-                Ability.Unnerve,
+                Pickup,
+                Technician,
+                Unnerve,
         },
     };
     public static SpeciesData Persian = new()
@@ -1774,9 +1775,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Limber,
-                Ability.Technician,
-                Ability.Unnerve,
+                Limber,
+                Technician,
+                Unnerve,
         },
     };
     public static SpeciesData Psyduck = new()
@@ -1807,9 +1808,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Damp,
-                Ability.CloudNine,
-                Ability.SwiftSwim,
+                Damp,
+                CloudNine,
+                SwiftSwim,
         },
     };
     public static SpeciesData Golduck = new()
@@ -1840,9 +1841,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Damp,
-                Ability.CloudNine,
-                Ability.SwiftSwim,
+                Damp,
+                CloudNine,
+                SwiftSwim,
         },
     };
     public static SpeciesData Mankey = new()
@@ -1873,9 +1874,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.VitalSpirit,
-                Ability.AngerPoint,
-                Ability.Defiant,
+                VitalSpirit,
+                AngerPoint,
+                Defiant,
         },
     };
     public static SpeciesData Primeape = new()
@@ -1906,9 +1907,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.VitalSpirit,
-                Ability.AngerPoint,
-                Ability.Defiant,
+                VitalSpirit,
+                AngerPoint,
+                Defiant,
         },
     };
     public static SpeciesData Growlithe = new()
@@ -1939,9 +1940,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Intimidate,
-                Ability.FlashFire,
-                Ability.Justified,
+                Intimidate,
+                FlashFire,
+                Justified,
         },
     };
     public static SpeciesData Arcanine = new()
@@ -1972,9 +1973,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Intimidate,
-                Ability.FlashFire,
-                Ability.Justified,
+                Intimidate,
+                FlashFire,
+                Justified,
         },
     };
     public static SpeciesData Poliwag = new()
@@ -2005,9 +2006,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.WaterAbsorb,
-                Ability.Damp,
-                Ability.SwiftSwim,
+                WaterAbsorb,
+                Damp,
+                SwiftSwim,
         },
     };
     public static SpeciesData Poliwhirl = new()
@@ -2038,9 +2039,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.WaterAbsorb,
-                Ability.Damp,
-                Ability.SwiftSwim,
+                WaterAbsorb,
+                Damp,
+                SwiftSwim,
         },
     };
     public static SpeciesData Poliwrath = new()
@@ -2071,9 +2072,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.WaterAbsorb,
-                Ability.Damp,
-                Ability.SwiftSwim,
+                WaterAbsorb,
+                Damp,
+                SwiftSwim,
         },
     };
     public static SpeciesData Abra = new()
@@ -2104,9 +2105,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Synchronize,
-                Ability.InnerFocus,
-                Ability.MagicGuard,
+                Synchronize,
+                InnerFocus,
+                MagicGuard,
         },
     };
     public static SpeciesData Kadabra = new()
@@ -2137,9 +2138,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Synchronize,
-                Ability.InnerFocus,
-                Ability.MagicGuard,
+                Synchronize,
+                InnerFocus,
+                MagicGuard,
         },
     };
     public static SpeciesData Alakazam = new()
@@ -2170,9 +2171,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Synchronize,
-                Ability.InnerFocus,
-                Ability.MagicGuard,
+                Synchronize,
+                InnerFocus,
+                MagicGuard,
         },
     };
     public static SpeciesData Machop = new()
@@ -2203,9 +2204,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Guts,
-                Ability.NoGuard,
-                Ability.Steadfast,
+                Guts,
+                NoGuard,
+                Steadfast,
         },
     };
     public static SpeciesData Machoke = new()
@@ -2236,9 +2237,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Guts,
-                Ability.NoGuard,
-                Ability.Steadfast,
+                Guts,
+                NoGuard,
+                Steadfast,
         },
     };
     public static SpeciesData Machamp = new()
@@ -2269,9 +2270,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Guts,
-                Ability.NoGuard,
-                Ability.Steadfast,
+                Guts,
+                NoGuard,
+                Steadfast,
         },
     };
     public static SpeciesData Bellsprout = new()
@@ -2302,9 +2303,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Chlorophyll,
-                Ability.Chlorophyll,
-                Ability.Gluttony,
+                Chlorophyll,
+                Chlorophyll,
+                Gluttony,
         },
     };
     public static SpeciesData Weepinbell = new()
@@ -2335,9 +2336,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Chlorophyll,
-                Ability.Chlorophyll,
-                Ability.Gluttony,
+                Chlorophyll,
+                Chlorophyll,
+                Gluttony,
         },
     };
     public static SpeciesData Victreebel = new()
@@ -2368,9 +2369,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Chlorophyll,
-                Ability.Chlorophyll,
-                Ability.Gluttony,
+                Chlorophyll,
+                Chlorophyll,
+                Gluttony,
         },
     };
     public static SpeciesData Tentacool = new()
@@ -2401,9 +2402,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.ClearBody,
-                Ability.LiquidOoze,
-                Ability.RainDish,
+                ClearBody,
+                LiquidOoze,
+                RainDish,
         },
     };
     public static SpeciesData Tentacruel = new()
@@ -2434,9 +2435,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.ClearBody,
-                Ability.LiquidOoze,
-                Ability.RainDish,
+                ClearBody,
+                LiquidOoze,
+                RainDish,
         },
     };
     public static SpeciesData Geodude = new()
@@ -2467,9 +2468,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RockHead,
-                Ability.Sturdy,
-                Ability.SandVeil,
+                RockHead,
+                Sturdy,
+                SandVeil,
         },
     };
     public static SpeciesData Graveler = new()
@@ -2500,9 +2501,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RockHead,
-                Ability.Sturdy,
-                Ability.SandVeil,
+                RockHead,
+                Sturdy,
+                SandVeil,
         },
     };
     public static SpeciesData Golem = new()
@@ -2533,9 +2534,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RockHead,
-                Ability.Sturdy,
-                Ability.SandVeil,
+                RockHead,
+                Sturdy,
+                SandVeil,
         },
     };
     public static SpeciesData Ponyta = new()
@@ -2566,9 +2567,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RunAway,
-                Ability.FlashFire,
-                Ability.FlameBody,
+                RunAway,
+                FlashFire,
+                FlameBody,
         },
     };
     public static SpeciesData Rapidash = new()
@@ -2599,9 +2600,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RunAway,
-                Ability.FlashFire,
-                Ability.FlameBody,
+                RunAway,
+                FlashFire,
+                FlameBody,
         },
     };
     public static SpeciesData Slowpoke = new()
@@ -2632,9 +2633,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Oblivious,
-                Ability.OwnTempo,
-                Ability.Regenerator,
+                Oblivious,
+                OwnTempo,
+                Regenerator,
         },
     };
     public static SpeciesData Slowbro = new()
@@ -2665,9 +2666,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Oblivious,
-                Ability.OwnTempo,
-                Ability.Regenerator,
+                Oblivious,
+                OwnTempo,
+                Regenerator,
         },
     };
     public static SpeciesData Magnemite = new()
@@ -2698,9 +2699,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.MagnetPull,
-                Ability.Sturdy,
-                Ability.Analytic,
+                MagnetPull,
+                Sturdy,
+                Analytic,
         },
     };
     public static SpeciesData Magneton = new()
@@ -2731,9 +2732,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.MagnetPull,
-                Ability.Sturdy,
-                Ability.Analytic,
+                MagnetPull,
+                Sturdy,
+                Analytic,
         },
     };
     public static SpeciesData Farfetchd = new()
@@ -2764,9 +2765,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.KeenEye,
-                Ability.InnerFocus,
-                Ability.Defiant,
+                KeenEye,
+                InnerFocus,
+                Defiant,
         },
     };
     public static SpeciesData Doduo = new()
@@ -2797,9 +2798,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RunAway,
-                Ability.EarlyBird,
-                Ability.TangledFeet,
+                RunAway,
+                EarlyBird,
+                TangledFeet,
         },
     };
     public static SpeciesData Dodrio = new()
@@ -2830,9 +2831,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RunAway,
-                Ability.EarlyBird,
-                Ability.TangledFeet,
+                RunAway,
+                EarlyBird,
+                TangledFeet,
         },
     };
     public static SpeciesData Seel = new()
@@ -2863,9 +2864,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.ThickFat,
-                Ability.Hydration,
-                Ability.IceBody,
+                ThickFat,
+                Hydration,
+                IceBody,
         },
     };
     public static SpeciesData Dewgong = new()
@@ -2896,9 +2897,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.ThickFat,
-                Ability.Hydration,
-                Ability.IceBody,
+                ThickFat,
+                Hydration,
+                IceBody,
         },
     };
     public static SpeciesData Grimer = new()
@@ -2929,9 +2930,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Stench,
-                Ability.StickyHold,
-                Ability.PoisonTouch,
+                Stench,
+                StickyHold,
+                PoisonTouch,
         },
     };
     public static SpeciesData Muk = new()
@@ -2962,9 +2963,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Stench,
-                Ability.StickyHold,
-                Ability.PoisonTouch,
+                Stench,
+                StickyHold,
+                PoisonTouch,
         },
     };
     public static SpeciesData Shellder = new()
@@ -2995,9 +2996,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.ShellArmor,
-                Ability.SkillLink,
-                Ability.Overcoat,
+                ShellArmor,
+                SkillLink,
+                Overcoat,
         },
     };
     public static SpeciesData Cloyster = new()
@@ -3028,9 +3029,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.ShellArmor,
-                Ability.SkillLink,
-                Ability.Overcoat,
+                ShellArmor,
+                SkillLink,
+                Overcoat,
         },
     };
     public static SpeciesData Gastly = new()
@@ -3061,9 +3062,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Levitate,
-                Ability.Levitate,
-                Ability.Levitate,
+                Levitate,
+                Levitate,
+                Levitate,
         },
     };
     public static SpeciesData Haunter = new()
@@ -3093,9 +3094,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Levitate,
-                Ability.Levitate,
-                Ability.Levitate,
+                Levitate,
+                Levitate,
+                Levitate,
         },
     };
     public static SpeciesData Gengar = new()
@@ -3126,9 +3127,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Levitate,
-                Ability.Levitate,
-                Ability.Levitate,
+                Levitate,
+                Levitate,
+                Levitate,
         },
     };
     public static SpeciesData Onix = new()
@@ -3159,9 +3160,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RockHead,
-                Ability.Sturdy,
-                Ability.WeakArmor,
+                RockHead,
+                Sturdy,
+                WeakArmor,
         },
     };
     public static SpeciesData Drowzee = new()
@@ -3192,9 +3193,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Insomnia,
-            Ability.Forewarn,
-            Ability.InnerFocus,
+            Insomnia,
+            Forewarn,
+            InnerFocus,
         },
     };
     public static SpeciesData Hypno = new()
@@ -3225,9 +3226,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Insomnia,
-                Ability.Forewarn,
-                Ability.InnerFocus,
+                Insomnia,
+                Forewarn,
+                InnerFocus,
         },
     };
     public static SpeciesData Krabby = new()
@@ -3258,9 +3259,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.HyperCutter,
-                Ability.ShellArmor,
-                Ability.SheerForce,
+                HyperCutter,
+                ShellArmor,
+                SheerForce,
         },
     };
     public static SpeciesData Kingler = new()
@@ -3291,9 +3292,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.HyperCutter,
-                Ability.ShellArmor,
-                Ability.SheerForce,
+                HyperCutter,
+                ShellArmor,
+                SheerForce,
         },
     };
     public static SpeciesData Voltorb = new()
@@ -3324,9 +3325,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Soundproof,
-                Ability.Static,
-                Ability.Aftermath,
+                Soundproof,
+                Static,
+                Aftermath,
         },
     };
     public static SpeciesData Electrode = new()
@@ -3357,9 +3358,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Soundproof,
-                Ability.Static,
-                Ability.Aftermath,
+                Soundproof,
+                Static,
+                Aftermath,
         },
     };
     public static SpeciesData Exeggcute = new()
@@ -3390,9 +3391,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Chlorophyll,
-                Ability.Chlorophyll,
-                Ability.Harvest,
+                Chlorophyll,
+                Chlorophyll,
+                Harvest,
         },
     };
     public static SpeciesData Exeggutor = new()
@@ -3423,9 +3424,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Chlorophyll,
-                Ability.Chlorophyll,
-                Ability.Harvest,
+                Chlorophyll,
+                Chlorophyll,
+                Harvest,
         },
     };
     public static SpeciesData Cubone = new()
@@ -3456,9 +3457,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RockHead,
-                Ability.LightningRod,
-                Ability.BattleArmor,
+                RockHead,
+                LightningRod,
+                BattleArmor,
         },
     };
     public static SpeciesData Marowak = new()
@@ -3489,9 +3490,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RockHead,
-                Ability.LightningRod,
-                Ability.BattleArmor,
+                RockHead,
+                LightningRod,
+                BattleArmor,
         },
     };
     public static SpeciesData Hitmonlee = new()
@@ -3522,9 +3523,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Limber,
-                Ability.Reckless,
-                Ability.Unburden,
+                Limber,
+                Reckless,
+                Unburden,
         },
     };
     public static SpeciesData Hitmonchan = new()
@@ -3555,9 +3556,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.KeenEye,
-                Ability.IronFist,
-                Ability.InnerFocus,
+                KeenEye,
+                IronFist,
+                InnerFocus,
         },
     };
     public static SpeciesData Lickitung = new()
@@ -3588,9 +3589,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.OwnTempo,
-                Ability.Oblivious,
-                Ability.CloudNine,
+                OwnTempo,
+                Oblivious,
+                CloudNine,
         },
     };
     public static SpeciesData Koffing = new()
@@ -3621,9 +3622,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Levitate,
-                Ability.NeutralizingGas,
-                Ability.Stench,
+                Levitate,
+                NeutralizingGas,
+                Stench,
         },
     };
     public static SpeciesData Weezing = new()
@@ -3654,9 +3655,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Levitate,
-                Ability.NeutralizingGas,
-                Ability.Stench,
+                Levitate,
+                NeutralizingGas,
+                Stench,
         },
     };
     public static SpeciesData Rhyhorn = new()
@@ -3687,9 +3688,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.LightningRod,
-                Ability.RockHead,
-                Ability.Reckless,
+                LightningRod,
+                RockHead,
+                Reckless,
         },
     };
     public static SpeciesData Rhydon = new()
@@ -3720,9 +3721,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.LightningRod,
-                Ability.RockHead,
-                Ability.Reckless,
+                LightningRod,
+                RockHead,
+                Reckless,
         },
     };
     public static SpeciesData Chansey = new()
@@ -3753,9 +3754,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.NaturalCure,
-                Ability.SereneGrace,
-                Ability.Healer,
+                NaturalCure,
+                SereneGrace,
+                Healer,
         },
     };
     public static SpeciesData Tangela = new()
@@ -3786,9 +3787,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Chlorophyll,
-                Ability.LeafGuard,
-                Ability.Regenerator,
+                Chlorophyll,
+                LeafGuard,
+                Regenerator,
         },
     };
     public static SpeciesData Kangaskhan = new()
@@ -3819,9 +3820,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.EarlyBird,
-                Ability.Scrappy,
-                Ability.InnerFocus,
+                EarlyBird,
+                Scrappy,
+                InnerFocus,
         },
     };
     public static SpeciesData Horsea = new()
@@ -3852,9 +3853,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.SwiftSwim,
-                Ability.Sniper,
-                Ability.Damp,
+                SwiftSwim,
+                Sniper,
+                Damp,
         },
     };
     public static SpeciesData Seadra = new()
@@ -3885,9 +3886,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.PoisonPoint,
-                Ability.Sniper,
-                Ability.Damp,
+                PoisonPoint,
+                Sniper,
+                Damp,
         },
     };
     public static SpeciesData Goldeen = new()
@@ -3918,9 +3919,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.SwiftSwim,
-                Ability.WaterVeil,
-                Ability.LightningRod,
+                SwiftSwim,
+                WaterVeil,
+                LightningRod,
         },
     };
     public static SpeciesData Seaking = new()
@@ -3951,9 +3952,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.SwiftSwim,
-                Ability.WaterVeil,
-                Ability.LightningRod,
+                SwiftSwim,
+                WaterVeil,
+                LightningRod,
         },
     };
     public static SpeciesData Staryu = new()
@@ -3984,9 +3985,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Illuminate,
-                Ability.NaturalCure,
-                Ability.Analytic,
+                Illuminate,
+                NaturalCure,
+                Analytic,
         },
     };
     public static SpeciesData Starmie = new()
@@ -4017,9 +4018,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Illuminate,
-                Ability.NaturalCure,
-                Ability.Analytic,
+                Illuminate,
+                NaturalCure,
+                Analytic,
         },
     };
     public static SpeciesData MrMime = new()
@@ -4050,9 +4051,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Soundproof,
-                Ability.Filter,
-                Ability.Technician,
+                Soundproof,
+                Filter,
+                Technician,
         },
     };
     public static SpeciesData Scyther = new()
@@ -4083,9 +4084,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Swarm,
-                Ability.Technician,
-                Ability.Steadfast,
+                Swarm,
+                Technician,
+                Steadfast,
         },
     };
     public static SpeciesData Jynx = new()
@@ -4116,9 +4117,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Oblivious,
-                Ability.Forewarn,
-                Ability.DrySkin,
+                Oblivious,
+                Forewarn,
+                DrySkin,
         },
     };
     public static SpeciesData Electabuzz = new()
@@ -4149,9 +4150,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Static,
-                Ability.Static,
-                Ability.VitalSpirit,
+                Static,
+                Static,
+                VitalSpirit,
         },
     };
     public static SpeciesData Magmar = new()
@@ -4182,9 +4183,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.FlameBody,
-                Ability.FlameBody,
-                Ability.VitalSpirit,
+                FlameBody,
+                FlameBody,
+                VitalSpirit,
         },
     };
     public static SpeciesData Pinsir = new()
@@ -4215,9 +4216,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.HyperCutter,
-                Ability.MoldBreaker,
-                Ability.Moxie,
+                HyperCutter,
+                MoldBreaker,
+                Moxie,
         },
     };
     public static SpeciesData Tauros = new()
@@ -4248,9 +4249,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Intimidate,
-                Ability.AngerPoint,
-                Ability.SheerForce,
+                Intimidate,
+                AngerPoint,
+                SheerForce,
         },
     };
     public static SpeciesData Magikarp = new()
@@ -4281,9 +4282,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.SwiftSwim,
-                Ability.SwiftSwim,
-                Ability.Rattled,
+                SwiftSwim,
+                SwiftSwim,
+                Rattled,
         },
     };
     public static SpeciesData Gyarados = new()
@@ -4314,9 +4315,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Intimidate,
-                Ability.Intimidate,
-                Ability.Moxie,
+                Intimidate,
+                Intimidate,
+                Moxie,
         },
     };
     public static SpeciesData Lapras = new()
@@ -4347,9 +4348,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.WaterAbsorb,
-                Ability.ShellArmor,
-                Ability.Hydration,
+                WaterAbsorb,
+                ShellArmor,
+                Hydration,
         },
     };
     public static SpeciesData Ditto = new()
@@ -4380,9 +4381,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Limber,
-                Ability.Limber,
-                Ability.Imposter,
+                Limber,
+                Limber,
+                Imposter,
         },
     };
     public static SpeciesData Eevee = new()
@@ -4413,9 +4414,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RunAway,
-                Ability.Adaptability,
-                Ability.Anticipation,
+                RunAway,
+                Adaptability,
+                Anticipation,
         },
     };
     public static SpeciesData Vaporeon = new()
@@ -4446,9 +4447,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.WaterAbsorb,
-                Ability.WaterAbsorb,
-                Ability.Hydration,
+                WaterAbsorb,
+                WaterAbsorb,
+                Hydration,
         },
     };
     public static SpeciesData Jolteon = new()
@@ -4479,9 +4480,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.VoltAbsorb,
-                Ability.VoltAbsorb,
-                Ability.QuickFeet,
+                VoltAbsorb,
+                VoltAbsorb,
+                QuickFeet,
         },
     };
     public static SpeciesData Flareon = new()
@@ -4512,9 +4513,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.FlashFire,
-                Ability.FlashFire,
-                Ability.Guts,
+                FlashFire,
+                FlashFire,
+                Guts,
         },
     };
     public static SpeciesData Porygon = new()
@@ -4545,9 +4546,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Trace,
-                Ability.Download,
-                Ability.Analytic,
+                Trace,
+                Download,
+                Analytic,
         },
     };
     public static SpeciesData Omanyte = new()
@@ -4578,9 +4579,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.SwiftSwim,
-                Ability.ShellArmor,
-                Ability.WeakArmor,
+                SwiftSwim,
+                ShellArmor,
+                WeakArmor,
         },
     };
     public static SpeciesData Omastar = new()
@@ -4611,9 +4612,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.SwiftSwim,
-                Ability.ShellArmor,
-                Ability.WeakArmor,
+                SwiftSwim,
+                ShellArmor,
+                WeakArmor,
         },
     };
     public static SpeciesData Kabuto = new()
@@ -4644,9 +4645,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.SwiftSwim,
-                Ability.BattleArmor,
-                Ability.WeakArmor,
+                SwiftSwim,
+                BattleArmor,
+                WeakArmor,
         },
     };
     public static SpeciesData Kabutops = new()
@@ -4677,9 +4678,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.SwiftSwim,
-                Ability.BattleArmor,
-                Ability.WeakArmor,
+                SwiftSwim,
+                BattleArmor,
+                WeakArmor,
         },
     };
     public static SpeciesData Aerodactyl = new()
@@ -4710,9 +4711,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.RockHead,
-                Ability.Pressure,
-                Ability.Unnerve,
+                RockHead,
+                Pressure,
+                Unnerve,
         },
     };
     public static SpeciesData Snorlax = new()
@@ -4743,9 +4744,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Immunity,
-                Ability.ThickFat,
-                Ability.Gluttony,
+                Immunity,
+                ThickFat,
+                Gluttony,
         },
     };
     public static SpeciesData Articuno = new()
@@ -4776,9 +4777,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Pressure,
-                Ability.Pressure,
-                Ability.SnowCloak,
+                Pressure,
+                Pressure,
+                SnowCloak,
         },
     };
     public static SpeciesData Zapdos = new()
@@ -4809,9 +4810,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Pressure,
-                Ability.Pressure,
-                Ability.LightningRod,
+                Pressure,
+                Pressure,
+                LightningRod,
         },
     };
     public static SpeciesData Moltres = new()
@@ -4842,9 +4843,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Pressure,
-                Ability.Pressure,
-                Ability.FlameBody,
+                Pressure,
+                Pressure,
+                FlameBody,
         },
     };
     public static SpeciesData Dratini = new()
@@ -4875,9 +4876,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.ShedSkin,
-                Ability.ShedSkin,
-                Ability.MarvelScale,
+                ShedSkin,
+                ShedSkin,
+                MarvelScale,
         },
     };
     public static SpeciesData Dragonair = new()
@@ -4908,9 +4909,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.ShedSkin,
-                Ability.ShedSkin,
-                Ability.MarvelScale,
+                ShedSkin,
+                ShedSkin,
+                MarvelScale,
         },
     };
     public static SpeciesData Dragonite = new()
@@ -4941,9 +4942,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.InnerFocus,
-                Ability.InnerFocus,
-                Ability.Multiscale,
+                InnerFocus,
+                InnerFocus,
+                Multiscale,
         },
     };
     public static SpeciesData Mewtwo = new()
@@ -4974,9 +4975,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Pressure,
-                Ability.Pressure,
-                Ability.Unnerve,
+                Pressure,
+                Pressure,
+                Unnerve,
         },
     };
     public static SpeciesData Mew = new()
@@ -5007,9 +5008,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Ability.Synchronize,
-                Ability.Synchronize,
-                Ability.Synchronize,
+                Synchronize,
+                Synchronize,
+                Synchronize,
         },
     };
     public static SpeciesData Chikorita = new()
@@ -5040,9 +5041,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
     {
-            Ability.Overgrow,
-            Ability.Overgrow,
-            Ability.LeafGuard,
+            Overgrow,
+            Overgrow,
+            LeafGuard,
     },
     };
     public static SpeciesData Bayleef = new()
@@ -5073,9 +5074,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Overgrow,
-            Ability.Overgrow,
-            Ability.LeafGuard,
+            Overgrow,
+            Overgrow,
+            LeafGuard,
         },
     };
     public static SpeciesData Meganium = new()
@@ -5106,9 +5107,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Overgrow,
-            Ability.Overgrow,
-            Ability.LeafGuard,
+            Overgrow,
+            Overgrow,
+            LeafGuard,
         },
     };
     public static SpeciesData Cyndaquil = new()
@@ -5139,9 +5140,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Blaze,
-            Ability.Blaze,
-            Ability.FlashFire,
+            Blaze,
+            Blaze,
+            FlashFire,
         },
     };
     public static SpeciesData Quilava = new()
@@ -5172,9 +5173,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Blaze,
-            Ability.Blaze,
-            Ability.FlashFire,
+            Blaze,
+            Blaze,
+            FlashFire,
         },
     };
     public static SpeciesData Typhlosion = new()
@@ -5205,9 +5206,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Blaze,
-            Ability.Blaze,
-            Ability.FlashFire,
+            Blaze,
+            Blaze,
+            FlashFire,
         },
     };
     public static SpeciesData Totodile = new()
@@ -5238,9 +5239,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Torrent,
-            Ability.Torrent,
-            Ability.SheerForce,
+            Torrent,
+            Torrent,
+            SheerForce,
         },
     };
     public static SpeciesData Croconaw = new()
@@ -5271,9 +5272,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Torrent,
-            Ability.Torrent,
-            Ability.SheerForce,
+            Torrent,
+            Torrent,
+            SheerForce,
         },
     };
     public static SpeciesData Feraligatr = new()
@@ -5304,9 +5305,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Torrent,
-            Ability.Torrent,
-            Ability.SheerForce,
+            Torrent,
+            Torrent,
+            SheerForce,
         },
     };
     public static SpeciesData Sentret = new()
@@ -5337,9 +5338,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RunAway,
-            Ability.KeenEye,
-            Ability.Frisk,
+            RunAway,
+            KeenEye,
+            Frisk,
         },
     };
     public static SpeciesData Furret = new()
@@ -5370,9 +5371,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RunAway,
-            Ability.KeenEye,
-            Ability.Frisk,
+            RunAway,
+            KeenEye,
+            Frisk,
         },
     };
     public static SpeciesData Hoothoot = new()
@@ -5403,9 +5404,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Insomnia,
-            Ability.KeenEye,
-            Ability.TintedLens,
+            Insomnia,
+            KeenEye,
+            TintedLens,
         },
     };
     public static SpeciesData Noctowl = new()
@@ -5436,9 +5437,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Insomnia,
-            Ability.KeenEye,
-            Ability.TintedLens,
+            Insomnia,
+            KeenEye,
+            TintedLens,
         },
     };
     public static SpeciesData Ledyba = new()
@@ -5469,9 +5470,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Swarm,
-            Ability.EarlyBird,
-            Ability.Rattled,
+            Swarm,
+            EarlyBird,
+            Rattled,
         },
     };
     public static SpeciesData Ledian = new()
@@ -5502,9 +5503,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Swarm,
-            Ability.EarlyBird,
-            Ability.IronFist,
+            Swarm,
+            EarlyBird,
+            IronFist,
         },
     };
     public static SpeciesData Spinarak = new()
@@ -5535,9 +5536,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Swarm,
-            Ability.Insomnia,
-            Ability.Sniper,
+            Swarm,
+            Insomnia,
+            Sniper,
         },
     };
     public static SpeciesData Ariados = new()
@@ -5568,9 +5569,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Swarm,
-            Ability.Insomnia,
-            Ability.Sniper,
+            Swarm,
+            Insomnia,
+            Sniper,
         },
     };
     public static SpeciesData Crobat = new()
@@ -5601,9 +5602,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.InnerFocus,
-            Ability.InnerFocus,
-            Ability.Infiltrator,
+            InnerFocus,
+            InnerFocus,
+            Infiltrator,
         },
     };
     public static SpeciesData Chinchou = new()
@@ -5634,9 +5635,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.VoltAbsorb,
-            Ability.Illuminate,
-            Ability.WaterAbsorb,
+            VoltAbsorb,
+            Illuminate,
+            WaterAbsorb,
         },
     };
     public static SpeciesData Lanturn = new()
@@ -5667,9 +5668,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.VoltAbsorb,
-            Ability.Illuminate,
-            Ability.WaterAbsorb,
+            VoltAbsorb,
+            Illuminate,
+            WaterAbsorb,
         },
     };
 
@@ -5701,9 +5702,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Static,
-            Ability.Static,
-            Ability.LightningRod,
+            Static,
+            Static,
+            LightningRod,
         },
     };
 
@@ -5735,9 +5736,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.CuteCharm,
-            Ability.MagicGuard,
-            Ability.FriendGuard,
+            CuteCharm,
+            MagicGuard,
+            FriendGuard,
         },
     };
     public static SpeciesData Igglybuff = new()
@@ -5768,9 +5769,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.CuteCharm,
-            Ability.Competitive,
-            Ability.FriendGuard,
+            CuteCharm,
+            Competitive,
+            FriendGuard,
         },
     };
     public static SpeciesData Togepi = new()
@@ -5801,9 +5802,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Hustle,
-            Ability.SereneGrace,
-            Ability.SuperLuck,
+            Hustle,
+            SereneGrace,
+            SuperLuck,
         },
     };
     public static SpeciesData Togetic = new()
@@ -5834,9 +5835,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Hustle,
-            Ability.SereneGrace,
-            Ability.SuperLuck,
+            Hustle,
+            SereneGrace,
+            SuperLuck,
         },
     };
     public static SpeciesData Natu = new()
@@ -5867,9 +5868,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Synchronize,
-            Ability.EarlyBird,
-            Ability.MagicBounce,
+            Synchronize,
+            EarlyBird,
+            MagicBounce,
         },
     };
     public static SpeciesData Xatu = new()
@@ -5900,9 +5901,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Synchronize,
-            Ability.EarlyBird,
-            Ability.MagicBounce,
+            Synchronize,
+            EarlyBird,
+            MagicBounce,
         },
     };
     public static SpeciesData Mareep = new()
@@ -5933,9 +5934,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Static,
-            Ability.Static,
-            Ability.Plus,
+            Static,
+            Static,
+            Plus,
         },
     };
     public static SpeciesData Flaaffy = new()
@@ -5966,9 +5967,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Static,
-            Ability.Static,
-            Ability.Plus,
+            Static,
+            Static,
+            Plus,
         },
     };
     public static SpeciesData Ampharos = new()
@@ -5999,9 +6000,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Static,
-            Ability.Static,
-            Ability.Plus,
+            Static,
+            Static,
+            Plus,
         },
     };
     public static SpeciesData Bellossom = new()
@@ -6032,9 +6033,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Chlorophyll,
-            Ability.Chlorophyll,
-            Ability.Healer,
+            Chlorophyll,
+            Chlorophyll,
+            Healer,
         },
     };
     public static SpeciesData Marill = new()
@@ -6065,9 +6066,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.HugePower,
-            Ability.SapSipper,
+            ThickFat,
+            HugePower,
+            SapSipper,
         },
     };
     public static SpeciesData Azumarill = new()
@@ -6098,9 +6099,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.HugePower,
-            Ability.SapSipper,
+            ThickFat,
+            HugePower,
+            SapSipper,
         },
     };
     public static SpeciesData Sudowoodo = new()
@@ -6131,9 +6132,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Sturdy,
-            Ability.RockHead,
-            Ability.Rattled,
+            Sturdy,
+            RockHead,
+            Rattled,
         },
     };
     public static SpeciesData Politoed = new()
@@ -6164,9 +6165,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.WaterAbsorb,
-            Ability.Damp,
-            Ability.Drizzle,
+            WaterAbsorb,
+            Damp,
+            Drizzle,
         },
     };
     public static SpeciesData Hoppip = new()
@@ -6197,9 +6198,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Chlorophyll,
-            Ability.LeafGuard,
-            Ability.Infiltrator,
+            Chlorophyll,
+            LeafGuard,
+            Infiltrator,
         },
     };
     public static SpeciesData Skiploom = new()
@@ -6230,9 +6231,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Chlorophyll,
-            Ability.LeafGuard,
-            Ability.Infiltrator,
+            Chlorophyll,
+            LeafGuard,
+            Infiltrator,
         },
     };
     public static SpeciesData Jumpluff = new()
@@ -6263,9 +6264,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Chlorophyll,
-            Ability.LeafGuard,
-            Ability.Infiltrator,
+            Chlorophyll,
+            LeafGuard,
+            Infiltrator,
         },
     };
     public static SpeciesData Aipom = new()
@@ -6296,9 +6297,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RunAway,
-            Ability.Pickup,
-            Ability.SkillLink,
+            RunAway,
+            Pickup,
+            SkillLink,
         },
     };
     public static SpeciesData Sunkern = new()
@@ -6329,9 +6330,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Chlorophyll,
-            Ability.SolarPower,
-            Ability.EarlyBird,
+            Chlorophyll,
+            SolarPower,
+            EarlyBird,
         },
     };
     public static SpeciesData Sunflora = new()
@@ -6362,9 +6363,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Chlorophyll,
-            Ability.SolarPower,
-            Ability.EarlyBird,
+            Chlorophyll,
+            SolarPower,
+            EarlyBird,
         },
     };
     public static SpeciesData Yanma = new()
@@ -6395,9 +6396,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SpeedBoost,
-            Ability.CompoundEyes,
-            Ability.Frisk,
+            SpeedBoost,
+            CompoundEyes,
+            Frisk,
         },
     };
     public static SpeciesData Wooper = new()
@@ -6428,9 +6429,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Damp,
-            Ability.WaterAbsorb,
-            Ability.Unaware,
+            Damp,
+            WaterAbsorb,
+            Unaware,
         },
     };
     public static SpeciesData Quagsire = new()
@@ -6461,9 +6462,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Damp,
-            Ability.WaterAbsorb,
-            Ability.Unaware,
+            Damp,
+            WaterAbsorb,
+            Unaware,
         },
     };
     public static SpeciesData Espeon = new()
@@ -6494,9 +6495,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Synchronize,
-            Ability.Synchronize,
-            Ability.MagicBounce,
+            Synchronize,
+            Synchronize,
+            MagicBounce,
         },
     };
     public static SpeciesData Umbreon = new()
@@ -6527,9 +6528,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Synchronize,
-            Ability.Synchronize,
-            Ability.InnerFocus,
+            Synchronize,
+            Synchronize,
+            InnerFocus,
         },
     };
     public static SpeciesData Murkrow = new()
@@ -6560,9 +6561,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Insomnia,
-            Ability.SuperLuck,
-            Ability.Prankster,
+            Insomnia,
+            SuperLuck,
+            Prankster,
         },
     };
     public static SpeciesData Slowking = new()
@@ -6593,9 +6594,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Oblivious,
-            Ability.OwnTempo,
-            Ability.Regenerator,
+            Oblivious,
+            OwnTempo,
+            Regenerator,
         },
     };
     public static SpeciesData Misdreavus = new()
@@ -6626,9 +6627,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Unown = new()
@@ -6659,9 +6660,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Wobbuffet = new()
@@ -6692,9 +6693,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShadowTag,
-            Ability.ShadowTag,
-            Ability.Telepathy,
+            ShadowTag,
+            ShadowTag,
+            Telepathy,
         },
     };
     public static SpeciesData Girafarig = new()
@@ -6725,9 +6726,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.InnerFocus,
-            Ability.EarlyBird,
-            Ability.SapSipper,
+            InnerFocus,
+            EarlyBird,
+            SapSipper,
         },
     };
     public static SpeciesData Pineco = new()
@@ -6758,9 +6759,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Sturdy,
-            Ability.Sturdy,
-            Ability.Overcoat,
+            Sturdy,
+            Sturdy,
+            Overcoat,
         },
     };
     public static SpeciesData Forretress = new()
@@ -6791,9 +6792,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Sturdy,
-            Ability.Sturdy,
-            Ability.Overcoat,
+            Sturdy,
+            Sturdy,
+            Overcoat,
         },
     };
     public static SpeciesData Dunsparce = new()
@@ -6824,9 +6825,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SereneGrace,
-            Ability.RunAway,
-            Ability.Rattled,
+            SereneGrace,
+            RunAway,
+            Rattled,
         },
     };
     public static SpeciesData Gligar = new()
@@ -6857,9 +6858,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.HyperCutter,
-            Ability.SandVeil,
-            Ability.Immunity,
+            HyperCutter,
+            SandVeil,
+            Immunity,
         },
     };
     public static SpeciesData Steelix = new()
@@ -6890,9 +6891,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RockHead,
-            Ability.Sturdy,
-            Ability.SheerForce,
+            RockHead,
+            Sturdy,
+            SheerForce,
         },
     };
     public static SpeciesData Snubbull = new()
@@ -6923,9 +6924,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Intimidate,
-            Ability.RunAway,
-            Ability.Rattled,
+            Intimidate,
+            RunAway,
+            Rattled,
         },
     };
     public static SpeciesData Granbull = new()
@@ -6956,9 +6957,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Intimidate,
-            Ability.QuickFeet,
-            Ability.Rattled,
+            Intimidate,
+            QuickFeet,
+            Rattled,
         },
     };
     public static SpeciesData Qwilfish = new()
@@ -6989,9 +6990,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.PoisonPoint,
-            Ability.SwiftSwim,
-            Ability.Intimidate,
+            PoisonPoint,
+            SwiftSwim,
+            Intimidate,
         },
     };
     public static SpeciesData Scizor = new()
@@ -7022,9 +7023,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Swarm,
-            Ability.Technician,
-            Ability.LightMetal,
+            Swarm,
+            Technician,
+            LightMetal,
         },
     };
     public static SpeciesData Shuckle = new()
@@ -7055,9 +7056,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Sturdy,
-            Ability.Gluttony,
-            Ability.Contrary,
+            Sturdy,
+            Gluttony,
+            Contrary,
         },
     };
     public static SpeciesData Heracross = new()
@@ -7088,9 +7089,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Swarm,
-            Ability.Guts,
-            Ability.Moxie,
+            Swarm,
+            Guts,
+            Moxie,
         },
     };
     public static SpeciesData Sneasel = new()
@@ -7121,9 +7122,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.InnerFocus,
-            Ability.KeenEye,
-            Ability.Pickpocket,
+            InnerFocus,
+            KeenEye,
+            Pickpocket,
         },
     };
     public static SpeciesData Teddiursa = new()
@@ -7154,9 +7155,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pickup,
-            Ability.QuickFeet,
-            Ability.HoneyGather,
+            Pickup,
+            QuickFeet,
+            HoneyGather,
         },
     };
     public static SpeciesData Ursaring = new()
@@ -7187,9 +7188,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Guts,
-            Ability.QuickFeet,
-            Ability.Unnerve,
+            Guts,
+            QuickFeet,
+            Unnerve,
         },
     };
     public static SpeciesData Slugma = new()
@@ -7220,9 +7221,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.MagmaArmor,
-            Ability.FlameBody,
-            Ability.WeakArmor,
+            MagmaArmor,
+            FlameBody,
+            WeakArmor,
         },
     };
     public static SpeciesData Magcargo = new()
@@ -7253,9 +7254,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.MagmaArmor,
-            Ability.FlameBody,
-            Ability.WeakArmor,
+            MagmaArmor,
+            FlameBody,
+            WeakArmor,
         },
     };
     public static SpeciesData Swinub = new()
@@ -7286,9 +7287,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Oblivious,
-            Ability.SnowCloak,
-            Ability.ThickFat,
+            Oblivious,
+            SnowCloak,
+            ThickFat,
         },
     };
     public static SpeciesData Piloswine = new()
@@ -7319,9 +7320,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Oblivious,
-            Ability.SnowCloak,
-            Ability.ThickFat,
+            Oblivious,
+            SnowCloak,
+            ThickFat,
         },
     };
     public static SpeciesData Corsola = new()
@@ -7352,9 +7353,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Hustle,
-            Ability.NaturalCure,
-            Ability.Regenerator,
+            Hustle,
+            NaturalCure,
+            Regenerator,
         },
     };
     public static SpeciesData Remoraid = new()
@@ -7385,9 +7386,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Hustle,
-            Ability.Sniper,
-            Ability.Moody,
+            Hustle,
+            Sniper,
+            Moody,
         },
     };
     public static SpeciesData Octillery = new()
@@ -7418,9 +7419,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SuctionCups,
-            Ability.Sniper,
-            Ability.Moody,
+            SuctionCups,
+            Sniper,
+            Moody,
         },
     };
     public static SpeciesData Delibird = new()
@@ -7451,9 +7452,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.VitalSpirit,
-            Ability.Hustle,
-            Ability.Insomnia,
+            VitalSpirit,
+            Hustle,
+            Insomnia,
         },
     };
     public static SpeciesData Mantine = new()
@@ -7484,9 +7485,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.WaterAbsorb,
-            Ability.WaterVeil,
+            SwiftSwim,
+            WaterAbsorb,
+            WaterVeil,
         },
     };
     public static SpeciesData Skarmory = new()
@@ -7517,9 +7518,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.KeenEye,
-            Ability.Sturdy,
-            Ability.WeakArmor,
+            KeenEye,
+            Sturdy,
+            WeakArmor,
         },
     };
     public static SpeciesData Houndour = new()
@@ -7550,9 +7551,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.EarlyBird,
-            Ability.FlashFire,
-            Ability.Unnerve,
+            EarlyBird,
+            FlashFire,
+            Unnerve,
         },
     };
     public static SpeciesData Houndoom = new()
@@ -7583,9 +7584,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.EarlyBird,
-            Ability.FlashFire,
-            Ability.Unnerve,
+            EarlyBird,
+            FlashFire,
+            Unnerve,
         },
     };
     public static SpeciesData Kingdra = new()
@@ -7616,9 +7617,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.Sniper,
-            Ability.Damp,
+            SwiftSwim,
+            Sniper,
+            Damp,
         },
     };
     public static SpeciesData Phanpy = new()
@@ -7649,9 +7650,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pickup,
-            Ability.Pickup,
-            Ability.SandVeil,
+            Pickup,
+            Pickup,
+            SandVeil,
         },
     };
     public static SpeciesData Donphan = new()
@@ -7682,9 +7683,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Sturdy,
-            Ability.Sturdy,
-            Ability.SandVeil,
+            Sturdy,
+            Sturdy,
+            SandVeil,
         },
     };
     public static SpeciesData Porygon2 = new()
@@ -7715,9 +7716,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Trace,
-            Ability.Download,
-            Ability.Analytic,
+            Trace,
+            Download,
+            Analytic,
         },
     };
     public static SpeciesData Stantler = new()
@@ -7748,9 +7749,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Intimidate,
-            Ability.Frisk,
-            Ability.SapSipper,
+            Intimidate,
+            Frisk,
+            SapSipper,
         },
     };
     public static SpeciesData Smeargle = new()
@@ -7781,9 +7782,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.OwnTempo,
-            Ability.Technician,
-            Ability.Moody,
+            OwnTempo,
+            Technician,
+            Moody,
         },
     };
     public static SpeciesData Tyrogue = new()
@@ -7814,9 +7815,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Guts,
-            Ability.Steadfast,
-            Ability.VitalSpirit,
+            Guts,
+            Steadfast,
+            VitalSpirit,
         },
     };
     public static SpeciesData Hitmontop = new()
@@ -7847,9 +7848,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Intimidate,
-            Ability.Technician,
-            Ability.Steadfast,
+            Intimidate,
+            Technician,
+            Steadfast,
         },
     };
     public static SpeciesData Smoochum = new()
@@ -7880,9 +7881,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Oblivious,
-            Ability.Forewarn,
-            Ability.Hydration,
+            Oblivious,
+            Forewarn,
+            Hydration,
         },
     };
     public static SpeciesData Elekid = new()
@@ -7913,9 +7914,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Static,
-            Ability.Static,
-            Ability.VitalSpirit,
+            Static,
+            Static,
+            VitalSpirit,
         },
     };
     public static SpeciesData Magby = new()
@@ -7946,9 +7947,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.FlameBody,
-            Ability.FlameBody,
-            Ability.VitalSpirit,
+            FlameBody,
+            FlameBody,
+            VitalSpirit,
         },
     };
     public static SpeciesData Miltank = new()
@@ -7979,9 +7980,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.Scrappy,
-            Ability.SapSipper,
+            ThickFat,
+            Scrappy,
+            SapSipper,
         },
     };
     public static SpeciesData Blissey = new()
@@ -8012,9 +8013,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.NaturalCure,
-            Ability.SereneGrace,
-            Ability.Healer,
+            NaturalCure,
+            SereneGrace,
+            Healer,
         },
     };
     public static SpeciesData Raikou = new()
@@ -8045,9 +8046,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pressure,
-            Ability.Pressure,
-            Ability.VoltAbsorb,
+            Pressure,
+            Pressure,
+            VoltAbsorb,
         },
     };
     public static SpeciesData Entei = new()
@@ -8078,9 +8079,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pressure,
-            Ability.Pressure,
-            Ability.FlashFire,
+            Pressure,
+            Pressure,
+            FlashFire,
         },
     };
     public static SpeciesData Suicune = new()
@@ -8111,9 +8112,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pressure,
-            Ability.Pressure,
-            Ability.WaterAbsorb,
+            Pressure,
+            Pressure,
+            WaterAbsorb,
         },
     };
     public static SpeciesData Larvitar = new()
@@ -8144,9 +8145,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Guts,
-            Ability.Guts,
-            Ability.SandVeil,
+            Guts,
+            Guts,
+            SandVeil,
         },
     };
     public static SpeciesData Pupitar = new()
@@ -8177,9 +8178,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShedSkin,
-            Ability.ShedSkin,
-            Ability.ShedSkin,
+            ShedSkin,
+            ShedSkin,
+            ShedSkin,
         },
     };
     public static SpeciesData Tyranitar = new()
@@ -8210,9 +8211,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SandStream,
-            Ability.SandStream,
-            Ability.Unnerve,
+            SandStream,
+            SandStream,
+            Unnerve,
         },
     };
     public static SpeciesData Lugia = new()
@@ -8243,9 +8244,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pressure,
-            Ability.Pressure,
-            Ability.Multiscale,
+            Pressure,
+            Pressure,
+            Multiscale,
         },
     };
     public static SpeciesData HoOh = new()
@@ -8276,9 +8277,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pressure,
-            Ability.Pressure,
-            Ability.Regenerator,
+            Pressure,
+            Pressure,
+            Regenerator,
         },
 
     };
@@ -8310,9 +8311,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.NaturalCure,
-            Ability.NaturalCure,
-            Ability.NaturalCure,
+            NaturalCure,
+            NaturalCure,
+            NaturalCure,
         },
     };
 
@@ -8344,9 +8345,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Overgrow,
-            Ability.Overgrow,
-            Ability.Unburden,
+            Overgrow,
+            Overgrow,
+            Unburden,
         },
     };
     public static SpeciesData Grovyle = new()
@@ -8377,9 +8378,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Overgrow,
-            Ability.Overgrow,
-            Ability.Unburden,
+            Overgrow,
+            Overgrow,
+            Unburden,
         },
     };
     public static SpeciesData Sceptile = new()
@@ -8410,9 +8411,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Overgrow,
-            Ability.Overgrow,
-            Ability.Unburden,
+            Overgrow,
+            Overgrow,
+            Unburden,
         },
     };
     public static SpeciesData Torchic = new()
@@ -8443,9 +8444,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Blaze,
-            Ability.Blaze,
-            Ability.SpeedBoost,
+            Blaze,
+            Blaze,
+            SpeedBoost,
         },
     };
     public static SpeciesData Combusken = new()
@@ -8476,9 +8477,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Blaze,
-            Ability.Blaze,
-            Ability.SpeedBoost,
+            Blaze,
+            Blaze,
+            SpeedBoost,
         },
     };
     public static SpeciesData Blaziken = new()
@@ -8509,9 +8510,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Blaze,
-            Ability.Blaze,
-            Ability.SpeedBoost,
+            Blaze,
+            Blaze,
+            SpeedBoost,
         },
     };
     public static SpeciesData Mudkip = new()
@@ -8542,9 +8543,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Torrent,
-            Ability.Torrent,
-            Ability.Damp,
+            Torrent,
+            Torrent,
+            Damp,
         },
     };
     public static SpeciesData Marshtomp = new()
@@ -8575,9 +8576,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Torrent,
-            Ability.Torrent,
-            Ability.Damp,
+            Torrent,
+            Torrent,
+            Damp,
         },
     };
     public static SpeciesData Swampert = new()
@@ -8608,9 +8609,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Torrent,
-            Ability.Torrent,
-            Ability.Damp,
+            Torrent,
+            Torrent,
+            Damp,
         },
     };
     public static SpeciesData Poochyena = new()
@@ -8641,9 +8642,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RunAway,
-            Ability.QuickFeet,
-            Ability.Rattled,
+            RunAway,
+            QuickFeet,
+            Rattled,
         },
     };
     public static SpeciesData Mightyena = new()
@@ -8674,9 +8675,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Intimidate,
-            Ability.QuickFeet,
-            Ability.Moxie,
+            Intimidate,
+            QuickFeet,
+            Moxie,
         },
     };
     public static SpeciesData Zigzagoon = new()
@@ -8707,9 +8708,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pickup,
-            Ability.Gluttony,
-            Ability.QuickFeet,
+            Pickup,
+            Gluttony,
+            QuickFeet,
         },
     };
     public static SpeciesData Linoone = new()
@@ -8740,9 +8741,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pickup,
-            Ability.Gluttony,
-            Ability.QuickFeet,
+            Pickup,
+            Gluttony,
+            QuickFeet,
         },
     };
     public static SpeciesData Wurmple = new()
@@ -8773,9 +8774,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShieldDust,
-            Ability.ShieldDust,
-            Ability.RunAway,
+            ShieldDust,
+            ShieldDust,
+            RunAway,
         },
     };
     public static SpeciesData Silcoon = new()
@@ -8806,9 +8807,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShedSkin,
-            Ability.ShedSkin,
-            Ability.ShedSkin,
+            ShedSkin,
+            ShedSkin,
+            ShedSkin,
         },
     };
     public static SpeciesData Beautifly = new()
@@ -8839,9 +8840,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Swarm,
-            Ability.Swarm,
-            Ability.Rivalry,
+            Swarm,
+            Swarm,
+            Rivalry,
         },
     };
     public static SpeciesData Cascoon = new()
@@ -8872,9 +8873,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShedSkin,
-            Ability.ShedSkin,
-            Ability.ShedSkin,
+            ShedSkin,
+            ShedSkin,
+            ShedSkin,
         },
     };
     public static SpeciesData Dustox = new()
@@ -8905,9 +8906,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShieldDust,
-            Ability.ShieldDust,
-            Ability.CompoundEyes,
+            ShieldDust,
+            ShieldDust,
+            CompoundEyes,
         },
     };
     public static SpeciesData Lotad = new()
@@ -8938,9 +8939,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.RainDish,
-            Ability.OwnTempo,
+            SwiftSwim,
+            RainDish,
+            OwnTempo,
         },
     };
     public static SpeciesData Lombre = new()
@@ -8971,9 +8972,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.RainDish,
-            Ability.OwnTempo,
+            SwiftSwim,
+            RainDish,
+            OwnTempo,
         },
     };
     public static SpeciesData Ludicolo = new()
@@ -9004,9 +9005,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.RainDish,
-            Ability.OwnTempo,
+            SwiftSwim,
+            RainDish,
+            OwnTempo,
         },
     };
     public static SpeciesData Seedot = new()
@@ -9037,9 +9038,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Chlorophyll,
-            Ability.EarlyBird,
-            Ability.Pickpocket,
+            Chlorophyll,
+            EarlyBird,
+            Pickpocket,
         },
     };
     public static SpeciesData Nuzleaf = new()
@@ -9070,9 +9071,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Chlorophyll,
-            Ability.EarlyBird,
-            Ability.Pickpocket,
+            Chlorophyll,
+            EarlyBird,
+            Pickpocket,
         },
     };
     public static SpeciesData Shiftry = new()
@@ -9103,9 +9104,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Chlorophyll,
-            Ability.EarlyBird,
-            Ability.Pickpocket,
+            Chlorophyll,
+            EarlyBird,
+            Pickpocket,
         },
     };
     public static SpeciesData Taillow = new()
@@ -9136,9 +9137,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Guts,
-            Ability.Guts,
-            Ability.Scrappy,
+            Guts,
+            Guts,
+            Scrappy,
         },
     };
     public static SpeciesData Swellow = new()
@@ -9169,9 +9170,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Guts,
-            Ability.Guts,
-            Ability.Scrappy,
+            Guts,
+            Guts,
+            Scrappy,
         },
     };
     public static SpeciesData Wingull = new()
@@ -9202,9 +9203,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.KeenEye,
-            Ability.Hydration,
-            Ability.RainDish,
+            KeenEye,
+            Hydration,
+            RainDish,
         },
     };
     public static SpeciesData Pelipper = new()
@@ -9235,9 +9236,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.KeenEye,
-            Ability.Drizzle,
-            Ability.RainDish,
+            KeenEye,
+            Drizzle,
+            RainDish,
         },
     };
     public static SpeciesData Ralts = new()
@@ -9268,9 +9269,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Synchronize,
-            Ability.Trace,
-            Ability.Telepathy,
+            Synchronize,
+            Trace,
+            Telepathy,
         },
     };
     public static SpeciesData Kirlia = new()
@@ -9301,9 +9302,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Synchronize,
-            Ability.Trace,
-            Ability.Telepathy,
+            Synchronize,
+            Trace,
+            Telepathy,
         },
     };
     public static SpeciesData Gardevoir = new()
@@ -9334,9 +9335,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Synchronize,
-            Ability.Trace,
-            Ability.Telepathy,
+            Synchronize,
+            Trace,
+            Telepathy,
         },
     };
     public static SpeciesData Surskit = new()
@@ -9367,9 +9368,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.SwiftSwim,
-            Ability.RainDish,
+            SwiftSwim,
+            SwiftSwim,
+            RainDish,
         },
     };
     public static SpeciesData Masquerain = new()
@@ -9400,9 +9401,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Intimidate,
-            Ability.Intimidate,
-            Ability.Unnerve,
+            Intimidate,
+            Intimidate,
+            Unnerve,
         },
     };
     public static SpeciesData Shroomish = new()
@@ -9433,9 +9434,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.EffectSpore,
-            Ability.PoisonHeal,
-            Ability.QuickFeet,
+            EffectSpore,
+            PoisonHeal,
+            QuickFeet,
         },
     };
     public static SpeciesData Breloom = new()
@@ -9466,9 +9467,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.EffectSpore,
-            Ability.PoisonHeal,
-            Ability.Technician,
+            EffectSpore,
+            PoisonHeal,
+            Technician,
         },
     };
     public static SpeciesData Slakoth = new()
@@ -9499,9 +9500,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Truant,
-            Ability.Truant,
-            Ability.Truant,
+            Truant,
+            Truant,
+            Truant,
         },
     };
     public static SpeciesData Vigoroth = new()
@@ -9532,9 +9533,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.VitalSpirit,
-            Ability.VitalSpirit,
-            Ability.VitalSpirit,
+            VitalSpirit,
+            VitalSpirit,
+            VitalSpirit,
         },
     };
     public static SpeciesData Slaking = new()
@@ -9565,9 +9566,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Truant,
-            Ability.Truant,
-            Ability.Truant,
+            Truant,
+            Truant,
+            Truant,
         },
     };
     public static SpeciesData Nincada = new()
@@ -9598,9 +9599,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.CompoundEyes,
-            Ability.CompoundEyes,
-            Ability.RunAway,
+            CompoundEyes,
+            CompoundEyes,
+            RunAway,
         },
     };
     public static SpeciesData Ninjask = new()
@@ -9631,9 +9632,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SpeedBoost,
-            Ability.SpeedBoost,
-            Ability.Infiltrator,
+            SpeedBoost,
+            SpeedBoost,
+            Infiltrator,
         },
     };
     public static SpeciesData Shedinja = new()
@@ -9664,9 +9665,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.WonderGuard,
-            Ability.WonderGuard,
-            Ability.WonderGuard,
+            WonderGuard,
+            WonderGuard,
+            WonderGuard,
         },
     };
     public static SpeciesData Whismur = new()
@@ -9697,9 +9698,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Soundproof,
-            Ability.Soundproof,
-            Ability.Rattled,
+            Soundproof,
+            Soundproof,
+            Rattled,
         },
     };
     public static SpeciesData Loudred = new()
@@ -9730,9 +9731,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Soundproof,
-            Ability.Soundproof,
-            Ability.Scrappy,
+            Soundproof,
+            Soundproof,
+            Scrappy,
         },
     };
     public static SpeciesData Exploud = new()
@@ -9763,9 +9764,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Soundproof,
-            Ability.Soundproof,
-            Ability.Scrappy,
+            Soundproof,
+            Soundproof,
+            Scrappy,
         },
     };
     public static SpeciesData Makuhita = new()
@@ -9796,9 +9797,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.Guts,
-            Ability.SheerForce,
+            ThickFat,
+            Guts,
+            SheerForce,
         },
     };
     public static SpeciesData Hariyama = new()
@@ -9829,9 +9830,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.Guts,
-            Ability.SheerForce,
+            ThickFat,
+            Guts,
+            SheerForce,
         },
     };
     public static SpeciesData Azurill = new()
@@ -9862,9 +9863,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.HugePower,
-            Ability.SapSipper,
+            ThickFat,
+            HugePower,
+            SapSipper,
         },
     };
     public static SpeciesData Nosepass = new()
@@ -9895,9 +9896,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Sturdy,
-            Ability.MagnetPull,
-            Ability.SandForce,
+            Sturdy,
+            MagnetPull,
+            SandForce,
         },
     };
     public static SpeciesData Skitty = new()
@@ -9928,9 +9929,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.CuteCharm,
-            Ability.Normalize,
-            Ability.WonderSkin,
+            CuteCharm,
+            Normalize,
+            WonderSkin,
         },
     };
     public static SpeciesData Delcatty = new()
@@ -9961,9 +9962,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.CuteCharm,
-            Ability.Normalize,
-            Ability.WonderSkin,
+            CuteCharm,
+            Normalize,
+            WonderSkin,
         },
     };
     public static SpeciesData Sableye = new()
@@ -9994,9 +9995,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.KeenEye,
-            Ability.Stall,
-            Ability.Prankster,
+            KeenEye,
+            Stall,
+            Prankster,
         },
     };
     public static SpeciesData Mawile = new()
@@ -10027,9 +10028,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.HyperCutter,
-            Ability.Intimidate,
-            Ability.SheerForce,
+            HyperCutter,
+            Intimidate,
+            SheerForce,
         },
     };
     public static SpeciesData Aron = new()
@@ -10060,9 +10061,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Sturdy,
-            Ability.RockHead,
-            Ability.HeavyMetal,
+            Sturdy,
+            RockHead,
+            HeavyMetal,
         },
     };
     public static SpeciesData Lairon = new()
@@ -10093,9 +10094,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Sturdy,
-            Ability.RockHead,
-            Ability.HeavyMetal,
+            Sturdy,
+            RockHead,
+            HeavyMetal,
         },
     };
     public static SpeciesData Aggron = new()
@@ -10126,9 +10127,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Sturdy,
-            Ability.RockHead,
-            Ability.HeavyMetal,
+            Sturdy,
+            RockHead,
+            HeavyMetal,
         },
     };
     public static SpeciesData Meditite = new()
@@ -10159,9 +10160,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.PurePower,
-            Ability.PurePower,
-            Ability.Telepathy,
+            PurePower,
+            PurePower,
+            Telepathy,
         },
     };
     public static SpeciesData Medicham = new()
@@ -10192,9 +10193,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.PurePower,
-            Ability.PurePower,
-            Ability.Telepathy,
+            PurePower,
+            PurePower,
+            Telepathy,
         },
     };
     public static SpeciesData Electrike = new()
@@ -10225,9 +10226,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Static,
-            Ability.LightningRod,
-            Ability.Minus,
+            Static,
+            LightningRod,
+            Minus,
         },
     };
     public static SpeciesData Manectric = new()
@@ -10258,9 +10259,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Static,
-            Ability.LightningRod,
-            Ability.Minus,
+            Static,
+            LightningRod,
+            Minus,
         },
     };
     public static SpeciesData Plusle = new()
@@ -10291,9 +10292,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Plus,
-            Ability.Plus,
-            Ability.LightningRod,
+            Plus,
+            Plus,
+            LightningRod,
         },
     };
     public static SpeciesData Minun = new()
@@ -10324,9 +10325,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Minus,
-            Ability.Minus,
-            Ability.VoltAbsorb,
+            Minus,
+            Minus,
+            VoltAbsorb,
         },
     };
     public static SpeciesData Volbeat = new()
@@ -10357,9 +10358,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Illuminate,
-            Ability.Swarm,
-            Ability.Prankster,
+            Illuminate,
+            Swarm,
+            Prankster,
         },
     };
     public static SpeciesData Illumise = new()
@@ -10390,9 +10391,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Oblivious,
-            Ability.TintedLens,
-            Ability.Prankster,
+            Oblivious,
+            TintedLens,
+            Prankster,
         },
     };
     public static SpeciesData Roselia = new()
@@ -10423,9 +10424,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.NaturalCure,
-            Ability.PoisonPoint,
-            Ability.LeafGuard,
+            NaturalCure,
+            PoisonPoint,
+            LeafGuard,
         },
     };
     public static SpeciesData Gulpin = new()
@@ -10456,9 +10457,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.LiquidOoze,
-            Ability.StickyHold,
-            Ability.Gluttony,
+            LiquidOoze,
+            StickyHold,
+            Gluttony,
         },
     };
     public static SpeciesData Swalot = new()
@@ -10489,9 +10490,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.LiquidOoze,
-            Ability.StickyHold,
-            Ability.Gluttony,
+            LiquidOoze,
+            StickyHold,
+            Gluttony,
         },
     };
     public static SpeciesData Carvanha = new()
@@ -10522,9 +10523,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RoughSkin,
-            Ability.RoughSkin,
-            Ability.SpeedBoost,
+            RoughSkin,
+            RoughSkin,
+            SpeedBoost,
         },
     };
     public static SpeciesData Sharpedo = new()
@@ -10555,9 +10556,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RoughSkin,
-            Ability.RoughSkin,
-            Ability.SpeedBoost,
+            RoughSkin,
+            RoughSkin,
+            SpeedBoost,
         },
     };
     public static SpeciesData Wailmer = new()
@@ -10588,9 +10589,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.WaterVeil,
-            Ability.Oblivious,
-            Ability.Pressure,
+            WaterVeil,
+            Oblivious,
+            Pressure,
         },
     };
     public static SpeciesData Wailord = new()
@@ -10621,9 +10622,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.WaterVeil,
-            Ability.Oblivious,
-            Ability.Pressure,
+            WaterVeil,
+            Oblivious,
+            Pressure,
         },
     };
     public static SpeciesData Numel = new()
@@ -10654,9 +10655,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Oblivious,
-            Ability.Simple,
-            Ability.OwnTempo,
+            Oblivious,
+            Simple,
+            OwnTempo,
         },
     };
     public static SpeciesData Camerupt = new()
@@ -10687,9 +10688,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.MagmaArmor,
-            Ability.SolidRock,
-            Ability.AngerPoint,
+            MagmaArmor,
+            SolidRock,
+            AngerPoint,
         },
     };
     public static SpeciesData Torkoal = new()
@@ -10720,9 +10721,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.WhiteSmoke,
-            Ability.Drought,
-            Ability.ShellArmor,
+            WhiteSmoke,
+            Drought,
+            ShellArmor,
         },
     };
     public static SpeciesData Spoink = new()
@@ -10753,9 +10754,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.OwnTempo,
-            Ability.Gluttony,
+            ThickFat,
+            OwnTempo,
+            Gluttony,
         },
     };
     public static SpeciesData Grumpig = new()
@@ -10786,9 +10787,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.OwnTempo,
-            Ability.Gluttony,
+            ThickFat,
+            OwnTempo,
+            Gluttony,
         },
     };
     public static SpeciesData Spinda = new()
@@ -10819,9 +10820,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.OwnTempo,
-            Ability.TangledFeet,
-            Ability.Contrary,
+            OwnTempo,
+            TangledFeet,
+            Contrary,
         },
     };
     public static SpeciesData Trapinch = new()
@@ -10852,9 +10853,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.HyperCutter,
-            Ability.ArenaTrap,
-            Ability.SheerForce,
+            HyperCutter,
+            ArenaTrap,
+            SheerForce,
         },
     };
     public static SpeciesData Vibrava = new()
@@ -10885,9 +10886,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Flygon = new()
@@ -10918,9 +10919,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Cacnea = new()
@@ -10951,9 +10952,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SandVeil,
-            Ability.SandVeil,
-            Ability.WaterAbsorb,
+            SandVeil,
+            SandVeil,
+            WaterAbsorb,
         },
     };
     public static SpeciesData Cacturne = new()
@@ -10984,9 +10985,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SandVeil,
-            Ability.SandVeil,
-            Ability.WaterAbsorb,
+            SandVeil,
+            SandVeil,
+            WaterAbsorb,
         },
     };
     public static SpeciesData Swablu = new()
@@ -11017,9 +11018,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.NaturalCure,
-            Ability.NaturalCure,
-            Ability.CloudNine,
+            NaturalCure,
+            NaturalCure,
+            CloudNine,
         },
     };
     public static SpeciesData Altaria = new()
@@ -11050,9 +11051,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.NaturalCure,
-            Ability.NaturalCure,
-            Ability.CloudNine,
+            NaturalCure,
+            NaturalCure,
+            CloudNine,
         },
     };
     public static SpeciesData Zangoose = new()
@@ -11083,9 +11084,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Immunity,
-            Ability.Immunity,
-            Ability.ToxicBoost,
+            Immunity,
+            Immunity,
+            ToxicBoost,
         },
     };
     public static SpeciesData Seviper = new()
@@ -11116,9 +11117,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShedSkin,
-            Ability.ShedSkin,
-            Ability.Infiltrator,
+            ShedSkin,
+            ShedSkin,
+            Infiltrator,
         },
     };
     public static SpeciesData Lunatone = new()
@@ -11149,9 +11150,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Solrock = new()
@@ -11182,9 +11183,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Barboach = new()
@@ -11215,9 +11216,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Oblivious,
-            Ability.Anticipation,
-            Ability.Hydration,
+            Oblivious,
+            Anticipation,
+            Hydration,
         },
     };
     public static SpeciesData Whiscash = new()
@@ -11248,9 +11249,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Oblivious,
-            Ability.Anticipation,
-            Ability.Hydration,
+            Oblivious,
+            Anticipation,
+            Hydration,
         },
     };
     public static SpeciesData Corphish = new()
@@ -11281,9 +11282,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.HyperCutter,
-            Ability.ShellArmor,
-            Ability.Adaptability,
+            HyperCutter,
+            ShellArmor,
+            Adaptability,
         },
     };
     public static SpeciesData Crawdaunt = new()
@@ -11314,9 +11315,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.HyperCutter,
-            Ability.ShellArmor,
-            Ability.Adaptability,
+            HyperCutter,
+            ShellArmor,
+            Adaptability,
         },
     };
     public static SpeciesData Baltoy = new()
@@ -11347,9 +11348,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Claydol = new()
@@ -11380,9 +11381,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Lileep = new()
@@ -11413,9 +11414,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SuctionCups,
-            Ability.SuctionCups,
-            Ability.StormDrain,
+            SuctionCups,
+            SuctionCups,
+            StormDrain,
         },
     };
     public static SpeciesData Cradily = new()
@@ -11446,9 +11447,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SuctionCups,
-            Ability.SuctionCups,
-            Ability.StormDrain,
+            SuctionCups,
+            SuctionCups,
+            StormDrain,
         },
     };
     public static SpeciesData Anorith = new()
@@ -11479,9 +11480,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.BattleArmor,
-            Ability.BattleArmor,
-            Ability.SwiftSwim,
+            BattleArmor,
+            BattleArmor,
+            SwiftSwim,
         },
     };
     public static SpeciesData Armaldo = new()
@@ -11512,9 +11513,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.BattleArmor,
-            Ability.BattleArmor,
-            Ability.SwiftSwim,
+            BattleArmor,
+            BattleArmor,
+            SwiftSwim,
         },
     };
     public static SpeciesData Feebas = new()
@@ -11545,9 +11546,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.Oblivious,
-            Ability.Adaptability,
+            SwiftSwim,
+            Oblivious,
+            Adaptability,
         },
     };
     public static SpeciesData Milotic = new()
@@ -11578,9 +11579,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.MarvelScale,
-            Ability.Competitive,
-            Ability.CuteCharm,
+            MarvelScale,
+            Competitive,
+            CuteCharm,
         },
     };
 
@@ -11615,9 +11616,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ColorChange,
-            Ability.ColorChange,
-            Ability.Protean,
+            ColorChange,
+            ColorChange,
+            Protean,
         },
     };
     public static SpeciesData Shuppet = new()
@@ -11648,9 +11649,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Insomnia,
-            Ability.Frisk,
-            Ability.CursedBody,
+            Insomnia,
+            Frisk,
+            CursedBody,
         },
     };
     public static SpeciesData Banette = new()
@@ -11681,9 +11682,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Insomnia,
-            Ability.Frisk,
-            Ability.CursedBody,
+            Insomnia,
+            Frisk,
+            CursedBody,
         },
     };
     public static SpeciesData Duskull = new()
@@ -11714,9 +11715,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Frisk,
+            Levitate,
+            Levitate,
+            Frisk,
         },
     };
     public static SpeciesData Dusclops = new()
@@ -11747,9 +11748,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pressure,
-            Ability.Pressure,
-            Ability.Frisk,
+            Pressure,
+            Pressure,
+            Frisk,
         },
     };
     public static SpeciesData Tropius = new()
@@ -11780,9 +11781,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Chlorophyll,
-            Ability.SolarPower,
-            Ability.Harvest,
+            Chlorophyll,
+            SolarPower,
+            Harvest,
         },
     };
     public static SpeciesData Chimecho = new()
@@ -11813,9 +11814,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Absol = new()
@@ -11846,9 +11847,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Pressure,
-            Ability.SuperLuck,
-            Ability.Justified,
+            Pressure,
+            SuperLuck,
+            Justified,
         },
     };
     public static SpeciesData Wynaut = new()
@@ -11879,9 +11880,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShadowTag,
-            Ability.ShadowTag,
-            Ability.Telepathy,
+            ShadowTag,
+            ShadowTag,
+            Telepathy,
         },
     };
     public static SpeciesData Snorunt = new()
@@ -11912,9 +11913,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.InnerFocus,
-            Ability.IceBody,
-            Ability.Moody,
+            InnerFocus,
+            IceBody,
+            Moody,
         },
     };
     public static SpeciesData Glalie = new()
@@ -11945,9 +11946,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.InnerFocus,
-            Ability.IceBody,
-            Ability.Moody,
+            InnerFocus,
+            IceBody,
+            Moody,
         },
     };
     public static SpeciesData Spheal = new()
@@ -11978,9 +11979,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.IceBody,
-            Ability.Oblivious,
+            ThickFat,
+            IceBody,
+            Oblivious,
         },
     };
     public static SpeciesData Sealeo = new()
@@ -12011,9 +12012,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.IceBody,
-            Ability.Oblivious,
+            ThickFat,
+            IceBody,
+            Oblivious,
         },
     };
     public static SpeciesData Walrein = new()
@@ -12044,9 +12045,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ThickFat,
-            Ability.IceBody,
-            Ability.Oblivious,
+            ThickFat,
+            IceBody,
+            Oblivious,
         },
     };
     public static SpeciesData Clamperl = new()
@@ -12077,9 +12078,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ShellArmor,
-            Ability.ShellArmor,
-            Ability.Rattled,
+            ShellArmor,
+            ShellArmor,
+            Rattled,
         },
     };
     public static SpeciesData Huntail = new()
@@ -12110,9 +12111,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.SwiftSwim,
-            Ability.WaterVeil,
+            SwiftSwim,
+            SwiftSwim,
+            WaterVeil,
         },
     };
     public static SpeciesData Gorebyss = new()
@@ -12143,9 +12144,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.SwiftSwim,
-            Ability.Hydration,
+            SwiftSwim,
+            SwiftSwim,
+            Hydration,
         },
     };
     public static SpeciesData Relicanth = new()
@@ -12176,9 +12177,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.RockHead,
-            Ability.Sturdy,
+            SwiftSwim,
+            RockHead,
+            Sturdy,
         },
     };
     public static SpeciesData Luvdisc = new()
@@ -12209,9 +12210,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SwiftSwim,
-            Ability.SwiftSwim,
-            Ability.Hydration,
+            SwiftSwim,
+            SwiftSwim,
+            Hydration,
         },
     };
     public static SpeciesData Bagon = new()
@@ -12242,9 +12243,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RockHead,
-            Ability.RockHead,
-            Ability.SheerForce,
+            RockHead,
+            RockHead,
+            SheerForce,
         },
     };
     public static SpeciesData Shelgon = new()
@@ -12275,9 +12276,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.RockHead,
-            Ability.RockHead,
-            Ability.Overcoat,
+            RockHead,
+            RockHead,
+            Overcoat,
         },
     };
     public static SpeciesData Salamence = new()
@@ -12308,9 +12309,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Intimidate,
-            Ability.Intimidate,
-            Ability.Moxie,
+            Intimidate,
+            Intimidate,
+            Moxie,
         },
     };
     public static SpeciesData Beldum = new()
@@ -12341,9 +12342,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ClearBody,
-            Ability.ClearBody,
-            Ability.LightMetal,
+            ClearBody,
+            ClearBody,
+            LightMetal,
         },
     };
     public static SpeciesData Metang = new()
@@ -12374,9 +12375,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ClearBody,
-            Ability.ClearBody,
-            Ability.LightMetal,
+            ClearBody,
+            ClearBody,
+            LightMetal,
         },
     };
     public static SpeciesData Metagross = new()
@@ -12407,9 +12408,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ClearBody,
-            Ability.ClearBody,
-            Ability.LightMetal,
+            ClearBody,
+            ClearBody,
+            LightMetal,
         },
     };
     public static SpeciesData Regirock = new()
@@ -12440,9 +12441,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ClearBody,
-            Ability.ClearBody,
-            Ability.Sturdy,
+            ClearBody,
+            ClearBody,
+            Sturdy,
         },
     };
     public static SpeciesData Regice = new()
@@ -12473,9 +12474,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ClearBody,
-            Ability.ClearBody,
-            Ability.IceBody,
+            ClearBody,
+            ClearBody,
+            IceBody,
         },
     };
     public static SpeciesData Registeel = new()
@@ -12506,9 +12507,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.ClearBody,
-            Ability.ClearBody,
-            Ability.LightMetal,
+            ClearBody,
+            ClearBody,
+            LightMetal,
         },
     };
     public static SpeciesData Latias = new()
@@ -12539,9 +12540,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Latios = new()
@@ -12572,9 +12573,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Kyogre = new()
@@ -12605,9 +12606,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Drizzle,
-            Ability.Drizzle,
-            Ability.Drizzle,
+            Drizzle,
+            Drizzle,
+            Drizzle,
         },
     };
     public static SpeciesData Groudon = new()
@@ -12638,9 +12639,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.Drought,
-            Ability.Drought,
-            Ability.Drought,
+            Drought,
+            Drought,
+            Drought,
         },
     };
     public static SpeciesData Rayquaza = new()
@@ -12671,9 +12672,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.AirLock,
-            Ability.AirLock,
-            Ability.AirLock,
+            AirLock,
+            AirLock,
+            AirLock,
         },
     };
     public static SpeciesData Jirachi = new()
@@ -12704,9 +12705,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-            Ability.SereneGrace,
-            Ability.SereneGrace,
-            Ability.SereneGrace,
+            SereneGrace,
+            SereneGrace,
+            SereneGrace,
         },
     };
 
@@ -12739,13 +12740,12 @@ public static class Species
         baseSpeed: 80,
         backSpriteHeight: 8,
         pokedexData: Pokedex.Venusaur, //Not done
-        ability: Ability.ThickFat
+        ability: ThickFat
     );
 
     public static SpeciesData CharizardMegaX = SpeciesData.Mega(
         baseSpecies: Charizard,
         name: "Mega Charizard X",
-        type1: Type.Fire,
         type2: Type.Dragon,
         baseAttack: 130,
         baseDefense: 111,
@@ -12756,7 +12756,7 @@ public static class Species
         graphics: "charizard/mega_x",
         backSpriteHeight: 1,
         pokedexData: Pokedex.Charizard, //Not done
-        ability: Ability.ToughClaws
+        ability: ToughClaws
     );
 
     public static SpeciesData CharizardMegaY= SpeciesData.Mega(
@@ -12771,7 +12771,7 @@ public static class Species
         graphics: "charizard/mega_y",
         backSpriteHeight: 1,
         pokedexData: Pokedex.Charizard, //Not done
-        ability: Ability.Drought
+        ability: Drought
     );
 
     public static SpeciesData BlastoiseMega = SpeciesData.Mega(
@@ -12783,7 +12783,7 @@ public static class Species
         baseSpeed: 78,
         backSpriteHeight: 0,
         pokedexData: Pokedex.Blastoise, //Not done
-        ability: Ability.MegaLauncher
+        ability: MegaLauncher
     );
 
     public static SpeciesData BeedrillMega = SpeciesData.Mega(
@@ -12795,7 +12795,7 @@ public static class Species
         baseSpeed: 145,
         backSpriteHeight: 5,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.Adaptability
+        ability: Adaptability
     );
 
     public static SpeciesData PidgeotMega = SpeciesData.Mega(
@@ -12807,7 +12807,7 @@ public static class Species
         baseSpeed: 121,
         backSpriteHeight: 7,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.NoGuard
+        ability: NoGuard
     );
 
     public static SpeciesData AlakazamMega = SpeciesData.Mega(
@@ -12819,7 +12819,7 @@ public static class Species
         baseSpeed: 150,
         backSpriteHeight: 0,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.Trace
+        ability: Trace
     );
 
     public static SpeciesData SlowbroMega = SpeciesData.Mega(
@@ -12831,7 +12831,7 @@ public static class Species
         baseSpeed: 30,
         backSpriteHeight: 9,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.ShellArmor
+        ability: ShellArmor
     );
 
     public static SpeciesData GengarMega = SpeciesData.Mega(
@@ -12843,7 +12843,7 @@ public static class Species
         baseSpeed: 130,
         backSpriteHeight: 0,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.ShadowTag
+        ability: ShadowTag
     );
 
     public static SpeciesData KangaskhanMega = SpeciesData.Mega(
@@ -12855,7 +12855,7 @@ public static class Species
         baseSpeed: 100,
         backSpriteHeight: 6,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.ParentalBond
+        ability: ParentalBond
     );
 
     public static SpeciesData PinsirMega = SpeciesData.Mega(
@@ -12868,7 +12868,7 @@ public static class Species
         baseSpeed: 105,
         backSpriteHeight: 7,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.Aerilate
+        ability: Aerilate
     );
 
     public static SpeciesData GyaradosMega = SpeciesData.Mega(
@@ -12881,7 +12881,7 @@ public static class Species
         baseSpeed: 81,
         backSpriteHeight: 2,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.MoldBreaker
+        ability: MoldBreaker
     );
 
     public static SpeciesData AerodactylMega = SpeciesData.Mega(
@@ -12893,7 +12893,7 @@ public static class Species
         baseSpeed: 150,
         backSpriteHeight: 8,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.ToughClaws
+        ability: ToughClaws
     );
 
     public static SpeciesData MewtwoMegaX = SpeciesData.Mega(
@@ -12909,7 +12909,7 @@ public static class Species
         cry: "mega_mewtwo_x",
         graphics: "mewtwo/mega_x",
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.Steadfast
+        ability: Steadfast
      );
 
     public static SpeciesData MewtwoMegaY = SpeciesData.Mega(
@@ -12924,7 +12924,7 @@ public static class Species
         cry: "mega_mewtwo_y",
         graphics: "mewtwo/mega_y",
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.Insomnia
+        ability: Insomnia
     );
 
     public static SpeciesData AmpharosMega = SpeciesData.Mega(
@@ -12937,7 +12937,7 @@ public static class Species
         baseSpeed: 45,
         backSpriteHeight: 0,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.MoldBreaker
+        ability: MoldBreaker
     );
 
     public static SpeciesData SteelixMega = SpeciesData.Mega(
@@ -12949,7 +12949,7 @@ public static class Species
         baseSpeed: 30,
         backSpriteHeight: 0,
         pokedexData: Pokedex.Bulbasaur, //Not done,
-        ability: Ability.SandForce
+        ability: SandForce
     );
 
     public static SpeciesData ScizorMega = SpeciesData.Mega(
@@ -12961,7 +12961,7 @@ public static class Species
         baseSpeed: 75,
         backSpriteHeight: 4,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.Technician
+        ability: Technician
     );
 
     public static SpeciesData HeracrossMega = SpeciesData.Mega(
@@ -12973,7 +12973,7 @@ public static class Species
         baseSpeed: 75,
         backSpriteHeight: 0,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.SkillLink
+        ability: SkillLink
     );
 
     public static SpeciesData HoundoomMega = SpeciesData.Mega(
@@ -12985,7 +12985,7 @@ public static class Species
         baseSpeed: 115,
         backSpriteHeight: 0,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.SolarPower
+        ability: SolarPower
     );
 
     public static SpeciesData TyranitarMega = SpeciesData.Mega(
@@ -12997,7 +12997,7 @@ public static class Species
         baseSpeed: 71,
         backSpriteHeight: 0,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: Ability.SandStream
+        ability: SandStream
     );
 
     //Unown forms

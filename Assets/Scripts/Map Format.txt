@@ -1,0 +1,11 @@
+﻿Map Format:
+
+First 2 bytes: version
+Next: sequences of 26 bytes:
+[
+    -2 bytes for Layer 1
+    -2 bytes for Layer 2
+    -2 bytes for Layer 3
+] * 4 in sequence SW, SE, NW, NE
+-1 byte for Collision
+-1 byte for Encounter Class

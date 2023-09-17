@@ -12,7 +12,7 @@ public abstract class ItemData
     public Texture2D ItemSprite => Resources.Load<Texture2D>("Sprites/Items/" + graphicsPath);
 }
 
-public class AbstractItem : ItemData
+public class AbstractItem : ItemData //subdata length 0
 {
     public override int[] ItemSubdata => new int[0];
     public AbstractItem()

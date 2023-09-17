@@ -5,12 +5,14 @@ using UnityEngine;
 public class OverallTest : MonoBehaviour
 {
     public Battle battle;
-    private readonly Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Marowak, 10);
-    private readonly Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Venusaur, 10);
-    private readonly Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
-    private readonly Pokemon testPokemon4 = Pokemon.WildPokemon(SpeciesID.NidoranM, 10);
-    private readonly Pokemon testPokemon5 = Pokemon.WildPokemon(SpeciesID.Porygon, 10);
-    private readonly Pokemon testPokemon6 = Pokemon.WildPokemon(SpeciesID.Charizard, 10);
+    public Player player;
+    private Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Marowak, 10);
+    private Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Venusaur, 10);
+    private Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
+    private Pokemon testPokemon4 = Pokemon.WildPokemon(SpeciesID.NidoranM, 10);
+    private Pokemon testPokemon5 = Pokemon.WildPokemon(SpeciesID.Porygon, 10);
+    private Pokemon testPokemon6 = Pokemon.WildPokemon(SpeciesID.Charizard, 10);
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -23,13 +25,11 @@ public class OverallTest : MonoBehaviour
         testPokemon2.maxPp1 = 40;
         testPokemon5.whichAbility = 0;
         testPokemon6.item = ItemID.CharizarditeY;
-        battle.PlayerPokemon[0] = testPokemon2;
-        battle.PlayerPokemon[1] = testPokemon4;
-        battle.PlayerPokemon[2] = testPokemon5;
-        battle.OpponentPokemon[0] = testPokemon;
-        battle.OpponentPokemon[1] = testPokemon3;
-        battle.OpponentPokemon[2] = testPokemon6;
-        battle.StartCoroutine(battle.StartBattle());
+        player.EmptyParty();
+        player.TryAddMon(testPokemon2);
+        player.TryAddMon(testPokemon4);
+        player.TryAddMon(testPokemon5);
+        player.StartBattle(new Pokemon[] { testPokemon, testPokemon3, testPokemon6 }, BattleType.Single);
     }
 
     // Update is called once per frame

@@ -16,6 +16,8 @@ public class Battle : MonoBehaviour
     private const int NoMons = 63;
     private const int HandleMega = 127;
 
+    public Player player;
+
     public bool wildBattle;
     public Pokemon[] OpponentPokemon = new Pokemon[6];
     public Pokemon[] PlayerPokemon = new Pokemon[6];
@@ -98,8 +100,11 @@ public class Battle : MonoBehaviour
     public bool snatch;
     public int snatchingMon;
 
+    public bool[,] playerFacedOpponent = new bool[6, 6];
+
     public Queue<(int wishHP, int turn, int slot, string wisher)> wishes = new();
     public Queue<FutureSightStruct> futureSight = new();
+    public bool[] isFutureSightTargeted = new bool[6];
 
     public bool oneAnnouncementDone; //Used for Perish Song
 
@@ -1030,6 +1035,57 @@ public class Battle : MonoBehaviour
         return hitAnyone;
     }
 
+    public IEnumerator GainExp(int partyIndex, int amount)
+    {
+        Pokemon mon = PlayerPokemon[partyIndex];
+        yield return Announce(mon.monName + " gained "
+            + amount + " Exp. points!");
+        mon.xp += amount;
+        while (XP.LevelToXP(mon.level, mon.SpeciesData.xpClass) < mon.xp && mon.level < PokemonConst.maxLevel)
+        {
+            mon.level++;
+            yield return Announce(mon.monName + " grew to level " + mon.level + "!");
+            mon.CalculateStats();
+            for (int i = 3; i < 6; i++)
+            {
+                if (PokemonOnField[i].exists) PokemonOnField[i].CalculateStats();
+            }
+        }
+    }
+
+    public IEnumerator HandleXPOnFaint(int partyIndex)
+    {
+        Pokemon pokemon = OpponentPokemon[partyIndex];
+        int participatingMons = 0;
+        if (!BattleConfig.allGetFullExp) {
+            for (int i = 0; i < 6; i++)
+            {
+                if (playerFacedOpponent[i, partyIndex] && !PlayerPokemon[i].fainted) participatingMons++;
+            }
+        }
+        for (int i = 0; i < 6; i++) {
+            if (playerFacedOpponent[i, partyIndex] && !PlayerPokemon[i].fainted)
+            {
+                float baseFactor = (pokemon.SpeciesData.xpYield * pokemon.level) / 5.0F;
+                float participantFactor = BattleConfig.allGetFullExp
+                    ? 1.0F : 1.0F / participatingMons; //Implement XP share
+                float allLevelFactor = Mathf.Pow(
+                    (2.0F * pokemon.level + 10)
+                    / (pokemon.level + PlayerPokemon[i].level + 10.0F),
+                    2.5F);
+                float friendshipFactor = BattleConfig.friendshipExp ?
+                    PlayerPokemon[i].friendship >= 220 ? 1.2F : 1.0F : 1.0F;
+
+                //Add Lucky Egg effect, traded mon effect, Exp Power effect, delayed evolution effect
+
+                int xpGain = (int)(baseFactor * participantFactor * allLevelFactor
+                    * friendshipFactor);
+                yield return GainExp(i, xpGain);
+            }
+
+        }
+    }
+
     private void CheckForFollowMe(int index)
     {
         if (followMeActive)
@@ -1120,7 +1176,7 @@ public class Battle : MonoBehaviour
                                 || Uproar && !HasAbility(i, Soundproof):
                                 continue;
                             case MoveEffect.FutureSight:
-                                target.gotMoveEffect = true;
+                                target.gotMoveEffect = !isFutureSightTargeted[i];
                                 target.isHit = false;
                                 break;
                             case MoveEffect.Sleep:
@@ -1422,9 +1478,11 @@ public class Battle : MonoBehaviour
     {
         if (PokemonOnField[index].exists && PokemonOnField[index].PokemonData.fainted)
         {
+            int partyIndex = PokemonOnField[index].partyIndex;
             LeaveFieldCleanup(index);
             yield return BattleEffect.Faint(this, index);
             Moves[index] = MoveID.None;
+            yield return HandleXPOnFaint(partyIndex);
         }
     }
 
@@ -3626,7 +3684,7 @@ public class Battle : MonoBehaviour
                     }
                     else
                     {
-                        yield return BringToField(OpponentPokemon[nextMon], 0, false);
+                        yield return BringToField(OpponentPokemon[nextMon], nextMon, 0, false);
                     }
                 }
                 if (!PokemonOnField[3].exists)
@@ -3738,6 +3796,7 @@ public class Battle : MonoBehaviour
         MoveNums = new int[6];
         Targets = new int[6];
         SwitchTargets = new int[6];
+        playerFacedOpponent = new bool[6, 6];
         wishes = new();
         futureSight = new();
         turnsElapsed = 0;
@@ -3771,14 +3830,14 @@ public class Battle : MonoBehaviour
                     break;
                 }
             }
-            yield return BringToField(OpponentPokemon[0], 0, false);
-            yield return BringToField(PlayerPokemon[firstMon], 3, true);
+            yield return BringToField(OpponentPokemon[0], 0, 0, false);
+            yield return BringToField(PlayerPokemon[firstMon], firstMon, 3, true);
         }
         StartCoroutine(StartTurn());
         yield break;
     }
 
-    public IEnumerator BringToField(Pokemon pokemonData, int index, bool player)
+    public IEnumerator BringToField(Pokemon pokemonData, int partyIndex, int index, bool player)
     {
         if (PokemonOnField[index].exists)
         {
@@ -3801,7 +3860,29 @@ public class Battle : MonoBehaviour
             audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
                 + PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
             audioSource0.panStereo = player ? -0.5F : 0.5F;
+            PokemonOnField[index].partyIndex = partyIndex;
+            HandleFacing(index);
             yield return MonEntersField(index);
+        }
+    }
+
+    public void HandleFacing(int index)
+    {
+        if(index < 3)
+        {
+            for (int i = 3; i < 6; i++)
+            {
+                if (PokemonOnField[i].exists)
+                    playerFacedOpponent[PokemonOnField[i].partyIndex, PokemonOnField[index].partyIndex] = true;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (PokemonOnField[i].exists)
+                    playerFacedOpponent[PokemonOnField[index].partyIndex, PokemonOnField[i].partyIndex] = true;
+            }
         }
     }
 

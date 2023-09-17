@@ -1371,6 +1371,356 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382719559}
   m_CullTransparentMesh: 1
+--- !u!1 &457605092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 457605094}
+  - component: {fileID: 457605093}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &457605093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457605092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebb930df3d964340b67816b267af7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TM: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  HM: 0000000000000000
+  keyItem: 0000000000000000
+  storyFlags: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  currentTerrain: 0
+  Party:
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+--- !u!4 &457605094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457605092}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1941136, y: 3.2356772, z: -5.558073}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &467571353
 GameObject:
   m_ObjectHideFlags: 0
@@ -10893,6 +11243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c228eb94ca94feeba441e27b313415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   wildBattle: 0
   OpponentPokemon:
   - species: 0
@@ -10935,11 +11286,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   - species: 0
     monName: 
     gender: 0
@@ -10980,11 +11336,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   - species: 0
     monName: 
     gender: 0
@@ -11025,11 +11386,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   - species: 0
     monName: 
     gender: 0
@@ -11070,11 +11436,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   - species: 0
     monName: 
     gender: 0
@@ -11115,11 +11486,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   - species: 0
     monName: 
     gender: 0
@@ -11160,11 +11536,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   PlayerPokemon:
   - species: 0
     monName: 
@@ -11206,11 +11587,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   - species: 0
     monName: 
     gender: 0
@@ -11251,11 +11637,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   - species: 0
     monName: 
     gender: 0
@@ -11296,11 +11687,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   - species: 0
     monName: 
     gender: 0
@@ -11341,11 +11737,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   - species: 0
     monName: 
     gender: 0
@@ -11386,11 +11787,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   - species: 0
     monName: 
     gender: 0
@@ -11431,11 +11837,16 @@ MonoBehaviour:
     fainted: 0
     exists: 0
     item: 0
+    itemChanged: 0
+    newItem: 0
     onField: 0
+    lastIndex: 0
     transformed: 0
     temporarySpecies: 0
     friendship: 0
     hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
   state: 0
   currentPlayerMon: 3
   OpponentName: Test Pilot
@@ -11485,6 +11896,8 @@ MonoBehaviour:
   followMeActive: 0
   announcementLog: []
   continueMultiHitMove: 0
+  consumeItems: 1
+  doStatAnim: 1
   payDay: 0
   weather: 0
   weatherTimer: 0
@@ -11499,6 +11912,13 @@ MonoBehaviour:
   magicRoomTimer: 0
   trickRoom: 0
   trickRoomTimer: 0
+  mudSport: 0
+  mudSportTimer: 0
+  waterSport: 0
+  waterSportTimer: 0
+  snatch: 0
+  snatchingMon: 0
+  isFutureSightTargeted: 000000000000
   oneAnnouncementDone: 0
   PokemonOnField:
   - PokemonData:
@@ -11542,11 +11962,16 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 1
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -11625,12 +12050,6 @@ MonoBehaviour:
     perishCounter: 0
     followMe: 0
     helpingHand: 0
-    futureSight: 0
-    futureSightTimer: 0
-    futureSightUser: 0
-    futureSightUserOnField: 1
-    futureSightType: 0
-    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -11673,16 +12092,21 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 0
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     ability: 0
-    item: 0
     endure: 0
     protect: 0
     protectCounter: 0
+    magicCoat: 0
     infatuated: 0
     infatuationTarget: 0
     taunted: 0
@@ -11705,6 +12129,8 @@ MonoBehaviour:
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    eatenBerry: 0
+    gotReducingBerryEffect: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -11715,10 +12141,20 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    yawnNextTurn: 0
+    yawnThisTurn: 1
+    gotAteBoost: 0
+    ingrained: 0
+    imprisoned: 0
+    grudge: 0
+    gotGrudgeEffect: 0
+    snatch: 0
+    damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
       species: 0
@@ -11761,11 +12197,16 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 1
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -11844,12 +12285,6 @@ MonoBehaviour:
     perishCounter: 0
     followMe: 0
     helpingHand: 0
-    futureSight: 0
-    futureSightTimer: 0
-    futureSightUser: 0
-    futureSightUserOnField: 1
-    futureSightType: 0
-    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -11892,16 +12327,21 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 0
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     ability: 0
-    item: 0
     endure: 0
     protect: 0
     protectCounter: 0
+    magicCoat: 0
     infatuated: 0
     infatuationTarget: 0
     taunted: 0
@@ -11924,6 +12364,8 @@ MonoBehaviour:
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    eatenBerry: 0
+    gotReducingBerryEffect: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -11934,10 +12376,20 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    yawnNextTurn: 0
+    yawnThisTurn: 1
+    gotAteBoost: 0
+    ingrained: 0
+    imprisoned: 0
+    grudge: 0
+    gotGrudgeEffect: 0
+    snatch: 0
+    damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
       species: 0
@@ -11980,11 +12432,16 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 1
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -12063,12 +12520,6 @@ MonoBehaviour:
     perishCounter: 0
     followMe: 0
     helpingHand: 0
-    futureSight: 0
-    futureSightTimer: 0
-    futureSightUser: 0
-    futureSightUserOnField: 1
-    futureSightType: 0
-    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -12111,16 +12562,21 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 0
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     ability: 0
-    item: 0
     endure: 0
     protect: 0
     protectCounter: 0
+    magicCoat: 0
     infatuated: 0
     infatuationTarget: 0
     taunted: 0
@@ -12143,6 +12599,8 @@ MonoBehaviour:
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    eatenBerry: 0
+    gotReducingBerryEffect: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12153,10 +12611,20 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    yawnNextTurn: 0
+    yawnThisTurn: 1
+    gotAteBoost: 0
+    ingrained: 0
+    imprisoned: 0
+    grudge: 0
+    gotGrudgeEffect: 0
+    snatch: 0
+    damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
       species: 0
@@ -12199,11 +12667,16 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 1
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -12282,12 +12755,6 @@ MonoBehaviour:
     perishCounter: 0
     followMe: 0
     helpingHand: 0
-    futureSight: 0
-    futureSightTimer: 0
-    futureSightUser: 0
-    futureSightUserOnField: 1
-    futureSightType: 0
-    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -12330,16 +12797,21 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 0
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     ability: 0
-    item: 0
     endure: 0
     protect: 0
     protectCounter: 0
+    magicCoat: 0
     infatuated: 0
     infatuationTarget: 0
     taunted: 0
@@ -12362,6 +12834,8 @@ MonoBehaviour:
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    eatenBerry: 0
+    gotReducingBerryEffect: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12372,10 +12846,20 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    yawnNextTurn: 0
+    yawnThisTurn: 1
+    gotAteBoost: 0
+    ingrained: 0
+    imprisoned: 0
+    grudge: 0
+    gotGrudgeEffect: 0
+    snatch: 0
+    damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
       species: 0
@@ -12418,11 +12902,16 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 1
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -12501,12 +12990,6 @@ MonoBehaviour:
     perishCounter: 0
     followMe: 0
     helpingHand: 0
-    futureSight: 0
-    futureSightTimer: 0
-    futureSightUser: 0
-    futureSightUserOnField: 1
-    futureSightType: 0
-    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -12549,16 +13032,21 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 0
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     ability: 0
-    item: 0
     endure: 0
     protect: 0
     protectCounter: 0
+    magicCoat: 0
     infatuated: 0
     infatuationTarget: 0
     taunted: 0
@@ -12581,6 +13069,8 @@ MonoBehaviour:
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    eatenBerry: 0
+    gotReducingBerryEffect: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12591,10 +13081,20 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    yawnNextTurn: 0
+    yawnThisTurn: 1
+    gotAteBoost: 0
+    ingrained: 0
+    imprisoned: 0
+    grudge: 0
+    gotGrudgeEffect: 0
+    snatch: 0
+    damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
       species: 0
@@ -12637,11 +13137,16 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 1
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     attackStage: 0
     defenseStage: 0
     spAtkStage: 0
@@ -12720,12 +13225,6 @@ MonoBehaviour:
     perishCounter: 0
     followMe: 0
     helpingHand: 0
-    futureSight: 0
-    futureSightTimer: 0
-    futureSightUser: 0
-    futureSightUserOnField: 1
-    futureSightType: 0
-    futureSightMove: 0
     isTransformed: 0
     transformedMon:
       species: 0
@@ -12768,16 +13267,21 @@ MonoBehaviour:
       fainted: 0
       exists: 0
       item: 0
+      itemChanged: 0
+      newItem: 0
       onField: 0
+      lastIndex: 0
       transformed: 0
       temporarySpecies: 0
       friendship: 0
       hiddenPowerType: 0
+      gainedLevel: 0
+      id: 0
     ability: 0
-    item: 0
     endure: 0
     protect: 0
     protectCounter: 0
+    magicCoat: 0
     infatuated: 0
     infatuationTarget: 0
     taunted: 0
@@ -12800,6 +13304,8 @@ MonoBehaviour:
     newType1: 255
     newType2: 255
     typesOverriden: 0
+    eatenBerry: 0
+    gotReducingBerryEffect: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12810,10 +13316,20 @@ MonoBehaviour:
     mimicMove: 0
     mimicPP: 0
     mimicMaxPP: 0
+    yawnNextTurn: 0
+    yawnThisTurn: 1
+    gotAteBoost: 0
+    ingrained: 0
+    imprisoned: 0
+    grudge: 0
+    gotGrudgeEffect: 0
+    snatch: 0
+    damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    battle: {fileID: 0}
     lastTargetedMove: 0
   battleType: 0
   Moves: 000000000000000000000000000000000000000000000000
@@ -12896,6 +13412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battle: {fileID: 1034585559}
+  player: {fileID: 457605093}
 --- !u!114 &1034585562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17174,3 +17691,4 @@ SceneRoots:
   - {fileID: 291250903}
   - {fileID: 1474041819}
   - {fileID: 479158825}
+  - {fileID: 457605094}

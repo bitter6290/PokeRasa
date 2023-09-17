@@ -539,6 +539,8 @@ public static class BattleEffect
                 + battle.OpponentPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
                 battle.OpponentPokemon[partyIndex], index > 2, index % 3, false, battle);
+            battle.PokemonOnField[index].partyIndex = partyIndex;
+            battle.HandleFacing(index);
             battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
                 + battle.PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
             yield return battle.MonEntersField(index);
@@ -552,6 +554,8 @@ public static class BattleEffect
             yield return battle.Announce("Go! " + battle.PlayerPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
                             battle.PlayerPokemon[partyIndex], index > 2, index % 3, true, battle);
+            battle.PokemonOnField[index].partyIndex = partyIndex;
+            battle.HandleFacing(index);
             battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
                 + battle.PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
             yield return battle.MonEntersField(index);
@@ -589,13 +593,16 @@ public static class BattleEffect
                 }
                 else
                 {
+                    int partyIndex = random.Next() % RemainingPokemon.Count;
                     battle.LeaveFieldCleanup(index);
                     battle.PokemonOnField[index] = new BattlePokemon(
-                        RemainingPokemon[random.Next() % RemainingPokemon.Count],
+                        RemainingPokemon[partyIndex],
                         index > 2, index % 3, index > 2, battle)
                     {
-                        done = true
+                        done = true,
+                        partyIndex = partyIndex
                     };
+                    battle.HandleFacing(index);
                     yield return battle.Announce(battle.PokemonOnField[index].PokemonData.monName
                         + " was dragged out!");
                 }
@@ -671,8 +678,8 @@ public static class BattleEffect
             case ContinuousDamage.SandTomb:
                 //yield return BattleAnim.SandTomb(battle, index);
                 damage = target.PokemonData.hpMax >> 4;
-                    yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                        + " was hurt by Sand Tomb!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " was hurt by Sand Tomb!");
                 break;
             default:
                 yield return battle.Announce("Error 112");
@@ -898,7 +905,8 @@ public static class BattleEffect
             + " became the " + TypeUtils.typeName[(int)newType] + " type!");
     }
 
-    public static IEnumerator Camouflage(Battle battle, int index) {
+    public static IEnumerator Camouflage(Battle battle, int index)
+    {
         Type newType = battle.terrain switch
         {
             Terrain.Electric => Type.Electric,
@@ -1301,6 +1309,7 @@ public static class BattleEffect
             type = battle.GetEffectiveType(battle.Moves[user], user),
             move = battle.Moves[user],
         };
+        battle.isFutureSightTargeted[target] = true;
         battle.futureSight.Enqueue(futureSightData);
         yield return battle.Announce(battle.MonNameWithPrefix(user, true) + " foresaw an attack!");
     }
@@ -1308,6 +1317,7 @@ public static class BattleEffect
     public static IEnumerator FutureSightAttack(Battle battle)
     {
         FutureSightStruct data = battle.futureSight.Dequeue();
+        battle.isFutureSightTargeted[data.target] = false;
         BattlePokemon targetMon = battle.PokemonOnField[data.target];
         yield return battle.Announce(battle.MonNameWithPrefix(data.target, true) + " took the "
             + data.move.Data().name + " attack!");
@@ -1455,7 +1465,7 @@ public static class BattleEffect
         battle.PokemonOnField[target].ability = swappedAbility;
         yield return battle.Announce(battle.MonNameWithPrefix(user, true)
            + " swapped Abilities with its target!");
-        if(battle.GetSpeed(user) > battle.GetSpeed(target)
+        if (battle.GetSpeed(user) > battle.GetSpeed(target)
             || (battle.GetSpeed(user) == battle.GetSpeed(target)
             && (battle.random.Next() & 1) == 1))
         {
@@ -1486,7 +1496,7 @@ public static class BattleEffect
     public static IEnumerator Recycle(Battle battle, int index)
     {
         BattlePokemon user = battle.PokemonOnField[index];
-        if(user.item != ItemID.None || user.eatenBerry == ItemID.None)
+        if (user.item != ItemID.None || user.eatenBerry == ItemID.None)
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;

@@ -16,12 +16,24 @@ public class Player : MonoBehaviour
 
     public bool[] storyFlags = new bool[100];
 
+    public BattleTerrain currentTerrain;
+
 
     public Pokemon[] Party = new Pokemon[6];
-    int monsInParty = 0;
+    private int monsInParty
+    {
+        get
+        {
+            int mons = 0;
+            for (int i = 0; i < 6; i++)
+            {
+                if (Party[i].exists) mons++;
+            }
+            return mons;
+        }
+    }
 
-
-    private IEnumerator GetItem(ItemID item, int amount)
+    public IEnumerator GetItem(ItemID item, int amount)
     {
         switch (Item.ItemTable[(int)item].type)
         {
@@ -47,7 +59,7 @@ public class Player : MonoBehaviour
         yield return null;
     }
 
-    private bool TryAddMon(Pokemon mon)
+    public bool TryAddMon(Pokemon mon)
     {
         SortParty();
         if (monsInParty >= 6)
@@ -57,7 +69,6 @@ public class Player : MonoBehaviour
         else
         {
             Party[monsInParty] = mon;
-            SortParty();
             return true;
         }
     }
@@ -73,12 +84,40 @@ public class Player : MonoBehaviour
                 currentPos++;
             }
         }
-        monsInParty = currentPos;
         for (int i = currentPos; i < 6; i++)
         {
             Party[i] = Pokemon.MakeEmptyMon;
         }
     }
+
+    public void EmptyParty()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            Party[i] = Pokemon.MakeEmptyMon;
+        }
+    }
+
+    public void StartBattle(Pokemon[] opponentParty, BattleType battleType)
+    {
+        Pokemon[] useOpponentParty = new Pokemon[6];
+        for (int i = 0; i < opponentParty.Length; i++)
+        {
+            useOpponentParty[i] = opponentParty[i];
+        }
+        for (int i = opponentParty.Length; i < 6; i++)
+        {
+            useOpponentParty[i] = Pokemon.MakeEmptyMon;
+        }
+        Battle battle = GameObject.Find("BattleController").GetComponent<Battle>();
+        battle.player = this;
+        battle.PlayerPokemon = Party;
+        battle.OpponentPokemon = useOpponentParty;
+        battle.battleType = battleType;
+        battle.battleTerrain = currentTerrain;
+        battle.StartCoroutine(battle.StartBattle());
+    }
+
     // Start is called before the first frame update
     void Start()
     {

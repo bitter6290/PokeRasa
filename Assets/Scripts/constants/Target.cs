@@ -19,7 +19,7 @@ public static class Target
     public static bool CanTarget(int attacker, int defender, MoveID move)
     {
         if ((move.Data().targets & (Spread + All + Field)) != 0) return false;
-        if(attacker < 3 == defender < 3)
+        if (attacker < 3 == defender < 3)
         {
             if (attacker - defender is -2 or 2) return
                 (move.Data().targets & (Ally + Ranged)) == Ally + Ranged;

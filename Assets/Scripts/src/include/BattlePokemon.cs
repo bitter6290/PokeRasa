@@ -9,6 +9,7 @@ using static System.Math;
 public class BattlePokemon
 {
     public Pokemon PokemonData;
+    public int partyIndex;
 
     public int attackStage = 0;
     public int defenseStage = 0;

@@ -77,6 +77,8 @@ public class Pokemon : ICloneable
 
     public Type hiddenPowerType;
 
+    public bool gainedLevel;
+
     public int id;
 
 
@@ -193,14 +195,6 @@ public class Pokemon : ICloneable
         currentLevelXP = nextLevelXP;
         GetNextLevel();
         CalculateStats();
-    }
-    public void GetXP(int amount)
-    {
-        xp = xp + amount;
-        while (ShouldLevelUp())
-        {
-            LevelUp();
-        }
     }
     public void GetNextLevel()
     {
