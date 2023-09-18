@@ -22,4 +22,11 @@ public class MapManager : MonoBehaviour
         p.xPos = newXPos;
         p.yPos = newYPos;
     }
+
+    public void ClearMap()
+    {
+        level1.ClearAllTiles();
+        level2.ClearAllTiles();
+        level3.ClearAllTiles();
+    }
 }

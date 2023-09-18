@@ -1,7 +1,7 @@
 ﻿public struct WildDataset
 {
-    public readonly WildMon[] wildMons;
-    public readonly int encounterPercent;
+    public WildMon[] wildMons;
+    public int encounterPercent;
     public int TotalFreq
     {
         get
@@ -32,4 +32,9 @@
         }
         return Pokemon.WildPokemon(species, level);
     }
+    public static WildDataset Empty = new()
+    {
+        encounterPercent = 0,
+        wildMons = new WildMon[0],
+    };
 }

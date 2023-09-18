@@ -263,20 +263,23 @@ public class Battle : MonoBehaviour
         Type effectiveType1 = defender.Type1;
         Type effectiveType2 = defender.Type2;
         float effectiveness = (effectiveType1 == effectiveType2) ?
-            realEffectiveness(attacker.index, defender.index, effectiveType1, move)
-            : realEffectiveness(attacker.index, defender.index, effectiveType1, move)
-            * realEffectiveness(attacker.index, defender.index, effectiveType2, move);
+            RealEffectiveness(attacker.index, defender.index, effectiveType1, move)
+            : RealEffectiveness(attacker.index, defender.index, effectiveType1, move)
+            * RealEffectiveness(attacker.index, defender.index, effectiveType2, move);
         if (defender.hasType3)
         {
-            effectiveness *= realEffectiveness(attacker.index, defender.index, defender.Type3, move);
+            effectiveness *= RealEffectiveness(attacker.index, defender.index, defender.Type3, move);
         }
+        if (effectiveType1 == Type.Flying && effectiveType2 == Type.Flying
+            && defender.roosting)
+            return RealEffectiveness(attacker.index, defender.index, Type.Normal, move);
         return effectiveness;
     }
 
     public bool IsImmune(BattlePokemon attacker, BattlePokemon defender, MoveID move)
         => GetTypeEffectiveness(attacker, defender, move) == 0;
 
-    public float realEffectiveness(int attacker, int defender, Type defenderType, MoveID move)
+    public float RealEffectiveness(int attacker, int defender, Type defenderType, MoveID move)
     {
         Type moveType = GetEffectiveType(move, attacker);
         if (moveType == Type.Ground)
@@ -284,6 +287,7 @@ public class Battle : MonoBehaviour
             if (!IsGrounded(defender)) return 0.0F;
             else if (IsGrounded(defender) && defenderType == Type.Flying) return 1.0F;
         }
+        if (defenderType == Type.Flying && PokemonOnField[defender].roosting) return 1.0F;
         if (defenderType == Type.Ghost && moveType is Type.Normal or Type.Fighting
             && PokemonOnField[defender].identified) return 1.0F;
         return TypeUtils.Effectiveness(moveType, defenderType);
@@ -292,9 +296,9 @@ public class Battle : MonoBehaviour
     public bool IsGrounded(int index)
     {
         if (gravity) return true;
-        if (PokemonOnField[index].HasType(Type.Flying)
-            || HasAbility(index, Levitate)) //Todo: add other sources of non-grounding
-        { return false; }
+        if (HasAbility(index, Levitate)) return true;
+        if (PokemonOnField[index].roosting) return true;
+        if (PokemonOnField[index].HasType(Type.Flying)) return false;
         return true;
     }
 
@@ -1945,7 +1949,7 @@ public class Battle : MonoBehaviour
                 }
             }
         }
-        if (user.GetPP(MoveNums[index]) == 0
+        if (user.GetPP(MoveNums[index] - 1) == 0
           && user.encored
           && Moves[index] == user.encoredMove)
             user.encored = false;
@@ -3308,6 +3312,9 @@ public class Battle : MonoBehaviour
             case MoveEffect.Ingrain:
                 yield return BattleEffect.Ingrain(this, index);
                 break;
+            case MoveEffect.Roost:
+                PokemonOnField[index].roosting = true;
+                goto case MoveEffect.Heal50;
             case MoveEffect.Heal50:
                 yield return BattleEffect.Heal(this, index, PokemonOnField[index].PokemonData.hpMax >> 1);
                 break;
@@ -3725,6 +3732,7 @@ public class Battle : MonoBehaviour
 
                 currentMon.helpingHand = 0;
                 currentMon.followMe = false;
+                currentMon.roosting = false;
 
                 currentMon.damagedByMon = new bool[6];
 
@@ -3830,7 +3838,13 @@ public class Battle : MonoBehaviour
                     break;
                 }
             }
-            yield return BringToField(OpponentPokemon[0], 0, 0, false);
+            if (wildBattle)
+            {
+                PokemonOnField[0] = new BattlePokemon(OpponentPokemon[0], false, 0, false, this);
+                yield return Announce("A wild " + PokemonOnField[0].PokemonData.monName + " appeared!");
+            }
+            else
+                yield return BringToField(OpponentPokemon[0], 0, 0, false);
             yield return BringToField(PlayerPokemon[firstMon], firstMon, 3, true);
         }
         StartCoroutine(StartTurn());
@@ -4013,7 +4027,11 @@ public class Battle : MonoBehaviour
 
     public IEnumerator EndBattle()
     {
-        yield return null;
+        if (wildBattle)
+        {
+            player.StartCoroutine(player.WildBattleWon());
+        }
+        yield break;
     }
 
     public void Start()

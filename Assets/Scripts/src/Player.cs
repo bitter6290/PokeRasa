@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
+using Scene = SceneID;
 
 [Serializable]
 public class Player : MonoBehaviour
@@ -12,6 +14,8 @@ public class Player : MonoBehaviour
     public bool[] TM = new bool[96];
     public bool[] HM = new bool[8];
     public bool[] keyItem = new bool[8];
+
+    System.Random random;
 
     public Dictionary<ItemID, int> Bag;
 
@@ -24,14 +28,20 @@ public class Player : MonoBehaviour
     public PlayerState state;
     public bool active;
     public bool locked;
+    public Direction facing;
 
     public bool whichStep;
 
     public CollisionID currentHeight;
     public MapManager mapManager;
     public PlayerGraphics playerGraphics;
+    public GUIManager announcer;
 
-    public GameObject camera;
+    public HumanoidGraphicsID graphicsID;
+
+    public new GameObject camera;
+
+    public float textSpeed = 25;
 
     public Pokemon[] Party = new Pokemon[6];
     private int monsInParty
@@ -182,7 +192,7 @@ public class Player : MonoBehaviour
 
     private void TryChangeMap(int x, int y)
     {
-        if(x >= mapManager.mapData.width)
+        if (x >= mapManager.mapData.width)
         {
             foreach (Connection i in mapManager.mapData.connection)
             {
@@ -233,10 +243,18 @@ public class Player : MonoBehaviour
     }
 
     private void FindCamera() => camera = GameObject.Find("Main Camera");
+    private void FindAnnouncer() {
+        announcer = FindAnyObjectByType<GUIManager>();
+        announcer.player = this;
+        }
 
-    private void CaptureCamera() => camera.transform.parent = playerGraphics.playerObject.transform;
+    private void CaptureCamera()
+    {
+        camera.transform.parent = playerGraphics.playerObject.transform;
+        camera.transform.localPosition = new Vector3(0, 0, -100);
+    }
 
-    public void StartBattle(Pokemon[] opponentParty, BattleType battleType)
+    public IEnumerator StartSingleTrainerBattle(Pokemon[] opponentParty, BattleType battleType)
     {
         Pokemon[] useOpponentParty = new Pokemon[6];
         for (int i = 0; i < opponentParty.Length; i++)
@@ -247,8 +265,13 @@ public class Player : MonoBehaviour
         {
             useOpponentParty[i] = Pokemon.MakeEmptyMon;
         }
-        Battle battle = GameObject.Find("BattleController").GetComponent<Battle>();
+        state = PlayerState.Locked;
+        active = false;
+        mapManager.ClearMap();
+        yield return Scene.Battle.Load();
+        Battle battle = FindAnyObjectByType<Battle>();
         battle.player = this;
+        SortParty();
         battle.PlayerPokemon = Party;
         battle.OpponentPokemon = useOpponentParty;
         battle.battleType = battleType;
@@ -256,11 +279,75 @@ public class Player : MonoBehaviour
         battle.StartCoroutine(battle.StartBattle());
     }
 
+    public IEnumerator StartSingleWildBattle(Pokemon wildMon)
+    {
+        Debug.Log("Start Single Wild Battle");
+        yield return null;
+        state = PlayerState.Locked;
+        active = false;
+        mapManager.ClearMap();
+        Debug.Log("Prepared");
+        yield return null;
+        yield return Scene.Battle.Load();
+        Battle battle = FindAnyObjectByType<Battle>();
+        battle.player = this;
+        SortParty();
+        battle.PlayerPokemon = Party;
+        battle.OpponentPokemon = new Pokemon[6];
+        battle.OpponentPokemon[0] = wildMon;
+        for (int i = 1; i < 6; i++)
+        {
+            battle.OpponentPokemon[i] = Pokemon.MakeEmptyMon;
+        }
+        battle.battleType = BattleType.Single;
+        battle.battleTerrain = currentTerrain;
+        battle.wildBattle = true;
+        battle.StartCoroutine(battle.StartBattle());
+    }
+
+    public IEnumerator BattleWon()
+    {
+        Debug.Log("BattleWon");
+        yield return Scene.Map.Load();
+        Debug.Log("Map loaded");
+        camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
+        FindAnnouncer();
+        mapManager = gameObject.AddComponent<MapManager>();
+        RenderMap();
+        CreatePlayerGraphics(HumanoidGraphicsID.brendanWalk);
+        AlignPlayer();
+        CaptureCamera();
+        UpdateCollision();
+        active = true;
+    }
+
+    public IEnumerator WildBattleWon()
+    {
+        Debug.Log("WildBattleWon");
+        yield return BattleWon();
+        state = PlayerState.Free;
+    }
+
+    public void CheckGrassEncounter()
+    {
+        Debug.Log("Checking grass encounter");
+        byte index = mapManager.wildData[xPos, yPos];
+        Debug.Log(index);
+        if (index == 0) return;
+        WildDataset dataset = currentMap.Data().grassData[index - 1];
+        Debug.Log(dataset.encounterPercent);
+        if (random.NextDouble() * 100 < dataset.encounterPercent)
+        {
+            Debug.Log("Proceeding");
+            StartCoroutine(StartSingleWildBattle(dataset.GetWildMon()));
+        }
+    }
+
     public void TryGoSouth()
     {
         if (CheckCollisionAllowed(Direction.S)){
             TryChangeMap(xPos, yPos - 1);
-            GoSouth();
+            StartCoroutine(GoSouth());
         }
         else
         {
@@ -273,7 +360,7 @@ public class Player : MonoBehaviour
         if (CheckCollisionAllowed(Direction.N))
         {
             TryChangeMap(xPos, yPos + 1);
-            GoNorth();
+            StartCoroutine(GoNorth());
         }
         else
         {
@@ -286,7 +373,7 @@ public class Player : MonoBehaviour
         if (CheckCollisionAllowed(Direction.W))
         {
             TryChangeMap(xPos - 1, yPos);
-            GoWest();
+            StartCoroutine(GoWest());
         }
         else
         {
@@ -299,47 +386,95 @@ public class Player : MonoBehaviour
         if (CheckCollisionAllowed(Direction.E))
         {
             TryChangeMap(xPos + 1, yPos);
-            GoEast();
+            StartCoroutine(GoEast());
         }
         else
         {
             StartCoroutine(playerGraphics.BumpEast(this, 0.3F));
         }
     }
-    public void GoSouth()
+    public IEnumerator GoSouth()
     {
-        StartCoroutine(playerGraphics.WalkSouth(this, 0.3F));
+        yield return playerGraphics.WalkSouth(this, 0.3F);
         UpdateCollision();
+        if (!CheckForTriggers())
+            CheckGrassEncounter();
     }
 
-    public void GoNorth()
+    public IEnumerator GoNorth()
     {
-        StartCoroutine(playerGraphics.WalkNorth(this, 0.3F));
+        yield return playerGraphics.WalkNorth(this, 0.3F);
         UpdateCollision();
+        if (!CheckForTriggers())
+            CheckGrassEncounter();
     }
 
-    public void GoWest()
+    public IEnumerator GoWest()
     {
-        StartCoroutine(playerGraphics.WalkWest(this, 0.3F));
+        yield return playerGraphics.WalkWest(this, 0.3F);
         UpdateCollision();
+        if (!CheckForTriggers())
+            CheckGrassEncounter();
     }
 
-    public void GoEast()
+    public IEnumerator GoEast()
     {
-        StartCoroutine(playerGraphics.WalkEast(this, 0.3F));
+        yield return playerGraphics.WalkEast(this, 0.3F);
         UpdateCollision();
+        if (!CheckForTriggers())
+            CheckGrassEncounter();
     }
-    // Start is called before the first frame update
-    public void Start()
+
+    public bool CheckForTriggers()
     {
+        foreach(TileTrigger i in currentMap.Data().triggers)
+        {
+            if(i.x == xPos && i.y == yPos)
+            {
+                StartCoroutine(i.script(this));
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public IEnumerator DoAnnouncements(List<string> text)
+    {
+        state = PlayerState.Announce;
+        yield return announcer.AnnouncementUp();
+        Debug.Log("Announcer Up");
+        foreach (string i in text)
+        {
+            yield return announcer.Announce(i);
+        }
+        yield return announcer.AnnouncementDown();
+        state = locked ? PlayerState.Locked : PlayerState.Free;
+    }
+
+    public IEnumerator InitMapTest()
+    {
+        yield return Scene.Map.Load();
+        camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
+        FindAnnouncer();
         mapManager = gameObject.AddComponent<MapManager>();
         currentMap = MapID.Test;
         RenderMap();
         CreatePlayerGraphics(HumanoidGraphicsID.brendanWalk);
-        FindCamera();
+        AlignPlayer();
         CaptureCamera();
         UpdateCollision();
+        Party[0] = Pokemon.WildPokemon(SpeciesID.Venusaur, 4);
+        Party[0].item = ItemID.Venusaurite;
         active = true;
+    }
+    // Start is called before the first frame update
+    public void Start()
+    {
+        random = new();
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex((int)Scene.Main))
+        {
+            StartCoroutine(InitMapTest());
+        }
     }
 
     public void Awake()

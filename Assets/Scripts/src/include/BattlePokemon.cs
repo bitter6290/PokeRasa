@@ -49,6 +49,8 @@ public class BattlePokemon
     public bool wasProtected = false;
     public bool enduredHit = false;
 
+    public bool roosting = false;
+
     public bool confused = false;
     public int confusionCounter = 0;
 

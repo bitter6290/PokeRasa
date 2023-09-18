@@ -49,7 +49,7 @@ public static class MapReader
                 level3.SetTile(new Vector3Int(2 * x + 1, 2 * y + 1),
                     Tiles.TileTable[data[offset + 22] + (data[offset + 23] * 256)]);
                 manager.collision[x + 1, y + 1] = data[offset + 24];
-                manager.wildData[x + 1, y + 1] = data[offset + 24];
+                manager.wildData[x + 1, y + 1] = data[offset + 25];
             }
         }
         foreach (Connection i in manager.mapData.connection)

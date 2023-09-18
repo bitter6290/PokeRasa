@@ -4,6 +4,7 @@ using static Ability;
 using static Type;
 using static SpeciesData;
 using static XPClass;
+using static Learnset;
 
 public static class Species
 {
@@ -22,7 +23,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 0,
-        learnset = Learnset.EmptyLearnset,
+        learnset = EmptyLearnset,
         cryLocation = "pikachu",
         graphicsLocation = "circled_question_mark",
         backSpriteHeight = 0,
@@ -49,7 +50,7 @@ public static class Species
         evolution = Evolution.Bulbasaur,
         xpClass = MediumSlow,
         xpYield = 64,
-        learnset = Learnset.BulbasaurLearnset,
+        learnset = BulbasaurLearnset,
         catchRate = 45,
         baseFriendship = 70,
         eggGroup1 = EggGroup.Monster,
@@ -82,7 +83,7 @@ public static class Species
         evolution = Evolution.Ivysaur,
         xpClass = MediumSlow,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Grass,
@@ -115,7 +116,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 236,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = VenusaurLearnset,
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Grass,
@@ -148,7 +149,7 @@ public static class Species
         evolution = Evolution.Charmander,
         xpClass = MediumSlow,
         xpYield = 62,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Dragon,
@@ -181,7 +182,7 @@ public static class Species
         evolution = Evolution.Charmeleon,
         xpClass = MediumSlow,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Dragon,
@@ -214,7 +215,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 240,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Dragon,
@@ -247,7 +248,7 @@ public static class Species
         evolution = Evolution.Squirtle,
         xpClass = MediumSlow,
         xpYield = 63,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -280,7 +281,7 @@ public static class Species
         evolution = Evolution.Wartortle,
         xpClass = MediumSlow,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -313,7 +314,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 239,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -346,7 +347,7 @@ public static class Species
         evolution = Evolution.Caterpie,
         xpClass = MediumFast,
         xpYield = 39,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -379,7 +380,7 @@ public static class Species
         evolution = Evolution.Metapod,
         xpClass = MediumFast,
         xpYield = 72,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -412,7 +413,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 178,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -445,7 +446,7 @@ public static class Species
         evolution = Evolution.Weedle,
         xpClass = MediumFast,
         xpYield = 39,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -478,7 +479,7 @@ public static class Species
         evolution = Evolution.Kakuna,
         xpClass = MediumFast,
         xpYield = 72,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -511,7 +512,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 178,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -544,7 +545,7 @@ public static class Species
         evolution = Evolution.Pidgey,
         xpClass = MediumSlow,
         xpYield = 50,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -577,7 +578,7 @@ public static class Species
         evolution = Evolution.Pidgeotto,
         xpClass = MediumSlow,
         xpYield = 122,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -610,7 +611,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 216,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -643,7 +644,7 @@ public static class Species
         evolution = Evolution.Rattata,
         xpClass = MediumFast,
         xpYield = 51,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -676,7 +677,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 145,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -708,7 +709,7 @@ public static class Species
         evYield = Speed,
         evolution = Evolution.Spearow,
         xpYield = 52,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -741,7 +742,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 155,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -774,7 +775,7 @@ public static class Species
         evolution = Evolution.Ekans,
         xpClass = MediumFast,
         xpYield = 58,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Dragon,
@@ -807,7 +808,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 157,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Dragon,
@@ -840,7 +841,7 @@ public static class Species
         evolution = Evolution.Pikachu,
         xpClass = MediumFast,
         xpYield = 112,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Fairy,
@@ -873,7 +874,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 218,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Fairy,
@@ -906,7 +907,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -939,7 +940,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 158,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -972,7 +973,7 @@ public static class Species
         evolution = Evolution.NidoranF,
         xpClass = MediumSlow,
         xpYield = 55,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -1006,7 +1007,7 @@ public static class Species
         evolution = Evolution.Nidorina,
         xpClass = MediumSlow,
         xpYield = 128,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -1039,7 +1040,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 227,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -1072,7 +1073,7 @@ public static class Species
         evolution = Evolution.NidoranM,
         xpClass = MediumSlow,
         xpYield = 55,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 100,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -1105,7 +1106,7 @@ public static class Species
         evolution = Evolution.Nidorino,
         xpClass = MediumSlow,
         xpYield = 128,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 100,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -1138,7 +1139,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 227,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 100,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -1171,7 +1172,7 @@ public static class Species
         evolution = Evolution.Clefairy,
         xpClass = Fast,
         xpYield = 113,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Fairy,
@@ -1204,7 +1205,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 217,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Fairy,
@@ -1237,7 +1238,7 @@ public static class Species
         evolution = Evolution.Vulpix,
         xpClass = MediumFast,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -1270,7 +1271,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 177,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -1303,7 +1304,7 @@ public static class Species
         evolution = Evolution.Jigglypuff,
         xpClass = Fast,
         xpYield = 95,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Fairy,
@@ -1336,7 +1337,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 196,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Fairy,
@@ -1369,7 +1370,7 @@ public static class Species
         evolution = Evolution.Zubat,
         xpClass = MediumFast,
         xpYield = 49,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -1402,7 +1403,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -1435,7 +1436,7 @@ public static class Species
         evolution = Evolution.Oddish,
         xpClass = MediumSlow,
         xpYield = 64,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -1468,7 +1469,7 @@ public static class Species
         evolution = Evolution.Gloom,
         xpClass = MediumSlow,
         xpYield = 138,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -1501,7 +1502,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 221,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -1534,7 +1535,7 @@ public static class Species
         evolution = Evolution.Paras,
         xpClass = MediumFast,
         xpYield = 57,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Grass,
@@ -1567,7 +1568,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Grass,
@@ -1600,7 +1601,7 @@ public static class Species
         evolution = Evolution.Venonat,
         xpClass = MediumFast,
         xpYield = 61,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -1633,7 +1634,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 158,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -1666,7 +1667,7 @@ public static class Species
         evolution = Evolution.Diglett,
         xpClass = MediumFast,
         xpYield = 53,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -1699,7 +1700,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 149,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -1732,7 +1733,7 @@ public static class Species
         evolution = Evolution.Meowth,
         xpClass = MediumFast,
         xpYield = 58,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -1765,7 +1766,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 154,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -1798,7 +1799,7 @@ public static class Species
         evolution = Evolution.Psyduck,
         xpClass = MediumFast,
         xpYield = 64,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Field,
@@ -1831,7 +1832,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Field,
@@ -1864,7 +1865,7 @@ public static class Species
         evolution = Evolution.Mankey,
         xpClass = MediumFast,
         xpYield = 61,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -1897,7 +1898,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -1930,7 +1931,7 @@ public static class Species
         evolution = Evolution.Growlithe,
         xpClass = Slow,
         xpYield = 70,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -1963,7 +1964,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 194,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -1996,7 +1997,7 @@ public static class Species
         evolution = Evolution.Poliwag,
         xpClass = MediumSlow,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water1,
@@ -2029,7 +2030,7 @@ public static class Species
         evolution = Evolution.Poliwhirl,
         xpClass = MediumSlow,
         xpYield = 135,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water1,
@@ -2062,7 +2063,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 230,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water1,
@@ -2095,7 +2096,7 @@ public static class Species
         evolution = Evolution.Abra,
         xpClass = MediumSlow,
         xpYield = 62,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -2128,7 +2129,7 @@ public static class Species
         evolution = Evolution.Kadabra,
         xpClass = MediumSlow,
         xpYield = 140,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -2161,7 +2162,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 225,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -2194,7 +2195,7 @@ public static class Species
         evolution = Evolution.Machop,
         xpClass = MediumSlow,
         xpYield = 61,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -2227,7 +2228,7 @@ public static class Species
         evolution = Evolution.Machoke,
         xpClass = MediumSlow,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -2260,7 +2261,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 227,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -2293,7 +2294,7 @@ public static class Species
         evolution = Evolution.Bellsprout,
         xpClass = MediumSlow,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -2326,7 +2327,7 @@ public static class Species
         evolution = Evolution.Weepinbell,
         xpClass = MediumSlow,
         xpYield = 137,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -2359,7 +2360,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 221,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -2392,7 +2393,7 @@ public static class Species
         evolution = Evolution.Tentacool,
         xpClass = Slow,
         xpYield = 67,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -2425,7 +2426,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 180,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -2458,7 +2459,7 @@ public static class Species
         evolution = Evolution.Geodude,
         xpClass = MediumSlow,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -2491,7 +2492,7 @@ public static class Species
         evolution = Evolution.Graveler,
         xpClass = MediumSlow,
         xpYield = 137,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -2524,7 +2525,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 223,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -2557,7 +2558,7 @@ public static class Species
         evolution = Evolution.Ponyta,
         xpClass = MediumFast,
         xpYield = 82,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -2590,7 +2591,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -2623,7 +2624,7 @@ public static class Species
         evolution = Evolution.Slowpoke,
         xpClass = MediumFast,
         xpYield = 63,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -2656,7 +2657,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 172,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -2689,7 +2690,7 @@ public static class Species
         evolution = Evolution.Magnemite,
         xpClass = MediumFast,
         xpYield = 65,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -2722,7 +2723,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 163,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -2755,7 +2756,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 132,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Field,
@@ -2788,7 +2789,7 @@ public static class Species
         evolution = Evolution.Doduo,
         xpClass = MediumFast,
         xpYield = 62,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -2821,7 +2822,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 165,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -2854,7 +2855,7 @@ public static class Species
         evolution = Evolution.Seel,
         xpClass = MediumFast,
         xpYield = 65,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Field,
@@ -2887,7 +2888,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 166,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Field,
@@ -2920,7 +2921,7 @@ public static class Species
         evolution = Evolution.Grimer,
         xpClass = MediumFast,
         xpYield = 65,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -2953,7 +2954,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -2986,7 +2987,7 @@ public static class Species
         evolution = Evolution.Shellder,
         xpClass = Slow,
         xpYield = 61,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -3019,7 +3020,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 184,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -3052,7 +3053,7 @@ public static class Species
         evolution = Evolution.Gastly,
         xpClass = MediumSlow,
         xpYield = 62,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -3084,7 +3085,7 @@ public static class Species
         evYield = 2 * SpAtk,
         evolution = Evolution.Haunter,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -3117,7 +3118,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 225,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -3150,7 +3151,7 @@ public static class Species
         evolution = Evolution.Onix,
         xpClass = MediumFast,
         xpYield = 77,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -3183,7 +3184,7 @@ public static class Species
         evolution = Evolution.Drowzee,
         xpClass = MediumFast,
         xpYield = 66,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -3216,7 +3217,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 169,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -3249,7 +3250,7 @@ public static class Species
         evolution = Evolution.Krabby,
         xpClass = MediumFast,
         xpYield = 65,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -3282,7 +3283,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 166,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -3315,7 +3316,7 @@ public static class Species
         evolution = Evolution.Voltorb,
         xpClass = MediumFast,
         xpYield = 66,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -3348,7 +3349,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 172,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -3381,7 +3382,7 @@ public static class Species
         evolution = Evolution.Exeggcute,
         xpClass = Slow,
         xpYield = 65,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -3414,7 +3415,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 186,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -3447,7 +3448,7 @@ public static class Species
         evolution = Evolution.Cubone,
         xpClass = MediumFast,
         xpYield = 64,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -3480,7 +3481,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 149,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -3513,7 +3514,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 100,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -3546,7 +3547,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 100,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -3579,7 +3580,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 77,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -3612,7 +3613,7 @@ public static class Species
         evolution = Evolution.Koffing,
         xpClass = MediumFast,
         xpYield = 68,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -3645,7 +3646,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 172,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -3678,7 +3679,7 @@ public static class Species
         evolution = Evolution.Rhyhorn,
         xpClass = Slow,
         xpYield = 69,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -3711,7 +3712,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 170,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -3744,7 +3745,7 @@ public static class Species
         evolution = Evolution.Chansey,
         xpClass = Fast,
         xpYield = 395,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Fairy,
@@ -3777,7 +3778,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 87,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -3810,7 +3811,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 172,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -3843,7 +3844,7 @@ public static class Species
         evolution = Evolution.Horsea,
         xpClass = MediumFast,
         xpYield = 59,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Dragon,
@@ -3876,7 +3877,7 @@ public static class Species
         evolution = Evolution.Seadra,
         xpClass = MediumFast,
         xpYield = 154,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Dragon,
@@ -3909,7 +3910,7 @@ public static class Species
         evolution = Evolution.Goldeen,
         xpClass = MediumFast,
         xpYield = 64,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Water2,
@@ -3942,7 +3943,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 158,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Water2,
@@ -3975,7 +3976,7 @@ public static class Species
         evolution = Evolution.Staryu,
         xpClass = Slow,
         xpYield = 68,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -4008,7 +4009,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 182,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -4041,7 +4042,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 161,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -4074,7 +4075,7 @@ public static class Species
         evolution = Evolution.Scyther,
         xpClass = MediumFast,
         xpYield = 100,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -4107,7 +4108,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -4140,7 +4141,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 172,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -4173,7 +4174,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 173,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -4206,7 +4207,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -4239,7 +4240,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 172,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 100,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -4272,7 +4273,7 @@ public static class Species
         evolution = Evolution.Magikarp,
         xpClass = Slow,
         xpYield = 40,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Dragon,
@@ -4305,7 +4306,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 189,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Dragon,
@@ -4338,7 +4339,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 187,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -4371,7 +4372,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 101,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Ditto,
         eggGroup2 = EggGroup.Ditto,
@@ -4404,7 +4405,7 @@ public static class Species
         evolution = Evolution.Eevee,
         xpClass = MediumFast,
         xpYield = 65,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -4437,7 +4438,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 184,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -4470,7 +4471,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 184,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -4503,7 +4504,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 184,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -4536,7 +4537,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 79,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -4569,7 +4570,7 @@ public static class Species
         evolution = Evolution.Omanyte,
         xpClass = MediumFast,
         xpYield = 71,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water3,
@@ -4602,7 +4603,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 173,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water3,
@@ -4635,7 +4636,7 @@ public static class Species
         evolution = Evolution.Kabuto,
         xpClass = MediumFast,
         xpYield = 71,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water3,
@@ -4668,7 +4669,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 173,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water3,
@@ -4701,7 +4702,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 180,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -4734,7 +4735,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 189,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -4767,7 +4768,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -4800,7 +4801,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -4833,7 +4834,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -4866,7 +4867,7 @@ public static class Species
         evolution = Evolution.Dratini,
         xpClass = Slow,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Dragon,
@@ -4899,7 +4900,7 @@ public static class Species
         evolution = Evolution.Dragonair,
         xpClass = Slow,
         xpYield = 147,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Dragon,
@@ -4932,7 +4933,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Dragon,
@@ -4965,7 +4966,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 306,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -4998,7 +4999,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 270,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -5031,7 +5032,7 @@ public static class Species
         evolution = Evolution.Chikorita,
         xpClass = MediumSlow,
         xpYield = 64,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Grass,
@@ -5064,7 +5065,7 @@ public static class Species
         evolution = Evolution.Bayleef,
         xpClass = MediumSlow,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Grass,
@@ -5097,7 +5098,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 236,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Grass,
@@ -5130,7 +5131,7 @@ public static class Species
         evolution = Evolution.Cyndaquil,
         xpClass = MediumSlow,
         xpYield = 62,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -5163,7 +5164,7 @@ public static class Species
         evolution = Evolution.Quilava,
         xpClass = MediumSlow,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -5196,7 +5197,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 240,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -5229,7 +5230,7 @@ public static class Species
         evolution = Evolution.Totodile,
         xpClass = MediumSlow,
         xpYield = 63,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -5262,7 +5263,7 @@ public static class Species
         evolution = Evolution.Croconaw,
         xpClass = MediumSlow,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -5295,7 +5296,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 239,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -5328,7 +5329,7 @@ public static class Species
         evolution = Evolution.Sentret,
         xpClass = MediumFast,
         xpYield = 43,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -5361,7 +5362,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 145,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -5394,7 +5395,7 @@ public static class Species
         evolution = Evolution.Hoothoot,
         xpClass = MediumFast,
         xpYield = 52,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -5427,7 +5428,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 158,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -5460,7 +5461,7 @@ public static class Species
         evolution = Evolution.Ledyba,
         xpClass = Fast,
         xpYield = 53,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -5493,7 +5494,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 137,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -5526,7 +5527,7 @@ public static class Species
         evolution = Evolution.Spinarak,
         xpClass = Fast,
         xpYield = 50,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -5559,7 +5560,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 140,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -5592,7 +5593,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 241,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -5625,7 +5626,7 @@ public static class Species
         evolution = Evolution.Chinchou,
         xpClass = Slow,
         xpYield = 66,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Water2,
@@ -5658,7 +5659,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 161,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Water2,
@@ -5692,7 +5693,7 @@ public static class Species
         evolution = Evolution.Pichu,
         xpClass = MediumFast,
         xpYield = 41,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Fairy,
@@ -5726,7 +5727,7 @@ public static class Species
         evolution = Evolution.Cleffa,
         xpClass = Fast,
         xpYield = 44,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -5759,7 +5760,7 @@ public static class Species
         evolution = Evolution.Igglybuff,
         xpClass = Fast,
         xpYield = 42,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -5792,7 +5793,7 @@ public static class Species
         evolution = Evolution.Togepi,
         xpClass = Fast,
         xpYield = 49,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -5825,7 +5826,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Fairy,
@@ -5858,7 +5859,7 @@ public static class Species
         evolution = Evolution.Natu,
         xpClass = MediumFast,
         xpYield = 64,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -5891,7 +5892,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 165,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -5924,7 +5925,7 @@ public static class Species
         evolution = Evolution.Mareep,
         xpClass = MediumSlow,
         xpYield = 56,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -5957,7 +5958,7 @@ public static class Species
         evolution = Evolution.Flaaffy,
         xpClass = MediumSlow,
         xpYield = 128,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -5990,7 +5991,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 230,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -6023,7 +6024,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 221,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -6056,7 +6057,7 @@ public static class Species
         evolution = Evolution.Marill,
         xpClass = Fast,
         xpYield = 88,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Fairy,
@@ -6089,7 +6090,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 189,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Fairy,
@@ -6122,7 +6123,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 144,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -6155,7 +6156,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 225,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water1,
@@ -6188,7 +6189,7 @@ public static class Species
         evolution = Evolution.Hoppip,
         xpClass = MediumSlow,
         xpYield = 50,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Grass,
@@ -6221,7 +6222,7 @@ public static class Species
         evolution = Evolution.Skiploom,
         xpClass = MediumSlow,
         xpYield = 119,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Grass,
@@ -6254,7 +6255,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 207,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Grass,
@@ -6287,7 +6288,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 72,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -6320,7 +6321,7 @@ public static class Species
         evolution = Evolution.Sunkern,
         xpClass = MediumSlow,
         xpYield = 36,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -6353,7 +6354,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 149,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.Grass,
@@ -6386,7 +6387,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 78,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -6419,7 +6420,7 @@ public static class Species
         evolution = Evolution.Wooper,
         xpClass = MediumFast,
         xpYield = 42,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Field,
@@ -6452,7 +6453,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 151,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Field,
@@ -6485,7 +6486,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 184,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -6518,7 +6519,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 184,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -6551,7 +6552,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 81,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -6584,7 +6585,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 172,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -6617,7 +6618,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 87,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -6650,7 +6651,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 118,
-        learnset = Learnset.EmptyLearnset,
+        learnset = EmptyLearnset,
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -6683,7 +6684,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -6716,7 +6717,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -6749,7 +6750,7 @@ public static class Species
         evolution = Evolution.Pineco,
         xpClass = MediumFast,
         xpYield = 58,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -6782,7 +6783,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 163,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -6815,7 +6816,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 145,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -6848,7 +6849,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 86,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -6881,7 +6882,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 179,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -6914,7 +6915,7 @@ public static class Species
         evolution = Evolution.Snubbull,
         xpClass = Fast,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Fairy,
@@ -6947,7 +6948,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 158,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Fairy,
@@ -6980,7 +6981,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 88,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Water2,
@@ -7013,7 +7014,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -7046,7 +7047,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 177,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -7079,7 +7080,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -7112,7 +7113,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 86,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7145,7 +7146,7 @@ public static class Species
         evolution = Evolution.Teddiursa,
         xpClass = MediumFast,
         xpYield = 66,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7178,7 +7179,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7211,7 +7212,7 @@ public static class Species
         evolution = Evolution.Slugma,
         xpClass = MediumFast,
         xpYield = 50,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -7244,7 +7245,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 151,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -7277,7 +7278,7 @@ public static class Species
         evolution = Evolution.Swinub,
         xpClass = Slow,
         xpYield = 50,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7310,7 +7311,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 158,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7343,7 +7344,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 144,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water3,
@@ -7376,7 +7377,7 @@ public static class Species
         evolution = Evolution.Remoraid,
         xpClass = MediumFast,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water2,
@@ -7409,7 +7410,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 168,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water2,
@@ -7442,7 +7443,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 116,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Field,
@@ -7475,7 +7476,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 170,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water1,
@@ -7508,7 +7509,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 163,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -7541,7 +7542,7 @@ public static class Species
         evolution = Evolution.Houndour,
         xpClass = Slow,
         xpYield = 66,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7574,7 +7575,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7607,7 +7608,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 243,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Dragon,
@@ -7640,7 +7641,7 @@ public static class Species
         evolution = Evolution.Phanpy,
         xpClass = MediumFast,
         xpYield = 66,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7673,7 +7674,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7706,7 +7707,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 180,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -7739,7 +7740,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 163,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7772,7 +7773,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 88,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -7805,7 +7806,7 @@ public static class Species
         evolution = Evolution.Tyrogue,
         xpClass = MediumFast,
         xpYield = 42,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 100,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -7838,7 +7839,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 100,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -7871,7 +7872,7 @@ public static class Species
         evolution = Evolution.Smoochum,
         xpClass = MediumFast,
         xpYield = 61,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -7904,7 +7905,7 @@ public static class Species
         evolution = Evolution.Elekid,
         xpClass = MediumFast,
         xpYield = 72,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -7937,7 +7938,7 @@ public static class Species
         evolution = Evolution.Magby,
         xpClass = MediumFast,
         xpYield = 73,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -7970,7 +7971,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 172,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -8003,7 +8004,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 608,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Fairy,
@@ -8036,7 +8037,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -8069,7 +8070,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -8102,7 +8103,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -8135,7 +8136,7 @@ public static class Species
         evolution = Evolution.Larvitar,
         xpClass = Slow,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -8168,7 +8169,7 @@ public static class Species
         evolution = Evolution.Pupitar,
         xpClass = Slow,
         xpYield = 144,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -8201,7 +8202,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -8234,7 +8235,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 306,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -8267,7 +8268,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 306,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -8301,7 +8302,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 270,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -8335,7 +8336,7 @@ public static class Species
         evolution = Evolution.Treecko,
         xpClass = MediumSlow,
         xpYield = 62,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Dragon,
@@ -8368,7 +8369,7 @@ public static class Species
         evolution = Evolution.Grovyle,
         xpClass = MediumSlow,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Dragon,
@@ -8401,7 +8402,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 239,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Dragon,
@@ -8434,7 +8435,7 @@ public static class Species
         evolution = Evolution.Torchic,
         xpClass = MediumSlow,
         xpYield = 62,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -8467,7 +8468,7 @@ public static class Species
         evolution = Evolution.Combusken,
         xpClass = MediumSlow,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -8500,7 +8501,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 239,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -8533,7 +8534,7 @@ public static class Species
         evolution = Evolution.Mudkip,
         xpClass = MediumSlow,
         xpYield = 62,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -8566,7 +8567,7 @@ public static class Species
         evolution = Evolution.Marshtomp,
         xpClass = MediumSlow,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -8599,7 +8600,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 241,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Water1,
@@ -8632,7 +8633,7 @@ public static class Species
         evolution = Evolution.Poochyena,
         xpClass = MediumFast,
         xpYield = 56,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -8665,7 +8666,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 147,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -8698,7 +8699,7 @@ public static class Species
         evolution = Evolution.Zigzagoon,
         xpClass = MediumFast,
         xpYield = 56,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -8731,7 +8732,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 147,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -8764,7 +8765,7 @@ public static class Species
         evolution = Evolution.Wurmple,
         xpClass = MediumFast,
         xpYield = 56,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -8797,7 +8798,7 @@ public static class Species
         evolution = Evolution.Silcoon,
         xpClass = MediumFast,
         xpYield = 72,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -8830,7 +8831,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 178,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -8863,7 +8864,7 @@ public static class Species
         evolution = Evolution.Cascoon,
         xpClass = MediumFast,
         xpYield = 72,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -8896,7 +8897,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 173,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -8929,7 +8930,7 @@ public static class Species
         evolution = Evolution.Lotad,
         xpClass = MediumSlow,
         xpYield = 44,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Grass,
@@ -8962,7 +8963,7 @@ public static class Species
         evolution = Evolution.Lombre,
         xpClass = MediumSlow,
         xpYield = 119,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Grass,
@@ -8995,7 +8996,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 216,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Grass,
@@ -9028,7 +9029,7 @@ public static class Species
         evolution = Evolution.Seedot,
         xpClass = MediumSlow,
         xpYield = 44,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Grass,
@@ -9061,7 +9062,7 @@ public static class Species
         evolution = Evolution.Nuzleaf,
         xpClass = MediumSlow,
         xpYield = 119,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Grass,
@@ -9094,7 +9095,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 216,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Grass,
@@ -9127,7 +9128,7 @@ public static class Species
         evolution = Evolution.Taillow,
         xpClass = MediumSlow,
         xpYield = 54,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -9160,7 +9161,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Flying,
@@ -9193,7 +9194,7 @@ public static class Species
         evolution = Evolution.Wingull,
         xpClass = MediumFast,
         xpYield = 54,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Flying,
@@ -9226,7 +9227,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 154,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Flying,
@@ -9259,7 +9260,7 @@ public static class Species
         evolution = Evolution.Ralts,
         xpClass = Slow,
         xpYield = 40,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -9292,7 +9293,7 @@ public static class Species
         evolution = Evolution.Kirlia,
         xpClass = Slow,
         xpYield = 97,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -9325,7 +9326,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 233,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -9358,7 +9359,7 @@ public static class Species
         evolution = Evolution.Surskit,
         xpClass = MediumFast,
         xpYield = 54,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Bug,
@@ -9391,7 +9392,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Bug,
@@ -9424,7 +9425,7 @@ public static class Species
         evolution = Evolution.Shroomish,
         xpClass = Fluctuating,
         xpYield = 59,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Grass,
@@ -9457,7 +9458,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fluctuating,
         xpYield = 161,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Grass,
@@ -9490,7 +9491,7 @@ public static class Species
         evolution = Evolution.Slakoth,
         xpClass = Slow,
         xpYield = 56,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -9523,7 +9524,7 @@ public static class Species
         evolution = Evolution.Vigoroth,
         xpClass = Slow,
         xpYield = 154,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -9556,7 +9557,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 252,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -9589,7 +9590,7 @@ public static class Species
         evolution = Evolution.Nincada,
         xpClass = Erratic,
         xpYield = 53,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -9622,7 +9623,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Erratic,
         xpYield = 160,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -9655,7 +9656,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Erratic,
         xpYield = 83,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -9688,7 +9689,7 @@ public static class Species
         evolution = Evolution.Whismur,
         xpClass = MediumSlow,
         xpYield = 48,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -9721,7 +9722,7 @@ public static class Species
         evolution = Evolution.Loudred,
         xpClass = MediumSlow,
         xpYield = 126,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -9754,7 +9755,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 221,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Field,
@@ -9787,7 +9788,7 @@ public static class Species
         evolution = Evolution.Makuhita,
         xpClass = Fluctuating,
         xpYield = 47,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -9820,7 +9821,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fluctuating,
         xpYield = 166,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 75,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -9853,7 +9854,7 @@ public static class Species
         evolution = Evolution.Azurill,
         xpClass = Fast,
         xpYield = 38,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -9886,7 +9887,7 @@ public static class Species
         evolution = Evolution.None, //Not done
         xpClass = MediumFast,
         xpYield = 75,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -9919,7 +9920,7 @@ public static class Species
         evolution = Evolution.Skitty,
         xpClass = Fast,
         xpYield = 52,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Fairy,
@@ -9952,7 +9953,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 140,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Fairy,
@@ -9985,7 +9986,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 133,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -10018,7 +10019,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 133,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Fairy,
@@ -10051,7 +10052,7 @@ public static class Species
         evolution = Evolution.Aron,
         xpClass = Slow,
         xpYield = 66,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -10084,7 +10085,7 @@ public static class Species
         evolution = Evolution.Lairon,
         xpClass = Slow,
         xpYield = 151,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -10117,7 +10118,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 239,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Monster,
@@ -10150,7 +10151,7 @@ public static class Species
         evolution = Evolution.Meditite,
         xpClass = MediumFast,
         xpYield = 56,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -10183,7 +10184,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 144,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.HumanLike,
         eggGroup2 = EggGroup.HumanLike,
@@ -10216,7 +10217,7 @@ public static class Species
         evolution = Evolution.Electrike,
         xpClass = Slow,
         xpYield = 59,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -10249,7 +10250,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 166,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -10282,7 +10283,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Fairy,
@@ -10315,7 +10316,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 142,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Fairy,
@@ -10348,7 +10349,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Erratic,
         xpYield = 151,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 100,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.HumanLike,
@@ -10381,7 +10382,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fluctuating,
         xpYield = 151,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.HumanLike,
@@ -10414,7 +10415,7 @@ public static class Species
         evolution = Evolution.None, //Not done
         xpClass = MediumSlow,
         xpYield = 140,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Grass,
@@ -10447,7 +10448,7 @@ public static class Species
         evolution = Evolution.Gulpin,
         xpClass = Fluctuating,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -10480,7 +10481,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fluctuating,
         xpYield = 163,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -10513,7 +10514,7 @@ public static class Species
         evolution = Evolution.Carvanha,
         xpClass = Slow,
         xpYield = 61,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Water2,
@@ -10546,7 +10547,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 161,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Water2,
@@ -10579,7 +10580,7 @@ public static class Species
         evolution = Evolution.Wailmer,
         xpClass = Fluctuating,
         xpYield = 80,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Water2,
@@ -10612,7 +10613,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fluctuating,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Water2,
@@ -10645,7 +10646,7 @@ public static class Species
         evolution = Evolution.Numel,
         xpClass = MediumFast,
         xpYield = 61,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -10678,7 +10679,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 161,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -10711,7 +10712,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 165,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -10744,7 +10745,7 @@ public static class Species
         evolution = Evolution.Spoink,
         xpClass = Fast,
         xpYield = 66,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -10777,7 +10778,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 165,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -10810,7 +10811,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 126,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.HumanLike,
@@ -10843,7 +10844,7 @@ public static class Species
         evolution = Evolution.Trapinch,
         xpClass = MediumSlow,
         xpYield = 58,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -10876,7 +10877,7 @@ public static class Species
         evolution = Evolution.Vibrava,
         xpClass = MediumSlow,
         xpYield = 119,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -10909,7 +10910,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 234,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Bug,
         eggGroup2 = EggGroup.Bug,
@@ -10942,7 +10943,7 @@ public static class Species
         evolution = Evolution.Cacnea,
         xpClass = MediumSlow,
         xpYield = 67,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.HumanLike,
@@ -10975,7 +10976,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 166,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Grass,
         eggGroup2 = EggGroup.HumanLike,
@@ -11008,7 +11009,7 @@ public static class Species
         evolution = Evolution.Swablu,
         xpClass = Erratic,
         xpYield = 62,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Dragon,
@@ -11041,7 +11042,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Erratic,
         xpYield = 172,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Flying,
         eggGroup2 = EggGroup.Dragon,
@@ -11074,7 +11075,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Erratic,
         xpYield = 160,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -11107,7 +11108,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fluctuating,
         xpYield = 160,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Dragon,
@@ -11140,7 +11141,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 161,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -11173,7 +11174,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 161,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -11206,7 +11207,7 @@ public static class Species
         evolution = Evolution.Barboach,
         xpClass = MediumFast,
         xpYield = 58,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Water2,
@@ -11239,7 +11240,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 164,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Water2,
@@ -11272,7 +11273,7 @@ public static class Species
         evolution = Evolution.Corphish,
         xpClass = Fluctuating,
         xpYield = 62,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water3,
@@ -11305,7 +11306,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fluctuating,
         xpYield = 164,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water3,
@@ -11338,7 +11339,7 @@ public static class Species
         evolution = Evolution.Baltoy,
         xpClass = MediumFast,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -11371,7 +11372,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 175,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -11404,7 +11405,7 @@ public static class Species
         evolution = Evolution.Lileep,
         xpClass = Erratic,
         xpYield = 71,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -11437,7 +11438,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Erratic,
         xpYield = 173,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -11470,7 +11471,7 @@ public static class Species
         evolution = Evolution.Anorith,
         xpClass = Erratic,
         xpYield = 71,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -11503,7 +11504,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Erratic,
         xpYield = 173,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Water3,
         eggGroup2 = EggGroup.Water3,
@@ -11536,7 +11537,7 @@ public static class Species
         evolution = Evolution.Feebas,
         xpClass = Erratic,
         xpYield = 40,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Dragon,
@@ -11569,7 +11570,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Erratic,
         xpYield = 189,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Dragon,
@@ -11606,7 +11607,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 154,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -11639,7 +11640,7 @@ public static class Species
         evolution = Evolution.Shuppet,
         xpClass = Fast,
         xpYield = 59,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -11672,7 +11673,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -11705,7 +11706,7 @@ public static class Species
         evolution = Evolution.Duskull,
         xpClass = Fast,
         xpYield = 59,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -11738,7 +11739,7 @@ public static class Species
         evolution = Evolution.None, //Not done
         xpClass = Fast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -11771,7 +11772,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 161,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Monster,
         eggGroup2 = EggGroup.Grass,
@@ -11804,7 +11805,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 159,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Amorphous,
         eggGroup2 = EggGroup.Amorphous,
@@ -11837,7 +11838,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 163,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Field,
         eggGroup2 = EggGroup.Field,
@@ -11870,7 +11871,7 @@ public static class Species
         evolution = Evolution.Wynaut,
         xpClass = MediumFast,
         xpYield = 52,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -11903,7 +11904,7 @@ public static class Species
         evolution = Evolution.Snorunt,
         xpClass = MediumFast,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Mineral,
@@ -11936,7 +11937,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 168,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Mineral,
@@ -11969,7 +11970,7 @@ public static class Species
         evolution = Evolution.Spheal,
         xpClass = MediumSlow,
         xpYield = 58,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Field,
@@ -12002,7 +12003,7 @@ public static class Species
         evolution = Evolution.Sealeo,
         xpClass = MediumSlow,
         xpYield = 144,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Field,
@@ -12035,7 +12036,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 239,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Field,
@@ -12068,7 +12069,7 @@ public static class Species
         evolution = Evolution.Clamperl,
         xpClass = Erratic,
         xpYield = 69,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water1,
@@ -12101,7 +12102,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Erratic,
         xpYield = 170,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water1,
@@ -12134,7 +12135,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Erratic,
         xpYield = 170,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water1,
@@ -12167,7 +12168,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 170,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 87,
         eggGroup1 = EggGroup.Water1,
         eggGroup2 = EggGroup.Water2,
@@ -12200,7 +12201,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 116,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 25,
         eggGroup1 = EggGroup.Water2,
         eggGroup2 = EggGroup.Water2,
@@ -12233,7 +12234,7 @@ public static class Species
         evolution = Evolution.Bagon,
         xpClass = Slow,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Dragon,
         eggGroup2 = EggGroup.Dragon,
@@ -12266,7 +12267,7 @@ public static class Species
         evolution = Evolution.Shelgon,
         xpClass = Slow,
         xpYield = 147,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Dragon,
         eggGroup2 = EggGroup.Dragon,
@@ -12299,7 +12300,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Dragon,
         eggGroup2 = EggGroup.Dragon,
@@ -12332,7 +12333,7 @@ public static class Species
         evolution = Evolution.Beldum,
         xpClass = Slow,
         xpYield = 60,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -12365,7 +12366,7 @@ public static class Species
         evolution = Evolution.Metang,
         xpClass = Slow,
         xpYield = 147,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -12398,7 +12399,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Mineral,
         eggGroup2 = EggGroup.Mineral,
@@ -12431,7 +12432,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -12464,7 +12465,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -12497,7 +12498,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -12530,7 +12531,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 0,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -12563,7 +12564,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 100,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -12596,7 +12597,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 302,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -12629,7 +12630,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 302,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -12662,7 +12663,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 306,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -12695,7 +12696,7 @@ public static class Species
         evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,

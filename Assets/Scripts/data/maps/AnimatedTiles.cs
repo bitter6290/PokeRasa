@@ -11,14 +11,14 @@ public static class AnimatedTiles
     static Sprite[] SpriteFromWaterAnims(int x, int y)
     => new Sprite[8]
         {
-            SpriteFromTexture8x8("WaterAnims/0",x,y),
-            SpriteFromTexture8x8("WaterAnims/1",x,y),
-            SpriteFromTexture8x8("WaterAnims/2",x,y),
-            SpriteFromTexture8x8("WaterAnims/3",x,y),
-            SpriteFromTexture8x8("WaterAnims/4",x,y),
-            SpriteFromTexture8x8("WaterAnims/5",x,y),
-            SpriteFromTexture8x8("WaterAnims/6",x,y),
-            SpriteFromTexture8x8("WaterAnims/7",x,y),
+            SpriteFromTexture8x8("Anims/Water/0",x,y),
+            SpriteFromTexture8x8("Anims/Water/1",x,y),
+            SpriteFromTexture8x8("Anims/Water/2",x,y),
+            SpriteFromTexture8x8("Anims/Water/3",x,y),
+            SpriteFromTexture8x8("Anims/Water/4",x,y),
+            SpriteFromTexture8x8("Anims/Water/5",x,y),
+            SpriteFromTexture8x8("Anims/Water/6",x,y),
+            SpriteFromTexture8x8("Anims/Water/7",x,y),
         };
     public static Sprite[] water0NWSprites = SpriteFromWaterAnims(0, 14);
     public static Sprite[] water0NESprites = SpriteFromWaterAnims(1, 14);

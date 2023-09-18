@@ -17,8 +17,10 @@ public static class Map
         width = 30,
         connection = new Connection[1]
         {
-            new(Test2,S,-5)
+            new(Test2, S, -5)
         },
+        triggers = TestMapdata.triggers,
+        grassData = TestMapdata.grassTables,
     };
 
     public static MapData test2 = new()

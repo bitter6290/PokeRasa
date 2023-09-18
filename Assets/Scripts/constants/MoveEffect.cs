@@ -172,6 +172,7 @@ public enum MoveEffect : ushort
     Heal50,
     HealWeather,
     HealStatus,
+    Roost,
     Sketch,
     Wish,
     Assist,

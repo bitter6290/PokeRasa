@@ -29,7 +29,7 @@ public class OverallTest : MonoBehaviour
         player.TryAddMon(testPokemon2);
         player.TryAddMon(testPokemon4);
         player.TryAddMon(testPokemon5);
-        player.StartBattle(new Pokemon[] { testPokemon, testPokemon3, testPokemon6 }, BattleType.Single);
+        StartCoroutine(player.StartSingleTrainerBattle(new Pokemon[] { testPokemon, testPokemon3, testPokemon6 }, BattleType.Single));
     }
 
     // Update is called once per frame
