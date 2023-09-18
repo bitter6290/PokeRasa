@@ -88,7 +88,7 @@ public class MapHelper : MapManager
             if (tile == null)
             {
                 AnimatedIndexedTile animTile = i as AnimatedIndexedTile;
-                if (animTile == null || animTile.Index == (int)TileID.NoTile) continue;
+                if (animTile == null || animTile.Index == (int)TileID.noTile) continue;
                 else
                 {
                     AnimatedIndexedTile animTest = AssetDatabase.LoadAssetAtPath<AnimatedIndexedTile>(
@@ -113,7 +113,7 @@ public class MapHelper : MapManager
             }
             else
             {
-                if (tile.Index == (int)TileID.NoTile) continue;
+                if (tile.Index == (int)TileID.noTile) continue;
                 IndexedTile test = AssetDatabase.LoadAssetAtPath<IndexedTile>(
                     "Assets/Generated Palettes/General/tile_" + tile.Index + ".asset"
                 );
@@ -132,7 +132,7 @@ public class MapHelper : MapManager
             }
             AssetDatabase.SaveAssets();
         }
-        foreach (CollisionTile i in Tiles.CollisionTileTable)
+        foreach (CollisionTile i in Tiles.CollisionTileTable) 
         {
             CollisionTile test = AssetDatabase.LoadAssetAtPath<CollisionTile>(
                 "Assets/Generated Palettes/Collision/tile_" + (int)i.collisionID + ".asset"

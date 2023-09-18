@@ -215,8 +215,364 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1412452346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1412452348}
+  - component: {fileID: 1412452347}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1412452347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412452346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebb930df3d964340b67816b267af7ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TM: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  HM: 0000000000000000
+  keyItem: 0000000000000000
+  storyFlags: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  currentTerrain: 0
+  currentMap: 1
+  xPos: 0
+  yPos: 0
+  currentHeight: 0
+  mapManager: {fileID: 0}
+  Party:
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+  - species: 0
+    monName: 
+    gender: 0
+    xp: 0
+    level: 0
+    currentLevelXP: 0
+    nextLevelXP: 0
+    levelProgress: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    hpMax: 0
+    attack: 0
+    defense: 0
+    spAtk: 0
+    spDef: 0
+    speed: 0
+    move1: 0
+    maxPp1: 0
+    pp1: 0
+    move2: 0
+    maxPp2: 0
+    pp2: 0
+    move3: 0
+    maxPp3: 0
+    pp3: 0
+    move4: 0
+    maxPp4: 0
+    pp4: 0
+    HP: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    id: 0
+--- !u!4 &1412452348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412452346}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4269438, y: 15.850168, z: -5.788032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 704212804}
+  - {fileID: 1412452348}

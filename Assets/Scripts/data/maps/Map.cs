@@ -37,4 +37,6 @@ public static class Map
         test,
         test2,
     };
+
+    public static MapData Data(this MapID id) => MapTable[(int)id];
 }

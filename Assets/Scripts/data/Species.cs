@@ -3,6 +3,7 @@ using static EvYield;
 using static Ability;
 using static Type;
 using static SpeciesData;
+using static XPClass;
 
 public static class Species
 {
@@ -19,7 +20,7 @@ public static class Species
         baseSpeed = 0,
         evYield = 0,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 0,
         learnset = Learnset.EmptyLearnset,
         cryLocation = "pikachu",
@@ -46,7 +47,7 @@ public static class Species
         baseSpeed = 45,
         evYield = SpAtk,
         evolution = Evolution.Bulbasaur,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 64,
         learnset = Learnset.BulbasaurLearnset,
         catchRate = 45,
@@ -79,7 +80,7 @@ public static class Species
         baseSpeed = 60,
         evYield = SpAtk + SpDef,
         evolution = Evolution.Ivysaur,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -112,7 +113,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 2 * SpAtk + SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 236,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -145,7 +146,7 @@ public static class Species
         baseSpeed = 65,
         evYield = Speed,
         evolution = Evolution.Charmander,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -178,7 +179,7 @@ public static class Species
         baseSpeed = 80,
         evYield = Speed + SpAtk,
         evolution = Evolution.Charmeleon,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -211,7 +212,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 240,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -244,7 +245,7 @@ public static class Species
         baseSpeed = 43,
         evYield = Defense,
         evolution = Evolution.Squirtle,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 63,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -277,7 +278,7 @@ public static class Species
         baseSpeed = 58,
         evYield = Defense + SpDef,
         evolution = Evolution.Wartortle,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -310,7 +311,7 @@ public static class Species
         baseSpeed = 78,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 239,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -343,7 +344,7 @@ public static class Species
         baseSpeed = 45,
         evYield = HP,
         evolution = Evolution.Caterpie,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 39,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -376,7 +377,7 @@ public static class Species
         baseSpeed = 30,
         evYield = 2 * Defense,
         evolution = Evolution.Metapod,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 72,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -409,7 +410,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * SpAtk + SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 178,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -442,7 +443,7 @@ public static class Species
         baseSpeed = 50,
         evYield = Speed,
         evolution = Evolution.Weedle,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 39,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -475,7 +476,7 @@ public static class Species
         baseSpeed = 35,
         evYield = 2 * Defense,
         evolution = Evolution.Kakuna,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 72,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -508,7 +509,7 @@ public static class Species
         baseSpeed = 75,
         evYield = 2 * Attack + SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 178,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -541,7 +542,7 @@ public static class Species
         baseSpeed = 56,
         evYield = Speed,
         evolution = Evolution.Pidgey,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 50,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -574,7 +575,7 @@ public static class Species
         baseSpeed = 71,
         evYield = 2 * Speed,
         evolution = Evolution.Pidgeotto,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 122,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -607,7 +608,7 @@ public static class Species
         baseSpeed = 91,
         evYield = 3 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 216,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -640,7 +641,7 @@ public static class Species
         baseSpeed = 72,
         evYield = Speed,
         evolution = Evolution.Rattata,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 51,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -673,7 +674,7 @@ public static class Species
         baseSpeed = 97,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 145,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -738,7 +739,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 155,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -771,7 +772,7 @@ public static class Species
         baseSpeed = 55,
         evYield = Attack,
         evolution = Evolution.Ekans,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 58,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -804,7 +805,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 157,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -837,7 +838,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 2 * Speed,
         evolution = Evolution.Pikachu,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 112,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -870,7 +871,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 3 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 218,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -903,7 +904,7 @@ public static class Species
         baseSpeed = 40,
         evYield = Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -936,7 +937,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 158,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -969,7 +970,7 @@ public static class Species
         baseSpeed = 41,
         evYield = HP,
         evolution = Evolution.NidoranF,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 55,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -1003,7 +1004,7 @@ public static class Species
         baseSpeed = 56,
         evYield = 2 * HP,
         evolution = Evolution.Nidorina,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 128,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -1036,7 +1037,7 @@ public static class Species
         baseSpeed = 76,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 227,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -1069,7 +1070,7 @@ public static class Species
         baseSpeed = 50,
         evYield = Attack,
         evolution = Evolution.NidoranM,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 55,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 100,
@@ -1102,7 +1103,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 2 * Attack,
         evolution = Evolution.Nidorino,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 128,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 100,
@@ -1135,7 +1136,7 @@ public static class Species
         baseSpeed = 85,
         evYield = 3 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 227,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 100,
@@ -1168,7 +1169,7 @@ public static class Species
         baseSpeed = 35,
         evYield = 2 * HP,
         evolution = Evolution.Clefairy,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 113,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -1201,7 +1202,7 @@ public static class Species
         baseSpeed = 60,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 217,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -1234,7 +1235,7 @@ public static class Species
         baseSpeed = 65,
         evYield = Speed,
         evolution = Evolution.Vulpix,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -1267,7 +1268,7 @@ public static class Species
         baseSpeed = 100,
         evYield = Speed + SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 177,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -1300,7 +1301,7 @@ public static class Species
         baseSpeed = 20,
         evYield = 2 * HP,
         evolution = Evolution.Jigglypuff,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 95,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -1333,7 +1334,7 @@ public static class Species
         baseSpeed = 45,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 196,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -1366,7 +1367,7 @@ public static class Species
         baseSpeed = 55,
         evYield = Speed,
         evolution = Evolution.Zubat,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 49,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1399,7 +1400,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1432,7 +1433,7 @@ public static class Species
         baseSpeed = 30,
         evYield = SpAtk,
         evolution = Evolution.Oddish,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 64,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1465,7 +1466,7 @@ public static class Species
         baseSpeed = 40,
         evYield = 2 * SpAtk,
         evolution = Evolution.Gloom,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 138,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1498,7 +1499,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 221,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1531,7 +1532,7 @@ public static class Species
         baseSpeed = 25,
         evYield = Attack,
         evolution = Evolution.Paras,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 57,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1564,7 +1565,7 @@ public static class Species
         baseSpeed = 30,
         evYield = 2 * Attack + Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1597,7 +1598,7 @@ public static class Species
         baseSpeed = 45,
         evYield = SpDef,
         evolution = Evolution.Venonat,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 61,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1630,7 +1631,7 @@ public static class Species
         baseSpeed = 90,
         evYield = Speed + SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 158,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1663,7 +1664,7 @@ public static class Species
         baseSpeed = 95,
         evYield = Speed,
         evolution = Evolution.Diglett,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 53,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1696,7 +1697,7 @@ public static class Species
         baseSpeed = 120,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 149,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1729,7 +1730,7 @@ public static class Species
         baseSpeed = 90,
         evYield = Speed,
         evolution = Evolution.Meowth,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 58,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1762,7 +1763,7 @@ public static class Species
         baseSpeed = 115,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 154,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1795,7 +1796,7 @@ public static class Species
         baseSpeed = 55,
         evYield = SpAtk,
         evolution = Evolution.Psyduck,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 64,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1828,7 +1829,7 @@ public static class Species
         baseSpeed = 85,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1861,7 +1862,7 @@ public static class Species
         baseSpeed = 70,
         evYield = Attack,
         evolution = Evolution.Mankey,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 61,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1894,7 +1895,7 @@ public static class Species
         baseSpeed = 95,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -1927,7 +1928,7 @@ public static class Species
         baseSpeed = 60,
         evYield = Attack,
         evolution = Evolution.Growlithe,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 70,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -1960,7 +1961,7 @@ public static class Species
         baseSpeed = 95,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 194,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -1993,7 +1994,7 @@ public static class Species
         baseSpeed = 90,
         evYield = Speed,
         evolution = Evolution.Poliwag,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2026,7 +2027,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 2 * Speed,
         evolution = Evolution.Poliwhirl,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 135,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2059,7 +2060,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 3 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 230,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2092,7 +2093,7 @@ public static class Species
         baseSpeed = 90,
         evYield = SpAtk,
         evolution = Evolution.Abra,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -2125,7 +2126,7 @@ public static class Species
         baseSpeed = 105,
         evYield = 2 * SpAtk,
         evolution = Evolution.Kadabra,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 140,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -2158,7 +2159,7 @@ public static class Species
         baseSpeed = 120,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 225,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -2191,7 +2192,7 @@ public static class Species
         baseSpeed = 35,
         evYield = Attack,
         evolution = Evolution.Machop,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 61,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -2224,7 +2225,7 @@ public static class Species
         baseSpeed = 45,
         evYield = 2 * Attack,
         evolution = Evolution.Machoke,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -2257,7 +2258,7 @@ public static class Species
         baseSpeed = 55,
         evYield = 3 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 227,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -2290,7 +2291,7 @@ public static class Species
         baseSpeed = 40,
         evYield = Attack,
         evolution = Evolution.Bellsprout,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2323,7 +2324,7 @@ public static class Species
         baseSpeed = 55,
         evYield = 2 * Attack,
         evolution = Evolution.Weepinbell,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 137,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2356,7 +2357,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 3 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 221,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2389,7 +2390,7 @@ public static class Species
         baseSpeed = 70,
         evYield = SpDef,
         evolution = Evolution.Tentacool,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 67,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2422,7 +2423,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 180,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2455,7 +2456,7 @@ public static class Species
         baseSpeed = 20,
         evYield = Defense,
         evolution = Evolution.Geodude,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2488,7 +2489,7 @@ public static class Species
         baseSpeed = 35,
         evYield = 2 * Defense,
         evolution = Evolution.Graveler,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 137,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2521,7 +2522,7 @@ public static class Species
         baseSpeed = 45,
         evYield = 3 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 223,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2554,7 +2555,7 @@ public static class Species
         baseSpeed = 90,
         evYield = Speed,
         evolution = Evolution.Ponyta,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 82,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2587,7 +2588,7 @@ public static class Species
         baseSpeed = 105,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2620,7 +2621,7 @@ public static class Species
         baseSpeed = 15,
         evYield = HP,
         evolution = Evolution.Slowpoke,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 63,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2653,7 +2654,7 @@ public static class Species
         baseSpeed = 30,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2686,7 +2687,7 @@ public static class Species
         baseSpeed = 45,
         evYield = SpAtk,
         evolution = Evolution.Magnemite,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 65,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -2719,7 +2720,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 163,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -2752,7 +2753,7 @@ public static class Species
         baseSpeed = 60,
         evYield = Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 132,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2785,7 +2786,7 @@ public static class Species
         baseSpeed = 75,
         evYield = Attack,
         evolution = Evolution.Doduo,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2818,7 +2819,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 165,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2851,7 +2852,7 @@ public static class Species
         baseSpeed = 45,
         evYield = SpDef,
         evolution = Evolution.Seel,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 65,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2884,7 +2885,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 166,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2917,7 +2918,7 @@ public static class Species
         baseSpeed = 25,
         evYield = HP,
         evolution = Evolution.Grimer,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 65,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2950,7 +2951,7 @@ public static class Species
         baseSpeed = 50,
         evYield = HP + Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -2983,7 +2984,7 @@ public static class Species
         baseSpeed = 40,
         evYield = Defense,
         evolution = Evolution.Shellder,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 61,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3016,7 +3017,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 184,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3049,7 +3050,7 @@ public static class Species
         baseSpeed = 80,
         evYield = SpAtk,
         evolution = Evolution.Gastly,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3114,7 +3115,7 @@ public static class Species
         baseSpeed = 110,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 225,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3147,7 +3148,7 @@ public static class Species
         baseSpeed = 70,
         evYield = Defense,
         evolution = Evolution.Onix,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 77,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3180,7 +3181,7 @@ public static class Species
         baseSpeed = 42,
         evYield = SpDef,
         evolution = Evolution.Drowzee,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3213,7 +3214,7 @@ public static class Species
         baseSpeed = 67,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 169,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3246,7 +3247,7 @@ public static class Species
         baseSpeed = 50,
         evYield = Attack,
         evolution = Evolution.Krabby,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 65,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3279,7 +3280,7 @@ public static class Species
         baseSpeed = 75,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 166,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3312,7 +3313,7 @@ public static class Species
         baseSpeed = 100,
         evYield = Speed,
         evolution = Evolution.Voltorb,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -3345,7 +3346,7 @@ public static class Species
         baseSpeed = 140,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -3378,7 +3379,7 @@ public static class Species
         baseSpeed = 40,
         evYield = Defense,
         evolution = Evolution.Exeggcute,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 65,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3411,7 +3412,7 @@ public static class Species
         baseSpeed = 55,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 186,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3444,7 +3445,7 @@ public static class Species
         baseSpeed = 35,
         evYield = Defense,
         evolution = Evolution.Cubone,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 64,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3477,7 +3478,7 @@ public static class Species
         baseSpeed = 45,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 149,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3510,7 +3511,7 @@ public static class Species
         baseSpeed = 87,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 100,
@@ -3543,7 +3544,7 @@ public static class Species
         baseSpeed = 76,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 100,
@@ -3576,7 +3577,7 @@ public static class Species
         baseSpeed = 30,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 77,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3609,7 +3610,7 @@ public static class Species
         baseSpeed = 35,
         evYield = Defense,
         evolution = Evolution.Koffing,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 68,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3642,7 +3643,7 @@ public static class Species
         baseSpeed = 60,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3675,7 +3676,7 @@ public static class Species
         baseSpeed = 25,
         evYield = Defense,
         evolution = Evolution.Rhyhorn,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 69,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3708,7 +3709,7 @@ public static class Species
         baseSpeed = 40,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 170,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3741,7 +3742,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 2 * HP,
         evolution = Evolution.Chansey,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 395,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -3774,7 +3775,7 @@ public static class Species
         baseSpeed = 60,
         evYield = Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 87,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3807,7 +3808,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -3840,7 +3841,7 @@ public static class Species
         baseSpeed = 60,
         evYield = SpAtk,
         evolution = Evolution.Horsea,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 59,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3873,7 +3874,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Defense + SpAtk,
         evolution = Evolution.Seadra,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 154,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3906,7 +3907,7 @@ public static class Species
         baseSpeed = 63,
         evYield = Attack,
         evolution = Evolution.Goldeen,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 64,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3939,7 +3940,7 @@ public static class Species
         baseSpeed = 68,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 158,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -3972,7 +3973,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Speed,
         evolution = Evolution.Staryu,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 68,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -4005,7 +4006,7 @@ public static class Species
         baseSpeed = 115,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 182,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -4038,7 +4039,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -4071,7 +4072,7 @@ public static class Species
         baseSpeed = 105,
         evYield = Attack,
         evolution = Evolution.Scyther,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 100,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -4104,7 +4105,7 @@ public static class Species
         baseSpeed = 95,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -4137,7 +4138,7 @@ public static class Species
         baseSpeed = 105,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -4170,7 +4171,7 @@ public static class Species
         baseSpeed = 93,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 173,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -4203,7 +4204,7 @@ public static class Species
         baseSpeed = 85,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -4236,7 +4237,7 @@ public static class Species
         baseSpeed = 110,
         evYield = Attack + Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 100,
@@ -4269,7 +4270,7 @@ public static class Species
         baseSpeed = 80,
         evYield = Speed,
         evolution = Evolution.Magikarp,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 40,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -4302,7 +4303,7 @@ public static class Species
         baseSpeed = 81,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 189,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -4335,7 +4336,7 @@ public static class Species
         baseSpeed = 60,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 187,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -4368,7 +4369,7 @@ public static class Species
         baseSpeed = 48,
         evYield = HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 101,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -4401,7 +4402,7 @@ public static class Species
         baseSpeed = 55,
         evYield = SpDef,
         evolution = Evolution.Eevee,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 65,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -4434,7 +4435,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 184,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -4467,7 +4468,7 @@ public static class Species
         baseSpeed = 130,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 184,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -4500,7 +4501,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 184,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -4533,7 +4534,7 @@ public static class Species
         baseSpeed = 40,
         evYield = SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 79,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -4566,7 +4567,7 @@ public static class Species
         baseSpeed = 35,
         evYield = Defense,
         evolution = Evolution.Omanyte,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 71,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -4599,7 +4600,7 @@ public static class Species
         baseSpeed = 55,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 173,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -4632,7 +4633,7 @@ public static class Species
         baseSpeed = 55,
         evYield = Defense,
         evolution = Evolution.Kabuto,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 71,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -4665,7 +4666,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 173,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -4698,7 +4699,7 @@ public static class Species
         baseSpeed = 130,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 180,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -4731,7 +4732,7 @@ public static class Species
         baseSpeed = 30,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 189,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -4764,7 +4765,7 @@ public static class Species
         baseSpeed = 85,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -4797,7 +4798,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -4830,7 +4831,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -4863,7 +4864,7 @@ public static class Species
         baseSpeed = 50,
         evYield = Attack,
         evolution = Evolution.Dratini,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -4896,7 +4897,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * Attack,
         evolution = Evolution.Dragonair,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 147,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -4929,7 +4930,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 3 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -4962,7 +4963,7 @@ public static class Species
         baseSpeed = 130,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 306,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -4995,7 +4996,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -5028,7 +5029,7 @@ public static class Species
         baseSpeed = 45,
         evYield = SpDef,
         evolution = Evolution.Chikorita,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 64,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5061,7 +5062,7 @@ public static class Species
         baseSpeed = 60,
         evYield = Defense + SpDef,
         evolution = Evolution.Bayleef,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5094,7 +5095,7 @@ public static class Species
         baseSpeed = 80,
         evYield = Defense + 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 236,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5127,7 +5128,7 @@ public static class Species
         baseSpeed = 65,
         evYield = Speed,
         evolution = Evolution.Cyndaquil,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5160,7 +5161,7 @@ public static class Species
         baseSpeed = 80,
         evYield = Speed + SpAtk,
         evolution = Evolution.Quilava,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5193,7 +5194,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 240,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5226,7 +5227,7 @@ public static class Species
         baseSpeed = 43,
         evYield = Attack,
         evolution = Evolution.Totodile,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 63,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5259,7 +5260,7 @@ public static class Species
         baseSpeed = 58,
         evYield = Attack + Defense,
         evolution = Evolution.Croconaw,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5292,7 +5293,7 @@ public static class Species
         baseSpeed = 78,
         evYield = 2 * Attack + Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 239,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5325,7 +5326,7 @@ public static class Species
         baseSpeed = 20,
         evYield = Attack,
         evolution = Evolution.Sentret,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 43,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5358,7 +5359,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 145,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5391,7 +5392,7 @@ public static class Species
         baseSpeed = 50,
         evYield = HP,
         evolution = Evolution.Hoothoot,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 52,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5424,7 +5425,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 158,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5457,7 +5458,7 @@ public static class Species
         baseSpeed = 55,
         evYield = SpDef,
         evolution = Evolution.Ledyba,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 53,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5490,7 +5491,7 @@ public static class Species
         baseSpeed = 85,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 137,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5523,7 +5524,7 @@ public static class Species
         baseSpeed = 30,
         evYield = Attack,
         evolution = Evolution.Spinarak,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 50,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5556,7 +5557,7 @@ public static class Species
         baseSpeed = 40,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 140,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5589,7 +5590,7 @@ public static class Species
         baseSpeed = 130,
         evYield = 3 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 241,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5622,7 +5623,7 @@ public static class Species
         baseSpeed = 67,
         evYield = HP,
         evolution = Evolution.Chinchou,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5655,7 +5656,7 @@ public static class Species
         baseSpeed = 67,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5689,7 +5690,7 @@ public static class Species
         baseSpeed = 60,
         evYield = Speed,
         evolution = Evolution.Pichu,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 41,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5723,7 +5724,7 @@ public static class Species
         baseSpeed = 15,
         evYield = SpDef,
         evolution = Evolution.Cleffa,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 44,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -5756,7 +5757,7 @@ public static class Species
         baseSpeed = 15,
         evYield = HP,
         evolution = Evolution.Igglybuff,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 42,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -5789,7 +5790,7 @@ public static class Species
         baseSpeed = 20,
         evYield = SpDef,
         evolution = Evolution.Togepi,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 49,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5822,7 +5823,7 @@ public static class Species
         baseSpeed = 40,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -5855,7 +5856,7 @@ public static class Species
         baseSpeed = 70,
         evYield = SpAtk,
         evolution = Evolution.Natu,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 64,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5888,7 +5889,7 @@ public static class Species
         baseSpeed = 95,
         evYield = Speed + SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 165,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5921,7 +5922,7 @@ public static class Species
         baseSpeed = 35,
         evYield = SpAtk,
         evolution = Evolution.Mareep,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5954,7 +5955,7 @@ public static class Species
         baseSpeed = 45,
         evYield = 2 * SpAtk,
         evolution = Evolution.Flaaffy,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 128,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -5987,7 +5988,7 @@ public static class Species
         baseSpeed = 55,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 230,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6020,7 +6021,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 221,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6053,7 +6054,7 @@ public static class Species
         baseSpeed = 40,
         evYield = 2 * HP,
         evolution = Evolution.Marill,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 88,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6086,7 +6087,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 189,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6119,7 +6120,7 @@ public static class Species
         baseSpeed = 30,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 144,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6152,7 +6153,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 225,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6185,7 +6186,7 @@ public static class Species
         baseSpeed = 50,
         evYield = SpDef,
         evolution = Evolution.Hoppip,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 50,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6218,7 +6219,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 2 * Speed,
         evolution = Evolution.Skiploom,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 119,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6251,7 +6252,7 @@ public static class Species
         baseSpeed = 110,
         evYield = 3 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 207,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6284,7 +6285,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 72,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6317,7 +6318,7 @@ public static class Species
         baseSpeed = 30,
         evYield = SpAtk,
         evolution = Evolution.Sunkern,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 36,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6350,7 +6351,7 @@ public static class Species
         baseSpeed = 30,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 149,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6383,7 +6384,7 @@ public static class Species
         baseSpeed = 95,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 78,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6416,7 +6417,7 @@ public static class Species
         baseSpeed = 15,
         evYield = HP,
         evolution = Evolution.Wooper,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 42,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6449,7 +6450,7 @@ public static class Species
         baseSpeed = 35,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 151,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6482,7 +6483,7 @@ public static class Species
         baseSpeed = 110,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 184,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -6515,7 +6516,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 184,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -6548,7 +6549,7 @@ public static class Species
         baseSpeed = 91,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 81,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6581,7 +6582,7 @@ public static class Species
         baseSpeed = 30,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6614,7 +6615,7 @@ public static class Species
         baseSpeed = 85,
         evYield = SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 87,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6647,7 +6648,7 @@ public static class Species
         baseSpeed = 48,
         evYield = Attack + SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 118,
         learnset = Learnset.EmptyLearnset,
         malePercent = Genderless,
@@ -6680,7 +6681,7 @@ public static class Species
         baseSpeed = 33,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6713,7 +6714,7 @@ public static class Species
         baseSpeed = 85,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6746,7 +6747,7 @@ public static class Species
         baseSpeed = 15,
         evYield = Defense,
         evolution = Evolution.Pineco,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 58,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6779,7 +6780,7 @@ public static class Species
         baseSpeed = 40,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 163,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6812,7 +6813,7 @@ public static class Species
         baseSpeed = 45,
         evYield = HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 145,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6845,7 +6846,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 86,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6878,7 +6879,7 @@ public static class Species
         baseSpeed = 30,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 179,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -6911,7 +6912,7 @@ public static class Species
         baseSpeed = 30,
         evYield = Attack,
         evolution = Evolution.Snubbull,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -6944,7 +6945,7 @@ public static class Species
         baseSpeed = 45,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 158,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -6977,7 +6978,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 88,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7010,7 +7011,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7043,7 +7044,7 @@ public static class Species
         baseSpeed = 5,
         evYield = Defense + SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 177,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7076,7 +7077,7 @@ public static class Species
         baseSpeed = 85,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7109,7 +7110,7 @@ public static class Species
         baseSpeed = 115,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 86,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7142,7 +7143,7 @@ public static class Species
         baseSpeed = 40,
         evYield = Attack,
         evolution = Evolution.Teddiursa,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7175,7 +7176,7 @@ public static class Species
         baseSpeed = 55,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7208,7 +7209,7 @@ public static class Species
         baseSpeed = 20,
         evYield = SpAtk,
         evolution = Evolution.Slugma,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 50,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7241,7 +7242,7 @@ public static class Species
         baseSpeed = 30,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 151,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7274,7 +7275,7 @@ public static class Species
         baseSpeed = 50,
         evYield = Attack,
         evolution = Evolution.Swinub,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 50,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7307,7 +7308,7 @@ public static class Species
         baseSpeed = 50,
         evYield = HP + Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 158,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7340,7 +7341,7 @@ public static class Species
         baseSpeed = 35,
         evYield = Defense + SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 144,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -7373,7 +7374,7 @@ public static class Species
         baseSpeed = 65,
         evYield = SpAtk,
         evolution = Evolution.Remoraid,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7406,7 +7407,7 @@ public static class Species
         baseSpeed = 45,
         evYield = Attack + SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 168,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7439,7 +7440,7 @@ public static class Species
         baseSpeed = 75,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 116,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7472,7 +7473,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 170,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7505,7 +7506,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 163,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7538,7 +7539,7 @@ public static class Species
         baseSpeed = 65,
         evYield = SpAtk,
         evolution = Evolution.Houndour,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7571,7 +7572,7 @@ public static class Species
         baseSpeed = 95,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7604,7 +7605,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Attack + SpAtk + SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 243,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7637,7 +7638,7 @@ public static class Species
         baseSpeed = 40,
         evYield = HP,
         evolution = Evolution.Phanpy,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7670,7 +7671,7 @@ public static class Species
         baseSpeed = 50,
         evYield = Attack + Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7703,7 +7704,7 @@ public static class Species
         baseSpeed = 60,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 180,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -7736,7 +7737,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 163,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7769,7 +7770,7 @@ public static class Species
         baseSpeed = 75,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 88,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -7802,7 +7803,7 @@ public static class Species
         baseSpeed = 35,
         evYield = Attack,
         evolution = Evolution.Tyrogue,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 42,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 100,
@@ -7835,7 +7836,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 100,
@@ -7868,7 +7869,7 @@ public static class Species
         baseSpeed = 65,
         evYield = SpAtk,
         evolution = Evolution.Smoochum,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 61,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -7901,7 +7902,7 @@ public static class Species
         baseSpeed = 95,
         evYield = Speed,
         evolution = Evolution.Elekid,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 72,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -7934,7 +7935,7 @@ public static class Species
         baseSpeed = 83,
         evYield = Speed,
         evolution = Evolution.Magby,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 73,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -7967,7 +7968,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -8000,7 +8001,7 @@ public static class Species
         baseSpeed = 55,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 608,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -8033,7 +8034,7 @@ public static class Species
         baseSpeed = 115,
         evYield = 2 * Speed + SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -8066,7 +8067,7 @@ public static class Species
         baseSpeed = 100,
         evYield = HP + 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -8099,7 +8100,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Defense + 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -8132,7 +8133,7 @@ public static class Species
         baseSpeed = 41,
         evYield = Attack,
         evolution = Evolution.Larvitar,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8165,7 +8166,7 @@ public static class Species
         baseSpeed = 51,
         evYield = 2 * Attack,
         evolution = Evolution.Pupitar,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 144,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8198,7 +8199,7 @@ public static class Species
         baseSpeed = 61,
         evYield = 3 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8231,7 +8232,7 @@ public static class Species
         baseSpeed = 110,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 306,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -8264,7 +8265,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 306,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -8298,7 +8299,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -8332,7 +8333,7 @@ public static class Species
         baseSpeed = 70,
         evYield = Speed,
         evolution = Evolution.Treecko,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -8365,7 +8366,7 @@ public static class Species
         baseSpeed = 95,
         evYield = 2 * Speed,
         evolution = Evolution.Grovyle,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -8398,7 +8399,7 @@ public static class Species
         baseSpeed = 120,
         evYield = 3 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 239,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -8431,7 +8432,7 @@ public static class Species
         baseSpeed = 45,
         evYield = SpAtk,
         evolution = Evolution.Torchic,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -8464,7 +8465,7 @@ public static class Species
         baseSpeed = 55,
         evYield = Attack + SpAtk,
         evolution = Evolution.Combusken,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -8497,7 +8498,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 3 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 239,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -8530,7 +8531,7 @@ public static class Species
         baseSpeed = 40,
         evYield = Attack,
         evolution = Evolution.Mudkip,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -8563,7 +8564,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 2 * Attack,
         evolution = Evolution.Marshtomp,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -8596,7 +8597,7 @@ public static class Species
         baseSpeed = 60,
         evYield = 3 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 241,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -8629,7 +8630,7 @@ public static class Species
         baseSpeed = 35,
         evYield = Attack,
         evolution = Evolution.Poochyena,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8662,7 +8663,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 147,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8695,7 +8696,7 @@ public static class Species
         baseSpeed = 60,
         evYield = Speed,
         evolution = Evolution.Zigzagoon,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8728,7 +8729,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 147,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8761,7 +8762,7 @@ public static class Species
         baseSpeed = 20,
         evYield = HP,
         evolution = Evolution.Wurmple,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8794,7 +8795,7 @@ public static class Species
         baseSpeed = 15,
         evYield = 2 * Defense,
         evolution = Evolution.Silcoon,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 72,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8827,7 +8828,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 178,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8860,7 +8861,7 @@ public static class Species
         baseSpeed = 15,
         evYield = 2 * Defense,
         evolution = Evolution.Cascoon,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 72,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8893,7 +8894,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 173,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8926,7 +8927,7 @@ public static class Species
         baseSpeed = 30,
         evYield = SpDef,
         evolution = Evolution.Lotad,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 44,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8959,7 +8960,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 2 * SpDef,
         evolution = Evolution.Lombre,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 119,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -8992,7 +8993,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 216,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9025,7 +9026,7 @@ public static class Species
         baseSpeed = 30,
         evYield = Defense,
         evolution = Evolution.Seedot,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 44,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9058,7 +9059,7 @@ public static class Species
         baseSpeed = 60,
         evYield = 2 * Attack,
         evolution = Evolution.Nuzleaf,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 119,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9091,7 +9092,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 3 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 216,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9124,7 +9125,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Speed,
         evolution = Evolution.Taillow,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 54,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9157,7 +9158,7 @@ public static class Species
         baseSpeed = 125,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9190,7 +9191,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Speed,
         evolution = Evolution.Wingull,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 54,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9223,7 +9224,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 154,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9256,7 +9257,7 @@ public static class Species
         baseSpeed = 40,
         evYield = SpAtk,
         evolution = Evolution.Ralts,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 40,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9289,7 +9290,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 2 * SpAtk,
         evolution = Evolution.Kirlia,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 97,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9322,7 +9323,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 233,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9355,7 +9356,7 @@ public static class Species
         baseSpeed = 65,
         evYield = Speed,
         evolution = Evolution.Surskit,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 54,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9388,7 +9389,7 @@ public static class Species
         baseSpeed = 60,
         evYield = SpAtk + SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9421,7 +9422,7 @@ public static class Species
         baseSpeed = 35,
         evYield = HP,
         evolution = Evolution.Shroomish,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 59,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9454,7 +9455,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9487,7 +9488,7 @@ public static class Species
         baseSpeed = 30,
         evYield = HP,
         evolution = Evolution.Slakoth,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9520,7 +9521,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 2 * Speed,
         evolution = Evolution.Vigoroth,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 154,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9553,7 +9554,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 252,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9586,7 +9587,7 @@ public static class Species
         baseSpeed = 40,
         evYield = Defense,
         evolution = Evolution.Nincada,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 53,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9619,7 +9620,7 @@ public static class Species
         baseSpeed = 160,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 160,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9652,7 +9653,7 @@ public static class Species
         baseSpeed = 40,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 83,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -9685,7 +9686,7 @@ public static class Species
         baseSpeed = 28,
         evYield = HP,
         evolution = Evolution.Whismur,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 48,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9718,7 +9719,7 @@ public static class Species
         baseSpeed = 48,
         evYield = 2 * HP,
         evolution = Evolution.Loudred,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 126,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9751,7 +9752,7 @@ public static class Species
         baseSpeed = 68,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 221,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9784,7 +9785,7 @@ public static class Species
         baseSpeed = 25,
         evYield = HP,
         evolution = Evolution.Makuhita,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 47,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -9817,7 +9818,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 166,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 75,
@@ -9850,7 +9851,7 @@ public static class Species
         baseSpeed = 20,
         evYield = HP,
         evolution = Evolution.Azurill,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 38,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -9883,7 +9884,7 @@ public static class Species
         baseSpeed = 30,
         evYield = Defense,
         evolution = Evolution.None, //Not done
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 75,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -9916,7 +9917,7 @@ public static class Species
         baseSpeed = 50,
         evYield = Speed,
         evolution = Evolution.Skitty,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 52,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -9949,7 +9950,7 @@ public static class Species
         baseSpeed = 70,
         evYield = HP + Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 140,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -9982,7 +9983,7 @@ public static class Species
         baseSpeed = 50,
         evYield = Attack + Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 133,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10015,7 +10016,7 @@ public static class Species
         baseSpeed = 50,
         evYield = Attack + Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 133,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10048,7 +10049,7 @@ public static class Species
         baseSpeed = 30,
         evYield = Defense,
         evolution = Evolution.Aron,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10081,7 +10082,7 @@ public static class Species
         baseSpeed = 40,
         evYield = 2 * Defense,
         evolution = Evolution.Lairon,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 151,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10114,7 +10115,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 3 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 239,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10147,7 +10148,7 @@ public static class Species
         baseSpeed = 60,
         evYield = Speed,
         evolution = Evolution.Meditite,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 56,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10180,7 +10181,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 144,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10213,7 +10214,7 @@ public static class Species
         baseSpeed = 65,
         evYield = Speed,
         evolution = Evolution.Electrike,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 59,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10246,7 +10247,7 @@ public static class Species
         baseSpeed = 105,
         evYield = 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 166,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10279,7 +10280,7 @@ public static class Species
         baseSpeed = 95,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10312,7 +10313,7 @@ public static class Species
         baseSpeed = 95,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 142,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10345,7 +10346,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 151,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 100,
@@ -10378,7 +10379,7 @@ public static class Species
         baseSpeed = 85,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 151,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -10411,7 +10412,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 2 * SpAtk,
         evolution = Evolution.None, //Not done
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 140,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10444,7 +10445,7 @@ public static class Species
         baseSpeed = 40,
         evYield = HP,
         evolution = Evolution.Gulpin,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10477,7 +10478,7 @@ public static class Species
         baseSpeed = 55,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 163,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10510,7 +10511,7 @@ public static class Species
         baseSpeed = 65,
         evYield = Attack,
         evolution = Evolution.Carvanha,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 61,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10543,7 +10544,7 @@ public static class Species
         baseSpeed = 95,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10576,7 +10577,7 @@ public static class Species
         baseSpeed = 60,
         evYield = HP,
         evolution = Evolution.Wailmer,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 80,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10609,7 +10610,7 @@ public static class Species
         baseSpeed = 60,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10642,7 +10643,7 @@ public static class Species
         baseSpeed = 35,
         evYield = SpAtk,
         evolution = Evolution.Numel,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 61,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10675,7 +10676,7 @@ public static class Species
         baseSpeed = 40,
         evYield = Attack + SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10708,7 +10709,7 @@ public static class Species
         baseSpeed = 20,
         evYield = 2 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 165,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10741,7 +10742,7 @@ public static class Species
         baseSpeed = 60,
         evYield = SpDef,
         evolution = Evolution.Spoink,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 66,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10774,7 +10775,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 165,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10807,7 +10808,7 @@ public static class Species
         baseSpeed = 60,
         evYield = SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 126,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10840,7 +10841,7 @@ public static class Species
         baseSpeed = 10,
         evYield = Attack,
         evolution = Evolution.Trapinch,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 58,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10873,7 +10874,7 @@ public static class Species
         baseSpeed = 70,
         evYield = Attack + Speed,
         evolution = Evolution.Vibrava,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 119,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10906,7 +10907,7 @@ public static class Species
         baseSpeed = 100,
         evYield = Attack + 2 * Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 234,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10939,7 +10940,7 @@ public static class Species
         baseSpeed = 35,
         evYield = SpAtk,
         evolution = Evolution.Cacnea,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 67,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -10972,7 +10973,7 @@ public static class Species
         baseSpeed = 55,
         evYield = Attack + SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 166,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11005,7 +11006,7 @@ public static class Species
         baseSpeed = 50,
         evYield = SpDef,
         evolution = Evolution.Swablu,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11038,7 +11039,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 172,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11071,7 +11072,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 160,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11104,7 +11105,7 @@ public static class Species
         baseSpeed = 65,
         evYield = Attack + SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 160,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11137,7 +11138,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -11170,7 +11171,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -11203,7 +11204,7 @@ public static class Species
         baseSpeed = 60,
         evYield = HP,
         evolution = Evolution.Barboach,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 58,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11236,7 +11237,7 @@ public static class Species
         baseSpeed = 60,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 164,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11269,7 +11270,7 @@ public static class Species
         baseSpeed = 35,
         evYield = Attack,
         evolution = Evolution.Corphish,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 62,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11302,7 +11303,7 @@ public static class Species
         baseSpeed = 55,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Fluctuating,
+        xpClass = Fluctuating,
         xpYield = 164,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11335,7 +11336,7 @@ public static class Species
         baseSpeed = 55,
         evYield = SpDef,
         evolution = Evolution.Baltoy,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -11368,7 +11369,7 @@ public static class Species
         baseSpeed = 75,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 175,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -11401,7 +11402,7 @@ public static class Species
         baseSpeed = 23,
         evYield = SpDef,
         evolution = Evolution.Lileep,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 71,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -11434,7 +11435,7 @@ public static class Species
         baseSpeed = 43,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 173,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -11467,7 +11468,7 @@ public static class Species
         baseSpeed = 75,
         evYield = Attack,
         evolution = Evolution.Anorith,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 71,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -11500,7 +11501,7 @@ public static class Species
         baseSpeed = 45,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 173,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -11533,7 +11534,7 @@ public static class Species
         baseSpeed = 80,
         evYield = Speed,
         evolution = Evolution.Feebas,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 40,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11566,7 +11567,7 @@ public static class Species
         baseSpeed = 81,
         evYield = 2 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 189,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11603,7 +11604,7 @@ public static class Species
         baseSpeed = 40,
         evYield = SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 154,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11636,7 +11637,7 @@ public static class Species
         baseSpeed = 45,
         evYield = Attack,
         evolution = Evolution.Shuppet,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 59,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11669,7 +11670,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11702,7 +11703,7 @@ public static class Species
         baseSpeed = 25,
         evYield = SpDef,
         evolution = Evolution.Duskull,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 59,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11735,7 +11736,7 @@ public static class Species
         baseSpeed = 25,
         evYield = Defense + SpDef,
         evolution = Evolution.None, //Not done
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11768,7 +11769,7 @@ public static class Species
         baseSpeed = 51,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 161,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11801,7 +11802,7 @@ public static class Species
         baseSpeed = 65,
         evYield = SpAtk + SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 159,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11834,7 +11835,7 @@ public static class Species
         baseSpeed = 75,
         evYield = 2 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 163,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11867,7 +11868,7 @@ public static class Species
         baseSpeed = 23,
         evYield = HP,
         evolution = Evolution.Wynaut,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 52,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11900,7 +11901,7 @@ public static class Species
         baseSpeed = 50,
         evYield = HP,
         evolution = Evolution.Snorunt,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11933,7 +11934,7 @@ public static class Species
         baseSpeed = 80,
         evYield = 2 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 168,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11966,7 +11967,7 @@ public static class Species
         baseSpeed = 25,
         evYield = HP,
         evolution = Evolution.Spheal,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 58,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -11999,7 +12000,7 @@ public static class Species
         baseSpeed = 45,
         evYield = 2 * HP,
         evolution = Evolution.Sealeo,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 144,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -12032,7 +12033,7 @@ public static class Species
         baseSpeed = 65,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumSlow,
+        xpClass = MediumSlow,
         xpYield = 239,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -12065,7 +12066,7 @@ public static class Species
         baseSpeed = 32,
         evYield = Defense,
         evolution = Evolution.Clamperl,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 69,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -12098,7 +12099,7 @@ public static class Species
         baseSpeed = 52,
         evYield = Attack + Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 170,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -12131,7 +12132,7 @@ public static class Species
         baseSpeed = 52,
         evYield = 2 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Erratic,
+        xpClass = Erratic,
         xpYield = 170,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -12164,7 +12165,7 @@ public static class Species
         baseSpeed = 55,
         evYield = HP + Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 170,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 87,
@@ -12197,7 +12198,7 @@ public static class Species
         baseSpeed = 97,
         evYield = Speed,
         evolution = Evolution.None,
-        xpClass = XPClass.Fast,
+        xpClass = Fast,
         xpYield = 116,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 25,
@@ -12230,7 +12231,7 @@ public static class Species
         baseSpeed = 50,
         evYield = Attack,
         evolution = Evolution.Bagon,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -12263,7 +12264,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 2 * Defense,
         evolution = Evolution.Shelgon,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 147,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -12296,7 +12297,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 3 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 50,
@@ -12329,7 +12330,7 @@ public static class Species
         baseSpeed = 30,
         evYield = Defense,
         evolution = Evolution.Beldum,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 60,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -12362,7 +12363,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 2 * Defense,
         evolution = Evolution.Metang,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 147,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -12395,7 +12396,7 @@ public static class Species
         baseSpeed = 70,
         evYield = 3 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -12428,7 +12429,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 3 * Defense,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -12461,7 +12462,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -12494,7 +12495,7 @@ public static class Species
         baseSpeed = 50,
         evYield = 2 * Defense + SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 261,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -12527,7 +12528,7 @@ public static class Species
         baseSpeed = 110,
         evYield = 3 * SpDef,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 0,
@@ -12560,7 +12561,7 @@ public static class Species
         baseSpeed = 110,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = 100,
@@ -12593,7 +12594,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 3 * SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 302,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -12626,7 +12627,7 @@ public static class Species
         baseSpeed = 90,
         evYield = 3 * Attack,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 302,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -12659,7 +12660,7 @@ public static class Species
         baseSpeed = 95,
         evYield = 2 * Attack + SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 306,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,
@@ -12692,7 +12693,7 @@ public static class Species
         baseSpeed = 100,
         evYield = 3 * HP,
         evolution = Evolution.None,
-        xpClass = XPClass.Slow,
+        xpClass = Slow,
         xpYield = 270,
         learnset = Learnset.EmptyLearnset, //Not done
         malePercent = Genderless,

@@ -25,8 +25,8 @@ public static class AnimatedTiles
     public static Sprite[] water0SWSprites = SpriteFromWaterAnims(0, 13);
     public static Sprite[] water0SESprites = SpriteFromWaterAnims(1, 13);
 
-    public static AITile water0NW = AITile.Create(id.Water0NW, water0NWSprites, 5F);
-    public static AITile water0NE = AITile.Create(id.Water0NE, water0NESprites, 5F);
-    public static AITile water0SW = AITile.Create(id.Water0SW, water0SWSprites, 5F);
-    public static AITile water0SE = AITile.Create(id.Water0SE, water0SESprites, 5F);
+    public static AITile water0NW = AITile.Create(id.water0NW, water0NWSprites, 5F);
+    public static AITile water0NE = AITile.Create(id.water0NE, water0NESprites, 5F);
+    public static AITile water0SW = AITile.Create(id.water0SW, water0SWSprites, 5F);
+    public static AITile water0SE = AITile.Create(id.water0SE, water0SESprites, 5F);
 }
