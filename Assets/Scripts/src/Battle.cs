@@ -9,6 +9,7 @@ using UnityEngine.Device;
 using static System.Math;
 using static Ability;
 using static BerryEffect;
+using static ItemID;
 using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class Battle : MonoBehaviour
@@ -345,6 +346,98 @@ public class Battle : MonoBehaviour
                     _ => Type.Normal,
                 };
                 break;
+            case MoveEffect.NaturalGift:
+                switch (PokemonOnField[index].item)
+                {
+                    case ChilanBerry:
+                        return Type.Normal;
+                    case CheriBerry:
+                    case BlukBerry:
+                    case WatmelBerry:
+                    case OccaBerry:
+                        return Type.Fire;
+                    case ChestoBerry:
+                    case NanabBerry:
+                    case DurinBerry:
+                    case PasshoBerry:
+                        return Type.Water;
+                    case PechaBerry:
+                    case WepearBerry:
+                    case BelueBerry:
+                    case WacanBerry:
+                        return Type.Electric;
+                    case RawstBerry:
+                    case PinapBerry:
+                    case RindoBerry:
+                    case LiechiBerry:
+                        return Type.Grass;
+                    case AspearBerry:
+                    case PomegBerry:
+                    case YacheBerry:
+                    case GanlonBerry:
+                        return Type.Ice;
+                    case LeppaBerry:
+                    case KelpsyBerry:
+                    case ChopleBerry:
+                    case SalacBerry:
+                        return Type.Fighting;
+                    case OranBerry:
+                    case QualotBerry:
+                    case KebiaBerry:
+                    case PetayaBerry:
+                        return Type.Poison;
+                    case PersimBerry:
+                    case HondewBerry:
+                    case ShucaBerry:
+                    case ApicotBerry:
+                        return Type.Ground;
+                    case LumBerry:
+                    case GrepaBerry:
+                    case CobaBerry:
+                    case LansatBerry:
+                        return Type.Flying;
+                    case SitrusBerry:
+                    case TamatoBerry:
+                    case PayapaBerry:
+                    case StarfBerry:
+                        return Type.Psychic;
+                    case FigyBerry:
+                    case CornnBerry:
+                    case TangaBerry:
+                    case EnigmaBerry:
+                        return Type.Bug;
+                    case WikiBerry:
+                    case MagostBerry:
+                    case ChartiBerry:
+                    case MicleBerry:
+                        return Type.Rock;
+                    case MagoBerry:
+                    case RabutaBerry:
+                    case KasibBerry:
+                    case CustapBerry:
+                        return Type.Ghost;
+                    case AguavBerry:
+                    case NomelBerry:
+                    case HabanBerry:
+                    case JabocaBerry:
+                        return Type.Dragon;
+                    case IapapaBerry:
+                    case SpelonBerry:
+                    case ColburBerry:
+                    case RowapBerry:
+                    case MarangaBerry:
+                        return Type.Dark;
+                    case RazzBerry:
+                    case PamtreBerry:
+                    case BabiriBerry:
+                        return Type.Steel;
+                    case RoseliBerry:
+                    case KeeBerry:
+                        return Type.Fairy;
+                    default:
+                        break;
+                }
+                break;
             default: break;
         }
         switch (EffectiveAbility(index))
@@ -642,6 +735,31 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.KnockOff when Item.CanBeStolen(defender.item):
                 effectivePower += effectivePower << 1;
+                break;
+            case MoveEffect.NaturalGift:
+                effectivePower = attacker.item switch
+                {
+                   CheriBerry or ChestoBerry or PechaBerry or RawstBerry
+                   or AspearBerry or LeppaBerry or OranBerry or PersimBerry
+                   or LumBerry or SitrusBerry or FigyBerry or WikiBerry
+                   or MagoBerry or AguavBerry or IapapaBerry or RazzBerry
+                   or OccaBerry or PasshoBerry or WacanBerry or RindoBerry
+                   or YacheBerry or ChopleBerry or KebiaBerry or ShucaBerry
+                   or CobaBerry or PayapaBerry or TangaBerry or ChartiBerry
+                   or PayapaBerry or TangaBerry or ChartiBerry or KasibBerry
+                   or HabanBerry or ColburBerry or BabiriBerry or ChilanBerry
+                   or RoseliBerry => 80,
+                   BlukBerry or NanabBerry or WepearBerry or PinapBerry
+                   or PomegBerry or KelpsyBerry or QualotBerry or HondewBerry
+                   or GrepaBerry or TamatoBerry or CornnBerry or  MagostBerry
+                   or RabutaBerry or NomelBerry or SpelonBerry or PamtreBerry => 90,
+                   WatmelBerry or DurinBerry or BelueBerry or LiechiBerry
+                   or GanlonBerry or SalacBerry or PetayaBerry or ApicotBerry
+                   or LansatBerry or StarfBerry or EnigmaBerry or MicleBerry
+                   or CustapBerry or JabocaBerry or RowapBerry or KeeBerry
+                   or MarangaBerry => 100,
+                   _ => 0,
+                };
                 break;
             default: break;
         }
@@ -2301,6 +2419,7 @@ public class Battle : MonoBehaviour
             case MoveEffect.FakeOut when user.turnOnField > 1:
             case MoveEffect.SpitUp when user.stockpile == 0:
             case MoveEffect.Swallow when user.stockpile == 0 || user.AtFullHealth:
+            case MoveEffect.NaturalGift when user.item.Data().type != ItemType.Berry:
                 yield return Announce(BattleText.MoveFailed);
                 user.done = true;
                 MoveCleanup();
@@ -3487,6 +3606,14 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.FutureSight:
                 yield return BattleEffect.GetFutureSight(this, index, attacker);
+                break;
+            case MoveEffect.Feint:
+                if (PokemonOnField[index].protect)
+                {
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + " fell for the feint!");
+                    PokemonOnField[index].protect = false;
+                }
                 break;
             case MoveEffect.DestinyBond:
                 PokemonOnField[index].destinyBond = true;

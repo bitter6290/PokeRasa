@@ -1908,6 +1908,16 @@ public static class Move
         65, 100, 0,
         MoveEffect.Brine, 100,
         false, Target.Single, 10); //Needs anim
+    public static MoveData NaturalGift = new(
+        "Natural Gift", Normal,
+        1, 100, 0,
+        MoveEffect.NaturalGift, 0,
+        true, Target.Single, 15); //Needs anim
+    public static MoveData Feint = new(
+        "Feint", Normal,
+        30, 100, 2,
+        MoveEffect.Feint, 100,
+        true, Target.Single, 10); //Needs anim
 
 
     //Non-standard moves
