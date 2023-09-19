@@ -115,6 +115,20 @@ public class MenuManager : MonoBehaviour
         battle.state = BattleState.PlayerInput;
     }
 
+    public void CleanForTurnStart()
+    {
+        menuMode = MenuMode.Main;
+        currentMove = 1;
+        currentMon = 2;
+        GetNextPokemon();
+    }
+
+    private IEnumerator CantRunFromTrainer()
+    {
+        yield return battle.Announce("No! There's no running from a trainer battle!");
+        battle.state = BattleState.PlayerInput;
+    }
+
     private IEnumerator MoveDisabled(int currentMon, int currentMove)
     {
         yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true) + "'s "
@@ -625,6 +639,17 @@ public class MenuManager : MonoBehaviour
                                     battle.switchDuringTurn = false;
                                     currentPartyMon = 1;
                                     menuMode = MenuMode.Party;
+                                    break;
+                                case 4:
+                                    if (battle.wildBattle)
+                                    {
+                                        battle.StartCoroutine(battle.TryToRun());
+                                    }
+                                    else
+                                    {
+                                        battle.state = BattleState.Announcement;
+                                        battle.StartCoroutine(CantRunFromTrainer());
+                                    }
                                     break;
                                 default:
                                     break;

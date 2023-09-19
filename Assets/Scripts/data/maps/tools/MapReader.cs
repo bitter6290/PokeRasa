@@ -14,11 +14,12 @@ public static class MapReader
         string inString = reader.ReadToEnd().Replace("?", "AAAA").Replace("@", "AA");
         Debug.Log(inString.Length);
         byte[] data = System.Convert.FromBase64String(inString);
-        manager.collision = new byte[manager.mapData.width + 2, manager.mapData.height + 2];
-        manager.wildData = new byte[manager.mapData.width + 2, manager.mapData.height + 2];
+        manager.collision = new byte[manager.mapData.width, manager.mapData.height];
+        manager.wildData = new byte[manager.mapData.width, manager.mapData.height];
         level1.ClearAllTiles();
         level2.ClearAllTiles();
         level3.ClearAllTiles();
+        manager.borderingCollision = new();
         for (int x = 0; x < manager.mapData.width; x++)
         {
             for (int y = 0; y < manager.mapData.height; y++)
@@ -48,8 +49,8 @@ public static class MapReader
                     Tiles.TileTable[data[offset + 20] + (data[offset + 21] * 256)]);
                 level3.SetTile(new Vector3Int(2 * x + 1, 2 * y + 1),
                     Tiles.TileTable[data[offset + 22] + (data[offset + 23] * 256)]);
-                manager.collision[x + 1, y + 1] = data[offset + 24];
-                manager.wildData[x + 1, y + 1] = data[offset + 25];
+                manager.collision[x, y] = data[offset + 24];
+                manager.wildData[x, y] = data[offset + 25];
             }
         }
         foreach (Connection i in manager.mapData.connection)
@@ -59,14 +60,12 @@ public static class MapReader
             StreamReader connectionReader = File.OpenText(connectionPath);
             string connectionString = connectionReader.ReadToEnd().Replace("?", "AAAA").Replace("@", "AA");
             byte[] connectionData = System.Convert.FromBase64String(connectionString);
+            byte[,] connectingCollision = new byte[i.map.Data().width, i.map.Data().height];
             switch (i.direction)
             {
                 case Direction.N:
                     for (int x = 0; x < connectedMap.width; x++)
                     {
-                        if(x + i.offset >= 0 && x + i.offset < manager.mapData.width)
-                        manager.collision[x + i.offset + 1, manager.mapData.height + 1]
-                            = connectionData[(26 * x * connectedMap.height) + 26];
                         for (int y = 0; y < connectedMap.height; y++)
                         {
                             int offset = (x * connectedMap.height + y) * 26 + 2;
@@ -94,18 +93,13 @@ public static class MapReader
                                 Tiles.TileTable[connectionData[offset + 20] + (connectionData[offset + 21] * 256)]);
                             level3.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * manager.mapData.height)),
                                 Tiles.TileTable[connectionData[offset + 22] + (connectionData[offset + 23] * 256)]);
+                            connectingCollision[x, y] = connectionData[offset + 24];
                         }
                     }
                     break;
                 case Direction.S:
                     for (int x = 0; x < connectedMap.width; x++)
                     {
-                        if (x + i.offset >= 0 && x + i.offset < manager.mapData.width)
-                        {
-                            Debug.Log(x + i.offset + 1);
-                            manager.collision[x + i.offset + 1, 0]
-                                = connectionData[(26 * ((x + 1) * connectedMap.height - 1)) + 26];
-                        }
                         for (int y = 0; y < connectedMap.height; y++)
                         {
                             int offset = (x * connectedMap.height + y) * 26 + 2;
@@ -133,6 +127,7 @@ public static class MapReader
                                 Tiles.TileTable[connectionData[offset + 20] + (connectionData[offset + 21] * 256)]);
                             level3.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 - (2 * connectedMap.height)),
                                 Tiles.TileTable[connectionData[offset + 22] + (connectionData[offset + 23] * 256)]);
+                            connectingCollision[x, y] = connectionData[offset + 24];
                         }
                     }
                     break;
@@ -142,11 +137,6 @@ public static class MapReader
                         for (int y = 0; y < connectedMap.height; y++)
                         {
                             int offset = (x * connectedMap.height + y) * 26 + 2;
-                            if (x == 0 && y + i.offset >= 0 && y + i.offset < manager.mapData.height)
-                            {
-                                manager.collision[manager.mapData.width + 1, y + i.offset + 1]
-                                    = connectionData[offset + 24];
-                            }
                             level1.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width), 2 * (y + i.offset)),
                                 Tiles.TileTable[connectionData[offset] + (connectionData[offset + 1] * 256)]);
                             level2.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width), 2 * (y + i.offset)),
@@ -171,6 +161,7 @@ public static class MapReader
                                 Tiles.TileTable[connectionData[offset + 20] + (connectionData[offset + 21] * 256)]);
                             level3.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width) + 1, 2 * (y + i.offset) + 1),
                                 Tiles.TileTable[connectionData[offset + 22] + (connectionData[offset + 23] * 256)]);
+                            connectingCollision[x, y] = connectionData[offset + 24];
                         }
                     }
                     break;
@@ -180,11 +171,6 @@ public static class MapReader
                         for (int y = 0; y < connectedMap.height; y++)
                         {
                             int offset = (x * connectedMap.height + y) * 26 + 2;
-                            if (x == connectedMap.width - 1 && y + i.offset >= 0 && y + i.offset < manager.mapData.height)
-                            {
-                                manager.collision[0, y + i.offset + 1]
-                                    = connectionData[offset + 24];
-                            }
                             level1.SetTile(new Vector3Int(2 * x - (2 * connectedMap.width), 2 * (y + i.offset)),
                                 Tiles.TileTable[connectionData[offset] + (connectionData[offset + 1] * 256)]);
                             level2.SetTile(new Vector3Int(2 * x - (2 * connectedMap.width), 2 * (y + i.offset)),
@@ -209,10 +195,12 @@ public static class MapReader
                                 Tiles.TileTable[connectionData[offset + 20] + (connectionData[offset + 21] * 256)]);
                             level3.SetTile(new Vector3Int(2 * x - (2 * connectedMap.width) + 1, 2 * (y + i.offset) + 1),
                                 Tiles.TileTable[connectionData[offset + 22] + (connectionData[offset + 23] * 256)]);
+                            connectingCollision[x, y] = connectionData[offset + 24];
                         }
                     }
                     break;
             }
+            manager.borderingCollision.Add(i.map, connectingCollision);
         }
         Debug.Log("Loaded successfully");
     }
@@ -380,7 +368,7 @@ public static class MapReader
         Tilemap wildData = mapHelper.wildDataMap;
         string path = Application.dataPath + "/Resources/Maps/" + mapHelper.mapData.path + ".pokemap";
         StreamReader reader = File.OpenText(path);
-        string inString = reader.ReadToEnd().Replace("?","AAAA").Replace("@","AA");
+        string inString = reader.ReadToEnd().Replace("?", "AAAA").Replace("@", "AA");
         Debug.Log(inString.Length);
         byte[] data = System.Convert.FromBase64String(inString);
         level1.ClearAllTiles();

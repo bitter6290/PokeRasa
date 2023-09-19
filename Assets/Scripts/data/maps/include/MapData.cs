@@ -6,5 +6,6 @@
     public Connection[] connection;
 
     public TileTrigger[] triggers;
+    public TileTrigger[] signposts;
     public WildDataset[] grassData = new WildDataset[9];
 }

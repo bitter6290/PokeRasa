@@ -20,6 +20,7 @@ public static class Map
             new(Test2, S, -5)
         },
         triggers = TestMapdata.triggers,
+        signposts = TestMapdata.signposts,
         grassData = TestMapdata.grassTables,
     };
 

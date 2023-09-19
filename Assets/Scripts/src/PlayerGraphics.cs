@@ -22,7 +22,7 @@ public class PlayerGraphics
             Direction.E => movementSprites.stillEast,
             Direction.W => movementSprites.stillWest,
             _ => movementSprites.stillWest,
-            };
+        };
     }
     public void SwitchGraphics(HumanoidGraphicsID id)
     {
@@ -31,12 +31,13 @@ public class PlayerGraphics
     public IEnumerator WalkNorth(Player p, float duration)
     {
         p.state = PlayerState.Moving;
+        p.facing = Direction.N;
         p.whichStep = !p.whichStep;
         playerSprite.flipX = false;
         float baseTime = Time.time;
         float endTime = baseTime + duration;
         Vector3 initialPosition = playerTransform.position;
-        while(Time.time < endTime)
+        while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) / duration;
             if (progress > 0.5F)
@@ -52,6 +53,7 @@ public class PlayerGraphics
     public IEnumerator WalkSouth(Player p, float duration)
     {
         p.state = PlayerState.Moving;
+        p.facing = Direction.S;
         p.whichStep = !p.whichStep;
         playerSprite.flipX = false;
         float baseTime = Time.time;
@@ -68,12 +70,12 @@ public class PlayerGraphics
             yield return null;
         }
         p.yPos--;
-        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
-        
+        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;        
     }
     public IEnumerator WalkWest(Player p, float duration)
     {
         p.state = PlayerState.Moving;
+        p.facing = Direction.W;
         p.whichStep = !p.whichStep;
         playerSprite.flipX = false;
         float baseTime = Time.time;
@@ -90,12 +92,12 @@ public class PlayerGraphics
             yield return null;
         }
         p.xPos--;
-        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
-        
+        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;        
     }
     public IEnumerator WalkEast(Player p, float duration)
     {
         p.state = PlayerState.Moving;
+        p.facing = Direction.E;
         p.whichStep = !p.whichStep;
         playerSprite.flipX = movementSprites.flipOnWalkEast;
         float baseTime = Time.time;
@@ -112,12 +114,12 @@ public class PlayerGraphics
             yield return null;
         }
         p.xPos++;
-        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
-        
+        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;        
     }
     public IEnumerator BumpNorth(Player p, float duration)
     {
         p.state = PlayerState.Moving;
+        p.facing = Direction.N;
         p.whichStep = !p.whichStep;
         playerSprite.flipX = false;
         float baseTime = Time.time;
@@ -137,6 +139,7 @@ public class PlayerGraphics
     public IEnumerator BumpSouth(Player p, float duration)
     {
         p.state = PlayerState.Moving;
+        p.facing = Direction.S;
         p.whichStep = !p.whichStep;
         playerSprite.flipX = false;
         float baseTime = Time.time;
@@ -156,6 +159,7 @@ public class PlayerGraphics
     public IEnumerator BumpWest(Player p, float duration)
     {
         p.state = PlayerState.Moving;
+        p.facing = Direction.W;
         p.whichStep = !p.whichStep;
         playerSprite.flipX = false;
         float baseTime = Time.time;
@@ -175,6 +179,7 @@ public class PlayerGraphics
     public IEnumerator BumpEast(Player p, float duration)
     {
         p.state = PlayerState.Moving;
+        p.facing = Direction.E;
         p.whichStep = !p.whichStep;
         playerSprite.flipX = movementSprites.flipOnWalkEast;
         float baseTime = Time.time;
@@ -189,6 +194,39 @@ public class PlayerGraphics
                     ? movementSprites.walkEastL : movementSprites.walkEastR;
             yield return null;
         }
+        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
+    }
+    public IEnumerator FaceNorth(Player p, float duration)
+    {
+        playerSprite.sprite = movementSprites.stillNorth;
+        p.state = PlayerState.Moving;
+        p.facing = Direction.N;
+        yield return new WaitForSeconds(duration);
+        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
+    }
+    public IEnumerator FaceSouth(Player p, float duration)
+    {
+        playerSprite.sprite = movementSprites.stillSouth;
+        p.state = PlayerState.Moving;
+        p.facing = Direction.S;
+        yield return new WaitForSeconds(duration);
+        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
+    }
+    public IEnumerator FaceWest(Player p, float duration)
+    {
+        playerSprite.sprite = movementSprites.stillWest;
+        p.state = PlayerState.Moving;
+        p.facing = Direction.W;
+        yield return new WaitForSeconds(duration);
+        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
+    }
+    public IEnumerator FaceEast(Player p, float duration)
+    {
+        playerSprite.sprite = movementSprites.stillEast;
+        playerSprite.flipX = movementSprites.flipOnWalkEast;
+        p.state = PlayerState.Moving;
+        p.facing = Direction.E;
+        yield return new WaitForSeconds(duration);
         p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
     }
 }

@@ -33,7 +33,7 @@ public class MapWriter
             {
                 ushort tile1SW = level1.HasTile(new Vector3Int(2 * x, 2 * y))
                     ? (ushort)((IndexedObject)level1.GetTile(new Vector3Int(2 * x, 2 * y))).Index : (ushort)0;
-                ushort tile2SW = level2.HasTile(new Vector3Int(2 * x, 2 *  y))
+                ushort tile2SW = level2.HasTile(new Vector3Int(2 * x, 2 * y))
                     ? (ushort)((IndexedObject)level2.GetTile(new Vector3Int(2 * x, 2 * y))).Index : (ushort)0;
                 ushort tile3SW = level3.HasTile(new Vector3Int(2 * x, 2 * y))
                     ? (ushort)((IndexedObject)level3.GetTile(new Vector3Int(2 * x, 2 * y))).Index : (ushort)0;
@@ -56,7 +56,7 @@ public class MapWriter
                 ushort tile3NE = level3.HasTile(new Vector3Int(2 * x + 1, 2 * y + 1))
                     ? (ushort)((IndexedObject)level3.GetTile(new Vector3Int(2 * x + 1, 2 * y + 1))).Index : (ushort)0;
                 byte collisionByte = collision.HasTile(new Vector3Int(x, y))
-                    ? (byte)((CollisionTile)collision.GetTile(new Vector3Int(x,y))).collisionID : (byte)0;
+                    ? (byte)((CollisionTile)collision.GetTile(new Vector3Int(x, y))).collisionID : (byte)0;
                 byte wildDataByte = wildData.HasTile(new Vector3Int(x, y))
                     ? (byte)((CollisionTile)wildData.GetTile(new Vector3Int(x, y))).collisionID : (byte)0;
                 List<byte> tileData = new() {
@@ -68,10 +68,9 @@ public class MapWriter
                 };
                 if (tileData.Count != 26) Debug.Log(tileData.Count);
                 data.AddRange(tileData);
-            }
-            
+            }            
         }
-        string outString = System.Convert.ToBase64String(data.ToArray()).Replace("AA","@").Replace("@@","?");
+        string outString = System.Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?");
         string path = Application.dataPath + "/Resources/Maps/" + mapHelper.mapData.path + ".pokemap";
         if (File.Exists(path))
         {

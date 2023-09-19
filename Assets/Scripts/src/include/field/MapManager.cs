@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class MapManager : MonoBehaviour
@@ -10,6 +11,8 @@ public class MapManager : MonoBehaviour
 
     public byte[,] collision;
     public byte[,] wildData;
+
+    public Dictionary<MapID, byte[,]> borderingCollision;
 
     public MapData mapData => Map.MapTable[(int)mapID];
 

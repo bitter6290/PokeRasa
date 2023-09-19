@@ -25,7 +25,7 @@ public class GUIManager : MonoBehaviour
         float baseTime = Time.time;
         float endTime = baseTime + 0.1F;
         announcementText.text = "";
-        while(Time.time < endTime)
+        while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) * 10.0F;
             announcementBox.localPosition = new Vector3(announcerUpPosition.x,

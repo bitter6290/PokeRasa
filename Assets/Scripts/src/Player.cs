@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
     System.Random random;
 
     public Dictionary<ItemID, int> Bag;
+    public Dictionary<MapID, bool[,]> neighborCollision;
+
+    public List<TileTrigger> triggers;
+    public List<TileTrigger> signposts;
 
     public bool[] storyFlags = new bool[100];
 
@@ -154,12 +158,32 @@ public class Player : MonoBehaviour
     {
         mapManager.mapID = currentMap;
         mapManager.ReadMap();
+        RefreshObjects();
+    }
+
+    public void RefreshTriggers()
+    {
+        triggers = new();
+        foreach (TileTrigger i in currentMap.Data().triggers) triggers.Add(i);
+    }
+
+    public void RefreshSignposts()
+    {
+        signposts = new();
+        foreach (TileTrigger i in currentMap.Data().signposts) signposts.Add(i);
+    }
+
+    public void RefreshObjects()
+    {
+        RefreshTriggers();
+        RefreshSignposts();
     }
 
     public void SwitchAndReposition(int xPosition, int yPosition)
     {
         mapManager.mapID = currentMap;
         mapManager.ReadAndReposition(this, xPosition, yPosition);
+        RefreshObjects();
     }
 
     public void AlignPlayer() => playerGraphics.playerTransform.position = new Vector3(xPos + 0.5F, yPos + 0.5F);
@@ -170,8 +194,55 @@ public class Player : MonoBehaviour
 
     private CollisionID CheckCollision(int x, int y)
     {
-        return (CollisionID)mapManager.collision[x + 1, y + 1];
+        if (x >= 0 && y >= 0 && x < currentMap.Data().width && y < currentMap.Data().height)
+            return (CollisionID)mapManager.collision[x, y];
+        else
+        {
+            return CollisionOnBorderingMaps(new Vector2Int(x, y));
+        }
     }
+
+    private CollisionID CollisionOnBorderingMaps(Vector2Int pos)
+    {
+        (MapID, Vector2Int)? relativeTile = TileOutsideMap(pos);
+        if (relativeTile == null) return CollisionID.Impassable;
+        else
+        {
+            (MapID map, Vector2Int pos) trueRelativeTile = ((MapID, Vector2Int))relativeTile;
+            Debug.Log(trueRelativeTile);
+            Debug.Log(mapManager.borderingCollision[trueRelativeTile.map].GetLength(0));
+            Debug.Log(mapManager.borderingCollision[trueRelativeTile.map].GetLength(1));
+            return (CollisionID)mapManager.borderingCollision[trueRelativeTile.map][trueRelativeTile.pos.x, trueRelativeTile.pos.y];
+        }
+    }
+
+    private (MapID, Vector2Int)? TileOutsideMap(Vector2Int pos)
+    {
+        foreach (Connection i in currentMap.Data().connection)
+        {
+            Vector2Int checkPos = pos - GetMapOffset(i);
+            Debug.Log(checkPos);
+            if (checkPos.x >= 0 && checkPos.x < i.map.Data().width
+                && checkPos.y >= 0 && checkPos.y < i.map.Data().height)
+                return (i.map, checkPos);
+        }
+        return null;
+    }
+
+    public Vector2Int GetMapOffset(Connection connection)
+    {
+        return connection.direction switch
+        {
+            Direction.N => new Vector2Int(connection.offset, currentMap.Data().height),
+            Direction.S => new Vector2Int(connection.offset, 0 - connection.map.Data().height),
+            Direction.E => new Vector2Int(currentMap.Data().width, connection.offset),
+            Direction.W => new Vector2Int(0 - connection.map.Data().width, connection.offset),
+            _ => Vector2Int.zero
+        };
+    }
+
+    public Vector2Int GetCoordinateWithOffset(Connection i, Vector2Int basePos)
+        => GetMapOffset(i) + basePos;
 
     private bool CheckCollisionAllowed(Direction direction)
     {
@@ -286,7 +357,6 @@ public class Player : MonoBehaviour
         state = PlayerState.Locked;
         active = false;
         mapManager.ClearMap();
-        Debug.Log("Prepared");
         yield return null;
         yield return Scene.Battle.Load();
         Battle battle = FindAnyObjectByType<Battle>();
@@ -307,7 +377,6 @@ public class Player : MonoBehaviour
 
     public IEnumerator BattleWon()
     {
-        Debug.Log("BattleWon");
         yield return Scene.Map.Load();
         Debug.Log("Map loaded");
         camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
@@ -323,29 +392,27 @@ public class Player : MonoBehaviour
 
     public IEnumerator WildBattleWon()
     {
-        Debug.Log("WildBattleWon");
         yield return BattleWon();
         state = PlayerState.Free;
     }
 
     public void CheckGrassEncounter()
     {
-        Debug.Log("Checking grass encounter");
         byte index = mapManager.wildData[xPos, yPos];
-        Debug.Log(index);
         if (index == 0) return;
         WildDataset dataset = currentMap.Data().grassData[index - 1];
-        Debug.Log(dataset.encounterPercent);
         if (random.NextDouble() * 100 < dataset.encounterPercent)
         {
-            Debug.Log("Proceeding");
             StartCoroutine(StartSingleWildBattle(dataset.GetWildMon()));
         }
     }
 
     public void TryGoSouth()
     {
-        if (CheckCollisionAllowed(Direction.S)){
+        if (facing != Direction.S)
+            StartCoroutine(playerGraphics.FaceSouth(this, 0.1F));
+        else if (CheckCollisionAllowed(Direction.S))
+        {
             TryChangeMap(xPos, yPos - 1);
             StartCoroutine(GoSouth());
         }
@@ -357,7 +424,9 @@ public class Player : MonoBehaviour
 
     public void TryGoNorth()
     {
-        if (CheckCollisionAllowed(Direction.N))
+        if (facing != Direction.N)
+            StartCoroutine(playerGraphics.FaceNorth(this, 0.1F));
+        else if (CheckCollisionAllowed(Direction.N))
         {
             TryChangeMap(xPos, yPos + 1);
             StartCoroutine(GoNorth());
@@ -370,7 +439,9 @@ public class Player : MonoBehaviour
 
     public void TryGoWest()
     {
-        if (CheckCollisionAllowed(Direction.W))
+        if (facing != Direction.W)
+            StartCoroutine(playerGraphics.FaceWest(this, 0.1F));
+        else if (CheckCollisionAllowed(Direction.W))
         {
             TryChangeMap(xPos - 1, yPos);
             StartCoroutine(GoWest());
@@ -383,7 +454,9 @@ public class Player : MonoBehaviour
 
     public void TryGoEast()
     {
-        if (CheckCollisionAllowed(Direction.E))
+        if (facing != Direction.E)
+            StartCoroutine(playerGraphics.FaceEast(this, 0.1F));
+        else if (CheckCollisionAllowed(Direction.E))
         {
             TryChangeMap(xPos + 1, yPos);
             StartCoroutine(GoEast());
@@ -427,9 +500,9 @@ public class Player : MonoBehaviour
 
     public bool CheckForTriggers()
     {
-        foreach(TileTrigger i in currentMap.Data().triggers)
+        foreach(TileTrigger i in triggers)
         {
-            if(i.x == xPos && i.y == yPos)
+            if(i.pos == new Vector2Int(xPos,yPos))
             {
                 StartCoroutine(i.script(this));
                 return true;
@@ -438,11 +511,42 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    public bool CheckForSignposts()
+    {
+        Vector2Int facingTile = GetFacingTile();
+        foreach(TileTrigger i in signposts)
+        {
+            if(i.pos == facingTile)
+            {
+                StartCoroutine(i.script(this));
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void CheckForInteractables()
+    {
+        //if(!CheckForCharacters)
+        CheckForSignposts();
+    }
+
+    public Vector2Int GetFacingTile()
+    {
+        return facing switch
+        {
+            Direction.N => new Vector2Int(xPos, yPos + 1),
+            Direction.S => new Vector2Int(xPos, yPos - 1),
+            Direction.E => new Vector2Int(xPos + 1, yPos),
+            Direction.W => new Vector2Int(xPos - 1, yPos),
+            _ => new Vector2Int(xPos, yPos)
+        };
+    }
+
     public IEnumerator DoAnnouncements(List<string> text)
     {
         state = PlayerState.Announce;
         yield return announcer.AnnouncementUp();
-        Debug.Log("Announcer Up");
         foreach (string i in text)
         {
             yield return announcer.Announce(i);
@@ -494,6 +598,7 @@ public class Player : MonoBehaviour
                     else if (Input.GetKey(KeyCode.DownArrow)) TryGoSouth();
                     else if (Input.GetKey(KeyCode.LeftArrow)) TryGoWest();
                     else if (Input.GetKey(KeyCode.RightArrow)) TryGoEast();
+                    else if (Input.GetKeyDown(KeyCode.Return)) CheckForInteractables();
                     break;
                 case PlayerState.Moving:
                     break;

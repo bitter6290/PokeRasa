@@ -9,23 +9,23 @@ public class MapHelperEditor : Editor
         DrawDefaultInspector();
 
         MapHelper mapHelper = (MapHelper)target;
-        if(GUILayout.Button("Open Map"))
+        if (GUILayout.Button("Open Map"))
         {
             mapHelper.ReadMap();
         }
-        if(GUILayout.Button("Save Map"))
+        if (GUILayout.Button("Save Map"))
         {
             mapHelper.WriteMap();
         }
-        if(GUILayout.Button("Close Map"))
+        if (GUILayout.Button("Close Map"))
         {
             mapHelper.CloseMap();
         }
-        if(GUILayout.Button("Save and Close Map"))
+        if (GUILayout.Button("Save and Close Map"))
         {
             mapHelper.SaveAndCloseMap();
         }
-        if(GUILayout.Button("Sync Tiles"))
+        if (GUILayout.Button("Sync Tiles"))
         {
             mapHelper.SyncTilesets();
         }

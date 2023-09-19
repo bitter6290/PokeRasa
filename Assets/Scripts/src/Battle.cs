@@ -19,6 +19,8 @@ public class Battle : MonoBehaviour
     public Player player;
 
     public bool wildBattle;
+    public int escapeAttempts;
+
     public Pokemon[] OpponentPokemon = new Pokemon[6];
     public Pokemon[] PlayerPokemon = new Pokemon[6];
 
@@ -4023,6 +4025,25 @@ public class Battle : MonoBehaviour
         yield return EntryAbilityCheck(index);
         megaEvolveOnMove[index] = false;
         DoNextMove();
+    }
+
+    public IEnumerator TryToRun()
+    {
+        state = BattleState.Announcement;
+        int playerSpeed = PokemonOnField[3].PokemonData.speed;
+        int opponentSpeed = PokemonOnField[0].PokemonData.speed;
+        if (playerSpeed > opponentSpeed || (random.Next() & 255) < ((playerSpeed * 128 / opponentSpeed + 30 * escapeAttempts) & 255))
+        {
+            yield return Announce("Got away safely!");
+            player.StartCoroutine(player.WildBattleWon());
+        }
+        else
+        {
+            yield return Announce("Can't escape!");
+            menuManager.CleanForTurnStart();
+            PokemonOnField[3].done = true; PokemonOnField[4].done = true; PokemonOnField[5].done = true;
+            DoNextMove();
+        }
     }
 
     public IEnumerator EndBattle()

@@ -31,30 +31,19 @@ public static class TestMapdata
     {
         new()
         {
-            map = MapID.Test,
-            x = 15,
-            y = 2,
-            index = 1,
+            pos = new(15,2),
             script = p => p.DoAnnouncements(new(){"Testing 1","Testing 2"}),
-        }
+        } //index 0
     };
 
-    public static IEnumerator OnInteract(Player p, byte index)
+    public static TileTrigger[] signposts =
     {
-        switch(index)
+        new()
         {
-            case 1: yield return null; yield break;
-            default: yield break;
-        }
-    }
-    public static IEnumerator OnSight(Player p,byte index)
-    {
-        switch(index)
-        {
-            case 1: yield return null; yield break;
-            default: yield break;
-        }
-    }
+            pos = new(16,2),
+            script = p => p.DoAnnouncements(new(){"Signpost","Does","This"}),
+        } //index 0
+    };
 
     public static IEnumerator TestTrigger(Player p)
     {
