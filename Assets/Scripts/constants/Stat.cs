@@ -9,5 +9,6 @@ public enum Stat
 
     Accuracy,
     Evasion,
+
     CritRate,
 }

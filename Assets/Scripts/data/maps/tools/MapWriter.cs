@@ -68,14 +68,14 @@ public class MapWriter
                 };
                 if (tileData.Count != 26) Debug.Log(tileData.Count);
                 data.AddRange(tileData);
-            }            
+            }
         }
         string outString = System.Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?");
         string path = Application.dataPath + "/Resources/Maps/" + mapHelper.mapData.path + ".pokemap";
         if (File.Exists(path))
         {
             File.Copy(path, Application.dataPath + "/Resources/Maps/Old/" + mapHelper.mapData.path
-                + "_" + DateTime.Now.ToString().Replace('/','-').Replace(':','-') + ".pokemap");
+                + "_" + DateTime.Now.ToString().Replace('/', '-').Replace(':', '-') + ".pokemap");
             File.Delete(path);
         }
         StreamWriter writer = File.CreateText(path);

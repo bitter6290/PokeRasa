@@ -48,6 +48,7 @@ public class BattlePokemon
     public bool abilityActivated = false;
     public bool wasProtected = false;
     public bool enduredHit = false;
+    public bool gotSuperEffectiveHit = false;
 
     public bool roosting = false;
 
@@ -93,7 +94,8 @@ public class BattlePokemon
     public int uproarTimer = 0;
 
     public bool gotAbilityEffect = false;
-    public Ability affectingAbility = Ability.None;
+    public Ability affectingAbilitySelf = Ability.None;
+    public Ability affectingAbilityAttacker = Ability.None;
 
     public bool seeded = false;
     public int seedingSlot = 0;
@@ -170,6 +172,8 @@ public class BattlePokemon
     public ItemID eatenBerry = ItemID.None;
 
     public bool gotReducingBerryEffect = false;
+    public bool micleAccBoost = false;
+    public bool custapPriorityBoost = false;
 
     public int stockpile = 0;
     public int stockpileDef = 0;
@@ -205,6 +209,8 @@ public class BattlePokemon
     public MoveID lastMoveUsed = MoveID.None;
     public int lastMoveSlot = 0;
 
+    public bool HatesStat(Stat stat) => PokemonData.Nature.NatureEffect(stat) < 1;
+
     public Battle battle;
 
     public MoveID lastTargetedMove = MoveID.None;
@@ -233,6 +239,7 @@ public class BattlePokemon
     public SpeciesID apparentSpecies => isTransformed ? transformedMon.species : PokemonData.getSpecies;
 
     public bool AtFullHealth => PokemonData.HP == PokemonData.hpMax;
+    public float HealthProportion => (float)PokemonData.HP / PokemonData.hpMax;
 
     public MoveID GetMove(int index)
     {
@@ -259,6 +266,9 @@ public class BattlePokemon
             return MoveSelectOutcome.Taunted;
         if (battle.MoveImprisoned(GetMove(move), index))
             return MoveSelectOutcome.Imprisoned;
+        if (battle.gravity &&
+            (GetMove(move).Data().moveFlags & MoveFlags.gravityDisabled) != 0)
+            return MoveSelectOutcome.Gravity;
         return MoveSelectOutcome.Success;
     }
 

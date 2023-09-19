@@ -1225,9 +1225,10 @@ public static class BattleEffect
         }
     }
 
-    public static IEnumerator Identify(Battle battle, int index)
+    public static IEnumerator Identify(Battle battle, int index, bool miracleEye)
     {
         battle.PokemonOnField[index].identified = true;
+        battle.PokemonOnField[index].identifiedByMiracleEye = miracleEye;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was identified!");
     }
 
@@ -1553,6 +1554,26 @@ public static class BattleEffect
                 yield return WakeUp(battle, index);
                 break;
             default: break;
+        }
+    }
+
+    public static IEnumerator Gravity(Battle battle)
+    {
+        yield return battle.Announce("Gravity intensified!");
+        battle.gravity = true;
+        battle.gravityTimer = 5;
+        for (int i = 0; i < 6; i++)
+        {
+            if (battle.PokemonOnField[i].lockedInNextTurn &&
+                battle.PokemonOnField[i].lockedInMove is MoveID.Fly or MoveID.Bounce)
+            {
+                battle.PokemonOnField[i].lockedInNextTurn = false;
+                battle.PokemonOnField[i].invulnerability = Invulnerability.None;
+            }
+            if (battle.Moves[i] is MoveID.FlyAttack or MoveID.BounceAttack)
+            {
+
+            }
         }
     }
 }

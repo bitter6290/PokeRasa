@@ -109,12 +109,6 @@ public class MenuManager : MonoBehaviour
         return true;
     }
 
-    private IEnumerator MoveNoPP(int currentMon, int currentMove)
-    {
-        yield return battle.Announce(Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(currentMove - 1)].name + BattleText.NoPP);
-        battle.state = BattleState.PlayerInput;
-    }
-
     public void CleanForTurnStart()
     {
         menuMode = MenuMode.Main;
@@ -123,54 +117,11 @@ public class MenuManager : MonoBehaviour
         GetNextPokemon();
     }
 
-    private IEnumerator CantRunFromTrainer()
-    {
-        yield return battle.Announce("No! There's no running from a trainer battle!");
-        battle.state = BattleState.PlayerInput;
-    }
 
-    private IEnumerator MoveDisabled(int currentMon, int currentMove)
+    private IEnumerator AnnounceAndReturn(string announcement)
     {
-        yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true) + "'s "
-            + Move.MoveTable[(int)battle.PokemonOnField[currentMon].GetMove(currentMove - 1)].name
-            + " is disabled!");
-        battle.state = BattleState.PlayerInput;
-    }
-
-    private IEnumerator MoveImprisoned(int currentMon, int currentMove)
-    {
-        yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true)
-            + " can't use the imprisoned move!");
-        battle.state = BattleState.PlayerInput;
-    }
-
-    private IEnumerator MoveEncored(int currentMon)
-    {
-        yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true)
-            + " can only use "
-            + Move.MoveTable[(int)battle.PokemonOnField[currentMon].encoredMove].name
-            + "!");
-        battle.state = BattleState.PlayerInput;
-    }
-
-    private IEnumerator MonTormented(int currentMon)
-    {
-        yield return battle.Announce(battle.MonNameWithPrefix(currentMon, true)
-            + " can't use the same move again because of the torment!");
-        battle.state = BattleState.PlayerInput;
-    }
-
-    private IEnumerator MonFainted(int currentMon)
-    {
-        yield return battle.Announce(battle.PlayerPokemon[currentMon].monName
-            + " has no energy to battle!");
-        battle.state = BattleState.PlayerInput;
-    }
-
-    private IEnumerator MonOnField(int currentMon)
-    {
-        yield return battle.Announce(battle.PlayerPokemon[currentMon].monName
-            + " is already on the field!");
+        battle.state = BattleState.Announcement;
+        yield return battle.Announce(announcement);
         battle.state = BattleState.PlayerInput;
     }
 
@@ -406,24 +357,39 @@ public class MenuManager : MonoBehaviour
                                     switch (mon.CanUseMove(currentMove - 1))
                                     {
                                         case MoveSelectOutcome.LowPP:
-                                            battle.state = BattleState.Announcement;
-                                            StartCoroutine(MoveNoPP(currentMon, currentMove - 1));
+                                            StartCoroutine(AnnounceAndReturn(
+                                                battle.PokemonOnField[currentMon].GetMove(currentMove - 1).Data().name
+                                                + BattleText.NoPP));
                                             break;
                                         case MoveSelectOutcome.Encored:
-                                            battle.state = BattleState.Announcement;
-                                            StartCoroutine(MoveEncored(currentMon));
+                                            StartCoroutine(AnnounceAndReturn(
+                                                battle.MonNameWithPrefix(currentMon, true)
+                                                + " can only use "
+                                                + battle.PokemonOnField[currentMon].encoredMove.Data().name
+                                                + "!"));
                                             break;
                                         case MoveSelectOutcome.Disabled:
-                                            battle.state = BattleState.Announcement;
-                                            StartCoroutine(MoveDisabled(currentMon, currentMove - 1));
+                                            StartCoroutine(AnnounceAndReturn(
+                                                battle.MonNameWithPrefix(currentMon, true) + "'s "
+                                                + battle.PokemonOnField[currentMon].disabledMove.Data().name
+                                                + " is disabled!"));
                                             break;
                                         case MoveSelectOutcome.Tormented:
-                                            battle.state = BattleState.Announcement;
-                                            StartCoroutine(MonTormented(currentMon));
+                                            StartCoroutine(AnnounceAndReturn(
+                                                battle.MonNameWithPrefix(currentMon, true)
+                                                + " can't use the same move again because of the torment!"));
                                             break;
                                         case MoveSelectOutcome.Imprisoned:
-                                            battle.state = BattleState.Announcement;
-                                            StartCoroutine(MoveImprisoned(currentMon, currentMove));
+                                            StartCoroutine(AnnounceAndReturn(
+                                                battle.MonNameWithPrefix(currentMon, true) + "'s "
+                                                + battle.PokemonOnField[currentMon].GetMove(currentMove - 1).Data().name
+                                                + " is imprisoned!"));
+                                            break;
+                                        case MoveSelectOutcome.Gravity:
+                                            StartCoroutine(AnnounceAndReturn(
+                                                battle.MonNameWithPrefix(currentMon, true) + " can't use "
+                                                + battle.PokemonOnField[currentMon].GetMove(currentMove - 1).Data().name
+                                                + " under the intense gravity!"));
                                             break;
                                         case MoveSelectOutcome.Success:
                                             if (battle.TryAddMove(currentMon, currentMove))
@@ -454,7 +420,9 @@ public class MenuManager : MonoBehaviour
                                             else
                                             {
                                                 battle.state = BattleState.Announcement;
-                                                StartCoroutine(MoveNoPP(currentMon, currentMove));
+                                                StartCoroutine(AnnounceAndReturn(
+                                                battle.PokemonOnField[currentMon].GetMove(currentMove - 1).Data().name
+                                                + BattleText.NoPP));
                                             }
                                             break;
                                     }
@@ -648,7 +616,8 @@ public class MenuManager : MonoBehaviour
                                     else
                                     {
                                         battle.state = BattleState.Announcement;
-                                        battle.StartCoroutine(CantRunFromTrainer());
+                                        StartCoroutine(AnnounceAndReturn(
+                                            "No! There's no running from a trainer battle!"));
                                     }
                                     break;
                                 default:
@@ -887,13 +856,15 @@ public class MenuManager : MonoBehaviour
                                 case 6:
                                     if (battle.PlayerPokemon[currentPartyMon - 1].fainted)
                                     {
-                                        battle.state = BattleState.Announcement;
-                                        StartCoroutine(MonFainted(currentPartyMon - 1));
+                                        StartCoroutine(AnnounceAndReturn(
+                                            battle.PlayerPokemon[currentPartyMon - 1].monName
+                                            + " has no energy to battle!"));
                                     }
                                     else if (battle.PlayerPokemon[currentPartyMon - 1].onField)
                                     {
-                                        battle.state = BattleState.Announcement;
-                                        StartCoroutine(MonOnField(currentPartyMon - 1));
+                                        StartCoroutine(AnnounceAndReturn(
+                                            battle.PlayerPokemon[currentPartyMon - 1].monName
+                                            + " is already on the field!"));
                                     }
                                     else if ((battle.AbilityOnSide(Ability.ShadowTag, 0)
                                             || (battle.AbilityOnSide(Ability.ArenaTrap, 0)
@@ -905,8 +876,9 @@ public class MenuManager : MonoBehaviour
                                             || battle.PokemonOnField[currentMon].ingrained)
                                         && !battle.PokemonOnField[currentMon].HasType(Type.Ghost))
                                     {
-                                        battle.state = BattleState.Announcement;
-                                        StartCoroutine(MonTrapped(currentMon));
+                                        StartCoroutine(AnnounceAndReturn(
+                                            battle.PokemonOnField[currentMon].PokemonData.monName
+                                            + " is trapped and cannot switch!"));
                                     }
                                     else
                                     {

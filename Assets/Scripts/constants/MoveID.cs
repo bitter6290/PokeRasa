@@ -360,6 +360,16 @@ public enum MoveID
     DoomDesire,
     PsychoBoost,
 
+    //Gen 4
+    Roost,
+    Gravity,
+    MiracleEye,
+    WakeUpSlap,
+    HammerArm,
+    GyroBall,
+    HealingWish,
+    Brine,
+
     //Nonstandard moves
 
     ConfusionHit,

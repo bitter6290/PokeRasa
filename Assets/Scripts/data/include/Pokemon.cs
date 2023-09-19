@@ -33,6 +33,7 @@ public class Pokemon : ICloneable
     public int totalEv;
 
     private Nature nature;
+    public Nature Nature => nature;
     public int whichAbility;
 
     public int hpMax;
@@ -150,19 +151,19 @@ public class Pokemon : ICloneable
         return (((2 * SpeciesData.baseHP) + ivHP + (evHP >> 2)) * level / 100 + level + 10);
     }
 
-    private int CalculateStat(int statID, int baseStat, int statIv, int statEv)
+    private int CalculateStat(Stat stat, int baseStat, int statIv, int statEv)
     {
-        return (int)Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * NatureUtils.NatureEffect(nature, statID));
+        return (int)Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * NatureUtils.NatureEffect(nature, stat));
     }
 
     public void CalculateStats()
     {
         hpMax = CalculateHPMax();
-        attack = CalculateStat(0, SpeciesData.baseAttack, ivAttack, evAttack);
-        defense = CalculateStat(1, SpeciesData.baseDefense, ivDefense, evDefense);
-        spAtk = CalculateStat(3, SpeciesData.baseSpAtk, ivSpAtk, evSpAtk);
-        spDef = CalculateStat(4, SpeciesData.baseSpDef, ivSpDef, evSpDef);
-        speed = CalculateStat(2, SpeciesData.baseSpeed, ivSpeed, evSpeed);
+        attack = CalculateStat(Stat.Attack, SpeciesData.baseAttack, ivAttack, evAttack);
+        defense = CalculateStat(Stat.Defense, SpeciesData.baseDefense, ivDefense, evDefense);
+        spAtk = CalculateStat(Stat.SpAtk, SpeciesData.baseSpAtk, ivSpAtk, evSpAtk);
+        spDef = CalculateStat(Stat.SpDef, SpeciesData.baseSpDef, ivSpDef, evSpDef);
+        speed = CalculateStat(Stat.Speed, SpeciesData.baseSpeed, ivSpeed, evSpeed);
     }
 
     public bool ShouldLevelUp()
@@ -275,11 +276,11 @@ public class Pokemon : ICloneable
         xp = XP.LevelToXP(level, SpeciesData.xpClass);
 
         hpMax = ToUInt16(((2 * SpeciesData.baseHP) + ivHP) * level / 100 + level + 10);
-        attack = ToUInt16(Floor((((2 * SpeciesData.baseAttack) + ivAttack + (evHP >> 2)) * level / 100 + 5) * nature.NatureEffect(0)));
-        defense = ToUInt16(Floor((((2 * SpeciesData.baseDefense) + ivDefense) * level / 100 + 5) * nature.NatureEffect(1)));
-        spAtk = ToUInt16(Floor((((2 * SpeciesData.baseSpAtk) + ivSpAtk) * level / 100 + 5) * nature.NatureEffect(3)));
-        spDef = ToUInt16(Floor((((2 * SpeciesData.baseSpDef) + ivSpDef) * level / 100 + 5) * nature.NatureEffect(4)));
-        speed = ToUInt16(Floor((((2 * SpeciesData.baseSpeed) + ivSpeed) * level / 100 + 5) * nature.NatureEffect(2)));
+        attack = ToUInt16(Floor((((2 * SpeciesData.baseAttack) + ivAttack + (evHP >> 2)) * level / 100 + 5) * nature.NatureEffect(Stat.Attack)));
+        defense = ToUInt16(Floor((((2 * SpeciesData.baseDefense) + ivDefense) * level / 100 + 5) * nature.NatureEffect(Stat.Defense)));
+        spAtk = ToUInt16(Floor((((2 * SpeciesData.baseSpAtk) + ivSpAtk) * level / 100 + 5) * nature.NatureEffect(Stat.SpAtk)));
+        spDef = ToUInt16(Floor((((2 * SpeciesData.baseSpDef) + ivSpDef) * level / 100 + 5) * nature.NatureEffect(Stat.SpDef)));
+        speed = ToUInt16(Floor((((2 * SpeciesData.baseSpeed) + ivSpeed) * level / 100 + 5) * nature.NatureEffect(Stat.Speed)));
 
         move1 = Move1;
         move2 = Move2;

@@ -7,5 +7,6 @@
     Tormented,
     Taunted,
     Imprisoned,
+    Gravity,
     NoMove,
 }

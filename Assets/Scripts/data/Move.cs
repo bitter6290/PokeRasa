@@ -4,6 +4,7 @@ using UnityEngine;
 using static Type;
 using static MoveData;
 using static MoveFlags;
+using UnityEngine.WSA;
 
 public static class Move
 {
@@ -118,7 +119,8 @@ public static class Move
         "Fly", Flying,
         0, 100, 0,
         MoveEffect.ChargingAttack, 0,
-        true, Target.Single, 15); //Needs anim
+        true, Target.Single, 15,
+        gravityDisabled); //Needs anim
     public static MoveData Bind = new(
         "Bind", Normal,
         15, 85, 0,
@@ -160,7 +162,7 @@ public static class Move
         100, 20, 0,
         MoveEffect.Crash50Max, 0,
         true, Target.Single, 10,
-        makesContact); //Needs anim
+        makesContact + gravityDisabled); //Needs anim
     public static MoveData RollingKick = new(
         "Rolling Kick", Fighting,
         60, 85, 0,
@@ -772,7 +774,7 @@ public static class Move
         130, 90, 0,
         MoveEffect.Crash50Max, 0,
         true, Target.Single, 10,
-        makesContact); //Needs anim
+        makesContact + gravityDisabled); //Needs anim
     public static MoveData Glare = new(
         "Glare", Normal,
         0, 100, 0,
@@ -850,7 +852,8 @@ public static class Move
         "Splash", Normal,
         0, 101, 0,
         MoveEffect.None, 0,
-        false, Target.Self, 40); //Needs anim
+        false, Target.Self, 40,
+        gravityDisabled); //Needs anim
     public static MoveData AcidArmor = new(
         "Acid Armor", Poison,
         0, 101, 0,
@@ -1797,7 +1800,8 @@ public static class Move
         "Bounce", Flying,
         85, 85, 0,
         MoveEffect.ChargingAttack, 100,
-        true, Target.Single, 5); //Needs anim
+        true, Target.Single, 5,
+        gravityDisabled); //Needs anim
     public static MoveData MudShot = new(
         "Mud Shot", Ground,
         55, 95, 0,
@@ -1869,6 +1873,41 @@ public static class Move
         false, Target.Single, 5,
         effectOnSelfOnly); //Needs anim
 
+    //Gen 4
+
+    public static MoveData Roost = SelfTargetingMove(
+        "Roost", Flying, 0, MoveEffect.Roost, 5, snatchAffected); //Needs anim
+    public static MoveData Gravity = FieldMove(
+        "Gravity", Type.Psychic, 0, MoveEffect.Gravity, 5); //Needs anim
+    public static MoveData MiracleEye = SingleTargetStatusMove(
+        "Miracle Eye", Type.Psychic, 101, 0, MoveEffect.MiracleEye, 40,
+        magicBounceAffected); //Needs anim
+    public static MoveData WakeUpSlap = new(
+        "Wake-Up Slap", Fighting,
+        70, 100, 0,
+        MoveEffect.WakeUpSlap, 100,
+        true, Target.Single, 10,
+        makesContact); //Needs anim
+    public static MoveData HammerArm = new(
+        "Hammer Arm", Fighting,
+        100, 100, 0,
+        MoveEffect.SpeedDown1, 100,
+        true, Target.Single, 10,
+        makesContact + effectOnSelfOnly); //Needs anim
+    public static MoveData GyroBall = new(
+        "Gyro Ball", Steel,
+        1, 100, 0,
+        MoveEffect.LowSpeedPower, 0,
+        true, Target.Single, 5,
+        makesContact); //Needs anim
+    public static MoveData HealingWish = SelfTargetingMove(
+        "Healing Wish", Type.Psychic, 0, MoveEffect.HealingWish, 10,
+        snatchAffected); //Needs anim
+    public static MoveData Brine = new(
+        "Brine", Water,
+        65, 100, 0,
+        MoveEffect.Brine, 100,
+        false, Target.Single, 10); //Needs anim
 
 
     //Non-standard moves
@@ -2319,6 +2358,16 @@ public static class Move
         WaterPulse,
         DoomDesire,
         PsychoBoost,
+
+        //Gen 4
+        Roost,
+        Gravity,
+        MiracleEye,
+        WakeUpSlap,
+        HammerArm,
+        GyroBall,
+        HealingWish,
+        Brine,
 
         //Nonstandard moves
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using Unity.VisualScripting;
 using static SpeciesID;
+using static BerryEffect;
+using static FieldEffect;
 
 public static class Item
 {
@@ -12,11 +14,285 @@ public static class Item
         price = 100,
     };
 
+    public static Berry CheriBerry = new()
+    {
+        itemName = "Cheri Berry",
+        price = 1000,
+        berryEffect = CureParalysis,
+        graphicsPath = "cheri_berry"
+    };
+
+    public static Berry ChestoBerry = new()
+    {
+        itemName = "Chesto Berry",
+        price = 1000,
+        berryEffect = CureSleep,
+        graphicsPath = "chesto_berry"
+    };
+
+    public static Berry PechaBerry = new()
+    {
+        itemName = "Pecha Berry",
+        price = 1000,
+        berryEffect = CurePoison,
+        graphicsPath = "pecha_berry"
+    };
+
+    public static Berry RawstBerry = new()
+    {
+        itemName = "Rawst Berry",
+        price = 1000,
+        berryEffect = CureBurn,
+        graphicsPath = "rawst_berry"
+    };
+
+    public static Berry AspearBerry = new()
+    {
+        itemName = "Aspear Berry",
+        price = 1000,
+        berryEffect = CureFreeze,
+        graphicsPath = "aspear_berry"
+    };
+
+    public static Berry PersimBerry = new()
+    {
+        itemName = "Persim Berry",
+        price = 1000,
+        berryEffect = CureConfusion,
+        graphicsPath = "persim_berry"
+    };
+
+    public static Berry LumBerry = new()
+    {
+        itemName = "Lum Berry",
+        price = 2000,
+        berryEffect = CureStatus,
+        graphicsPath = "lum_berry"
+    };
+
+    public static Berry OranBerry = new()
+    {
+        itemName = "Oran Berry",
+        price = 500,
+        berryEffect = At50Restore10HP,
+        graphicsPath = "oran_berry"
+    };
+
+    public static Berry SitrusBerry = new()
+    {
+        itemName = "Sitrus Berry",
+        price = 1500,
+        berryEffect = At50Restore25,
+        graphicsPath = "sitrus_berry"
+    };
+
+    public static Berry FigyBerry = new()
+    {
+        itemName = "Figy Berry",
+        price = 2500,
+        berryEffect = At25Restore33Spicy,
+        graphicsPath = "figy_berry"
+    };
+
+    public static Berry WikiBerry = new()
+    {
+        itemName = "Wiki Berry",
+        price = 2500,
+        berryEffect = At25Restore33Dry,
+        graphicsPath = "wiki_berry"
+    };
+
+    public static Berry MagoBerry = new()
+    {
+        itemName = "Mago Berry",
+        price = 2500,
+        berryEffect = At25Restore33Sweet,
+        graphicsPath = "mago_berry"
+    };
+
+    public static Berry AguavBerry = new()
+    {
+        itemName = "Aguav Berry",
+        price = 2500,
+        berryEffect = At25Restore33Bitter,
+        graphicsPath = "aguav_berry"
+    };
+
+    public static Berry IapapaBerry = new()
+    {
+        itemName = "Iapapa Berry",
+        price = 2500,
+        berryEffect = At25Restore33Sour,
+        graphicsPath = "iapapa_berry"
+    };
+
+    public static Berry EnigmaBerry = new()
+    {
+        itemName = "Enigma Berry",
+        price = 3000,
+        berryEffect = OnSERestore25,
+        graphicsPath = "enigma_berry"
+    };
+
+    public static Berry LeppaBerry = new()
+    {
+        itemName = "Leppa Berry",
+        price = 2000,
+        berryEffect = At0PPRestore10PP,
+        graphicsPath = "leppa_berry"
+    };
+
+    public static Berry RazzBerry = new()
+    {
+        itemName = "Razz Berry",
+        price = 1000,
+        graphicsPath = "razz_berry"
+    };
+
+    public static Berry BlukBerry = new()
+    {
+        itemName = "Bluk Berry",
+        price = 1000,
+        graphicsPath = "bluk_berry"
+    };
+
+    public static Berry NanabBerry = new()
+    {
+        itemName = "Nanab Berry",
+        price = 1000,
+        graphicsPath = "nanab_berry"
+    };
+
+    public static Berry WepearBerry = new()
+    {
+        itemName = "Wepear Berry",
+        price = 1000,
+        graphicsPath = "wepear_berry"
+    };
+
+    public static Berry PinapBerry = new()
+    {
+        itemName = "Pinap Berry",
+        price = 1000,
+        graphicsPath = "pinap_berry"
+    };
+
+    public static Berry PomegBerry = new()
+    {
+        itemName = "Pomeg Berry",
+        price = 5000,
+        fieldEffect = HPEVDown10,
+        graphicsPath = "pomeg_berry"
+    };
+
+    public static Berry KelpsyBerry = new()
+    {
+        itemName = "Kelpsy Berry",
+        price = 5000,
+        fieldEffect = AttackEVDown10,
+        graphicsPath = "kelpsy_berry"
+    };
+
+    public static Berry QualotBerry = new()
+    {
+        itemName = "Qualot Berry",
+        price = 5000,
+        fieldEffect = DefenseEVDown10,
+        graphicsPath = "qualot_berry"
+    };
+
+    public static Berry HondewBerry = new()
+    {
+        itemName = "Hondew Berry",
+        price = 5000,
+        fieldEffect = SpAtkEVDown10,
+        graphicsPath = "hondew_berry"
+    };
+
+    public static Berry GrepaBerry = new()
+    {
+        itemName = "Grepa Berry",
+        price = 5000,
+        fieldEffect = SpDefEVDown10,
+        graphicsPath = "grepa_berry"
+    };
+
+    public static Berry TamatoBerry = new()
+    {
+        itemName = "Tamato Berry",
+        price = 5000,
+        fieldEffect = SpeedEVDown10,
+        graphicsPath = "tamato_berry"
+    };
+
+    public static Berry CornnBerry = new()
+    {
+        itemName = "Cornn Berry",
+        price = 1000,
+        graphicsPath = "cornn_Berry"
+    };
+
+    public static Berry MagostBerry = new()
+    {
+        itemName = "Magost Berry",
+        price = 1000,
+        graphicsPath = "magost_berry"
+    };
+
+    public static Berry RabutaBerry = new()
+    {
+        itemName = "Rabuta Berry",
+        price = 1000,
+        graphicsPath = "rabuta_berry"
+    };
+
+    public static Berry NomelBerry = new()
+    {
+        itemName = "Nomel Berry",
+        price = 1000,
+        graphicsPath = "nomel_berry",
+    };
+
+    public static Berry SpelonBerry = new()
+    {
+        itemName = "Spelon Berry",
+        price = 1000,
+        graphicsPath = "spelon_berry"
+    };
+
+    public static Berry PamtreBerry = new()
+    {
+        itemName = "Pamtre Berry",
+        price = 1000,
+        graphicsPath = "pamtre_berry"
+    };
+
+    public static Berry WatmelBerry = new()
+    {
+        itemName = "Watmel Berry",
+        price = 1000,
+        graphicsPath = "watmel_berry"
+    };
+
+    public static Berry DurinBerry = new()
+    {
+        itemName = "Durin Berry",
+        price = 1000,
+        graphicsPath = "durin_berry"
+    };
+
+    public static Berry BelueBerry = new()
+    {
+        itemName = "Belue Berry",
+        price = 1000,
+        graphicsPath = "belue_berry"
+    };
+
     public static Berry OccaBerry = new()
     {
         itemName = "Occa Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceFireDamage,
+        berryEffect = ReduceFireDamage,
         graphicsPath = "occa_berry"
     };
 
@@ -24,7 +300,7 @@ public static class Item
     {
         itemName = "Passho Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceWaterDamage,
+        berryEffect = ReduceWaterDamage,
         graphicsPath = "passho_berry"
     };
 
@@ -32,7 +308,7 @@ public static class Item
     {
         itemName = "Wacan Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceElectricDamage,
+        berryEffect = ReduceElectricDamage,
         graphicsPath = "wacan_berry"
     };
 
@@ -40,7 +316,7 @@ public static class Item
     {
         itemName = "Rindo Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceGrassDamage,
+        berryEffect = ReduceGrassDamage,
         graphicsPath = "rindo_berry"
     };
 
@@ -48,7 +324,7 @@ public static class Item
     {
         itemName = "Yache Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceIceDamage,
+        berryEffect = ReduceIceDamage,
         graphicsPath = "yache_berry"
     };
 
@@ -56,7 +332,7 @@ public static class Item
     {
         itemName = "Chople Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceFightingDamage,
+        berryEffect = ReduceFightingDamage,
         graphicsPath = "chople_berry"
     };
 
@@ -64,7 +340,7 @@ public static class Item
     {
         itemName = "Kebia Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReducePoisonDamage,
+        berryEffect = ReducePoisonDamage,
         graphicsPath = "kebia_berry"
     };
 
@@ -72,7 +348,7 @@ public static class Item
     {
         itemName = "Shuca Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceGroundDamage,
+        berryEffect = ReduceGroundDamage,
         graphicsPath = "shuca_berry"
     };
 
@@ -80,7 +356,7 @@ public static class Item
     {
         itemName = "Coba Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceFlyingDamage,
+        berryEffect = ReduceFlyingDamage,
         graphicsPath = "coba_berry"
     };
 
@@ -88,7 +364,7 @@ public static class Item
     {
         itemName = "Payapa Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReducePsychicDamage,
+        berryEffect = ReducePsychicDamage,
         graphicsPath = "payapa_berry"
     };
 
@@ -96,7 +372,7 @@ public static class Item
     {
         itemName = "Tanga Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceBugDamage,
+        berryEffect = ReduceBugDamage,
         graphicsPath = "tanga_berry"
     };
 
@@ -104,7 +380,7 @@ public static class Item
     {
         itemName = "Charti Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceRockDamage,
+        berryEffect = ReduceRockDamage,
         graphicsPath = "charti_berry"
     };
 
@@ -112,7 +388,7 @@ public static class Item
     {
         itemName = "Kasib Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceGhostDamage,
+        berryEffect = ReduceGhostDamage,
         graphicsPath = "kasib_berry"
     };
 
@@ -120,7 +396,7 @@ public static class Item
     {
         itemName = "Haban Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceDragonDamage,
+        berryEffect = ReduceDragonDamage,
         graphicsPath = "haban_berry"
     };
 
@@ -128,7 +404,7 @@ public static class Item
     {
         itemName = "Colbur Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceDarkDamage,
+        berryEffect = ReduceDarkDamage,
         graphicsPath = "colbur_berry"
     };
 
@@ -136,24 +412,137 @@ public static class Item
     {
         itemName = "Babiri Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceSteelDamage,
+        berryEffect = ReduceSteelDamage,
         graphicsPath = "babiri_berry"
+    };
+
+
+    public static Berry ChilanBerry = new()
+    {
+        itemName = "Chilan Berry",
+        price = 2500,
+        berryEffect = ReduceNormalDamage,
+        graphicsPath = "chilan_bery"
+    };
+
+    public static Berry LiechiBerry = new()
+    {
+        itemName = "Liechi Berry",
+        price = 5000,
+        berryEffect = At25RaiseAttack,
+        graphicsPath = "liechi_berry"
+    };
+
+    public static Berry GanlonBerry = new()
+    {
+        itemName = "Ganlon Berry",
+        price = 5000,
+        berryEffect = At25RaiseDefense,
+        graphicsPath = "ganlon_berry"
+    };
+
+    public static Berry SalacBerry = new()
+    {
+        itemName = "Salac Berry",
+        price = 5000,
+        berryEffect = At25RaiseSpeed,
+        graphicsPath = "salac_berry"
+    };
+
+    public static Berry PetayaBerry = new()
+    {
+        itemName = "Petaya Berry",
+        price = 5000,
+        berryEffect = At25RaiseSpAtk,
+        graphicsPath = "petaya_berry"
+    };
+
+    public static Berry ApicotBerry = new()
+    {
+        itemName = "Apicot Berry",
+        price = 5000,
+        berryEffect = At25RaiseSpDef,
+        graphicsPath = "apicot_berry"
+    };
+
+    public static Berry LansatBerry = new()
+    {
+        itemName = "Lansat Berry",
+        price = 5000,
+        berryEffect = At25RaiseCrit,
+        graphicsPath = "lansat_berry"
+    };
+
+    public static Berry StarfBerry = new()
+    {
+        itemName = "Starf Berry",
+        price = 5000,
+        berryEffect = At25RaiseRandom2,
+        graphicsPath = "starf_berry"
+    };
+
+    public static Berry KeeBerry = new()
+    {
+        itemName = "Kee Berry",
+        price = 2500,
+        berryEffect = OnPhysRaiseDefense,
+        graphicsPath = "kee_berry"
+    };
+
+    public static Berry MarangaBerry = new()
+    {
+        itemName = "Maranga Berry",
+        price = 2500,
+        berryEffect = OnSpecRaiseSpDef,
+        graphicsPath = "maranga_berry"
+    };
+
+    public static Berry MicleBerry = new()
+    {
+        itemName = "Micle Berry",
+        price = 3000,
+        berryEffect = At25RaiseAccuracy20,
+        graphicsPath = "micle_berry"
+    };
+
+    public static Berry CustapBerry = new()
+    {
+        itemName = "Custap Berry",
+        price = 3000,
+        berryEffect = At25GetPriority,
+        graphicsPath = "custap_berry"
+    };
+
+    public static Berry JabocaBerry = new()
+    {
+        itemName = "Jaboca Berry",
+        price = 4000,
+        berryEffect = OnPhysHurt125,
+        graphicsPath = "jaboca_berry"
+    };
+
+    public static Berry RowapBerry = new()
+    {
+        itemName = "Rowap Berry",
+        price = 4000,
+        berryEffect = OnSpecHurt125,
+        graphicsPath = "rowap_berry"
+    };
+
+    public static Berry HopoBerry = new()
+    {
+        itemName = "Hopo Berry",
+        price = 3000,
+        berryEffect = At0PPRestore10PP,
+        graphicsPath = "hopo_berry"
     };
 
     public static Berry RoseliBerry = new()
     {
         itemName = "Roseli Berry",
         price = 2500,
-        berryEffect = BerryEffect.ReduceFairyDamage,
+        berryEffect = ReduceFairyDamage,
         graphicsPath = "roseli_berry"
-    };
-
-    public static Berry ChilanBerry = new()
-    {
-        itemName = "Chilan Berry",
-        price = 2500,
-        berryEffect = BerryEffect.ReduceNormalDamage,
-        graphicsPath = "chilan_bery"
     };
 
     public static FieldItem FireStone = new()
@@ -657,87 +1046,137 @@ public static class Item
 
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
     {
-    None,
-    //Berries
-    OccaBerry,
-    PasshoBerry,
-    RindoBerry,
-    WacanBerry,
-    YacheBerry,
-    ChopleBerry,
-    KebiaBerry,
-    ShucaBerry,
-    CobaBerry,
-    PayapaBerry,
-    TangaBerry,
-    ChartiBerry,
-    KasibBerry,
-    HabanBerry,
-    ColburBerry,
-    BabiriBerry,
-    RoseliBerry,
-    ChilanBerry,
-    //Evolution items
-    FireStone,
-    WaterStone,
-    ThunderStone,
-    LeafStone,
-    MoonStone,
-    SunStone,
-    ShinyStone,
-    DuskStone,
-    DawnStone,
-    IceStone,
-    //Held items
-    KingsRock,
-    MetalCoat,
-    DeepSeaTooth,
-    DeepSeaScale,
-    //Abstract items
-    DragonScale,
-    PrismScale,
-    UpGrade,
-    //Mega stones
-    Venusaurite,
-    CharizarditeX,
-    CharizarditeY,
-    Blastoisinite,
-    Beedrillite,
-    Pidgeotite,
-    Alakazite,
-    Slowbronite,
-    Gengarite,
-    Kangaskhanite,
-    Pinsirite,
-    Gyaradosite,
-    Aerodactylite,
-    MewtwoniteX,
-    MewtwoniteY,
-    Ampharosite,
-    Steelixite,
-    Scizorite,
-    Heracronite,
-    Houndoominite,
-    Tyranitarite,
-    Sceptilite,
-    Blazikenite,
-    Swampertite,
-    Gardevoirite,
-    Sablenite,
-    Mawilite,
-    Aggronite,
-    Medichamite,
-    Manectrite,
-    Sharpedonite,
-    Cameruptite,
-    Altarianite,
-    Banettite,
-    Absolite,
-    Glalitite,
-    Salamencite,
-    Metagrossite,
-    Latiasite,
-    Latiosite,
+        None,
+        //Berries
+        CheriBerry,
+        ChestoBerry,
+        PechaBerry,
+        RawstBerry,
+        AspearBerry,
+        LeppaBerry,
+        OranBerry,
+        PersimBerry,
+        LumBerry,
+        SitrusBerry,
+        FigyBerry,
+        WikiBerry,
+        MagoBerry,
+        AguavBerry,
+        IapapaBerry,
+        RazzBerry,
+        BlukBerry,
+        NanabBerry,
+        WepearBerry,
+        PinapBerry,
+        PomegBerry,
+        KelpsyBerry,
+        QualotBerry,
+        HondewBerry,
+        GrepaBerry,
+        TamatoBerry,
+        CornnBerry,
+        MagostBerry,
+        RabutaBerry,
+        NomelBerry,
+        SpelonBerry,
+        PamtreBerry,
+        WatmelBerry,
+        DurinBerry,
+        BelueBerry,
+        OccaBerry,
+        PasshoBerry,
+        RindoBerry,
+        WacanBerry,
+        YacheBerry,
+        ChopleBerry,
+        KebiaBerry,
+        ShucaBerry,
+        CobaBerry,
+        PayapaBerry,
+        TangaBerry,
+        ChartiBerry,
+        KasibBerry,
+        HabanBerry,
+        ColburBerry,
+        BabiriBerry,
+        ChilanBerry,
+        LiechiBerry,
+        GanlonBerry,
+        SalacBerry,
+        PetayaBerry,
+        ApicotBerry,
+        LansatBerry,
+        StarfBerry,
+        EnigmaBerry,
+        MicleBerry,
+        CustapBerry,
+        JabocaBerry,
+        RowapBerry,
+        RoseliBerry,
+        KeeBerry,
+        MarangaBerry,
+        HopoBerry,
+        //Evolution items
+        FireStone,
+        WaterStone,
+        ThunderStone,
+        LeafStone,
+        MoonStone,
+        SunStone,
+        ShinyStone,
+        DuskStone,
+        DawnStone,
+        IceStone,
+        //Held items
+        KingsRock,
+        MetalCoat,
+        DeepSeaTooth,
+        DeepSeaScale,
+        //Abstract items
+        DragonScale,
+        PrismScale,
+        UpGrade,
+        //Mega stones
+        Venusaurite,
+        CharizarditeX,
+        CharizarditeY,
+        Blastoisinite,
+        Beedrillite,
+        Pidgeotite,
+        Alakazite,
+        Slowbronite,
+        Gengarite,
+        Kangaskhanite,
+        Pinsirite,
+        Gyaradosite,
+        Aerodactylite,
+        MewtwoniteX,
+        MewtwoniteY,
+        Ampharosite,
+        Steelixite,
+        Scizorite,
+        Heracronite,
+        Houndoominite,
+        Tyranitarite,
+        Sceptilite,
+        Blazikenite,
+        Swampertite,
+        Gardevoirite,
+        Sablenite,
+        Mawilite,
+        Aggronite,
+        Medichamite,
+        Manectrite,
+        Sharpedonite,
+        Cameruptite,
+        Altarianite,
+        Banettite,
+        Absolite,
+        Glalitite,
+        Salamencite,
+        Metagrossite,
+        Latiasite,
+        Latiosite,
     };
 }
 

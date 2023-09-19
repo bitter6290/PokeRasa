@@ -314,10 +314,11 @@ public class Player : MonoBehaviour
     }
 
     private void FindCamera() => camera = GameObject.Find("Main Camera");
-    private void FindAnnouncer() {
+    private void FindAnnouncer()
+    {
         announcer = FindAnyObjectByType<GUIManager>();
         announcer.player = this;
-        }
+    }
 
     private void CaptureCamera()
     {
@@ -500,9 +501,9 @@ public class Player : MonoBehaviour
 
     public bool CheckForTriggers()
     {
-        foreach(TileTrigger i in triggers)
+        foreach (TileTrigger i in triggers)
         {
-            if(i.pos == new Vector2Int(xPos,yPos))
+            if (i.pos == new Vector2Int(xPos,yPos))
             {
                 StartCoroutine(i.script(this));
                 return true;
