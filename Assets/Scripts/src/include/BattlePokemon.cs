@@ -172,6 +172,7 @@ public class BattlePokemon
     public ItemID eatenBerry = ItemID.None;
 
     public bool gotReducingBerryEffect = false;
+    public bool ateRetaliationBerry = false;
     public bool micleAccBoost = false;
     public bool custapPriorityBoost = false;
 

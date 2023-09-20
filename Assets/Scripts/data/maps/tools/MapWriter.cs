@@ -32,29 +32,29 @@ public class MapWriter
             for (int y = 0; y < mapHelper.mapData.height; y++)
             {
                 ushort tile1SW = level1.HasTile(new Vector3Int(2 * x, 2 * y))
-                    ? (ushort)((IndexedObject)level1.GetTile(new Vector3Int(2 * x, 2 * y))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level1.GetTile(new Vector3Int(2 * x, 2 * y))).Index : (ushort)0;
                 ushort tile2SW = level2.HasTile(new Vector3Int(2 * x, 2 * y))
-                    ? (ushort)((IndexedObject)level2.GetTile(new Vector3Int(2 * x, 2 * y))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level2.GetTile(new Vector3Int(2 * x, 2 * y))).Index : (ushort)0;
                 ushort tile3SW = level3.HasTile(new Vector3Int(2 * x, 2 * y))
-                    ? (ushort)((IndexedObject)level3.GetTile(new Vector3Int(2 * x, 2 * y))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level3.GetTile(new Vector3Int(2 * x, 2 * y))).Index : (ushort)0;
                 ushort tile1SE = level1.HasTile(new Vector3Int(2 * x + 1, 2 * y))
-                    ? (ushort)((IndexedObject)level1.GetTile(new Vector3Int(2 * x + 1, 2 * y))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level1.GetTile(new Vector3Int(2 * x + 1, 2 * y))).Index : (ushort)0;
                 ushort tile2SE = level2.HasTile(new Vector3Int(2 * x + 1, 2 * y))
-                    ? (ushort)((IndexedObject)level2.GetTile(new Vector3Int(2 * x + 1, 2 * y))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level2.GetTile(new Vector3Int(2 * x + 1, 2 * y))).Index : (ushort)0;
                 ushort tile3SE = level3.HasTile(new Vector3Int(2 * x + 1, 2 * y))
-                    ? (ushort)((IndexedObject)level3.GetTile(new Vector3Int(2 * x + 1, 2 * y))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level3.GetTile(new Vector3Int(2 * x + 1, 2 * y))).Index : (ushort)0;
                 ushort tile1NW = level1.HasTile(new Vector3Int(2 * x, 2 * y + 1))
-                    ? (ushort)((IndexedObject)level1.GetTile(new Vector3Int(2 * x, 2 * y + 1))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level1.GetTile(new Vector3Int(2 * x, 2 * y + 1))).Index : (ushort)0;
                 ushort tile2NW = level2.HasTile(new Vector3Int(2 * x, 2 * y + 1))
-                    ? (ushort)((IndexedObject)level2.GetTile(new Vector3Int(2 * x, 2 * y + 1))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level2.GetTile(new Vector3Int(2 * x, 2 * y + 1))).Index : (ushort)0;
                 ushort tile3NW = level3.HasTile(new Vector3Int(2 * x, 2 * y + 1))
-                    ? (ushort)((IndexedObject)level3.GetTile(new Vector3Int(2 * x, 2 * y + 1))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level3.GetTile(new Vector3Int(2 * x, 2 * y + 1))).Index : (ushort)0;
                 ushort tile1NE = level1.HasTile(new Vector3Int(2 * x + 1, 2 * y + 1))
-                    ? (ushort)((IndexedObject)level1.GetTile(new Vector3Int(2 * x + 1, 2 * y + 1))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level1.GetTile(new Vector3Int(2 * x + 1, 2 * y + 1))).Index : (ushort)0;
                 ushort tile2NE = level2.HasTile(new Vector3Int(2 * x + 1, 2 * y + 1))
-                    ? (ushort)((IndexedObject)level2.GetTile(new Vector3Int(2 * x + 1, 2 * y + 1))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level2.GetTile(new Vector3Int(2 * x + 1, 2 * y + 1))).Index : (ushort)0;
                 ushort tile3NE = level3.HasTile(new Vector3Int(2 * x + 1, 2 * y + 1))
-                    ? (ushort)((IndexedObject)level3.GetTile(new Vector3Int(2 * x + 1, 2 * y + 1))).Index : (ushort)0;
+                    ? (ushort)((IIndexedObject)level3.GetTile(new Vector3Int(2 * x + 1, 2 * y + 1))).Index : (ushort)0;
                 byte collisionByte = collision.HasTile(new Vector3Int(x, y))
                     ? (byte)((CollisionTile)collision.GetTile(new Vector3Int(x, y))).collisionID : (byte)0;
                 byte wildDataByte = wildData.HasTile(new Vector3Int(x, y))

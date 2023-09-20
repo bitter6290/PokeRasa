@@ -117,6 +117,7 @@ public enum MoveEffect : ushort
     NaturePower,
     OHKO,
     PainSplit,
+    Pluck,
     Present,
     Rage,
     Recharge,

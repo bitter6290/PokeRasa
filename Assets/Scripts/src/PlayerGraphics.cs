@@ -47,7 +47,7 @@ public class PlayerGraphics
             playerTransform.position = new Vector3(initialPosition.x, initialPosition.y + progress, initialPosition.z);
             yield return null;
         }
-        p.yPos++;
+        p.pos.y++;
         p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
     }
     public IEnumerator WalkSouth(Player p, float duration)
@@ -69,7 +69,7 @@ public class PlayerGraphics
             playerTransform.position = new Vector3(initialPosition.x, initialPosition.y - progress, initialPosition.z);
             yield return null;
         }
-        p.yPos--;
+        p.pos.y--;
         p.state = p.locked ? PlayerState.Locked : PlayerState.Free;        
     }
     public IEnumerator WalkWest(Player p, float duration)
@@ -91,7 +91,7 @@ public class PlayerGraphics
             playerTransform.position = new Vector3(initialPosition.x - progress, initialPosition.y, initialPosition.z);
             yield return null;
         }
-        p.xPos--;
+        p.pos.x--;
         p.state = p.locked ? PlayerState.Locked : PlayerState.Free;        
     }
     public IEnumerator WalkEast(Player p, float duration)
@@ -113,7 +113,7 @@ public class PlayerGraphics
             playerTransform.position = new Vector3(initialPosition.x + progress, initialPosition.y, initialPosition.z);
             yield return null;
         }
-        p.xPos++;
+        p.pos.x++;
         p.state = p.locked ? PlayerState.Locked : PlayerState.Free;        
     }
     public IEnumerator BumpNorth(Player p, float duration)

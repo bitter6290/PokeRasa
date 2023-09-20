@@ -29,7 +29,11 @@ public class OverallTest : MonoBehaviour
         player.TryAddMon(testPokemon2);
         player.TryAddMon(testPokemon4);
         player.TryAddMon(testPokemon5);
-        StartCoroutine(player.StartSingleTrainerBattle(new Pokemon[] { testPokemon, testPokemon3, testPokemon6 }, BattleType.Single));
+        battle.OpponentPokemon = new Pokemon[] { testPokemon, testPokemon3, testPokemon6,
+        Pokemon.MakeEmptyMon, Pokemon.MakeEmptyMon, Pokemon.MakeEmptyMon };
+        battle.PlayerPokemon = new Pokemon[] { testPokemon2, testPokemon4, testPokemon5,
+        Pokemon.MakeEmptyMon, Pokemon.MakeEmptyMon, Pokemon.MakeEmptyMon };
+        battle.StartCoroutine(battle.StartBattle());
     }
 
     // Update is called once per frame
@@ -71,6 +75,17 @@ public class OverallTest : MonoBehaviour
             defender.newType1 = Type.Grass;
             defender.newType1 = Type.Grass;
             defender.PokemonData.item = ItemID.OccaBerry;
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            BattlePokemon tester = battle.PokemonOnField[3];
+            BattlePokemon defender = battle.PokemonOnField[0];
+            tester.PokemonData.move1 = MoveID.Pluck;
+            tester.PokemonData.pp1 = 40;
+            defender.PokemonData.move1 = MoveID.Splash;
+            defender.PokemonData.pp1 = 40;
+            defender.PokemonData.item = ItemID.LiechiBerry;
+            battle.Moves[0] = MoveID.Splash;
         }
     }
 }

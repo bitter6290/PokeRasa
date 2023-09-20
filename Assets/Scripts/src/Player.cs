@@ -27,12 +27,13 @@ public class Player : MonoBehaviour
 
     public BattleTerrain currentTerrain;
     public MapID currentMap;
-    public int xPos;
-    public int yPos;
+    public Vector2Int pos;
     public PlayerState state;
     public bool active;
     public bool locked;
     public Direction facing;
+
+    public Dictionary<int, LoadedChar> loadedChars;
 
     public bool whichStep;
 
@@ -173,32 +174,40 @@ public class Player : MonoBehaviour
         foreach (TileTrigger i in currentMap.Data().signposts) signposts.Add(i);
     }
 
+    public void RefreshChars()
+    {
+        loadedChars = new();
+    }
+
     public void RefreshObjects()
     {
         RefreshTriggers();
         RefreshSignposts();
+        RefreshChars();
     }
 
-    public void SwitchAndReposition(int xPosition, int yPosition)
+    public void SwitchAndReposition(Vector2Int pos)
     {
         mapManager.mapID = currentMap;
-        mapManager.ReadAndReposition(this, xPosition, yPosition);
+        mapManager.ReadAndReposition(this, pos);
         RefreshObjects();
     }
 
-    public void AlignPlayer() => playerGraphics.playerTransform.position = new Vector3(xPos + 0.5F, yPos + 0.5F);
+    public void AlignPlayer() => playerGraphics.playerTransform.position = new Vector3(pos.x + 0.5F, pos.y + 0.5F, pos.y);
 
-    public void UpdateCollision() => currentHeight = CheckCollision(xPos, yPos);
+    public void UpdateCollision() => currentHeight = CheckCollision(pos);
 
     public void CreatePlayerGraphics(HumanoidGraphicsID id) => playerGraphics = new(this, id);
 
-    private CollisionID CheckCollision(int x, int y)
+    private CollisionID CheckCollision(Vector2Int pos)
     {
-        if (x >= 0 && y >= 0 && x < currentMap.Data().width && y < currentMap.Data().height)
-            return (CollisionID)mapManager.collision[x, y];
+        if (loadedChars.Count > 0) foreach (LoadedChar loadedChar in loadedChars.Values)
+            if (loadedChar.pos == pos || (loadedChar.moving && loadedChar.moveTarget == pos)) return CollisionID.Impassable;
+        if (pos.x >= 0 && pos.y >= 0 && pos.x < currentMap.Data().width && pos.y < currentMap.Data().height)
+            return (CollisionID)mapManager.collision[pos.x, pos.y];
         else
         {
-            return CollisionOnBorderingMaps(new Vector2Int(x, y));
+            return CollisionOnBorderingMaps(pos);
         }
     }
 
@@ -248,10 +257,10 @@ public class Player : MonoBehaviour
     {
         CollisionID nextCollision = direction switch
         {
-            Direction.N => CheckCollision(xPos, yPos + 1),
-            Direction.W => CheckCollision(xPos - 1, yPos),
-            Direction.E => CheckCollision(xPos + 1, yPos),
-            Direction.S => CheckCollision(xPos, yPos - 1),
+            Direction.N => CheckCollision(pos + Vector2Int.up),
+            Direction.W => CheckCollision(pos + Vector2Int.left),
+            Direction.E => CheckCollision(pos + Vector2Int.right),
+            Direction.S => CheckCollision(pos + Vector2Int.down),
             _ => CollisionID.Impassable
         };
         if (nextCollision == CollisionID.Impassable) return false;
@@ -270,7 +279,7 @@ public class Player : MonoBehaviour
                 if (i.direction == Direction.E && y >= i.offset && y < i.map.Data().height + i.offset)
                 {
                     currentMap = i.map;
-                    SwitchAndReposition(-1, y - i.offset);
+                    SwitchAndReposition(new Vector2Int(-1, y - i.offset));
                     AlignPlayer();
                 }
             }
@@ -282,7 +291,7 @@ public class Player : MonoBehaviour
                 if (i.direction == Direction.W && y >= i.offset && y < i.map.Data().height + i.offset)
                 {
                     currentMap = i.map;
-                    SwitchAndReposition(i.map.Data().width, y - i.offset);
+                    SwitchAndReposition(new Vector2Int(i.map.Data().width, y - i.offset));
                     AlignPlayer();
                 }
             }
@@ -294,7 +303,7 @@ public class Player : MonoBehaviour
                 if (i.direction == Direction.N && x >= i.offset && x < i.map.Data().width + i.offset)
                 {
                     currentMap = i.map;
-                    SwitchAndReposition(x - i.offset, -1);
+                    SwitchAndReposition(new Vector2Int(x - i.offset, -1));
                     AlignPlayer();
                 }
             }
@@ -306,14 +315,13 @@ public class Player : MonoBehaviour
                 if (i.direction == Direction.S && x >= i.offset && x < i.map.Data().width + i.offset)
                 {
                     currentMap = i.map;
-                    SwitchAndReposition(x - i.offset, i.map.Data().height);
+                    SwitchAndReposition(new Vector2Int(x - i.offset, i.map.Data().height));
                     AlignPlayer();
                 }
             }
         }
     }
 
-    private void FindCamera() => camera = GameObject.Find("Main Camera");
     private void FindAnnouncer()
     {
         announcer = FindAnyObjectByType<GUIManager>();
@@ -399,7 +407,7 @@ public class Player : MonoBehaviour
 
     public void CheckGrassEncounter()
     {
-        byte index = mapManager.wildData[xPos, yPos];
+        byte index = mapManager.wildData[pos.x, pos.y];
         if (index == 0) return;
         WildDataset dataset = currentMap.Data().grassData[index - 1];
         if (random.NextDouble() * 100 < dataset.encounterPercent)
@@ -414,7 +422,7 @@ public class Player : MonoBehaviour
             StartCoroutine(playerGraphics.FaceSouth(this, 0.1F));
         else if (CheckCollisionAllowed(Direction.S))
         {
-            TryChangeMap(xPos, yPos - 1);
+            TryChangeMap(pos.x, pos.y - 1);
             StartCoroutine(GoSouth());
         }
         else
@@ -429,7 +437,7 @@ public class Player : MonoBehaviour
             StartCoroutine(playerGraphics.FaceNorth(this, 0.1F));
         else if (CheckCollisionAllowed(Direction.N))
         {
-            TryChangeMap(xPos, yPos + 1);
+            TryChangeMap(pos.x, pos.y + 1);
             StartCoroutine(GoNorth());
         }
         else
@@ -444,7 +452,7 @@ public class Player : MonoBehaviour
             StartCoroutine(playerGraphics.FaceWest(this, 0.1F));
         else if (CheckCollisionAllowed(Direction.W))
         {
-            TryChangeMap(xPos - 1, yPos);
+            TryChangeMap(pos.x - 1, pos.y);
             StartCoroutine(GoWest());
         }
         else
@@ -459,7 +467,7 @@ public class Player : MonoBehaviour
             StartCoroutine(playerGraphics.FaceEast(this, 0.1F));
         else if (CheckCollisionAllowed(Direction.E))
         {
-            TryChangeMap(xPos + 1, yPos);
+            TryChangeMap(pos.x + 1, pos.y);
             StartCoroutine(GoEast());
         }
         else
@@ -503,9 +511,23 @@ public class Player : MonoBehaviour
     {
         foreach (TileTrigger i in triggers)
         {
-            if (i.pos == new Vector2Int(xPos,yPos))
+            if (i.pos == new Vector2Int(pos.x,pos.y))
             {
-                StartCoroutine(i.script(this));
+                i.script(this);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool CheckForCharacters()
+    {
+        Vector2Int facingTile = GetFacingTile();
+        foreach(LoadedChar i in loadedChars.Values)
+        {
+            if (i.pos == facingTile)
+            {
+                i.charData.OnInteract(this);
                 return true;
             }
         }
@@ -519,7 +541,7 @@ public class Player : MonoBehaviour
         {
             if(i.pos == facingTile)
             {
-                StartCoroutine(i.script(this));
+                i.script(this);
                 return true;
             }
         }
@@ -528,19 +550,19 @@ public class Player : MonoBehaviour
 
     public void CheckForInteractables()
     {
-        //if(!CheckForCharacters)
-        CheckForSignposts();
+        if (!CheckForCharacters())
+            CheckForSignposts();
     }
 
     public Vector2Int GetFacingTile()
     {
         return facing switch
         {
-            Direction.N => new Vector2Int(xPos, yPos + 1),
-            Direction.S => new Vector2Int(xPos, yPos - 1),
-            Direction.E => new Vector2Int(xPos + 1, yPos),
-            Direction.W => new Vector2Int(xPos - 1, yPos),
-            _ => new Vector2Int(xPos, yPos)
+            Direction.N => new Vector2Int(pos.x, pos.y + 1),
+            Direction.S => new Vector2Int(pos.x, pos.y - 1),
+            Direction.E => new Vector2Int(pos.x + 1, pos.y),
+            Direction.W => new Vector2Int(pos.x - 1, pos.y),
+            _ => new Vector2Int(pos.x, pos.y)
         };
     }
 

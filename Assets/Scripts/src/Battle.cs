@@ -1186,8 +1186,10 @@ public class Battle : MonoBehaviour
         while (XP.LevelToXP(mon.level, mon.SpeciesData.xpClass) < mon.xp && mon.level < PokemonConst.maxLevel)
         {
             mon.level++;
-            yield return Announce(mon.monName + " grew to level " + mon.level + "!");
+            int maxHpBefore = mon.hpMax;
             mon.CalculateStats();
+            mon.HP += (mon.hpMax - maxHpBefore);
+            yield return Announce(mon.monName + " grew to level " + mon.level + "!");
             for (int i = 3; i < 6; i++)
             {
                 if (PokemonOnField[i].exists) PokemonOnField[i].CalculateStats();
@@ -1259,7 +1261,7 @@ public class Battle : MonoBehaviour
         }
     }
 
-    private void CheckReducingBerries(int attacker)
+    private void CheckReducingAndRetaliatingBerries(int attacker)
     {
         Type effectiveType = GetEffectiveType(Moves[attacker], attacker);
         for (int i = 0; i < 6; i++)
@@ -1278,6 +1280,13 @@ public class Battle : MonoBehaviour
                         UseUpItem(i);
                         PokemonOnField[i].gotReducingBerryEffect = true;
                     }
+                }
+                else if (PokemonOnField[i].item.BerryEffect()
+                    == ((GetMove(attacker).physical) ? OnPhysHurt125 : OnSpecHurt125))
+                {
+                    PokemonOnField[i].eatenBerry = PokemonOnField[i].item;
+                    UseUpItem(i);
+                    PokemonOnField[i].ateRetaliationBerry = true;
                 }
             }
         }
@@ -1670,6 +1679,7 @@ public class Battle : MonoBehaviour
         {
             PokemonOnField[i].isCrit = false;
             PokemonOnField[i].gotReducingBerryEffect = false;
+            PokemonOnField[i].ateRetaliationBerry = false;
         }
     }
 
@@ -1795,9 +1805,9 @@ public class Battle : MonoBehaviour
         }
     }
 
-    private IEnumerator DoBerryEffect(int index)
+    private IEnumerator DoBerryEffect(int index, BerryEffect effect)
     {
-        switch (PokemonOnField[index].item.BerryEffect())
+        switch (effect)
         {
             case CureParalysis:
                 yield return BattleEffect.HealParalysis(this, index);
@@ -1877,6 +1887,8 @@ public class Battle : MonoBehaviour
             case OnPhysHurt125:
             case OnSpecHurt125:
                 PokemonOnField[PokemonOnField[index].lastDamageDoer].DoProportionalDamage(0.125F);
+                yield return Announce(MonNameWithPrefix(PokemonOnField[index].lastDamageDoer, true) +
+                    " was hurt by the " + PokemonOnField[index].item.Data().itemName + "!");
                 yield return ProcessFaintingSingle(PokemonOnField[index].lastDamageDoer);
                 yield break;
             case At25RaiseAccuracy20:
@@ -1905,7 +1917,7 @@ public class Battle : MonoBehaviour
             yield return BattleAnim.UseItem(this, index);
             PokemonOnField[index].eatenBerry = PokemonOnField[index].item;
             UseUpItem(index);
-            yield return DoBerryEffect(index);
+            yield return DoBerryEffect(index, PokemonOnField[index].eatenBerry.BerryEffect());
         }
         else yield break;
     }
@@ -2867,7 +2879,7 @@ public class Battle : MonoBehaviour
                             GetCrits(index, Moves[index]);
                             GetMoveEffects(index, Moves[index]);
                             GetAbilityEffects(index, Moves[index]);
-                            CheckReducingBerries(index);
+                            CheckReducingAndRetaliatingBerries(index);
                             yield return DoMoveAnimation(index, Moves[index]);
                             for (int j = 0; j < 6; j++)
                             {
@@ -2878,6 +2890,15 @@ public class Battle : MonoBehaviour
                                         + PokemonOnField[j].eatenBerry.Data().itemName
                                         + " weakened the damage to "
                                         + MonNameWithPrefix(j, false) + "!");
+                                }
+                                if (PokemonOnField[j].ateRetaliationBerry)
+                                {
+                                    PokemonOnField[index].DoProportionalDamage(0.125F);
+                                    yield return new WaitForSeconds(1.0F);
+                                    yield return Announce(MonNameWithPrefix(index, true)
+                                        + " was hurt by the "
+                                        + PokemonOnField[j].eatenBerry.Data().itemName + "!");
+                                    ProcessFaintingSingle(index);
                                 }
                             }
                             yield return HandleHitFlashes(index);
@@ -2974,12 +2995,14 @@ public class Battle : MonoBehaviour
                     GetCrits(index, Moves[index]);
                     GetMoveEffects(index, Moves[index]);
                     GetAbilityEffects(index, Moves[index]);
-                    CheckReducingBerries(index);
+                    CheckReducingAndRetaliatingBerries(index);
                     if (GetMove(index).power == 0) { CleanForNonDamagingMoves(); }
                     if (hitAnyone &&
                         !((Moves[index].Data().moveFlags & MoveFlags.snatchAffected) != 0
                         && snatch))
                     { yield return DoMoveAnimation(index, Moves[index]); }
+                    yield return HandleHitFlashes(index);
+                    yield return ProcessHits(index, Moves[index], isMultiTarget);
                     for (int i = 0; i < 6; i++)
                     {
                         if (PokemonOnField[i].gotReducingBerryEffect)
@@ -2990,9 +3013,16 @@ public class Battle : MonoBehaviour
                                 + " weakened the damage to "
                                 + MonNameWithPrefix(i, false) + "!");
                         }
+                        if (PokemonOnField[i].ateRetaliationBerry)
+                        {
+                            PokemonOnField[index].DoProportionalDamage(0.125F);
+                            yield return new WaitForSeconds(1.0F);
+                            yield return Announce(MonNameWithPrefix(index, true)
+                                + " was hurt by the "
+                                + PokemonOnField[i].eatenBerry.Data().itemName + "!");
+                            yield return ProcessFaintingSingle(index);
+                        }
                     }
-                    yield return HandleHitFlashes(index);
-                    yield return ProcessHits(index, Moves[index], isMultiTarget);
                     targetsAnyone = false;
                     for (int i = 0; i < 6; i++)
                     {
@@ -3216,6 +3246,7 @@ public class Battle : MonoBehaviour
             mon.wasProtected = false;
             mon.gotAteBoost = false;
             mon.gotReducingBerryEffect = false;
+            mon.ateRetaliationBerry = false;
         }
     }
 
@@ -3603,6 +3634,17 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.PainSplit:
                 yield return BattleEffect.PainSplit(this, index, attacker);
+                break;
+            case MoveEffect.Pluck:
+                if (PokemonOnField[index].item.Data().type == ItemType.Berry)
+                {
+                    yield return BattleAnim.UseItem(this, attacker);
+                    yield return Announce(MonNameWithPrefix(attacker, true) +
+                        " stole and ate " + MonNameWithPrefix(index, false) +"'s " +
+                        PokemonOnField[index].item.Data().itemName + "!");
+                    yield return DoBerryEffect(attacker, PokemonOnField[index].item.BerryEffect());
+                    UseUpItem(index);
+                }
                 break;
             case MoveEffect.FutureSight:
                 yield return BattleEffect.GetFutureSight(this, index, attacker);

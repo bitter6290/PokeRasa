@@ -27,13 +27,31 @@ public static class TestMapdata
         WildDataset.Empty,
     };
 
+    public static CharData[] charData =
+    {
+        new HumanoidCharData
+        {
+            index = 0,
+            mapID = MapID.Test,
+            pos = new(15,5),
+            hasCollision = true,
+            graphics = CharacterGraphicsStructs.brendanWalk,
+            OnInteract = p => p.StartCoroutine(p.DoAnnouncements(new(){"Hello!"})),
+        }
+    };
+
     public static TileTrigger[] triggers =
     {
         new()
         {
             pos = new(15,2),
-            script = p => p.DoAnnouncements(new(){"Testing 1","Testing 2"}),
-        } //index 0
+            script = p => p.StartCoroutine(p.DoAnnouncements(new(){"Testing 1","Testing 2"})),
+        }, //index 0
+        new()
+        {
+            pos = new(17,2),
+            script = p => charData[0].Load(p),
+        } //index 1
     };
 
     public static TileTrigger[] signposts =

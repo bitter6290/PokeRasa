@@ -1917,7 +1917,14 @@ public static class Move
         "Feint", Normal,
         30, 100, 2,
         MoveEffect.Feint, 100,
-        true, Target.Single, 10); //Needs anim
+        true, Target.Single, 10,
+        makesContact); //Needs anim
+    public static MoveData Pluck = new(
+        "Pluck", Flying,
+        60, 100, 0,
+        MoveEffect.Pluck, 100,
+        true, Target.Single, 20,
+        makesContact); //Needs anim
 
 
     //Non-standard moves
@@ -2378,6 +2385,8 @@ public static class Move
         GyroBall,
         HealingWish,
         Brine,
+        NaturalGift,
+        Pluck,
 
         //Nonstandard moves
 

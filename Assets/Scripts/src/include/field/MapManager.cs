@@ -19,11 +19,10 @@ public class MapManager : MonoBehaviour
     public void ReadMap() =>
         MapReader.ReadForPlaytime(this);
 
-    public void ReadAndReposition(Player p, int newXPos, int newYPos)
+    public void ReadAndReposition(Player p, Vector2Int newPos)
     {
         ReadMap();
-        p.xPos = newXPos;
-        p.yPos = newYPos;
+        p.pos = newPos;
     }
 
     public void ClearMap()

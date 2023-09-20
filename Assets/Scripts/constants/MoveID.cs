@@ -369,6 +369,8 @@ public enum MoveID
     GyroBall,
     HealingWish,
     Brine,
+    NaturalGift,
+    Pluck,
 
     //Nonstandard moves
 

@@ -11257,8 +11257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c228eb94ca94feeba441e27b313415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 457605093}
   wildBattle: 0
+  escapeAttempts: 0
   OpponentPokemon:
   - species: 0
     monName: 
@@ -11899,6 +11900,7 @@ MonoBehaviour:
   megaEvolveOnMove: 000000000000
   hasPlayerMegaEvolved: 0
   hasOpponentMegaEvolved: 0
+  healingWish: 000000000000
   textSpeed: 10
   persistenceTime: 2
   switchDuringTurn: 0
@@ -12017,6 +12019,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -12048,7 +12051,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -12147,6 +12151,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12254,6 +12261,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -12285,7 +12293,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -12384,6 +12393,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12491,6 +12503,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -12522,7 +12535,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -12621,6 +12635,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12728,6 +12745,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -12759,7 +12777,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -12858,6 +12877,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12965,6 +12987,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -12996,7 +13019,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -13095,6 +13119,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -13202,6 +13229,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -13233,7 +13261,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -13332,6 +13361,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -13432,7 +13464,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034585550}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fd38a343344d4bbca1b7e3c4808486f, type: 3}
   m_Name: 
