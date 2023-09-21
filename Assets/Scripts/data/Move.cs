@@ -1924,7 +1924,43 @@ public static class Move
         MoveEffect.Pluck, 100,
         true, Target.Single, 20,
         makesContact); //Needs anim
-
+    public static MoveData Tailwind = FieldMove(
+        "Tailwind", Flying, 0, MoveEffect.Tailwind, 15,
+        snatchAffected); //Needs anim
+    public static MoveData Acupressure = new(
+        "Acupressure", Normal,
+        0, 101, 0,
+        MoveEffect.Acupressure, 100,
+        false, Target.Ally + Target.Self, 30); //Needs anim
+    public static MoveData MetalBurst = new(
+        "Metal Burst", Steel,
+        1, 100, 0,
+        MoveEffect.MetalBurst, 0,
+        true, Target.Self, 10); //Needs anim
+    public static MoveData UTurn = new(
+        "U-Turn", Bug,
+        70, 100, 0,
+        MoveEffect.SwitchHit, 100,
+        true, Target.Single, 20,
+        effectOnSelfOnly + makesContact); //Needs anim
+    public static MoveData CloseCombat = new(
+        "Close Combat", Fighting,
+        120, 100, 0,
+        MoveEffect.DefenseSpDefDown1, 100,
+        true, Target.Single, 5,
+        effectOnSelfOnly + makesContact); //Needs anim
+    public static MoveData Payback = new(
+        "Payback", Dark,
+        50, 100, 0,
+        MoveEffect.Payback, 0,
+        true, Target.Single, 10,
+        makesContact); //Needs anim
+    public static MoveData Assurance = new(
+        "Assurance", Dark,
+        60, 100, 0,
+        MoveEffect.Assurance, 0,
+        true, Target.Single, 15,
+        makesContact); //Needs anim
 
     //Non-standard moves
     public static MoveData ConfusionHit = new(
@@ -2385,7 +2421,16 @@ public static class Move
         HealingWish,
         Brine,
         NaturalGift,
+        Feint,
         Pluck,
+        Tailwind,
+        Acupressure,
+        MetalBurst,
+        UTurn,
+        CloseCombat,
+        Payback,
+        Assurance,
+
 
         //Nonstandard moves
 

@@ -85,6 +85,7 @@ public class BattlePokemon
     public int damageTaken = 0;
     public bool damageWasPhysical = false;
     public int lastDamageDoer = 0;
+    public bool damagedThisTurn;
 
     public bool disabled = false;
     public MoveID disabledMove = 0;
@@ -256,6 +257,21 @@ public class BattlePokemon
             : PokemonData.MoveIDs[index];
     }
 
+    public int GetStatStage(Stat stat)
+    {
+        return stat switch
+        {
+            Stat.Attack => attackStage,
+            Stat.Defense => defenseStage,
+            Stat.SpAtk => spAtkStage,
+            Stat.SpDef => spDefStage,
+            Stat.Speed => speedStage,
+            Stat.Accuracy => accuracyStage,
+            Stat.Evasion => evasionStage,
+            _ => 0
+        };
+    }
+
     public MoveSelectOutcome CanUseMove(int move)
     {
         if (GetMove(move) == MoveID.None)
@@ -293,6 +309,7 @@ public class BattlePokemon
         else
         {
             PokemonData.HP -= damage;
+            damagedThisTurn = true;
         }
     }
 

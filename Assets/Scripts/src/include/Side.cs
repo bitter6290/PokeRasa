@@ -11,6 +11,8 @@ public class Side
     public int spikes = 0;
     public bool safeguard = false;
     public int safeguardTurns = 0;
+    public bool tailwind = false;
+    public int tailwindTurns = 0;
 
     public readonly bool whichSide;
 

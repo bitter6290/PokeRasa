@@ -822,7 +822,7 @@ public static class BattleEffect
         }
     }
 
-    public static IEnumerator StartReflect(Battle battle, int side, int index)
+    public static IEnumerator StartReflect(Battle battle, int side)
     {
         if (battle.Sides[side].reflect)
         {
@@ -836,7 +836,7 @@ public static class BattleEffect
         }
     }
 
-    public static IEnumerator StartLightScreen(Battle battle, int side, int index)
+    public static IEnumerator StartLightScreen(Battle battle, int side)
     {
         if (battle.Sides[side].lightScreen)
         {
@@ -1574,5 +1574,13 @@ public static class BattleEffect
 
             }
         }
+    }
+
+    public static IEnumerator Tailwind(Battle battle, int side)
+    {
+        battle.Sides[side].tailwind = true;
+        battle.Sides[side].tailwindTurns = 4;
+        yield return battle.Announce("A tailwind blew from behind "
+            + (side == 0 ? "the foes'" : "your") + " team!");
     }
 }

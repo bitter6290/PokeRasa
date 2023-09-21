@@ -370,7 +370,15 @@ public enum MoveID
     HealingWish,
     Brine,
     NaturalGift,
+    Feint,
     Pluck,
+    Tailwind,
+    Acupressure,
+    MetalBurst,
+    UTurn,
+    CloseCombat,
+    Payback,
+    Assurance,
 
     //Nonstandard moves
 

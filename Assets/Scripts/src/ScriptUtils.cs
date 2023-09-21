@@ -15,7 +15,7 @@ public static class ScriptUtils
     {
         p.state = PlayerState.Locked;
         c.free = false;
-        switch(c.facing)
+        switch (c.facing)
         {
             case Direction.N: p.StartCoroutine(p.playerGraphics.FaceSouth(p, 0.05F)); break;
             case Direction.S: p.StartCoroutine(p.playerGraphics.FaceNorth(p, 0.05F)); break;

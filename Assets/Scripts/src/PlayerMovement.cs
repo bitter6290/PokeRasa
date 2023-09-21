@@ -16,7 +16,8 @@ public class PlayerMovement
         playerSprite.sortingLayerID = 0;
         playerSprite.sortingOrder = 0;
         SwitchGraphics(graphicsID);
-        playerSprite.sprite = p.facing switch {
+        playerSprite.sprite = p.facing switch
+        {
             Direction.S => movementSprites.stillSouth,
             Direction.N => movementSprites.stillNorth,
             Direction.E => movementSprites.stillEast,
@@ -72,7 +73,7 @@ public class PlayerMovement
             yield return null;
         }
         p.pos.y--;
-        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;        
+        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
     }
     public IEnumerator WalkWest(Player p, float duration)
     {
@@ -95,7 +96,7 @@ public class PlayerMovement
             yield return null;
         }
         p.pos.x--;
-        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;        
+        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
     }
     public IEnumerator WalkEast(Player p, float duration)
     {
@@ -118,7 +119,7 @@ public class PlayerMovement
             yield return null;
         }
         p.pos.x++;
-        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;        
+        p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
     }
     public IEnumerator BumpNorth(Player p, float duration)
     {

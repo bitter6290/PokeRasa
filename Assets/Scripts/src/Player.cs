@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public bool[] storyFlags = new bool[(int)Flag.Count];
     public bool[] trainerFlags = new bool[(int)TrainerFlag.Count];
 
-    System.Random random;
+    public System.Random random;
 
     public Dictionary<ItemID, int> Bag;
     public Dictionary<MapID, bool[,]> neighborCollision;
@@ -200,7 +200,7 @@ public class Player : MonoBehaviour
             Debug.Log(i.currentMap);
             if (i.keepOnLoad)
             {
-                if(i.currentMap != currentMap)
+                if (i.currentMap != currentMap)
                     foreach (Connection j in currentMap.Data().connection)
                     {
                         if (j.map == i.currentMap) i.pos += GetMapOffset(j);
@@ -594,7 +594,7 @@ public class Player : MonoBehaviour
     {
         foreach (TileTrigger i in triggers)
         {
-            if (i.pos == new Vector2Int(pos.x,pos.y))
+            if (i.pos == new Vector2Int(pos.x, pos.y))
             {
                 i.script(this);
                 return true;
@@ -606,7 +606,7 @@ public class Player : MonoBehaviour
     public bool CheckForCharacters()
     {
         Vector2Int facingTile = GetFacingTile();
-        foreach(LoadedChar i in loadedChars.Values)
+        foreach (LoadedChar i in loadedChars.Values)
         {
             if (i.pos == facingTile && i.available)
             {
@@ -620,9 +620,9 @@ public class Player : MonoBehaviour
     public bool CheckForSignposts()
     {
         Vector2Int facingTile = GetFacingTile();
-        foreach(TileTrigger i in signposts)
+        foreach (TileTrigger i in signposts)
         {
-            if(i.pos == facingTile)
+            if (i.pos == facingTile)
             {
                 i.script(this);
                 return true;
@@ -694,7 +694,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if(active)
+        if (active)
         {
             switch (state)
             {

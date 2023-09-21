@@ -27,7 +27,7 @@ public abstract class LoadedChar : MonoBehaviour
     {
         moving = true;
         float endTime = Time.time + duration;
-        while(Time.time < endTime)
+        while (Time.time < endTime)
         {
             AlignObject();
             yield return null;
@@ -100,7 +100,7 @@ public abstract class LoadedChar : MonoBehaviour
                 if (comparisonPos.x == 0 && comparisonPos.y < 0 &&
                     comparisonPos.y >= -charData.sightRadius)
                 {
-                    charData.OnSee(p,c );
+                    charData.OnSee(p, c);
                     return true;
                 }
                 break;
@@ -108,7 +108,7 @@ public abstract class LoadedChar : MonoBehaviour
                 if (comparisonPos.y == 0 && comparisonPos.x > 0 &&
                     comparisonPos.x <= charData.sightRadius)
                 {
-                    charData.OnSee(p,c );
+                    charData.OnSee(p, c);
                     return true;
                 }
                 break;

@@ -133,7 +133,7 @@ public class MapHelper : MapManager
             }
             AssetDatabase.SaveAssets();
         }
-        foreach (CollisionTile i in Tiles.CollisionTileTable) 
+        foreach (CollisionTile i in Tiles.CollisionTileTable)
         {
             CollisionTile test = AssetDatabase.LoadAssetAtPath<CollisionTile>(
                 "Assets/Generated Palettes/Collision/tile_" + (int)i.collisionID + ".asset"

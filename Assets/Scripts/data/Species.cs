@@ -12763,7 +12763,7 @@ public static class Species
         ability: ToughClaws
     );
 
-    public static SpeciesData CharizardMegaY= Mega(
+    public static SpeciesData CharizardMegaY = Mega(
         baseSpecies: Charizard,
         name: "Mega Charizard Y",
         baseAttack: 104,
@@ -13123,7 +13123,7 @@ public static class Species
         baseSpeed: 105,
         backSpriteHeight: 3,
         pokedexData: Pokedex.Bulbasaur, //Not done
-        ability: StrongJaw 
+        ability: StrongJaw
     );
 
     public static SpeciesData CameruptMega = Mega(
