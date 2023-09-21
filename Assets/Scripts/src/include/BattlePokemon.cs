@@ -184,6 +184,8 @@ public class BattlePokemon
     public bool hasType3 = false;
     public Type Type3 = Type.Typeless;
 
+    public bool abilitySuppressed = false;
+
     public bool mimicking = false;
     public int mimicSlot = 0;
     public MoveID mimicMove = MoveID.None;
@@ -221,6 +223,10 @@ public class BattlePokemon
     public MoveID lastMoveUsed = MoveID.None;
     public int lastMoveSlot = 0;
 
+    public bool meFirst = false;
+
+    public bool[] usedMove = new bool[4];
+
     public bool HatesStat(Stat stat) => PokemonData.Nature.NatureEffect(stat) < 1;
 
     public Battle battle;
@@ -231,6 +237,14 @@ public class BattlePokemon
     public ItemID item => embargoed ?
             (baseItem.Data().type is ItemType.MegaStone ? baseItem : ItemID.None)
             : baseItem;
+
+    public bool CanUseLastResort =>
+        PokemonData.Moves == 1 ? false :
+        UsedNoneOrLastResort(0) && UsedNoneOrLastResort(1) &&
+        UsedNoneOrLastResort(2) && UsedNoneOrLastResort(3);
+
+    public bool UsedNoneOrLastResort(int i)
+        => (GetMove(i) is MoveID.None or MoveID.LastResort) || usedMove[i];
 
     public int SumOfStages =>
         Max(0, attackStage)

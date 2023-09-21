@@ -13,6 +13,8 @@ public class Side
     public int safeguardTurns = 0;
     public bool tailwind = false;
     public int tailwindTurns = 0;
+    public bool luckyChant = false;
+    public int luckyChantTurns = 0;
 
     public readonly Battle battle;
     public readonly bool whichSide;

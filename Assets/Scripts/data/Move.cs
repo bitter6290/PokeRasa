@@ -1994,6 +1994,42 @@ public static class Move
     public static MoveData PowerTrick = SelfTargetingMove(
         "Power Trick", Type.Psychic, 0, MoveEffect.PowerTrick, 10,
         snatchAffected); //Needs anim
+    public static MoveData GastroAcid = SingleTargetStatusMove(
+        "Gastro Acid", Poison, 100, 0, MoveEffect.SuppressAbility, 10,
+        magicBounceAffected); //Needs anim
+    public static MoveData LuckyChant = FieldMove(
+        "Lucky Chant", Normal, 0, MoveEffect.LuckyChant, 30,
+        snatchAffected); //Needs anim
+    public static MoveData MeFirst = SingleTargetStatusMove(
+        "Me First", Normal, 101, 0, MoveEffect.MeFirst, 20); //Needs anim
+    public static MoveData Copycat = SelfTargetingMove(
+        "Copycat", Normal, 0, MoveEffect.Copycat, 20); //Needs anim
+    public static MoveData PowerSwap = SingleTargetStatusMove(
+        "Power Swap", Type.Psychic, 101, 0, MoveEffect.PowerSwap, 10); //Needs anim
+    public static MoveData GuardSwap = SingleTargetStatusMove(
+        "Guard Swap", Type.Psychic, 101, 0, MoveEffect.GuardSwap, 10); //Needs anim
+    public static MoveData Punishment = new(
+        "Punishment", Dark,
+        60, 100, 0,
+        MoveEffect.TargetStatPower, 0,
+        true, Target.Single, 5,
+        makesContact); //Needs anim
+    public static MoveData LastResort = new(
+        "Last Resort", Normal,
+        140, 100, 0,
+        MoveEffect.LastResort, 0,
+        true, Target.Single, 5,
+        makesContact); //Needs anim
+    public static MoveData WorrySeed = SingleTargetStatusMove(
+        "Worry Seed", Grass, 100, 0, MoveEffect.WorrySeed, 10,
+        magicBounceAffected); //Needs anim
+    public static MoveData SuckerPunch = new(
+        "Sucker Punch", Dark,
+        70, 100, 1,
+        MoveEffect.SuckerPunch, 0,
+        true, Target.Single, 5,
+        makesContact); //Needs anim
+
 
     //Non-standard moves
     public static MoveData ConfusionHit = new(
@@ -2470,6 +2506,16 @@ public static class Move
         HealBlock,
         WringOut,
         PowerTrick,
+        GastroAcid,
+        LuckyChant,
+        MeFirst,
+        Copycat,
+        PowerSwap,
+        GuardSwap,
+        Punishment,
+        LastResort,
+        WorrySeed,
+        SuckerPunch,
 
 
         //Nonstandard moves

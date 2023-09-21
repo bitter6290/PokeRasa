@@ -209,10 +209,8 @@ public class Pokemon : ICloneable
             (xp - XP.LevelToXP(level, SpeciesData.xpClass)) * 8
             / (nextLevelXP - XP.LevelToXP(level, SpeciesData.xpClass));
     }
-    public int Moves()
-    {
-        return move2 == MoveID.None ? 1 : move3 == MoveID.None ? 2 : move4 == MoveID.None ? 3 : 4;
-    }
+    public int Moves
+        => move2 == MoveID.None ? 1 : move3 == MoveID.None ? 2 : move4 == MoveID.None ? 3 : 4;
     public void AddMove(int slot, MoveID move)
     {
         switch (slot)

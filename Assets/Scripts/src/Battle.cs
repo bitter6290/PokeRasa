@@ -75,6 +75,8 @@ public class Battle : MonoBehaviour
 
     public ItemID flungItem = ItemID.None;
 
+    public MoveID lastMoveUsed = MoveID.None;
+
     // Field varibles
 
     public bool payDay;
@@ -317,12 +319,14 @@ public class Battle : MonoBehaviour
 
     public bool HasAbility(int index, Ability ability)
     {
-        return !AbilitiesSuppressed && PokemonOnField[index].ability == ability;
+        return !AbilitiesSuppressed && !PokemonOnField[index].abilitySuppressed
+            && PokemonOnField[index].ability == ability;
     }
 
     public Ability EffectiveAbility(int index)
     {
-        return AbilitiesSuppressed ? Ability.None : PokemonOnField[index].ability;
+        return AbilitiesSuppressed || PokemonOnField[index].abilitySuppressed ?
+            Ability.None : PokemonOnField[index].ability;
     }
 
     public Type GetEffectiveType(MoveID move, int index)
@@ -724,6 +728,9 @@ public class Battle : MonoBehaviour
             case MoveEffect.TargetHealthPower:
                 effectivePower = 1 + (int)(120 * defender.HealthProportion);
                 break;
+            case MoveEffect.TargetStatPower:
+                effectivePower = 60 + Min(defender.SumOfStages, 140);
+                break;
             case MoveEffect.TrumpCard:
                 effectivePower = attacker.GetPP(MoveNums[attacker.index] - 1) switch
                 {
@@ -782,6 +789,7 @@ public class Battle : MonoBehaviour
                 effectivePower += effectivePower >> 1;
                 break;
         }
+        if (attacker.meFirst) effectivePower += effectivePower >> 1;
         if (attacker.gotAteBoost) effectivePower += effectivePower / 5;
         if (move.Data().type == Type.Electric && attacker.charged)
         {
@@ -1164,6 +1172,8 @@ public class Battle : MonoBehaviour
                     case MoveEffect.DreamEater when target.PokemonData.status != Status.Sleep:
                     case MoveEffect.Endeavor when
                             PokemonOnField[attacker].PokemonData.HP > target.PokemonData.HP:
+                    case MoveEffect.SuckerPunch when
+                            Moves[i].Data().power == 0 || target.done:
                         target.isHit = false;
                         target.isTarget = false; //Make ExecuteMove announce move failure
                         break;
@@ -1264,7 +1274,8 @@ public class Battle : MonoBehaviour
         {
             if (PokemonOnField[i].isHit)
             {
-                if (PokemonOnField[i].ability is BattleArmor or ShellArmor)
+                if (PokemonOnField[i].ability is BattleArmor or ShellArmor
+                    || Sides[i / 3].luckyChant)
                 {
                     continue;
                 }
@@ -2305,6 +2316,7 @@ public class Battle : MonoBehaviour
 
         Debug.Log("Executing for " + index);
 
+        user.usedMove[MoveNums[index]] = true;
         user.moveUsedThisTurn = Moves[index];
         if ((GetMove(index).moveFlags & MoveFlags.mimicBypass) == 0) user.lastMoveUsed = Moves[index];
         user.isEnraged = GetMove(index).effect == MoveEffect.Rage;
@@ -2358,6 +2370,7 @@ public class Battle : MonoBehaviour
         }
 
         yield return Announce(user.PokemonData.monName + " used " + GetMove(index).name + "!");
+        lastMoveUsed = Moves[index];
 
         if (GetMove(index).effect == MoveEffect.NaturePower)
         {
@@ -2460,6 +2473,10 @@ public class Battle : MonoBehaviour
             case MoveEffect.SpitUp when user.stockpile == 0:
             case MoveEffect.Swallow when user.stockpile == 0 || user.AtFullHealth:
             case MoveEffect.NaturalGift when user.item.Data().type != ItemType.Berry:
+            case MoveEffect.MeFirst when PokemonOnField[Targets[index]].done:
+            case MoveEffect.MeFirst when Moves[Targets[index]].Data().effect == MoveEffect.MeFirst:
+            case MoveEffect.Copycat when (lastMoveUsed.Data().moveFlags & MoveFlags.cannotMimic) != 0:
+            case MoveEffect.LastResort when !user.CanUseLastResort:
                 yield return Announce(BattleText.MoveFailed);
                 user.done = true;
                 MoveCleanup();
@@ -2468,6 +2485,17 @@ public class Battle : MonoBehaviour
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " flung its " + user.item.Data().itemName + "!");
                 break;
+            case MoveEffect.MeFirst:
+                user.dontCheckPP = true;
+                user.meFirst = true;
+                Moves[index] = Moves[Targets[index]];
+                yield return ExecuteMove(index);
+                yield break;
+            case MoveEffect.Copycat:
+                user.dontCheckPP = true;
+                Moves[index] = lastMoveUsed;
+                yield return ExecuteMove(index);
+                yield break;
             case MoveEffect.FocusPunchAttack when !user.focused:
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " lost its focus and couldn't move!");
@@ -2697,6 +2725,7 @@ public class Battle : MonoBehaviour
                     case MoveID.Recharge:
                         yield return Announce(MonNameWithPrefix(index, true)
                             + " must recharge!");
+                        lastMoveUsed = MoveID.None;
                         break;
                     default:
                         yield return Announce("Error 103");
@@ -3291,6 +3320,7 @@ public class Battle : MonoBehaviour
             mon.gotAteBoost = false;
             mon.gotReducingBerryEffect = false;
             mon.ateRetaliationBerry = false;
+            mon.meFirst = false;
         }
     }
 
@@ -3434,11 +3464,17 @@ public class Battle : MonoBehaviour
             case MoveEffect.Torment:
                 yield return BattleEffect.Torment(this, index);
                 break;
+            case MoveEffect.Embargo:
+                yield return BattleEffect.Embargo(this, index);
+                break;
             case MoveEffect.Disable:
                 yield return BattleEffect.Disable(this, index);
                 break;
             case MoveEffect.Encore:
                 yield return BattleEffect.GetEncored(this, index);
+                break;
+            case MoveEffect.SuppressAbility:
+                yield return BattleEffect.SuppressAbility(this, index);
                 break;
             case MoveEffect.Trap:
                 yield return BattleEffect.StartTrapping(this, attacker, index);
@@ -3457,6 +3493,9 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.SkillSwap:
                 yield return BattleEffect.SkillSwap(this, attacker, index);
+                break;
+            case MoveEffect.WorrySeed:
+                yield return BattleEffect.WorrySeed(this, index);
                 break;
             case MoveEffect.Imprison:
                 yield return Announce(MonNameWithPrefix(index, true)
@@ -3804,6 +3843,26 @@ public class Battle : MonoBehaviour
             case MoveEffect.PsychUp:
                 yield return BattleEffect.PsychUp(this, attacker, index);
                 break;
+            case MoveEffect.PowerSwap:
+                int targetAttack = PokemonOnField[index].attackStage;
+                int targetSpAtk = PokemonOnField[index].spAtkStage;
+                PokemonOnField[index].attackStage = PokemonOnField[attacker].attackStage;
+                PokemonOnField[index].spAtkStage = PokemonOnField[attacker].spAtkStage;
+                PokemonOnField[attacker].attackStage = targetAttack;
+                PokemonOnField[attacker].spAtkStage = targetSpAtk;
+                yield return Announce(MonNameWithPrefix(attacker, true)
+                    + " shared its power with the target!");
+                break;
+            case MoveEffect.GuardSwap:
+                int targetDefense = PokemonOnField[index].defenseStage;
+                int targetSpDef = PokemonOnField[index].spDefStage;
+                PokemonOnField[index].defenseStage = PokemonOnField[attacker].defenseStage;
+                PokemonOnField[index].spDefStage = PokemonOnField[attacker].spDefStage;
+                PokemonOnField[attacker].defenseStage = targetDefense;
+                PokemonOnField[attacker].spDefStage = targetSpDef;
+                yield return Announce(MonNameWithPrefix(attacker, true)
+                    + " shared its guard with the target!");
+                break;
             case MoveEffect.Curse:
                 yield return BattleEffect.GhostCurse(this, attacker, index);
                 ProcessFaintingSingle(attacker);
@@ -3943,6 +4002,9 @@ public class Battle : MonoBehaviour
         {
             case MoveEffect.Mist:
                 yield return BattleEffect.StartMist(this, index / 3);
+                break;
+            case MoveEffect.LuckyChant:
+                yield return BattleEffect.LuckyChant(this, index / 3);
                 break;
             case MoveEffect.LightScreen:
                 yield return BattleEffect.StartLightScreen(this, index / 3);
@@ -4224,6 +4286,16 @@ public class Battle : MonoBehaviour
                     Sides[i].tailwind = false;
                     yield return Announce(i == 0 ? "The foes'" : "Your team's"
                         + " tailwind wore off!");
+                }
+            }
+            if (Sides[i].luckyChant)
+            {
+                Sides[i].luckyChantTurns--;
+                if (Sides[i].luckyChantTurns <= 0)
+                {
+                    Sides[i].luckyChant = false;
+                    yield return Announce(i == 0 ? "The foes'" : "Your team's"
+                        + " Lucky Chant wore off!");
                 }
             }
         }

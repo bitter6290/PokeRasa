@@ -386,6 +386,16 @@ public enum MoveID
     HealBlock,
     WringOut,
     PowerTrick,
+    GastroAcid,
+    LuckyChant,
+    MeFirst,
+    Copycat,
+    PowerSwap,
+    GuardSwap,
+    Punishment,
+    LastResort,
+    WorrySeed,
+    SuckerPunch,
 
     //Nonstandard moves
 

@@ -1612,4 +1612,27 @@ public static class BattleEffect
         };
         yield return HealStatus(battle, attacker);
     }
+
+    public static IEnumerator SuppressAbility(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].abilitySuppressed = true;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + "'s ability was suppressed!");
+    }
+
+    public static IEnumerator LuckyChant(Battle battle, int side)
+    {
+        battle.Sides[side].luckyChant = true;
+        battle.Sides[side].luckyChantTurns = 5;
+        yield return battle.Announce(side == 0 ? "The foes are" : "Your team is" +
+            " protected from critical hits!");
+    }
+
+    public static IEnumerator WorrySeed(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].ability = Ability.Insomnia;
+        //Ability popup with change
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+            " acquired Insomnia!");
+    }
 }
