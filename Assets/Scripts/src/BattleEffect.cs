@@ -426,9 +426,11 @@ public static class BattleEffect
         }
     }
 
-    public static IEnumerator Heal(Battle battle, int index, int amount)
+    public static IEnumerator Heal(Battle battle, int index, int amount,
+        bool overrideBlock = false)
     {
         BattlePokemon target = battle.PokemonOnField[index];
+        if (target.healBlocked) yield break;
         if (target.PokemonData.HP < target.PokemonData.hpMax)
         {
             yield return BattleAnim.Heal(battle, index);
@@ -1582,5 +1584,32 @@ public static class BattleEffect
         battle.Sides[side].tailwindTurns = 4;
         yield return battle.Announce("A tailwind blew from behind "
             + (side == 0 ? "the foes'" : "your") + " team!");
+    }
+
+    public static IEnumerator Embargo(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].embargoed = true;
+        battle.PokemonOnField[index].embargoTimer = 5;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " can't use items anymore!");
+    }
+
+    public static IEnumerator PsychoShift(Battle battle, int index, int attacker)
+    {
+        Pokemon user = battle.PokemonOnField[attacker].PokemonData;
+        Pokemon target = battle.PokemonOnField[index].PokemonData;
+        if (target.status != Status.None) yield break;
+        if (user.status == Status.None) yield break;
+        yield return user.status switch
+        {
+            Status.Burn => GetBurn(battle, index),
+            Status.Paralysis => GetParalysis(battle, index),
+            Status.Poison => GetPoison(battle, index),
+            Status.ToxicPoison => GetBadPoison(battle, index),
+            Status.Sleep => FallAsleep(battle, index),
+            Status.Freeze => GetFreeze(battle, index), // Impossible, but no reason not to implement
+            _ => ScriptUtils.DoNothing()
+        };
+        yield return HealStatus(battle, attacker);
     }
 }

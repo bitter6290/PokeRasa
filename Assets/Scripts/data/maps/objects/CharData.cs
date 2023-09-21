@@ -17,8 +17,8 @@ public abstract class CharData
     public bool hasSeeScript = false;
     public int sightRadius;
 
-    public CharScript OnInteract = (p, c) => ScriptUtils.DoNothing(p);
-    public CharScript OnSee = (p, c) => ScriptUtils.DoNothing(p);
+    public CharScript OnInteract = (p, c) => { return; };
+    public CharScript OnSee = (p, c) => { return; };
     public CharScript OnWin = (p, c) =>
     {
         p.state = PlayerState.Free;

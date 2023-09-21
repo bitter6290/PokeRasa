@@ -133,6 +133,12 @@ public class MenuManager : MonoBehaviour
                     + battle.PokemonOnField[currentMon].GetMove(selectedMove - 1).Data().name
                     + " under the intense gravity!"));
                 break;
+            case MoveSelectOutcome.HealBlock:
+                StartCoroutine(AnnounceAndReturn(
+                    battle.MonNameWithPrefix(currentMon, true) + " can't use "
+                    + battle.PokemonOnField[currentMon].GetMove(selectedMove - 1).Data().name
+                    + " during the heal block!"));
+                break;
             case MoveSelectOutcome.Success:
                 if (battle.TryAddMove(currentMon, selectedMove))
                 {

@@ -602,7 +602,7 @@ public static class Move
         0, 101, 0,
         MoveEffect.Heal50, 100,
         false, Target.Self, 10,
-        snatchAffected); //Needs anim
+        snatchAffected + healBlockAffected); //Needs anim
     public static MoveData Harden = new(
         "Harden", Normal,
         0, 101, 0,
@@ -767,7 +767,8 @@ public static class Move
         "Soft-Boiled", Normal,
         0, 101, 0,
         MoveEffect.Heal50, 100,
-        false, Target.Self, 10, snatchAffected); //Needs anim
+        false, Target.Self, 10,
+        snatchAffected + healBlockAffected); //Needs anim
     public static MoveData HighJumpKick = new(
         "High Jump Kick", Fighting,
         130, 90, 0,
@@ -1180,7 +1181,8 @@ public static class Move
         "Milk Drink", Normal,
         0, 101, 0,
         MoveEffect.Heal50, 100,
-        false, Target.Self, 10, snatchAffected); //Needs anim
+        false, Target.Self, 10,
+        snatchAffected + healBlockAffected); //Needs anim
     public static MoveData Spark = new(
         "Spark", Electric,
         65, 100, 0,
@@ -1503,7 +1505,8 @@ public static class Move
     public static MoveData RolePlay = SingleTargetStatusMove(
         "Role Play", Type.Psychic, 100, 0, MoveEffect.RolePlay, 10); //Needs anim
     public static MoveData Wish = SelfTargetingMove(
-        "Wish", Normal, 0, MoveEffect.Wish, 10, snatchAffected); //Needs anim
+        "Wish", Normal, 0, MoveEffect.Wish, 10,
+        snatchAffected + healBlockAffected); //Needs anim
     public static MoveData Assist = SelfTargetingMove(
         "Assist", Normal, 0, MoveEffect.Assist, 20); //Needs anim
     public static MoveData Ingrain = SelfTargetingMove(
@@ -1618,7 +1621,8 @@ public static class Move
         true, Target.Single, 15,
         makesContact); //Needs anim
     public static MoveData SlackOff = SelfTargetingMove(
-        "Slack Off", Normal, 0, MoveEffect.Heal50, 5, snatchAffected); //Needs anim
+        "Slack Off", Normal, 0, MoveEffect.Heal50, 5,
+        snatchAffected + healBlockAffected); //Needs anim
     public static MoveData HyperVoice = new(
         "Hyper Voice", Normal,
         90, 100, 0,
@@ -1901,7 +1905,7 @@ public static class Move
         makesContact); //Needs anim
     public static MoveData HealingWish = SelfTargetingMove(
         "Healing Wish", Type.Psychic, 0, MoveEffect.HealingWish, 10,
-        snatchAffected); //Needs anim
+        snatchAffected + healBlockAffected); //Needs anim
     public static MoveData Brine = new(
         "Brine", Water,
         65, 100, 0,
@@ -1961,6 +1965,35 @@ public static class Move
         MoveEffect.Assurance, 0,
         true, Target.Single, 15,
         makesContact); //Needs anim
+    public static MoveData Embargo = SingleTargetStatusMove(
+        "Embargo", Dark, 100, 0, MoveEffect.Embargo, 15,
+        magicBounceAffected);
+    public static MoveData Fling = new(
+        "Fling", Dark,
+        1, 100, 0,
+        MoveEffect.Fling, 100,
+        true, Target.Single, 10); //Needs anim
+    public static MoveData PsychoShift = SingleTargetStatusMove(
+        "Psycho Shift", Type.Psychic, 100, 0, MoveEffect.PsychoShift, 10); //Needs anim
+    public static MoveData TrumpCard = new(
+        "Trump Card", Normal,
+        1, 100, 0,
+        MoveEffect.TrumpCard, 0,
+        false, Target.Single, 5); //Needs anim
+    public static MoveData HealBlock = new(
+        "Heal Block", Type.Psychic,
+        0, 100, 0,
+        MoveEffect.HealBlock, 100,
+        false, Target.Opponent + Target.Spread, 15,
+        magicBounceAffected); //Needs anim
+    public static MoveData WringOut = new(
+        "Wring Out", Normal,
+        1, 100, 0,
+        MoveEffect.TargetHealthPower, 0,
+        false, Target.Single, 5); //Needs anim
+    public static MoveData PowerTrick = SelfTargetingMove(
+        "Power Trick", Type.Psychic, 0, MoveEffect.PowerTrick, 10,
+        snatchAffected); //Needs anim
 
     //Non-standard moves
     public static MoveData ConfusionHit = new(
@@ -2430,6 +2463,13 @@ public static class Move
         CloseCombat,
         Payback,
         Assurance,
+        Embargo,
+        Fling,
+        PsychoShift,
+        TrumpCard,
+        HealBlock,
+        WringOut,
+        PowerTrick,
 
 
         //Nonstandard moves

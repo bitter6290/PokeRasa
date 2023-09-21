@@ -6,7 +6,8 @@ using static FieldEffect;
 
 public static class Item
 {
-    public static bool CanBeStolen(ItemID item) => ItemTable[(int)item].type is ItemType.FieldItem or ItemType.BattleItem or ItemType.Medicine;
+    public static bool CanBeStolen(ItemID item) =>
+        ItemTable[(int)item].type is ItemType.FieldItem or ItemType.BattleItem or ItemType.Medicine;
 
     public static AbstractItem None = new()
     {
@@ -633,6 +634,7 @@ public static class Item
         price = 15000,
         heldEffect = HeldEffect.KingsRock,
         graphicsPath = "kings_rock",
+        flingEffect = MoveEffect.Flinch,
     };
 
     public static HeldItem MetalCoat = new()
@@ -648,7 +650,8 @@ public static class Item
         itemName = "Deep Sea Tooth",
         price = 20000,
         heldEffect = HeldEffect.DeepSeaTooth,
-        graphicsPath = "deep_sea_tooth"
+        graphicsPath = "deep_sea_tooth",
+        flingPower = 90,
     };
 
     public static HeldItem DeepSeaScale = new()

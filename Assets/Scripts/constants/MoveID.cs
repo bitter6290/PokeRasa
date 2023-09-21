@@ -379,6 +379,13 @@ public enum MoveID
     CloseCombat,
     Payback,
     Assurance,
+    Embargo,
+    Fling,
+    PsychoShift,
+    TrumpCard,
+    HealBlock,
+    WringOut,
+    PowerTrick,
 
     //Nonstandard moves
 

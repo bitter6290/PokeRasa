@@ -6,7 +6,6 @@ using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using Scene = SceneID;
 
-[Serializable]
 public class Player : MonoBehaviour
 {
 
@@ -16,6 +15,7 @@ public class Player : MonoBehaviour
     public bool[] keyItem = new bool[8];
     public bool[] storyFlags = new bool[(int)Flag.Count];
     public bool[] trainerFlags = new bool[(int)TrainerFlag.Count];
+    public List<Box> boxes = new();
 
     public System.Random random;
 

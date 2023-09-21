@@ -45,25 +45,6 @@ public class OverallTest : MonoBehaviour
             battle.PokemonOnField[3].PokemonData.gender = Gender.Male;
             battle.PokemonOnField[3].PokemonData.move1 = MoveID.Attract;
         }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            battle.PokemonOnField[0].PokemonData.move1 = MoveID.Encore;
-            battle.PokemonOnField[3].PokemonData.move1 = MoveID.Pound;
-            battle.PokemonOnField[3].PokemonData.move2 = MoveID.Scratch;
-            battle.PokemonOnField[3].PokemonData.move3 = MoveID.Tackle;
-            battle.PokemonOnField[3].PokemonData.pp2 = 30;
-            battle.PokemonOnField[3].PokemonData.pp3 = 30;
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            Pokemon tester = battle.PokemonOnField[3].PokemonData;
-            tester.move1 = MoveID.Stockpile;
-            tester.move2 = MoveID.SpitUp;
-            tester.move3 = MoveID.Swallow;
-            tester.pp1 = 40;
-            tester.pp2 = 40;
-            tester.pp3 = 40;
-        }
         if (Input.GetKeyDown(KeyCode.B))
         {
             Pokemon tester = battle.PokemonOnField[3].PokemonData;
@@ -76,6 +57,28 @@ public class OverallTest : MonoBehaviour
             defender.newType1 = Type.Grass;
             defender.PokemonData.item = ItemID.OccaBerry;
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            BattlePokemon dummy = battle.PokemonOnField[0];
+            dummy.PokemonData.level = 100;
+            dummy.PokemonData.CalculateStats();
+            dummy.PokemonData.HP = dummy.PokemonData.hpMax;
+            dummy.CalculateStats();
+            dummy.PokemonData.move1 = MoveID.Splash;
+            dummy.PokemonData.pp1 = 255;
+            dummy.PokemonData.item = ItemID.SitrusBerry;
+            dummy.PokemonData.itemChanged = false;
+            battle.Moves[0] = MoveID.Splash;
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            battle.PokemonOnField[0].PokemonData.move1 = MoveID.Encore;
+            battle.PokemonOnField[3].PokemonData.move1 = MoveID.Pound;
+            battle.PokemonOnField[3].PokemonData.move2 = MoveID.Scratch;
+            battle.PokemonOnField[3].PokemonData.move3 = MoveID.Tackle;
+            battle.PokemonOnField[3].PokemonData.pp2 = 30;
+            battle.PokemonOnField[3].PokemonData.pp3 = 30;
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             BattlePokemon tester = battle.PokemonOnField[3];
@@ -86,6 +89,16 @@ public class OverallTest : MonoBehaviour
             defender.PokemonData.pp1 = 40;
             defender.PokemonData.item = ItemID.LiechiBerry;
             battle.Moves[0] = MoveID.Splash;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Pokemon tester = battle.PokemonOnField[3].PokemonData;
+            tester.move1 = MoveID.Stockpile;
+            tester.move2 = MoveID.SpitUp;
+            tester.move3 = MoveID.Swallow;
+            tester.pp1 = 40;
+            tester.pp2 = 40;
+            tester.pp3 = 40;
         }
     }
 }

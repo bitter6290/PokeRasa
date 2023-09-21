@@ -21,4 +21,5 @@ public static class MoveFlags
     public const int snatchAffected = 1 << 17;
     public const int sharpnessBoosted = 1 << 18;
     public const int gravityDisabled = 1 << 19;
+    public const int healBlockAffected = 1 << 20;
 }

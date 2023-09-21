@@ -57,10 +57,15 @@ public static class TestMapdata
                     .DoAtEnd(() => c.free = true)
                 );
             },
-            OnSee = (p, c) => p.StartCoroutine(TrainerFlag.MayTest.Get(p) ?
-                DoNothing(p) :
-                TrainerSeeSingle(p, c, Team.mayTestTeam, new(){"Boo!"})),
-            OnWin = (p,c) => p.StartCoroutine(ScriptUtils.DoAtEnd(p.DoAnnouncements(new(){"You win!","Good job!"}), () =>
+            OnSee = (p, c) =>
+            {
+                if (TrainerFlag.MayTest.Get(p))
+                    p.StartCoroutine(
+                        TrainerSeeSingle(p, c,
+                        Team.mayTestTeam, new(){"Boo!"}));
+            },
+            OnWin = (p,c) => p.StartCoroutine(p.DoAnnouncements(new(){"You win!","Good job!"}).
+                DoAtEnd( () =>
             {
                 p.state = PlayerState.Free;
                 TrainerFlag.MayTest.Set(p);

@@ -9,4 +9,5 @@
     Imprisoned,
     Gravity,
     NoMove,
+    HealBlock,
 }

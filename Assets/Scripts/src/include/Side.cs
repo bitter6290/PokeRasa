@@ -14,11 +14,13 @@ public class Side
     public bool tailwind = false;
     public int tailwindTurns = 0;
 
+    public readonly Battle battle;
     public readonly bool whichSide;
 
-    public Side(bool side)
+    public Side(bool side, Battle battle)
     {
         whichSide = side;
+        this.battle = battle;
     }
 
 }

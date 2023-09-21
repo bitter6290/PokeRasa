@@ -205,6 +205,14 @@ public class BattlePokemon
     public bool snatch = false;
 
     public bool embargoed = false;
+    public int embargoTimer = 0;
+
+    public bool healBlocked = false;
+    public int healBlockTimer = 0;
+
+    public bool powerTrick = false;
+    public bool powerTrickSuppressed = false;
+    public bool PowerTrickActive => powerTrick && !powerTrickSuppressed;
 
     public bool[] damagedByMon = new bool[6];
 
@@ -223,6 +231,15 @@ public class BattlePokemon
     public ItemID item => embargoed ?
             (baseItem.Data().type is ItemType.MegaStone ? baseItem : ItemID.None)
             : baseItem;
+
+    public int SumOfStages =>
+        Max(0, attackStage)
+        + Max(0, defenseStage)
+        + Max(0, spAtkStage)
+        + Max(0, spDefStage)
+        + Max(0, speedStage)
+        + Max(0, evasionStage)
+        + Max(0, accuracyStage);
 
     public BattlePokemon(Pokemon pokemonData, bool side, int position, bool player, Battle battle, bool exists = true)
     {
@@ -291,6 +308,9 @@ public class BattlePokemon
         if (battle.gravity &&
             (GetMove(move).Data().moveFlags & MoveFlags.gravityDisabled) != 0)
             return MoveSelectOutcome.Gravity;
+        if (healBlocked &&
+            (GetMove(move).Data().moveFlags & MoveFlags.healBlockAffected) != 0)
+            return MoveSelectOutcome.HealBlock;
         return MoveSelectOutcome.Success;
     }
 
@@ -366,8 +386,11 @@ public class BattlePokemon
         return stage < 0 ? 3.0F / (3 - stage) : (3 + stage) / 3.0F;
     }
 
-    private int BaseAttack => isTransformed ? transformedMon.attack : PokemonData.attack;
-    private int BaseDefense => isTransformed ? transformedMon.defense : PokemonData.defense;
+    private int BaseAttackRaw => isTransformed ? transformedMon.attack : PokemonData.attack;
+    private int BaseDefenseRaw => isTransformed ? transformedMon.defense : PokemonData.defense;
+
+    private int BaseAttack => PowerTrickActive ? BaseDefenseRaw : BaseAttackRaw;
+    private int BaseDefense => PowerTrickActive ? BaseAttackRaw : BaseDefenseRaw;
     private int BaseSpAtk => isTransformed ? transformedMon.spAtk : PokemonData.spAtk;
     private int BaseSpDef => isTransformed ? transformedMon.spDef : PokemonData.spDef;
     private int BaseSpeed => isTransformed ? transformedMon.speed : PokemonData.speed;

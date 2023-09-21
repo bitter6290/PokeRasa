@@ -73,6 +73,8 @@ public class Battle : MonoBehaviour
 
     public bool doStatAnim = true;
 
+    public ItemID flungItem = ItemID.None;
+
     // Field varibles
 
     public bool payDay;
@@ -129,11 +131,7 @@ public class Battle : MonoBehaviour
         return false;
     }
 
-    public Side[] Sides = new Side[2]
-    {
-        new(false),
-        new(true),
-    };
+    public Side[] Sides = new Side[2];
 
     public BattleType battleType;
 
@@ -722,6 +720,19 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.Reversal:
                 effectivePower = ReversalPower(attacker.PokemonData.HP, attacker.PokemonData.hpMax);
+                break;
+            case MoveEffect.TargetHealthPower:
+                effectivePower = 1 + (int)(120 * defender.HealthProportion);
+                break;
+            case MoveEffect.TrumpCard:
+                effectivePower = attacker.GetPP(MoveNums[attacker.index] - 1) switch
+                {
+                    3 => 50,
+                    2 => 60,
+                    1 => 80,
+                    0 => 200,
+                    _ => 40,
+                };
                 break;
             case MoveEffect.Payback when defender.done && Moves[defender.index] != MoveID.Switch:
             case MoveEffect.Assurance when defender.damagedThisTurn:
@@ -1334,12 +1345,14 @@ public class Battle : MonoBehaviour
                             case MoveEffect.Yawn when target.yawnNextTurn
                                 || target.yawnThisTurn || target.PokemonData.status != Status.None
                                 || Uproar && !HasAbility(i, Soundproof):
+                            case MoveEffect.Wish when target.healBlocked:
                                 continue;
                             case MoveEffect.FutureSight:
                                 target.gotMoveEffect = !isFutureSightTargeted[i];
                                 target.isHit = false;
                                 break;
                             case MoveEffect.Sleep:
+                            case MoveEffect.Rest:
                                 if (Uproar && !HasAbility(i, Soundproof)) continue;
                                 goto case MoveEffect.TriAttack;
                             case MoveEffect.Burn:
@@ -1517,6 +1530,11 @@ public class Battle : MonoBehaviour
                         damage = DamageCalc(attackingMon, defendingMon,
                             move, isMultiTarget, defendingMon.isCrit, GetSide(i),
                             singleMovePower);
+                        break;
+                    case MoveEffect.Fling:
+                        damage = DamageCalc(attackingMon, defendingMon,
+                            move, isMultiTarget, defendingMon.isCrit, GetSide(i),
+                            attackingMon.item.Data().flingPower);
                         break;
                     case MoveEffect.Endeavor:
                         damage = PokemonOnField[i].PokemonData.HP
@@ -2434,6 +2452,8 @@ public class Battle : MonoBehaviour
                     yield break;
                 }
                 break;
+            case MoveEffect.Fling when user.item.Data().flingPower == 0
+                || user.item.MegaStoneUser() == user.PokemonData.species:
             case MoveEffect.Snore
             when (user.PokemonData.status != Status.Sleep && !HasAbility(index, Comatose)):
             case MoveEffect.FakeOut when user.turnOnField > 1:
@@ -2444,6 +2464,10 @@ public class Battle : MonoBehaviour
                 user.done = true;
                 MoveCleanup();
                 yield break;
+            case MoveEffect.Fling:
+                yield return Announce(MonNameWithPrefix(index, true)
+                    + " flung its " + user.item.Data().itemName + "!");
+                break;
             case MoveEffect.FocusPunchAttack when !user.focused:
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " lost its focus and couldn't move!");
@@ -2684,13 +2708,12 @@ public class Battle : MonoBehaviour
                 user.lockedInMove = MoveID.Recharge;
                 goto default;
             case MoveEffect.Transform:
-                switch (battleType)
-                {
-                    case BattleType.Single:
-                        yield return BattleEffect.TransformMon(this, index, index - 3);
-                        break;
-                }
-                break;
+                yield return BattleEffect.TransformMon(this, index, Targets[index]);
+                user.powerTrick = false;
+                user.powerTrickSuppressed = false;
+                user.done = true;
+                MoveCleanup();
+                yield break;
             case MoveEffect.ChargingAttack:
                 bool GoToHit = false;
                 switch (Moves[index])
@@ -2831,6 +2854,7 @@ public class Battle : MonoBehaviour
                         yield return Announce(PokemonOnField[i].PokemonData.monName + " protected itself!");
                         targetsAnyone = true;
                     }
+                    if (PokemonOnField[i].gotMoveEffect) targetsAnyone = true;
                     if (PokemonOnField[i].abilityHealed25)
                     {
                         yield return BattleEffect.Heal(this, i,
@@ -3137,6 +3161,9 @@ public class Battle : MonoBehaviour
                 yield return ProcessFaintingSingle(index);
                 yield return ProcessBerries(index, false);
                 break;
+            case MoveEffect.Fling:
+                UseUpItem(index);
+                break;
             case MoveEffect.Thrash:
                 user.thrashingTimer++;
                 if (user.thrashingTimer == 3
@@ -3247,6 +3274,7 @@ public class Battle : MonoBehaviour
 
     public void MoveCleanup()
     {
+        flungItem = ItemID.None;
         for (int i = 0; i < 6; i++)
         {
             BattlePokemon mon = PokemonOnField[i];
@@ -3343,6 +3371,9 @@ public class Battle : MonoBehaviour
             attacker = index;
             index = swap;
         }
+        MoveEffect effect = move.Data().effect;
+        if (effect == MoveEffect.Fling) effect =
+                PokemonOnField[attacker].item.Data().flingEffect;
         switch (move.Data().effect)
         {
             case MoveEffect.Burn:
@@ -3411,6 +3442,12 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.Trap:
                 yield return BattleEffect.StartTrapping(this, attacker, index);
+                break;
+            case MoveEffect.HealBlock:
+                yield return Announce(MonNameWithPrefix(index, true)
+                    + " can no longer heal!");
+                PokemonOnField[index].healBlocked = true;
+                PokemonOnField[index].healBlockTimer = 5;
                 break;
             case MoveEffect.Trick:
                 yield return BattleEffect.SwitchItems(this, attacker, index);
@@ -3688,6 +3725,9 @@ public class Battle : MonoBehaviour
             case MoveEffect.PainSplit:
                 yield return BattleEffect.PainSplit(this, index, attacker);
                 break;
+            case MoveEffect.PsychoShift:
+                yield return BattleEffect.PsychoShift(this, index, attacker);
+                break;
             case MoveEffect.Pluck:
                 if (PokemonOnField[index].item.Data().type == ItemType.Berry)
                 {
@@ -3794,6 +3834,14 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.Recycle:
                 yield return BattleEffect.Recycle(this, index);
+                break;
+            case MoveEffect.PowerTrick:
+                if (PokemonOnField[index].powerTrick)
+                    PokemonOnField[index].powerTrickSuppressed
+                        = !PokemonOnField[index].powerTrickSuppressed;
+                PokemonOnField[index].powerTrick = true;
+                yield return Announce(MonNameWithPrefix(index, true)
+                    + " swapped its Attack and Defense stats!");
                 break;
             case MoveEffect.Protect:
                 yield return Announce(MonNameWithPrefix(index, true)
@@ -4085,7 +4133,26 @@ public class Battle : MonoBehaviour
                         mon.taunted = false;
                     }
                 }
-                if (mon.yawnThisTurn && mon.PokemonData.status == Status.None)
+                if (mon.embargoed)
+                {
+                    if (mon.embargoTimer-- <= 1)
+                    {
+                        yield return Announce(MonNameWithPrefix(i, true)
+                            + " can use items again!");
+                        mon.embargoed = false;
+                    }
+                }
+                if (mon.healBlocked)
+                {
+                    if (mon.healBlockTimer-- <= 1)
+                    {
+                        yield return Announce(MonNameWithPrefix(i, true)
+                            + " is cured of its heal block!");
+                        mon.healBlocked = false;
+                    }
+                }
+                if (mon.yawnThisTurn && mon.PokemonData.status == Status.None
+                    && !Uproar)
                 {
                     yield return BattleEffect.FallAsleep(this, i);
                 }
@@ -4339,6 +4406,11 @@ public class Battle : MonoBehaviour
             BattlePokemon.MakeEmptyBattleMon(true,1,this),
             BattlePokemon.MakeEmptyBattleMon(true,2,this),
         };
+        Sides = new Side[2]
+        {
+            new(false, this),
+            new(true, this),
+        };
         for (int i = 0; i < 6; i++)
         {
             playerMonIcons[i] = Sprite.Create(
@@ -4534,6 +4606,8 @@ public class Battle : MonoBehaviour
             mon.PokemonData.species == SpeciesID.Rayquaza ?
             SpeciesID.RayquazaMega :
             (SpeciesID)Item.ItemTable[(int)mon.PokemonData.item].ItemSubdata[1];
+        mon.powerTrick = false;
+        mon.powerTrickSuppressed = false;
         mon.PokemonData.transformed = true;
         mon.PokemonData.CalculateStats();
         yield return new WaitForSeconds(1.8F); //3.60

@@ -6,7 +6,7 @@ public delegate void CharScript(Player p, LoadedChar c);
 
 public static class ScriptUtils
 {
-    public static IEnumerator DoNothing(Player p)
+    public static IEnumerator DoNothing()
     {
         yield break;
     }

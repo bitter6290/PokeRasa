@@ -7,6 +7,8 @@ public abstract class ItemData
     public int price;
     public ItemType type;
     public string graphicsPath;
+    public int flingPower = 30;
+    public MoveEffect flingEffect = MoveEffect.None;
     public abstract int[] ItemSubdata { get; }
 
     public Texture2D ItemSprite => Resources.Load<Texture2D>("Sprites/Items/" + graphicsPath);
@@ -60,7 +62,7 @@ public class HeldItem : ItemData //subdata length 2
     public override int[] ItemSubdata => new int[2]
     {
         (int)heldEffect,
-        heldEffectIntensity
+        heldEffectIntensity,
     };
     public HeldItem()
     {
@@ -79,7 +81,7 @@ public class HeldFieldItem : ItemData //subdata length 4
         (int)heldEffect,
         heldEffectIntensity,
         (int)fieldEffect,
-        fieldEffectIntensity
+        fieldEffectIntensity,
     };
 }
 
@@ -102,11 +104,12 @@ public class Berry : ItemData //subdata length 8
         (int)fieldEffect,
         fieldEffectIntensity,
         (int)berryEffect,
-        hoursToGrow
+        hoursToGrow,
     };
     public Berry()
     {
         type = ItemType.Berry;
+        flingPower = 10;
     }
 }
 
@@ -136,6 +139,7 @@ public class TM : ItemData //subdata length 1
     public TM()
     {
         type = ItemType.TM;
+        flingPower = 0;
     }
 }
 
@@ -151,6 +155,7 @@ public class MegaStone : ItemData //subdata length 2
     public MegaStone()
     {
         type = ItemType.MegaStone;
+        flingPower = 80;
     }
 }
 
@@ -161,6 +166,7 @@ public class KeyItem : ItemData //subdata length 1
     public KeyItem()
     {
         type = ItemType.KeyItem;
+        flingPower = 0;
     }
 }
 
