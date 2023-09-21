@@ -10,7 +10,7 @@ public class GUIManager : MonoBehaviour
     public Vector3 announcerDownPosition;
     public float boxHeight;
 
-    public void Start()
+    public void Awake()
     {
         announcerUpPosition = announcementBox.localPosition;
         boxHeight = announcementBox.rect.height;
@@ -18,6 +18,7 @@ public class GUIManager : MonoBehaviour
             announcerUpPosition.y - boxHeight, announcerUpPosition.z);
         announcementBox.position = announcerDownPosition;
         announcementText.text = "";
+        DontDestroyOnLoad(this);
     }
 
     public IEnumerator AnnouncementUp()

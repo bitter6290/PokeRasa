@@ -11,12 +11,13 @@ public class HumanoidChar : LoadedChar
     public override IEnumerator WalkNorth()
     {
         moving = true;
+        moveTarget = pos + Vector2Int.up;
+        available = false;
         facing = Direction.N;
         whichStep = !whichStep;
         charRenderer.flipX = false;
         float baseTime = Time.time;
         float endTime = baseTime + 0.3F;
-        Vector3 initialPosition = charTransform.position;
         while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) / 0.3F;
@@ -24,21 +25,25 @@ public class HumanoidChar : LoadedChar
                 charRenderer.sprite = graphics.stillNorth;
             else charRenderer.sprite = whichStep
                     ? graphics.walkNorthL : graphics.walkNorthR;
-            charTransform.position = new Vector3(initialPosition.x, initialPosition.y + progress, initialPosition.z);
+            charTransform.position = new Vector3(pos.x + 0.5F, pos.y + 0.5F + progress, pos.y);
             yield return null;
         }
         pos.y++;
+        UpdateCollision();
+        AlignObject();
         moving = false;
+        available = true;
     }
     public override IEnumerator WalkSouth()
     {
         moving = true;
+        moveTarget = pos + Vector2Int.down;
+        available = false;
         facing = Direction.S;
         whichStep = !whichStep;
         charRenderer.flipX = false;
         float baseTime = Time.time;
         float endTime = baseTime + 0.3F;
-        Vector3 initialPosition = charTransform.position;
         while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) / 0.3F;
@@ -46,21 +51,25 @@ public class HumanoidChar : LoadedChar
                 charRenderer.sprite = graphics.stillSouth;
             else charRenderer.sprite = whichStep
                     ? graphics.walkSouthL : graphics.walkSouthR;
-            charTransform.position = new Vector3(initialPosition.x, initialPosition.y - progress, initialPosition.z);
+            charTransform.position = new Vector3(pos.x + 0.5F, pos.y + 0.5F - progress, pos.y);
             yield return null;
         }
         pos.y--;
+        UpdateCollision();
+        AlignObject();
         moving = false;
+        available = true;
     }
     public override IEnumerator WalkWest()
     {
         moving = true;
+        moveTarget = pos + Vector2Int.left;
+        available = false;
         facing = Direction.W;
         whichStep = !whichStep;
         charRenderer.flipX = false;
         float baseTime = Time.time;
         float endTime = baseTime + 0.3F;
-        Vector3 initialPosition = charTransform.position;
         while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) / 0.3F;
@@ -68,21 +77,25 @@ public class HumanoidChar : LoadedChar
                 charRenderer.sprite = graphics.stillWest;
             else charRenderer.sprite = whichStep
                     ? graphics.walkWestL : graphics.walkWestR;
-            charTransform.position = new Vector3(initialPosition.x - progress, initialPosition.y, initialPosition.z);
+            charTransform.position = new Vector3(pos.x + 0.5F - progress, pos.y + 0.5F, pos.y);
             yield return null;
         }
         pos.x--;
+        UpdateCollision();
+        AlignObject();
         moving = false;
+        available = true;
     }
     public override IEnumerator WalkEast()
     {
         moving = true;
+        moveTarget = pos + Vector2Int.right;
+        available = false;
         facing = Direction.E;
         whichStep = !whichStep;
         charRenderer.flipX = graphics.flipOnWalkEast;
         float baseTime = Time.time;
         float endTime = baseTime + 0.3F;
-        Vector3 initialPosition = charTransform.position;
         while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) / 0.3F;
@@ -90,21 +103,24 @@ public class HumanoidChar : LoadedChar
                 charRenderer.sprite = graphics.stillEast;
             else charRenderer.sprite = whichStep
                     ? graphics.walkEastL : graphics.walkEastR;
-            charTransform.position = new Vector3(initialPosition.x + progress, initialPosition.y, initialPosition.z);
+            charTransform.position = new Vector3(pos.x + 0.5F + progress, pos.y + 0.5F, pos.y);
             yield return null;
         }
         pos.x++;
+        UpdateCollision();
+        AlignObject();
         moving = false;
+        available = true;
     }
     public override IEnumerator BumpNorth()
     {
         moving = true;
+        available = true;
         facing = Direction.N;
         whichStep = !whichStep;
         charRenderer.flipX = false;
         float baseTime = Time.time;
         float endTime = baseTime + 0.3F;
-        Vector3 initialPosition = charTransform.position;
         while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) / 0.3F;
@@ -119,12 +135,12 @@ public class HumanoidChar : LoadedChar
     public override IEnumerator BumpSouth()
     {
         moving = true;
+        available = true;
         facing = Direction.S;
         whichStep = !whichStep;
         charRenderer.flipX = false;
         float baseTime = Time.time;
         float endTime = baseTime + 0.3F;
-        Vector3 initialPosition = charTransform.position;
         while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) / 0.3F;
@@ -139,12 +155,12 @@ public class HumanoidChar : LoadedChar
     public override IEnumerator BumpWest()
     {
         moving = true;
+        available = true;
         facing = Direction.W;
         whichStep = !whichStep;
         charRenderer.flipX = false;
         float baseTime = Time.time;
         float endTime = baseTime + 0.3F;
-        Vector3 initialPosition = charTransform.position;
         while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) / 0.3F;
@@ -159,12 +175,12 @@ public class HumanoidChar : LoadedChar
     public override IEnumerator BumpEast()
     {
         moving = true;
+        available = true;
         facing = Direction.E;
         whichStep = !whichStep;
         charRenderer.flipX = graphics.flipOnWalkEast;
         float baseTime = Time.time;
         float endTime = baseTime + 0.3F;
-        Vector3 initialPosition = charTransform.position;
         while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) / 0.3F;
@@ -179,35 +195,38 @@ public class HumanoidChar : LoadedChar
     public override IEnumerator FaceNorth()
     {
         charRenderer.sprite = graphics.stillNorth;
-        moving = true;
+        charRenderer.flipX = false;
         facing = Direction.N;
-        yield return new WaitForSeconds(0.3F);
         moving = false;
+        available = true;
+        yield break;
     }
     public override IEnumerator FaceSouth()
     {
         charRenderer.sprite = graphics.stillSouth;
-        moving = true;
+        charRenderer.flipX = false;
         facing = Direction.S;
-        yield return new WaitForSeconds(0.3F);
         moving = false;
+        available = true;
+        yield break;
     }
     public override IEnumerator FaceWest()
     {
         charRenderer.sprite = graphics.stillWest;
-        moving = true;
+        charRenderer.flipX = false;
         facing = Direction.W;
-        yield return new WaitForSeconds(0.3F);
         moving = false;
+        available = true;
+        yield break;
     }
     public override IEnumerator FaceEast()
     {
         charRenderer.sprite = graphics.stillEast;
         charRenderer.flipX = graphics.flipOnWalkEast;
-        moving = true;
         facing = Direction.E;
-        yield return new WaitForSeconds(0.3F);
         moving = false;
+        available = true;
+        yield break;
     }
     public override IEnumerator RunNorth()
     {

@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#if UNITY_EDITOR
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -42,7 +43,7 @@ public class MapHelper : MapManager
             if (!EditorUtility.DisplayDialog("Map is not saved",
                 "Map is not saved. Really discard unsaved work?", "Yes", "Cancel"))
                 return;
-        if (!File.Exists("Assets/Resources/Maps/" + Map.MapTable[(int)mapID].path + ".pokemap"))
+        if (!File.Exists("Assets/StreamingAssets/Maps/" + Map.MapTable[(int)mapID].path + ".pokemap"))
         {
             if (!EditorUtility.DisplayDialog("Create new map",
                 "Map has no map file yet, create new map?", "Yes", "Cancel"))
@@ -149,3 +150,4 @@ public class MapHelper : MapManager
         }
     }
 }
+#endif

@@ -9,7 +9,7 @@ public static class MapReader
         Tilemap level1 = manager.level1;
         Tilemap level2 = manager.level2;
         Tilemap level3 = manager.level3;
-        string path = Application.dataPath + "/Resources/Maps/" + manager.mapData.path + ".pokemap";
+        string path = Application.streamingAssetsPath + "/Maps/" + manager.mapData.path + ".pokemap";
         StreamReader reader = File.OpenText(path);
         string inString = reader.ReadToEnd().Replace("?", "AAAA").Replace("@", "AA");
         Debug.Log(inString.Length);
@@ -56,7 +56,7 @@ public static class MapReader
         foreach (Connection i in manager.mapData.connection)
         {
             MapData connectedMap = Map.MapTable[(int)i.map];
-            string connectionPath = Application.dataPath + "/Resources/Maps/" + connectedMap.path + ".pokemap";
+            string connectionPath = Application.streamingAssetsPath + "/Maps/" + connectedMap.path + ".pokemap";
             StreamReader connectionReader = File.OpenText(connectionPath);
             string connectionString = connectionReader.ReadToEnd().Replace("?", "AAAA").Replace("@", "AA");
             byte[] connectionData = System.Convert.FromBase64String(connectionString);
@@ -204,7 +204,7 @@ public static class MapReader
         }
         Debug.Log("Loaded successfully");
     }
-
+#if UNITY_EDITOR
     public static void RenderNeighborsForEditing(MapHelper mapHelper)
     {
         Tilemap level1 = mapHelper.level1;
@@ -213,12 +213,12 @@ public static class MapReader
         foreach (Connection i in mapHelper.mapData.connection)
         {
             MapData connectedMap = Map.MapTable[(int)i.map];
-            if (!File.Exists(Application.dataPath + "/Resources/Maps/" + connectedMap.path + ".pokemap"))
+            if (!File.Exists(Application.streamingAssetsPath + "/Maps/" + connectedMap.path + ".pokemap"))
             {
                 Debug.Log("Neighbor " + i.map + " does not exist");
                 continue;
             }
-            string connectionPath = Application.dataPath + "/Resources/Maps/" + connectedMap.path + ".pokemap";
+            string connectionPath = Application.streamingAssetsPath + "/Maps/" + connectedMap.path + ".pokemap";
             StreamReader connectionReader = File.OpenText(connectionPath);
             string connectionString = connectionReader.ReadToEnd().Replace("?", "AAAA").Replace("@", "AA");
             byte[] connectionData = System.Convert.FromBase64String(connectionString);
@@ -366,7 +366,7 @@ public static class MapReader
         Tilemap level3 = mapHelper.level3;
         Tilemap collision = mapHelper.collisionMap;
         Tilemap wildData = mapHelper.wildDataMap;
-        string path = Application.dataPath + "/Resources/Maps/" + mapHelper.mapData.path + ".pokemap";
+        string path = Application.streamingAssetsPath + "/Maps/" + mapHelper.mapData.path + ".pokemap";
         StreamReader reader = File.OpenText(path);
         string inString = reader.ReadToEnd().Replace("?", "AAAA").Replace("@", "AA");
         Debug.Log(inString.Length);
@@ -451,4 +451,5 @@ public static class MapReader
         RenderNeighborsForEditing(mapHelper);
         Debug.Log("Created map successfully");
     }
+#endif
 }

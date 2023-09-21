@@ -4,7 +4,6 @@ using UnityEngine;
 using static Type;
 using static MoveData;
 using static MoveFlags;
-using UnityEngine.WSA;
 
 public static class Move
 {

@@ -94,6 +94,82 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    private void TrySelectMove(int selectedMove)
+    {
+        switch (mon.CanUseMove(selectedMove - 1))
+        {
+            case MoveSelectOutcome.LowPP:
+                StartCoroutine(AnnounceAndReturn(
+                    battle.PokemonOnField[currentMon].GetMove(selectedMove - 1).Data().name
+                    + BattleText.NoPP));
+                break;
+            case MoveSelectOutcome.Encored:
+                StartCoroutine(AnnounceAndReturn(
+                    battle.MonNameWithPrefix(currentMon, true)
+                    + " can only use "
+                    + battle.PokemonOnField[currentMon].encoredMove.Data().name
+                    + "!"));
+                break;
+            case MoveSelectOutcome.Disabled:
+                StartCoroutine(AnnounceAndReturn(
+                    battle.MonNameWithPrefix(currentMon, true) + "'s "
+                    + battle.PokemonOnField[currentMon].disabledMove.Data().name
+                    + " is disabled!"));
+                break;
+            case MoveSelectOutcome.Tormented:
+                StartCoroutine(AnnounceAndReturn(
+                    battle.MonNameWithPrefix(currentMon, true)
+                    + " can't use the same move again because of the torment!"));
+                break;
+            case MoveSelectOutcome.Imprisoned:
+                StartCoroutine(AnnounceAndReturn(
+                    battle.MonNameWithPrefix(currentMon, true) + "'s "
+                    + battle.PokemonOnField[currentMon].GetMove(selectedMove - 1).Data().name
+                    + " is imprisoned!"));
+                break;
+            case MoveSelectOutcome.Gravity:
+                StartCoroutine(AnnounceAndReturn(
+                    battle.MonNameWithPrefix(currentMon, true) + " can't use "
+                    + battle.PokemonOnField[currentMon].GetMove(selectedMove - 1).Data().name
+                    + " under the intense gravity!"));
+                break;
+            case MoveSelectOutcome.Success:
+                if (battle.TryAddMove(currentMon, selectedMove))
+                {
+                    mon.choseMove = true;
+                    switch (battle.battleType)
+                    {
+                        case BattleType.Single:
+                            battle.Targets[currentMon] = 0;
+                            break;
+                    }
+                    if (GetNextPokemon())
+                    {
+                        battle.state = BattleState.Announcement;
+                        menuMode = MenuMode.Main;
+                        currentMove = 1;
+                        currentMon = 2;
+                        GetNextPokemon();
+                        battle.DoNextMove();
+                    }
+                    else
+                    {
+                        megaEvolving = false;
+                        menuMode = MenuMode.Main;
+                        currentMove = 1;
+                    }
+                }
+                else
+                {
+                    battle.state = BattleState.Announcement;
+                    StartCoroutine(AnnounceAndReturn(
+                    battle.PokemonOnField[currentMon].GetMove(selectedMove - 1).Data().name
+                    + BattleText.NoPP));
+                }
+                break;
+        }
+    }
+
     public bool GetNextPokemon()
     {
         megaEvolving = false;
@@ -354,78 +430,7 @@ public class MenuManager : MonoBehaviour
                                 case 2:
                                 case 3:
                                 case 4:
-                                    switch (mon.CanUseMove(currentMove - 1))
-                                    {
-                                        case MoveSelectOutcome.LowPP:
-                                            StartCoroutine(AnnounceAndReturn(
-                                                battle.PokemonOnField[currentMon].GetMove(currentMove - 1).Data().name
-                                                + BattleText.NoPP));
-                                            break;
-                                        case MoveSelectOutcome.Encored:
-                                            StartCoroutine(AnnounceAndReturn(
-                                                battle.MonNameWithPrefix(currentMon, true)
-                                                + " can only use "
-                                                + battle.PokemonOnField[currentMon].encoredMove.Data().name
-                                                + "!"));
-                                            break;
-                                        case MoveSelectOutcome.Disabled:
-                                            StartCoroutine(AnnounceAndReturn(
-                                                battle.MonNameWithPrefix(currentMon, true) + "'s "
-                                                + battle.PokemonOnField[currentMon].disabledMove.Data().name
-                                                + " is disabled!"));
-                                            break;
-                                        case MoveSelectOutcome.Tormented:
-                                            StartCoroutine(AnnounceAndReturn(
-                                                battle.MonNameWithPrefix(currentMon, true)
-                                                + " can't use the same move again because of the torment!"));
-                                            break;
-                                        case MoveSelectOutcome.Imprisoned:
-                                            StartCoroutine(AnnounceAndReturn(
-                                                battle.MonNameWithPrefix(currentMon, true) + "'s "
-                                                + battle.PokemonOnField[currentMon].GetMove(currentMove - 1).Data().name
-                                                + " is imprisoned!"));
-                                            break;
-                                        case MoveSelectOutcome.Gravity:
-                                            StartCoroutine(AnnounceAndReturn(
-                                                battle.MonNameWithPrefix(currentMon, true) + " can't use "
-                                                + battle.PokemonOnField[currentMon].GetMove(currentMove - 1).Data().name
-                                                + " under the intense gravity!"));
-                                            break;
-                                        case MoveSelectOutcome.Success:
-                                            if (battle.TryAddMove(currentMon, currentMove))
-                                            {
-                                                mon.choseMove = true;
-                                                switch (battle.battleType)
-                                                {
-                                                    case BattleType.Single:
-                                                        battle.Targets[currentMon] = 0;
-                                                        break;
-                                                }
-                                                if (GetNextPokemon())
-                                                {
-                                                    battle.state = BattleState.Announcement;
-                                                    menuMode = MenuMode.Main;
-                                                    currentMove = 1;
-                                                    currentMon = 2;
-                                                    GetNextPokemon();
-                                                    battle.DoNextMove();
-                                                }
-                                                else
-                                                {
-                                                    megaEvolving = false;
-                                                    menuMode = MenuMode.Main;
-                                                    currentMove = 1;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                battle.state = BattleState.Announcement;
-                                                StartCoroutine(AnnounceAndReturn(
-                                                battle.PokemonOnField[currentMon].GetMove(currentMove - 1).Data().name
-                                                + BattleText.NoPP));
-                                            }
-                                            break;
-                                    }
+                                    TrySelectMove(currentMove);
                                     break;
                                 case 0:
                                     currentMove = 1;

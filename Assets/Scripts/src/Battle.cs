@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Device;
 using static System.Math;
@@ -4502,10 +4501,15 @@ public class Battle : MonoBehaviour
 
     public IEnumerator EndBattle()
     {
-        if (wildBattle)
+        for (int i = 0; i < 6; i++)
         {
-            player.StartCoroutine(player.WildBattleWon());
+            PlayerPokemon[i].transformed = false;
         }
+        if (wildBattle)
+            player.StartCoroutine(player.WildBattleWon());
+        else
+            yield return Announce("Defeated " + OpponentName + "!");
+            player.StartCoroutine(player.TrainerBattleWon());
         yield break;
     }
 

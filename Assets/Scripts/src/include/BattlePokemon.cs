@@ -203,6 +203,8 @@ public class BattlePokemon
 
     public bool snatch = false;
 
+    public bool embargoed = false;
+
     public bool[] damagedByMon = new bool[6];
 
     public MoveID moveUsedLastTurn = MoveID.None;
@@ -216,12 +218,15 @@ public class BattlePokemon
 
     public MoveID lastTargetedMove = MoveID.None;
 
-    public ItemID item => PokemonData.itemChanged ? PokemonData.newItem : PokemonData.item;
+    public ItemID baseItem => PokemonData.itemChanged ? PokemonData.newItem : PokemonData.item;
+    public ItemID item => embargoed ?
+            (baseItem.Data().type is ItemType.MegaStone ? baseItem : ItemID.None)
+            : baseItem;
 
     public BattlePokemon(Pokemon pokemonData, bool side, int position, bool player, Battle battle, bool exists = true)
     {
         pokemonData.onField = true;
-        this.PokemonData = pokemonData;
+        PokemonData = pokemonData;
         attack = PokemonData.attack;
         defense = PokemonData.defense;
         spAtk = PokemonData.spAtk;

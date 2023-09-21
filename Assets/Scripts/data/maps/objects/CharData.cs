@@ -17,10 +17,20 @@ public abstract class CharData
     public bool hasSeeScript = false;
     public int sightRadius;
 
-    public ObjectScript OnInteract = p => ScriptUtils.DoNothing(p);
-    public ObjectScript OnSee = p => ScriptUtils.DoNothing(p);
+    public CharScript OnInteract = (p, c) => ScriptUtils.DoNothing(p);
+    public CharScript OnSee = (p, c) => ScriptUtils.DoNothing(p);
+    public CharScript OnWin = (p, c) =>
+    {
+        p.state = PlayerState.Free;
+    };
 
     public ObjectMovement GetMovement;
+
+    public bool IsLoaded(Player p)
+    {
+        foreach (int i in p.loadedChars.Keys) if (CharID == i) return true;
+        return false;
+    }
 
     public abstract void Load(Player p);
 }

@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public bool[] TM = new bool[96];
     public bool[] HM = new bool[8];
     public bool[] keyItem = new bool[8];
+    public bool[] storyFlags = new bool[(int)Flag.Count];
+    public bool[] trainerFlags = new bool[(int)TrainerFlag.Count];
 
     System.Random random;
 
@@ -23,23 +25,24 @@ public class Player : MonoBehaviour
     public List<TileTrigger> triggers;
     public List<TileTrigger> signposts;
 
-    public bool[] storyFlags = new bool[100];
-
     public BattleTerrain currentTerrain;
     public MapID currentMap;
+    public MapID lastMap = 0;
     public Vector2Int pos;
+    public Vector2Int moveTarget;
     public PlayerState state;
     public bool active;
     public bool locked;
     public Direction facing;
 
     public Dictionary<int, LoadedChar> loadedChars;
+    public LoadedChar opponent;
 
     public bool whichStep;
 
     public CollisionID currentHeight;
     public MapManager mapManager;
-    public PlayerGraphics playerGraphics;
+    public PlayerMovement playerGraphics;
     public GUIManager announcer;
 
     public HumanoidGraphicsID graphicsID;
@@ -87,6 +90,11 @@ public class Player : MonoBehaviour
         }
         yield break;
     }
+
+    public void DeactivateAll() { foreach (LoadedChar i in loadedChars.Values) i.Deactivate(); }
+    public void ActivateAll() { foreach (LoadedChar i in loadedChars.Values) i.Activate(); }
+
+    public void RemoveAllChars() => loadedChars = new();
 
     public bool TryAddMon(Pokemon mon)
     {
@@ -159,7 +167,9 @@ public class Player : MonoBehaviour
     {
         mapManager.mapID = currentMap;
         mapManager.ReadMap();
+        currentMap.Data().BeforeLoad(this);
         RefreshObjects();
+        currentMap.Data().OnLoad(this);
     }
 
     public void RefreshTriggers()
@@ -176,7 +186,71 @@ public class Player : MonoBehaviour
 
     public void RefreshChars()
     {
-        loadedChars = new();
+        loadedChars ??= new();
+        List<MapID> maps = new() { currentMap };
+        foreach (Connection i in currentMap.Data().connection)
+        {
+            Debug.Log("Adding " + i.map);
+            maps.Add(i.map);
+        }
+        foreach (LoadedChar i in loadedChars.Values)
+        {
+            bool keep = false;
+            Debug.Log(currentMap);
+            Debug.Log(i.currentMap);
+            if (i.keepOnLoad)
+            {
+                if(i.currentMap != currentMap)
+                    foreach (Connection j in currentMap.Data().connection)
+                    {
+                        if (j.map == i.currentMap) i.pos += GetMapOffset(j);
+                    };
+                i.currentMap = currentMap;
+                continue;
+            }
+            foreach (MapID j in maps)
+            {
+                Debug.Log("Testing " + j);
+                Debug.Log("MapID is " + i.charData.mapID);
+                if (i.charData.mapID == j)
+                {
+                    Debug.Log("Matched");
+                    if (i.currentMap != currentMap)
+                        foreach (Connection k in currentMap.Data().connection)
+                        {
+                            if (k.map == i.currentMap)
+                            {
+                                Debug.Log(i.pos);
+                                Debug.Log(GetMapOffset(k));
+                                i.pos += GetMapOffset(k);
+                                Debug.Log(i.pos);
+                            }
+                        };
+                    i.currentMap = currentMap;
+                    keep = true;
+                    break;
+                }
+            }
+            if (keep) continue;
+            StartCoroutine(i.Unload());
+        }
+        foreach (MapID i in maps)
+        {
+            foreach (CharData j in i.Data().chars)
+            {
+                if (!j.IsLoaded(this))
+                {
+                    j.Load(this);
+                    if (i != currentMap)
+                    {
+                        foreach (Connection k in currentMap.Data().connection)
+                        {
+                            if (k.map == i) j.pos += GetMapOffset(k);
+                        };
+                    }
+                }
+            }
+        }
     }
 
     public void RefreshObjects()
@@ -186,23 +260,35 @@ public class Player : MonoBehaviour
         RefreshChars();
     }
 
+    public LoadedChar GetChar(int index, MapID map = 0)
+    {
+        if (map == 0) map = currentMap;
+        return loadedChars[map.ObjID(index)];
+    }
+
     public void SwitchAndReposition(Vector2Int pos)
     {
         mapManager.mapID = currentMap;
         mapManager.ReadAndReposition(this, pos);
+        currentMap.Data().BeforeLoad(this);
         RefreshObjects();
+        currentMap.Data().OnLoad(this);
     }
 
     public void AlignPlayer() => playerGraphics.playerTransform.position = new Vector3(pos.x + 0.5F, pos.y + 0.5F, pos.y);
 
-    public void UpdateCollision() => currentHeight = CheckCollision(pos);
+    public void UpdateCollision() => currentHeight = CheckCollision(pos, false);
 
     public void CreatePlayerGraphics(HumanoidGraphicsID id) => playerGraphics = new(this, id);
 
-    private CollisionID CheckCollision(Vector2Int pos)
+    public CollisionID CheckCollision(Vector2Int pos, bool checkChars)
     {
-        if (loadedChars.Count > 0) foreach (LoadedChar loadedChar in loadedChars.Values)
-            if (loadedChar.pos == pos || (loadedChar.moving && loadedChar.moveTarget == pos)) return CollisionID.Impassable;
+        if (checkChars)
+        {
+            if (pos == this.pos || (state == PlayerState.Moving && pos == moveTarget)) return CollisionID.Impassable;
+            if (loadedChars.Count > 0) foreach (LoadedChar loadedChar in loadedChars.Values)
+                    if (loadedChar.pos == pos || (loadedChar.moving && loadedChar.moveTarget == pos)) return CollisionID.Impassable;
+        }
         if (pos.x >= 0 && pos.y >= 0 && pos.x < currentMap.Data().width && pos.y < currentMap.Data().height)
             return (CollisionID)mapManager.collision[pos.x, pos.y];
         else
@@ -213,29 +299,25 @@ public class Player : MonoBehaviour
 
     private CollisionID CollisionOnBorderingMaps(Vector2Int pos)
     {
-        (MapID, Vector2Int)? relativeTile = TileOutsideMap(pos);
-        if (relativeTile == null) return CollisionID.Impassable;
+        (MapID? map, Vector2Int pos) relativeTile = TileOutsideMap(pos);
+        if (relativeTile.map == null) return CollisionID.Impassable;
         else
         {
-            (MapID map, Vector2Int pos) trueRelativeTile = ((MapID, Vector2Int))relativeTile;
-            Debug.Log(trueRelativeTile);
-            Debug.Log(mapManager.borderingCollision[trueRelativeTile.map].GetLength(0));
-            Debug.Log(mapManager.borderingCollision[trueRelativeTile.map].GetLength(1));
-            return (CollisionID)mapManager.borderingCollision[trueRelativeTile.map][trueRelativeTile.pos.x, trueRelativeTile.pos.y];
+            return (CollisionID)mapManager.borderingCollision[(MapID)relativeTile.map]
+                [relativeTile.pos.x, relativeTile.pos.y];
         }
     }
 
-    private (MapID, Vector2Int)? TileOutsideMap(Vector2Int pos)
+    private (MapID?, Vector2Int) TileOutsideMap(Vector2Int pos)
     {
         foreach (Connection i in currentMap.Data().connection)
         {
             Vector2Int checkPos = pos - GetMapOffset(i);
-            Debug.Log(checkPos);
             if (checkPos.x >= 0 && checkPos.x < i.map.Data().width
                 && checkPos.y >= 0 && checkPos.y < i.map.Data().height)
                 return (i.map, checkPos);
         }
-        return null;
+        return (null, Vector2Int.zero);
     }
 
     public Vector2Int GetMapOffset(Connection connection)
@@ -253,20 +335,13 @@ public class Player : MonoBehaviour
     public Vector2Int GetCoordinateWithOffset(Connection i, Vector2Int basePos)
         => GetMapOffset(i) + basePos;
 
-    private bool CheckCollisionAllowed(Direction direction)
+    public bool CheckCollisionAllowed(Vector2Int pos, CollisionID currentCollision, bool checkChars = true)
     {
-        CollisionID nextCollision = direction switch
-        {
-            Direction.N => CheckCollision(pos + Vector2Int.up),
-            Direction.W => CheckCollision(pos + Vector2Int.left),
-            Direction.E => CheckCollision(pos + Vector2Int.right),
-            Direction.S => CheckCollision(pos + Vector2Int.down),
-            _ => CollisionID.Impassable
-        };
+        CollisionID nextCollision = CheckCollision(pos, checkChars);
         if (nextCollision == CollisionID.Impassable) return false;
-        if (currentHeight == CollisionID.Change) return true;
+        if (currentCollision == CollisionID.Change) return true;
         if (nextCollision is CollisionID.Bridge or CollisionID.Change) return true;
-        if (currentHeight == nextCollision) return true;
+        if (currentCollision == nextCollision) return true;
         else return false;
     }
 
@@ -278,6 +353,7 @@ public class Player : MonoBehaviour
             {
                 if (i.direction == Direction.E && y >= i.offset && y < i.map.Data().height + i.offset)
                 {
+                    lastMap = currentMap;
                     currentMap = i.map;
                     SwitchAndReposition(new Vector2Int(-1, y - i.offset));
                     AlignPlayer();
@@ -290,6 +366,7 @@ public class Player : MonoBehaviour
             {
                 if (i.direction == Direction.W && y >= i.offset && y < i.map.Data().height + i.offset)
                 {
+                    lastMap = currentMap;
                     currentMap = i.map;
                     SwitchAndReposition(new Vector2Int(i.map.Data().width, y - i.offset));
                     AlignPlayer();
@@ -302,6 +379,7 @@ public class Player : MonoBehaviour
             {
                 if (i.direction == Direction.N && x >= i.offset && x < i.map.Data().width + i.offset)
                 {
+                    lastMap = currentMap;
                     currentMap = i.map;
                     SwitchAndReposition(new Vector2Int(x - i.offset, -1));
                     AlignPlayer();
@@ -314,6 +392,7 @@ public class Player : MonoBehaviour
             {
                 if (i.direction == Direction.S && x >= i.offset && x < i.map.Data().width + i.offset)
                 {
+                    lastMap = currentMap;
                     currentMap = i.map;
                     SwitchAndReposition(new Vector2Int(x - i.offset, i.map.Data().height));
                     AlignPlayer();
@@ -334,27 +413,23 @@ public class Player : MonoBehaviour
         camera.transform.localPosition = new Vector3(0, 0, -100);
     }
 
-    public IEnumerator StartSingleTrainerBattle(Pokemon[] opponentParty, BattleType battleType)
+    public IEnumerator StartSingleTrainerBattle(LoadedChar opponentChar, TeamData opponentTeam)
     {
-        Pokemon[] useOpponentParty = new Pokemon[6];
-        for (int i = 0; i < opponentParty.Length; i++)
-        {
-            useOpponentParty[i] = opponentParty[i];
-        }
-        for (int i = opponentParty.Length; i < 6; i++)
-        {
-            useOpponentParty[i] = Pokemon.MakeEmptyMon;
-        }
+        Pokemon[] opponentParty = opponentTeam.GetParty();
         state = PlayerState.Locked;
         active = false;
+        DeactivateAll();
         mapManager.ClearMap();
+        opponent = opponentChar;
         yield return Scene.Battle.Load();
         Battle battle = FindAnyObjectByType<Battle>();
         battle.player = this;
         SortParty();
+        battle.OpponentName = opponentTeam.trainerName;
         battle.PlayerPokemon = Party;
-        battle.OpponentPokemon = useOpponentParty;
-        battle.battleType = battleType;
+        battle.OpponentPokemon = opponentParty;
+        battle.battleType = BattleType.Single;
+        battle.wildBattle = false;
         battle.battleTerrain = currentTerrain;
         battle.StartCoroutine(battle.StartBattle());
     }
@@ -365,6 +440,7 @@ public class Player : MonoBehaviour
         yield return null;
         state = PlayerState.Locked;
         active = false;
+        DeactivateAll();
         mapManager.ClearMap();
         yield return null;
         yield return Scene.Battle.Load();
@@ -396,6 +472,7 @@ public class Player : MonoBehaviour
         AlignPlayer();
         CaptureCamera();
         UpdateCollision();
+        ActivateAll();
         active = true;
     }
 
@@ -403,6 +480,12 @@ public class Player : MonoBehaviour
     {
         yield return BattleWon();
         state = PlayerState.Free;
+    }
+
+    public IEnumerator TrainerBattleWon()
+    {
+        yield return BattleWon();
+        opponent.charData.OnWin(this, opponent);
     }
 
     public void CheckGrassEncounter()
@@ -420,7 +503,7 @@ public class Player : MonoBehaviour
     {
         if (facing != Direction.S)
             StartCoroutine(playerGraphics.FaceSouth(this, 0.1F));
-        else if (CheckCollisionAllowed(Direction.S))
+        else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x, pos.y - 1);
             StartCoroutine(GoSouth());
@@ -435,7 +518,7 @@ public class Player : MonoBehaviour
     {
         if (facing != Direction.N)
             StartCoroutine(playerGraphics.FaceNorth(this, 0.1F));
-        else if (CheckCollisionAllowed(Direction.N))
+        else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x, pos.y + 1);
             StartCoroutine(GoNorth());
@@ -450,7 +533,7 @@ public class Player : MonoBehaviour
     {
         if (facing != Direction.W)
             StartCoroutine(playerGraphics.FaceWest(this, 0.1F));
-        else if (CheckCollisionAllowed(Direction.W))
+        else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x - 1, pos.y);
             StartCoroutine(GoWest());
@@ -465,7 +548,7 @@ public class Player : MonoBehaviour
     {
         if (facing != Direction.E)
             StartCoroutine(playerGraphics.FaceEast(this, 0.1F));
-        else if (CheckCollisionAllowed(Direction.E))
+        else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x + 1, pos.y);
             StartCoroutine(GoEast());
@@ -525,9 +608,9 @@ public class Player : MonoBehaviour
         Vector2Int facingTile = GetFacingTile();
         foreach(LoadedChar i in loadedChars.Values)
         {
-            if (i.pos == facingTile)
+            if (i.pos == facingTile && i.available)
             {
-                i.charData.OnInteract(this);
+                i.charData.OnInteract(this, i);
                 return true;
             }
         }

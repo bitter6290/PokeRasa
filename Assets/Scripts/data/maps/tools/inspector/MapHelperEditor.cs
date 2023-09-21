@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(MapHelper))]
@@ -31,3 +32,4 @@ public class MapHelperEditor : Editor
         }
     }
 }
+#endif

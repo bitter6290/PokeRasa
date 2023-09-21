@@ -2,13 +2,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerGraphics
+public class PlayerMovement
 {
     public HumanoidGraphics movementSprites;
     public GameObject playerObject;
     public Transform playerTransform => playerObject.GetComponent<Transform>();
     public SpriteRenderer playerSprite => playerObject.GetComponent<SpriteRenderer>();
-    public PlayerGraphics(Player p, HumanoidGraphicsID graphicsID)
+    public PlayerMovement(Player p, HumanoidGraphicsID graphicsID)
     {
         playerObject = new("Player Graphics");
         playerObject.AddComponent<SpriteRenderer>();
@@ -32,6 +32,7 @@ public class PlayerGraphics
     {
         p.state = PlayerState.Moving;
         p.facing = Direction.N;
+        p.moveTarget = p.GetFacingTile();
         p.whichStep = !p.whichStep;
         playerSprite.flipX = false;
         float baseTime = Time.time;
@@ -54,6 +55,7 @@ public class PlayerGraphics
     {
         p.state = PlayerState.Moving;
         p.facing = Direction.S;
+        p.moveTarget = p.GetFacingTile();
         p.whichStep = !p.whichStep;
         playerSprite.flipX = false;
         float baseTime = Time.time;
@@ -76,6 +78,7 @@ public class PlayerGraphics
     {
         p.state = PlayerState.Moving;
         p.facing = Direction.W;
+        p.moveTarget = p.GetFacingTile();
         p.whichStep = !p.whichStep;
         playerSprite.flipX = false;
         float baseTime = Time.time;
@@ -98,6 +101,7 @@ public class PlayerGraphics
     {
         p.state = PlayerState.Moving;
         p.facing = Direction.E;
+        p.moveTarget = p.GetFacingTile();
         p.whichStep = !p.whichStep;
         playerSprite.flipX = movementSprites.flipOnWalkEast;
         float baseTime = Time.time;
@@ -199,6 +203,7 @@ public class PlayerGraphics
     public IEnumerator FaceNorth(Player p, float duration)
     {
         playerSprite.sprite = movementSprites.stillNorth;
+        playerSprite.flipX = false;
         p.state = PlayerState.Moving;
         p.facing = Direction.N;
         yield return new WaitForSeconds(duration);
@@ -207,6 +212,7 @@ public class PlayerGraphics
     public IEnumerator FaceSouth(Player p, float duration)
     {
         playerSprite.sprite = movementSprites.stillSouth;
+        playerSprite.flipX = false;
         p.state = PlayerState.Moving;
         p.facing = Direction.S;
         yield return new WaitForSeconds(duration);
@@ -215,6 +221,7 @@ public class PlayerGraphics
     public IEnumerator FaceWest(Player p, float duration)
     {
         playerSprite.sprite = movementSprites.stillWest;
+        playerSprite.flipX = false;
         p.state = PlayerState.Moving;
         p.facing = Direction.W;
         yield return new WaitForSeconds(duration);

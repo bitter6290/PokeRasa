@@ -1,7 +1,10 @@
 ﻿using System.Collections;
+using static ScriptUtils;
 
 public static class TestMapdata
 {
+    const MapID thisMap = MapID.Test;
+
     public static WildDataset TestGrass = new()
     {
         encounterPercent = 5,
@@ -33,10 +36,38 @@ public static class TestMapdata
         {
             index = 0,
             mapID = MapID.Test,
-            pos = new(15,5),
+            pos = new(3,2),
             hasCollision = true,
-            graphics = CharacterGraphicsStructs.brendanWalk,
-            OnInteract = p => p.StartCoroutine(p.DoAnnouncements(new(){"Hello!"})),
+            hasSeeScript = true,
+            loadedByDefault = true,
+            sightRadius = 3,
+            graphics = CharacterGraphicsStructs.mayWalk,
+            GetMovement = t =>
+            {
+                t.Actions.Enqueue(t.TryWalkNorth);
+                t.Actions.Enqueue(() => t.Pause(1.0F));
+            },
+            OnInteract = (p, c) =>
+            {
+                c.FaceAndLock();
+                p.StartCoroutine(TrainerFlag.MayTest.Get(p) ?
+                p.DoAnnouncements(new(){"I shouldn't be fighting with baby Pokémon anyway..."})
+                    .DoAtEnd(() => c.free = true) :
+                p.DoAnnouncements(new(){"Hello!"})
+                    .DoAtEnd(() => c.free = true)
+                );
+            },
+            OnSee = (p, c) => p.StartCoroutine(TrainerFlag.MayTest.Get(p) ?
+                DoNothing(p) :
+                TrainerSeeSingle(p, c, Team.mayTestTeam, new(){"Boo!"})),
+            OnWin = (p,c) => p.StartCoroutine(ScriptUtils.DoAtEnd(p.DoAnnouncements(new(){"You win!","Good job!"}), () =>
+            {
+                p.state = PlayerState.Free;
+                TrainerFlag.MayTest.Set(p);
+                c.doMove = false;
+                c.free = true;
+            }
+            )),
         }
     };
 

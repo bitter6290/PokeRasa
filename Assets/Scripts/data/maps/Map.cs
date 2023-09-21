@@ -21,6 +21,7 @@ public static class Map
         },
         triggers = TestMapdata.triggers,
         signposts = TestMapdata.signposts,
+        chars = TestMapdata.charData,
         grassData = TestMapdata.grassTables,
     };
 

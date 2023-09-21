@@ -10895,6 +10895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   wildBattle: 0
+  escapeAttempts: 0
   OpponentPokemon:
   - species: 0
     monName: 
@@ -11535,6 +11536,7 @@ MonoBehaviour:
   megaEvolveOnMove: 000000000000
   hasPlayerMegaEvolved: 0
   hasOpponentMegaEvolved: 0
+  healingWish: 000000000000
   textSpeed: 10
   persistenceTime: 2
   switchDuringTurn: 0
@@ -11653,6 +11655,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -11684,7 +11687,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -11783,6 +11787,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -11801,6 +11808,7 @@ MonoBehaviour:
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
@@ -11890,6 +11898,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -11921,7 +11930,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -12020,6 +12030,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12038,6 +12051,7 @@ MonoBehaviour:
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
@@ -12127,6 +12141,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -12158,7 +12173,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -12257,6 +12273,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12275,6 +12294,7 @@ MonoBehaviour:
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
@@ -12364,6 +12384,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -12395,7 +12416,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -12494,6 +12516,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12512,6 +12537,7 @@ MonoBehaviour:
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
@@ -12601,6 +12627,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -12632,7 +12659,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -12731,6 +12759,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12749,6 +12780,7 @@ MonoBehaviour:
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
@@ -12838,6 +12870,7 @@ MonoBehaviour:
     abilityActivated: 0
     wasProtected: 0
     enduredHit: 0
+    gotSuperEffectiveHit: 0
     roosting: 0
     confused: 0
     confusionCounter: 0
@@ -12869,7 +12902,8 @@ MonoBehaviour:
     uproar: 0
     uproarTimer: 0
     gotAbilityEffect: 0
-    affectingAbility: 0
+    affectingAbilitySelf: 0
+    affectingAbilityAttacker: 0
     seeded: 0
     seedingSlot: 0
     focused: 0
@@ -12968,6 +13002,9 @@ MonoBehaviour:
     typesOverriden: 0
     eatenBerry: 0
     gotReducingBerryEffect: 0
+    ateRetaliationBerry: 0
+    micleAccBoost: 0
+    custapPriorityBoost: 0
     stockpile: 0
     stockpileDef: 0
     stockpileSpDef: 0
@@ -12986,6 +13023,7 @@ MonoBehaviour:
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
@@ -13524,7 +13562,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -920784317, guid: e6fcbf34193624af7bf782c2ca88307c, type: 3}
+  m_Sprite: {fileID: 0}
   m_MaskAlphaCutoff: 0.611
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
@@ -15386,7 +15424,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1511774953, guid: c9bcefe7b5eb84d199248f8498b8960c, type: 3}
+  m_Sprite: {fileID: 0}
   m_MaskAlphaCutoff: 0.611
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0

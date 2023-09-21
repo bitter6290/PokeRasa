@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_EDITOR
+using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using UnityEngine;
 using UnityEditor;
@@ -71,10 +72,10 @@ public class MapWriter
             }
         }
         string outString = System.Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?");
-        string path = Application.dataPath + "/Resources/Maps/" + mapHelper.mapData.path + ".pokemap";
+        string path = Application.streamingAssetsPath + "/Maps/" + mapHelper.mapData.path + ".pokemap";
         if (File.Exists(path))
         {
-            File.Copy(path, Application.dataPath + "/Resources/Maps/Old/" + mapHelper.mapData.path
+            File.Copy(path, Application.streamingAssetsPath + "/Maps/Old/" + mapHelper.mapData.path
                 + "_" + DateTime.Now.ToString().Replace('/', '-').Replace(':', '-') + ".pokemap");
             File.Delete(path);
         }
@@ -86,3 +87,4 @@ public class MapWriter
     }
 
 }
+#endif
