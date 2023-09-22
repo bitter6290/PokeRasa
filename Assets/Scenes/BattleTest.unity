@@ -1404,14 +1404,17 @@ MonoBehaviour:
   HM: 0000000000000000
   keyItem: 0000000000000000
   storyFlags: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  trainerFlags: 00
   currentTerrain: 0
   currentMap: 0
-  xPos: 0
-  yPos: 0
+  lastMap: 0
+  pos: {x: 0, y: 0}
+  moveTarget: {x: 0, y: 0}
   state: 0
   active: 0
   locked: 0
   facing: 0
+  opponent: {fileID: 0}
   whichStep: 0
   currentHeight: 0
   mapManager: {fileID: 0}
@@ -11914,6 +11917,8 @@ MonoBehaviour:
   continueMultiHitMove: 0
   consumeItems: 1
   doStatAnim: 1
+  flungItem: 0
+  lastMoveUsed: 0
   payDay: 0
   weather: 0
   weatherTimer: 0
@@ -12045,6 +12050,7 @@ MonoBehaviour:
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
+    damagedThisTurn: 0
     disabled: 0
     disabledMove: 0
     disableTimer: 0
@@ -12159,6 +12165,7 @@ MonoBehaviour:
     stockpileSpDef: 0
     hasType3: 0
     Type3: 255
+    abilitySuppressed: 0
     mimicking: 0
     mimicSlot: 0
     mimicMove: 0
@@ -12168,15 +12175,25 @@ MonoBehaviour:
     yawnThisTurn: 1
     gotAteBoost: 0
     ingrained: 0
+    hasAquaRing: 0
     imprisoned: 0
+    magnetRise: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
+    embargoTimer: 0
+    healBlocked: 0
+    healBlockTimer: 0
+    powerTrick: 0
+    powerTrickSuppressed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    meFirst: 0
+    usedMove: 
     battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
@@ -12287,6 +12304,7 @@ MonoBehaviour:
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
+    damagedThisTurn: 0
     disabled: 0
     disabledMove: 0
     disableTimer: 0
@@ -12401,6 +12419,7 @@ MonoBehaviour:
     stockpileSpDef: 0
     hasType3: 0
     Type3: 255
+    abilitySuppressed: 0
     mimicking: 0
     mimicSlot: 0
     mimicMove: 0
@@ -12410,15 +12429,25 @@ MonoBehaviour:
     yawnThisTurn: 1
     gotAteBoost: 0
     ingrained: 0
+    hasAquaRing: 0
     imprisoned: 0
+    magnetRise: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
+    embargoTimer: 0
+    healBlocked: 0
+    healBlockTimer: 0
+    powerTrick: 0
+    powerTrickSuppressed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    meFirst: 0
+    usedMove: 
     battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
@@ -12529,6 +12558,7 @@ MonoBehaviour:
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
+    damagedThisTurn: 0
     disabled: 0
     disabledMove: 0
     disableTimer: 0
@@ -12643,6 +12673,7 @@ MonoBehaviour:
     stockpileSpDef: 0
     hasType3: 0
     Type3: 255
+    abilitySuppressed: 0
     mimicking: 0
     mimicSlot: 0
     mimicMove: 0
@@ -12652,15 +12683,25 @@ MonoBehaviour:
     yawnThisTurn: 1
     gotAteBoost: 0
     ingrained: 0
+    hasAquaRing: 0
     imprisoned: 0
+    magnetRise: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
+    embargoTimer: 0
+    healBlocked: 0
+    healBlockTimer: 0
+    powerTrick: 0
+    powerTrickSuppressed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    meFirst: 0
+    usedMove: 
     battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
@@ -12771,6 +12812,7 @@ MonoBehaviour:
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
+    damagedThisTurn: 0
     disabled: 0
     disabledMove: 0
     disableTimer: 0
@@ -12885,6 +12927,7 @@ MonoBehaviour:
     stockpileSpDef: 0
     hasType3: 0
     Type3: 255
+    abilitySuppressed: 0
     mimicking: 0
     mimicSlot: 0
     mimicMove: 0
@@ -12894,15 +12937,25 @@ MonoBehaviour:
     yawnThisTurn: 1
     gotAteBoost: 0
     ingrained: 0
+    hasAquaRing: 0
     imprisoned: 0
+    magnetRise: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
+    embargoTimer: 0
+    healBlocked: 0
+    healBlockTimer: 0
+    powerTrick: 0
+    powerTrickSuppressed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    meFirst: 0
+    usedMove: 
     battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
@@ -13013,6 +13066,7 @@ MonoBehaviour:
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
+    damagedThisTurn: 0
     disabled: 0
     disabledMove: 0
     disableTimer: 0
@@ -13127,6 +13181,7 @@ MonoBehaviour:
     stockpileSpDef: 0
     hasType3: 0
     Type3: 255
+    abilitySuppressed: 0
     mimicking: 0
     mimicSlot: 0
     mimicMove: 0
@@ -13136,15 +13191,25 @@ MonoBehaviour:
     yawnThisTurn: 1
     gotAteBoost: 0
     ingrained: 0
+    hasAquaRing: 0
     imprisoned: 0
+    magnetRise: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
+    embargoTimer: 0
+    healBlocked: 0
+    healBlockTimer: 0
+    powerTrick: 0
+    powerTrickSuppressed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    meFirst: 0
+    usedMove: 
     battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
@@ -13255,6 +13320,7 @@ MonoBehaviour:
     damageTaken: 0
     damageWasPhysical: 0
     lastDamageDoer: 0
+    damagedThisTurn: 0
     disabled: 0
     disabledMove: 0
     disableTimer: 0
@@ -13369,6 +13435,7 @@ MonoBehaviour:
     stockpileSpDef: 0
     hasType3: 0
     Type3: 255
+    abilitySuppressed: 0
     mimicking: 0
     mimicSlot: 0
     mimicMove: 0
@@ -13378,15 +13445,25 @@ MonoBehaviour:
     yawnThisTurn: 1
     gotAteBoost: 0
     ingrained: 0
+    hasAquaRing: 0
     imprisoned: 0
+    magnetRise: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
+    embargoed: 0
+    embargoTimer: 0
+    healBlocked: 0
+    healBlockTimer: 0
+    powerTrick: 0
+    powerTrickSuppressed: 0
     damagedByMon: 000000000000
     moveUsedLastTurn: 0
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    meFirst: 0
+    usedMove: 
     battle: {fileID: 0}
     lastTargetedMove: 0
   battleType: 0
@@ -13672,7 +13749,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034585550}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 420ba2b0ed775415da443b053ece9aba, type: 3}
   m_Name: 

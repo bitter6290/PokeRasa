@@ -198,7 +198,7 @@ public class Battle : MonoBehaviour
 
     public ItemID EffectiveItem(int index)
         => PokemonOnField[index].ability == Klutz || magicRoom
-        ? ItemID.None : EffectiveItem(index);
+        ? ItemID.None : PokemonOnField[index].item;
 
     public Terrain EffectiveTerrain(int index)
         => IsGrounded(index) ? terrain : Terrain.None;
