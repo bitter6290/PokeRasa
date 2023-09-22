@@ -15,10 +15,6 @@ public static class BattleAnim
         audioSource.volume = 1.0F;
         audioSource.PlayOneShot(cry);
     }
-    public static AudioClip G4MoveFX(string path)
-    {
-        return Resources.Load<AudioClip>("Sound/G4 MoveFX/" + path);
-    }
     public static AudioClip BattleFX(string path)
     {
         return Resources.Load<AudioClip>("Sound/Battle SFX/" + path);
@@ -268,7 +264,7 @@ public static class BattleAnim
                 break;
             case MoveID.KarateChop:
                 battle.audioSource0.volume = 1;
-                battle.audioSource0.PlayOneShot(G4MoveFX("Karate_Chop"));
+                battle.audioSource0.PlayOneShot(BattleFX("Karate Chop"));
                 GameObject karateChopSprite = NewSpriteFromTexturePart(
                     "Sprites/Battle/hands_and_feet", battle.spriteTransform[index], new Vector2(1.0F, 1.0F),
                     new Vector2(0.0F, 1.0F), new Rect(0.0F, 0.0F, 32.0F, 32.0F));
