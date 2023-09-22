@@ -7,4 +7,5 @@ public enum ContinuousDamage : byte
     Clamp,
     Whirlpool,
     SandTomb,
+    MagmaStorm,
 }

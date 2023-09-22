@@ -70,6 +70,21 @@ public class HeldItem : ItemData //subdata length 2
     }
 }
 
+public class PlateItem : HeldItem //subdata length 3
+{
+    public Type plateType;
+    public override int[] ItemSubdata => new int[3]
+    {
+        (int)heldEffect,
+        heldEffectIntensity,
+        (int)plateType,
+    };
+    public PlateItem()
+    {
+        type = ItemType.Plate;
+    }
+}
+
 public class HeldFieldItem : ItemData //subdata length 4
 {
     public HeldEffect heldEffect;
@@ -246,6 +261,17 @@ public static class ItemUtils
                 return (SpeciesID)Item.ItemTable[(int)item].ItemSubdata[0];
             default:
                 return SpeciesID.Missingno;
+        }
+    }
+
+    public static Type PlateType(this ItemID item)
+    {
+        switch(item.Data().type)
+        {
+            case ItemType.Plate:
+                return (Type)item.Data().ItemSubdata[2];
+            default:
+                return Type.Typeless;
         }
     }
 

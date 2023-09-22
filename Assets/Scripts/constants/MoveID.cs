@@ -455,6 +455,25 @@ public enum MoveID
     StealthRock,
     GrassKnot,
     Chatter,
+    Judgment,
+    BugBite,
+    ChargeBeam,
+    WoodHammer,
+    AquaJet,
+    AttackOrder,
+    DefendOrder,
+    HealOrder,
+    HeadSmash,
+    DoubleHit,
+    RoarOfTime,
+    SpacialRend,
+    LunarDance,
+    CrushGrip,
+    MagmaStorm,
+    DarkVoid,
+    SeedFlare,
+    OminousWind,
+    ShadowForce,
 
     //Nonstandard moves
 
@@ -471,6 +490,7 @@ public enum MoveID
     FocusPunchAttack,
     DiveAttack,
     BounceAttack,
+    ShadowForceAttack,
 
     Count,
 

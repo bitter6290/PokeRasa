@@ -4,6 +4,7 @@
     BattleItem,
     Medicine,
     HeldItem,
+    Plate,
     HeldFieldItem,
     Berry,
     TM,

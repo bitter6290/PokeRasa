@@ -520,6 +520,13 @@ public static class BattleEffect
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + " was trapped by Sand Tomb!");
                 break;
+            case MoveID.MagmaStorm:
+                target.getsContinuousDamage = true;
+                target.continuousDamageType = ContinuousDamage.MagmaStorm;
+                target.continuousDamageSource = attacker;
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " was trapped in the swirling magma!");
+                break;
             default:
                 yield return battle.Announce("Error 111");
                 yield break;
@@ -689,7 +696,12 @@ public static class BattleEffect
                 //yield return BattleAnim.SandTomb(battle, index);
                 damage = target.PokemonData.hpMax >> 4;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + " was hurt by Sand Tomb!");
+                    + " is hurt by Sand Tomb!");
+                break;
+            case ContinuousDamage.MagmaStorm:                //yield return BattleAnim.SandTomb(battle, index);
+                damage = target.PokemonData.hpMax >> 4;
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " is hurt by the swirling magma!");
                 break;
             default:
                 yield return battle.Announce("Error 112");

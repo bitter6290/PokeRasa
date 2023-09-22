@@ -1988,7 +1988,7 @@ public static class Move
         magicBounceAffected); //Needs anim
     public static MoveData WringOut = new(
         "Wring Out", Normal,
-        1, 100, 0,
+        120, 100, 0,
         MoveEffect.TargetHealthPower, 0,
         false, Target.Single, 5); //Needs anim
     public static MoveData PowerTrick = SelfTargetingMove(
@@ -2271,6 +2271,90 @@ public static class Move
         MoveEffect.Confuse, 100,
         false, Target.Single + Target.Ranged, 20,
         soundMove); //Needs anim
+    public static MoveData Judgment = new(
+        "Judgment", Normal,
+        100, 100, 0,
+        MoveEffect.Judgement, 0,
+        false, Target.Single, 10); //Needs anim
+    public static MoveData BugBite = new(
+        "Bug Bite", Bug,
+        60, 100, 0,
+        MoveEffect.Pluck, 100,
+        true, Target.Single, 20,
+        makesContact); //Needs anim
+    public static MoveData ChargeBeam = new(
+        "Charge Beam", Electric,
+        50, 90, 0,
+        MoveEffect.SpAtkUp1, 70,
+        false, Target.Single, 10); //Needs anim
+    public static MoveData WoodHammer = new(
+        "Wood Hammer", Grass,
+        120, 100, 0,
+        MoveEffect.Recoil33, 0,
+        true, Target.Single, 15,
+        makesContact); //Needs anim
+    public static MoveData AquaJet = SingleTargetNoEffect(
+        "Aqua Jet", Water, 40, 100, 0, true, 20, makesContact); //Needs anim
+    public static MoveData AttackOrder = SingleTargetNoEffect(
+        "Attack Order", Bug, 90, 100, 0, true, 15); //Needs anim
+    public static MoveData DefendOrder = SelfTargetingMove(
+        "Defend Order", Bug, 0, MoveEffect.DefenseSpDefUp1, 10); //Needs anim
+    public static MoveData HealOrder = SelfTargetingMove(
+        "Heal Order", Bug, 0, MoveEffect.Heal50, 10); //Needs anim. May also be lowered to 5 PP to match Recover
+    public static MoveData HeadSmash = new(
+        "Head Smash", Rock,
+        150, 80, 0,
+        MoveEffect.Recoil33, 0,
+        true, Target.Single, 5,
+        makesContact); //Needs anim
+    public static MoveData DoubleHit = new(
+        "Double Hit", Normal,
+        35, 90, 0,
+        MoveEffect.MultiHit2, 0,
+        true, Target.Single, 10,
+        makesContact); //Needs anim
+    public static MoveData RoarOfTime = new(
+        "Roar of Time", Dragon,
+        150, 90, 0,
+        MoveEffect.Recharge, 0,
+        false, Target.Single, 5); //Needs anim
+    public static MoveData SpacialRend = SingleTargetNoEffect(
+        "Spacial Rend", Dragon, 100, 95, 0, false, 5, highCrit); //Needs anim
+    public static MoveData LunarDance = SelfTargetingMove(
+        "Lunar Dance", Type.Psychic, 0, MoveEffect.HealingWish, 10,
+        snatchAffected + healBlockAffected); //Needs anim
+    public static MoveData CrushGrip = new(
+        "Crush Grip", Normal,
+        120, 100, 0,
+        MoveEffect.TargetHealthPower, 0,
+        true, Target.Single, 5, makesContact); //Needs anim
+    public static MoveData MagmaStorm = new(
+        "Magma Storm", Fire,
+        100, 75, 0,
+        MoveEffect.ContinuousDamage, 100,
+        false, Target.Single, 5); //Needs anim
+    public static MoveData DarkVoid = new(
+        "Dark Void", Dark,
+        0, 50, 0,
+        MoveEffect.Sleep, 100,
+        false, Target.Opponent + Target.Spread, 10,
+        magicBounceAffected); //Needs anim
+    public static MoveData SeedFlare = new(
+        "Seed Flare", Grass,
+        120, 85, 0,
+        MoveEffect.SpDefDown2, 40,
+        false, Target.Single, 5); //Needs anim
+    public static MoveData OminousWind = new(
+        "Ominous Wind", Ghost,
+        60, 100, 0,
+        MoveEffect.AllUp1, 10,
+        false, Target.Single, 5,
+        effectOnSelfOnly); //Needs anim
+    public static MoveData ShadowForce = new(
+        "Shadow Force", Ghost,
+        120, 100, 0,
+        MoveEffect.ChargingAttack, 0,
+        true, Target.Single, 5); //Needs anim
 
 
     //Non-standard moves
@@ -2351,6 +2435,12 @@ public static class Move
         MoveEffect.Paralyze, 30,
         true, Target.Single, 5,
         makesContact); //Needs anim
+    public static MoveData ShadowForceAttack = new(
+        "Shadow Force", Ghost,
+        120, 100, 0,
+        MoveEffect.Feint, 100,
+        true, Target.Single, 5,
+        mimicBypass + makesContact); //Needs anim
     public static MoveData Struggle = new(
         "Struggle", Typeless,
         50, 100, 0,
@@ -2817,6 +2907,25 @@ public static class Move
         StealthRock,
         GrassKnot,
         Chatter,
+        Judgment,
+        BugBite,
+        ChargeBeam,
+        WoodHammer,
+        AquaJet,
+        AttackOrder,
+        DefendOrder,
+        HealOrder,
+        HeadSmash,
+        DoubleHit,
+        RoarOfTime,
+        SpacialRend,
+        LunarDance,
+        CrushGrip,
+        MagmaStorm,
+        DarkVoid,
+        SeedFlare,
+        OminousWind,
+        ShadowForce,
 
 
         //Nonstandard moves
@@ -2834,5 +2943,6 @@ public static class Move
         FocusPunchAttack,
         DiveAttack,
         BounceAttack,
+        ShadowForceAttack,
     };
 }

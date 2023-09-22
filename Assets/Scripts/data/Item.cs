@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using static SpeciesID;
 using static BerryEffect;
 using static FieldEffect;
+using static HeldEffect;
 
 public static class Item
 {
@@ -641,7 +642,7 @@ public static class Item
     {
         itemName = "Metal Coat",
         price = 15000,
-        heldEffect = HeldEffect.MetalCoat,
+        heldEffect = SteelPowerUp20,
         graphicsPath = "metal_coat",
     };
 
@@ -660,6 +661,170 @@ public static class Item
         price = 20000,
         heldEffect = HeldEffect.DeepSeaScale,
         graphicsPath = "deep_sea_scale"
+    };
+
+    //Plates
+
+    public static PlateItem BlankPlate = new()
+    {
+        itemName = "Blank Plate",
+        price = 0,
+        heldEffect = NormalPowerUp20,
+        plateType = Type.Normal,
+        graphicsPath = "blank_plate"
+    };
+
+    public static PlateItem FlamePlate = new()
+    {
+        itemName = "Flame Plate",
+        price = 0,
+        heldEffect = FirePowerUp20,
+        plateType = Type.Fire,
+        graphicsPath = "flame_plate"
+    };
+
+    public static PlateItem SplashPlate = new()
+    {
+        itemName = "Splash Plate",
+        price = 0,
+        heldEffect = WaterPowerUp20,
+        plateType = Type.Water,
+        graphicsPath = "water_plate"
+    };
+
+    public static PlateItem MeadowPlate = new()
+    {
+        itemName = "Meadow Plate",
+        price = 0,
+        heldEffect = GrassPowerUp20,
+        plateType = Type.Grass,
+        graphicsPath = "meadow_plate"
+    };
+
+    public static PlateItem ZapPlate = new()
+    {
+        itemName = "Zap Plate",
+        price = 0,
+        heldEffect = ElectricPowerUp20,
+        plateType = Type.Electric,
+        graphicsPath = "zap_plate"
+    };
+
+    public static PlateItem IciclePlate = new()
+    {
+        itemName = "Icicle Plate",
+        price = 0,
+        heldEffect = IcePowerUp20,
+        plateType = Type.Ice,
+        graphicsPath = "icicle_plate"
+    };
+
+    public static PlateItem EarthPlate = new()
+    {
+        itemName = "Earth Plate",
+        price = 0,
+        heldEffect = GroundPowerUp20,
+        plateType = Type.Ground,
+        graphicsPath = "earth_plate"
+    };
+
+    public static PlateItem StonePlate = new()
+    {
+        itemName = "Stone Plate",
+        price = 0,
+        heldEffect = RockPowerUp20,
+        plateType = Type.Rock,
+        graphicsPath = "stone_plate"
+    };
+
+    public static PlateItem SkyPlate = new()
+    {
+        itemName = "Sky Plate",
+        price = 0,
+        heldEffect = FlyingPowerUp20,
+        plateType = Type.Flying,
+        graphicsPath = "sky_plate"
+    };
+
+    public static PlateItem FistPlate = new()
+    {
+        itemName = "Fist Plate",
+        price = 0,
+        heldEffect = FightingPowerUp20,
+        plateType = Type.Fighting,
+        graphicsPath = "fist_plate"
+    };
+
+    public static PlateItem InsectPlate = new()
+    {
+        itemName = "Insect Plate",
+        price = 0,
+        heldEffect = BugPowerUp20,
+        plateType = Type.Bug,
+        graphicsPath = "insect_plate"
+    };
+
+    public static PlateItem MindPlate = new()
+    {
+        itemName = "Mind Plate",
+        price = 0,
+        heldEffect = PsychicPowerUp20,
+        plateType = Type.Psychic,
+        graphicsPath = "mind_plate"
+    };
+
+    public static PlateItem SpookyPlate = new()
+    {
+        itemName = "Spooky Plate",
+        price = 0,
+        heldEffect = GhostPowerUp20,
+        plateType = Type.Ghost,
+        graphicsPath = "spooky_plate"
+    };
+
+    public static PlateItem ToxicPlate = new()
+    {
+        itemName = "Toxic Plate",
+        price = 0,
+        heldEffect = PoisonPowerUp20,
+        plateType = Type.Poison,
+        graphicsPath = "toxic_plate"
+    };
+
+    public static PlateItem DracoPlate = new()
+    {
+        itemName = "Draco Plate",
+        price = 0,
+        heldEffect = DragonPowerUp20,
+        plateType = Type.Dragon,
+        graphicsPath = "draco_plate"
+    };
+
+    public static PlateItem DreadPlate = new()
+    {
+        itemName = "Dread Plate",
+        price = 0,
+        heldEffect = DarkPowerUp20,
+        plateType = Type.Dark,
+        graphicsPath = "dread_plate"
+    };
+
+    public static PlateItem IronPlate = new()
+    {
+        itemName = "Iron Plate",
+        price = 0,
+        heldEffect = SteelPowerUp20,
+        plateType = Type.Steel,
+        graphicsPath = "iron_plate"
+    };
+
+    public static PlateItem PixiePlate = new()
+    {
+        itemName = "Pixie Plate",
+        price = 0,
+        heldEffect = FairyPowerUp20,
+        plateType = Type.Fairy,
+        graphicsPath = "pixie_plate"
     };
 
     //Abstract items - only used for evolutions/specific item checks
@@ -1135,6 +1300,25 @@ public static class Item
         MetalCoat,
         DeepSeaTooth,
         DeepSeaScale,
+        //Plates
+        BlankPlate,
+        FlamePlate,
+        SplashPlate,
+        MeadowPlate,
+        ZapPlate,
+        IciclePlate,
+        EarthPlate,
+        SkyPlate,
+        FistPlate,
+        ToxicPlate,
+        InsectPlate,
+        StonePlate,
+        MindPlate,
+        SpookyPlate,
+        DracoPlate,
+        DreadPlate,
+        IronPlate,
+        PixiePlate,
         //Abstract items
         DragonScale,
         PrismScale,

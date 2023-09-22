@@ -1,15 +1,18 @@
-using System;
+//Battle config
+
+#define ALL_GET_FULL_EXP // Comment to use pre-gen 6 experience distribution
+#define FRIENDSHIP_RAISES_EXP // Comment to get rid of the boost to XP gain
+                              // with high friendship
+
+
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Device;
 using static System.Math;
 using static Ability;
 using static BerryEffect;
 using static ItemID;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class Battle : MonoBehaviour
 {
@@ -195,7 +198,7 @@ public class Battle : MonoBehaviour
 
     public ItemID EffectiveItem(int index)
         => PokemonOnField[index].ability == Klutz || magicRoom
-        ? ItemID.None : PokemonOnField[index].PokemonData.item;
+        ? ItemID.None : EffectiveItem(index);
 
     public Terrain EffectiveTerrain(int index)
         => IsGrounded(index) ? terrain : Terrain.None;
@@ -349,7 +352,7 @@ public class Battle : MonoBehaviour
                 };
                 break;
             case MoveEffect.NaturalGift:
-                switch (PokemonOnField[index].item)
+                switch (EffectiveItem(index))
                 {
                     case ChilanBerry:
                         return Type.Normal;
@@ -440,6 +443,8 @@ public class Battle : MonoBehaviour
                         break;
                 }
                 break;
+            case MoveEffect.Judgement:
+                return EffectiveItem(index).PlateType();
             default: break;
         }
         switch (EffectiveAbility(index))
@@ -751,7 +756,7 @@ public class Battle : MonoBehaviour
                 effectivePower = ReversalPower(attacker.PokemonData.HP, attacker.PokemonData.hpMax);
                 break;
             case MoveEffect.TargetHealthPower:
-                effectivePower = 1 + (int)(120 * defender.HealthProportion);
+                effectivePower = 1 + (int)(move.Data().power * defender.HealthProportion);
                 break;
             case MoveEffect.TargetStatPower:
                 effectivePower = 60 + Min(defender.SumOfStages, 140);
@@ -1067,7 +1072,7 @@ public class Battle : MonoBehaviour
 
     private bool TryToHit(int attacker, int defender, MoveID move)
     {
-        if (PokemonOnField[defender].protect)
+        if (PokemonOnField[defender].protect && move.Data().effect != MoveEffect.Feint)
         {
             PokemonOnField[defender].wasProtected = true;
             return false;
@@ -1248,32 +1253,39 @@ public class Battle : MonoBehaviour
     public IEnumerator HandleXPOnFaint(int partyIndex)
     {
         Pokemon pokemon = OpponentPokemon[partyIndex];
+#if !(ALL_GET_FULL_EXP)
         int participatingMons = 0;
-        if (!BattleConfig.allGetFullExp)
+        for (int i = 0; i < 6; i++)
         {
-            for (int i = 0; i < 6; i++)
-            {
-                if (playerFacedOpponent[i, partyIndex] && !PlayerPokemon[i].fainted) participatingMons++;
-            }
+            if (playerFacedOpponent[i, partyIndex] && !PlayerPokemon[i].fainted) participatingMons++;
         }
+#endif
         for (int i = 0; i < 6; i++)
         {
             if (playerFacedOpponent[i, partyIndex] && !PlayerPokemon[i].fainted)
             {
                 float baseFactor = (pokemon.SpeciesData.xpYield * pokemon.level) / 5.0F;
-                float participantFactor = BattleConfig.allGetFullExp
-                    ? 1.0F : 1.0F / participatingMons; //Implement XP share
+#if !ALL_GET_FULL_EXP
+                float participantFactor = 1.0F / participatingMons;
+#endif
                 float allLevelFactor = Mathf.Pow(
                     (2.0F * pokemon.level + 10)
                     / (pokemon.level + PlayerPokemon[i].level + 10.0F),
                     2.5F);
-                float friendshipFactor = BattleConfig.friendshipExp ?
-                    PlayerPokemon[i].friendship >= 220 ? 1.2F : 1.0F : 1.0F;
+#if FRIENDSHIP_RAISES_EXP
+                float friendshipFactor = PlayerPokemon[i].friendship >= 220 ? 1.2F : 1.0F;
+#endif
 
                 //Add Lucky Egg effect, traded mon effect, Exp Power effect, delayed evolution effect
 
-                int xpGain = (int)(baseFactor * participantFactor * allLevelFactor
-                    * friendshipFactor);
+                int xpGain = (int)(baseFactor * allLevelFactor
+#if !ALL_GET_FULL_EXP
+                    * participantFactor
+#endif
+#if FRIENDSHIP_RAISES_EXP
+                    * friendshipFactor
+#endif
+                    );
                 yield return GainExp(i, xpGain);
             }
 
@@ -1320,7 +1332,7 @@ public class Battle : MonoBehaviour
             if (i == attacker) continue;
             if (PokemonOnField[i].isHit)
             {
-                if (PokemonOnField[i].item.BerryEffect()
+                if (EffectiveItem(i).BerryEffect()
                     == effectiveType.GetReducingBerry())
                 {
                     if ((GetTypeEffectiveness(PokemonOnField[attacker],
@@ -1332,7 +1344,7 @@ public class Battle : MonoBehaviour
                         PokemonOnField[i].gotReducingBerryEffect = true;
                     }
                 }
-                else if (PokemonOnField[i].item.BerryEffect()
+                else if (EffectiveItem(i).BerryEffect()
                     == ((GetMove(attacker).physical) ? OnPhysHurt125 : OnSpecHurt125))
                 {
                     PokemonOnField[i].eatenBerry = PokemonOnField[i].item;
@@ -1571,7 +1583,7 @@ public class Battle : MonoBehaviour
                     case MoveEffect.Fling:
                         damage = DamageCalc(attackingMon, defendingMon,
                             move, isMultiTarget, defendingMon.isCrit, GetSide(i),
-                            attackingMon.item.Data().flingPower);
+                            EffectiveItem(attacker).Data().flingPower);
                         break;
                     case MoveEffect.Endeavor:
                         damage = PokemonOnField[i].PokemonData.HP
@@ -1822,7 +1834,7 @@ public class Battle : MonoBehaviour
 
     private bool CheckBerryCondition(int index, bool tookMoveDamage)
     {
-        switch (PokemonOnField[index].item.BerryEffect())
+        switch (EffectiveItem(index).BerryEffect())
         {
             case At50Restore10HP:
             case At50Restore25:
@@ -1956,7 +1968,7 @@ public class Battle : MonoBehaviour
             case OnSpecHurt125:
                 PokemonOnField[PokemonOnField[index].lastDamageDoer].DoProportionalDamage(0.125F);
                 yield return Announce(MonNameWithPrefix(PokemonOnField[index].lastDamageDoer, true) +
-                    " was hurt by the " + PokemonOnField[index].item.Data().itemName + "!");
+                    " was hurt by the " + EffectiveItem(index).Data().itemName + "!");
                 yield return ProcessFaintingSingle(PokemonOnField[index].lastDamageDoer);
                 yield break;
             case At25RaiseAccuracy20:
@@ -1983,7 +1995,7 @@ public class Battle : MonoBehaviour
         if (CheckBerryCondition(index, tookDamage))
         {
             yield return BattleAnim.UseItem(this, index);
-            PokemonOnField[index].eatenBerry = PokemonOnField[index].item;
+            PokemonOnField[index].eatenBerry = EffectiveItem(index);
             UseUpItem(index);
             yield return DoBerryEffect(index, PokemonOnField[index].eatenBerry.BerryEffect());
         }
@@ -2139,7 +2151,7 @@ public class Battle : MonoBehaviour
     {
         BattlePokemon mon = PokemonOnField[index];
         if (mon.GetPP(moveNum) == 0 &&
-            mon.item.BerryEffect() == At0PPRestore10PP)
+            EffectiveItem(index).BerryEffect() == At0PPRestore10PP)
         {
             yield return BattleAnim.UseItem(this, index);
             yield return Announce(MonNameWithPrefix(index, true) + "'s Leppa Berry restored "
@@ -2550,7 +2562,7 @@ public class Battle : MonoBehaviour
             case MoveEffect.FakeOut when user.turnOnField > 1:
             case MoveEffect.SpitUp when user.stockpile == 0:
             case MoveEffect.Swallow when user.stockpile == 0 || user.AtFullHealth:
-            case MoveEffect.NaturalGift when user.item.Data().type != ItemType.Berry:
+            case MoveEffect.NaturalGift when EffectiveItem(index).Data().type != ItemType.Berry:
             case MoveEffect.MeFirst when PokemonOnField[Targets[index]].done:
             case MoveEffect.MeFirst when Moves[Targets[index]].Data().effect == MoveEffect.MeFirst:
             case MoveEffect.Copycat when (lastMoveUsed.Data().moveFlags & MoveFlags.cannotMimic) != 0:
@@ -2889,6 +2901,12 @@ public class Battle : MonoBehaviour
                         user.lockedInMove = MoveID.BounceAttack;
                         yield return Announce(MonNameWithPrefix(index, true)
                             + " sprang up!");
+                        break;
+                    case MoveID.ShadowForce:
+                        user.lockedInNextTurn = true;
+                        user.lockedInMove = MoveID.ShadowForceAttack;
+                        yield return Announce(MonNameWithPrefix(index, true)
+                            + " vanished instantly!");
                         break;
                     default:
                         break;
@@ -3483,8 +3501,8 @@ public class Battle : MonoBehaviour
         }
         MoveEffect effect = move.Data().effect;
         if (effect == MoveEffect.Fling) effect =
-                PokemonOnField[attacker].item.Data().flingEffect;
-        switch (move.Data().effect)
+                EffectiveItem(attacker).Data().flingEffect;
+        switch (effect)
         {
             case MoveEffect.Burn:
             case MoveEffect.FlareBlitz:
@@ -3662,6 +3680,9 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.DefenseUp2:
                 yield return BattleEffect.StatUp(this, index, Stat.Defense, 2, attacker);
+                break;
+            case MoveEffect.SpAtkUp1:
+                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
                 break;
             case MoveEffect.SpAtkUp2:
                 yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 2, attacker);
@@ -3856,13 +3877,13 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.PsychoShift(this, index, attacker);
                 break;
             case MoveEffect.Pluck:
-                if (PokemonOnField[index].item.Data().type == ItemType.Berry)
+                if (EffectiveItem(index).Data().type == ItemType.Berry)
                 {
                     yield return BattleAnim.UseItem(this, attacker);
                     yield return Announce(MonNameWithPrefix(attacker, true) +
                         " stole and ate " + MonNameWithPrefix(index, false) + "'s " +
-                        PokemonOnField[index].item.Data().itemName + "!");
-                    yield return DoBerryEffect(attacker, PokemonOnField[index].item.BerryEffect());
+                        EffectiveItem(index).Data().itemName + "!");
+                    yield return DoBerryEffect(attacker, EffectiveItem(index).BerryEffect());
                     UseUpItem(index);
                 }
                 break;
@@ -4777,11 +4798,11 @@ public class Battle : MonoBehaviour
         if (index < 3)
         {
             Debug.Log("Has Opponent evolved: " + hasOpponentMegaEvolved);
-            Debug.Log("Opponent's mega stone user: " + PokemonOnField[index].item.MegaStoneUser());
+            Debug.Log("Opponent's mega stone user: " + EffectiveItem(index).MegaStoneUser());
         }
         if (index > 2 && hasPlayerMegaEvolved) return false;
         if (index < 3 && hasOpponentMegaEvolved) return false;
-        if (PokemonOnField[index].item.MegaStoneUser() == PokemonOnField[index].PokemonData.getSpecies) return true;
+        if (EffectiveItem(index).MegaStoneUser() == PokemonOnField[index].PokemonData.getSpecies) return true;
         //else if PokemonOnField[index].PokemonData.species == SpeciesID.Rayquaza
         //  && PokemonOnField[index].PokemonData.HasMove(MoveID.DragonAscent) return true;
         else return false;
@@ -4799,7 +4820,7 @@ public class Battle : MonoBehaviour
         mon.PokemonData.temporarySpecies =
             mon.PokemonData.species == SpeciesID.Rayquaza ?
             SpeciesID.RayquazaMega :
-            (SpeciesID)Item.ItemTable[(int)mon.PokemonData.item].ItemSubdata[1];
+            (SpeciesID)EffectiveItem(index).Data().ItemSubdata[1];
         mon.powerTrick = false;
         mon.powerTrickSuppressed = false;
         mon.PokemonData.transformed = true;
