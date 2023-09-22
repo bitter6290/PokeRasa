@@ -2406,7 +2406,7 @@ public class Battle : MonoBehaviour
 
         Debug.Log("Executing for " + index);
 
-        user.usedMove[MoveNums[index]] = true;
+        user.usedMove[MoveNums[index] - 1] = true;
         user.moveUsedThisTurn = Moves[index];
         if ((GetMove(index).moveFlags & MoveFlags.mimicBypass) == 0) user.lastMoveUsed = Moves[index];
         user.isEnraged = GetMove(index).effect == MoveEffect.Rage;
