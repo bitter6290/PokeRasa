@@ -198,8 +198,11 @@ public class BattlePokemon
     public bool gotAteBoost = false; //Check for Aerilate, Pixilate, etc... 20% boost
 
     public bool ingrained = false;
+    public bool hasAquaRing = false;
 
     public bool imprisoned = false;
+
+    public bool magnetRise = false;
 
     public bool grudge = false;
     public bool gotGrudgeEffect = false;

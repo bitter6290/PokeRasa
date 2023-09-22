@@ -570,6 +570,15 @@ public static class BattleEffect
         battle.PokemonOnField[index].ApplyBatonPassStruct(passedData);
     }
 
+    public static IEnumerator HeartSwap(Battle battle, int user, int target)
+    {
+        StatStruct targetData = battle.PokemonOnField[target].MakeStatStruct();
+        battle.PokemonOnField[target].ApplyStatStruct(battle.PokemonOnField[user].MakeStatStruct());
+        battle.PokemonOnField[user].ApplyStatStruct(targetData);
+        yield return battle.Announce(battle.MonNameWithPrefix(user, true) +
+            " swapped stat changes with its target!");
+    }
+
     public static IEnumerator ForcedSwitch(Battle battle, int index)
     {
         var random = new System.Random();
@@ -1135,7 +1144,22 @@ public static class BattleEffect
         if (battle.Sides[battle.GetSide(5 - index)].spikes < 3)
         {
             battle.Sides[battle.GetSide(5 - index)].spikes++;
-            yield return battle.Announce("Spikes littered the ground around " + (index < 3 ? "your Pokémon!" : "the opponent's Pokémon!"));
+            yield return battle.Announce("Spikes littered the ground around " +
+                (index < 3 ? "your Pokémon!" : "the opponent's Pokémon!"));
+        }
+        else
+        {
+            yield return battle.Announce(BattleText.MoveFailed);
+        }
+    }
+
+    public static IEnumerator ToxicSpikes(Battle battle, int index)
+    {
+        if (battle.Sides[battle.GetSide(5 - index)].toxicSpikes < 2)
+        {
+            battle.Sides[battle.GetSide(5 - index)].toxicSpikes++;
+            yield return battle.Announce("Toxic spikes littered the ground around " +
+                (index < 3 ? "your Pokémon!" : "the opponent's Pokémon!"));
         }
         else
         {
@@ -1223,6 +1247,11 @@ public static class BattleEffect
         {
             yield return battle.Announce("The spikes disappeared from around " + teamText);
             side.spikes = 0;
+        }
+        if (side.toxicSpikes > 0)
+        {
+            yield return battle.Announce("The toxic spikes disappeared from around " + teamText);
+            side.toxicSpikes = 0;
         }
     }
 
@@ -1496,6 +1525,13 @@ public static class BattleEffect
             + " planted its roots!");
     }
 
+    public static IEnumerator StartAquaRing(Battle battle, int index)
+    {
+        battle.PokemonOnField[index].hasAquaRing = true;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " surrounded itself with a veil of water!");
+    }
+
     public static IEnumerator Recycle(Battle battle, int index)
     {
         BattlePokemon user = battle.PokemonOnField[index];
@@ -1634,5 +1670,79 @@ public static class BattleEffect
         //Ability popup with change
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
             " acquired Insomnia!");
+    }
+
+    public static IEnumerator Defog(Battle battle, int attacker, int target) //Todo: add Sticky Web and Terrain clearing effects
+    {
+        foreach (Side i in battle.Sides)
+        {
+            if (i.spikes > 0)
+            {
+                yield return battle.Announce("The spikes disappeared from the ground around "
+                   + (i.whichSide ? "your" : "the opponents'")
+                   + " team!");
+                i.spikes = 0;
+            }
+            if (i.toxicSpikes > 0)
+            {
+                yield return battle.Announce("The toxic spikes disappeared from the ground around "
+                + (i.whichSide ? "your" : "the opponents'")
+                + " team!");
+                i.toxicSpikes = 0;
+            }
+            if (i.stealthRock)
+            {
+                yield return battle.Announce("The pointed stones disappeared from around "
+                + (i.whichSide ? "your" : "the opponents'")
+                + " team!");
+                i.stealthRock = false;
+            }
+            if (i.lightScreen)
+            {
+                yield return battle.Announce((i.whichSide ? "Your team's" : "The foes'") +
+                    " Light Screen disappeared!");
+                i.lightScreen = false;
+            }
+            if (i.reflect)
+            {
+                yield return battle.Announce((i.whichSide ? "Your team's" : "The foes'") +
+                    " Reflect wore off!");
+                i.reflect = false;
+            }
+            if (i.safeguard)
+            {
+                yield return battle.Announce((i.whichSide ? "Your team's" : "The foes'") +
+                    " Safeguard wore off!");
+                i.safeguard = false;
+            }
+            if (i.mist)
+            {
+                yield return battle.Announce("The mist surrounding "
+                    + (i.whichSide ? "your" : "the opponent's") + " team disappeared!");
+                i.mist = false;
+            }
+        }
+        if (battle.Sides[battle.GetSide(target)].auroraVeil)
+        {
+            yield return battle.Announce(target < 3 ? "The foes'" : "Your team's" +
+                " Aurora Veil wore off!");
+            battle.Sides[battle.GetSide(target)].auroraVeil = false;
+        }
+        yield return StatDown(battle, target, Stat.Evasion, 1, attacker);
+    }
+
+    public static IEnumerator StartTrickRoom(Battle battle, int index)
+    {
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " twisted the dimensions!");
+        battle.trickRoom = true;
+        battle.trickRoomTimer = 5;
+    }
+
+    public static IEnumerator StealthRock(Battle battle, int index)
+    {
+        yield return battle.Announce("Pointed stones float in the air around "
+            + (index < 3 ? "your" : "the opponent's") + " team!");
+        battle.Sides[(5 - index) / 3].stealthRock = true;
     }
 }

@@ -311,7 +311,8 @@ public class Battle : MonoBehaviour
     public bool IsGrounded(int index)
     {
         if (gravity) return true;
-        if (HasAbility(index, Levitate)) return true;
+        if (HasAbility(index, Levitate) ||
+            PokemonOnField[index].magnetRise) return false;
         if (PokemonOnField[index].roosting) return true;
         if (PokemonOnField[index].HasType(Type.Flying)) return false;
         return true;
@@ -528,6 +529,8 @@ public class Battle : MonoBehaviour
         int currentPriority = -127;
         int currentSpeed = 0;
         int currentMove = TurnOver;
+
+        List<int> speedTieList = new();
         for (int i = 0; i < 6; i++)
         {
             if (megaEvolveOnMove[i])
@@ -547,13 +550,19 @@ public class Battle : MonoBehaviour
                         currentPriority = switchPriority;
                         currentSpeed = GetSpeed(i);
                         currentMove = i;
+                        speedTieList = new() { i };
                         Debug.Log("Index " + i + " has speed " + currentSpeed);
                     }
-                    if (PokemonOnField[i].speed > currentSpeed)
+                    if (GetSpeed(i) > currentSpeed)
                     {
                         currentSpeed = GetSpeed(i);
                         currentMove = i;
+                        speedTieList = new() { i };
                         Debug.Log("Index " + i + " has speed " + currentSpeed);
+                    }
+                    else if (GetSpeed(i) == currentSpeed)
+                    {
+                        speedTieList.Add(i);
                     }
                 }
                 else if (Moves[i] == MoveID.UseItem)
@@ -563,6 +572,7 @@ public class Battle : MonoBehaviour
                         currentPriority = itemPriority;
                         currentSpeed = GetSpeed(i);
                         currentMove = i;
+                        speedTieList = new() { i };
                     }
                 }
                 else if (megaEvolveOnMove[i])
@@ -573,12 +583,19 @@ public class Battle : MonoBehaviour
                         currentSpeed = GetSpeed(i);
                         currentMove = HandleMega;
                         monToMega = i;
+                        speedTieList = new() { i };
                     }
                     else if (currentPriority == megaPriority
                         && GetSpeed(i) > currentSpeed)
                     {
                         currentSpeed = GetSpeed(i);
                         monToMega = i;
+                        speedTieList = new() { i };
+                    }
+                    else if (currentPriority == megaPriority
+                        && GetSpeed(i) == currentSpeed)
+                    {
+                        speedTieList.Add(i);
                     }
                 }
                 else if (GetPriority(i) > currentPriority)
@@ -586,6 +603,7 @@ public class Battle : MonoBehaviour
                     currentPriority = GetPriority(i);
                     currentSpeed = GetSpeed(i);
                     currentMove = i;
+                    speedTieList = new() { i };
                     Debug.Log("Index " + i + " has priority " + currentPriority
                         + " and speed " + currentSpeed);
                 }
@@ -594,7 +612,13 @@ public class Battle : MonoBehaviour
                 {
                     currentSpeed = GetSpeed(i);
                     currentMove = i;
+                    speedTieList = new() { i };
                     Debug.Log("Index " + i + " has speed " + currentSpeed);
+                }
+                else if (GetPriority(i) == currentPriority
+                    && GetSpeed(i) == currentSpeed)
+                {
+                    speedTieList.Add(i);
                 }
             }
         }
@@ -607,6 +631,7 @@ public class Battle : MonoBehaviour
                 if (GetMove(i).effect == MoveEffect.Pursuit && Targets[i] == currentMove) return i;
             }
         }
+        if (speedTieList.Count > 1) currentMove = speedTieList[random.Next() % speedTieList.Count];
         return currentMove;
     }
 
@@ -1357,6 +1382,7 @@ public class Battle : MonoBehaviour
                                 || target.yawnThisTurn || target.PokemonData.status != Status.None
                                 || Uproar && !HasAbility(i, Soundproof):
                             case MoveEffect.Wish when target.healBlocked:
+                            case MoveEffect.Captivate when !OppositeGenders(attacker, i):
                                 continue;
                             case MoveEffect.FutureSight:
                                 target.gotMoveEffect = !isFutureSightTargeted[i];
@@ -1652,6 +1678,11 @@ public class Battle : MonoBehaviour
                         {
                             doStatAnim = true;
                             yield return BattleEffect.StatUp(this, i, Stat.Attack, 1, i);
+                        }
+                        if ((move.Data().moveFlags & MoveFlags.extraFlinch10) != 0 &&
+                            random.NextDouble() < 0.10)
+                        {
+                            defendingMon.flinched = true;
                         }
                     }
                 }
@@ -2149,31 +2180,78 @@ public class Battle : MonoBehaviour
 
     public IEnumerator EntryHazardDamage(int index)
     {
-        if (IsGrounded(index) && !HasAbility(index, MagicGuard))
+        if (!HasAbility(index, MagicGuard))
         {
-            switch (Sides[GetSide(index)].spikes)
+            if (IsGrounded(index))
             {
-                case 1:
-                    PokemonOnField[index].DoProportionalDamage(0.125F);
-                    goto case 4;
-                case 2:
-                    PokemonOnField[index].DoProportionalDamage(1.0F / 6.0F);
-                    goto case 4;
-                case 3:
-                    PokemonOnField[index].DoProportionalDamage(0.25F);
-                    goto case 4;
-                case 4:
-                    yield return Announce(MonNameWithPrefix(index, true) + " was hurt by spikes!");
-                    if (PokemonOnField[index].PokemonData.fainted)
-                    {
-                        ProcessFaintingSingle(index);
-                        yield break;
-                    }
-                    break;
-                case 0:
-                default:
-                    break;
+                switch (Sides[GetSide(index)].spikes)
+                {
+                    case 1:
+                        PokemonOnField[index].DoProportionalDamage(0.125F);
+                        goto case 4;
+                    case 2:
+                        PokemonOnField[index].DoProportionalDamage(1.0F / 6.0F);
+                        goto case 4;
+                    case 3:
+                        PokemonOnField[index].DoProportionalDamage(0.25F);
+                        goto case 4;
+                    case 4:
+                        yield return Announce(MonNameWithPrefix(index, true) + " was hurt by spikes!");
+                        if (PokemonOnField[index].PokemonData.fainted)
+                        {
+                            ProcessFaintingSingle(index);
+                            yield break;
+                        }
+                        break;
+                    case 0:
+                    default:
+                        break;
+                }
+                switch (Sides[GetSide(index)].toxicSpikes)
+                {
+                    case 1:
+                        yield return HandleToxicSpikes(index, false);
+                        break;
+                    case 2:
+                        yield return HandleToxicSpikes(index, true);
+                        break;
+                    case 0:
+                    default:
+                        break;
+                }
             }
+            if (Sides[GetSide(index)].stealthRock)
+            {
+                yield return Announce("Pointed stones dug into "
+                    + MonNameWithPrefix(index, false) + "!");
+                float effectiveness =
+                    PokemonOnField[index].Type1 == PokemonOnField[index].Type2 ?
+                    TypeUtils.Effectiveness(Type.Rock, PokemonOnField[index].Type1) :
+                    (TypeUtils.Effectiveness(Type.Rock, PokemonOnField[index].Type1) *
+                    TypeUtils.Effectiveness(Type.Rock, PokemonOnField[index].Type2));
+                PokemonOnField[index].DoProportionalDamage(0.125F * effectiveness);
+                if (PokemonOnField[index].PokemonData.fainted)
+                {
+                    ProcessFaintingSingle(index);
+                    yield break;
+                }
+            }
+        }
+    }
+
+    public IEnumerator HandleToxicSpikes(int index, bool bad)
+    {
+        if (PokemonOnField[index].HasType(Type.Poison))
+        {
+            yield return Announce(MonNameWithPrefix(
+                index, true) + " sucked up the toxic spikes!");
+            Sides[GetSide(index)].toxicSpikes = 0;
+        }
+        else if (!PokemonOnField[index].HasType(Type.Steel)
+            && EffectiveAbility(index) is not Immunity or Comatose)
+        {
+            yield return bad ? BattleEffect.GetBadPoison(this, index)
+                : BattleEffect.GetPoison(this, index);
         }
     }
 
@@ -3161,6 +3239,7 @@ public class Battle : MonoBehaviour
                     {
                         user.thrashing = false;
                         user.uproar = false;
+                        user.lockedInNextTurn = false;
                     }
                     yield return ProcessFainting();
                     yield return ProcessDestinyBondAndGrudge(index);
@@ -3179,6 +3258,7 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.VoltTackle:
             case MoveEffect.Recoil25:
+            case MoveEffect.FlareBlitz:
                 user.DoNonMoveDamage(Max(1, user.moveDamageDone / 4));
                 yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
                 yield return ProcessFaintingSingle(index);
@@ -3407,6 +3487,7 @@ public class Battle : MonoBehaviour
         switch (move.Data().effect)
         {
             case MoveEffect.Burn:
+            case MoveEffect.FlareBlitz:
                 yield return BattleEffect.GetBurn(this, index);
                 break;
             case MoveEffect.VoltTackle:
@@ -3567,6 +3648,9 @@ public class Battle : MonoBehaviour
             case MoveEffect.BreakScreens:
                 yield return BattleEffect.BreakScreens(this, index);
                 break;
+            case MoveEffect.Defog:
+                yield return BattleEffect.Defog(this, attacker, index);
+                break;
             case MoveEffect.AttackUp1:
                 yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
                 break;
@@ -3578,6 +3662,9 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.DefenseUp2:
                 yield return BattleEffect.StatUp(this, index, Stat.Defense, 2, attacker);
+                break;
+            case MoveEffect.SpAtkUp2:
+                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 2, attacker);
                 break;
             case MoveEffect.SpAtkUp3:
                 yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 3, attacker);
@@ -3613,6 +3700,7 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.StatDown(this, index, Stat.SpAtk, 1, attacker);
                 break;
             case MoveEffect.SpAtkDown2:
+            case MoveEffect.Captivate:
                 yield return BattleEffect.StatDown(this, index, Stat.SpAtk, 2, attacker);
                 break;
             case MoveEffect.SpDefDown1:
@@ -3843,6 +3931,9 @@ public class Battle : MonoBehaviour
             case MoveEffect.PsychUp:
                 yield return BattleEffect.PsychUp(this, attacker, index);
                 break;
+            case MoveEffect.HeartSwap:
+                yield return BattleEffect.HeartSwap(this, attacker, index);
+                break;
             case MoveEffect.PowerSwap:
                 int targetAttack = PokemonOnField[index].attackStage;
                 int targetSpAtk = PokemonOnField[index].spAtkStage;
@@ -3913,6 +4004,14 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.Ingrain:
                 yield return BattleEffect.Ingrain(this, index);
+                break;
+            case MoveEffect.AquaRing:
+                yield return BattleEffect.StartAquaRing(this, index);
+                break;
+            case MoveEffect.MagnetRise:
+                PokemonOnField[index].magnetRise = true;
+                yield return Announce(MonNameWithPrefix(index, true) +
+                    " levitated with electromagnetism!");
                 break;
             case MoveEffect.Roost:
                 PokemonOnField[index].roosting = true;
@@ -4043,6 +4142,12 @@ public class Battle : MonoBehaviour
             case MoveEffect.Spikes:
                 yield return BattleEffect.Spikes(this, index);
                 break;
+            case MoveEffect.ToxicSpikes:
+                yield return BattleEffect.ToxicSpikes(this, index);
+                break;
+            case MoveEffect.StealthRock:
+                yield return BattleEffect.StealthRock(this, index);
+                break;
             case MoveEffect.Safeguard:
                 yield return BattleEffect.StartSafeguard(this, index);
                 break;
@@ -4058,6 +4163,9 @@ public class Battle : MonoBehaviour
                 break;
             case MoveEffect.Gravity:
                 yield return BattleEffect.Gravity(this);
+                break;
+            case MoveEffect.TrickRoom:
+                yield return BattleEffect.StartTrickRoom(this, index);
                 break;
             case MoveEffect.Hit:
             default:
@@ -4170,13 +4278,21 @@ public class Battle : MonoBehaviour
                 }
                 yield return ProcessFaintingSingle(i);
                 if (mon.PokemonData.fainted) { continue; }
-                if (mon.ingrained && !mon.AtFullHealth)
+                if (mon.ingrained && !mon.AtFullHealth && !mon.healBlocked)
                 {
-                    //yield return BattleAnim.IngrainHeal(this, i);
+                    //Todo: yield return BattleAnim.IngrainHeal(this, i);
                     yield return BattleEffect.Heal(this, i,
                         Max(1, mon.PokemonData.hpMax >> 4));
                     yield return Announce(MonNameWithPrefix(i, true)
                         + " absorbed nutrients with its roots!");
+                }
+                if (mon.hasAquaRing && !mon.AtFullHealth && !mon.healBlocked)
+                {
+                    //Todo: yield return BattleAnim.AquaRingHeal(this, i);
+                    yield return BattleEffect.Heal(this, i,
+                        Max(1, mon.PokemonData.hpMax >> 4));
+                    yield return Announce("Aqua Ring restored " +
+                        MonNameWithPrefix(i, false) + "'s HP!");
                 }
                 if (mon.encored)
                 {
@@ -4320,6 +4436,12 @@ public class Battle : MonoBehaviour
             {
                 yield return Announce("Gravity returned to normal!");
                 gravity = false;
+            }
+        if (trickRoom)
+            if (trickRoomTimer-- <= 1)
+            {
+                yield return Announce("The twisted dimensions returned to normal!");
+                trickRoom = false;
             }
         turnsElapsed++;
         yield return StartTurn();

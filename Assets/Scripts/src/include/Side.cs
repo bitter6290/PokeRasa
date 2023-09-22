@@ -15,6 +15,8 @@ public class Side
     public int tailwindTurns = 0;
     public bool luckyChant = false;
     public int luckyChantTurns = 0;
+    public int toxicSpikes = 0;
+    public bool stealthRock = false;
 
     public readonly Battle battle;
     public readonly bool whichSide;
