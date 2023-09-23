@@ -1,9 +1,10 @@
 ﻿public enum HeldEffect : ushort
 {
     None,
-    KingsRock,
+    Flinch10,
     DeepSeaTooth,
     DeepSeaScale,
+    CritRateUp1,
     NormalPowerUp20,
     FirePowerUp20,
     WaterPowerUp20,

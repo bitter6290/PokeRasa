@@ -904,7 +904,7 @@ public static class Species
         baseSpDef = 30,
         baseSpeed = 40,
         evYield = Defense,
-        evolution = Evolution.None,
+        evolution = Evolution.Sandshrew,
         xpClass = MediumFast,
         xpYield = 60,
         learnset = EmptyLearnset, //Not done
@@ -1020,9 +1020,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                PoisonPoint,
-                Rivalry,
-                Hustle,
+            PoisonPoint,
+            Rivalry,
+            Hustle,
         },
     };
     public static SpeciesData Nidoqueen = new()
@@ -1053,9 +1053,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                PoisonPoint,
-                Rivalry,
-                SheerForce,
+            PoisonPoint,
+            Rivalry,
+            SheerForce,
         },
     };
     public static SpeciesData NidoranM = new()
@@ -1086,9 +1086,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                PoisonPoint,
-                Rivalry,
-                Hustle,
+            PoisonPoint,
+            Rivalry,
+            Hustle,
         },
     };
     public static SpeciesData Nidorino = new()
@@ -1119,9 +1119,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                PoisonPoint,
-                Rivalry,
-                Hustle,
+            PoisonPoint,
+            Rivalry,
+            Hustle,
         },
     };
     public static SpeciesData Nidoking = new()
@@ -1152,9 +1152,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                PoisonPoint,
-                Rivalry,
-                SheerForce,
+            PoisonPoint,
+            Rivalry,
+            SheerForce,
         },
     };
     public static SpeciesData Clefairy = new()
@@ -1185,9 +1185,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                CuteCharm,
-                MagicGuard,
-                FriendGuard,
+            CuteCharm,
+            MagicGuard,
+            FriendGuard,
         },
     };
     public static SpeciesData Clefable = new()
@@ -1218,9 +1218,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                CuteCharm,
-                MagicGuard,
-                Unaware,
+            CuteCharm,
+            MagicGuard,
+            Unaware,
         },
     };
     public static SpeciesData Vulpix = new()
@@ -1251,9 +1251,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                FlashFire,
-                FlashFire,
-                Drought,
+            FlashFire,
+            FlashFire,
+            Drought,
         },
     };
     public static SpeciesData Ninetales = new()
@@ -1284,9 +1284,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                FlashFire,
-                FlashFire,
-                Drought,
+            FlashFire,
+            FlashFire,
+            Drought,
         },
     };
     public static SpeciesData Jigglypuff = new()
@@ -1317,9 +1317,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                CuteCharm,
-                Competitive,
-                FriendGuard,
+            CuteCharm,
+            Competitive,
+            FriendGuard,
         },
     };
     public static SpeciesData Wigglytuff = new()
@@ -1350,9 +1350,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                CuteCharm,
-                Competitive,
-                Frisk,
+            CuteCharm,
+            Competitive,
+            Frisk,
         },
     };
     public static SpeciesData Zubat = new()
@@ -1383,9 +1383,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                InnerFocus,
-                InnerFocus,
-                Infiltrator,
+            InnerFocus,
+            InnerFocus,
+            Infiltrator,
         },
     };
     public static SpeciesData Golbat = new()
@@ -1400,7 +1400,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 90,
         evYield = 2 * Speed,
-        evolution = Evolution.None,
+        evolution = Evolution.Golbat,
         xpClass = MediumFast,
         xpYield = 159,
         learnset = EmptyLearnset, //Not done
@@ -1416,9 +1416,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                InnerFocus,
-                InnerFocus,
-                Infiltrator,
+            InnerFocus,
+            InnerFocus,
+            Infiltrator,
         },
     };
     public static SpeciesData Oddish = new()
@@ -1449,9 +1449,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Chlorophyll,
-                Chlorophyll,
-                RunAway,
+            Chlorophyll,
+            Chlorophyll,
+            RunAway,
         },
     };
     public static SpeciesData Gloom = new()
@@ -1482,9 +1482,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Chlorophyll,
-                Chlorophyll,
-                Stench,
+            Chlorophyll,
+            Chlorophyll,
+            Stench,
         },
     };
     public static SpeciesData Vileplume = new()
@@ -1515,9 +1515,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Chlorophyll,
-                Chlorophyll,
-                EffectSpore,
+            Chlorophyll,
+            Chlorophyll,
+            EffectSpore,
         },
     };
     public static SpeciesData Paras = new()
@@ -1548,9 +1548,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                EffectSpore,
-                DrySkin,
-                Damp,
+            EffectSpore,
+            DrySkin,
+            Damp,
         },
     };
     public static SpeciesData Parasect = new()
@@ -1581,9 +1581,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                EffectSpore,
-                DrySkin,
-                Damp,
+            EffectSpore,
+            DrySkin,
+            Damp,
         },
     };
     public static SpeciesData Venonat = new()
@@ -1614,9 +1614,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                CompoundEyes,
-                TintedLens,
-                RunAway,
+            CompoundEyes,
+            TintedLens,
+            RunAway,
         },
     };
     public static SpeciesData Venomoth = new()
@@ -1647,9 +1647,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                ShieldDust,
-                TintedLens,
-                WonderSkin,
+            ShieldDust,
+            TintedLens,
+            WonderSkin,
         },
     };
     public static SpeciesData Diglett = new()
@@ -1680,9 +1680,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                SandVeil,
-                ArenaTrap,
-                SandForce,
+            SandVeil,
+            ArenaTrap,
+            SandForce,
         },
     };
     public static SpeciesData Dugtrio = new()
@@ -1713,9 +1713,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                SandVeil,
-                ArenaTrap,
-                SandForce,
+            SandVeil,
+            ArenaTrap,
+            SandForce,
         },
     };
     public static SpeciesData Meowth = new()
@@ -1746,9 +1746,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Pickup,
-                Technician,
-                Unnerve,
+            Pickup,
+            Technician,
+            Unnerve,
         },
     };
     public static SpeciesData Persian = new()
@@ -1779,9 +1779,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Limber,
-                Technician,
-                Unnerve,
+            Limber,
+            Technician,
+            Unnerve,
         },
     };
     public static SpeciesData Psyduck = new()
@@ -1812,9 +1812,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Damp,
-                CloudNine,
-                SwiftSwim,
+            Damp,
+            CloudNine,
+            SwiftSwim,
         },
     };
     public static SpeciesData Golduck = new()
@@ -1845,9 +1845,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Damp,
-                CloudNine,
-                SwiftSwim,
+            Damp,
+            CloudNine,
+            SwiftSwim,
         },
     };
     public static SpeciesData Mankey = new()
@@ -1878,9 +1878,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                VitalSpirit,
-                AngerPoint,
-                Defiant,
+            VitalSpirit,
+            AngerPoint,
+            Defiant,
         },
     };
     public static SpeciesData Primeape = new()
@@ -1911,9 +1911,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                VitalSpirit,
-                AngerPoint,
-                Defiant,
+            VitalSpirit,
+            AngerPoint,
+            Defiant,
         },
     };
     public static SpeciesData Growlithe = new()
@@ -1944,9 +1944,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Intimidate,
-                FlashFire,
-                Justified,
+            Intimidate,
+            FlashFire,
+            Justified,
         },
     };
     public static SpeciesData Arcanine = new()
@@ -1977,9 +1977,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Intimidate,
-                FlashFire,
-                Justified,
+            Intimidate,
+            FlashFire,
+            Justified,
         },
     };
     public static SpeciesData Poliwag = new()
@@ -2010,9 +2010,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                WaterAbsorb,
-                Damp,
-                SwiftSwim,
+            WaterAbsorb,
+            Damp,
+            SwiftSwim,
         },
     };
     public static SpeciesData Poliwhirl = new()
@@ -2043,9 +2043,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                WaterAbsorb,
-                Damp,
-                SwiftSwim,
+            WaterAbsorb,
+            Damp,
+            SwiftSwim,
         },
     };
     public static SpeciesData Poliwrath = new()
@@ -2076,9 +2076,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                WaterAbsorb,
-                Damp,
-                SwiftSwim,
+            WaterAbsorb,
+            Damp,
+            SwiftSwim,
         },
     };
     public static SpeciesData Abra = new()
@@ -2109,9 +2109,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Synchronize,
-                InnerFocus,
-                MagicGuard,
+            Synchronize,
+            InnerFocus,
+            MagicGuard,
         },
     };
     public static SpeciesData Kadabra = new()
@@ -2142,9 +2142,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Synchronize,
-                InnerFocus,
-                MagicGuard,
+            Synchronize,
+            InnerFocus,
+            MagicGuard,
         },
     };
     public static SpeciesData Alakazam = new()
@@ -2175,9 +2175,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Synchronize,
-                InnerFocus,
-                MagicGuard,
+            Synchronize,
+            InnerFocus,
+            MagicGuard,
         },
     };
     public static SpeciesData Machop = new()
@@ -2208,9 +2208,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Guts,
-                NoGuard,
-                Steadfast,
+            Guts,
+            NoGuard,
+            Steadfast,
         },
     };
     public static SpeciesData Machoke = new()
@@ -2241,9 +2241,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Guts,
-                NoGuard,
-                Steadfast,
+            Guts,
+            NoGuard,
+            Steadfast,
         },
     };
     public static SpeciesData Machamp = new()
@@ -2274,9 +2274,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Guts,
-                NoGuard,
-                Steadfast,
+            Guts,
+            NoGuard,
+            Steadfast,
         },
     };
     public static SpeciesData Bellsprout = new()
@@ -2307,9 +2307,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Chlorophyll,
-                Chlorophyll,
-                Gluttony,
+            Chlorophyll,
+            Chlorophyll,
+            Gluttony,
         },
     };
     public static SpeciesData Weepinbell = new()
@@ -2340,9 +2340,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Chlorophyll,
-                Chlorophyll,
-                Gluttony,
+            Chlorophyll,
+            Chlorophyll,
+            Gluttony,
         },
     };
     public static SpeciesData Victreebel = new()
@@ -2373,9 +2373,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Chlorophyll,
-                Chlorophyll,
-                Gluttony,
+            Chlorophyll,
+            Chlorophyll,
+            Gluttony,
         },
     };
     public static SpeciesData Tentacool = new()
@@ -2406,9 +2406,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                ClearBody,
-                LiquidOoze,
-                RainDish,
+            ClearBody,
+            LiquidOoze,
+            RainDish,
         },
     };
     public static SpeciesData Tentacruel = new()
@@ -2439,9 +2439,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                ClearBody,
-                LiquidOoze,
-                RainDish,
+            ClearBody,
+            LiquidOoze,
+            RainDish,
         },
     };
     public static SpeciesData Geodude = new()
@@ -2472,9 +2472,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RockHead,
-                Sturdy,
-                SandVeil,
+            RockHead,
+            Sturdy,
+            SandVeil,
         },
     };
     public static SpeciesData Graveler = new()
@@ -2505,9 +2505,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RockHead,
-                Sturdy,
-                SandVeil,
+            RockHead,
+            Sturdy,
+            SandVeil,
         },
     };
     public static SpeciesData Golem = new()
@@ -2538,9 +2538,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RockHead,
-                Sturdy,
-                SandVeil,
+            RockHead,
+            Sturdy,
+            SandVeil,
         },
     };
     public static SpeciesData Ponyta = new()
@@ -2571,9 +2571,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RunAway,
-                FlashFire,
-                FlameBody,
+            RunAway,
+            FlashFire,
+            FlameBody,
         },
     };
     public static SpeciesData Rapidash = new()
@@ -2604,9 +2604,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RunAway,
-                FlashFire,
-                FlameBody,
+            RunAway,
+            FlashFire,
+            FlameBody,
         },
     };
     public static SpeciesData Slowpoke = new()
@@ -2637,9 +2637,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Oblivious,
-                OwnTempo,
-                Regenerator,
+            Oblivious,
+            OwnTempo,
+            Regenerator,
         },
     };
     public static SpeciesData Slowbro = new()
@@ -2670,9 +2670,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Oblivious,
-                OwnTempo,
-                Regenerator,
+            Oblivious,
+            OwnTempo,
+            Regenerator,
         },
     };
     public static SpeciesData Magnemite = new()
@@ -2703,9 +2703,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                MagnetPull,
-                Sturdy,
-                Analytic,
+            MagnetPull,
+            Sturdy,
+            Analytic,
         },
     };
     public static SpeciesData Magneton = new()
@@ -2720,7 +2720,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 70,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None,
+        evolution = Evolution.Magneton,
         xpClass = MediumFast,
         xpYield = 163,
         learnset = EmptyLearnset, //Not done
@@ -2736,9 +2736,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                MagnetPull,
-                Sturdy,
-                Analytic,
+            MagnetPull,
+            Sturdy,
+            Analytic,
         },
     };
     public static SpeciesData Farfetchd = new()
@@ -2769,9 +2769,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                KeenEye,
-                InnerFocus,
-                Defiant,
+            KeenEye,
+            InnerFocus,
+            Defiant,
         },
     };
     public static SpeciesData Doduo = new()
@@ -2802,9 +2802,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RunAway,
-                EarlyBird,
-                TangledFeet,
+            RunAway,
+            EarlyBird,
+            TangledFeet,
         },
     };
     public static SpeciesData Dodrio = new()
@@ -2835,9 +2835,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RunAway,
-                EarlyBird,
-                TangledFeet,
+            RunAway,
+            EarlyBird,
+            TangledFeet,
         },
     };
     public static SpeciesData Seel = new()
@@ -2868,9 +2868,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                ThickFat,
-                Hydration,
-                IceBody,
+            ThickFat,
+            Hydration,
+            IceBody,
         },
     };
     public static SpeciesData Dewgong = new()
@@ -2901,9 +2901,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                ThickFat,
-                Hydration,
-                IceBody,
+            ThickFat,
+            Hydration,
+            IceBody,
         },
     };
     public static SpeciesData Grimer = new()
@@ -2934,9 +2934,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Stench,
-                StickyHold,
-                PoisonTouch,
+            Stench,
+            StickyHold,
+            PoisonTouch,
         },
     };
     public static SpeciesData Muk = new()
@@ -2967,9 +2967,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Stench,
-                StickyHold,
-                PoisonTouch,
+            Stench,
+            StickyHold,
+            PoisonTouch,
         },
     };
     public static SpeciesData Shellder = new()
@@ -3000,9 +3000,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                ShellArmor,
-                SkillLink,
-                Overcoat,
+            ShellArmor,
+            SkillLink,
+            Overcoat,
         },
     };
     public static SpeciesData Cloyster = new()
@@ -3033,9 +3033,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                ShellArmor,
-                SkillLink,
-                Overcoat,
+            ShellArmor,
+            SkillLink,
+            Overcoat,
         },
     };
     public static SpeciesData Gastly = new()
@@ -3066,9 +3066,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Levitate,
-                Levitate,
-                Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Haunter = new()
@@ -3098,9 +3098,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Levitate,
-                Levitate,
-                Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Gengar = new()
@@ -3131,9 +3131,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Levitate,
-                Levitate,
-                Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
     public static SpeciesData Onix = new()
@@ -3164,9 +3164,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RockHead,
-                Sturdy,
-                WeakArmor,
+            RockHead,
+            Sturdy,
+            WeakArmor,
         },
     };
     public static SpeciesData Drowzee = new()
@@ -3230,9 +3230,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Insomnia,
-                Forewarn,
-                InnerFocus,
+            Insomnia,
+            Forewarn,
+            InnerFocus,
         },
     };
     public static SpeciesData Krabby = new()
@@ -3263,9 +3263,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                HyperCutter,
-                ShellArmor,
-                SheerForce,
+            HyperCutter,
+            ShellArmor,
+            SheerForce,
         },
     };
     public static SpeciesData Kingler = new()
@@ -3296,9 +3296,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                HyperCutter,
-                ShellArmor,
-                SheerForce,
+            HyperCutter,
+            ShellArmor,
+            SheerForce,
         },
     };
     public static SpeciesData Voltorb = new()
@@ -3329,9 +3329,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Soundproof,
-                Static,
-                Aftermath,
+            Soundproof,
+            Static,
+            Aftermath,
         },
     };
     public static SpeciesData Electrode = new()
@@ -3362,9 +3362,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Soundproof,
-                Static,
-                Aftermath,
+            Soundproof,
+            Static,
+            Aftermath,
         },
     };
     public static SpeciesData Exeggcute = new()
@@ -3395,9 +3395,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Chlorophyll,
-                Chlorophyll,
-                Harvest,
+            Chlorophyll,
+            Chlorophyll,
+            Harvest,
         },
     };
     public static SpeciesData Exeggutor = new()
@@ -3428,9 +3428,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Chlorophyll,
-                Chlorophyll,
-                Harvest,
+            Chlorophyll,
+            Chlorophyll,
+            Harvest,
         },
     };
     public static SpeciesData Cubone = new()
@@ -3461,9 +3461,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RockHead,
-                LightningRod,
-                BattleArmor,
+            RockHead,
+            LightningRod,
+            BattleArmor,
         },
     };
     public static SpeciesData Marowak = new()
@@ -3494,9 +3494,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RockHead,
-                LightningRod,
-                BattleArmor,
+            RockHead,
+            LightningRod,
+            BattleArmor,
         },
     };
     public static SpeciesData Hitmonlee = new()
@@ -3527,9 +3527,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Limber,
-                Reckless,
-                Unburden,
+            Limber,
+            Reckless,
+            Unburden,
         },
     };
     public static SpeciesData Hitmonchan = new()
@@ -3560,9 +3560,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                KeenEye,
-                IronFist,
-                InnerFocus,
+            KeenEye,
+            IronFist,
+            InnerFocus,
         },
     };
     public static SpeciesData Lickitung = new()
@@ -3577,7 +3577,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 30,
         evYield = 2 * HP,
-        evolution = Evolution.None,
+        evolution = Evolution.Lickitung,
         xpClass = MediumFast,
         xpYield = 77,
         learnset = EmptyLearnset, //Not done
@@ -3593,9 +3593,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                OwnTempo,
-                Oblivious,
-                CloudNine,
+            OwnTempo,
+            Oblivious,
+            CloudNine,
         },
     };
     public static SpeciesData Koffing = new()
@@ -3626,9 +3626,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Levitate,
-                NeutralizingGas,
-                Stench,
+            Levitate,
+            NeutralizingGas,
+            Stench,
         },
     };
     public static SpeciesData Weezing = new()
@@ -3659,9 +3659,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Levitate,
-                NeutralizingGas,
-                Stench,
+            Levitate,
+            NeutralizingGas,
+            Stench,
         },
     };
     public static SpeciesData Rhyhorn = new()
@@ -3692,9 +3692,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                LightningRod,
-                RockHead,
-                Reckless,
+            LightningRod,
+            RockHead,
+            Reckless,
         },
     };
     public static SpeciesData Rhydon = new()
@@ -3709,7 +3709,7 @@ public static class Species
         baseSpDef = 45,
         baseSpeed = 40,
         evYield = 2 * Attack,
-        evolution = Evolution.None,
+        evolution = Evolution.Rhydon,
         xpClass = Slow,
         xpYield = 170,
         learnset = EmptyLearnset, //Not done
@@ -3725,9 +3725,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                LightningRod,
-                RockHead,
-                Reckless,
+            LightningRod,
+            RockHead,
+            Reckless,
         },
     };
     public static SpeciesData Chansey = new()
@@ -3758,9 +3758,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                NaturalCure,
-                SereneGrace,
-                Healer,
+            NaturalCure,
+            SereneGrace,
+            Healer,
         },
     };
     public static SpeciesData Tangela = new()
@@ -3775,7 +3775,7 @@ public static class Species
         baseSpDef = 40,
         baseSpeed = 60,
         evYield = Defense,
-        evolution = Evolution.None,
+        evolution = Evolution.Tangela,
         xpClass = MediumFast,
         xpYield = 87,
         learnset = EmptyLearnset, //Not done
@@ -3791,9 +3791,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Chlorophyll,
-                LeafGuard,
-                Regenerator,
+            Chlorophyll,
+            LeafGuard,
+            Regenerator,
         },
     };
     public static SpeciesData Kangaskhan = new()
@@ -3824,9 +3824,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                EarlyBird,
-                Scrappy,
-                InnerFocus,
+            EarlyBird,
+            Scrappy,
+            InnerFocus,
         },
     };
     public static SpeciesData Horsea = new()
@@ -3857,9 +3857,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                SwiftSwim,
-                Sniper,
-                Damp,
+            SwiftSwim,
+            Sniper,
+            Damp,
         },
     };
     public static SpeciesData Seadra = new()
@@ -3890,9 +3890,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                PoisonPoint,
-                Sniper,
-                Damp,
+            PoisonPoint,
+            Sniper,
+            Damp,
         },
     };
     public static SpeciesData Goldeen = new()
@@ -3923,9 +3923,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                SwiftSwim,
-                WaterVeil,
-                LightningRod,
+            SwiftSwim,
+            WaterVeil,
+            LightningRod,
         },
     };
     public static SpeciesData Seaking = new()
@@ -3956,9 +3956,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                SwiftSwim,
-                WaterVeil,
-                LightningRod,
+            SwiftSwim,
+            WaterVeil,
+            LightningRod,
         },
     };
     public static SpeciesData Staryu = new()
@@ -3989,9 +3989,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Illuminate,
-                NaturalCure,
-                Analytic,
+            Illuminate,
+            NaturalCure,
+            Analytic,
         },
     };
     public static SpeciesData Starmie = new()
@@ -4022,9 +4022,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Illuminate,
-                NaturalCure,
-                Analytic,
+            Illuminate,
+            NaturalCure,
+            Analytic,
         },
     };
     public static SpeciesData MrMime = new()
@@ -4055,9 +4055,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Soundproof,
-                Filter,
-                Technician,
+            Soundproof,
+            Filter,
+            Technician,
         },
     };
     public static SpeciesData Scyther = new()
@@ -4088,9 +4088,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Swarm,
-                Technician,
-                Steadfast,
+            Swarm,
+            Technician,
+            Steadfast,
         },
     };
     public static SpeciesData Jynx = new()
@@ -4121,9 +4121,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Oblivious,
-                Forewarn,
-                DrySkin,
+            Oblivious,
+            Forewarn,
+            DrySkin,
         },
     };
     public static SpeciesData Electabuzz = new()
@@ -4138,7 +4138,7 @@ public static class Species
         baseSpDef = 85,
         baseSpeed = 105,
         evYield = 2 * Speed,
-        evolution = Evolution.None,
+        evolution = Evolution.Electabuzz,
         xpClass = MediumFast,
         xpYield = 172,
         learnset = EmptyLearnset, //Not done
@@ -4154,9 +4154,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Static,
-                Static,
-                VitalSpirit,
+            Static,
+            Static,
+            VitalSpirit,
         },
     };
     public static SpeciesData Magmar = new()
@@ -4171,7 +4171,7 @@ public static class Species
         baseSpDef = 85,
         baseSpeed = 93,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None,
+        evolution = Evolution.Magmar,
         xpClass = MediumFast,
         xpYield = 173,
         learnset = EmptyLearnset, //Not done
@@ -4187,9 +4187,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                FlameBody,
-                FlameBody,
-                VitalSpirit,
+            FlameBody,
+            FlameBody,
+            VitalSpirit,
         },
     };
     public static SpeciesData Pinsir = new()
@@ -4220,9 +4220,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                HyperCutter,
-                MoldBreaker,
-                Moxie,
+            HyperCutter,
+            MoldBreaker,
+            Moxie,
         },
     };
     public static SpeciesData Tauros = new()
@@ -4253,9 +4253,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Intimidate,
-                AngerPoint,
-                SheerForce,
+            Intimidate,
+            AngerPoint,
+            SheerForce,
         },
     };
     public static SpeciesData Magikarp = new()
@@ -4286,9 +4286,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                SwiftSwim,
-                SwiftSwim,
-                Rattled,
+            SwiftSwim,
+            SwiftSwim,
+            Rattled,
         },
     };
     public static SpeciesData Gyarados = new()
@@ -4319,9 +4319,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Intimidate,
-                Intimidate,
-                Moxie,
+            Intimidate,
+            Intimidate,
+            Moxie,
         },
     };
     public static SpeciesData Lapras = new()
@@ -4352,9 +4352,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                WaterAbsorb,
-                ShellArmor,
-                Hydration,
+            WaterAbsorb,
+            ShellArmor,
+            Hydration,
         },
     };
     public static SpeciesData Ditto = new()
@@ -4385,9 +4385,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Limber,
-                Limber,
-                Imposter,
+            Limber,
+            Limber,
+            Imposter,
         },
     };
     public static SpeciesData Eevee = new()
@@ -4418,9 +4418,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RunAway,
-                Adaptability,
-                Anticipation,
+            RunAway,
+            Adaptability,
+            Anticipation,
         },
     };
     public static SpeciesData Vaporeon = new()
@@ -4451,9 +4451,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                WaterAbsorb,
-                WaterAbsorb,
-                Hydration,
+            WaterAbsorb,
+            WaterAbsorb,
+            Hydration,
         },
     };
     public static SpeciesData Jolteon = new()
@@ -4484,9 +4484,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                VoltAbsorb,
-                VoltAbsorb,
-                QuickFeet,
+            VoltAbsorb,
+            VoltAbsorb,
+            QuickFeet,
         },
     };
     public static SpeciesData Flareon = new()
@@ -4517,9 +4517,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                FlashFire,
-                FlashFire,
-                Guts,
+            FlashFire,
+            FlashFire,
+            Guts,
         },
     };
     public static SpeciesData Porygon = new()
@@ -4550,9 +4550,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Trace,
-                Download,
-                Analytic,
+            Trace,
+            Download,
+            Analytic,
         },
     };
     public static SpeciesData Omanyte = new()
@@ -4583,9 +4583,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                SwiftSwim,
-                ShellArmor,
-                WeakArmor,
+            SwiftSwim,
+            ShellArmor,
+            WeakArmor,
         },
     };
     public static SpeciesData Omastar = new()
@@ -4616,9 +4616,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                SwiftSwim,
-                ShellArmor,
-                WeakArmor,
+            SwiftSwim,
+            ShellArmor,
+            WeakArmor,
         },
     };
     public static SpeciesData Kabuto = new()
@@ -4649,9 +4649,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                SwiftSwim,
-                BattleArmor,
-                WeakArmor,
+            SwiftSwim,
+            BattleArmor,
+            WeakArmor,
         },
     };
     public static SpeciesData Kabutops = new()
@@ -4682,9 +4682,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                SwiftSwim,
-                BattleArmor,
-                WeakArmor,
+            SwiftSwim,
+            BattleArmor,
+            WeakArmor,
         },
     };
     public static SpeciesData Aerodactyl = new()
@@ -4715,9 +4715,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                RockHead,
-                Pressure,
-                Unnerve,
+            RockHead,
+            Pressure,
+            Unnerve,
         },
     };
     public static SpeciesData Snorlax = new()
@@ -4748,9 +4748,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Immunity,
-                ThickFat,
-                Gluttony,
+            Immunity,
+            ThickFat,
+            Gluttony,
         },
     };
     public static SpeciesData Articuno = new()
@@ -4781,9 +4781,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Pressure,
-                Pressure,
-                SnowCloak,
+            Pressure,
+            Pressure,
+            SnowCloak,
         },
     };
     public static SpeciesData Zapdos = new()
@@ -4814,9 +4814,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Pressure,
-                Pressure,
-                LightningRod,
+            Pressure,
+            Pressure,
+            LightningRod,
         },
     };
     public static SpeciesData Moltres = new()
@@ -4847,9 +4847,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Pressure,
-                Pressure,
-                FlameBody,
+            Pressure,
+            Pressure,
+            FlameBody,
         },
     };
     public static SpeciesData Dratini = new()
@@ -4880,9 +4880,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                ShedSkin,
-                ShedSkin,
-                MarvelScale,
+            ShedSkin,
+            ShedSkin,
+            MarvelScale,
         },
     };
     public static SpeciesData Dragonair = new()
@@ -4913,9 +4913,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                ShedSkin,
-                ShedSkin,
-                MarvelScale,
+            ShedSkin,
+            ShedSkin,
+            MarvelScale,
         },
     };
     public static SpeciesData Dragonite = new()
@@ -4946,9 +4946,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                InnerFocus,
-                InnerFocus,
-                Multiscale,
+            InnerFocus,
+            InnerFocus,
+            Multiscale,
         },
     };
     public static SpeciesData Mewtwo = new()
@@ -4979,9 +4979,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Pressure,
-                Pressure,
-                Unnerve,
+            Pressure,
+            Pressure,
+            Unnerve,
         },
     };
     public static SpeciesData Mew = new()
@@ -5012,9 +5012,9 @@ public static class Species
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
         {
-                Synchronize,
-                Synchronize,
-                Synchronize,
+            Synchronize,
+            Synchronize,
+            Synchronize,
         },
     };
     public static SpeciesData Chikorita = new()
@@ -5823,7 +5823,7 @@ public static class Species
         baseSpDef = 105,
         baseSpeed = 40,
         evYield = 2 * SpDef,
-        evolution = Evolution.None,
+        evolution = Evolution.Togetic,
         xpClass = Fast,
         xpYield = 142,
         learnset = EmptyLearnset, //Not done
@@ -6285,7 +6285,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 85,
         evYield = Speed,
-        evolution = Evolution.None,
+        evolution = Evolution.Aipom,
         xpClass = Fast,
         xpYield = 72,
         learnset = EmptyLearnset, //Not done
@@ -6384,7 +6384,7 @@ public static class Species
         baseSpDef = 45,
         baseSpeed = 95,
         evYield = Speed,
-        evolution = Evolution.None,
+        evolution = Evolution.Yanma,
         xpClass = MediumFast,
         xpYield = 78,
         learnset = EmptyLearnset, //Not done
@@ -6549,7 +6549,7 @@ public static class Species
         baseSpDef = 42,
         baseSpeed = 91,
         evYield = Speed,
-        evolution = Evolution.None,
+        evolution = Evolution.Murkrow,
         xpClass = MediumSlow,
         xpYield = 81,
         learnset = EmptyLearnset, //Not done
@@ -6615,7 +6615,7 @@ public static class Species
         baseSpDef = 85,
         baseSpeed = 85,
         evYield = SpDef,
-        evolution = Evolution.None,
+        evolution = Evolution.Misdreavus,
         xpClass = Fast,
         xpYield = 87,
         learnset = EmptyLearnset, //Not done
@@ -6846,7 +6846,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 85,
         evYield = Defense,
-        evolution = Evolution.None,
+        evolution = Evolution.Gligar,
         xpClass = MediumSlow,
         xpYield = 86,
         learnset = EmptyLearnset, //Not done
@@ -7110,7 +7110,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 115,
         evYield = Speed,
-        evolution = Evolution.None,
+        evolution = Evolution.Sneasel,
         xpClass = MediumSlow,
         xpYield = 86,
         learnset = EmptyLearnset, //Not done
@@ -7308,7 +7308,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 50,
         evYield = HP + Attack,
-        evolution = Evolution.None,
+        evolution = Evolution.Piloswine,
         xpClass = Slow,
         xpYield = 158,
         learnset = EmptyLearnset, //Not done
@@ -7704,7 +7704,7 @@ public static class Species
         baseSpDef = 95,
         baseSpeed = 60,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None,
+        evolution = Evolution.Porygon2,
         xpClass = MediumFast,
         xpYield = 180,
         learnset = EmptyLearnset, //Not done
@@ -8275,8 +8275,8 @@ public static class Species
         eggCycles = 120,
         catchRate = 3,
         baseFriendship = 0,
-        cryLocation = "ho oh", //Verify
-        graphicsLocation = "ho oh", //Verify
+        cryLocation = "ho_oh", //Verify
+        graphicsLocation = "ho_oh", //Verify
         backSpriteHeight = 2,
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
@@ -9884,7 +9884,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 30,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Nosepass, //Not done
         xpClass = MediumFast,
         xpYield = 75,
         learnset = EmptyLearnset, //Not done
@@ -10412,7 +10412,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 65,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Roselia, //Not done
         xpClass = MediumSlow,
         xpYield = 140,
         learnset = EmptyLearnset, //Not done
@@ -11736,7 +11736,7 @@ public static class Species
         baseSpDef = 130,
         baseSpeed = 25,
         evYield = Defense + SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Dusclops, //Not done
         xpClass = Fast,
         xpYield = 159,
         learnset = EmptyLearnset, //Not done
@@ -12728,6 +12728,3266 @@ public static class Species
             backSpriteHeight: 6
         );
 
+    //Gen 4
+
+    public static SpeciesData Turtwig = new()
+    {
+        speciesName = "Turtwig",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 55,
+        baseAttack = 68,
+        baseDefense = 64,
+        baseSpAtk = 45,
+        baseSpDef = 55,
+        baseSpeed = 31,
+        evYield = Attack,
+        evolution = Evolution.Turtwig,
+        xpClass = MediumSlow,
+        xpYield = 64,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "turtwig", //Verify
+        graphicsLocation = "turtwig", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Overgrow,
+            Overgrow,
+            ShellArmor,
+        },
+    };
+    public static SpeciesData Grotle = new()
+    {
+        speciesName = "Grotle",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 75,
+        baseAttack = 89,
+        baseDefense = 85,
+        baseSpAtk = 55,
+        baseSpDef = 65,
+        baseSpeed = 36,
+        evYield = Attack + Defense,
+        evolution = Evolution.Grotle,
+        xpClass = MediumSlow,
+        xpYield = 142,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "grotle", //Verify
+        graphicsLocation = "grotle", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Overgrow,
+            Overgrow,
+            ShellArmor,
+        },
+    };
+    public static SpeciesData Torterra = new()
+    {
+        speciesName = "Torterra",
+        type1 = Grass,
+        type2 = Ground,
+        baseHP = 95,
+        baseAttack = 109,
+        baseDefense = 105,
+        baseSpAtk = 75,
+        baseSpDef = 85,
+        baseSpeed = 56,
+        evYield = 2 * Attack + Defense,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 236,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "torterra", //Verify
+        graphicsLocation = "torterra", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Overgrow,
+            Overgrow,
+            ShellArmor,
+        },
+    };
+    public static SpeciesData Chimchar = new()
+    {
+        speciesName = "Chimchar",
+        type1 = Fire,
+        type2 = Fire,
+        baseHP = 44,
+        baseAttack = 58,
+        baseDefense = 44,
+        baseSpAtk = 58,
+        baseSpDef = 44,
+        baseSpeed = 61,
+        evYield = Speed,
+        evolution = Evolution.Chimchar,
+        xpClass = MediumSlow,
+        xpYield = 62,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "chimchar", //Verify
+        graphicsLocation = "chimchar", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Blaze,
+            Blaze,
+            IronFist,
+        },
+    };
+    public static SpeciesData Monferno = new()
+    {
+        speciesName = "Monferno",
+        type1 = Fire,
+        type2 = Fighting,
+        baseHP = 64,
+        baseAttack = 78,
+        baseDefense = 52,
+        baseSpAtk = 78,
+        baseSpDef = 52,
+        baseSpeed = 81,
+        evYield = Speed + SpAtk,
+        evolution = Evolution.Monferno,
+        xpClass = MediumSlow,
+        xpYield = 142,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "monferno", //Verify
+        graphicsLocation = "monferno", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Blaze,
+            Blaze,
+            IronFist,
+        },
+    };
+    public static SpeciesData Infernape = new()
+    {
+        speciesName = "Infernape",
+        type1 = Fire,
+        type2 = Fighting,
+        baseHP = 76,
+        baseAttack = 104,
+        baseDefense = 71,
+        baseSpAtk = 104,
+        baseSpDef = 71,
+        baseSpeed = 108,
+        evYield = Attack + Speed + SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 240,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "infernape", //Verify
+        graphicsLocation = "infernape", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Blaze,
+            Blaze,
+            IronFist,
+        },
+    };
+    public static SpeciesData Piplup = new()
+    {
+        speciesName = "Piplup",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 53,
+        baseAttack = 51,
+        baseDefense = 53,
+        baseSpAtk = 61,
+        baseSpDef = 56,
+        baseSpeed = 40,
+        evYield = SpAtk,
+        evolution = Evolution.Piplup,
+        xpClass = MediumSlow,
+        xpYield = 63,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "piplup", //Verify
+        graphicsLocation = "piplup", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Torrent,
+            Torrent,
+            Defiant,
+        },
+    };
+    public static SpeciesData Prinplup = new()
+    {
+        speciesName = "Prinplup",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 64,
+        baseAttack = 66,
+        baseDefense = 68,
+        baseSpAtk = 81,
+        baseSpDef = 76,
+        baseSpeed = 50,
+        evYield = 2 * SpAtk,
+        evolution = Evolution.Prinplup,
+        xpClass = MediumSlow,
+        xpYield = 142,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "prinplup", //Verify
+        graphicsLocation = "prinplup", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Torrent,
+            Torrent,
+            Defiant,
+        },
+    };
+    public static SpeciesData Empoleon = new()
+    {
+        speciesName = "Empoleon",
+        type1 = Water,
+        type2 = Steel,
+        baseHP = 84,
+        baseAttack = 86,
+        baseDefense = 88,
+        baseSpAtk = 111,
+        baseSpDef = 101,
+        baseSpeed = 60,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 239,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "empoleon", //Verify
+        graphicsLocation = "empoleon", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Torrent,
+            Torrent,
+            Defiant,
+        },
+    };
+    public static SpeciesData Starly = new()
+    {
+        speciesName = "Starly",
+        type1 = Normal,
+        type2 = Flying,
+        baseHP = 40,
+        baseAttack = 55,
+        baseDefense = 30,
+        baseSpAtk = 30,
+        baseSpDef = 30,
+        baseSpeed = 60,
+        evYield = Speed,
+        evolution = Evolution.Starly,
+        xpClass = MediumSlow,
+        xpYield = 49,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 15,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "starly", //Verify
+        graphicsLocation = "starly", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            KeenEye,
+            KeenEye,
+            Reckless,
+        },
+    };
+    public static SpeciesData Staravia = new()
+    {
+        speciesName = "Staravia",
+        type1 = Normal,
+        type2 = Flying,
+        baseHP = 55,
+        baseAttack = 75,
+        baseDefense = 50,
+        baseSpAtk = 40,
+        baseSpDef = 40,
+        baseSpeed = 80,
+        evYield = 2 * Speed,
+        evolution = Evolution.Staravia,
+        xpClass = MediumSlow,
+        xpYield = 119,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 15,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "staravia", //Verify
+        graphicsLocation = "staravia", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Intimidate,
+            Intimidate,
+            Reckless,
+        },
+    };
+    public static SpeciesData Staraptor = new()
+    {
+        speciesName = "Staraptor",
+        type1 = Normal,
+        type2 = Flying,
+        baseHP = 85,
+        baseAttack = 120,
+        baseDefense = 70,
+        baseSpAtk = 50,
+        baseSpDef = 50,
+        baseSpeed = 100,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 218,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "staraptor", //Verify
+        graphicsLocation = "staraptor", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Intimidate,
+            Intimidate,
+            Reckless,
+        },
+    };
+    public static SpeciesData Bidoof = new()
+    {
+        speciesName = "Bidoof",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 59,
+        baseAttack = 45,
+        baseDefense = 40,
+        baseSpAtk = 35,
+        baseSpDef = 40,
+        baseSpeed = 31,
+        evYield = HP,
+        evolution = Evolution.Bidoof,
+        xpClass = MediumFast,
+        xpYield = 50,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "bidoof", //Verify
+        graphicsLocation = "bidoof", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Simple,
+            Unaware,
+            Moody,
+        },
+    };
+    public static SpeciesData Bibarel = new()
+    {
+        speciesName = "Bibarel",
+        type1 = Normal,
+        type2 = Water,
+        baseHP = 79,
+        baseAttack = 85,
+        baseDefense = 60,
+        baseSpAtk = 55,
+        baseSpDef = 60,
+        baseSpeed = 71,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 144,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 127,
+        baseFriendship = 70,
+        cryLocation = "bibarel", //Verify
+        graphicsLocation = "bibarel", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Simple,
+            Unaware,
+            Moody,
+        },
+    };
+    public static SpeciesData Kricketot = new()
+    {
+        speciesName = "Kricketot",
+        type1 = Bug,
+        type2 = Bug,
+        baseHP = 37,
+        baseAttack = 25,
+        baseDefense = 41,
+        baseSpAtk = 25,
+        baseSpDef = 41,
+        baseSpeed = 25,
+        evYield = Defense,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 39,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "kricketot", //Verify
+        graphicsLocation = "kricketot", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            ShedSkin,
+            ShedSkin,
+            RunAway,
+        },
+    };
+    public static SpeciesData Kricketune = new()
+    {
+        speciesName = "Kricketune",
+        type1 = Bug,
+        type2 = Bug,
+        baseHP = 77,
+        baseAttack = 85,
+        baseDefense = 51,
+        baseSpAtk = 55,
+        baseSpDef = 51,
+        baseSpeed = 65,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 134,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "kricketune", //Verify
+        graphicsLocation = "kricketune", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Swarm,
+            Swarm,
+            Technician,
+        },
+    };
+    public static SpeciesData Shinx = new()
+    {
+        speciesName = "Shinx",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 45,
+        baseAttack = 65,
+        baseDefense = 34,
+        baseSpAtk = 40,
+        baseSpDef = 34,
+        baseSpeed = 45,
+        evYield = Attack,
+        evolution = Evolution.Shinx,
+        xpClass = MediumSlow,
+        xpYield = 53,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 235,
+        baseFriendship = 70,
+        cryLocation = "shinx", //Verify
+        graphicsLocation = "shinx", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Rivalry,
+            Intimidate,
+            Guts,
+        },
+    };
+    public static SpeciesData Luxio = new()
+    {
+        speciesName = "Luxio",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 60,
+        baseAttack = 85,
+        baseDefense = 49,
+        baseSpAtk = 60,
+        baseSpDef = 49,
+        baseSpeed = 60,
+        evYield = 2 * Attack,
+        evolution = Evolution.Luxio,
+        xpClass = MediumSlow,
+        xpYield = 127,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 120,
+        baseFriendship = 100,
+        cryLocation = "luxio", //Verify
+        graphicsLocation = "luxio", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Rivalry,
+            Intimidate,
+            Guts,
+        },
+    };
+    public static SpeciesData Luxray = new()
+    {
+        speciesName = "Luxray",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 80,
+        baseAttack = 120,
+        baseDefense = 79,
+        baseSpAtk = 95,
+        baseSpDef = 79,
+        baseSpeed = 70,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 235,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "luxray", //Verify
+        graphicsLocation = "luxray", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Rivalry,
+            Intimidate,
+            Guts,
+        },
+    };
+    public static SpeciesData Budew = new()
+    {
+        speciesName = "Budew",
+        type1 = Grass,
+        type2 = Poison,
+        baseHP = 40,
+        baseAttack = 30,
+        baseDefense = 35,
+        baseSpAtk = 50,
+        baseSpDef = 70,
+        baseSpeed = 55,
+        evYield = SpAtk,
+        evolution = Evolution.Budew,
+        xpClass = MediumSlow,
+        xpYield = 56,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 20,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "budew", //Verify
+        graphicsLocation = "budew", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            NaturalCure,
+            PoisonPoint,
+            LeafGuard,
+        },
+    };
+    public static SpeciesData Roserade = new()
+    {
+        speciesName = "Roserade",
+        type1 = Grass,
+        type2 = Poison,
+        baseHP = 60,
+        baseAttack = 70,
+        baseDefense = 55,
+        baseSpAtk = 125,
+        baseSpDef = 105,
+        baseSpeed = 90,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 232,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Fairy,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "roserade", //Verify
+        graphicsLocation = "roserade", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            NaturalCure,
+            PoisonPoint,
+            Technician,
+        },
+    };
+    public static SpeciesData Cranidos = new()
+    {
+        speciesName = "Cranidos",
+        type1 = Rock,
+        type2 = Rock,
+        baseHP = 67,
+        baseAttack = 125,
+        baseDefense = 40,
+        baseSpAtk = 30,
+        baseSpDef = 30,
+        baseSpeed = 58,
+        evYield = Attack,
+        evolution = Evolution.Cranidos,
+        xpClass = Erratic,
+        xpYield = 70,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Monster,
+        eggCycles = 30,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "cranidos", //Verify
+        graphicsLocation = "cranidos", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            MoldBreaker,
+            MoldBreaker,
+            SheerForce,
+        },
+    };
+    public static SpeciesData Rampardos = new()
+    {
+        speciesName = "Rampardos",
+        type1 = Rock,
+        type2 = Rock,
+        baseHP = 97,
+        baseAttack = 165,
+        baseDefense = 60,
+        baseSpAtk = 65,
+        baseSpDef = 50,
+        baseSpeed = 58,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = Erratic,
+        xpYield = 173,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Monster,
+        eggCycles = 30,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "rampardos", //Verify
+        graphicsLocation = "rampardos", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            MoldBreaker,
+            MoldBreaker,
+            SheerForce,
+        },
+    };
+    public static SpeciesData Shieldon = new()
+    {
+        speciesName = "Shieldon",
+        type1 = Rock,
+        type2 = Steel,
+        baseHP = 30,
+        baseAttack = 42,
+        baseDefense = 118,
+        baseSpAtk = 42,
+        baseSpDef = 88,
+        baseSpeed = 30,
+        evYield = Defense,
+        evolution = Evolution.Shieldon,
+        xpClass = Erratic,
+        xpYield = 70,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Monster,
+        eggCycles = 30,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "shieldon", //Verify
+        graphicsLocation = "shieldon", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Sturdy,
+            Sturdy,
+            Soundproof,
+        },
+    };
+    public static SpeciesData Bastiodon = new()
+    {
+        speciesName = "Bastiodon",
+        type1 = Rock,
+        type2 = Steel,
+        baseHP = 60,
+        baseAttack = 52,
+        baseDefense = 168,
+        baseSpAtk = 47,
+        baseSpDef = 138,
+        baseSpeed = 30,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = Erratic,
+        xpYield = 173,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Monster,
+        eggCycles = 30,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "bastiodon", //Verify
+        graphicsLocation = "bastiodon", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Sturdy,
+            Sturdy,
+            Soundproof,
+        },
+    };
+
+    public static SpeciesData Burmy = Burmy(
+        graphics: "burmy",
+        backSpriteHeight: 6,
+        evolution: Evolution.Burmy
+    );
+    public static SpeciesData Wormadam = Wormadam(
+        type2: Grass,
+        baseHP: 60,
+        baseAttack: 59,
+        baseDefense: 85,
+        baseSpAtk: 79,
+        baseSpDef: 105,
+        baseSpeed: 36,
+        evYield: SpDef * 2,
+        graphics: "wormadam",
+        backSpriteHeight: 2
+    );
+    public static SpeciesData Mothim = new()
+    {
+        speciesName = "Mothim",
+        type1 = Bug,
+        type2 = Flying,
+        baseHP = 70,
+        baseAttack = 94,
+        baseDefense = 50,
+        baseSpAtk = 94,
+        baseSpDef = 50,
+        baseSpeed = 66,
+        evYield = Attack + SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 148,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 100,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "mothim", //Verify
+        graphicsLocation = "mothim", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Swarm,
+            Swarm,
+            TintedLens,
+        },
+    };
+    public static SpeciesData Combee = new()
+    {
+        speciesName = "Combee",
+        type1 = Bug,
+        type2 = Flying,
+        baseHP = 30,
+        baseAttack = 30,
+        baseDefense = 42,
+        baseSpAtk = 30,
+        baseSpDef = 42,
+        baseSpeed = 70,
+        evYield = Speed,
+        evolution = Evolution.Combee,
+        xpClass = MediumSlow,
+        xpYield = 49,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "combee", //Verify
+        graphicsLocation = "combee", //Verify
+        backSpriteHeight = 22,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            HoneyGather,
+            HoneyGather,
+            Hustle,
+        },
+    };
+    public static SpeciesData Vespiquen = new()
+    {
+        speciesName = "Vespiquen",
+        type1 = Bug,
+        type2 = Flying,
+        baseHP = 70,
+        baseAttack = 80,
+        baseDefense = 102,
+        baseSpAtk = 80,
+        baseSpDef = 102,
+        baseSpeed = 40,
+        evYield = Defense + SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 166,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "vespiquen", //Verify
+        graphicsLocation = "vespiquen", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Pressure,
+            Pressure,
+            Unnerve,
+        },
+    };
+    public static SpeciesData Pachirisu = new()
+    {
+        speciesName = "Pachirisu",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 60,
+        baseAttack = 45,
+        baseDefense = 70,
+        baseSpAtk = 45,
+        baseSpDef = 90,
+        baseSpeed = 95,
+        evYield = Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 142,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 10,
+        catchRate = 200,
+        baseFriendship = 100,
+        cryLocation = "pachirisu", //Verify
+        graphicsLocation = "pachirisu", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            RunAway,
+            Pickup,
+            VoltAbsorb,
+        },
+    };
+    public static SpeciesData Buizel = new()
+    {
+        speciesName = "Buizel",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 55,
+        baseAttack = 65,
+        baseDefense = 35,
+        baseSpAtk = 60,
+        baseSpDef = 30,
+        baseSpeed = 85,
+        evYield = Speed,
+        evolution = Evolution.Buizel,
+        xpClass = MediumFast,
+        xpYield = 66,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "buizel", //Verify
+        graphicsLocation = "buizel", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SwiftSwim,
+            SwiftSwim,
+            WaterVeil,
+        },
+    };
+    public static SpeciesData Floatzel = new()
+    {
+        speciesName = "Floatzel",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 85,
+        baseAttack = 105,
+        baseDefense = 55,
+        baseSpAtk = 85,
+        baseSpDef = 50,
+        baseSpeed = 115,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 173,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "floatzel", //Verify
+        graphicsLocation = "floatzel", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SwiftSwim,
+            SwiftSwim,
+            WaterVeil,
+        },
+    };
+    public static SpeciesData Cherubi = new()
+    {
+        speciesName = "Cherubi",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 45,
+        baseAttack = 35,
+        baseDefense = 45,
+        baseSpAtk = 62,
+        baseSpDef = 53,
+        baseSpeed = 35,
+        evYield = SpAtk,
+        evolution = Evolution.Cherubi,
+        xpClass = MediumFast,
+        xpYield = 55,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Fairy,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "cherubi", //Verify
+        graphicsLocation = "cherubi", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Chlorophyll,
+            Chlorophyll,
+            Chlorophyll,
+        },
+    };
+    public static SpeciesData Cherrim = Cherrim("cherrim/normal", 9);
+    public static SpeciesData Shellos = Shellos("shellos", 8,
+        Evolution.Shellos);
+    public static SpeciesData Gastrodon = Gastrodon("gastrodon", 3);
+    public static SpeciesData Ambipom = new()
+    {
+        speciesName = "Ambipom",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 75,
+        baseAttack = 100,
+        baseDefense = 66,
+        baseSpAtk = 60,
+        baseSpDef = 66,
+        baseSpeed = 115,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = Fast,
+        xpYield = 169,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 100,
+        cryLocation = "ambipom", //Verify
+        graphicsLocation = "ambipom", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+    {
+            Technician,
+            Pickup,
+            SkillLink,
+    },
+    };
+    public static SpeciesData Drifloon = new()
+    {
+        speciesName = "Drifloon",
+        type1 = Ghost,
+        type2 = Flying,
+        baseHP = 90,
+        baseAttack = 50,
+        baseDefense = 34,
+        baseSpAtk = 60,
+        baseSpDef = 44,
+        baseSpeed = 70,
+        evYield = HP,
+        evolution = Evolution.Drifloon,
+        xpClass = Fluctuating,
+        xpYield = 70,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 30,
+        catchRate = 125,
+        baseFriendship = 70,
+        cryLocation = "drifloon", //Verify
+        graphicsLocation = "drifloon", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Aftermath,
+            Unburden,
+            FlareBoost,
+        },
+    };
+    public static SpeciesData Drifblim = new()
+    {
+        speciesName = "Drifblim",
+        type1 = Ghost,
+        type2 = Flying,
+        baseHP = 150,
+        baseAttack = 80,
+        baseDefense = 44,
+        baseSpAtk = 90,
+        baseSpDef = 54,
+        baseSpeed = 80,
+        evYield = 2 * HP,
+        evolution = Evolution.None,
+        xpClass = Fluctuating,
+        xpYield = 174,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 30,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "drifblim", //Verify
+        graphicsLocation = "drifblim", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Aftermath,
+            Unburden,
+            FlareBoost,
+        },
+    };
+    public static SpeciesData Buneary = new()
+    {
+        speciesName = "Buneary",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 55,
+        baseAttack = 66,
+        baseDefense = 44,
+        baseSpAtk = 44,
+        baseSpDef = 56,
+        baseSpeed = 85,
+        evYield = Speed,
+        evolution = Evolution.Buneary,
+        xpClass = MediumFast,
+        xpYield = 70,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 0,
+        cryLocation = "buneary", //Verify
+        graphicsLocation = "buneary", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            RunAway,
+            Klutz,
+            Limber,
+        },
+    };
+    public static SpeciesData Lopunny = new()
+    {
+        speciesName = "Lopunny",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 65,
+        baseAttack = 76,
+        baseDefense = 84,
+        baseSpAtk = 54,
+        baseSpDef = 96,
+        baseSpeed = 105,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 168,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 20,
+        catchRate = 60,
+        baseFriendship = 140,
+        cryLocation = "lopunny", //Verify
+        graphicsLocation = "lopunny", //Verify
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            CuteCharm,
+            Klutz,
+            Limber,
+        },
+    };
+    public static SpeciesData Mismagius = new()
+    {
+        speciesName = "Mismagius",
+        type1 = Ghost,
+        type2 = Ghost,
+        baseHP = 60,
+        baseAttack = 60,
+        baseDefense = 60,
+        baseSpAtk = 105,
+        baseSpDef = 105,
+        baseSpeed = 105,
+        evYield = SpAtk + SpDef,
+        evolution = Evolution.None,
+        xpClass = Fast,
+        xpYield = 173,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 25,
+        catchRate = 45,
+        baseFriendship = 35,
+        cryLocation = "mismagius", //Verify
+        graphicsLocation = "mismagius", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Levitate,
+            Levitate,
+        },
+    };
+    public static SpeciesData Honchkrow = new()
+    {
+        speciesName = "Honchkrow",
+        type1 = Dark,
+        type2 = Flying,
+        baseHP = 100,
+        baseAttack = 125,
+        baseDefense = 52,
+        baseSpAtk = 105,
+        baseSpDef = 52,
+        baseSpeed = 71,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 177,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 20,
+        catchRate = 30,
+        baseFriendship = 35,
+        cryLocation = "honchkrow", //Verify
+        graphicsLocation = "honchkrow", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Insomnia,
+            SuperLuck,
+            Moxie,
+        },
+    };
+    public static SpeciesData Glameow = new()
+    {
+        speciesName = "Glameow",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 49,
+        baseAttack = 55,
+        baseDefense = 42,
+        baseSpAtk = 42,
+        baseSpDef = 37,
+        baseSpeed = 85,
+        evYield = Speed,
+        evolution = Evolution.Glameow,
+        xpClass = Fast,
+        xpYield = 62,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 25,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "glameow", //Verify
+        graphicsLocation = "glameow", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Limber,
+            OwnTempo,
+            KeenEye,
+        },
+    };
+    public static SpeciesData Purugly = new()
+    {
+        speciesName = "Purugly",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 71,
+        baseAttack = 82,
+        baseDefense = 64,
+        baseSpAtk = 64,
+        baseSpDef = 59,
+        baseSpeed = 112,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = Fast,
+        xpYield = 158,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 25,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "purugly", //Verify
+        graphicsLocation = "purugly", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            ThickFat,
+            OwnTempo,
+            Defiant,
+        },
+    };
+    public static SpeciesData Chingling = new()
+    {
+        speciesName = "Chingling",
+        type1 = Psychic,
+        type2 = Psychic,
+        baseHP = 45,
+        baseAttack = 30,
+        baseDefense = 50,
+        baseSpAtk = 65,
+        baseSpDef = 50,
+        baseSpeed = 45,
+        evYield = SpAtk,
+        evolution = Evolution.Chingling,
+        xpClass = Fast,
+        xpYield = 57,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 25,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "chingling", //Verify
+        graphicsLocation = "chingling", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Levitate,
+            Levitate,
+        },
+    };
+    public static SpeciesData Stunky = new()
+    {
+        speciesName = "Stunky",
+        type1 = Poison,
+        type2 = Dark,
+        baseHP = 63,
+        baseAttack = 63,
+        baseDefense = 47,
+        baseSpAtk = 41,
+        baseSpDef = 41,
+        baseSpeed = 74,
+        evYield = Speed,
+        evolution = Evolution.Stunky,
+        xpClass = MediumFast,
+        xpYield = 66,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 225,
+        baseFriendship = 70,
+        cryLocation = "stunky", //Verify
+        graphicsLocation = "stunky", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Stench,
+            Aftermath,
+            KeenEye,
+        },
+    };
+    public static SpeciesData Skuntank = new()
+    {
+        speciesName = "Skuntank",
+        type1 = Poison,
+        type2 = Dark,
+        baseHP = 103,
+        baseAttack = 93,
+        baseDefense = 67,
+        baseSpAtk = 71,
+        baseSpDef = 61,
+        baseSpeed = 84,
+        evYield = 2 * HP,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 168,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "skuntank", //Verify
+        graphicsLocation = "skuntank", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Stench,
+            Aftermath,
+            KeenEye,
+        },
+    };
+    public static SpeciesData Bronzor = new()
+    {
+        speciesName = "Bronzor",
+        type1 = Steel,
+        type2 = Psychic,
+        baseHP = 57,
+        baseAttack = 24,
+        baseDefense = 86,
+        baseSpAtk = 24,
+        baseSpDef = 86,
+        baseSpeed = 23,
+        evYield = Defense,
+        evolution = Evolution.Bronzor,
+        xpClass = MediumFast,
+        xpYield = 60,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 20,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "bronzor", //Verify
+        graphicsLocation = "bronzor", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Heatproof,
+            HeavyMetal,
+        },
+    };
+    public static SpeciesData Bronzong = new()
+    {
+        speciesName = "Bronzong",
+        type1 = Steel,
+        type2 = Psychic,
+        baseHP = 67,
+        baseAttack = 89,
+        baseDefense = 116,
+        baseSpAtk = 79,
+        baseSpDef = 116,
+        baseSpeed = 33,
+        evYield = Defense + SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 175,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 20,
+        catchRate = 90,
+        baseFriendship = 70,
+        cryLocation = "bronzong", //Verify
+        graphicsLocation = "bronzong", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Heatproof,
+            HeavyMetal,
+        },
+    };
+    public static SpeciesData Bonsly = new()
+    {
+        speciesName = "Bonsly",
+        type1 = Rock,
+        type2 = Rock,
+        baseHP = 50,
+        baseAttack = 80,
+        baseDefense = 95,
+        baseSpAtk = 10,
+        baseSpDef = 45,
+        baseSpeed = 10,
+        evYield = Defense,
+        evolution = Evolution.Bonsly,
+        xpClass = MediumFast,
+        xpYield = 58,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 20,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "bonsly", //Verify
+        graphicsLocation = "bonsly", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Sturdy,
+            RockHead,
+            Rattled,
+        },
+    };
+    public static SpeciesData MimeJr = new()
+    {
+        speciesName = "Mime Jr.",
+        type1 = Psychic,
+        type2 = Psychic,
+        baseHP = 20,
+        baseAttack = 25,
+        baseDefense = 45,
+        baseSpAtk = 70,
+        baseSpDef = 90,
+        baseSpeed = 60,
+        evYield = SpDef,
+        evolution = Evolution.MimeJr,
+        xpClass = MediumFast,
+        xpYield = 62,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 25,
+        catchRate = 145,
+        baseFriendship = 70,
+        cryLocation = "mime_jr", //Verify
+        graphicsLocation = "mime_jr", //Verify
+        backSpriteHeight = 1,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Soundproof,
+            Filter,
+            Technician,
+        },
+    };
+    public static SpeciesData Happiny = new()
+    {
+        speciesName = "Happiny",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 100,
+        baseAttack = 5,
+        baseDefense = 5,
+        baseSpAtk = 15,
+        baseSpDef = 65,
+        baseSpeed = 30,
+        evYield = HP,
+        evolution = Evolution.Happiny,
+        xpClass = Fast,
+        xpYield = 110,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 40,
+        catchRate = 130,
+        baseFriendship = 140,
+        cryLocation = "happiny", //Verify
+        graphicsLocation = "happiny", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            NaturalCure,
+            SereneGrace,
+            FriendGuard,
+        },
+    };
+    public static SpeciesData Chatot = new()
+    {
+        speciesName = "Chatot",
+        type1 = Normal,
+        type2 = Flying,
+        baseHP = 76,
+        baseAttack = 65,
+        baseDefense = 45,
+        baseSpAtk = 92,
+        baseSpDef = 42,
+        baseSpeed = 91,
+        evYield = Attack,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 144,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 20,
+        catchRate = 30,
+        baseFriendship = 35,
+        cryLocation = "chatot", //Verify
+        graphicsLocation = "chatot", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            KeenEye,
+            TangledFeet,
+            BigPecks,
+        },
+    };
+    public static SpeciesData Spiritomb = new()
+    {
+        speciesName = "Spiritomb",
+        type1 = Ghost,
+        type2 = Dark,
+        baseHP = 50,
+        baseAttack = 92,
+        baseDefense = 108,
+        baseSpAtk = 92,
+        baseSpDef = 108,
+        baseSpeed = 35,
+        evYield = Defense + SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 170,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 30,
+        catchRate = 100,
+        baseFriendship = 70,
+        cryLocation = "spiritomb", //Verify
+        graphicsLocation = "spiritomb", //Verify
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Pressure,
+            Pressure,
+            Infiltrator,
+        },
+    };
+    public static SpeciesData Gible = new()
+    {
+        speciesName = "Gible",
+        type1 = Dragon,
+        type2 = Ground,
+        baseHP = 58,
+        baseAttack = 70,
+        baseDefense = 45,
+        baseSpAtk = 40,
+        baseSpDef = 45,
+        baseSpeed = 42,
+        evYield = Attack,
+        evolution = Evolution.Gible,
+        xpClass = Slow,
+        xpYield = 60,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Dragon,
+        eggCycles = 40,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "gible", //Verify
+        graphicsLocation = "gible", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SandVeil,
+            SandVeil,
+            RoughSkin,
+        },
+    };
+    public static SpeciesData Gabite = new()
+    {
+        speciesName = "Gabite",
+        type1 = Dragon,
+        type2 = Ground,
+        baseHP = 68,
+        baseAttack = 90,
+        baseDefense = 65,
+        baseSpAtk = 50,
+        baseSpDef = 55,
+        baseSpeed = 82,
+        evYield = 2 * Attack,
+        evolution = Evolution.Gabite,
+        xpClass = Slow,
+        xpYield = 144,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Dragon,
+        eggCycles = 40,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "gabite", //Verify
+        graphicsLocation = "gabite", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SandVeil,
+            SandVeil,
+            RoughSkin,
+        },
+    };
+    public static SpeciesData Garchomp = new()
+    {
+        speciesName = "Garchomp",
+        type1 = Dragon,
+        type2 = Ground,
+        baseHP = 108,
+        baseAttack = 130,
+        baseDefense = 95,
+        baseSpAtk = 80,
+        baseSpDef = 85,
+        baseSpeed = 102,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Dragon,
+        eggCycles = 40,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "garchomp", //Verify
+        graphicsLocation = "garchomp", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SandVeil,
+            SandVeil,
+            RoughSkin,
+        },
+    };
+    public static SpeciesData Munchlax = new()
+    {
+        speciesName = "Munchlax",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 135,
+        baseAttack = 85,
+        baseDefense = 40,
+        baseSpAtk = 40,
+        baseSpDef = 85,
+        baseSpeed = 5,
+        evYield = HP,
+        evolution = Evolution.Munchlax,
+        xpClass = Slow,
+        xpYield = 78,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 40,
+        catchRate = 50,
+        baseFriendship = 70,
+        cryLocation = "munchlax", //Verify
+        graphicsLocation = "munchlax", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Pickup,
+            ThickFat,
+            Gluttony,
+        },
+    };
+    public static SpeciesData Riolu = new()
+    {
+        speciesName = "Riolu",
+        type1 = Fighting,
+        type2 = Fighting,
+        baseHP = 40,
+        baseAttack = 70,
+        baseDefense = 40,
+        baseSpAtk = 35,
+        baseSpDef = 40,
+        baseSpeed = 60,
+        evYield = Attack,
+        evolution = Evolution.Riolu,
+        xpClass = MediumSlow,
+        xpYield = 57,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 25,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "riolu", //Verify
+        graphicsLocation = "riolu", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Steadfast,
+            InnerFocus,
+            Prankster,
+        },
+    };
+    public static SpeciesData Lucario = new()
+    {
+        speciesName = "Lucario",
+        type1 = Fighting,
+        type2 = Steel,
+        baseHP = 70,
+        baseAttack = 110,
+        baseDefense = 70,
+        baseSpAtk = 115,
+        baseSpDef = 70,
+        baseSpeed = 90,
+        evYield = Attack + SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 184,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 25,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "lucario", //Verify
+        graphicsLocation = "lucario", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Steadfast,
+            InnerFocus,
+            Justified,
+        },
+    };
+    public static SpeciesData Hippopotas = new()
+    {
+        speciesName = "Hippopotas",
+        type1 = Ground,
+        type2 = Ground,
+        baseHP = 68,
+        baseAttack = 72,
+        baseDefense = 78,
+        baseSpAtk = 38,
+        baseSpDef = 42,
+        baseSpeed = 32,
+        evYield = Defense,
+        evolution = Evolution.Hippopotas,
+        xpClass = Slow,
+        xpYield = 66,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 30,
+        catchRate = 140,
+        baseFriendship = 70,
+        cryLocation = "hippopotas", //Verify
+        graphicsLocation = "hippopotas", //Verify
+        backSpriteHeight = 14,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SandStream,
+            SandStream,
+            SandForce,
+        },
+    };
+    public static SpeciesData Hippowdon = new()
+    {
+        speciesName = "Hippowdon",
+        type1 = Ground,
+        type2 = Ground,
+        baseHP = 108,
+        baseAttack = 112,
+        baseDefense = 118,
+        baseSpAtk = 68,
+        baseSpDef = 72,
+        baseSpeed = 47,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 184,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 30,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "hippowdon", //Verify
+        graphicsLocation = "hippowdon", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SandStream,
+            SandStream,
+            SandForce,
+        },
+    };
+    public static SpeciesData Skorupi = new()
+    {
+        speciesName = "Skorupi",
+        type1 = Poison,
+        type2 = Bug,
+        baseHP = 40,
+        baseAttack = 50,
+        baseDefense = 90,
+        baseSpAtk = 30,
+        baseSpDef = 55,
+        baseSpeed = 65,
+        evYield = Defense,
+        evolution = Evolution.Skorupi,
+        xpClass = Slow,
+        xpYield = 66,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Water3,
+        eggCycles = 20,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "skorupi", //Verify
+        graphicsLocation = "skorupi", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            BattleArmor,
+            Sniper,
+            KeenEye,
+        },
+    };
+    public static SpeciesData Drapion = new()
+    {
+        speciesName = "Drapion",
+        type1 = Poison,
+        type2 = Dark,
+        baseHP = 70,
+        baseAttack = 90,
+        baseDefense = 110,
+        baseSpAtk = 60,
+        baseSpDef = 75,
+        baseSpeed = 95,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 175,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Water3,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "drapion", //Verify
+        graphicsLocation = "drapion", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            BattleArmor,
+            Sniper,
+            KeenEye,
+        },
+    };
+    public static SpeciesData Croagunk = new()
+    {
+        speciesName = "Croagunk",
+        type1 = Poison,
+        type2 = Fighting,
+        baseHP = 48,
+        baseAttack = 61,
+        baseDefense = 40,
+        baseSpAtk = 61,
+        baseSpDef = 40,
+        baseSpeed = 50,
+        evYield = Attack,
+        evolution = Evolution.Croagunk,
+        xpClass = MediumFast,
+        xpYield = 60,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.HumanLike,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 10,
+        catchRate = 140,
+        baseFriendship = 100,
+        cryLocation = "croagunk", //Verify
+        graphicsLocation = "croagunk", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Anticipation,
+            DrySkin,
+            PoisonTouch,
+        },
+    };
+    public static SpeciesData Toxicroak = new()
+    {
+        speciesName = "Toxicroak",
+        type1 = Poison,
+        type2 = Fighting,
+        baseHP = 83,
+        baseAttack = 106,
+        baseDefense = 65,
+        baseSpAtk = 86,
+        baseSpDef = 65,
+        baseSpeed = 85,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 172,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.HumanLike,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "toxicroak", //Verify
+        graphicsLocation = "toxicroak", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Anticipation,
+            DrySkin,
+            PoisonTouch,
+        },
+    };
+    public static SpeciesData Carnivine = new()
+    {
+        speciesName = "Carnivine",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 74,
+        baseAttack = 100,
+        baseDefense = 72,
+        baseSpAtk = 90,
+        baseSpDef = 72,
+        baseSpeed = 46,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 159,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 25,
+        catchRate = 200,
+        baseFriendship = 70,
+        cryLocation = "carnivine", //Verify
+        graphicsLocation = "carnivine", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Levitate,
+            Levitate,
+        },
+    };
+    public static SpeciesData Finneon = new()
+    {
+        speciesName = "Finneon",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 49,
+        baseAttack = 49,
+        baseDefense = 56,
+        baseSpAtk = 49,
+        baseSpDef = 61,
+        baseSpeed = 66,
+        evYield = Speed,
+        evolution = Evolution.Finneon,
+        xpClass = Erratic,
+        xpYield = 66,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water2,
+        eggGroup2 = EggGroup.Water2,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "finneon", //Verify
+        graphicsLocation = "finneon", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SwiftSwim,
+            StormDrain,
+            WaterVeil,
+        },
+    };
+    public static SpeciesData Lumineon = new()
+    {
+        speciesName = "Lumineon",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 69,
+        baseAttack = 69,
+        baseDefense = 76,
+        baseSpAtk = 69,
+        baseSpDef = 86,
+        baseSpeed = 91,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = Erratic,
+        xpYield = 161,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water2,
+        eggGroup2 = EggGroup.Water2,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "lumineon", //Verify
+        graphicsLocation = "lumineon", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SwiftSwim,
+            StormDrain,
+            WaterVeil,
+        },
+    };
+    public static SpeciesData Mantyke = new()
+    {
+        speciesName = "Mantyke",
+        type1 = Water,
+        type2 = Flying,
+        baseHP = 45,
+        baseAttack = 20,
+        baseDefense = 50,
+        baseSpAtk = 60,
+        baseSpDef = 120,
+        baseSpeed = 50,
+        evYield = SpDef,
+        evolution = Evolution.Mantyke,
+        xpClass = Slow,
+        xpYield = 69,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 25,
+        catchRate = 25,
+        baseFriendship = 70,
+        cryLocation = "mantyke", //Verify
+        graphicsLocation = "mantyke", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SwiftSwim,
+            WaterAbsorb,
+            WaterVeil,
+        },
+    };
+    public static SpeciesData Snover = new()
+    {
+        speciesName = "Snover",
+        type1 = Grass,
+        type2 = Ice,
+        baseHP = 60,
+        baseAttack = 62,
+        baseDefense = 50,
+        baseSpAtk = 62,
+        baseSpDef = 60,
+        baseSpeed = 40,
+        evYield = Attack,
+        evolution = Evolution.Snover,
+        xpClass = Slow,
+        xpYield = 67,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "snover", //Verify
+        graphicsLocation = "snover", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SnowWarning,
+            SnowWarning,
+            Soundproof,
+        },
+    };
+    public static SpeciesData Abomasnow = new()
+    {
+        speciesName = "Abomasnow",
+        type1 = Grass,
+        type2 = Ice,
+        baseHP = 90,
+        baseAttack = 92,
+        baseDefense = 75,
+        baseSpAtk = 92,
+        baseSpDef = 85,
+        baseSpeed = 60,
+        evYield = Attack + SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 173,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "abomasnow", //Verify
+        graphicsLocation = "abomasnow", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SnowWarning,
+            SnowWarning,
+            Soundproof,
+        },
+    };
+    public static SpeciesData Weavile = new()
+    {
+        speciesName = "Weavile",
+        type1 = Dark,
+        type2 = Ice,
+        baseHP = 70,
+        baseAttack = 120,
+        baseDefense = 65,
+        baseSpAtk = 45,
+        baseSpDef = 85,
+        baseSpeed = 125,
+        evYield = Attack + Speed,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 179,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 35,
+        cryLocation = "weavile", //Verify
+        graphicsLocation = "weavile", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Pressure,
+            Pressure,
+            Pickpocket,
+        },
+    };
+    public static SpeciesData Magnezone = new()
+    {
+        speciesName = "Magnezone",
+        type1 = Electric,
+        type2 = Steel,
+        baseHP = 70,
+        baseAttack = 70,
+        baseDefense = 115,
+        baseSpAtk = 130,
+        baseSpDef = 90,
+        baseSpeed = 60,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 241,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 20,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "magnezone", //Verify
+        graphicsLocation = "magnezone", //Verify
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            MagnetPull,
+            Sturdy,
+            Analytic,
+        },
+    };
+    public static SpeciesData Lickilicky = new()
+    {
+        speciesName = "Lickilicky",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 110,
+        baseAttack = 85,
+        baseDefense = 95,
+        baseSpAtk = 80,
+        baseSpDef = 95,
+        baseSpeed = 50,
+        evYield = 3 * HP,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 180,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Monster,
+        eggCycles = 20,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "lickilicky", //Verify
+        graphicsLocation = "lickilicky", //Verify
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            OwnTempo,
+            Oblivious,
+            CloudNine,
+        },
+    };
+    public static SpeciesData Rhyperior = new()
+    {
+        speciesName = "Rhyperior",
+        type1 = Ground,
+        type2 = Rock,
+        baseHP = 115,
+        baseAttack = 140,
+        baseDefense = 130,
+        baseSpAtk = 55,
+        baseSpDef = 55,
+        baseSpeed = 40,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 241,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "rhyperior", //Verify
+        graphicsLocation = "rhyperior", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            LightningRod,
+            SolidRock,
+            Reckless,
+        },
+    };
+    public static SpeciesData Tangrowth = new()
+    {
+        speciesName = "Tangrowth",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 100,
+        baseAttack = 100,
+        baseDefense = 125,
+        baseSpAtk = 110,
+        baseSpDef = 50,
+        baseSpeed = 50,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 187,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "tangrowth", //Verify
+        graphicsLocation = "tangrowth", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Chlorophyll,
+            LeafGuard,
+            Regenerator,
+        },
+    };
+    public static SpeciesData Electivire = new()
+    {
+        speciesName = "Electivire",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 75,
+        baseAttack = 123,
+        baseDefense = 67,
+        baseSpAtk = 95,
+        baseSpDef = 85,
+        baseSpeed = 95,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 243,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 75,
+        eggGroup1 = EggGroup.HumanLike,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 25,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "electivire", //Verify
+        graphicsLocation = "electivire", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            MotorDrive,
+            MotorDrive,
+            VitalSpirit,
+        },
+    };
+    public static SpeciesData Magmortar = new()
+    {
+        speciesName = "Magmortar",
+        type1 = Fire,
+        type2 = Fire,
+        baseHP = 75,
+        baseAttack = 95,
+        baseDefense = 67,
+        baseSpAtk = 125,
+        baseSpDef = 95,
+        baseSpeed = 83,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 243,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 75,
+        eggGroup1 = EggGroup.HumanLike,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 25,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "magmortar", //Verify
+        graphicsLocation = "magmortar", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            FlameBody,
+            FlameBody,
+            VitalSpirit,
+        },
+    };
+    public static SpeciesData Togekiss = new()
+    {
+        speciesName = "Togekiss",
+        type1 = Normal,
+        type2 = Flying,
+        baseHP = 85,
+        baseAttack = 50,
+        baseDefense = 95,
+        baseSpAtk = 120,
+        baseSpDef = 115,
+        baseSpeed = 80,
+        evYield = 2 * SpAtk + SpDef,
+        evolution = Evolution.None,
+        xpClass = Fast,
+        xpYield = 245,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 10,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "togekiss", //Verify
+        graphicsLocation = "togekiss", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Hustle,
+            SereneGrace,
+            SuperLuck,
+        },
+    };
+    public static SpeciesData Yanmega = new()
+    {
+        speciesName = "Yanmega",
+        type1 = Bug,
+        type2 = Flying,
+        baseHP = 86,
+        baseAttack = 76,
+        baseDefense = 86,
+        baseSpAtk = 116,
+        baseSpDef = 56,
+        baseSpeed = 95,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 180,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 20,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "yanmega", //Verify
+        graphicsLocation = "yanmega", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SpeedBoost,
+            TintedLens,
+            Frisk,
+        },
+    };
+    public static SpeciesData Leafeon = new()
+    {
+        speciesName = "Leafeon",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 65,
+        baseAttack = 110,
+        baseDefense = 130,
+        baseSpAtk = 60,
+        baseSpDef = 65,
+        baseSpeed = 95,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 184,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 35,
+        catchRate = 45,
+        baseFriendship = 35,
+        cryLocation = "leafeon", //Verify
+        graphicsLocation = "leafeon", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            LeafGuard,
+            LeafGuard,
+            Chlorophyll,
+        },
+    };
+    public static SpeciesData Glaceon = new()
+    {
+        speciesName = "Glaceon",
+        type1 = Ice,
+        type2 = Ice,
+        baseHP = 65,
+        baseAttack = 60,
+        baseDefense = 110,
+        baseSpAtk = 130,
+        baseSpDef = 95,
+        baseSpeed = 65,
+        evYield = 2 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 184,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 35,
+        catchRate = 45,
+        baseFriendship = 35,
+        cryLocation = "glaceon", //Verify
+        graphicsLocation = "glaceon", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SnowCloak,
+            SnowCloak,
+            IceBody,
+        },
+    };
+    public static SpeciesData Gliscor = new()
+    {
+        speciesName = "Gliscor",
+        type1 = Ground,
+        type2 = Flying,
+        baseHP = 75,
+        baseAttack = 95,
+        baseDefense = 125,
+        baseSpAtk = 45,
+        baseSpDef = 75,
+        baseSpeed = 95,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 179,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 20,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "gliscor", //Verify
+        graphicsLocation = "gliscor", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            HyperCutter,
+            SandVeil,
+            PoisonHeal,
+        },
+    };
+    public static SpeciesData Mamoswine = new()
+    {
+        speciesName = "Mamoswine",
+        type1 = Ice,
+        type2 = Ground,
+        baseHP = 110,
+        baseAttack = 130,
+        baseDefense = 80,
+        baseSpAtk = 70,
+        baseSpDef = 60,
+        baseSpeed = 80,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 239,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 50,
+        baseFriendship = 70,
+        cryLocation = "mamoswine", //Verify
+        graphicsLocation = "mamoswine", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Oblivious,
+            SnowCloak,
+            ThickFat,
+        },
+    };
+    public static SpeciesData PorygonZ = new()
+    {
+        speciesName = "Porygon-Z",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 85,
+        baseAttack = 80,
+        baseDefense = 70,
+        baseSpAtk = 135,
+        baseSpDef = 75,
+        baseSpeed = 90,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 241,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 20,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "porygon_z", //Verify
+        graphicsLocation = "porygon_z", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Adaptability,
+            Download,
+            Analytic,
+        },
+    };
+    public static SpeciesData Gallade = new()
+    {
+        speciesName = "Gallade",
+        type1 = Psychic,
+        type2 = Fighting,
+        baseHP = 68,
+        baseAttack = 125,
+        baseDefense = 65,
+        baseSpAtk = 65,
+        baseSpDef = 115,
+        baseSpeed = 80,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 233,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 100,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 35,
+        cryLocation = "gallade", //Verify
+        graphicsLocation = "gallade", //Verify
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Steadfast,
+            Steadfast,
+            Justified,
+        },
+    };
+    public static SpeciesData Probopass = new()
+    {
+        speciesName = "Probopass",
+        type1 = Rock,
+        type2 = Steel,
+        baseHP = 60,
+        baseAttack = 55,
+        baseDefense = 145,
+        baseSpAtk = 75,
+        baseSpDef = 150,
+        baseSpeed = 40,
+        evYield = Defense + 2 * SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 184,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 20,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "probopass", //Verify
+        graphicsLocation = "probopass", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Sturdy,
+            MagnetPull,
+            SandForce,
+        },
+    };
+    public static SpeciesData Dusknoir = new()
+    {
+        speciesName = "Dusknoir",
+        type1 = Ghost,
+        type2 = Ghost,
+        baseHP = 45,
+        baseAttack = 100,
+        baseDefense = 135,
+        baseSpAtk = 65,
+        baseSpDef = 135,
+        baseSpeed = 45,
+        evYield = Defense + 2 * SpDef,
+        evolution = Evolution.None,
+        xpClass = Fast,
+        xpYield = 236,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 25,
+        catchRate = 45,
+        baseFriendship = 35,
+        cryLocation = "dusknoir", //Verify
+        graphicsLocation = "dusknoir", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Pressure,
+            Pressure,
+            Frisk,
+        },
+    };
+    public static SpeciesData Froslass = new()
+    {
+        speciesName = "Froslass",
+        type1 = Ice,
+        type2 = Ghost,
+        baseHP = 70,
+        baseAttack = 80,
+        baseDefense = 70,
+        baseSpAtk = 80,
+        baseSpDef = 70,
+        baseSpeed = 110,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 168,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Fairy,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "froslass", //Verify
+        graphicsLocation = "froslass", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SnowCloak,
+            SnowCloak,
+            CursedBody,
+        },
+    };
+    public static SpeciesData Rotom = new()
+    {
+        speciesName = "Rotom",
+        type1 = Electric,
+        type2 = Ghost,
+        baseHP = 50,
+        baseAttack = 50,
+        baseDefense = 77,
+        baseSpAtk = 95,
+        baseSpDef = 77,
+        baseSpeed = 91,
+        evYield = Speed + SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 154,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "rotom", //Verify
+        graphicsLocation = "rotom", //Verify
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Levitate,
+            Levitate,
+        },
+    };
+    public static SpeciesData Uxie = new()
+    {
+        speciesName = "Uxie",
+        type1 = Psychic,
+        type2 = Psychic,
+        baseHP = 75,
+        baseAttack = 75,
+        baseDefense = 130,
+        baseSpAtk = 75,
+        baseSpDef = 130,
+        baseSpeed = 95,
+        evYield = 2 * Defense + SpDef,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 261,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 80,
+        catchRate = 3,
+        baseFriendship = 140,
+        cryLocation = "uxie", //Verify
+        graphicsLocation = "uxie", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Levitate,
+            Levitate,
+        },
+    };
+    public static SpeciesData Mesprit = new()
+    {
+        speciesName = "Mesprit",
+        type1 = Psychic,
+        type2 = Psychic,
+        baseHP = 80,
+        baseAttack = 105,
+        baseDefense = 105,
+        baseSpAtk = 105,
+        baseSpDef = 105,
+        baseSpeed = 80,
+        evYield = Attack + SpAtk + SpDef,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 261,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 80,
+        catchRate = 3,
+        baseFriendship = 140,
+        cryLocation = "mesprit", //Verify
+        graphicsLocation = "mesprit", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Levitate,
+            Levitate,
+        },
+    };
+    public static SpeciesData Azelf = new()
+    {
+        speciesName = "Azelf",
+        type1 = Psychic,
+        type2 = Psychic,
+        baseHP = 75,
+        baseAttack = 125,
+        baseDefense = 70,
+        baseSpAtk = 125,
+        baseSpDef = 70,
+        baseSpeed = 115,
+        evYield = 2 * Attack + SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 261,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 80,
+        catchRate = 3,
+        baseFriendship = 140,
+        cryLocation = "azelf", //Verify
+        graphicsLocation = "azelf", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Levitate,
+            Levitate,
+        },
+    };
+    public static SpeciesData Dialga = Dialga(
+        baseAttack: 120,
+        baseSpDef: 100,
+        graphics: "dialga",
+        backSpriteHeight: 0
+    );
+    public static SpeciesData Palkia = Palkia(
+        baseAttack: 120,
+        baseSpeed: 100,
+        graphics: "palkia",
+        backSpriteHeight: 6
+    );
+    public static SpeciesData Heatran = new()
+    {
+        speciesName = "Heatran",
+        type1 = Fire,
+        type2 = Steel,
+        baseHP = 91,
+        baseAttack = 90,
+        baseDefense = 106,
+        baseSpAtk = 130,
+        baseSpDef = 106,
+        baseSpeed = 77,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 10,
+        catchRate = 3,
+        baseFriendship = 100,
+        cryLocation = "heatran", //Verify
+        graphicsLocation = "heatran", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            FlashFire,
+            FlashFire,
+            FlameBody,
+        },
+    };
+    public static SpeciesData Regigigas = new()
+    {
+        speciesName = "Regigigas",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 110,
+        baseAttack = 160,
+        baseDefense = 110,
+        baseSpAtk = 80,
+        baseSpDef = 110,
+        baseSpeed = 100,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 302,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "regigigas", //Verify
+        graphicsLocation = "regigigas", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            SlowStart,
+            SlowStart,
+            SlowStart,
+        },
+    };
+    public static SpeciesData Giratina = Giratina(
+        baseAttack: 100,
+        baseSpAtk: 100,
+        baseDefense: 120,
+        baseSpDef: 120,
+        graphics: "giratina",
+        backSpriteHeight: 4
+    );
+    public static SpeciesData Cresselia = new()
+    {
+        speciesName = "Cresselia",
+        type1 = Psychic,
+        type2 = Psychic,
+        baseHP = 120,
+        baseAttack = 70,
+        baseDefense = 120,
+        baseSpAtk = 75,
+        baseSpDef = 130,
+        baseSpeed = 85,
+        evYield = 3 * SpDef,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 100,
+        cryLocation = "cresselia", //Verify
+        graphicsLocation = "cresselia", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Levitate,
+            Levitate,
+        },
+    };
+    public static SpeciesData Phione = new()
+    {
+        speciesName = "Phione",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 80,
+        baseAttack = 80,
+        baseDefense = 80,
+        baseSpAtk = 80,
+        baseSpDef = 80,
+        baseSpeed = 80,
+        evYield = HP,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 216,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 40,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "phione", //Verify
+        graphicsLocation = "phione", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Hydration,
+            Hydration,
+            Hydration,
+        },
+    };
+    public static SpeciesData Manaphy = new()
+    {
+        speciesName = "Manaphy",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 100,
+        baseAttack = 100,
+        baseDefense = 100,
+        baseSpAtk = 100,
+        baseSpDef = 100,
+        baseSpeed = 100,
+        evYield = 3 * HP,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 10,
+        catchRate = 3,
+        baseFriendship = 70,
+        cryLocation = "manaphy", //Verify
+        graphicsLocation = "manaphy", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Hydration,
+            Hydration,
+            Hydration,
+        },
+    };
+    public static SpeciesData Darkrai = new()
+    {
+        speciesName = "Darkrai",
+        type1 = Dark,
+        type2 = Dark,
+        baseHP = 70,
+        baseAttack = 90,
+        baseDefense = 90,
+        baseSpAtk = 135,
+        baseSpDef = 90,
+        baseSpeed = 125,
+        evYield = Speed + 2 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "darkrai", //Verify
+        graphicsLocation = "darkrai", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            BadDreams,
+            BadDreams,
+            BadDreams,
+        },
+    };
+    public static SpeciesData Shaymin = Shaymin(
+        type2: Grass,
+        baseHP: 100,
+        baseAttack: 100,
+        baseDefense: 100,
+        baseSpAtk: 100,
+        baseSpDef: 100,
+        baseSpeed: 100,
+        ability: NaturalCure,
+        cry: "shaymin",
+        graphics: "shaymin",
+        backSpriteHeight: 15
+    );
+    public static SpeciesData Arceus = Arceus(Normal, "arceus");
+
 
 
 
@@ -12736,16 +15996,16 @@ public static class Species
     //Megas
 
     public static SpeciesData VenusaurMega = Mega(
-        baseSpecies: Venusaur,
-        baseAttack: 100,
-        baseDefense: 123,
-        baseSpAtk: 122,
-        baseSpDef: 120,
-        baseSpeed: 80,
-        backSpriteHeight: 8,
-        pokedexData: Pokedex.Venusaur, //Not done
-        ability: ThickFat
-    );
+            baseSpecies: Venusaur,
+            baseAttack: 100,
+            baseDefense: 123,
+            baseSpAtk: 122,
+            baseSpDef: 120,
+            baseSpeed: 80,
+            backSpriteHeight: 8,
+            pokedexData: Pokedex.Venusaur, //Not done
+            ability: ThickFat
+        );
 
     public static SpeciesData CharizardMegaX = Mega(
         baseSpecies: Charizard,
@@ -13247,6 +16507,66 @@ public static class Species
         ability: DeltaStream
     );
 
+    public static SpeciesData LopunnyMega = Mega(
+        baseSpecies: Lopunny,
+        type2: Fighting,
+        baseAttack: 136,
+        baseDefense: 94,
+        baseSpAtk: 54,
+        baseSpDef: 96,
+        baseSpeed: 135,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Scrappy
+    );
+
+    public static SpeciesData GarchompMega = Mega(
+        baseSpecies: Garchomp,
+        baseAttack: 170,
+        baseDefense: 115,
+        baseSpAtk: 120,
+        baseSpDef: 95,
+        baseSpeed: 92,
+        backSpriteHeight: 4,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: SandForce
+    );
+
+    public static SpeciesData LucarioMega = Mega(
+        baseSpecies: Lucario,
+        baseAttack: 145,
+        baseDefense: 88,
+        baseSpAtk: 140,
+        baseSpDef: 70,
+        baseSpeed: 112,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: Adaptability
+    );
+
+    public static SpeciesData AbomasnowMega = Mega(
+        baseSpecies: Abomasnow,
+        baseAttack: 132,
+        baseDefense: 105,
+        baseSpAtk: 132,
+        baseSpDef: 105,
+        baseSpeed: 30,
+        backSpriteHeight: 0,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: SnowWarning
+    );
+
+    public static SpeciesData GalladeMega = Mega(
+        baseSpecies: Gallade,
+        baseAttack: 165,
+        baseDefense: 95,
+        baseSpAtk: 65,
+        baseSpDef: 115,
+        baseSpeed: 110,
+        backSpriteHeight: 3,
+        pokedexData: Pokedex.Bulbasaur, //Not done
+        ability: InnerFocus
+    );
     //Unown forms
 
     public static SpeciesData Unown_B
@@ -13348,6 +16668,103 @@ public static class Species
             evYield: Speed * 3,
             graphics: "deoxys/speed",
             backSpriteHeight: 0
+        );
+
+    // Burmy forms
+
+    public static SpeciesData BurmySand =
+        Burmy("burmy/sandy_cloak", 7, Evolution.BurmySand);
+    public static SpeciesData BurmyTrash =
+        Burmy("burmy/trash_cloak", 0, Evolution.BurmyTrash);
+    public static SpeciesData WormadamSand = Wormadam(
+        type2: Ground,
+        baseHP: 60,
+        baseAttack: 79,
+        baseDefense: 105,
+        baseSpAtk: 59,
+        baseSpDef: 85,
+        baseSpeed: 36,
+        evYield: Defense * 2,
+        graphics: "wormadam/sandy_cloak",
+        backSpriteHeight: 2
+    );
+    public static SpeciesData WormadamTrash = Wormadam(
+        type2: Steel,
+        baseHP: 60,
+        baseAttack: 69,
+        baseDefense: 95,
+        baseSpAtk: 69,
+        baseSpDef: 95,
+        baseSpeed: 36,
+        evYield: Defense + SpDef,
+        graphics: "wormadam/trash_cloak",
+        backSpriteHeight: 2
+    );
+
+    public static SpeciesData CherrimSunshine = Cherrim("cherrim/sunshine", 6);
+
+    public static SpeciesData ShellosEast = Shellos("shellos/east_sea", 8, Evolution.ShellosEast);
+    public static SpeciesData GastrodonEast = Gastrodon("gastrodon/east_sea", 3);
+
+    public static SpeciesData RotomHeat = RotomForm(Fire, "rotom/heat", 12);
+    public static SpeciesData RotomWash = RotomForm(Water, "rotom/wash", 11);
+    public static SpeciesData RotomFrost = RotomForm(Ice, "rotom/frost", 7);
+    public static SpeciesData RotomFan = RotomForm(Flying, "rotom/fan", 8);
+    public static SpeciesData RotomMow = RotomForm(Grass, "rotom/mow", 10);
+
+    public static SpeciesData ArceusFire = Arceus(Fire, "arceus/fire");
+    public static SpeciesData ArceusWater = Arceus(Water, "arceus/water");
+    public static SpeciesData ArceusGrass = Arceus(Grass, "arceus/grass");
+    public static SpeciesData ArceusElectric = Arceus(Electric, "arceus/electric");
+    public static SpeciesData ArceusIce = Arceus(Ice, "arceus/ice");
+    public static SpeciesData ArceusGround = Arceus(Ground, "arceus/ground");
+    public static SpeciesData ArceusFighting = Arceus(Fighting, "arceus/fighting");
+    public static SpeciesData ArceusFlying = Arceus(Flying, "arceus.flying");
+    public static SpeciesData ArceusRock = Arceus(Rock, "arceus/rock");
+    public static SpeciesData ArceusPoison = Arceus(Poison, "arceus/poison");
+    public static SpeciesData ArceusBug = Arceus(Bug, "arceus/bug");
+    public static SpeciesData ArceusPsychic = Arceus(Psychic, "arceus/psychic");
+    public static SpeciesData ArceusGhost = Arceus(Ghost, "arceus/ghost");
+    public static SpeciesData ArceusDragon = Arceus(Dragon, "arceus/dragon");
+    public static SpeciesData ArceusDark = Arceus(Dark, "arceus/dark");
+    public static SpeciesData ArceusSteel = Arceus(Steel, "arceus/steel");
+    public static SpeciesData ArceusFairy = Arceus(Fairy, "arceus/fairy");
+
+    public static SpeciesData DialgaOrigin = Dialga(
+        baseAttack: 100,
+        baseSpDef: 120,
+        graphics: "dialga/origin",
+        backSpriteHeight: 0
+    );
+
+    public static SpeciesData PalkiaOrigin = Palkia(
+        baseAttack: 100,
+        baseSpeed: 120,
+        graphics: "palkia/origin",
+        backSpriteHeight: 3
+    );
+
+    public static SpeciesData GiratinaOrigin = Giratina(
+        baseAttack: 120,
+        baseSpAtk: 120,
+        baseDefense: 100,
+        baseSpDef: 100,
+        graphics: "giratina/origin",
+        backSpriteHeight: 4
+    );
+
+    public static SpeciesData ShayminSky = Shaymin(
+        type2: Flying,
+        baseHP: 100,
+        baseAttack: 103,
+        baseDefense: 75,
+        baseSpAtk: 120,
+        baseSpDef: 75,
+        baseSpeed: 127,
+        ability: SereneGrace,
+        cry: "shaymin_sky",
+        graphics: "shaymin/sky",
+        backSpriteHeight: 2
         );
 
     public static SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count] {
@@ -13743,6 +17160,115 @@ public static class Species
         Jirachi,
         Deoxys,
 
+            //Gen 4
+        Turtwig,
+        Grotle,
+        Torterra,
+        Chimchar,
+        Monferno,
+        Infernape,
+        Piplup,
+        Prinplup,
+        Empoleon,
+        Starly,
+        Staravia,
+        Staraptor,
+        Bidoof,
+        Bibarel,
+        Kricketot,
+        Kricketune,
+        Shinx,
+        Luxio,
+        Luxray,
+        Budew,
+        Roserade,
+        Cranidos,
+        Rampardos,
+        Shieldon,
+        Bastiodon,
+        Burmy,
+        Wormadam,
+        Mothim,
+        Combee,
+        Vespiquen,
+        Pachirisu,
+        Buizel,
+        Floatzel,
+        Cherubi,
+        Cherrim,
+        Shellos,
+        Gastrodon,
+        Ambipom,
+        Drifloon,
+        Drifblim,
+        Buneary,
+        Lopunny,
+        Mismagius,
+        Honchkrow,
+        Glameow,
+        Purugly,
+        Chingling,
+        Stunky,
+        Skuntank,
+        Bronzor,
+        Bronzong,
+        Bonsly,
+        MimeJr,
+        Happiny,
+        Chatot,
+        Spiritomb,
+        Gible,
+        Gabite,
+        Garchomp,
+        Munchlax,
+        Riolu,
+        Lucario,
+        Hippopotas,
+        Hippowdon,
+        Skorupi,
+        Drapion,
+        Croagunk,
+        Toxicroak,
+        Carnivine,
+        Finneon,
+        Lumineon,
+        Mantyke,
+        Snover,
+        Abomasnow,
+        Weavile,
+        Magnezone,
+        Lickilicky,
+        Rhyperior,
+        Tangrowth,
+        Electivire,
+        Magmortar,
+        Togekiss,
+        Yanmega,
+        Leafeon,
+        Glaceon,
+        Gliscor,
+        Mamoswine,
+        PorygonZ,
+        Gallade,
+        Probopass,
+        Dusknoir,
+        Froslass,
+        Rotom,
+        Uxie,
+        Mesprit,
+        Azelf,
+        Dialga,
+        Palkia,
+        Heatran,
+        Regigigas,
+        Giratina,
+        Cresselia,
+        Phione,
+        Manaphy,
+        Darkrai,
+        Shaymin,
+        Arceus,
+
         //Forms
 
         Unown_B,
@@ -13778,6 +17304,45 @@ public static class Species
         DeoxysAttack,
         DeoxysDefense,
         DeoxysSpeed,
+
+        BurmySand,
+        BurmyTrash,
+        WormadamSand,
+        WormadamTrash,
+
+        CherrimSunshine,
+
+        ShellosEast,
+        GastrodonEast,
+
+        RotomHeat,
+        RotomWash,
+        RotomFrost,
+        RotomFan,
+        RotomMow,
+
+        DialgaOrigin,
+        PalkiaOrigin,
+        GiratinaOrigin,
+
+        ShayminSky,
+
+        ArceusFighting,
+        ArceusFlying,
+        ArceusPoison,
+        ArceusGround,
+        ArceusRock,
+        ArceusBug,
+        ArceusGhost,
+        ArceusSteel,
+        ArceusFire,
+        ArceusWater,
+        ArceusGrass,
+        ArceusElectric,
+        ArceusIce,
+        ArceusDragon,
+        ArceusDark,
+        ArceusFairy,
 
         //Megas
 
@@ -13822,5 +17387,10 @@ public static class Species
         LatiasMega,
         LatiosMega,
         RayquazaMega,
+        LopunnyMega,
+        GarchompMega,
+        LucarioMega,
+        AbomasnowMega,
+        GalladeMega,
     };
 }

@@ -1,4 +1,12 @@
 using System;
+using System.Drawing;
+using Unity.VisualScripting;
+using static EvYield;
+using static Type;
+using static XPClass;
+using static Ability;
+using static Learnset;
+
 
 public struct SpeciesData
 {
@@ -48,19 +56,19 @@ public struct SpeciesData
     public static SpeciesData Unown(string path, int backSpriteHeight) => new()
     {
         speciesName = "Unown",
-        type1 = Type.Psychic,
-        type2 = Type.Psychic,
+        type1 = Psychic,
+        type2 = Psychic,
         baseHP = 48,
         baseAttack = 72,
         baseDefense = 48,
         baseSpAtk = 72,
         baseSpDef = 48,
         baseSpeed = 48,
-        evYield = EvYield.Attack + EvYield.SpAtk,
+        evYield = Attack + SpAtk,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 118,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = Genderless,
         eggGroup1 = EggGroup.Undiscovered,
         eggGroup2 = EggGroup.Undiscovered,
@@ -73,9 +81,9 @@ public struct SpeciesData
         pokedexData = Pokedex.Unown, //Not done
         abilities = new Ability[3]
         {
-            Ability.Levitate,
-            Ability.Levitate,
-            Ability.Levitate,
+            Levitate,
+            Levitate,
+            Levitate,
         },
     };
 
@@ -92,11 +100,11 @@ public struct SpeciesData
         baseSpAtk = 70,
         baseSpDef = 70,
         baseSpeed = 70,
-        evYield = EvYield.HP,
+        evYield = HP,
         evolution = Evolution.None,
-        xpClass = XPClass.MediumFast,
+        xpClass = MediumFast,
         xpYield = 147,
-        learnset = Learnset.EmptyLearnset, //Not done
+        learnset = EmptyLearnset, //Not done
         malePercent = 50,
         eggGroup1 = EggGroup.Fairy,
         eggGroup2 = EggGroup.Amorphous,
@@ -108,9 +116,9 @@ public struct SpeciesData
         pokedexData = Pokedex.Castform, //Not done
         abilities = new Ability[3]
         {
-            Ability.Forecast,
-            Ability.Forecast,
-            Ability.Forecast
+            Forecast,
+            Forecast,
+            Forecast
         }
     };
 
@@ -120,8 +128,8 @@ public struct SpeciesData
         short evYield, string graphics, int backSpriteHeight) => new()
         {
             speciesName = "Deoxys",
-            type1 = Type.Psychic,
-            type2 = Type.Psychic,
+            type1 = Psychic,
+            type2 = Psychic,
             baseHP = baseHP,
             baseAttack = baseAttack,
             baseDefense = baseDefense,
@@ -130,9 +138,9 @@ public struct SpeciesData
             baseSpeed = baseSpeed,
             evYield = evYield,
             evolution = Evolution.None,
-            xpClass = XPClass.Slow,
+            xpClass = Slow,
             xpYield = 270,
-            learnset = Learnset.EmptyLearnset, //Not done
+            learnset = EmptyLearnset, //Not done
             malePercent = Genderless,
             eggGroup1 = EggGroup.Undiscovered,
             eggGroup2 = EggGroup.Undiscovered,
@@ -144,23 +152,418 @@ public struct SpeciesData
             pokedexData = Pokedex.Deoxys, //Not done
             abilities = new Ability[3]
             {
-                Ability.Pressure,
-                Ability.Pressure,
-                Ability.Pressure
+                Pressure,
+                Pressure,
+                Pressure
             }
         };
 
+    //Burmy constructor
+    public static SpeciesData Burmy(string graphics,
+        int backSpriteHeight, EvolutionData[] evolution) => new()
+        {
+            speciesName = "Burmy",
+            type1 = Bug,
+            type2 = Bug,
+            baseHP = 40,
+            baseAttack = 29,
+            baseDefense = 45,
+            baseSpAtk = 29,
+            baseSpDef = 45,
+            baseSpeed = 36,
+            evYield = SpDef,
+            evolution = evolution,
+            xpClass = MediumFast,
+            xpYield = 45,
+            learnset = EmptyLearnset, //Todo: Burmy's learnset
+            malePercent = 50,
+            eggGroup1 = EggGroup.Bug,
+            eggGroup2 = EggGroup.Bug,
+            eggCycles = 15,
+            baseFriendship = 70,
+            cryLocation = "burmy",
+            graphicsLocation = graphics,
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Burmy,
+            abilities = new Ability[3]
+        {
+            ShedSkin,
+            ShedSkin,
+            Overcoat
+        }
+        };
+
+    //Shellos constructor
+    public static SpeciesData Shellos(string graphics,
+        int backSpriteHeight, EvolutionData[] evolution) => new()
+        {
+            speciesName = "Shellos",
+            type1 = Water,
+            type2 = Water,
+            baseHP = 76,
+            baseAttack = 48,
+            baseDefense = 48,
+            baseSpAtk = 57,
+            baseSpDef = 62,
+            baseSpeed = 34,
+            evYield = HP,
+            evolution = evolution,
+            xpClass = MediumFast,
+            xpYield = 65,
+            learnset = EmptyLearnset, //Todo: Shellos's learnset
+            malePercent = 50,
+            eggGroup1 = EggGroup.Water1,
+            eggGroup2 = EggGroup.Amorphous,
+            eggCycles = 20,
+            baseFriendship = 70,
+            cryLocation = "shellos",
+            graphicsLocation = graphics,
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Shellos,
+            abilities = new Ability[3]
+            {
+                StickyHold,
+                StormDrain,
+                SandForce,
+            }
+        };
+    //Gastrodon constructor
+    public static SpeciesData Gastrodon(string graphics,
+        int backSpriteHeight) => new()
+        {
+            speciesName = "Gastrodon",
+            type1 = Water,
+            type2 = Ground,
+            baseHP = 111,
+            baseAttack = 83,
+            baseDefense = 68,
+            baseSpAtk = 92,
+            baseSpDef = 82,
+            baseSpeed = 39,
+            evYield = HP * 2,
+            evolution = Evolution.None,
+            xpClass = MediumFast,
+            xpYield = 166,
+            learnset = EmptyLearnset, //Todo: Gastrodon's learnset
+            malePercent = 50,
+            eggGroup1 = EggGroup.Water1,
+            eggGroup2 = EggGroup.Amorphous,
+            eggCycles = 20,
+            baseFriendship = 70,
+            cryLocation = "gastrodon",
+            graphicsLocation = graphics,
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Gastrodon,
+            abilities = new Ability[3]
+            {
+                StickyHold,
+                StormDrain,
+                SandForce,
+            }
+        };
+
+    public static SpeciesData Wormadam(string graphics, 
+        Type type2, int baseHP, int baseAttack, int baseDefense,
+        int baseSpAtk, int baseSpDef, int baseSpeed,
+        short evYield, int backSpriteHeight) => new()
+        {
+            speciesName = "Wormadam",
+            type1 = Bug,
+            type2 = type2,
+            baseHP = baseHP,
+            baseAttack = baseAttack,
+            baseDefense = baseDefense,
+            baseSpAtk = baseSpAtk,
+            baseSpDef = baseSpDef,
+            baseSpeed = baseSpeed,
+            evYield = evYield,
+            evolution = Evolution.None, //Not done
+            xpClass = MediumFast,
+            xpYield = 148,
+            learnset = EmptyLearnset, //Todo: Wormadam's learnset
+            malePercent = 0,
+            eggGroup1 = EggGroup.Bug,
+            eggGroup2 = EggGroup.Bug,
+            eggCycles = 15,
+            catchRate = 45,
+            baseFriendship = 70,
+            cryLocation = "wormadam", //Verify
+            graphicsLocation = graphics, //Verify
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Wormadam, //Not done
+            abilities = new Ability[3]
+            {
+                Anticipation,
+                Anticipation,
+                Overcoat,
+            },
+        };
+
+    //Cherrim constructor
+    public static SpeciesData Cherrim(string graphics,
+        int backSpriteHeight) => new()
+    {
+        speciesName = "Cherrim",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 70,
+        baseAttack = 60,
+        baseDefense = 70,
+        baseSpAtk = 87,
+        baseSpDef = 78,
+        baseSpeed = 85,
+        evYield = SpAtk* 2,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 158,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Fairy,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "cherrim",
+        graphicsLocation = graphics,
+        backSpriteHeight = backSpriteHeight,
+        pokedexData = Pokedex.Bulbasaur,
+        abilities = new Ability[3]
+        {
+            FlowerGift,
+            FlowerGift,
+            FlowerGift,
+        }
+    };
+
+    //Rotom constructor
+    public static SpeciesData RotomForm(Type type2, string graphics,
+        int backSpriteHeight) => new()
+    {
+        speciesName = "Rotom",
+        type1 = Electric,
+        type2 = type2,
+        baseHP = 50,
+        baseAttack = 65,
+        baseDefense = 107,
+        baseSpAtk = 105,
+        baseSpDef = 107,
+        baseSpeed = 86,
+        evYield = Speed + SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 182,
+        learnset = EmptyLearnset, //Todo: Rotom's learnset
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "rotom",
+        graphicsLocation = graphics,
+        backSpriteHeight = backSpriteHeight,
+        pokedexData = Pokedex.Rotom,
+        abilities = new Ability[3]
+        {
+        Levitate,
+        Levitate,
+        Levitate,
+        }
+    };
+
+    //Arceus constructor
+    public static SpeciesData Arceus(Type type, string graphics) => new()
+    {
+        speciesName = "Arceus",
+        type1 = type,
+        type2 = type,
+        baseHP = 120,
+        baseAttack = 120,
+        baseDefense = 120,
+        baseSpAtk = 120,
+        baseSpDef = 120,
+        baseSpeed = 120,
+        evYield = 3 * HP,
+        evolution = Evolution.None, //Not done
+        xpClass = Slow,
+        xpYield = 324,
+        learnset = EmptyLearnset, //Todo: Arceus's learnset
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "arceus", //Verify
+        graphicsLocation = graphics, //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Multitype,
+            Multitype,
+            Multitype,
+        },
+    };
+
+    //Gen 4 constructors for Origin forms
+
+    public static SpeciesData Dialga(
+        int baseAttack, int baseSpDef,
+        string graphics, int backSpriteHeight) => new()
+    {
+        speciesName = "Dialga",
+        type1 = Steel,
+        type2 = Dragon,
+        baseHP = 100,
+        baseAttack = baseAttack,
+        baseDefense = 120,
+        baseSpAtk = 150,
+        baseSpDef = baseSpDef,
+        baseSpeed = 90,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None, //Not done
+        xpClass = Slow,
+        xpYield = 306,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "dialga", //Verify
+        graphicsLocation = graphics, //Verify
+        backSpriteHeight = backSpriteHeight,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Pressure,
+            Pressure,
+            Telepathy,
+        },
+    };
+    public static SpeciesData Palkia(
+        int baseAttack, int baseSpeed,
+        string graphics, int backSpriteHeight) => new()
+    {
+        speciesName = "Palkia",
+        type1 = Water,
+        type2 = Dragon,
+        baseHP = 90,
+        baseAttack = baseAttack,
+        baseDefense = 100,
+        baseSpAtk = 150,
+        baseSpDef = 120,
+        baseSpeed =  baseSpeed,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None, //Not done
+        xpClass = Slow,
+        xpYield = 306,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "palkia", //Verify
+        graphicsLocation = graphics, //Verify
+        backSpriteHeight = backSpriteHeight,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Pressure,
+            Pressure,
+            Telepathy,
+        },
+    };
+    public static SpeciesData Giratina(
+        int baseAttack, int baseSpAtk,
+        int baseDefense, int baseSpDef,
+        string graphics, int backSpriteHeight) => new()
+    {
+        speciesName = "Giratina",
+        type1 = Ghost,
+        type2 = Dragon,
+        baseHP = 150,
+        baseAttack = baseAttack,
+        baseDefense = baseDefense,
+        baseSpAtk = baseSpAtk,
+        baseSpDef = baseSpDef,
+        baseSpeed = 90,
+        evYield = 3 * HP,
+        evolution = Evolution.None, //Not done
+        xpClass = Slow,
+        xpYield = 306,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "giratina", //Verify
+        graphicsLocation = graphics, //Verify
+        backSpriteHeight = backSpriteHeight,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Pressure,
+            Pressure,
+            Telepathy,
+        },
+    };
+
+    //Shaymin constructor
+    public static SpeciesData Shaymin(
+        Type type2, Ability ability,
+        int baseHP, int baseAttack, int baseDefense,
+        int baseSpAtk, int baseSpDef, int baseSpeed,
+        string cry, string graphics, int backSpriteHeight) => new()
+    {
+        speciesName = "Shaymin",
+        type1 = Grass,
+        type2 = type2,
+        baseHP = baseHP,
+        baseAttack = baseAttack,
+        baseDefense = baseDefense,
+        baseSpAtk = baseSpAtk,
+        baseSpDef = baseSpDef,
+        baseSpeed = baseSpeed,
+        evYield = 3 * HP,
+        evolution = Evolution.None, //Not done
+        xpClass = MediumSlow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 100,
+        cryLocation = cry, //Verify
+        graphicsLocation = graphics, //Verify
+        backSpriteHeight = backSpriteHeight,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+    {
+            ability,
+            ability,
+            ability,
+    },
+    };
     //Mega constructor
 
     public static SpeciesData Mega(SpeciesData baseSpecies,
     int baseAttack, int baseDefense, int baseSpAtk, int baseSpDef, int baseSpeed,
     int backSpriteHeight, PokedexData pokedexData, Ability ability,
-     Type type1 = Type.Typeless, Type type2 = Type.Typeless,
+     Type type1 = Typeless, Type type2 = Typeless,
      string cry = "", string graphics = "", string name = "") => new()
      {
          speciesName = name == "" ? "Mega " + baseSpecies.speciesName : name,
-         type1 = type1 == Type.Typeless ? baseSpecies.type1 : type1,
-         type2 = type2 == Type.Typeless ? baseSpecies.type2 : type2,
+         type1 = type1 == Typeless ? baseSpecies.type1 : type1,
+         type2 = type2 == Typeless ? baseSpecies.type2 : type2,
          baseHP = baseSpecies.baseHP,
          baseAttack = baseAttack,
          baseDefense = baseDefense,

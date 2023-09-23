@@ -17,6 +17,8 @@ public readonly struct EvolutionData
     }
     public static EvolutionData[] SingleEvolution(EvolutionMethod method, int data, SpeciesID destination)
         => new EvolutionData[1] { new(method, data, destination) };
-    public static EvolutionData[] SingleEvolution(EvolutionMethod method, ItemID data, SpeciesID destination)
-        => new EvolutionData[1] { new(method, (int)data, destination) };
+    public static EvolutionData[] SingleEvolution(EvolutionMethod method, ItemID item, SpeciesID destination)
+        => new EvolutionData[1] { new(method, (int)item, destination) };
+    public static EvolutionData[] SingleEvolution(EvolutionMethod method, MoveID move, SpeciesID destination)
+        => new EvolutionData[1] { new(method, (int)move, destination) };
 }

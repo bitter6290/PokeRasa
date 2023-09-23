@@ -87,4 +87,42 @@
         height = 170,
         weight = 60800,
     };
+
+    public static PokedexData Burmy = new()
+    {
+        pokedexNumber = 412,
+        pokedexName = "Burmy",
+        height = 20,
+        weight = 3400,
+    };
+    public static PokedexData Wormadam = new()
+    {
+        pokedexNumber = 413,
+        pokedexName = "Wormadam",
+        height = 50,
+        weight = 6500,
+    };
+
+    public static PokedexData Shellos = new()
+    {
+        pokedexNumber = 422,
+        pokedexName = "Shellos",
+        height = 30,
+        weight = 6300,
+    };
+    public static PokedexData Gastrodon = new()
+    {
+        pokedexNumber = 423,
+        pokedexName = "Gastrodon",
+        height = 90,
+        weight = 29900,
+    };
+
+    public static PokedexData Rotom = new()
+    {
+        pokedexNumber = 479,
+        pokedexName = "Rotom",
+        height = 30,
+        weight = 300,
+    };
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Type
+public enum Type : byte
 {
     Normal,
     Fire,

@@ -633,7 +633,7 @@ public static class Item
     {
         itemName = "King's Rock",
         price = 15000,
-        heldEffect = HeldEffect.KingsRock,
+        heldEffect = HeldEffect.Flinch10,
         graphicsPath = "kings_rock",
         flingEffect = MoveEffect.Flinch,
     };
@@ -661,6 +661,22 @@ public static class Item
         price = 20000,
         heldEffect = HeldEffect.DeepSeaScale,
         graphicsPath = "deep_sea_scale"
+    };
+
+    public static HeldItem RazorClaw = new()
+    {
+        itemName = "Razor Claw",
+        price = 10000,
+        heldEffect = CritRateUp1,
+        graphicsPath = "razor_claw"
+    };
+
+    public static HeldItem RazorFang = new()
+    {
+        itemName = "Razor Fang",
+        price = 10000,
+        heldEffect = Flinch10,
+        graphicsPath = "razor_fang"
     };
 
     //Plates
@@ -848,6 +864,48 @@ public static class Item
         itemName = "Up-Grade",
         price = 10000,
         graphicsPath = "upgrade",
+    };
+
+    public static AbstractItem ReaperCloth = new()
+    {
+        itemName = "Reaper Cloth",
+        price = 10000,
+        graphicsPath = "reaper_cloth"
+    };
+
+    public static AbstractItem Protector = new()
+    {
+        itemName = "Protector",
+        price = 10000,
+        graphicsPath = "protector"
+    };
+
+    public static AbstractItem Electrizer = new()
+    {
+        itemName = "Electrizer",
+        price = 10000,
+        graphicsPath = "electrizer"
+    };
+
+    public static AbstractItem Magmarizer = new()
+    {
+        itemName = "Magmarizer",
+        price = 10000,
+        graphicsPath = "magmarizer"
+    };
+
+    public static AbstractItem DubiousDisk = new()
+    {
+        itemName = "Dubious Disk",
+        price = 10000,
+        graphicsPath = "dubious_disk"
+    };
+
+    public static AbstractItem OvalStone = new()
+    {
+        itemName = "Oval Stone",
+        price = 10000,
+        graphicsPath = "oval_stone"
     };
 
     //Mega stones
@@ -1212,6 +1270,51 @@ public static class Item
         graphicsPath = "latiosite"
     };
 
+    public static MegaStone Lopunnite = new()
+    {
+        itemName = "Lopunnite",
+        price = 40000,
+        originalSpecies = Lopunny,
+        destinationSpecies = LopunnyMega,
+        graphicsPath = "lopunnite"
+    };
+
+    public static MegaStone Garchompite = new()
+    {
+        itemName = "Garchompite",
+        price = 40000,
+        originalSpecies = Garchomp,
+        destinationSpecies = GarchompMega,
+        graphicsPath = "garchompite"
+    };
+
+    public static MegaStone Lucarionite = new()
+    {
+        itemName = "Lucarionite",
+        price = 40000,
+        originalSpecies = Lucario,
+        destinationSpecies = LucarioMega,
+        graphicsPath = "lucarionite"
+    };
+
+    public static MegaStone Abomasite = new()
+    {
+        itemName = "Abomasite",
+        price = 40000,
+        originalSpecies = Abomasnow,
+        destinationSpecies = AbomasnowMega,
+        graphicsPath = "abomasite"
+    };
+
+    public static MegaStone Galladite = new()
+    {
+        itemName = "Galladite",
+        price = 40000,
+        originalSpecies = Gallade,
+        destinationSpecies = GalladeMega,
+        graphicsPath = "galladite"
+    };
+
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
     {
         None,
@@ -1300,6 +1403,8 @@ public static class Item
         MetalCoat,
         DeepSeaTooth,
         DeepSeaScale,
+        RazorClaw,
+        RazorFang,
         //Plates
         BlankPlate,
         FlamePlate,
@@ -1323,6 +1428,12 @@ public static class Item
         DragonScale,
         PrismScale,
         UpGrade,
+        ReaperCloth,
+        Protector,
+        Electrizer,
+        Magmarizer,
+        DubiousDisk,
+        OvalStone,
         //Mega stones
         Venusaurite,
         CharizarditeX,
@@ -1364,6 +1475,11 @@ public static class Item
         Metagrossite,
         Latiasite,
         Latiosite,
+        Lopunnite,
+        Garchompite,
+        Lucarionite,
+        Abomasite,
+        Galladite,
     };
 }
 

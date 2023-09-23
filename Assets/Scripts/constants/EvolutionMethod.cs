@@ -7,6 +7,7 @@ public enum EvolutionMethod
     LevelUp,
     EvolutionItem,
     ItemFemaleOnly,
+    ItemMaleOnly,
     Trade,
     TradeItem,
     Friendship,
@@ -19,6 +20,13 @@ public enum EvolutionMethod
     LevelUpEvenID,
     LevelUpMagneticField,
     LevelUpMaxBeauty,
+    LevelUpWithMove,
+    LevelUpWithItemDay, //Happiny
+    LevelUpWithItemNight,
+    LevelUpWithMonInParty, //Mantyke
+    LevelUpMakeShedinja, //Nincada
+    LevelUpMaleOnly,
+    LevelUpFemaleOnly,
 
     Incidental, //Shedinja
 

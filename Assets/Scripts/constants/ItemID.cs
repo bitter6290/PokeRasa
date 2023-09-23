@@ -86,6 +86,8 @@
     MetalCoat,
     DeepSeaTooth,
     DeepSeaScale,
+    RazorClaw,
+    RazorFang,
     //Plates
     BlankPlate,
     FlamePlate,
@@ -109,6 +111,12 @@
     DragonScale,
     PrismScale,
     UpGrade,
+    ReaperCloth,
+    Protector,
+    Electrizer,
+    Magmarizer,
+    DubiousDisk,
+    OvalStone,
     //Mega stones
     Venusaurite,
     CharizarditeX,
@@ -150,6 +158,11 @@
     Metagrossite,
     Latiasite,
     Latiosite,
+    Lopunnite,
+    Garchompite,
+    Lucarionite,
+    Abomasite,
+    Galladite,
 
     Count,
 }
