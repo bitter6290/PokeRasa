@@ -1,4 +1,5 @@
 ﻿#if UNITY_EDITOR
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -93,14 +94,14 @@ public class MapHelper : MapManager
                 else
                 {
                     AnimatedIndexedTile animTest = AssetDatabase.LoadAssetAtPath<AnimatedIndexedTile>(
-                        "Assets/Generated Palettes/General/tile_" + animTile.Index + ".asset"
+                        "Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), animTile.Index) + ".asset"
                     );
                     if (animTest == null)
                     {
-                        if (File.Exists("Assets/Generated Palettes/General/tile_" + animTile.Index + ".asset"))
-                        { File.Delete("Assets/Generated Palettes/General/tile_" + animTile.Index + ".asset"); }
+                        if (File.Exists("Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), animTile.Index) + ".asset"))
+                        { File.Delete("Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), animTile.Index) + ".asset"); }
                         AssetDatabase.CreateAsset(i,
-                            "Assets/Generated Palettes/General/tile_" + animTile.Index + ".asset");
+                            "Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), animTile.Index) + ".asset");
                     }
                     else
                     {
@@ -116,19 +117,20 @@ public class MapHelper : MapManager
             {
                 if (tile.Index == (int)TileID.noTile) continue;
                 IndexedTile test = AssetDatabase.LoadAssetAtPath<IndexedTile>(
-                    "Assets/Generated Palettes/General/tile_" + tile.Index + ".asset"
+                    "Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), tile.Index) + ".asset"
                 );
                 if (test == null)
                 {
-                    if (File.Exists("Assets/Generated Palettes/General/tile_" + tile.Index + ".asset"))
-                    { File.Delete("Assets/Generated Palettes/General/tile_" + tile.Index + ".asset"); }
+                    if (File.Exists("Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), tile.Index) + ".asset"))
+                    { File.Delete("Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), tile.Index) + ".asset"); }
                     AssetDatabase.CreateAsset(i,
-                        "Assets/Generated Palettes/General/tile_" + tile.Index + ".asset");
+                        "Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), tile.Index) + ".asset");
                 }
                 else
                 {
                     test.sprite = tile.sprite;
                     test.tileID = tile.tileID;
+                    test.transform = tile.transform;
                 }
             }
             AssetDatabase.SaveAssets();

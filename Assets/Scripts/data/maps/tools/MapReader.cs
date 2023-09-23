@@ -434,13 +434,13 @@ public static class MapReader
             {
                 int offset = (x * mapHelper.mapData.height + y) * 26 + 2;
                 level1.SetTile(new Vector3Int(2 * x, 2 * y),
-                    Tiles.TileTable[(int)TileID.grassTile2]);
+                    Tiles.TileTable[(int)TileID.grass2]);
                 level1.SetTile(new Vector3Int(2 * x + 1, 2 * y),
-                    Tiles.TileTable[(int)TileID.grassTile1]);
+                    Tiles.TileTable[(int)TileID.grass1]);
                 level1.SetTile(new Vector3Int(2 * x, 2 * y + 1),
-                    Tiles.TileTable[(int)TileID.grassTile1]);
+                    Tiles.TileTable[(int)TileID.grass1]);
                 level1.SetTile(new Vector3Int(2 * x + 1, 2 * y + 1),
-                    Tiles.TileTable[(int)TileID.grassTile2]);
+                    Tiles.TileTable[(int)TileID.grass2]);
                 collision.SetTile(new Vector3Int(x, y),
                     Tiles.CollisionTileTable[(int)CollisionID.Level3]);
                 wildData.SetTile(new Vector3Int(x, y),

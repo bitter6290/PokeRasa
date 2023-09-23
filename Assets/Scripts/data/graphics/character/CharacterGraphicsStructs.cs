@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public static class CharacterGraphicsStructs
+public static class CharGraphics
 {
 
     static Sprite SpriteFromTexture16x32(string path, int x)
@@ -30,7 +30,4 @@ public static class CharacterGraphicsStructs
         brendanWalk,
         mayWalk,
     };
-
-    public static HumanoidGraphics Graphics(this HumanoidGraphicsID id)
-        => humanoidGraphicsTable[(int)id];
 }

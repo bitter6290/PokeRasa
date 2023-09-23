@@ -8,14 +8,14 @@ public class PlayerMovement
     public GameObject playerObject;
     public Transform playerTransform => playerObject.GetComponent<Transform>();
     public SpriteRenderer playerSprite => playerObject.GetComponent<SpriteRenderer>();
-    public PlayerMovement(Player p, HumanoidGraphicsID graphicsID)
+    public PlayerMovement(Player p, HumanoidGraphics graphics)
     {
         playerObject = new("Player Graphics");
         playerObject.AddComponent<SpriteRenderer>();
         playerSprite.enabled = true;
         playerSprite.sortingLayerID = 0;
         playerSprite.sortingOrder = 0;
-        SwitchGraphics(graphicsID);
+        SwitchGraphics(graphics);
         playerSprite.sprite = p.facing switch
         {
             Direction.S => movementSprites.stillSouth,
@@ -25,9 +25,9 @@ public class PlayerMovement
             _ => movementSprites.stillWest,
         };
     }
-    public void SwitchGraphics(HumanoidGraphicsID id)
+    public void SwitchGraphics(HumanoidGraphics graphics)
     {
-        movementSprites = id.Graphics();
+        movementSprites = graphics;
     }
     public IEnumerator WalkNorth(Player p, float duration)
     {

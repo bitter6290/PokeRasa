@@ -6,10 +6,10 @@ using id = TileID;
 
 public static class Tiles
 {
-    public static IndexedTile empty = IndexedTile.Create(id.noTile, "primary_00", 0, 31);
+    public static IndexedTile noTile = IndexedTile.Create(id.noTile, "primary_00", 0, 31);
     //Flat grass
-    public static IndexedTile grassTile1 = IndexedTile.Create(id.grassTile1, "primary_02", 2, 31);
-    public static IndexedTile grassTile2 = IndexedTile.Create(id.grassTile2, "primary_02", 3, 31);
+    public static IndexedTile grass1 = IndexedTile.Create(id.grass1, "primary_02", 2, 31);
+    public static IndexedTile grass2 = IndexedTile.Create(id.grass2, "primary_02", 3, 31);
     //Animated water tiles would be here
     //Mountain/rock surface tiles
     public static IndexedTile mountainNWNE = IndexedTile.Create(id.mountainNWNE, "primary_03", 1, 27);
@@ -46,16 +46,68 @@ public static class Tiles
     public static IndexedTile mountainSENE = IndexedTile.Create(id.mountainSENE, "primary_03", 5, 23);
     public static IndexedTile mountainSESW = IndexedTile.Create(id.mountainSESW, "primary_03", 4, 22);
     public static IndexedTile mountainSESE = IndexedTile.Create(id.mountainSESE, "primary_03", 5, 22);
+    //Small tree
+    public static IndexedTile smallTree0L = IndexedTile.Create(id.smallTree0L, "primary_02", 6, 28);
+    public static IndexedTile smallTree0R = IndexedTile.Create(id.smallTree0R, "primary_02", 6, 28, flipX: true);
+    public static IndexedTile smallTree1L = IndexedTile.Create(id.smallTree1L, "primary_02", 6, 29);
+    public static IndexedTile smallTree1R = IndexedTile.Create(id.smallTree1R, "primary_02", 6, 29, flipX: true);
+    public static IndexedTile smallTree2L = IndexedTile.Create(id.smallTree2L, "primary_02", 6, 30);
+    public static IndexedTile smallTree2R = IndexedTile.Create(id.smallTree2R, "primary_02", 6, 30, flipX: true);
+    public static IndexedTile smallTree3L = IndexedTile.Create(id.smallTree3L, "primary_02", 6, 31);
+    public static IndexedTile smallTree3R = IndexedTile.Create(id.smallTree3R, "primary_02", 7, 31);
+    //Grass edges (ledges)
+    public static IndexedTile grassEdgeNWNW = IndexedTile.Create(id.grassEdgeNWNW, "primary_03", 12, 25);
+    public static IndexedTile grassEdgeNWNE = IndexedTile.Create(id.grassEdgeNWNE, "primary_03", 13, 25);
+    public static IndexedTile grassEdgeNWSW = IndexedTile.Create(id.grassEdgeNWSW, "primary_03", 12, 24);
+    public static IndexedTile grassEdgeSWNW = IndexedTile.Create(id.grassEdgeSWNW, "primary_03", 12, 23);
+    public static IndexedTile grassEdgeSWSW = IndexedTile.Create(id.grassEdgeSWSW, "primary_03", 12, 22);
+    public static IndexedTile grassEdgeNENW = IndexedTile.Create(id.grassEdgeNENW, "primary_03", 15, 25);
+    public static IndexedTile grassEdgeNENE = IndexedTile.Create(id.grassEdgeNENE, "primary_03", 14, 25);
+    public static IndexedTile grassEdgeNESE = IndexedTile.Create(id.grassEdgeNESE, "primary_03", 15, 24);
+    public static IndexedTile grassEdgeSENE = IndexedTile.Create(id.grassEdgeSENE, "primary_03", 15, 23);
+    public static IndexedTile grassEdgeSESE = IndexedTile.Create(id.grassEdgeSESE, "primary_03", 15, 22);
+    public static IndexedTile grassTopEdgeL = IndexedTile.Create(id.grassTopEdgeL, "primary_03", 14, 21);
+    public static IndexedTile grassTopEdgeR = IndexedTile.Create(id.grassTopEdgeR, "primary_03", 15, 21);
+    public static IndexedTile grassTopCornerLL = IndexedTile.Create(id.grassTopCornerLL, "primary_03", 0, 28);
+    public static IndexedTile grassTopCornerLR = IndexedTile.Create(id.grassTopCornerLR, "primary_03", 1, 28);
+    public static IndexedTile grassTopCornerRL = IndexedTile.Create(id.grassTopCornerRL, "primary_03", 2, 28);
+    public static IndexedTile grassTopCornerRR = IndexedTile.Create(id.grassTopCornerRR, "primary_03", 3, 28);
+    //Large trees
+    public static IndexedTile largeTree0A = IndexedTile.Create(id.largeTree0A, "primary_02", 8, 28);
+    public static IndexedTile largeTree0B = IndexedTile.Create(id.largeTree0B, "primary_02", 9, 28);
+    public static IndexedTile largeTree0C = IndexedTile.Create(id.largeTree0C, "primary_02", 9, 28, flipX: true);
+    public static IndexedTile largeTree0D = IndexedTile.Create(id.largeTree0D, "primary_02", 11, 28);
+    public static IndexedTile largeTree1A = IndexedTile.Create(id.largeTree1A, "primary_02", 8, 29);
+    public static IndexedTile largeTree1B = IndexedTile.Create(id.largeTree1B, "primary_02", 9, 29);
+    public static IndexedTile largeTree1C = IndexedTile.Create(id.largeTree1C, "primary_02", 9, 29, flipX: true);
+    public static IndexedTile largeTree1D = IndexedTile.Create(id.largeTree1D, "primary_02", 11, 29);
+    public static IndexedTile largeTree2A = IndexedTile.Create(id.largeTree2A, "primary_02", 8, 30);
+    public static IndexedTile largeTree2B = IndexedTile.Create(id.largeTree2B, "primary_02", 9, 30);
+    public static IndexedTile largeTree2C = IndexedTile.Create(id.largeTree2C, "primary_02", 9, 30, flipX: true);
+    public static IndexedTile largeTree2D = IndexedTile.Create(id.largeTree2D, "primary_02", 11, 30);
+    public static IndexedTile largeTree3A = IndexedTile.Create(id.largeTree3A, "primary_02", 8, 31);
+    public static IndexedTile largeTree3B = IndexedTile.Create(id.largeTree3B, "primary_02", 9, 31);
+    public static IndexedTile largeTree3C = IndexedTile.Create(id.largeTree3C, "primary_02", 9, 31, flipX: true);
+    public static IndexedTile largeTree3D = IndexedTile.Create(id.largeTree3D, "primary_02", 11, 31);
+    public static IndexedTile largeTreeTopA = IndexedTile.Create(id.largeTreeTopA, "primary_02", 12, 19);
+    public static IndexedTile largeTreeTopB = IndexedTile.Create(id.largeTreeTopB, "primary_02", 13, 19);
+    //Pond water
+    public static IndexedTile pondWaterLight = IndexedTile.Create(id.pondWaterLight, "primary_00", 14, 14);
+    public static IndexedTile pondWaterDark = IndexedTile.Create(id.pondWaterDark, "primary_00", 14, 15);
+
+
 
     public static TileBase[] TileTable = new TileBase[]
     {
-        empty,
-        grassTile1,
-        grassTile2,
+        noTile,
+        grass1,
+        grass2,
+        //Animated water
         water0NW,
         water0NE,
         water0SW,
         water0SE,
+        //Mountains
         mountainNWNE,
         mountainNWSW,
         mountainNWSE,
@@ -90,6 +142,54 @@ public static class Tiles
         mountainSENE,
         mountainSESW,
         mountainSESE,
+        //Small trees
+        smallTree0L,
+        smallTree0R,
+        smallTree1L,
+        smallTree1R,
+        smallTree2L,
+        smallTree2R,
+        smallTree3L,
+        smallTree3R,
+        //Grass edges
+        grassEdgeNWNW,
+        grassEdgeNWNE,
+        grassEdgeNWSW,
+        grassEdgeSWNW,
+        grassEdgeSWSW,
+        grassEdgeNENW,
+        grassEdgeNENE,
+        grassEdgeNESE,
+        grassEdgeSENE,
+        grassEdgeSESE,
+        grassTopEdgeL,
+        grassTopEdgeR,
+        grassTopCornerLL,
+        grassTopCornerLR,
+        grassTopCornerRL,
+        grassTopCornerRR,
+        //Large trees
+        largeTree0A,
+        largeTree0B,
+        largeTree0C,
+        largeTree0D,
+        largeTree1A,
+        largeTree1B,
+        largeTree1C,
+        largeTree1D,
+        largeTree2A,
+        largeTree2B,
+        largeTree2C,
+        largeTree2D,
+        largeTree3A,
+        largeTree3B,
+        largeTree3C,
+        largeTree3D,
+        largeTreeTopA,
+        largeTreeTopB,
+        //Pond water
+        pondWaterLight,
+        pondWaterDark,
     };
 
     //Collision tiles

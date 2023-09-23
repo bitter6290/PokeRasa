@@ -45,8 +45,6 @@ public class Player : MonoBehaviour
     public PlayerMovement playerGraphics;
     public GUIManager announcer;
 
-    public HumanoidGraphicsID graphicsID;
-
     public new GameObject camera;
 
     public float textSpeed = 25;
@@ -279,7 +277,7 @@ public class Player : MonoBehaviour
 
     public void UpdateCollision() => currentHeight = CheckCollision(pos, false);
 
-    public void CreatePlayerGraphics(HumanoidGraphicsID id) => playerGraphics = new(this, id);
+    public void CreatePlayerGraphics(HumanoidGraphics graphics) => playerGraphics = new(this, graphics);
 
     public CollisionID CheckCollision(Vector2Int pos, bool checkChars)
     {
@@ -468,7 +466,7 @@ public class Player : MonoBehaviour
         FindAnnouncer();
         mapManager = gameObject.AddComponent<MapManager>();
         RenderMap();
-        CreatePlayerGraphics(HumanoidGraphicsID.brendanWalk);
+        CreatePlayerGraphics(CharGraphics.brendanWalk);
         AlignPlayer();
         CaptureCamera();
         UpdateCollision();
@@ -669,7 +667,7 @@ public class Player : MonoBehaviour
         mapManager = gameObject.AddComponent<MapManager>();
         currentMap = MapID.Test;
         RenderMap();
-        CreatePlayerGraphics(HumanoidGraphicsID.brendanWalk);
+        CreatePlayerGraphics(CharGraphics.brendanWalk);
         AlignPlayer();
         CaptureCamera();
         UpdateCollision();

@@ -41,7 +41,7 @@ public static class TestMapdata
             hasSeeScript = true,
             loadedByDefault = true,
             sightRadius = 3,
-            graphics = CharacterGraphicsStructs.mayWalk,
+            graphics = CharGraphics.mayWalk,
             GetMovement = t =>
             {
                 t.Actions.Enqueue(t.TryWalkNorth);
