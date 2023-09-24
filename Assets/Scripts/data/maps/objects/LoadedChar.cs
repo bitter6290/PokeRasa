@@ -152,6 +152,17 @@ public abstract class LoadedChar : MonoBehaviour
         free = false;
     }
 
+
+    public void CheckTileBehavior(Vector2Int pos)
+    {
+        switch (((IBehaviourObject)p.mapManager.level1.GetTile(new Vector3Int(2 * pos.x, 2 * pos.y, 0))).Behaviour)
+        {
+            case TileBehaviour.StartGrassAnimation:
+                p.StartCoroutine(TriggeredTileAnim.TallGrassShake(pos, this));
+                break;
+        }
+    }
+
     public IEnumerator WalkInDirection()
     {
         switch (facing)
@@ -246,10 +257,16 @@ public abstract class LoadedChar : MonoBehaviour
         if (active && free && !moving)
         {
             if (charData.hasSeeScript)
-                if (CheckForSight(this)) return;
+            {
+                if (charData.SeeCheck(p))
+                {
+                    if (CheckForSight(this)) return;
+                }
+            }
             if (Busy)
                 Actions.Peek()();
             else if (doMove)
+                AlignObject();
                 charData.GetMovement(this);
         }
     }

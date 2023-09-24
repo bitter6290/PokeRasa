@@ -1,5 +1,5 @@
 ﻿Map Format:
-
+V1:
 First 2 bytes: version
 Next: sequences of 26 bytes:
 [
@@ -9,3 +9,17 @@ Next: sequences of 26 bytes:
 ] * 4 in sequence SW, SE, NW, NE
 -1 byte for Collision
 -1 byte for Encounter Class
+
+V2:
+First 2 bytes: version
+Next 2 bytes: width, height
+Next: sequences of 27 bytes:
+[
+    -2 bytes for SW
+    -2 bytes for SE
+    -2 bytes for NW
+    -2 bytes for NE
+] * 3 in sequence L1, L2, L3
+-1 byte for Collision
+-1 byte for Encounter Class
+-1 byte for Behavior

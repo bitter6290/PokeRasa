@@ -94,6 +94,11 @@ public static class Tiles
     //Pond water
     public static IndexedTile pondWaterLight = IndexedTile.Create(id.pondWaterLight, "primary_00", 14, 14);
     public static IndexedTile pondWaterDark = IndexedTile.Create(id.pondWaterDark, "primary_00", 14, 15);
+    //Tall grass
+    public static IndexedTile tallGrassNW = IndexedTile.Create(id.tallGrassNW, "primary_02", 0, 30);
+    public static IndexedTile tallGrassNE = IndexedTile.Create(id.tallGrassNE, "primary_02", 1, 30);
+    public static IndexedTile tallGrassSW = IndexedTile.Create(id.tallGrassSW, "primary_02", 0, 29, behaviour: TileBehaviour.StartGrassAnimation);
+    public static IndexedTile tallGrassSE = IndexedTile.Create(id.tallGrassSE, "primary_02", 1, 29);
 
 
 
@@ -190,6 +195,11 @@ public static class Tiles
         //Pond water
         pondWaterLight,
         pondWaterDark,
+        //Tall grass
+        tallGrassNW,
+        tallGrassNE,
+        tallGrassSW,
+        tallGrassSE,
     };
 
     //Collision tiles

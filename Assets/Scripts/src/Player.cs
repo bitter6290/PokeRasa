@@ -6,18 +6,16 @@ using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using Scene = SceneID;
 
-public class Player : MonoBehaviour
+public class Player : LoadedChar
 {
-
-
     public bool[] TM = new bool[96];
     public bool[] HM = new bool[8];
     public bool[] keyItem = new bool[8];
     public bool[] storyFlags = new bool[(int)Flag.Count];
     public bool[] trainerFlags = new bool[(int)TrainerFlag.Count];
     public List<Box> boxes = new();
+    public int money = 0;
 
-    public System.Random random;
 
     public Dictionary<ItemID, int> Bag;
     public Dictionary<MapID, bool[,]> neighborCollision;
@@ -26,26 +24,44 @@ public class Player : MonoBehaviour
     public List<TileTrigger> signposts;
 
     public BattleTerrain currentTerrain;
-    public MapID currentMap;
+    //public MapID currentMap;
     public MapID lastMap = 0;
-    public Vector2Int pos;
-    public Vector2Int moveTarget;
+    //public Vector2Int pos;
+    //public Vector2Int moveTarget;
     public PlayerState state;
-    public bool active;
+    //public bool active;
     public bool locked;
-    public Direction facing;
+    //public Direction facing;
 
     public Dictionary<int, LoadedChar> loadedChars;
     public LoadedChar opponent;
 
     public bool whichStep;
 
-    public CollisionID currentHeight;
+    //public CollisionID currentHeight;
     public MapManager mapManager;
     public PlayerMovement playerGraphics;
     public GUIManager announcer;
 
     public new GameObject camera;
+    private GameObject blackScreen;
+
+    public override IEnumerator WalkNorth() { yield return playerGraphics.WalkNorth(this, 0.3F); }
+    public override IEnumerator WalkSouth() { yield return playerGraphics.WalkSouth(this, 0.3F); }
+    public override IEnumerator WalkEast() { yield return playerGraphics.WalkEast(this, 0.3F); }
+    public override IEnumerator WalkWest() { yield return playerGraphics.WalkWest(this, 0.3F); }
+    public override IEnumerator BumpNorth() { yield return playerGraphics.BumpNorth(this, 0.3F); }
+    public override IEnumerator BumpSouth() { yield return playerGraphics.BumpSouth(this, 0.3F); }
+    public override IEnumerator BumpEast() { yield return playerGraphics.BumpEast(this, 0.3F); }
+    public override IEnumerator BumpWest() { yield return playerGraphics.BumpWest(this, 0.3F); }
+    public override IEnumerator FaceNorth() { yield return playerGraphics.FaceNorth(this, 0); }
+    public override IEnumerator FaceSouth() { yield return playerGraphics.FaceSouth(this, 0); }
+    public override IEnumerator FaceEast() { yield return playerGraphics.FaceEast(this, 0); }
+    public override IEnumerator FaceWest() { yield return playerGraphics.FaceWest(this, 0); }
+    public override IEnumerator RunNorth() => throw new NotImplementedException();
+    public override IEnumerator RunSouth() => throw new NotImplementedException();
+    public override IEnumerator RunEast() => throw new NotImplementedException();
+    public override IEnumerator RunWest() => throw new NotImplementedException();
 
     public float textSpeed = 25;
 
@@ -275,7 +291,7 @@ public class Player : MonoBehaviour
 
     public void AlignPlayer() => playerGraphics.playerTransform.position = new Vector3(pos.x + 0.5F, pos.y + 0.5F, pos.y);
 
-    public void UpdateCollision() => currentHeight = CheckCollision(pos, false);
+    public new void UpdateCollision() => currentHeight = CheckCollision(pos, false);
 
     public void CreatePlayerGraphics(HumanoidGraphics graphics) => playerGraphics = new(this, graphics);
 
@@ -435,12 +451,10 @@ public class Player : MonoBehaviour
     public IEnumerator StartSingleWildBattle(Pokemon wildMon)
     {
         Debug.Log("Start Single Wild Battle");
-        yield return null;
         state = PlayerState.Locked;
         active = false;
         DeactivateAll();
-        mapManager.ClearMap();
-        yield return null;
+        yield return FadeToBlack(0.2F);
         yield return Scene.Battle.Load();
         Battle battle = FindAnyObjectByType<Battle>();
         battle.player = this;
@@ -455,11 +469,13 @@ public class Player : MonoBehaviour
         battle.battleType = BattleType.Single;
         battle.battleTerrain = currentTerrain;
         battle.wildBattle = true;
+        yield return FadeFromBlack(0.2F);
         battle.StartCoroutine(battle.StartBattle());
     }
 
     public IEnumerator BattleWon()
     {
+        yield return FadeToBlack(0.2F);
         yield return Scene.Map.Load();
         Debug.Log("Map loaded");
         camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
@@ -471,6 +487,7 @@ public class Player : MonoBehaviour
         CaptureCamera();
         UpdateCollision();
         ActivateAll();
+        yield return FadeFromBlack(0.2F);
         active = true;
     }
 
@@ -485,6 +502,41 @@ public class Player : MonoBehaviour
         yield return BattleWon();
         opponent.charData.OnWin(this, opponent);
     }
+
+    public IEnumerator FadeToBlack(float duration)
+    {
+        if (blackScreen != null) Destroy(blackScreen);
+        blackScreen = new();
+        blackScreen.transform.parent = transform;
+        blackScreen.transform.localScale = new(1000, 1000, 1000);
+        blackScreen.transform.position = new(0, 0, -20);
+        SpriteRenderer renderer = blackScreen.AddComponent<SpriteRenderer>();
+        renderer.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0, 0, 4, 4), new Vector2(0.5F, 0.5F), 4);
+        renderer.color = new(0, 0, 0, 0);
+        renderer.sortingOrder = 10;
+        float baseTime = Time.time;
+        float endTime = baseTime + duration;
+        while(Time.time < endTime)
+        {
+            renderer.color = new(0, 0, 0, (Time.time - baseTime) / duration);
+            yield return null;
+        }
+    }
+
+    public IEnumerator FadeFromBlack(float duration)
+    {
+        SpriteRenderer renderer = blackScreen.GetComponent<SpriteRenderer>();
+        float baseTime = Time.time;
+        float endTime = baseTime + duration;
+        while (Time.time < endTime)
+        {
+            renderer.color = new(0, 0, 0, (endTime - Time.time) / duration);
+            yield return null;
+        }
+        Destroy(blackScreen);
+    }
+
+
 
     public void CheckGrassEncounter()
     {
@@ -504,6 +556,7 @@ public class Player : MonoBehaviour
         else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x, pos.y - 1);
+            CheckTileBehavior(GetFacingTile());
             StartCoroutine(GoSouth());
         }
         else
@@ -519,6 +572,7 @@ public class Player : MonoBehaviour
         else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x, pos.y + 1);
+            CheckTileBehavior(GetFacingTile());
             StartCoroutine(GoNorth());
         }
         else
@@ -534,6 +588,7 @@ public class Player : MonoBehaviour
         else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x - 1, pos.y);
+            CheckTileBehavior(GetFacingTile());
             StartCoroutine(GoWest());
         }
         else
@@ -549,6 +604,7 @@ public class Player : MonoBehaviour
         else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x + 1, pos.y);
+            CheckTileBehavior(GetFacingTile());
             StartCoroutine(GoEast());
         }
         else
@@ -635,18 +691,6 @@ public class Player : MonoBehaviour
             CheckForSignposts();
     }
 
-    public Vector2Int GetFacingTile()
-    {
-        return facing switch
-        {
-            Direction.N => new Vector2Int(pos.x, pos.y + 1),
-            Direction.S => new Vector2Int(pos.x, pos.y - 1),
-            Direction.E => new Vector2Int(pos.x + 1, pos.y),
-            Direction.W => new Vector2Int(pos.x - 1, pos.y),
-            _ => new Vector2Int(pos.x, pos.y)
-        };
-    }
-
     public IEnumerator DoAnnouncements(List<string> text)
     {
         state = PlayerState.Announce;
@@ -678,6 +722,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        p = this;
         random = new();
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex((int)Scene.Main))
         {
@@ -690,7 +735,7 @@ public class Player : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     // Update is called once per frame
-    public void Update()
+    public new void Update()
     {
         if (active)
         {

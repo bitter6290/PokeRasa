@@ -10,6 +10,7 @@ public class HumanoidChar : LoadedChar
 
     public override IEnumerator WalkNorth()
     {
+        CheckTileBehavior(GetFacingTile());
         moving = true;
         moveTarget = pos + Vector2Int.up;
         available = false;
@@ -36,6 +37,7 @@ public class HumanoidChar : LoadedChar
     }
     public override IEnumerator WalkSouth()
     {
+        CheckTileBehavior(GetFacingTile());
         moving = true;
         moveTarget = pos + Vector2Int.down;
         available = false;
@@ -62,6 +64,7 @@ public class HumanoidChar : LoadedChar
     }
     public override IEnumerator WalkWest()
     {
+        CheckTileBehavior(GetFacingTile());
         moving = true;
         moveTarget = pos + Vector2Int.left;
         available = false;
@@ -88,6 +91,7 @@ public class HumanoidChar : LoadedChar
     }
     public override IEnumerator WalkEast()
     {
+        CheckTileBehavior(GetFacingTile());
         moving = true;
         moveTarget = pos + Vector2Int.right;
         available = false;

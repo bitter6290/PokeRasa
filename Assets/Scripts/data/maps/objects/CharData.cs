@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 public delegate void ObjectMovement(LoadedChar loadedChar);
+public delegate bool SeeCondition(Player p);
 
 public abstract class CharData
 {
@@ -18,6 +19,7 @@ public abstract class CharData
     public int sightRadius;
 
     public CharScript OnInteract = (p, c) => { return; };
+    public SeeCondition SeeCheck = p => { return false; };
     public CharScript OnSee = (p, c) => { return; };
     public CharScript OnWin = (p, c) =>
     {

@@ -51,21 +51,21 @@ public static class TestMapdata
             {
                 c.FaceAndLock();
                 p.StartCoroutine(TrainerFlag.MayTest.Get(p) ?
-                p.DoAnnouncements(new(){"I shouldn't be fighting with baby Pokémon anyway..."})
-                    .DoAtEnd(() => c.free = true) :
-                p.DoAnnouncements(new(){"Hello!"})
-                    .DoAtEnd(() => c.free = true)
+                    p.DoAnnouncements(new(){"I shouldn't be fighting with baby Pokémon anyway..."})
+                        .DoAtEnd(() => c.free = true) :
+                    p.DoAnnouncements(new(){"Hello!"})
+                        .DoAtEnd(() => c.free = true)
                 );
             },
+            SeeCheck = p => !TrainerFlag.MayTest.Get(p),
             OnSee = (p, c) =>
             {
-                if (TrainerFlag.MayTest.Get(p))
-                    p.StartCoroutine(
+                if (!TrainerFlag.MayTest.Get(p)) { _ = p.StartCoroutine(
                         TrainerSeeSingle(p, c,
-                        Team.mayTestTeam, new(){"Boo!"}));
-            },
-            OnWin = (p,c) => p.StartCoroutine(p.DoAnnouncements(new(){"You win!","Good job!"}).
-                DoAtEnd( () =>
+                        Team.mayTestTeam, new(){"Boo!"})); }
+},
+            OnWin = (p,c) => p.StartCoroutine(p.DoAnnouncements(new(){"Somehow you won..."}).
+                DoAtEnd(() =>
             {
                 p.state = PlayerState.Free;
                 TrainerFlag.MayTest.Set(p);

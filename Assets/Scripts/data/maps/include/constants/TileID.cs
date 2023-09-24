@@ -91,4 +91,9 @@
     //Pond water
     pondWaterLight,
     pondWaterDark,
+    //Tall grass
+    tallGrassNW,
+    tallGrassNE,
+    tallGrassSW,
+    tallGrassSE,
 }

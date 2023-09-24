@@ -51,13 +51,13 @@ public class MapHelper : MapManager
                 return;
             openMap = mapID;
             open = true;
-            MapReader.CreateNewMap(this);
+            MapReader.CreateNewMapV1(this);
         }
         else
         {
             openMap = mapID;
             open = true;
-            MapReader.ReadForEditing(this);
+            MapReader.ReadForEditingV1(this);
         }
     }
 

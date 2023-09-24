@@ -124,16 +124,29 @@ public class Battle : MonoBehaviour
 
     public BattlePokemon[] PokemonOnField;
 
-    private bool PlayerHasMonsInBack()
+    private bool PlayerHasMonsInBack
     {
-        for (int i = 0; i < 6; i++)
+        get
         {
-            if (!PlayerPokemon[i].onField && !PlayerPokemon[i].fainted)
+            for (int i = 0; i < 6; i++)
             {
-                return true;
+                if (!PlayerPokemon[i].onField && !PlayerPokemon[i].fainted)
+                {
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
+    }
+
+    private bool OpponentLost
+    {
+        get
+        {
+            for (int i = 0; i < 6; i++)
+                if (!OpponentPokemon[i].fainted) return true;
+            return false;
+        }
     }
 
     public Side[] Sides = new Side[2];
@@ -1129,6 +1142,7 @@ public class Battle : MonoBehaviour
         bool hitAnyone = false;
         for (int i = 0; i < 6; i++)
         {
+            if (!PokemonOnField[i].exists) continue;
             BattlePokemon target = PokemonOnField[i];
             if (target.isTarget)
             {
@@ -1719,6 +1733,11 @@ public class Battle : MonoBehaviour
             yield return BattleEffect.Faint(this, index);
             Moves[index] = MoveID.None;
             yield return HandleXPOnFaint(partyIndex);
+            if(OpponentLost)
+            {
+                StartCoroutine(EndBattle());
+                yield break;
+            }
         }
     }
 
@@ -2734,7 +2753,7 @@ public class Battle : MonoBehaviour
             case MoveEffect.Teleport:
                 if (user.player)
                 {
-                    if (!PlayerHasMonsInBack())
+                    if (!PlayerHasMonsInBack)
                     {
                         yield return Announce(BattleText.MoveFailed);
                     }
@@ -2762,7 +2781,7 @@ public class Battle : MonoBehaviour
             case MoveEffect.BatonPass:
                 if (user.player)
                 {
-                    if (!PlayerHasMonsInBack())
+                    if (!PlayerHasMonsInBack)
                     {
                         yield return Announce(BattleText.MoveFailed);
                     }
@@ -3810,7 +3829,7 @@ public class Battle : MonoBehaviour
             case MoveEffect.SwitchHit:
                 if (PokemonOnField[index].player)
                 {
-                    if (PlayerHasMonsInBack())
+                    if (PlayerHasMonsInBack)
                         yield return SwitchMove(index);
                 }
                 else
@@ -4844,7 +4863,7 @@ public class Battle : MonoBehaviour
         if (playerSpeed > opponentSpeed || (random.Next() & 255) < ((playerSpeed * 128 / opponentSpeed + 30 * escapeAttempts) & 255))
         {
             yield return Announce("Got away safely!");
-            player.StartCoroutine(player.WildBattleWon());
+            yield return EndBattle();
         }
         else
         {

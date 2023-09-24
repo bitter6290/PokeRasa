@@ -17,7 +17,7 @@ public class MapManager : MonoBehaviour
     public MapData mapData => Map.MapTable[(int)mapID];
 
     public void ReadMap() =>
-        MapReader.ReadForPlaytime(this);
+        MapReader.ReadForPlaytimeV1(this);
 
     public void ReadAndReposition(Player p, Vector2Int newPos)
     {
