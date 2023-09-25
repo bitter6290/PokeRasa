@@ -20,13 +20,26 @@ public static class AnimatedTiles
             SpriteFromTexture8x8("Anims/Water/6",x,y),
             SpriteFromTexture8x8("Anims/Water/7",x,y),
         };
-    public static Sprite[] water0NWSprites = SpriteFromWaterAnims(0, 14);
-    public static Sprite[] water0NESprites = SpriteFromWaterAnims(1, 14);
-    public static Sprite[] water0SWSprites = SpriteFromWaterAnims(0, 13);
-    public static Sprite[] water0SESprites = SpriteFromWaterAnims(1, 13);
+    public static Sprite[] waterNormalASprites = SpriteFromWaterAnims(0, 3);
+    public static Sprite[] waterNormalBSprites = SpriteFromWaterAnims(1, 3);
+    public static Sprite[] waterDarkASprites = SpriteFromWaterAnims(0, 2);
+    public static Sprite[] waterDarkBSprites = SpriteFromWaterAnims(1, 2);
 
-    public static AITile water0NW = AITile.Create(id.water0NW, water0NWSprites, 5F);
-    public static AITile water0NE = AITile.Create(id.water0NE, water0NESprites, 5F);
-    public static AITile water0SW = AITile.Create(id.water0SW, water0SWSprites, 5F);
-    public static AITile water0SE = AITile.Create(id.water0SE, water0SESprites, 5F);
+    public static Sprite[] shallowWaterASprites = SpriteFromWaterAnims(0, 6);
+    public static Sprite[] shallowWaterBSprites = SpriteFromWaterAnims(1, 6);
+    public static Sprite[] shallowWaterNWSprites = SpriteFromWaterAnims(0, 5);
+    public static Sprite[] shallowWaterNESprites = SpriteFromWaterAnims(1, 5);
+    public static Sprite[] shallowWaterSWSprites = SpriteFromWaterAnims(0, 4);
+    public static Sprite[] shallowWaterSESprites = SpriteFromWaterAnims(1, 4);
+
+    public static AITile waterNormalA = AITile.Create(id.waterNormalA, waterNormalASprites, 5F);
+    public static AITile waterNormalB = AITile.Create(id.waterNormalB, waterNormalBSprites, 5F);
+    public static AITile waterDarkA = AITile.Create(id.waterDarkA, waterDarkASprites, 5F);
+    public static AITile waterDarkB = AITile.Create(id.waterDarkB, waterDarkBSprites, 5F);
+    public static AITile shallowWaterA = AITile.Create(id.shallowWaterA, shallowWaterASprites, 5F);
+    public static AITile shallowWaterB = AITile.Create(id.shallowWaterB, shallowWaterBSprites, 5F);
+    public static AITile shallowWaterNW = AITile.Create(id.shallowWaterNW, shallowWaterNWSprites, 5F);
+    public static AITile shallowWaterNE = AITile.Create(id.shallowWaterNE, shallowWaterNESprites, 5F);
+    public static AITile shallowWaterSW = AITile.Create(id.shallowWaterSW, shallowWaterSWSprites, 5F);
+    public static AITile shallowWaterSE = AITile.Create(id.shallowWaterSE, shallowWaterSESprites, 5F);
 }

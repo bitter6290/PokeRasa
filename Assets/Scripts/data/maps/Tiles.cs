@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 using static CollisionID;
 using static AnimatedTiles;
 using id = TileID;
+using UnityEngine;
 
 public static class Tiles
 {
@@ -99,7 +100,75 @@ public static class Tiles
     public static IndexedTile tallGrassNE = IndexedTile.Create(id.tallGrassNE, "primary_02", 1, 30);
     public static IndexedTile tallGrassSW = IndexedTile.Create(id.tallGrassSW, "primary_02", 0, 29, behaviour: TileBehaviour.StartGrassAnimation);
     public static IndexedTile tallGrassSE = IndexedTile.Create(id.tallGrassSE, "primary_02", 1, 29);
-
+    public static IndexedTile sandA = IndexedTile.Create(id.sandA, "primary_05", 8, 2);
+    public static IndexedTile sandB = IndexedTile.Create(id.sandB, "primary_05", 9, 2);
+    public static IndexedTile sandEdgeNA = IndexedTile.Create(id.sandEdgeNA, "primary_05", 1, 2);
+    public static IndexedTile sandEdgeNB = IndexedTile.Create(id.sandEdgeNB, "primary_05", 7, 2, flipY: true, flipX: true);
+    public static IndexedTile sandEdgeSA = IndexedTile.Create(id.sandEdgeSA, "primary_05", 7, 2);
+    public static IndexedTile sandEdgeSB = IndexedTile.Create(id.sandEdgeSB, "primary_05", 1, 2, flipY: true, flipX: true);
+    public static IndexedTile sandEdgeEA = IndexedTile.Create(id.sandEdgeEA, "primary_05", 2, 2, flipX: true, flipY: true);
+    public static IndexedTile sandEdgeEB = IndexedTile.Create(id.sandEdgeEB, "primary_05", 4, 2, flipX: true, flipY: true);
+    public static IndexedTile sandEdgeWA = IndexedTile.Create(id.sandEdgeWA, "primary_05", 2, 2);
+    public static IndexedTile sandEdgeWB = IndexedTile.Create(id.sandEdgeWB, "primary_05", 4, 2);
+    public static IndexedTile sandCornerNW = IndexedTile.Create(id.sandCornerNW, "primary_05", 0, 2);
+    public static IndexedTile sandCornerNE = IndexedTile.Create(id.sandCornerNE, "primary_05", 0, 2, flipX: true);
+    public static IndexedTile sandCornerSW = IndexedTile.Create(id.sandCornerSW, "primary_05", 6, 2);
+    public static IndexedTile sandCornerSE = IndexedTile.Create(id.sandCornerSE, "primary_05", 6, 2, flipX: true);
+    public static IndexedTile sandC = IndexedTile.Create(id.sandC, "primary_05", 8, 14);
+    public static IndexedTile stonePath00 = IndexedTile.Create(id.stonePath00, "primary_00", 5, 13);
+    public static IndexedTile stonePath01 = IndexedTile.Create(id.stonePath01, "primary_00", 6, 13);
+    public static IndexedTile stonePath02 = IndexedTile.Create(id.stonePath02, "primary_00", 6, 16, flipX: true, flipY: true);
+    public static IndexedTile stonePath03 = IndexedTile.Create(id.stonePath03, "primary_00", 5, 13, flipX: true);
+    public static IndexedTile stonePath10 = IndexedTile.Create(id.stonePath10, "primary_00", 5, 14);
+    public static IndexedTile stonePath11 = IndexedTile.Create(id.stonePath11, "primary_00", 6, 14);
+    public static IndexedTile stonePath12 = IndexedTile.Create(id.stonePath12, "primary_00", 6, 14, flipX: true);
+    public static IndexedTile stonePath13 = IndexedTile.Create(id.stonePath13, "primary_00", 5, 14, flipX: true);
+    public static IndexedTile stonePath20 = IndexedTile.Create(id.stonePath20, "primary_00", 5, 15);
+    public static IndexedTile stonePath21 = IndexedTile.Create(id.stonePath21, "primary_00", 6, 15);
+    public static IndexedTile stonePath22 = IndexedTile.Create(id.stonePath22, "primary_00", 6, 15, flipX: true);
+    public static IndexedTile stonePath23 = IndexedTile.Create(id.stonePath23, "primary_00", 5, 15, flipX: true);
+    public static IndexedTile stonePath30 = IndexedTile.Create(id.stonePath30, "primary_00", 5, 16);
+    public static IndexedTile stonePath31 = IndexedTile.Create(id.stonePath31, "primary_00", 6, 16);
+    public static IndexedTile stonePath32 = IndexedTile.Create(id.stonePath32, "primary_00", 6, 13, flipX: true, flipY: true);
+    public static IndexedTile stonePath33 = IndexedTile.Create(id.stonePath33, "primary_00", 5, 16, flipX: true);
+    public static IndexedTile grassPath00 = IndexedTile.Create(id.grassPath00, "primary_02", 9, 13);
+    public static IndexedTile grassPath01 = IndexedTile.Create(id.grassPath01, "primary_02", 10, 13);
+    public static IndexedTile grassPath02 = IndexedTile.Create(id.grassPath02, "primary_02", 10, 16, flipX: true, flipY: true);
+    public static IndexedTile grassPath03 = IndexedTile.Create(id.grassPath03, "primary_02", 9, 13, flipX: true);
+    public static IndexedTile grassPath10 = IndexedTile.Create(id.grassPath10, "primary_02", 9, 14);
+    public static IndexedTile grassPath11 = IndexedTile.Create(id.grassPath11, "primary_02", 10, 14);
+    public static IndexedTile grassPath12 = IndexedTile.Create(id.grassPath12, "primary_02", 10, 14, flipX: true);
+    public static IndexedTile grassPath13 = IndexedTile.Create(id.grassPath13, "primary_02", 9, 14, flipX: true);
+    public static IndexedTile grassPath20 = IndexedTile.Create(id.grassPath20, "primary_02", 9, 15);
+    public static IndexedTile grassPath21 = IndexedTile.Create(id.grassPath21, "primary_02", 10, 15);
+    public static IndexedTile grassPath22 = IndexedTile.Create(id.grassPath22, "primary_02", 10, 15, flipX: true);
+    public static IndexedTile grassPath23 = IndexedTile.Create(id.grassPath23, "primary_02", 9, 15, flipX: true);
+    public static IndexedTile grassPath30 = IndexedTile.Create(id.grassPath30, "primary_02", 9, 16);
+    public static IndexedTile grassPath31 = IndexedTile.Create(id.grassPath31, "primary_02", 10, 16);
+    public static IndexedTile grassPath32 = IndexedTile.Create(id.grassPath32, "primary_02", 10, 13, flipX: true, flipY: true);
+    public static IndexedTile grassPath33 = IndexedTile.Create(id.grassPath33, "primary_02", 9, 16, flipX: true);
+    public static IndexedTile buildingWall = IndexedTile.Large(id.buildingWall, "primary_00", new Rect(1, 8, 1, 3));
+    public static IndexedTile buildingCornerL = IndexedTile.Large(id.buildingCornerL, "primary_00", new Rect(0, 8, 1, 3));
+    public static IndexedTile buildingCornerR = IndexedTile.Large(id.buildingCornerR, "primary_00", new Rect(0, 8, 1, 3), flipX: true);
+    public static IndexedTile martRoofCornerL = IndexedTile.Large(id.martRoofCornerL, "primary_00", new Rect(0, 11, 1, 4), pivot: new(0.5F, 0.125F));
+    public static IndexedTile martRoofCornerR = IndexedTile.Large(id.martRoofCornerR, "primary_00", new Rect(0, 11, 1, 4), pivot: new(0.5F, 0.125F), flipX: true);
+    public static IndexedTile martRoofStrip = IndexedTile.Large(id.martRoofStrip, "primary_00", new Rect(1, 11, 1, 4), pivot: new(0.5F, 0.125F));
+    public static IndexedTile martRoofCenterL = IndexedTile.Large(id.martRoofCenterL, "primary_00", new Rect(3, 11, 2, 5), pivot: new(0.25F, 0.1F));
+    public static IndexedTile martRoofCenterR = IndexedTile.Large(id.martRoofCenterR, "primary_00", new Rect(3, 11, 2, 5), pivot: new(0.25F, 0.1F), flipX: true);
+    public static IndexedTile pcRoofCornerL = IndexedTile.Large(id.pcRoofCornerL, "primary_01", new Rect(0, 11, 1, 4), pivot: new(0.5F, 0.125F));
+    public static IndexedTile pcRoofCornerR = IndexedTile.Large(id.pcRoofCornerR, "primary_01", new Rect(0, 11, 1, 4), pivot: new(0.5F, 0.125F), flipX: true);
+    public static IndexedTile pcRoofStrip = IndexedTile.Large(id.pcRoofStrip, "primary_01", new Rect(1, 11, 1, 4), pivot: new(0.5F, 0.125F));
+    public static IndexedTile pcRoofCenterL = IndexedTile.Large(id.pcRoofCenterL, "primary_01", new Rect(3, 11, 2, 5), pivot: new(0.25F, 0.1F));
+    public static IndexedTile pcRoofCenterR = IndexedTile.Large(id.pcRoofCenterR, "primary_01", new Rect(3, 11, 2, 5), pivot: new(0.25F, 0.1F), flipX: true);
+    public static IndexedTile buildingSignTopL = IndexedTile.Create(id.buildingSignTopL, "primary_01", 7, 12);
+    public static IndexedTile buildingSignTopR = IndexedTile.Create(id.buildingSignTopR, "primary_01", 8, 12);
+    public static IndexedTile martSignL = IndexedTile.Create(id.martSignL, "primary_01", 9, 11);
+    public static IndexedTile martSignR = IndexedTile.Create(id.martSignR, "primary_01", 10, 11);
+    public static IndexedTile pcSignL = IndexedTile.Create(id.pcSignL, "primary_01", 7, 11);
+    public static IndexedTile pcSignR = IndexedTile.Create(id.pcSignR, "primary_01", 8, 11);
+    public static IndexedTile slidingDoorL = IndexedTile.Large(id.slidingDoorL, "primary_00", new Rect(8, 17, 1, 3));
+    public static IndexedTile slidingDoorR = IndexedTile.Large(id.slidingDoorR, "primary_00", new Rect(8, 17, 1, 3), flipX: true);
+    public static IndexedTile buildingWallBottom = IndexedTile.Create(id.buildingWallBottom, "primary_00", 1, 8);
 
 
     public static TileBase[] TileTable = new TileBase[]
@@ -108,10 +177,10 @@ public static class Tiles
         grass1,
         grass2,
         //Animated water
-        water0NW,
-        water0NE,
-        water0SW,
-        water0SE,
+        waterNormalA,
+        waterNormalB,
+        waterDarkA,
+        waterDarkB,
         //Mountains
         mountainNWNE,
         mountainNWSW,
@@ -200,6 +269,85 @@ public static class Tiles
         tallGrassNE,
         tallGrassSW,
         tallGrassSE,
+        //Sand
+        sandA,
+        sandB,
+        sandEdgeNA,
+        sandEdgeNB,
+        sandEdgeSA,
+        sandEdgeSB,
+        sandEdgeWA,
+        sandEdgeWB,
+        sandEdgeEA,
+        sandEdgeEB,
+        sandCornerNW,
+        sandCornerNE,
+        sandCornerSW,
+        sandCornerSE,
+        sandC,
+        //Shallow water
+        shallowWaterA,
+        shallowWaterB,
+        shallowWaterNW,
+        shallowWaterNE,
+        shallowWaterSW,
+        shallowWaterSE,
+        //Grass paths
+        stonePath00,
+        stonePath01,
+        stonePath02,
+        stonePath03,
+        stonePath10,
+        stonePath11,
+        stonePath12,
+        stonePath13,
+        stonePath20,
+        stonePath21,
+        stonePath22,
+        stonePath23,
+        stonePath30,
+        stonePath31,
+        stonePath32,
+        stonePath33,
+        grassPath00,
+        grassPath01,
+        grassPath02,
+        grassPath03,
+        grassPath10,
+        grassPath11,
+        grassPath12,
+        grassPath13,
+        grassPath20,
+        grassPath21,
+        grassPath22,
+        grassPath23,
+        grassPath30,
+        grassPath31,
+        grassPath32,
+        grassPath33,
+        //Buildings
+        buildingWall,
+        buildingCornerL,
+        buildingCornerR,
+        martRoofCornerL,
+        martRoofCornerR,
+        martRoofStrip,
+        martRoofCenterL,
+        martRoofCenterR,
+        pcRoofCornerL,
+        pcRoofCornerR,
+        pcRoofStrip,
+        pcRoofCenterL,
+        pcRoofCenterR,
+        buildingSignTopL,
+        buildingSignTopR,
+        martSignL,
+        martSignR,
+        pcSignL,
+        pcSignR,
+        slidingDoorL,
+        slidingDoorR,
+        buildingWallBottom,
     };
 
     //Collision tiles
