@@ -615,7 +615,7 @@ public class MenuManager : MonoBehaviour
                                     }
                                     break;
                                 case 3:
-                                    battle.switchDuringTurn = false;
+                                    battle.partyBackButtonInactive = false;
                                     currentPartyMon = 1;
                                     menuMode = MenuMode.Party;
                                     break;
@@ -646,7 +646,7 @@ public class MenuManager : MonoBehaviour
                         box4.enabled = battle.PlayerPokemon[3].exists;
                         box5.enabled = battle.PlayerPokemon[4].exists;
                         box6.enabled = battle.PlayerPokemon[5].exists;
-                        box7.enabled = !battle.switchDuringTurn;
+                        box7.enabled = !battle.partyBackButtonInactive;
 
                         box1.color = partyMonColor(0);
                         box2.color = partyMonColor(2);
@@ -661,7 +661,7 @@ public class MenuManager : MonoBehaviour
                         text3.enabled = false;
                         text4.enabled = false;
                         text5.enabled = false;
-                        text7.enabled = !battle.switchDuringTurn;
+                        text7.enabled = !battle.partyBackButtonInactive;
 
                         text7.text = "Back";
 
@@ -714,7 +714,7 @@ public class MenuManager : MonoBehaviour
                             {
                                 case 1:
                                     currentPartyMon = box2.enabled ? 3 :
-                                        battle.switchDuringTurn ? 1 : 0;
+                                        battle.partyBackButtonInactive ? 1 : 0;
                                     if (currentPartyMon != 1)
                                     {
                                         battle.audioSource0.PlayOneShot(MoveCursor);
@@ -723,7 +723,7 @@ public class MenuManager : MonoBehaviour
                                     break;
                                 case 2:
                                     currentPartyMon = box4.enabled ? 4 :
-                                        battle.switchDuringTurn ? 2 : 0;
+                                        battle.partyBackButtonInactive ? 2 : 0;
                                     if (currentPartyMon != 2)
                                     {
                                         battle.audioSource0.PlayOneShot(MoveCursor);
@@ -732,7 +732,7 @@ public class MenuManager : MonoBehaviour
                                     break;
                                 case 3:
                                     currentPartyMon = box5.enabled ? 5 :
-                                        battle.switchDuringTurn ? 3 : 0;
+                                        battle.partyBackButtonInactive ? 3 : 0;
                                     if (currentPartyMon != 3)
                                     {
                                         battle.audioSource0.PlayOneShot(MoveCursor);
@@ -741,7 +741,7 @@ public class MenuManager : MonoBehaviour
                                     break;
                                 case 4:
                                     currentPartyMon = box6.enabled ? 6 :
-                                        battle.switchDuringTurn ? 4 : 0;
+                                        battle.partyBackButtonInactive ? 4 : 0;
                                     if (currentPartyMon != 4)
                                     {
                                         battle.audioSource0.PlayOneShot(MoveCursor);
@@ -749,7 +749,7 @@ public class MenuManager : MonoBehaviour
                                     }
                                     break;
                                 case 5:
-                                    if (!battle.switchDuringTurn)
+                                    if (!battle.partyBackButtonInactive)
                                     {
                                         currentPartyMon = 0;
                                         battle.audioSource0.PlayOneShot(MoveCursor);
@@ -757,7 +757,7 @@ public class MenuManager : MonoBehaviour
                                     }
                                     break;
                                 case 6:
-                                    if (!battle.switchDuringTurn)
+                                    if (!battle.partyBackButtonInactive)
                                     {
                                         currentPartyMon = 0;
                                         battle.audioSource0.PlayOneShot(MoveCursor);
@@ -877,15 +877,7 @@ public class MenuManager : MonoBehaviour
                                             battle.PlayerPokemon[currentPartyMon - 1].monName
                                             + " is already on the field!"));
                                     }
-                                    else if ((battle.AbilityOnSide(Ability.ShadowTag, 0)
-                                            || (battle.AbilityOnSide(Ability.ArenaTrap, 0)
-                                                && battle.IsGrounded(currentMon))
-                                            || (battle.AbilityOnSide(Ability.MagnetPull, 0)
-                                                && battle.PokemonOnField[currentMon].HasType(Type.Steel))
-                                            || battle.PokemonOnField[currentMon].trapped
-                                            || battle.PokemonOnField[currentMon].getsContinuousDamage
-                                            || battle.PokemonOnField[currentMon].ingrained)
-                                        && !battle.PokemonOnField[currentMon].HasType(Type.Ghost))
+                                    else if (battle.IsTrapped(currentMon))
                                     {
                                         StartCoroutine(AnnounceAndReturn(
                                             battle.PokemonOnField[currentMon].PokemonData.monName
@@ -893,7 +885,7 @@ public class MenuManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        if (battle.switchDuringTurn)
+                                        if (battle.partyBackButtonInactive)
                                         {
                                             battle.state = BattleState.Announcement;
                                             battle.switchingTarget = currentPartyMon - 1;

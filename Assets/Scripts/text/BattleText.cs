@@ -50,5 +50,14 @@ public static class BattleText
     public static string SnowContinue = "Snow continues to fall.";
     public static string SnowEnd = "The snow stopped.";
 
+    public static string StartGrassyTerrain = "Grass grew to cover the battefield!";
+    public static string EndGrassyTerrain = "The grass disappeared from the battlefield.";
+    public static string StartElectricTerrain = "Electricity covered the battlefield!";
+    public static string EndElectricTerrain = "The electricity disappeard from the battlefield.";
+    public static string StartMistyTerrain = "Mist covered the battlefield!";
+    public static string EndMistyTerrain = "The mist disappeared from the battlefield.";
+    public static string StartPsychicTerrain = "The battlefield got weird!";
+    public static string EndPsychicTerrain = "The weirdness disappeared from the battlefield.";
+
     public static string Safeguard = " is protected by Safeguard!";
 }

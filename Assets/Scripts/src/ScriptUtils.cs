@@ -1,11 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public delegate void ObjectScript(Player p);
 public delegate void CharScript(Player p, LoadedChar c);
 
 public static class ScriptUtils
 {
+    public static T GetRandom<T>(this List<T> list)
+    {
+        var random = new System.Random();
+        return list[(int)(random.NextDouble() * list.Count)];
+    }
+
+    public static IEnumerator Wait(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+    }
+
     public static IEnumerator DoNothing()
     {
         yield break;

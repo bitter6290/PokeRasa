@@ -1,3 +1,4 @@
+using static MoveEffect;
 public enum MoveEffect : ushort
 {
     //No added effect
@@ -228,4 +229,23 @@ public enum MoveEffect : ushort
     //Effects for doubles/triples
     FollowMe,
     HelpingHand,
+}
+
+public static class MoveEffectUtils
+{
+
+    public static bool IsStatDrop(this MoveEffect effect)
+        => effect is AttackDown1 or AttackDown2 or DefenseDown1
+        or DefenseDown2 or SpAtkDown1 or SpAtkDown2 or SpDefDown1
+        or SpDefDown2 or SpeedDown1 or SpeedDown2 or AttackDefenseDown1
+        or DefenseSpDefDown1 or Captivate;
+
+    public static bool IsStatusMove(this MoveEffect effect)
+        => effect is Paralyze or Freeze or Burn or Sleep or Poison or Toxic
+        or TriAttack;
+    public static bool IsShieldDustAffected(this MoveEffect effect)
+    {
+        return effect.IsStatusMove() || effect.IsStatDrop()
+            || effect is Flinch;
+    }
 }

@@ -19,18 +19,18 @@ public enum Ability
     ColorChange, //Not done
     Immunity,
     FlashFire,
-    ShieldDust, //Not done
-    OwnTempo, //Not done
+    ShieldDust,
+    OwnTempo,
     SuctionCups,
     Intimidate,
     ShadowTag,
-    RoughSkin, //Not done
+    RoughSkin,
     WonderGuard,
     Levitate,
     EffectSpore, //Not done
     Synchronize, //Not done
     ClearBody,
-    NaturalCure, //Not done
+    NaturalCure,
     LightningRod, //Not done
     SereneGrace,
     SwiftSwim,
@@ -38,18 +38,18 @@ public enum Ability
     Illuminate,
     Trace,
     HugePower,
-    PoisonPoint, //Not done
-    InnerFocus, //Not done
-    MagmaArmor, //Not done
-    WaterVeil, //Not done
+    PoisonPoint,
+    InnerFocus,
+    MagmaArmor,
+    WaterVeil,
     MagnetPull, //Not done
     Soundproof,
-    RainDish, //Not done
+    RainDish,
     SandStream,
-    Pressure, //Not done
-    ThickFat, //Not done
+    Pressure,
+    ThickFat,
     EarlyBird, //Not done
-    FlameBody, //Not done
+    FlameBody,
     RunAway, //Not done
     KeenEye, //Not done
     HyperCutter, //Not done
@@ -69,18 +69,18 @@ public enum Ability
     Blaze,
     Torrent,
     Swarm,
-    RockHead, //Not done
+    RockHead,
     Drought,
-    ArenaTrap, //Not done
-    VitalSpirit, //Not done
-    WhiteSmoke, //Not done
+    ArenaTrap,
+    VitalSpirit,
+    WhiteSmoke,
     PurePower,
     ShellArmor,
     AirLock,
     TangledFeet, //Not done
     MotorDrive, //Not done
     Rivalry, //Not done
-    Steadfast, //Not done
+    Steadfast,
     SnowCloak,
     Gluttony, //Not done
     AngerPoint, //Not done
@@ -104,45 +104,45 @@ public enum Ability
     Technician,
     LeafGuard, //Not done
     Klutz, //Not done
-    MoldBreaker, //Not done
+    MoldBreaker, //Will always need updating
     SuperLuck, //Not done
     Aftermath, //Not done
     Anticipation, //Not done
     Forewarn, //Not done
     Unaware,
-    TintedLens, //Not done
-    Filter, //Not done
+    TintedLens,
+    Filter,
     SlowStart, //Not done
-    Scrappy, //Not done
+    Scrappy,
     StormDrain, //Not done
-    IceBody, //Not done
-    SolidRock, //Not done
-    SnowWarning, //Not done
+    IceBody,
+    SolidRock,
+    SnowWarning,
     HoneyGather, //Not done
-    Frisk, //Not done
+    Frisk,
     Reckless, //Not done
     Multitype, //Not done
     FlowerGift, //Not done
     BadDreams, //Not done
     Pickpocket, //Not done
     SheerForce, //Not done
-    Contrary, //Not done
+    Contrary,
     Unnerve, //Not done
     Defiant,
-    Defeatist, //Not done
+    Defeatist,
     CursedBody, //Not done
     Healer, //Not done
     FriendGuard, //Not done
     WeakArmor, //Not done
-    HeavyMetal, //Not done
-    LightMetal, //Not done
-    Multiscale, //Not done
-    ToxicBoost, //Not done
-    FlareBoost, //Not done
+    HeavyMetal,
+    LightMetal,
+    Multiscale,
+    ToxicBoost,
+    FlareBoost,
     Harvest, //Not done
     Telepathy, //Not done
     Moody, //Not done
-    Overcoat, //Not done
+    Overcoat,
     PoisonTouch, //Not done
     Regenerator,
     BigPecks, //Not done
@@ -151,7 +151,7 @@ public enum Ability
     Analytic, //Not done
     Illusion, //Not done
     Imposter, //Not done
-    Infiltrator, //Not done
+    Infiltrator,
     Mummy, //Not done
     Moxie, //Not done
     Justified, //Not done
@@ -163,15 +163,15 @@ public enum Ability
     IronBarbs, //Not done
     ZenMode, //Not done
     VictoryStar, //Not done
-    Turboblaze, //Not done
-    Teravolt, //Not done
+    Turboblaze, //Tied to Mold Breaker
+    Teravolt, //Tied to Mold Breaker
     AromaVeil, //Not done
     FlowerVeil, //Not done
     CheekPouch, //Not done
     Protean, //Not done
     FurCoat, //Not done
     Magician, //Not done
-    Bulletproof, //Not done
+    Bulletproof,
     Competitive,
     StrongJaw, //Not done
     Refrigerate,
@@ -231,8 +231,8 @@ public enum Ability
     MistySurge, //Not done
     GrassySurge, //Not done
     FullMetalBody, //Not done
-    ShadowShield, //Not done
-    PrismArmor, //Not done
+    ShadowShield,
+    PrismArmor,
     Neuroforce, //Not done
     IntrepidSword, //Not done
     DauntlessShield, //Not done

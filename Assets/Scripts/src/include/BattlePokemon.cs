@@ -94,9 +94,11 @@ public class BattlePokemon
     public bool uproar = false;
     public int uproarTimer = 0;
 
-    public bool gotAbilityEffect = false;
+    public bool gotAbilityEffectSelf = false;
     public Ability affectingAbilitySelf = Ability.None;
-    public Ability affectingAbilityAttacker = Ability.None;
+    public bool gotAbilityEffectOpponent = false;
+    public Ability affectingAbilityOpponent = Ability.None;
+    public int abilityEffectSource = 0;
 
     public bool seeded = false;
     public int seedingSlot = 0;

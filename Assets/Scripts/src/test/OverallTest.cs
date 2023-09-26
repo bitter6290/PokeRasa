@@ -6,7 +6,7 @@ public class OverallTest : MonoBehaviour
 {
     public Battle battle;
     public Player player;
-    private Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Marowak, 10);
+    private Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Gyarados, 10);
     private Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Venusaur, 10);
     private Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
     private Pokemon testPokemon4 = Pokemon.WildPokemon(SpeciesID.NidoranM, 10);
@@ -18,6 +18,7 @@ public class OverallTest : MonoBehaviour
     {
         testPokemon2.item = ItemID.Venusaurite;
         testPokemon.move1 = MoveID.Splash;
+        testPokemon.whichAbility = 0;
         testPokemon.pp1 = 40;
         testPokemon.maxPp1 = 40;
         testPokemon2.move1 = MoveID.Rollout;

@@ -62,10 +62,12 @@ public static class BattleEffect
         }
         else if (battle.GetSide(attacker) != battle.GetSide(index)
             && battle.EffectiveAbility(index) is
-            Ability.WhiteSmoke or Ability.ClearBody)
+            Ability.WhiteSmoke or Ability.ClearBody
+            && !battle.HasMoldBreaker(attacker))
         {
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s stats weren't lowered because of "
-               + NameTable.Ability[(int)battle.EffectiveAbility(index)]);
+            yield return battle.AbilityPopupStart(index);
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s stats weren't lowered!");
+            yield return battle.AbilityPopupEnd(index);
             yield break;
         }
         else if (statID == Stat.Attack)
@@ -99,12 +101,16 @@ public static class BattleEffect
         if (battle.GetSide(attacker) != battle.GetSide(index) && battle.HasAbility(index, Ability.Defiant))
         {
             battle.doStatAnim = true;
+            yield return battle.AbilityPopupStart(index);
             yield return StatUp(battle, index, Stat.Attack, 2, attacker);
+            yield return battle.AbilityPopupEnd(index);
         }
         if (battle.GetSide(attacker) != battle.GetSide(index) && battle.HasAbility(index, Ability.Competitive))
         {
             battle.doStatAnim = true;
+            yield return battle.AbilityPopupStart(index);
             yield return StatUp(battle, index, Stat.SpAtk, 2, attacker);
+            yield return battle.AbilityPopupEnd(index);
         }
 
     }
@@ -113,13 +119,17 @@ public static class BattleEffect
     {
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+            if (battle.showFailure)
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
             yield break;
         }
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
-            yield break;
+            if (battle.showFailure)
+            {
+                yield return battle.Announce(BattleText.MoveFailed);
+                yield break;
+            }
         }
         if (battle.PokemonOnField[index].HasType(Type.Fire))
         {
@@ -136,13 +146,17 @@ public static class BattleEffect
     {
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+            if (battle.showFailure)
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
             yield break;
         }
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
-            yield break;
+            if (battle.showFailure)
+            {
+                yield return battle.Announce(BattleText.MoveFailed);
+                yield break;
+            }
         }
         else if (battle.PokemonOnField[index].HasType(Type.Electric))
         {
@@ -150,8 +164,9 @@ public static class BattleEffect
         }
         else if (battle.HasAbility(index, Ability.Limber))
         {
-            //Add ability popup
+            yield return battle.AbilityPopupStart(index);
             yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+            yield return battle.AbilityPopupEnd(index);
         }
         else
         {
@@ -207,30 +222,38 @@ public static class BattleEffect
     }
     public static IEnumerator GetPoison(Battle battle, int index)
     {
+        BattlePokemon target = battle.PokemonOnField[index];
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+            if (battle.showFailure)
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
             yield break;
         }
-        if (battle.PokemonOnField[index].PokemonData.status != Status.None)
+        else if (target.PokemonData.status != Status.None)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            if (battle.showFailure)
+            {
+                yield return battle.Announce(BattleText.MoveFailed);
+            }
             yield break;
         }
-        else if (battle.PokemonOnField[index].HasType(Type.Poison)
-            || battle.PokemonOnField[index].HasType(Type.Steel))
+        else if ((target.HasType(Type.Poison)
+            || target.HasType(Type.Steel)))
         {
-            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+            if (battle.showFailure)
+                yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+            yield break;
         }
         else if (battle.EffectiveAbility(index) == Ability.Immunity)
         {
-            //Add ability popup
+            yield return battle.AbilityPopupStart(index);
             yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
+            yield return battle.AbilityPopupEnd(index);
         }
         else
         {
             yield return BattleAnim.ShowPoison(battle, index);
-            battle.PokemonOnField[index].PokemonData.status = Status.Poison;
+            target.PokemonData.status = Status.Poison;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was poisoned!");
         }
     }
@@ -239,23 +262,31 @@ public static class BattleEffect
         BattlePokemon target = battle.PokemonOnField[index];
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+            if (battle.showFailure)
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
             yield break;
         }
-        if (target.PokemonData.status != Status.None)
+        else if (target.PokemonData.status != Status.None)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            if (battle.showFailure)
+                yield return battle.Announce(BattleText.MoveFailed);
             yield break;
         }
-        else if (target.HasType(Type.Poison)
-    || target.HasType(Type.Steel))
+        else if ((target.HasType(Type.Poison)
+    || target.HasType(Type.Steel)))
         {
-            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+            if (battle.showFailure)
+                yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+            yield break;
         }
         else if (battle.EffectiveAbility(index) == Ability.Immunity)
         {
-            //Add ability popup
-            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
+            if (battle.showFailure)
+            {
+                yield return battle.AbilityPopupStart(index);
+                yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
+                yield return battle.AbilityPopupEnd(index);
+            }
         }
         else
         {
@@ -269,17 +300,31 @@ public static class BattleEffect
     {
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+            if (battle.showFailure)
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
             yield break;
         }
-        if (battle.PokemonOnField[index].PokemonData.status != Status.None)
+        else if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            if (battle.showFailure)
+                yield return battle.Announce(BattleText.MoveFailed);
             yield break;
         }
-        if (battle.PokemonOnField[index].HasType(Type.Ice))
+        else if (battle.HasAbility(index, Ability.MagmaArmor))
         {
-            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+            if (battle.showFailure)
+            {
+                yield return battle.AbilityPopupStart(index);
+                yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
+                yield return battle.AbilityPopupEnd(index);
+            }
+            yield break;
+        }
+        else if (battle.PokemonOnField[index].HasType(Type.Ice))
+        {
+            if (battle.showFailure)
+                yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
+            yield break;
         }
         else
         {
@@ -292,18 +337,24 @@ public static class BattleEffect
     {
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+            if (battle.showFailure)
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
             yield break;
         }
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            if (battle.showFailure)
+                yield return battle.Announce(BattleText.MoveFailed);
             yield break;
         }
         else if (battle.EffectiveAbility(index) is Ability.Insomnia or Ability.VitalSpirit)
         {
-            //Add ability popup
-            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
+            if (battle.showFailure)
+            {
+                yield return battle.AbilityPopupStart(index);
+                yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
+                yield return battle.AbilityPopupEnd(index);
+            }
         }
         else if (battle.Uproar)
         {
@@ -391,7 +442,24 @@ public static class BattleEffect
 
     public static IEnumerator Confuse(Battle battle, int index)
     {
-        if (battle.PokemonOnField[index].confused) { yield break; }
+        if (battle.PokemonOnField[index].confused)
+        {
+            if (battle.showFailure)
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " is already confused! ");
+            yield break;
+        }
+        if (battle.HasAbility(index, Ability.OwnTempo))
+        {
+            if (battle.showFailure)
+            {
+                yield return battle.AbilityPopupStart(index);
+                yield return battle.Announce("It doesn't affect "
+                    + battle.MonNameWithPrefix(index, false) + "...");
+                yield return battle.AbilityPopupEnd(index);
+            }
+            yield break;
+        }
         battle.PokemonOnField[index].confused = true;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " became confused!");
     }
@@ -575,6 +643,7 @@ public static class BattleEffect
         BatonPassStruct passedData = battle.PokemonOnField[index].MakeBatonPassStruct();
         yield return VoluntarySwitch(battle, index, partyIndex);
         battle.PokemonOnField[index].ApplyBatonPassStruct(passedData);
+        yield return battle.EntryAbilityCheck(index);
     }
 
     public static IEnumerator HeartSwap(Battle battle, int user, int target)
@@ -1012,9 +1081,13 @@ public static class BattleEffect
         {
             if (battle.HasAbility(index, Ability.Oblivious))
             {
-                //Ability popup
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + " is protected by Oblivious!");
+                if (battle.showFailure)
+                {
+                    yield return battle.AbilityPopupStart(index);
+                    yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                        + " is protected by Oblivious!");
+                    yield return battle.AbilityPopupEnd(index);
+                }
             }
             else
             {
@@ -1105,6 +1178,16 @@ public static class BattleEffect
 
     public static IEnumerator SwitchItems(Battle battle, int attacker, int defender)
     {
+        if (battle.HasAbility(defender, Ability.StickyHold))
+        {
+            if (battle.showFailure)
+            {
+                yield return battle.AbilityPopupStart(defender);
+                yield return battle.Announce(BattleText.MoveFailed);
+                yield return battle.AbilityPopupEnd(defender);
+            }
+            yield break;
+        }
         if (battle.PokemonOnField[attacker].PokemonData.item == ItemID.None
         && Item.CanBeStolen(battle.PokemonOnField[defender].item)
         && Item.CanBeStolen(battle.PokemonOnField[attacker].item)
@@ -1375,6 +1458,8 @@ public static class BattleEffect
                     && !(battle.HasAbility(data.user.lastIndex, Ability.MoldBreaker)
                     && data.user.onField))
                 {
+                    targetMon.gotAbilityEffectSelf = true;
+                    targetMon.affectingAbilitySelf = Ability.Sturdy;
                     targetMon.PokemonData.HP = 1;
                 }
                 else if (targetMon.endure && data.user.onField)
@@ -1678,10 +1763,12 @@ public static class BattleEffect
 
     public static IEnumerator WorrySeed(Battle battle, int index)
     {
+        yield return battle.AbilityPopupStart(index);
+        yield return battle.abilityControllers[index].ChangeAbility(NameTable.Ability[(int)Ability.Insomnia]);
         battle.PokemonOnField[index].ability = Ability.Insomnia;
-        //Ability popup with change
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
             " acquired Insomnia!");
+        yield return battle.AbilityPopupEnd(index);
     }
 
     public static IEnumerator Defog(Battle battle, int attacker, int target) //Todo: add Sticky Web and Terrain clearing effects
