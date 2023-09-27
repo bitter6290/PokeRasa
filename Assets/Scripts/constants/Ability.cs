@@ -49,18 +49,18 @@ public enum Ability
     SandStream,
     Pressure,
     ThickFat,
-    EarlyBird, //Not done
+    EarlyBird,
     FlameBody,
     RunAway,
-    KeenEye, //Not done
-    HyperCutter, //Not done
+    KeenEye,
+    HyperCutter,
     Pickup, //Not done
     Truant, //Not done
     Hustle,
     CuteCharm, //Not done
     Plus, //Not done
     Minus, //Not done
-    Forecast, //Not done
+    Forecast,
     StickyHold,
     ShedSkin, //Not done
     Guts,
@@ -146,7 +146,7 @@ public enum Ability
     Overcoat,
     PoisonTouch, //Not done
     Regenerator,
-    BigPecks, //Not done
+    BigPecks,
     SandRush,
     WonderSkin,
     Analytic, //Still doesn't handle fainting mons in multi battles correctly
@@ -197,7 +197,7 @@ public enum Ability
     WimpOut, //Not done
     EmergencyExit, //Not done
     WaterCompaction, //Not done
-    Merciless, //Not done
+    Merciless,
     ShieldsDown, //Not done
     Stakeout, //Not done
     WaterBubble, //Not done
@@ -206,7 +206,7 @@ public enum Ability
     SlushRush,
     LongReach,
     LiquidVoice,
-    Triage, //Not done
+    Triage,
     Galvanize,
     SurgeSurfer, //Not done
     Schooling, //Not done
@@ -215,12 +215,12 @@ public enum Ability
     PowerConstruct, //Not done
     Corrosion, //Not done
     Comatose, //Not done
-    QueenlyMajesty, //Not done
+    QueenlyMajesty,
     InnardsOut, //Not done
     Dancer, //Not done
     Battery, //Not done
     Fluffy,
-    Dazzling, //Not done
+    Dazzling,
     SoulHeart, //Not done
     TanglingHair, //Not done
     Receiver, //Not done
@@ -294,11 +294,11 @@ public enum Ability
     Opportunist, //Not done
     CudChew, //Not done
     Sharpness,
-    SupremeOverlord, //Not done
+    SupremeOverlord,
     Costar, //Not done
-    ToxicDebris, //Not done
+    ToxicDebris,
     EarthEater,
-    MyceliumMight, //Not done
+    MyceliumMight,
     ToxicChain, //Not done
     SupersweetSyrup, //Not done
     Hospitality, //Not done

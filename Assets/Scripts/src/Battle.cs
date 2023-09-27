@@ -31,6 +31,18 @@ public class Battle : MonoBehaviour
 
     public Pokemon[] OpponentPokemon = new Pokemon[6];
     public Pokemon[] PlayerPokemon = new Pokemon[6];
+    public Pokemon[] Party(int index) => index < 3 ?
+        OpponentPokemon : PlayerPokemon;
+
+    public int faintedMons(int index)
+    {
+        int count = 0;
+        foreach (Pokemon p in Party(index))
+        {
+            if (p.exists && p.fainted) count++;
+        }
+        return count;
+    }
 
     public BattleState state;
     public int currentPlayerMon = 4;
@@ -389,7 +401,8 @@ public class Battle : MonoBehaviour
     }
 
     public bool HasMoldBreaker(int index)
-        => EffectiveAbility(index) is MoldBreaker or Teravolt or Turboblaze;
+        => EffectiveAbility(index) is MoldBreaker or Teravolt or Turboblaze
+        || (HasAbility(index, MyceliumMight) && GetMove(index).power == 0);
 
     public Type GetEffectiveType(MoveID move, int index)
     {
@@ -617,6 +630,7 @@ public class Battle : MonoBehaviour
         if (Sides[index / 3].tailwind) speed <<= 1;
         if (trickRoom) speed = 10000 - speed;
         if (HasAbility(index, Stall)) speed -= 32768;
+        if (HasAbility(index, MyceliumMight) && GetMove(index).power == 0) speed -= 32768;
         return speed;
     }
 
@@ -1131,6 +1145,7 @@ public class Battle : MonoBehaviour
                 (GetEffectiveType(move, attacker.index)
                 is Type.Steel or Type.Rock or Type.Ground) => 1.3F,
             PunkRock when move.HasFlag(soundMove) => 1.3F,
+            SupremeOverlord => 1.0F + 0.1F * faintedMons(attacker.index),
             _ => 1.0F,
         };
     }
@@ -1319,6 +1334,9 @@ public class Battle : MonoBehaviour
                             continue;
                         }
                         break;
+                    case Dazzling or QueenlyMajesty when GetPriority(attacker) > 0:
+                        abilityEffects.Enqueue((i, i, EffectiveAbility(i)));
+                        continue;
                     default:
                         break;
                 };
@@ -1435,15 +1453,17 @@ public class Battle : MonoBehaviour
         {
             if (PokemonOnField[i].isHit)
             {
-                if (PokemonOnField[i].ability is BattleArmor or ShellArmor
+                if (EffectiveAbility(i) is BattleArmor or ShellArmor
                     || Sides[i / 3].luckyChant)
                 {
                     continue;
                 }
-                if (random.NextDouble() < GetCritChance(attacker, move))
-                {
+                if (HasAbility(attacker, Merciless) &&
+                        PokemonOnField[i].PokemonData.status is Status.Poison or
+                        Status.ToxicPoison)
                     PokemonOnField[i].isCrit = true;
-                }
+                if (random.NextDouble() < GetCritChance(attacker, move))
+                    PokemonOnField[i].isCrit = true;
             }
         }
     }
@@ -1648,6 +1668,8 @@ public class Battle : MonoBehaviour
                     case WeakArmor when move.Data().physical:
                     case SteamEngine when GetEffectiveType(move, attacker) is
                             Type.Water or Type.Fire:
+                    case ToxicDebris when move.Data().physical &&
+                            Sides[1 - defender / 3].toxicSpikes < 2:
                     case Stamina:
                         abilityEffects.Enqueue((defender, defender, EffectiveAbility(defender)));
                         break;
@@ -1756,27 +1778,14 @@ public class Battle : MonoBehaviour
                     yield return AbilityPopupEnd(data.source);
                     break;
                 case WonderGuard:
-                    yield return AbilityPopupStart(data.source);
-                    yield return Announce(MonNameWithPrefix(data.target, true)
-                        + " is protected by Wonder Guard!");
-                    yield return AbilityPopupEnd(data.source);
-                    break;
                 case Soundproof:
-                    yield return AbilityPopupStart(data.source);
-                    yield return Announce(MonNameWithPrefix(data.target, true)
-                        + " is protected by Soundproof!");
-                    yield return AbilityPopupEnd(data.source);
-                    break;
                 case Bulletproof:
-                    yield return AbilityPopupStart(data.source);
-                    yield return Announce(MonNameWithPrefix(data.target, true)
-                        + " is protected by Bulletproof!");
-                    yield return AbilityPopupEnd(data.source);
-                    break;
                 case Overcoat:
+                case Dazzling:
+                case QueenlyMajesty:
                     yield return AbilityPopupStart(data.source);
-                    yield return Announce(MonNameWithPrefix(data.target, true)
-                        + " is protected by Overcoat!");
+                    yield return Announce("It doesn't affect "
+                        + MonNameWithPrefix(data.target, false) + "...");
                     yield return AbilityPopupEnd(data.source);
                     break;
                 case SuctionCups:
@@ -1815,6 +1824,11 @@ public class Battle : MonoBehaviour
                     yield return AbilityPopupStart(data.source);
                     doStatAnim = true;
                     yield return BattleEffect.StatUp(this, data.target, Stat.Speed, 6, data.target);
+                    yield return AbilityPopupEnd(data.source);
+                    break;
+                case ToxicDebris:
+                    yield return AbilityPopupStart(data.source);
+                    yield return BattleEffect.ToxicSpikes(this, data.target);
                     yield return AbilityPopupEnd(data.source);
                     break;
             }

@@ -45,14 +45,25 @@ public static class BattleEffect
 
     public static IEnumerator StatDown(Battle battle, int index, Stat statID, int amount, int attacker, bool checkContrary = true)
     {
-        if (battle.HasAbility(index, Ability.Contrary) && checkContrary)
+        switch (battle.EffectiveAbility(index))
         {
-            yield return StatUp(battle, index, statID, amount, attacker, false);
-            yield break;
-        }
-        if (battle.HasAbility(index, Ability.Simple))
-        {
-            amount <<= 1;
+            case Ability.Contrary when checkContrary:
+                yield return StatUp(battle, index, statID, amount, attacker, false);
+                yield break;
+            case Ability.Simple: amount <<= 1; break;
+            case Ability.WhiteSmoke or Ability.ClearBody:
+            case Ability.KeenEye when statID == Stat.Accuracy:
+            case Ability.HyperCutter when statID == Stat.Attack:
+            case Ability.BigPecks when statID == Stat.Defense:
+                if (battle.GetSide(attacker) != battle.GetSide(index) &&
+                        !battle.HasMoldBreaker(attacker))
+                {
+                    yield return battle.AbilityPopupStart(index);
+                    yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s stats weren't lowered!");
+                    yield return battle.AbilityPopupEnd(index);
+                    yield break;
+                }
+                else break;
         }
         if (battle.GetSide(attacker) != battle.GetSide(index)
             && battle.Sides[battle.GetSide(index)].mist)
@@ -365,6 +376,8 @@ public static class BattleEffect
         {
             battle.PokemonOnField[index].PokemonData.status = Status.Sleep;
             battle.PokemonOnField[index].PokemonData.sleepTurns = 1 + (random.Next() % 3);
+            if (battle.HasAbility(index, Ability.EarlyBird))
+                battle.PokemonOnField[index].PokemonData.sleepTurns >>= 1;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " fell asleep!");
         }
     }
