@@ -32,13 +32,13 @@ public static class Move
         18, 85, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Target.Single, 15,
-         makesContact); //Needs anim
+         makesContact + punchMove); //Needs anim
     public static MoveData MegaPunch = new(
         "Mega Punch", Normal,
         80, 85, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 20,
-         makesContact); //Needs anim
+         makesContact + punchMove); //Needs anim
     public static MoveData PayDay = new(
         "Pay Day", Normal,
         40, 100, 0,
@@ -49,19 +49,19 @@ public static class Move
         75, 100, 0,
         MoveEffect.Burn, 10,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact + punchMove); //Needs anim
     public static MoveData IcePunch = new(
         "Ice Punch", Ice,
         75, 100, 0,
         MoveEffect.Freeze, 10,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact + punchMove); //Needs anim
     public static MoveData ThunderPunch = new(
         "Thunder Punch", Electric,
         75, 100, 0,
         MoveEffect.Paralyze, 10,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact + punchMove); //Needs anim
     public static MoveData Scratch = new(
         "Scratch", Normal,
         40, 100, 0,
@@ -830,7 +830,7 @@ public static class Move
         70, 100, 0,
         MoveEffect.Confuse, 20,
         true, Target.Single, 10,
-        makesContact); //Needs anim
+        makesContact + punchMove); //Needs anim
     public static MoveData Spore = new(
         "Spore", Grass,
         0, 100, 0,
@@ -1038,7 +1038,7 @@ public static class Move
         40, 100, 1,
         MoveEffect.Hit, 0,
         true, Target.Single, 30,
-        makesContact); //Needs anim
+        makesContact + punchMove); //Needs anim
     public static MoveData ScaryFace = new(
         "Scary Face", Normal,
         0, 100, 0,
@@ -1267,7 +1267,7 @@ public static class Move
         100, 50, 0,
         MoveEffect.Confuse, 100,
         true, Target.Single, 5,
-        makesContact); //Needs anim
+        makesContact + punchMove); //Needs anim
     public static MoveData Megahorn = new(
         "Megahorn", Bug,
         120, 85, 0,
@@ -1729,7 +1729,7 @@ public static class Move
         60, 101, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact + punchMove); //Needs anim
     public static MoveData Extrasensory = new(
         "Extrasensory", Type.Psychic,
         80, 100, 0,
@@ -1740,7 +1740,7 @@ public static class Move
         85, 90, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 15,
-        hitFlyingMon); //Needs anim
+        hitFlyingMon + makesContact + punchMove); //Needs anim
     public static MoveData SandTomb = new(
         "Sand Tomb", Ground,
         35, 85, 0,
@@ -1896,7 +1896,7 @@ public static class Move
         100, 100, 0,
         MoveEffect.SpeedDown1, 100,
         true, Target.Single, 10,
-        makesContact + effectOnSelfOnly); //Needs anim
+        makesContact + punchMove + effectOnSelfOnly); //Needs anim
     public static MoveData GyroBall = new(
         "Gyro Ball", Steel,
         1, 100, 0,
@@ -2107,7 +2107,8 @@ public static class Move
         75, 100, 0,
         MoveEffect.Absorb50, 100,
         true, Target.Single, 10,
-        makesContact + effectOnSelfOnly + healBlockAffected); //Needs anim
+        makesContact + effectOnSelfOnly + healBlockAffected
+        + punchMove); //Needs anim
     public static MoveData VacuumWave = SingleTargetNoEffect(
         "Vacuum Wave", Fighting, 40, 100, 1, false, 30); //Needs anim
     public static MoveData FocusBlast = new(
@@ -2141,7 +2142,7 @@ public static class Move
     public static MoveData NastyPlot = SelfTargetingMove(
         "Nasty Plot", Dark, 0, MoveEffect.SpAtkUp2, 20, snatchAffected); //Needs anim
     public static MoveData BulletPunch = SingleTargetNoEffect(
-        "Bullet Punch", Steel, 40, 100, 1, true, 30, makesContact); //Needs anim
+        "Bullet Punch", Steel, 40, 100, 1, true, 30, makesContact + punchMove); //Needs anim
     public static MoveData Avalanche = new(
         "Avalanche", Ice,
         60, 100, -4,
@@ -2422,7 +2423,7 @@ public static class Move
         150, 100, -3,
         MoveEffect.FocusPunchAttack, 0,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact + punchMove); //Needs anim
     public static MoveData DiveAttack = new(
         "Dive", Water,
         80, 100, 0,

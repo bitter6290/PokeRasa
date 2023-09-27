@@ -1,3 +1,4 @@
+using static Ability;
 public enum Ability
 {
     None,
@@ -42,7 +43,7 @@ public enum Ability
     InnerFocus,
     MagmaArmor,
     WaterVeil,
-    MagnetPull, //Not done
+    MagnetPull,
     Soundproof,
     RainDish,
     SandStream,
@@ -50,7 +51,7 @@ public enum Ability
     ThickFat,
     EarlyBird, //Not done
     FlameBody,
-    RunAway, //Not done
+    RunAway,
     KeenEye, //Not done
     HyperCutter, //Not done
     Pickup, //Not done
@@ -60,11 +61,11 @@ public enum Ability
     Plus, //Not done
     Minus, //Not done
     Forecast, //Not done
-    StickyHold, //Not done
+    StickyHold,
     ShedSkin, //Not done
     Guts,
     MarvelScale, //Not done
-    LiquidOoze, //Not done
+    LiquidOoze,
     Overgrow,
     Blaze,
     Torrent,
@@ -82,30 +83,30 @@ public enum Ability
     Rivalry, //Not done
     Steadfast,
     SnowCloak,
-    Gluttony, //Not done
+    Gluttony,
     AngerPoint, //Not done
     Unburden, //Not done
-    Heatproof, //Not done
+    Heatproof,
     Simple,
     DrySkin,
     Download, //Not done
-    IronFist, //Not done
+    IronFist,
     PoisonHeal,
     Adaptability,
     SkillLink,
     Hydration, //Not done
-    SolarPower, //Not done
+    SolarPower,
     QuickFeet, //Not done
     Normalize,
     Sniper,
-    MagicGuard, //Not done
+    MagicGuard, //Will always need updating
     NoGuard,
     Stall,
     Technician,
     LeafGuard, //Not done
-    Klutz, //Not done
+    Klutz,
     MoldBreaker, //Will always need updating
-    SuperLuck, //Not done
+    SuperLuck,
     Aftermath, //Not done
     Anticipation, //Not done
     Forewarn, //Not done
@@ -120,7 +121,7 @@ public enum Ability
     SnowWarning,
     HoneyGather, //Not done
     Frisk,
-    Reckless, //Not done
+    Reckless,
     Multitype, //Not done
     FlowerGift, //Not done
     BadDreams, //Not done
@@ -133,7 +134,7 @@ public enum Ability
     CursedBody, //Not done
     Healer, //Not done
     FriendGuard, //Not done
-    WeakArmor, //Not done
+    WeakArmor,
     HeavyMetal,
     LightMetal,
     Multiscale,
@@ -147,52 +148,52 @@ public enum Ability
     Regenerator,
     BigPecks, //Not done
     SandRush,
-    WonderSkin, //Not done
-    Analytic, //Not done
+    WonderSkin,
+    Analytic, //Still doesn't handle fainting mons in multi battles correctly
     Illusion, //Not done
     Imposter, //Not done
     Infiltrator,
-    Mummy, //Not done
-    Moxie, //Not done
-    Justified, //Not done
-    Rattled, //Not done
-    MagicBounce, //Not done
-    SapSipper, //Not done
-    Prankster, //Not done
-    SandForce, //Not done
-    IronBarbs, //Not done
+    Mummy,
+    Moxie,
+    Justified,
+    Rattled,
+    MagicBounce,
+    SapSipper,
+    Prankster,
+    SandForce,
+    IronBarbs,
     ZenMode, //Not done
-    VictoryStar, //Not done
+    VictoryStar,
     Turboblaze, //Tied to Mold Breaker
     Teravolt, //Tied to Mold Breaker
     AromaVeil, //Not done
     FlowerVeil, //Not done
     CheekPouch, //Not done
-    Protean, //Not done
-    FurCoat, //Not done
+    Protean,
+    FurCoat,
     Magician, //Not done
     Bulletproof,
     Competitive,
-    StrongJaw, //Not done
+    StrongJaw,
     Refrigerate,
     SweetVeil, //Not done
     StanceChange, //Not done
-    GaleWings, //Not done
-    MegaLauncher, //Not done
-    GrassPelt, //Not done
+    GaleWings,
+    MegaLauncher,
+    GrassPelt, //Shouldn't be checked when dealing confusion damage (??)
     Symbiosis, //Not done
-    ToughClaws, //Not done
+    ToughClaws,
     Pixilate,
-    Gooey, //Not done
+    Gooey,
     Aerilate,
-    ParentalBond, //Not done
-    DarkAura, //Not done
-    FairyAura, //Not done
-    AuraBreak, //Not done
+    ParentalBond,
+    DarkAura,
+    FairyAura,
+    AuraBreak,
     PrimoridialSea, //Not done
     DesolateLand, //Not done
     DeltaStream, //Not done
-    Stamina, //Not done
+    Stamina,
     WimpOut, //Not done
     EmergencyExit, //Not done
     WaterCompaction, //Not done
@@ -203,10 +204,10 @@ public enum Ability
     Steelworker, //Not done
     Berserk, //Not done
     SlushRush,
-    LongReach, //Not done
-    LiquidVoice, //Not done
+    LongReach,
+    LiquidVoice,
     Triage, //Not done
-    Galvanize, //Not done
+    Galvanize,
     SurgeSurfer, //Not done
     Schooling, //Not done
     Disguise, //Not done
@@ -218,7 +219,7 @@ public enum Ability
     InnardsOut, //Not done
     Dancer, //Not done
     Battery, //Not done
-    Fluffy, //Not done
+    Fluffy,
     Dazzling, //Not done
     SoulHeart, //Not done
     TanglingHair, //Not done
@@ -236,17 +237,17 @@ public enum Ability
     Neuroforce, //Not done
     IntrepidSword, //Not done
     DauntlessShield, //Not done
-    Libero, //Not done
+    Libero,
     BallFetch, //Not done
     CottonDown, //Not done
     PropellorTail, //Not done
     MirrorArmor, //Not done
     GulpMissile, //Not done
     Stalwart, //Not done
-    SteamEngine, //Not done
-    PunkRock, //Not done
+    SteamEngine,
+    PunkRock,
     SandSpit, //Not done
-    IceScales, //Not done
+    IceScales,
     Ripen, //Not done
     IceFace, //Not done
     PowerSpot, //Not done
@@ -292,14 +293,26 @@ public enum Ability
     HadronEngine, //Not done
     Opportunist, //Not done
     CudChew, //Not done
-    Sharpness, //Not done
+    Sharpness,
     SupremeOverlord, //Not done
     Costar, //Not done
     ToxicDebris, //Not done
-    EarthEater, //Not done
+    EarthEater,
     MyceliumMight, //Not done
     ToxicChain, //Not done
     SupersweetSyrup, //Not done
     Hospitality, //Not done
 
+}
+
+public static class AbilityUtils
+{
+    public static string Name(this Ability ability)
+        => NameTable.Ability[(int)ability];
+    public static bool Unchangeable(this Ability ability)
+        => ability is AsOneGlastrier or AsOneSpectrier or BattleBond
+        or Comatose or Commander or Disguise or GulpMissile or IceFace
+        or Multitype or Protosynthesis or QuarkDrive or RKSSystem
+        or Schooling or ShieldsDown or StanceChange or WonderGuard
+        or ZenMode or ZeroToHero;
 }

@@ -509,4 +509,11 @@ public enum MoveID
 public static class MoveUtils
 {
     public static MoveData Data(this MoveID move) => Move.MoveTable[(int)move];
+    public static bool HasFlag(this MoveID move, int flag)
+        => (move.Data().moveFlags & flag) != 0;
+    public static bool TriageAffected(this MoveID move) =>
+        move.Data().effect is MoveEffect.Heal50 or MoveEffect.Absorb50
+        or MoveEffect.HealingWish or MoveEffect.DreamEater or MoveEffect.HealWeather
+        or MoveEffect.Roost or MoveEffect.Swallow or MoveEffect.Rest;
+    //Todo: update Triage for Gen 5+ moves
 }

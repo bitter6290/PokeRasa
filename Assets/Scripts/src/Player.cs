@@ -476,6 +476,7 @@ public class Player : LoadedChar
     public IEnumerator BattleWon()
     {
         yield return FadeToBlack(0.2F);
+        ResetTransformations();
         yield return Scene.Map.Load();
         Debug.Log("Map loaded");
         camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
@@ -701,6 +702,12 @@ public class Player : LoadedChar
         }
         yield return announcer.AnnouncementDown();
         state = locked ? PlayerState.Locked : PlayerState.Free;
+    }
+
+    public void ResetTransformations()
+    {
+        foreach (Pokemon mon in Party)
+            mon.transformed = false;
     }
 
     public IEnumerator InitMapTest()

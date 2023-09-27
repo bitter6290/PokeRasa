@@ -356,7 +356,7 @@ public static class BattleEffect
                 yield return battle.AbilityPopupEnd(index);
             }
         }
-        else if (battle.Uproar)
+        else if (battle.UproarOnField)
         {
             yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                 + " is protected by the uproar!");
@@ -603,13 +603,20 @@ public static class BattleEffect
 
     }
 
-    public static IEnumerator VoluntarySwitch(Battle battle, int index, int partyIndex)
+    public static IEnumerator VoluntarySwitch(Battle battle, int index, int partyIndex, bool doAnnouncement, bool fromMove)
     {
         if (index < 3)
         {
 
             battle.LeaveFieldCleanup(index);
-            yield return battle.Announce(battle.OpponentName + " withdrew " + battle.MonNameWithPrefix(index, false) + "!");
+            if (battle.PokemonOnField[index].exists && doAnnouncement)
+            {
+                if (fromMove)
+                    yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " came back to "
+                        + battle.OpponentName + "!");
+                else
+                    yield return battle.Announce(battle.OpponentName + " withdrew " + battle.MonNameWithPrefix(index, false) + "!");
+            }
             battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(false, index, battle);
             yield return battle.Announce(battle.OpponentName + " sent out "
                 + battle.OpponentPokemon[partyIndex].monName + "!");
@@ -623,8 +630,14 @@ public static class BattleEffect
         }
         else
         {
-            if (battle.PokemonOnField[index].exists)
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "! Come back!");
+            if (battle.PokemonOnField[index].exists && doAnnouncement)
+            {
+                if (fromMove)
+                    yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " came back to "
+                        + battle.player.name + "!");
+                else
+                    yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "! Come back!");
+            }
             battle.LeaveFieldCleanup(index);
             battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(true, index - 3, battle);
             yield return battle.Announce("Go! " + battle.PlayerPokemon[partyIndex].monName + "!");
@@ -638,10 +651,16 @@ public static class BattleEffect
         }
     }
 
+    public static void LeaveField(Battle battle, int index)
+    {
+        battle.LeaveFieldCleanup(index);
+        battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(true, index % 3, battle);
+    }
+
     public static IEnumerator BatonPass(Battle battle, int index, int partyIndex)
     {
         BatonPassStruct passedData = battle.PokemonOnField[index].MakeBatonPassStruct();
-        yield return VoluntarySwitch(battle, index, partyIndex);
+        yield return VoluntarySwitch(battle, index, partyIndex, false, true);
         battle.PokemonOnField[index].ApplyBatonPassStruct(passedData);
         yield return battle.EntryAbilityCheck(index);
     }
@@ -805,6 +824,7 @@ public static class BattleEffect
                 yield return battle.Announce(BattleText.SnowStart);
                 break;
         }
+        yield return battle.DoWeatherTransformations();
     }
     public static IEnumerator WeatherContinues(Battle battle)
     {
@@ -830,6 +850,7 @@ public static class BattleEffect
                     break;
             }
             battle.weather = Weather.None;
+            yield return battle.DoWeatherTransformations();
         }
         else
         {
@@ -855,7 +876,7 @@ public static class BattleEffect
     {
         BattlePokemon user = battle.PokemonOnField[index];
         if (battle.Sides[index < 3 ? 0 : 1].safeguard
-            || battle.Uproar)
+            || battle.UproarOnField)
         {
             yield return battle.Announce(BattleText.MoveFailed);
             yield break;
@@ -964,9 +985,21 @@ public static class BattleEffect
         //yield return BattleAnim.LeechSeed(battle, index, target.seedingSlot);
         int healthAmount = target.PokemonData.hpMax >> 3;
         target.DoNonMoveDamage(healthAmount);
-        yield return Heal(battle, battle.PokemonOnField[index].seedingSlot, healthAmount);
-        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-            + "'s health was sapped by Leech Seed!");
+        if (battle.HasAbility(index, Ability.LiquidOoze))
+        {
+            yield return battle.AbilityPopupStart(index);
+            battle.PokemonOnField[target.seedingSlot].DoNonMoveDamage(healthAmount);
+            yield return new WaitForSeconds(0.5F);
+            yield return battle.Announce(battle.MonNameWithPrefix(target.seedingSlot, true)
+                + " sucked up the liquid ooze!");
+            yield return battle.AbilityPopupEnd(index);
+        }
+        else
+        {
+            yield return Heal(battle, battle.PokemonOnField[index].seedingSlot, healthAmount);
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                + "'s health was sapped by Leech Seed!");
+        }
     }
 
     public static IEnumerator DoMimic(Battle battle, int index, int target)
@@ -1029,6 +1062,15 @@ public static class BattleEffect
         battle.PokemonOnField[index].typesOverriden = true;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true)
             + " became the " + TypeUtils.typeName[(int)newType] + " type!");
+    }
+
+    public static IEnumerator Protean(Battle battle, int index, Type type)
+    {
+        battle.PokemonOnField[index].newType1 = type;
+        battle.PokemonOnField[index].newType2 = type;
+        battle.PokemonOnField[index].typesOverriden = true;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " became the " + TypeUtils.typeName[(int)type] + " type!");
     }
 
     public static IEnumerator Haze(Battle battle)

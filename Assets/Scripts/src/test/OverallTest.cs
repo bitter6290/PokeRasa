@@ -64,7 +64,6 @@ public class OverallTest : MonoBehaviour
             dummy.PokemonData.level = 100;
             dummy.PokemonData.CalculateStats();
             dummy.PokemonData.HP = dummy.PokemonData.hpMax;
-            dummy.CalculateStats();
             dummy.PokemonData.move1 = MoveID.Splash;
             dummy.PokemonData.pp1 = 255;
             dummy.PokemonData.item = ItemID.SitrusBerry;

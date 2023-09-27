@@ -23,6 +23,9 @@
 # DS_Store files from OSX
 *.DS_Store
 
+# Temp files
+/.tmp.driveupload/*
+
 # Map backups
 /[Aa]ssets/StreamingAssets/Maps/Old*
 

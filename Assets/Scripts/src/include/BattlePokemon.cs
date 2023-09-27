@@ -20,11 +20,11 @@ public class BattlePokemon
     public int accuracyStage = 0;
     public int critStage = 0;
 
-    public int attack;
-    public int defense;
-    public int spAtk;
-    public int spDef;
-    public int speed;
+    public int attack => (int)(BaseAttack * StageToModifierNormal(attackStage));
+    public int defense => (int)(BaseDefense * StageToModifierNormal(defenseStage));
+    public int spAtk => (int)(BaseSpAtk * StageToModifierNormal(spAtkStage));
+    public int spDef => (int)(BaseSpDef * StageToModifierNormal(spDefStage));
+    public int speed => (int)(BaseSpeed * StageToModifierNormal(speedStage));
 
     public bool side;
     public int position;
@@ -264,11 +264,6 @@ public class BattlePokemon
     {
         pokemonData.onField = true;
         PokemonData = pokemonData;
-        attack = PokemonData.attack;
-        defense = PokemonData.defense;
-        spAtk = PokemonData.spAtk;
-        spDef = PokemonData.spDef;
-        speed = PokemonData.speed;
         this.exists = exists;
         this.side = side;
         this.position = position;
@@ -276,7 +271,6 @@ public class BattlePokemon
         ability = Species.SpeciesTable[(int)pokemonData.species].abilities[pokemonData.whichAbility];
         this.battle = battle;
         pokemonData.lastIndex = index;
-        CalculateStats();
     }
 
     public SpeciesID apparentSpecies => isTransformed ? transformedMon.species : PokemonData.getSpecies;
@@ -408,22 +402,11 @@ public class BattlePokemon
     private int BaseAttackRaw => isTransformed ? transformedMon.attack : PokemonData.attack;
     private int BaseDefenseRaw => isTransformed ? transformedMon.defense : PokemonData.defense;
 
-    private int BaseAttack => PowerTrickActive ? BaseDefenseRaw : BaseAttackRaw;
-    private int BaseDefense => PowerTrickActive ? BaseAttackRaw : BaseDefenseRaw;
-    private int BaseSpAtk => isTransformed ? transformedMon.spAtk : PokemonData.spAtk;
-    private int BaseSpDef => isTransformed ? transformedMon.spDef : PokemonData.spDef;
-    private int BaseSpeed => isTransformed ? transformedMon.speed : PokemonData.speed;
-
-    public void CalculateStats()
-    {
-        attack = (int)(BaseAttack * StageToModifierNormal(attackStage));
-        defense = (int)(BaseDefense * StageToModifierNormal(defenseStage));
-        spAtk = (int)(BaseSpAtk * StageToModifierNormal(spAtkStage));
-        spDef = (int)(BaseSpDef * StageToModifierNormal(spDefStage));
-        speed = (int)(BaseSpeed * StageToModifierNormal(speedStage));
-
-        if (ability is Ability.HugePower or Ability.PurePower) { attack <<= 1; }
-    }
+    public int BaseAttack => PowerTrickActive ? BaseDefenseRaw : BaseAttackRaw;
+    public int BaseDefense => PowerTrickActive ? BaseAttackRaw : BaseDefenseRaw;
+    public int BaseSpAtk => isTransformed ? transformedMon.spAtk : PokemonData.spAtk;
+    public int BaseSpDef => isTransformed ? transformedMon.spDef : PokemonData.spDef;
+    public int BaseSpeed => isTransformed ? transformedMon.speed : PokemonData.speed;
 
     public static BattlePokemon MakeEmptyBattleMon(bool side, int position, Battle battle)
     {
@@ -498,7 +481,6 @@ public class BattlePokemon
                 {
                     int raisedStages = (int)Min(6 - attackStage, amount);
                     attackStage += raisedStages;
-                    CalculateStats();
                     return raisedStages;
                 }
             case Stat.Defense:
@@ -510,7 +492,6 @@ public class BattlePokemon
                 {
                     int raisedStages = (int)Min(6 - defenseStage, amount);
                     defenseStage += raisedStages;
-                    CalculateStats();
                     return raisedStages;
                 }
             case Stat.SpAtk:
@@ -522,7 +503,6 @@ public class BattlePokemon
                 {
                     int raisedStages = (int)Min(6 - spAtkStage, amount);
                     spAtkStage += raisedStages;
-                    CalculateStats();
                     return raisedStages;
                 }
             case Stat.SpDef:
@@ -534,7 +514,6 @@ public class BattlePokemon
                 {
                     int raisedStages = (int)Min(6 - spDefStage, amount);
                     spDefStage += raisedStages;
-                    CalculateStats();
                     return raisedStages;
                 }
             case Stat.Speed:
@@ -546,7 +525,6 @@ public class BattlePokemon
                 {
                     int raisedStages = (int)Min(6 - speedStage, amount);
                     speedStage += raisedStages;
-                    CalculateStats();
                     return raisedStages;
                 }
             case Stat.Accuracy:
@@ -558,7 +536,6 @@ public class BattlePokemon
                 {
                     int raisedStages = (int)Min(6 - accuracyStage, amount);
                     accuracyStage += raisedStages;
-                    CalculateStats();
                     return raisedStages;
                 }
             case Stat.Evasion:
@@ -570,7 +547,6 @@ public class BattlePokemon
                 {
                     int raisedStages = (int)Min(6 - evasionStage, amount);
                     evasionStage += raisedStages;
-                    CalculateStats();
                     return raisedStages;
                 }
             default:
@@ -591,7 +567,6 @@ public class BattlePokemon
                 {
                     int loweredStages = (int)Min(attackStage + 6, amount);
                     attackStage -= loweredStages;
-                    CalculateStats();
                     return loweredStages;
                 }
             case Stat.Defense:
@@ -603,7 +578,6 @@ public class BattlePokemon
                 {
                     int loweredStages = (int)Min(defenseStage + 6, amount);
                     defenseStage -= loweredStages;
-                    CalculateStats();
                     return loweredStages;
                 }
             case Stat.SpAtk:
@@ -615,7 +589,6 @@ public class BattlePokemon
                 {
                     int loweredStages = (int)Min(spAtkStage + 6, amount);
                     spAtkStage -= loweredStages;
-                    CalculateStats();
                     return loweredStages;
                 }
             case Stat.SpDef:
@@ -627,7 +600,6 @@ public class BattlePokemon
                 {
                     int loweredStages = (int)Min(spDefStage + 6, amount);
                     spDefStage -= loweredStages;
-                    CalculateStats();
                     return loweredStages;
                 }
             case Stat.Speed:
@@ -639,7 +611,6 @@ public class BattlePokemon
                 {
                     int loweredStages = (int)Min(speedStage + 6, amount);
                     speedStage -= loweredStages;
-                    CalculateStats();
                     return loweredStages;
                 }
             case Stat.Accuracy:
@@ -651,7 +622,6 @@ public class BattlePokemon
                 {
                     int raisedStages = (int)Min(6 + accuracyStage, amount);
                     accuracyStage -= raisedStages;
-                    CalculateStats();
                     return raisedStages;
                 }
             case Stat.Evasion:
@@ -663,7 +633,6 @@ public class BattlePokemon
                 {
                     int raisedStages = (int)Min(6 + evasionStage, amount);
                     evasionStage -= raisedStages;
-                    CalculateStats();
                     return raisedStages;
                 }
             default:

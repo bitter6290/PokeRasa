@@ -248,4 +248,6 @@ public static class MoveEffectUtils
         return effect.IsStatusMove() || effect.IsStatDrop()
             || effect is Flinch;
     }
+    public static bool HasRecoil(this MoveEffect effect)
+        => effect is Recoil25 or Recoil33 or Crash50Max;
 }

@@ -23,4 +23,5 @@ public static class MoveFlags
     public const int gravityDisabled = 1 << 19;
     public const int healBlockAffected = 1 << 20;
     public const int extraFlinch10 = 1 << 21;
+    public const int punchMove = 1 << 22;
 }
