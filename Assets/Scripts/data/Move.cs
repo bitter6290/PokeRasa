@@ -681,6 +681,7 @@ public static class Move
         0, 101, 0,
         MoveEffect.MirrorMove, 0,
         false, Target.Single, 20); //Needs anim
+    //Todo: Define which moves are affected by Mirror Move
     public static MoveData SelfDestruct = new(
         "Self Destruct", Normal,
         200, 100, 0,
@@ -2357,6 +2358,33 @@ public static class Move
         MoveEffect.ChargingAttack, 0,
         true, Target.Single, 5); //Needs anim
 
+    //Gen 5
+    public static MoveData HoneClaws = SelfTargetingMove(
+        "Hone Claws", Dark, 0, MoveEffect.AttackDefAccUp1, 15, snatchAffected); //Needs anim
+    public static MoveData WideGuard = SelfTargetingMove(
+        "Wide Guard", Rock, 3, MoveEffect.WideGuard, 10,
+        snatchAffected + incrementsProtectCounter); //Needs anim
+    public static MoveData GuardSplit = SingleTargetStatusMove(
+        "Guard Split", Type.Psychic, 101, 0, MoveEffect.GuardSplit, 10); //Needs anim
+    public static MoveData PowerSplit = SingleTargetStatusMove(
+        "Power Split", Type.Psychic, 101, 0, MoveEffect.PowerSplit, 10); //Needs anim
+    public static MoveData WonderRoom = FieldMove(
+        "Wonder Room", Type.Psychic, 0, MoveEffect.WonderRoom, 10); //Needs anim
+    public static MoveData Psyshock = new(
+        "Psyshock", Type.Psychic,
+        80, 100, 0,
+        MoveEffect.Psyshock, 0,
+        false, Target.Single, 10); //Needs anim
+    public static MoveData Venoshock = new(
+        "Venoshock", Poison,
+        65, 100, 0,
+        MoveEffect.Venoshock, 0,
+        false, Target.Single, 10); //Needs anim
+    public static MoveData Autotomize = SelfTargetingMove(
+        "Autotomize", Steel, 0, MoveEffect.Autotomize, 15, snatchAffected); //Needs anim
+    public static MoveData RagePowder = SelfTargetingMove(
+        "Rage Powder", Bug, 2, MoveEffect.RagePowder, 20); //Needs anim
+
 
     //Non-standard moves
     public static MoveData ConfusionHit = new(
@@ -2927,6 +2955,17 @@ public static class Move
         SeedFlare,
         OminousWind,
         ShadowForce,
+        
+        //Gen 5
+        HoneClaws,
+        WideGuard,
+        GuardSplit,
+        PowerSplit,
+        WonderRoom,
+        Psyshock,
+        Venoshock,
+        Autotomize,
+        RagePowder,
 
 
         //Nonstandard moves

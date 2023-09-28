@@ -1893,10 +1893,50 @@ public static class BattleEffect
         battle.trickRoomTimer = 5;
     }
 
+    public static IEnumerator StartWonderRoom(Battle battle, int index)
+    {
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+            + " created a bizarre area in which Defense and Sp. Defense are swapped!");
+        battle.wonderRoom = true;
+        battle.wonderRoomTimer = 5;
+    }
+
     public static IEnumerator StealthRock(Battle battle, int index)
     {
         yield return battle.Announce("Pointed stones float in the air around "
             + (index < 3 ? "your" : "the opponent's") + " team!");
         battle.Sides[(5 - index) / 3].stealthRock = true;
+    }
+
+    public static IEnumerator GuardSplit(Battle battle, int index, int attacker)
+    {
+        BattlePokemon user = battle.PokemonOnField[attacker];
+        BattlePokemon target = battle.PokemonOnField[index];
+        int newDef = (user.BaseDefense + target.BaseDefense) >> 1;
+        int newSpDef = (user.BaseSpDef + target.BaseSpDef) >> 1;
+        user.overrideDefenses = true;
+        target.overrideDefenses = true;
+        user.defenseOverride = newDef;
+        target.defenseOverride = newDef;
+        user.spDefOverride = newSpDef;
+        target.spDefOverride = newSpDef;
+        yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
+            + " shared its guard with the target!");
+    }
+
+    public static IEnumerator PowerSplit(Battle battle, int index, int attacker)
+    {
+        BattlePokemon user = battle.PokemonOnField[attacker];
+        BattlePokemon target = battle.PokemonOnField[index];
+        int newAtk = (user.BaseAttack + target.BaseAttack) >> 1;
+        int newSpAtk = (user.BaseSpAtk + target.BaseSpAtk) >> 1;
+        user.overrideAttacks = true;
+        target.overrideAttacks = true;
+        user.attackOverride = newAtk;
+        target.attackOverride = newAtk;
+        user.spAtkOverride = newSpAtk;
+        target.spAtkOverride = newSpAtk;
+        yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
+            + " shared its power with the target!");
     }
 }

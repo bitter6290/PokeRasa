@@ -475,6 +475,17 @@ public enum MoveID
     OminousWind,
     ShadowForce,
 
+    //Gen 5
+    HoneClaws,
+    WideGuard,
+    GuardSplit,
+    PowerSplit,
+    WonderRoom,
+    Psyshock,
+    Venoshock,
+    Autotomize,
+    RagePowder,
+
     //Nonstandard moves
 
     ConfusionHit,

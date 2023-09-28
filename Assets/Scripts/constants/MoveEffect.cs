@@ -51,8 +51,10 @@ public enum MoveEffect : ushort
     SpAtkSpDefUp1,
     AttackDefenseDown1,
     DefenseSpDefDown1,
+    AttackDefAccUp1,
     AllUp1,
     Acupressure,
+    Autotomize,
     BellyDrum,
     Captivate,
     Charge,
@@ -68,6 +70,7 @@ public enum MoveEffect : ushort
     Encore,
     ForcedSwitch,
     Foresight,
+    GuardSplit,
     GuardSwap,
     HealBlock,
     HeartSwap,
@@ -79,6 +82,7 @@ public enum MoveEffect : ushort
     MiracleEye,
     Nightmare,
     PerishSong,
+    PowerSplit,
     PowerSwap,
     PsychoShift,
     PsychUp,
@@ -141,6 +145,7 @@ public enum MoveEffect : ushort
     PainSplit,
     Pluck,
     Present,
+    Psyshock,
     Rage,
     Recharge,
     Rollout,
@@ -154,9 +159,11 @@ public enum MoveEffect : ushort
     //Moves which double in power under certain conditions
     Brine,
     Facade,
+    Hex,
     Pursuit,
     Revenge,
     Payback,
+    Venoshock,
     WeatherBall,
     //Moves with unique power calcs
     WeightPower,
@@ -193,6 +200,7 @@ public enum MoveEffect : ushort
     TrickRoom,
     WaterSport,
     Weather,
+    WonderRoom,
     //Self-targeting effects
     AquaRing,
     Assist,
@@ -225,10 +233,12 @@ public enum MoveEffect : ushort
     Teleport,
     Transform,
     Sketch,
+    WideGuard,
     Wish,
     //Effects for doubles/triples
     FollowMe,
     HelpingHand,
+    RagePowder,
 }
 
 public static class MoveEffectUtils

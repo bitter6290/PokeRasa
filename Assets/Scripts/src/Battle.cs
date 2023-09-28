@@ -17,6 +17,7 @@ using static MoveFlags;
 using static MoveEffect;
 using System;
 using System.Reflection;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class Battle : MonoBehaviour
 {
@@ -262,7 +263,7 @@ public class Battle : MonoBehaviour
 
     private int GetEffectiveWeightMovePower(int index)
     {
-        int weight = PokemonOnField[index].PokemonData.SpeciesData.pokedexData.weight;
+        int weight = PokemonOnField[index].EffectiveWeight;
         if (HasAbility(index, LightMetal)) weight >>= 1;
         else if (HasAbility(index, HeavyMetal)) weight <<= 1;
         return WeightMovePower(weight);
@@ -912,6 +913,7 @@ public class Battle : MonoBehaviour
             case WeatherBall when !(this.weather is Weather.None or Weather.StrongWinds):
             case Brine when defender.PokemonData.HP << 1 < defender.PokemonData.hpMax:
             case Pursuit when pursuitHitsOnSwitch:
+            case Venoshock when defender.PokemonData.status is Status.Poison or Status.ToxicPoison:
                 effectivePower <<= 1;
                 break;
             case KnockOff when Item.CanBeStolen(defender.item):
@@ -968,7 +970,7 @@ public class Battle : MonoBehaviour
         float helpingHand = Mathf.Pow(1.5f, attacker.helpingHand);
         float effectiveAttack = move.Data().physical ?
             GetAttack(attacker.index, isCritical) : GetSpAtk(attacker.index, isCritical);
-        float effectiveDefense = move.Data().physical ?
+        float effectiveDefense = (move.Data().physical || move.Data().effect == Psyshock) ?
             GetDefense(defender.index, isCritical) : GetSpdef(defender.index, isCritical);
         float attackOverDefense = effectiveAttack / effectiveDefense;
 
@@ -1204,7 +1206,9 @@ public class Battle : MonoBehaviour
 
     private bool TryToHit(int attacker, int defender, MoveID move)
     {
-        if (PokemonOnField[defender].protect && move.Data().effect != Feint)
+        if ((PokemonOnField[defender].protect
+            || (PokemonOnField[defender].wideGuard && (move.Data().targets & Target.Spread) != 0))
+             && move.Data().effect != Feint)
         {
             PokemonOnField[defender].wasProtected = true;
             return false;
@@ -1436,13 +1440,18 @@ public class Battle : MonoBehaviour
 
     private void CheckForFollowMe(int index)
     {
+        bool ragePowderOK = !HasAbility(index, Overcoat)
+            && !PokemonOnField[index].HasType(Type.Grass);
         if (followMeActive)
         {
-            for (int i = 3 * (index / 3); i < 3 * (index / 3) + 3; i++)
+            for (int i = 3 * (index / 3); i < (3 * (index / 3)) + 3; i++)
             {
                 if (PokemonOnField[i].followMe
-                    && Target.CanTarget(index, i, Moves[index]))
+                    && Target.CanTarget(index, i, Moves[index])
+                    && (!PokemonOnField[i].wasRagePowder || ragePowderOK))
+                {
                     Targets[index] = i;
+                }
             }
         }
     }
@@ -2435,7 +2444,8 @@ public class Battle : MonoBehaviour
             }
             else { mon.protectCounter++; }
         }
-        else { mon.protectCounter = 0; }
+        else if (goAhead && Moves[index].HasFlag(incrementsProtectCounter)) mon.protectCounter++;
+        else mon.protectCounter = 0;
         if (goAhead)
         {
             Debug.Log("Executing");
@@ -3178,8 +3188,7 @@ public class Battle : MonoBehaviour
                 goto default;
             case MoveEffect.Transform:
                 yield return BattleEffect.TransformMon(this, index, Targets[index]);
-                user.powerTrick = false;
-                user.powerTrickSuppressed = false;
+                CleanStatSwaps(user);
                 user.done = true;
                 MoveCleanup();
                 yield break;
@@ -4164,6 +4173,11 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.StatDown(this, index, Stat.Defense, 1, attacker);
                 yield return BattleEffect.StatDown(this, index, Stat.SpDef, 1, attacker);
                 break;
+            case AttackDefAccUp1:
+                yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.Accuracy, 1, attacker);
+                break;
             case SwitchHit:
                 if (PokemonOnField[index].player)
                 {
@@ -4190,6 +4204,9 @@ public class Battle : MonoBehaviour
             case DefenseCurl:
                 PokemonOnField[index].usedDefenseCurl = true;
                 goto case DefenseUp1;
+            case Autotomize:
+                PokemonOnField[index].autotomized = true;
+                goto case SpeedUp2;
             case Charge:
                 if (!PokemonOnField[index].charged)
                 {
@@ -4249,11 +4266,12 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.GetFutureSight(this, index, attacker);
                 break;
             case Feint:
-                if (PokemonOnField[index].protect)
+                if (PokemonOnField[index].protect || PokemonOnField[index].wideGuard)
                 {
                     yield return Announce(MonNameWithPrefix(index, true)
                         + " fell for the feint!");
                     PokemonOnField[index].protect = false;
+                    PokemonOnField[index].wideGuard = false;
                 }
                 break;
             case DestinyBond:
@@ -4321,7 +4339,7 @@ public class Battle : MonoBehaviour
                 PokemonOnField[attacker].attackStage = targetAttack;
                 PokemonOnField[attacker].spAtkStage = targetSpAtk;
                 yield return Announce(MonNameWithPrefix(attacker, true)
-                    + " shared its power with the target!");
+                    + " swapped all changes to its Attack and Sp. Attack with its target!");
                 break;
             case GuardSwap:
                 int targetDefense = PokemonOnField[index].defenseStage;
@@ -4331,7 +4349,13 @@ public class Battle : MonoBehaviour
                 PokemonOnField[attacker].defenseStage = targetDefense;
                 PokemonOnField[attacker].spDefStage = targetSpDef;
                 yield return Announce(MonNameWithPrefix(attacker, true)
-                    + " shared its guard with the target!");
+                    + " swapped all changes to its Defense and Sp. Defense with its target!");
+                break;
+            case GuardSplit:
+                yield return BattleEffect.GuardSplit(this, index, attacker);
+                break;
+            case PowerSplit:
+                yield return BattleEffect.PowerSplit(this, index, attacker);
                 break;
             case Curse:
                 yield return BattleEffect.GhostCurse(this, attacker, index);
@@ -4376,6 +4400,12 @@ public class Battle : MonoBehaviour
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " protected itself!");
                 PokemonOnField[index].protect = true;
+                break;
+            case WideGuard:
+                yield return Announce(MonNameWithPrefix(index, true)
+                    + " protected its team!");
+                for (int i = 3 * (index / 3); i < (3 * (index / 3)) + 3; i++)
+                    PokemonOnField[index].wideGuard = true;
                 break;
             case Endure:
                 yield return Announce(MonNameWithPrefix(index, true)
@@ -4437,6 +4467,9 @@ public class Battle : MonoBehaviour
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " became the center of attention!");
                 break;
+            case RagePowder:
+                PokemonOnField[index].wasRagePowder = true;
+                goto case FollowMe;
             case HelpingHand:
                 yield return BattleEffect.HelpingHand(this, attacker, index);
                 break;
@@ -4546,10 +4579,21 @@ public class Battle : MonoBehaviour
             case TrickRoom:
                 yield return BattleEffect.StartTrickRoom(this, index);
                 break;
+            case WonderRoom:
+                yield return BattleEffect.StartWonderRoom(this, index);
+                break;
             case Hit:
             default:
                 yield break;
         }
+    }
+
+    public void CleanStatSwaps(BattlePokemon mon)
+    {
+        mon.powerTrick = false;
+        mon.powerTrickSuppressed = false;
+        mon.overrideAttacks = false;
+        mon.overrideDefenses = false;
     }
 
     public void DoNextMove()
@@ -4905,6 +4949,7 @@ public class Battle : MonoBehaviour
                 currentMon.dontCheckPP = false;
                 currentMon.damageTaken = 0;
                 currentMon.protect = false;
+                currentMon.wideGuard = false;
                 currentMon.endure = false;
                 currentMon.magicCoat = false;
                 currentMon.moveUsedLastTurn = currentMon.moveUsedThisTurn;
@@ -4913,6 +4958,7 @@ public class Battle : MonoBehaviour
 
                 currentMon.helpingHand = 0;
                 currentMon.followMe = false;
+                currentMon.wasRagePowder = false;
                 currentMon.roosting = false;
 
                 currentMon.damagedByMon = new bool[6];
@@ -5240,8 +5286,7 @@ public class Battle : MonoBehaviour
             mon.PokemonData.species == SpeciesID.Rayquaza ?
             SpeciesID.RayquazaMega :
             (SpeciesID)EffectiveItem(index).Data().ItemSubdata[1];
-        mon.powerTrick = false;
-        mon.powerTrickSuppressed = false;
+        CleanStatSwaps(mon);
         mon.PokemonData.transformed = true;
         mon.PokemonData.CalculateStats();
         yield return new WaitForSeconds(1.8F); //3.60

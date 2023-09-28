@@ -26,6 +26,14 @@ public class BattlePokemon
     public int spDef => (int)(BaseSpDef * StageToModifierNormal(spDefStage));
     public int speed => (int)(BaseSpeed * StageToModifierNormal(speedStage));
 
+    public bool overrideAttacks;
+    public int attackOverride;
+    public int spAtkOverride;
+
+    public bool overrideDefenses;
+    public int defenseOverride;
+    public int spDefOverride;
+
     public bool side;
     public int position;
     public int index;
@@ -76,6 +84,7 @@ public class BattlePokemon
 
     public bool usedDefenseCurl = false;
     public bool minimized = false;
+    public bool autotomized = false;
 
     public bool charged = false;
 
@@ -125,6 +134,7 @@ public class BattlePokemon
     public int perishCounter = 0;
 
     public bool followMe = false;
+    public bool wasRagePowder = false;
 
     public int helpingHand = 0;
 
@@ -135,6 +145,7 @@ public class BattlePokemon
 
     public bool endure = false;
     public bool protect = false;
+    public bool wideGuard = false;
     public int protectCounter = 0;
 
     public bool magicCoat = false;
@@ -242,6 +253,9 @@ public class BattlePokemon
     public ItemID item => embargoed ?
             (baseItem.Data().type is ItemType.MegaStone ? baseItem : ItemID.None)
             : baseItem;
+
+    public int EffectiveWeight => Max(100, PokemonData.SpeciesData.pokedexData.weight -
+        (autotomized ? 100000 : 0));
 
     public bool CanUseLastResort =>
         PokemonData.Moves == 1 ? false :
@@ -402,10 +416,29 @@ public class BattlePokemon
     private int BaseAttackRaw => isTransformed ? transformedMon.attack : PokemonData.attack;
     private int BaseDefenseRaw => isTransformed ? transformedMon.defense : PokemonData.defense;
 
-    public int BaseAttack => PowerTrickActive ? BaseDefenseRaw : BaseAttackRaw;
-    public int BaseDefense => PowerTrickActive ? BaseAttackRaw : BaseDefenseRaw;
-    public int BaseSpAtk => isTransformed ? transformedMon.spAtk : PokemonData.spAtk;
-    public int BaseSpDef => isTransformed ? transformedMon.spDef : PokemonData.spDef;
+    public int BaseSpAtkRaw => isTransformed ? transformedMon.spAtk : PokemonData.spAtk;
+    public int BaseSpDefRaw => isTransformed ? transformedMon.spDef : PokemonData.spDef;
+
+    public int BaseAttack
+    {
+        get {
+            if (overrideAttacks) return attackOverride;
+            else if (PowerTrickActive) return BaseDefenseRaw;
+            else return BaseAttackRaw;
+        }
+    }
+    public int BaseDefense
+    {
+        get
+        {
+            if (overrideDefenses) return defenseOverride;
+            else if (PowerTrickActive) return BaseAttackRaw;
+            else return BaseDefenseRaw;
+        }
+    }
+    public int BaseSpAtk => overrideAttacks ? spAtkOverride : BaseSpAtkRaw;
+    public int BaseSpDef => overrideDefenses ? spDefOverride : BaseSpDefRaw;
+
     public int BaseSpeed => isTransformed ? transformedMon.speed : PokemonData.speed;
 
     public static BattlePokemon MakeEmptyBattleMon(bool side, int position, Battle battle)
