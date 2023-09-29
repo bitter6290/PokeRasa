@@ -1,4 +1,5 @@
-﻿public struct WildMon
+﻿[System.Serializable]
+public struct WildMon
 {
     public SpeciesID species;
     public int freq;

@@ -1,4 +1,5 @@
-﻿public struct WildDataset
+﻿[System.Serializable]
+public struct WildDataset
 {
     public WildMon[] wildMons;
     public int encounterPercent;

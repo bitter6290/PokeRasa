@@ -15,9 +15,6 @@ using static BerryEffect;
 using static ItemID;
 using static MoveFlags;
 using static MoveEffect;
-using System;
-using System.Reflection;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class Battle : MonoBehaviour
 {
@@ -381,9 +378,12 @@ public class Battle : MonoBehaviour
 
     public bool IsGrounded(int index)
     {
-        if (gravity) return true;
+        if (gravity ||
+            PokemonOnField[index].smackDown ||
+            PokemonOnField[index].ingrained) return true;
         if (HasAbility(index, Levitate) ||
-            PokemonOnField[index].magnetRise) return false;
+            PokemonOnField[index].magnetRise ||
+            PokemonOnField[index].telekinesis) return false;
         if (PokemonOnField[index].roosting) return true;
         if (PokemonOnField[index].HasType(Type.Flying)) return false;
         return true;
@@ -1571,9 +1571,9 @@ public class Battle : MonoBehaviour
                                 || UproarOnField && !HasAbility(i, Soundproof):
                             case Wish when target.healBlocked:
                             case Captivate when !OppositeGenders(attacker, i):
-                            case (SkillSwap or SuppressAbility) when
+                            case SkillSwap or SuppressAbility when
                                 target.ability.Unchangeable():
-                            case (RolePlay or SkillSwap) when
+                            case RolePlay or SkillSwap when
                                 PokemonOnField[attacker].ability.Unchangeable():
                                 continue;
                             case FutureSight:
@@ -1594,6 +1594,11 @@ public class Battle : MonoBehaviour
                             case Toxic:
                                 if (target.HasType(Type.Poison)) continue;
                                 goto case TriAttack;
+                            case Telekinesis when target.telekinesis || target.ingrained || target.smackDown ||
+                                    target.PokemonData.getSpecies is SpeciesID.GengarMega or
+                                    SpeciesID.Diglett or SpeciesID.Dugtrio
+                                    //or SpeciesID.Sandygast or SpeciesID.Palossand
+                                    : continue;
                             case TriAttack:
                                 if (target.PokemonData.status != Status.None) continue;
                                 goto default;
@@ -4205,6 +4210,7 @@ public class Battle : MonoBehaviour
                 PokemonOnField[index].usedDefenseCurl = true;
                 goto case DefenseUp1;
             case Autotomize:
+                yield return Announce(MonNameWithPrefix(index, true) + " became nimble!");
                 PokemonOnField[index].autotomized = true;
                 goto case SpeedUp2;
             case Charge:
@@ -4241,6 +4247,11 @@ public class Battle : MonoBehaviour
                 break;
             case MiracleEye:
                 yield return BattleEffect.Identify(this, index, true);
+                break;
+            case Telekinesis:
+                yield return Announce(MonNameWithPrefix(index, true) + " was hurled into the air!");
+                PokemonOnField[index].telekinesis = true;
+                PokemonOnField[index].telekinesisTimer = 3;
                 break;
             case Substitute:
                 yield return BattleEffect.MakeSubstitute(this, index);
@@ -4770,6 +4781,15 @@ public class Battle : MonoBehaviour
                     yield return Announce(MonNameWithPrefix(i, true)
                         + " is cured of its heal block!");
                     mon.healBlocked = false;
+                }
+            }
+            if (mon.telekinesis)
+            {
+                if (mon.telekinesisTimer-- <= 1)
+                {
+                    yield return Announce(MonNameWithPrefix(i, true)
+                        + " was freed from the telekinesis!");
+                    mon.telekinesis = false;
                 }
             }
             if (mon.yawnThisTurn && mon.PokemonData.status == Status.None

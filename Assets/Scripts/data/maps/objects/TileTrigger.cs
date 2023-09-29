@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
 
+[System.Serializable]
 public class TileTrigger
 {
     public Vector2Int pos;
-    public ObjectScript script;
+    public ScriptDomain scriptDomain;
+    public string scriptName;
+    public ObjectScript script => AllScripts.ObjectScripts[scriptDomain][scriptName];
     public bool active;
 }

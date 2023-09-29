@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public delegate void ObjectMovement(LoadedChar loadedChar);
 public delegate bool SeeCondition(Player p);
@@ -6,27 +7,26 @@ public delegate bool SeeCondition(Player p);
 public abstract class CharData
 {
     public int index;
-    public MapID mapID;
-    public int CharID => index + ((int)mapID << 16);
+    public MapData map;
+    public int CharID => index + (map.index << 16);
 
     public Vector2Int pos;
 
-    public MapID[] mapsToLoad;
+    public MapData[] mapsToLoad;
 
     public bool loadedByDefault = true;
     public bool hasCollision = true;
     public bool hasSeeScript = false;
     public int sightRadius;
 
-    public CharScript OnInteract = (p, c) => { return; };
-    public SeeCondition SeeCheck = p => { return false; };
-    public CharScript OnSee = (p, c) => { return; };
-    public CharScript OnWin = (p, c) =>
-    {
-        p.state = PlayerState.Free;
-    };
+    public ScriptDomain scriptDomain;
 
-    public ObjectMovement GetMovement;
+    public CharScript OnInteract => AllScripts.CharScripts[scriptDomain][index].OnInteract;
+    public SeeCondition SeeCheck => AllScripts.CharScripts[scriptDomain][index].SeeCheck;
+    public CharScript OnSee => AllScripts.CharScripts[scriptDomain][index].OnSee;
+    public CharScript OnWin => AllScripts.CharScripts[scriptDomain][index].OnWin;
+
+    public ObjectMovement GetMovement => AllScripts.CharScripts[scriptDomain][index].GetMovement;
 
     public bool IsLoaded(Player p)
     {
@@ -34,5 +34,5 @@ public abstract class CharData
         return false;
     }
 
-    public abstract void Load(Player p);
+    public abstract void Load(Player p, MapData map);
 }

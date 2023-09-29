@@ -2,11 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate void ObjectScript(Player p);
-public delegate void CharScript(Player p, LoadedChar c);
+public delegate IEnumerator ObjectScript(Player p);
+public delegate IEnumerator CharScript(Player p, LoadedChar c);
 
 public static class ScriptUtils
 {
+    public static Dictionary<string, ObjectScript> ObjScripts = new()
+    {
+        {"NoScript", NoObjectScript }
+    };
+    public static Dictionary<string, CharScript> CharScripts = new()
+    {
+        {"NoScript", NoCharScript }
+    };
+    public static MapScripts NoMapScripts = new();
     public static T GetRandom<T>(this List<T> list)
     {
         var random = new System.Random();
@@ -19,6 +28,16 @@ public static class ScriptUtils
     }
 
     public static IEnumerator DoNothing()
+    {
+        yield break;
+    }
+
+    public static IEnumerator NoObjectScript(Player p)
+    {
+        yield break;
+    }
+
+    public static IEnumerator NoCharScript(Player p, LoadedChar c)
     {
         yield break;
     }

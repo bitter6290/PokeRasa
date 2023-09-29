@@ -11,11 +11,12 @@ public class MapHelper : MapManager
     public Tilemap collisionMap;
     public Tilemap wildDataMap;
 
+    public ProjectData projectData;
+
     private bool open;
+    public void forceOpen() => open = true;
 
-    private MapID openMap;
-
-    public new MapData mapData => Map.MapTable[(int)openMap];
+    private MapData openMap;
 
     public void WriteMap()
     {
@@ -34,28 +35,25 @@ public class MapHelper : MapManager
 
     new public void ReadMap()
     {
-        if (mapID == MapID.None)
+        if (mapData == null)
         {
             EditorUtility.DisplayDialog("No map selected",
                 "No map is selected, select one with the drop-down menu before loading.", "OK");
             return;
         }
         if (open)
+        {
             if (!EditorUtility.DisplayDialog("Map is not saved",
                 "Map is not saved. Really discard unsaved work?", "Yes", "Cancel"))
-                return;
-        if (!File.Exists("Assets/StreamingAssets/Maps/" + Map.MapTable[(int)mapID].path + ".pokemap"))
+            return;
+        }
+        if (mapData.MapTiles.Length == 0)
         {
-            if (!EditorUtility.DisplayDialog("Create new map",
-                "Map has no map file yet, create new map?", "Yes", "Cancel"))
-                return;
-            openMap = mapID;
-            open = true;
             MapReader.CreateNewMapV1(this);
         }
         else
         {
-            openMap = mapID;
+            openMap = mapData;
             open = true;
             MapReader.ReadForEditingV1(this);
         }
@@ -72,7 +70,7 @@ public class MapHelper : MapManager
         level3.ClearAllTiles();
         collisionMap.ClearAllTiles();
         wildDataMap.ClearAllTiles();
-        openMap = MapID.None;
+        openMap = null;
         open = false;
     }
 
@@ -80,6 +78,20 @@ public class MapHelper : MapManager
     {
         WriteMap();
         CloseMap(true);
+    }
+
+    public void CreateMap()
+    {
+        if (open)
+        {
+            if (!EditorUtility.DisplayDialog("Map is not saved",
+                "Map is not saved. Really discard unsaved work?", "Yes", "Cancel"))
+                return;
+        }
+        var CreateMapPopup = ScriptableObject.CreateInstance<MapCreateWindow>();
+        CreateMapPopup.helper = this;
+        CreateMapPopup.position = new Rect(Screen.width / 6, Screen.height / 6, 2 * Screen.width / 3, 2 * Screen.width / 3);
+        CreateMapPopup.ShowPopup();
     }
 
     public void SyncTilesets()
@@ -150,6 +162,7 @@ public class MapHelper : MapManager
             }
             AssetDatabase.SaveAssets();
         }
+        AssetDatabase.Refresh();
     }
 }
 #endif

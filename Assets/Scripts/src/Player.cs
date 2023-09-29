@@ -18,14 +18,15 @@ public class Player : LoadedChar
 
 
     public Dictionary<ItemID, int> Bag;
-    public Dictionary<MapID, bool[,]> neighborCollision;
+    public Dictionary<MapData, bool[,]> neighborCollision;
+
 
     public List<TileTrigger> triggers;
     public List<TileTrigger> signposts;
 
     public BattleTerrain currentTerrain;
     //public MapID currentMap;
-    public MapID lastMap = 0;
+    public MapData lastMap = null;
     //public Vector2Int pos;
     //public Vector2Int moveTarget;
     public PlayerState state;
@@ -179,30 +180,30 @@ public class Player : LoadedChar
 
     public void SwitchMap()
     {
-        mapManager.mapID = currentMap;
+        mapManager.mapData = currentMap;
         mapManager.ReadMap();
-        currentMap.Data().BeforeLoad(this);
+        currentMap.BeforeLoad(this);
         RefreshObjects();
-        currentMap.Data().OnLoad(this);
+        currentMap.OnLoad(this);
     }
 
     public void RefreshTriggers()
     {
         triggers = new();
-        foreach (TileTrigger i in currentMap.Data().triggers) triggers.Add(i);
+        foreach (TileTrigger i in currentMap.triggers) triggers.Add(i);
     }
 
     public void RefreshSignposts()
     {
         signposts = new();
-        foreach (TileTrigger i in currentMap.Data().signposts) signposts.Add(i);
+        foreach (TileTrigger i in currentMap.signposts) signposts.Add(i);
     }
 
     public void RefreshChars()
     {
         loadedChars ??= new();
-        List<MapID> maps = new() { currentMap };
-        foreach (Connection i in currentMap.Data().connection)
+        List<MapData> maps = new() { currentMap };
+        foreach (Connection i in currentMap.connection)
         {
             Debug.Log("Adding " + i.map);
             maps.Add(i.map);
@@ -215,22 +216,22 @@ public class Player : LoadedChar
             if (i.keepOnLoad)
             {
                 if (i.currentMap != currentMap)
-                    foreach (Connection j in currentMap.Data().connection)
+                    foreach (Connection j in currentMap.connection)
                     {
                         if (j.map == i.currentMap) i.pos += GetMapOffset(j);
                     };
                 i.currentMap = currentMap;
                 continue;
             }
-            foreach (MapID j in maps)
+            foreach (MapData j in maps)
             {
                 Debug.Log("Testing " + j);
-                Debug.Log("MapID is " + i.charData.mapID);
-                if (i.charData.mapID == j)
+                Debug.Log("MapID is " + i.charData.map);
+                if (i.charData.map == j)
                 {
                     Debug.Log("Matched");
                     if (i.currentMap != currentMap)
-                        foreach (Connection k in currentMap.Data().connection)
+                        foreach (Connection k in currentMap.connection)
                         {
                             if (k.map == i.currentMap)
                             {
@@ -248,16 +249,16 @@ public class Player : LoadedChar
             if (keep) continue;
             StartCoroutine(i.Unload());
         }
-        foreach (MapID i in maps)
+        foreach (MapData i in maps)
         {
-            foreach (CharData j in i.Data().chars)
+            foreach (CharData j in i.humanoidChars)
             {
                 if (!j.IsLoaded(this))
                 {
-                    j.Load(this);
+                    j.Load(this, i);
                     if (i != currentMap)
                     {
-                        foreach (Connection k in currentMap.Data().connection)
+                        foreach (Connection k in currentMap.connection)
                         {
                             if (k.map == i) j.pos += GetMapOffset(k);
                         };
@@ -274,19 +275,19 @@ public class Player : LoadedChar
         RefreshChars();
     }
 
-    public LoadedChar GetChar(int index, MapID map = 0)
+    public LoadedChar GetChar(int index, MapData map = null)
     {
-        if (map == 0) map = currentMap;
-        return loadedChars[map.ObjID(index)];
+        map ??= currentMap;
+        return loadedChars[map.index << 16 + index];
     }
 
     public void SwitchAndReposition(Vector2Int pos)
     {
-        mapManager.mapID = currentMap;
+        mapManager.mapData = currentMap;
         mapManager.ReadAndReposition(this, pos);
-        currentMap.Data().BeforeLoad(this);
+        currentMap.BeforeLoad(this);
         RefreshObjects();
-        currentMap.Data().OnLoad(this);
+        currentMap.OnLoad(this);
     }
 
     public void AlignPlayer() => playerGraphics.playerTransform.position = new Vector3(pos.x + 0.5F, pos.y + 0.5F, pos.y);
@@ -303,7 +304,7 @@ public class Player : LoadedChar
             if (loadedChars.Count > 0) foreach (LoadedChar loadedChar in loadedChars.Values)
                     if (loadedChar.pos == pos || (loadedChar.moving && loadedChar.moveTarget == pos)) return CollisionID.Impassable;
         }
-        if (pos.x >= 0 && pos.y >= 0 && pos.x < currentMap.Data().width && pos.y < currentMap.Data().height)
+        if (pos.x >= 0 && pos.y >= 0 && pos.x < currentMap.width && pos.y < currentMap.height)
             return (CollisionID)mapManager.collision[pos.x, pos.y];
         else
         {
@@ -313,22 +314,22 @@ public class Player : LoadedChar
 
     private CollisionID CollisionOnBorderingMaps(Vector2Int pos)
     {
-        (MapID? map, Vector2Int pos) relativeTile = TileOutsideMap(pos);
+        (MapData map, Vector2Int pos) relativeTile = TileOutsideMap(pos);
         if (relativeTile.map == null) return CollisionID.Impassable;
         else
         {
-            return (CollisionID)mapManager.borderingCollision[(MapID)relativeTile.map]
+            return (CollisionID)mapManager.borderingCollision[relativeTile.map]
                 [relativeTile.pos.x, relativeTile.pos.y];
         }
     }
 
-    private (MapID?, Vector2Int) TileOutsideMap(Vector2Int pos)
+    private (MapData, Vector2Int) TileOutsideMap(Vector2Int pos)
     {
-        foreach (Connection i in currentMap.Data().connection)
+        foreach (Connection i in currentMap.connection)
         {
             Vector2Int checkPos = pos - GetMapOffset(i);
-            if (checkPos.x >= 0 && checkPos.x < i.map.Data().width
-                && checkPos.y >= 0 && checkPos.y < i.map.Data().height)
+            if (checkPos.x >= 0 && checkPos.x < i.map.width
+                && checkPos.y >= 0 && checkPos.y < i.map.height)
                 return (i.map, checkPos);
         }
         return (null, Vector2Int.zero);
@@ -338,10 +339,10 @@ public class Player : LoadedChar
     {
         return connection.direction switch
         {
-            Direction.N => new Vector2Int(connection.offset, currentMap.Data().height),
-            Direction.S => new Vector2Int(connection.offset, 0 - connection.map.Data().height),
-            Direction.E => new Vector2Int(currentMap.Data().width, connection.offset),
-            Direction.W => new Vector2Int(0 - connection.map.Data().width, connection.offset),
+            Direction.N => new Vector2Int(connection.offset, currentMap.height),
+            Direction.S => new Vector2Int(connection.offset, 0 - connection.map.height),
+            Direction.E => new Vector2Int(currentMap.width, connection.offset),
+            Direction.W => new Vector2Int(0 - connection.map.width, connection.offset),
             _ => Vector2Int.zero
         };
     }
@@ -365,7 +366,7 @@ public class Player : LoadedChar
         {
             foreach (Connection i in mapManager.mapData.connection)
             {
-                if (i.direction == Direction.E && y >= i.offset && y < i.map.Data().height + i.offset)
+                if (i.direction == Direction.E && y >= i.offset && y < i.map.height + i.offset)
                 {
                     lastMap = currentMap;
                     currentMap = i.map;
@@ -378,11 +379,11 @@ public class Player : LoadedChar
         {
             foreach (Connection i in mapManager.mapData.connection)
             {
-                if (i.direction == Direction.W && y >= i.offset && y < i.map.Data().height + i.offset)
+                if (i.direction == Direction.W && y >= i.offset && y < i.map.height + i.offset)
                 {
                     lastMap = currentMap;
                     currentMap = i.map;
-                    SwitchAndReposition(new Vector2Int(i.map.Data().width, y - i.offset));
+                    SwitchAndReposition(new Vector2Int(i.map.width, y - i.offset));
                     AlignPlayer();
                 }
             }
@@ -391,7 +392,7 @@ public class Player : LoadedChar
         {
             foreach (Connection i in mapManager.mapData.connection)
             {
-                if (i.direction == Direction.N && x >= i.offset && x < i.map.Data().width + i.offset)
+                if (i.direction == Direction.N && x >= i.offset && x < i.map.width + i.offset)
                 {
                     lastMap = currentMap;
                     currentMap = i.map;
@@ -404,11 +405,11 @@ public class Player : LoadedChar
         {
             foreach (Connection i in mapManager.mapData.connection)
             {
-                if (i.direction == Direction.S && x >= i.offset && x < i.map.Data().width + i.offset)
+                if (i.direction == Direction.S && x >= i.offset && x < i.map.width + i.offset)
                 {
                     lastMap = currentMap;
                     currentMap = i.map;
-                    SwitchAndReposition(new Vector2Int(x - i.offset, i.map.Data().height));
+                    SwitchAndReposition(new Vector2Int(x - i.offset, i.map.height));
                     AlignPlayer();
                 }
             }
@@ -501,7 +502,7 @@ public class Player : LoadedChar
     public IEnumerator TrainerBattleWon()
     {
         yield return BattleWon();
-        opponent.charData.OnWin(this, opponent);
+        yield return opponent.charData.OnWin(this, opponent);
     }
 
     public IEnumerator FadeToBlack(float duration)
@@ -543,7 +544,7 @@ public class Player : LoadedChar
     {
         byte index = mapManager.wildData[pos.x, pos.y];
         if (index == 0) return;
-        WildDataset dataset = currentMap.Data().grassData[index - 1];
+        WildDataset dataset = currentMap.grassData[index - 1];
         if (random.NextDouble() * 100 < dataset.encounterPercent)
         {
             StartCoroutine(StartSingleWildBattle(dataset.GetWildMon()));
@@ -651,7 +652,7 @@ public class Player : LoadedChar
         {
             if (i.pos == new Vector2Int(pos.x, pos.y))
             {
-                i.script(this);
+                StartCoroutine(i.script(this));
                 return true;
             }
         }
@@ -665,7 +666,7 @@ public class Player : LoadedChar
         {
             if (i.pos == facingTile && i.available)
             {
-                i.charData.OnInteract(this, i);
+                StartCoroutine(i.charData.OnInteract(this, i));
                 return true;
             }
         }
@@ -716,7 +717,6 @@ public class Player : LoadedChar
         camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
         FindAnnouncer();
         mapManager = gameObject.AddComponent<MapManager>();
-        currentMap = MapID.Test;
         RenderMap();
         CreatePlayerGraphics(CharGraphics.brendanWalk);
         AlignPlayer();

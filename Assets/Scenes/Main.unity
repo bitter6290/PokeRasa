@@ -152,26 +152,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebb930df3d964340b67816b267af7ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p: {fileID: 0}
+  currentMap: {fileID: 11400000, guid: 0ad9a16a74a2449bbb98e1f8733ce282, type: 2}
+  pos: {x: 0, y: 0}
+  currentHeight: 0
+  moveTarget: {x: 0, y: 0}
+  facing: 0
+  hasCollision: 0
+  moving: 0
+  active: 0
+  free: 0
+  available: 0
+  doMove: 1
+  keepOnLoad: 0
+  charObject: {fileID: 0}
+  charRenderer: {fileID: 0}
   TM: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   HM: 0000000000000000
   keyItem: 0000000000000000
   storyFlags: 
   trainerFlags: 00
+  money: 0
+  triggers: []
+  signposts: []
   currentTerrain: 0
-  currentMap: 0
-  lastMap: 0
-  pos: {x: 0, y: 0}
-  moveTarget: {x: 0, y: 0}
+  lastMap: {fileID: 0}
   state: 0
-  active: 0
   locked: 0
-  facing: 0
   opponent: {fileID: 0}
   whichStep: 0
-  currentHeight: 0
   mapManager: {fileID: 0}
   announcer: {fileID: 0}
-  graphicsID: 0
   camera: {fileID: 0}
   textSpeed: 25
   Party:

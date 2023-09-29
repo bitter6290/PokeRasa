@@ -10,6 +10,11 @@ public class MapHelperEditor : Editor
         DrawDefaultInspector();
 
         MapHelper mapHelper = (MapHelper)target;
+
+        if (GUILayout.Button("Create Map"))
+        {
+            mapHelper.CreateMap();
+        }
         if (GUILayout.Button("Open Map"))
         {
             mapHelper.ReadMap();

@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using static ScriptUtils;
+using static Test_Scripts;
 
 public static class TestMapdata
 {
-    const MapID thisMap = MapID.Test;
 
     public static WildDataset TestGrass = new()
     {
@@ -35,44 +35,12 @@ public static class TestMapdata
         new HumanoidCharData
         {
             index = 0,
-            mapID = MapID.Test,
             pos = new(3,2),
             hasCollision = true,
             hasSeeScript = true,
             loadedByDefault = true,
             sightRadius = 3,
-            graphics = CharGraphics.mayWalk,
-            GetMovement = t =>
-            {
-                t.Actions.Enqueue(t.TryWalkNorth);
-                t.Actions.Enqueue(() => t.Pause(1.0F));
-            },
-            OnInteract = (p, c) =>
-            {
-                c.FaceAndLock();
-                p.StartCoroutine(TrainerFlag.MayTest.Get(p) ?
-                    p.DoAnnouncements(new(){"I shouldn't be fighting with baby Pokémon anyway..."})
-                        .DoAtEnd(() => c.free = true) :
-                    p.DoAnnouncements(new(){"Hello!"})
-                        .DoAtEnd(() => c.free = true)
-                );
-            },
-            SeeCheck = p => !TrainerFlag.MayTest.Get(p),
-            OnSee = (p, c) =>
-            {
-                if (!TrainerFlag.MayTest.Get(p)) { _ = p.StartCoroutine(
-                        TrainerSeeSingle(p, c,
-                        Team.mayTestTeam, new(){"Boo!"})); }
-},
-            OnWin = (p,c) => p.StartCoroutine(p.DoAnnouncements(new(){"Somehow you won..."}).
-                DoAtEnd(() =>
-            {
-                p.state = PlayerState.Free;
-                TrainerFlag.MayTest.Set(p);
-                c.doMove = false;
-                c.free = true;
-            }
-            )),
+            graphics = HumanoidGraphicsID.mayWalk,
         }
     };
 
@@ -81,12 +49,12 @@ public static class TestMapdata
         new()
         {
             pos = new(15,2),
-            script = p => p.StartCoroutine(p.DoAnnouncements(new(){"Testing 1","Testing 2"})),
-        }, //index 0
+           // script = Trigger_Announcement,
+        },
         new()
         {
             pos = new(17,2),
-            script = p => charData[0].Load(p),
+            //script = Trigger_MayLoad
         } //index 1
     };
 
@@ -95,7 +63,7 @@ public static class TestMapdata
         new()
         {
             pos = new(16,2),
-            script = p => p.DoAnnouncements(new(){"Signpost","Does","This"}),
+            //script = p => p.DoAnnouncements(new(){"Signpost","Does","This"}),
         } //index 0
     };
 

@@ -216,6 +216,10 @@ public class BattlePokemon
     public bool imprisoned = false;
 
     public bool magnetRise = false;
+    public bool telekinesis = false;
+    public int telekinesisTimer = 0;
+
+    public bool smackDown = false;
 
     public bool grudge = false;
     public bool gotGrudgeEffect = false;

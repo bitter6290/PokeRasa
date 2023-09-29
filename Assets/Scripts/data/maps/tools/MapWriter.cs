@@ -72,17 +72,9 @@ public class MapWriter
             }
         }
         string outString = System.Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?");
-        string path = Application.streamingAssetsPath + "/Maps/" + mapHelper.mapData.path + ".pokemap";
-        if (File.Exists(path))
-        {
-            File.Copy(path, Application.streamingAssetsPath + "/Maps/Old/" + mapHelper.mapData.path
-                + "_" + DateTime.Now.ToString().Replace('/', '-').Replace(':', '-') + ".pokemap");
-            File.Delete(path);
-        }
-        StreamWriter writer = File.CreateText(path);
-        writer.Write(outString);
+        mapHelper.mapData.WriteMapTiles(outString);
+        AssetDatabase.SaveAssets();
         Debug.Log("Saved successfully");
-        writer.Close();
         AssetDatabase.Refresh();
     }
 

@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class MapManager : MonoBehaviour
 {
-    public MapID mapID;
+    public MapData mapData;
     public Tilemap level1;
     public Tilemap level2;
     public Tilemap level3;
@@ -12,9 +12,8 @@ public class MapManager : MonoBehaviour
     public byte[,] collision;
     public byte[,] wildData;
 
-    public Dictionary<MapID, byte[,]> borderingCollision;
+    public Dictionary<MapData, byte[,]> borderingCollision;
 
-    public MapData mapData => Map.MapTable[(int)mapID];
 
     public void ReadMap() =>
         MapReader.ReadForPlaytimeV1(this);

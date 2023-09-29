@@ -92,6 +92,7 @@ public enum MoveEffect : ushort
     Spite,
     SuppressAbility,
     Taunt,
+    Telekinesis,
     Torment,
     Trap,
     Trick,

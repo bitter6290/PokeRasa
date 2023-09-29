@@ -39,7 +39,7 @@ public abstract class LoadedChar : MonoBehaviour
 
     public System.Random random = new();
 
-    public MapID currentMap;
+    public MapData currentMap;
     public Vector2Int pos;
     public CollisionID currentHeight;
     public Vector2Int moveTarget;
@@ -92,7 +92,7 @@ public abstract class LoadedChar : MonoBehaviour
                 if (comparisonPos.x == 0 && comparisonPos.y > 0 &&
                     comparisonPos.y <= charData.sightRadius)
                 {
-                    charData.OnSee(p, c);
+                    p.StartCoroutine(charData.OnSee(p, c));
                     return true;
                 }
                 break;
@@ -100,7 +100,7 @@ public abstract class LoadedChar : MonoBehaviour
                 if (comparisonPos.x == 0 && comparisonPos.y < 0 &&
                     comparisonPos.y >= -charData.sightRadius)
                 {
-                    charData.OnSee(p, c);
+                    p.StartCoroutine(charData.OnSee(p, c));
                     return true;
                 }
                 break;
@@ -108,7 +108,7 @@ public abstract class LoadedChar : MonoBehaviour
                 if (comparisonPos.y == 0 && comparisonPos.x > 0 &&
                     comparisonPos.x <= charData.sightRadius)
                 {
-                    charData.OnSee(p, c);
+                    p.StartCoroutine(charData.OnSee(p, c));
                     return true;
                 }
                 break;
@@ -116,7 +116,7 @@ public abstract class LoadedChar : MonoBehaviour
                 if (comparisonPos.y == 0 && comparisonPos.x < 0 &&
                     comparisonPos.x >= -charData.sightRadius)
                 {
-                    charData.OnSee(p, c);
+                    p.StartCoroutine(charData.OnSee(p, c));
                     return true;
                 }
                 break;
