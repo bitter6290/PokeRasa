@@ -2384,6 +2384,34 @@ public static class Move
         "Autotomize", Steel, 0, MoveEffect.Autotomize, 15, snatchAffected); //Needs anim
     public static MoveData RagePowder = SelfTargetingMove(
         "Rage Powder", Bug, 2, MoveEffect.RagePowder, 20); //Needs anim
+    public static MoveData Telekinesis = SingleTargetStatusMove(
+        "Telekinesis", Type.Psychic, 101, 0, MoveEffect.Telekinesis, 15, magicBounceAffected); //Needs anim
+    public static MoveData MagicRoom = FieldMove(
+        "Magic Room", Type.Psychic, 0, MoveEffect.MagicRoom, 10); //Needs anim
+    public static MoveData SmackDown = new(
+        "Smack Down", Rock,
+        50, 100, 0,
+        MoveEffect.SmackDown, 100,
+        true, Target.Single, 15); //Needs anim
+    public static MoveData StormThrow = new(
+        "Storm Throw", Fighting,
+        60, 100, 0,
+        MoveEffect.AlwaysCrit, 0,
+        true, Target.Single, 10,
+        makesContact); //Needs anim
+    public static MoveData FlameBurst = new(
+        "Flame Burst", Fire,
+        70, 100, 0,
+        MoveEffect.FlameBurst, 100,
+        false, Target.Single, 15); //Needs anim
+    public static MoveData SludgeWave = new(
+        "Sludge Wave", Poison,
+        95, 100, 0,
+        MoveEffect.Poison, 10,
+        false, Target.Surrounding, 10); //Needs anim
+    public static MoveData QuiverDance = SelfTargetingMove(
+        "Quiver Dance", Bug, 0, MoveEffect.SpAtkSpDefSpeedUp1, 20, snatchAffected); //Needs anim
+
 
 
     //Non-standard moves
@@ -2966,6 +2994,13 @@ public static class Move
         Venoshock,
         Autotomize,
         RagePowder,
+        Telekinesis,
+        MagicRoom,
+        SmackDown,
+        StormThrow,
+        FlameBurst,
+        SludgeWave,
+        QuiverDance,
 
 
         //Nonstandard moves

@@ -230,6 +230,16 @@ public class Battle : MonoBehaviour
         return true;
     }
 
+    public List<int>[] GetNeighbors => new List<int>[6]
+    {
+        new(){ 1 },
+        new(){ 0 , 2 },
+        GetNeighbors[0],
+        new(){ 4 },
+        new() { 3 , 5 },
+        GetNeighbors[3]
+    };
+
     public MoveData GetMove(int index) => Moves[index].Data();
 
     public int GetSide(int index) => index < 3 ? 0 : 1;
@@ -1467,9 +1477,10 @@ public class Battle : MonoBehaviour
                 {
                     continue;
                 }
-                if (HasAbility(attacker, Merciless) &&
+                if ((HasAbility(attacker, Merciless) &&
                         PokemonOnField[i].PokemonData.status is Status.Poison or
-                        Status.ToxicPoison)
+                        Status.ToxicPoison) ||
+                        move.Data().effect == AlwaysCrit)
                     PokemonOnField[i].isCrit = true;
                 if (random.NextDouble() < GetCritChance(attacker, move))
                     PokemonOnField[i].isCrit = true;
@@ -4183,6 +4194,11 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker);
                 yield return BattleEffect.StatUp(this, index, Stat.Accuracy, 1, attacker);
                 break;
+            case SpAtkSpDefSpeedUp1:
+                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.SpDef, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
+                break;
             case SwitchHit:
                 if (PokemonOnField[index].player)
                 {
@@ -4227,6 +4243,20 @@ public class Battle : MonoBehaviour
             case FakeOut:
                 TryToFlinch(index, attacker);
                 break;
+            case FlameBurst:
+                int announceFlameBurst = 0;
+                foreach (int i in GetNeighbors[index])
+                {
+                    if (PokemonOnField[i].exists)
+                    {
+                        PokemonOnField[i].DoProportionalDamage(0.0625F);
+                        announceFlameBurst = 1;
+                    }
+                }
+                if (announceFlameBurst > 0) Announce("The flames damaged "
+                    + MonNameWithPrefix(index, false) + "'s partner"
+                    + (announceFlameBurst > 1 ? "s!" : "!"));
+                break;
             case Stockpile:
                 yield return BattleEffect.Stockpile(this, index);
                 break;
@@ -4263,13 +4293,13 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.PsychoShift(this, index, attacker);
                 break;
             case Pluck:
-                if (EffectiveItem(index).Data().type == ItemType.Berry)
+                if (PokemonOnField[index].item.Data().type == ItemType.Berry)
                 {
                     yield return BattleAnim.UseItem(this, attacker);
                     yield return Announce(MonNameWithPrefix(attacker, true) +
                         " stole and ate " + MonNameWithPrefix(index, false) + "'s " +
                         EffectiveItem(index).Data().itemName + "!");
-                    yield return DoBerryEffect(attacker, EffectiveItem(index).BerryEffect());
+                    yield return DoBerryEffect(attacker, PokemonOnField[index].item.BerryEffect());
                     UseUpItem(index);
                 }
                 break;
@@ -4300,6 +4330,11 @@ public class Battle : MonoBehaviour
                 break;
             case KnockOff:
                 yield return BattleEffect.KnockOff(this, attacker, index);
+                break;
+            case SmackDown:
+                yield return Announce(MonNameWithPrefix(index, true) +
+                    " fell straight down!");
+                PokemonOnField[index].smackDown = true;
                 break;
             case Absorb50:
             case DreamEater:
@@ -4592,6 +4627,9 @@ public class Battle : MonoBehaviour
                 break;
             case WonderRoom:
                 yield return BattleEffect.StartWonderRoom(this, index);
+                break;
+            case MagicRoom:
+                yield return BattleEffect.StartMagicRoom(this, index);
                 break;
             case Hit:
             default:

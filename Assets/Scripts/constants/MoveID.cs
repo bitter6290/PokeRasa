@@ -485,6 +485,13 @@ public enum MoveID
     Venoshock,
     Autotomize,
     RagePowder,
+    Telekinesis,
+    MagicRoom,
+    SmackDown,
+    StormThrow,
+    FlameBurst,
+    SludgeWave,
+    QuiverDance,
 
     //Nonstandard moves
 

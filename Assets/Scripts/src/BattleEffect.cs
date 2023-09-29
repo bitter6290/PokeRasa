@@ -1895,10 +1895,18 @@ public static class BattleEffect
 
     public static IEnumerator StartWonderRoom(Battle battle, int index)
     {
-        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-            + " created a bizarre area in which Defense and Sp. Defense are swapped!");
+        yield return battle.Announce("It created a bizarre area in which" +
+            " Defense and Sp. Defense are swapped!");
         battle.wonderRoom = true;
         battle.wonderRoomTimer = 5;
+    }
+
+    public static IEnumerator StartMagicRoom(Battle battle, int index)
+    {
+        yield return battle.Announce("It created a bizarre area in which" +
+            " held items lose their effects!");
+        battle.magicRoom = true;
+        battle.magicRoomTimer = 5;
     }
 
     public static IEnumerator StealthRock(Battle battle, int index)
