@@ -351,6 +351,21 @@ public static class MapReader
             }
         }
     }
+
+    public static void ClearConnections(MapHelper mapHelper)
+    {
+        for (int x = mapHelper.level1.cellBounds.min.x; x < mapHelper.level1.cellBounds.max.x; x++)
+        {
+            for (int y = mapHelper.level1.cellBounds.min.y; y < mapHelper.level1.cellBounds.max.y; y++)
+            {
+                if (x >= 0 && x < mapHelper.mapData.width * 2 && y >= 0 && y < mapHelper.mapData.height * 2) continue;
+                mapHelper.level1.SetTile(new Vector3Int(x, y, 0), null);
+                mapHelper.level2.SetTile(new Vector3Int(x, y, 0), null);
+                mapHelper.level3.SetTile(new Vector3Int(x, y, 0), null);
+            }
+        }
+    }
+
     public static void ReadForEditingV1(MapHelper mapHelper)
     {
         Tilemap level1 = mapHelper.level1;

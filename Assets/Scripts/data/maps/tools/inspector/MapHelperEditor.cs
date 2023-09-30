@@ -31,6 +31,14 @@ public class MapHelperEditor : Editor
         {
             mapHelper.SaveAndCloseMap();
         }
+        if (GUILayout.Button("Update Connections"))
+        {
+            mapHelper.UpdateConnections();
+        }
+        if (GUILayout.Button("Reflect Connections"))
+        {
+            mapHelper.ReflectConnections();
+        }
         if (GUILayout.Button("Sync Tiles"))
         {
             mapHelper.SyncTilesets();

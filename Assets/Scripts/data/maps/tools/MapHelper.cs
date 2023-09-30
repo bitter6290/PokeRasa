@@ -94,6 +94,39 @@ public class MapHelper : MapManager
         CreateMapPopup.ShowPopup();
     }
 
+    public void UpdateConnections()
+    {
+        MapReader.ClearConnections(this);
+        MapReader.RenderNeighborsForEditingV1(this);
+    }
+
+    public void ReflectConnections()
+    {
+        Debug.Log("Reflecting connections");
+        foreach (Connection i in openMap.connection)
+        {
+            bool alreadyDone = false;
+            for (int j = 0; j < i.map.connection.Length; j++)
+            {
+                if (i.map.connection[j].map == openMap)
+                {
+                    alreadyDone = true;
+                    i.map.connection[j].direction = i.direction.Opposite();
+                    i.map.connection[j].offset = -i.offset;
+                }
+            }
+            if (!alreadyDone)
+            {
+                Connection[] newConnections = new Connection[i.map.connection.Length + 1];
+                i.map.connection.CopyTo(newConnections, 0);
+                newConnections[i.map.connection.Length] = new(openMap, i.direction.Opposite(), -i.offset);
+                i.map.connection = newConnections;
+            }
+        }
+        AssetDatabase.SaveAssets();
+        Debug.Log("Done");
+    }
+
     public void SyncTilesets()
     {
         foreach (TileBase i in Tiles.TileTable)

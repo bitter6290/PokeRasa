@@ -20,6 +20,9 @@ MonoBehaviour:
   - map: {fileID: 11400000, guid: 0ad9a16a74a2449bbb98e1f8733ce282, type: 2}
     direction: 0
     offset: 5
+  - map: {fileID: 11400000, guid: 5007c2e85ec004aee85f0f393ed7737e, type: 2}
+    direction: 1
+    offset: -18
   triggers: []
   signposts: []
   humanoidChars: []
