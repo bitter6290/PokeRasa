@@ -4,12 +4,12 @@ Implementation of the Pokemon battle engine in Unity, with a few overworld funct
 
 # Features
 - Comprehensive Pokémon data structures, with plans to include all released Pokémon
-- Functional battle system, with plans to include all moves, abilities and regional gimmicks (Megas, Z-moves, etc.)
-- Accessible animation system based on IEnumerators
+- Fully functioning battle system, with plans to include all moves, abilities and regional gimmicks (Megas, Z-moves, etc.)
+- Accessible scripting system for overworld characters and scripts
+- Map editor included in the Map Maker scene
 
 # Progress
-- All moves and Pokémon up to Gen 3 are fully implemented.
-- The MapMaker scene includes a map editor with saving and loading functionality.
+- All moves and Pokémon up to Gen 4 are fully implemented, along with a majority of abilities.
 
 # How To
 - Create a new project with Unity, then import everything in the Assets folder. The Battle scene, which handles single battles, is included as of now (08/24/23), but in the long run other battle modes will be added.
