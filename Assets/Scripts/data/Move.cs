@@ -2360,7 +2360,7 @@ public static class Move
 
     //Gen 5
     public static MoveData HoneClaws = SelfTargetingMove(
-        "Hone Claws", Dark, 0, MoveEffect.AttackDefAccUp1, 15, snatchAffected); //Needs anim
+        "Hone Claws", Dark, 0, MoveEffect.AttackAccuracyUp1, 15, snatchAffected); //Needs anim
     public static MoveData WideGuard = SelfTargetingMove(
         "Wide Guard", Rock, 3, MoveEffect.WideGuard, 10,
         snatchAffected + incrementsProtectCounter); //Needs anim
@@ -2411,6 +2411,57 @@ public static class Move
         false, Target.Surrounding, 10); //Needs anim
     public static MoveData QuiverDance = SelfTargetingMove(
         "Quiver Dance", Bug, 0, MoveEffect.SpAtkSpDefSpeedUp1, 20, snatchAffected); //Needs anim
+    public static MoveData HeavySlam = new(
+        "Heavy Slam", Steel,
+        1, 100, 0,
+        MoveEffect.RelativeWeightPower, 0,
+        true, Target.Single, 10, makesContact); //Needs anim
+    public static MoveData Synchronoise = new(
+        "Synchronoise", Type.Psychic,
+        120, 100, 0,
+        MoveEffect.Synchronoise, 0,
+        false, Target.Surrounding, 10); //Needs anim
+    public static MoveData ElectroBall = new(
+        "Electro Ball", Electric,
+        1, 100, 0,
+        MoveEffect.HighSpeedPower, 0,
+        false, Target.Single, 10); //Needs anim
+    public static MoveData Soak = SingleTargetStatusMove(
+        "Soak", Water, 100, 0, MoveEffect.Soak, 20, magicBounceAffected); //Needs anim
+    public static MoveData FlameCharge = new(
+        "Flame Charge", Fire,
+        50, 100, 0,
+        MoveEffect.SpeedUp1, 100,
+        true, Target.Single, 20,
+        makesContact + effectOnSelfOnly); //Needs anim
+    public static MoveData Coil = SelfTargetingMove(
+        "Coil", Poison, 0, MoveEffect.AttackDefAccUp1, 20, snatchAffected); //Needs anim
+    public static MoveData LowSweep = new(
+        "Low Sweep", Fighting,
+        65, 100, 0,
+        MoveEffect.SpeedDown1, 100,
+        true, Target.Single, makesContact); //Needs anim
+    public static MoveData AcidSpray = new(
+        "Acid Spray", Poison,
+        40, 100, 0,
+        MoveEffect.SpDefDown2, 101,
+        false, Target.Single, 20, bulletMove); //Needs anim
+    public static MoveData FoulPlay = new(
+        "Foul Play", Dark,
+        95, 100, 0,
+        MoveEffect.FoulPlay, 0,
+        true, Target.Single, 15, makesContact); //Needs anim
+    public static MoveData SimpleBeam = SingleTargetStatusMove(
+        "Simple Beam", Normal, 100, 0, MoveEffect.SimpleBeam, 15, magicBounceAffected); //Needs anim
+    public static MoveData Entrainment = SingleTargetStatusMove(
+        "Entrainment", Normal, 100, 0, MoveEffect.Entrainment, 15, magicBounceAffected); //Needs anim
+    public static MoveData AfterYou = SingleTargetStatusMove(
+        "After You", Normal, 101, 0, MoveEffect.AfterYou, 15); //Needs anim
+    public static MoveData Round = new(
+        "Round", Normal,
+        60, 100, 0,
+        MoveEffect.Round, 101,
+        false, Target.Single, 15, soundMove); //Needs anim
 
 
 
@@ -3001,6 +3052,19 @@ public static class Move
         FlameBurst,
         SludgeWave,
         QuiverDance,
+        HeavySlam,
+        Synchronoise,
+        ElectroBall,
+        Soak,
+        FlameCharge,
+        Coil,
+        LowSweep,
+        AcidSpray,
+        FoulPlay,
+        SimpleBeam,
+        Entrainment,
+        AfterYou,
+        Round,
 
 
         //Nonstandard moves

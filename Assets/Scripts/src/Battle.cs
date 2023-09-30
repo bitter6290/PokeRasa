@@ -98,6 +98,8 @@ public class Battle : MonoBehaviour
 
     public int currentMovingMon;
 
+    private bool doRound = false;
+
     // Field varibles
 
     public bool payDay;
@@ -240,6 +242,19 @@ public class Battle : MonoBehaviour
         GetNeighbors[3]
     };
 
+    public bool SharesType(int a, int b)
+    {
+        BattlePokemon MonA = PokemonOnField[a];
+        Type[] TypesToCheck = MonA.hasType3 ?
+            new Type[] { MonA.Type1, MonA.Type2, MonA.Type3 } :
+            new Type[] { MonA.Type1, MonA.Type2 };
+        foreach (Type t in TypesToCheck)
+        {
+            if (PokemonOnField[b].HasType(t)) return true;
+        }
+        return false;
+    }
+
     public MoveData GetMove(int index) => Moves[index].Data();
 
     public int GetSide(int index) => index < 3 ? 0 : 1;
@@ -268,13 +283,43 @@ public class Battle : MonoBehaviour
         _ => 120
     };
 
-    private int GetEffectiveWeightMovePower(int index)
+    private int GetEffectiveWeightMovePower(int index) =>
+        WeightMovePower(GetEffectiveWeight(index));
+
+    private int GetEffectiveWeight(int index)
     {
         int weight = PokemonOnField[index].EffectiveWeight;
         if (HasAbility(index, LightMetal)) weight >>= 1;
         else if (HasAbility(index, HeavyMetal)) weight <<= 1;
-        return WeightMovePower(weight);
+        return weight;
     }
+
+
+    private static int RelativeWeightMovePower(float ratio) => ratio switch
+    {
+        <= 0.2F => 120,
+        <= 0.25F => 100,
+        < 0.3334F => 80,
+        <= 0.5F => 60,
+        _ => 40,
+    };
+
+    private int GetRelativeWeightMovePower(int attacker, int defender)
+        => RelativeWeightMovePower(
+            ((float)GetEffectiveWeight(defender)) / GetEffectiveWeight(attacker));
+
+    private static int HighSpeedMovePower(float ratio) => ratio switch
+    {
+        0 => 40,
+        <= 0.25F => 150,
+        < 0.3334F => 120,
+        <= 0.5F => 80,
+        <= 1.0F => 60,
+        _ => 40
+    };
+
+    private int GetHighSpeedMovePower(int attacker, int defender)
+        => HighSpeedMovePower(((float)GetSpeed(attacker)) / GetSpeed(defender));
 
     private static int ReversalPower(int HP, int maxHP) => (HP * 48 / maxHP switch
     {
@@ -401,12 +446,14 @@ public class Battle : MonoBehaviour
 
     public bool HasAbility(int index, Ability ability)
     {
+        if (ability.Unchangeable()) return PokemonOnField[index].ability == ability;
         return !AbilitiesSuppressed && !PokemonOnField[index].abilitySuppressed
             && PokemonOnField[index].ability == ability;
     }
 
     public Ability EffectiveAbility(int index)
     {
+        if (PokemonOnField[index].ability.Unchangeable()) return PokemonOnField[index].ability;
         return AbilitiesSuppressed || PokemonOnField[index].abilitySuppressed ?
             Ability.None : PokemonOnField[index].ability;
     }
@@ -661,6 +708,10 @@ public class Battle : MonoBehaviour
             priority++;
             PokemonOnField[index].custapPriorityBoost = false;
         }
+        if (GetMove(index).effect == MoveEffect.Round && doRound)
+        {
+            priority += 20;
+        }
         return priority;
     }
 
@@ -871,8 +922,14 @@ public class Battle : MonoBehaviour
             case WeightPower:
                 effectivePower = GetEffectiveWeightMovePower(defender.index);
                 break;
+            case RelativeWeightPower:
+                effectivePower = GetRelativeWeightMovePower(attacker.index, defender.index);
+                break;
             case LowSpeedPower:
                 effectivePower = LowSpeedMovePower(attacker.index, defender.index);
+                break;
+            case HighSpeedPower:
+                effectivePower = GetHighSpeedMovePower(attacker.index, defender.index);
                 break;
             case HealthPower:
                 effectivePower = (int)(move.Data().power
@@ -924,6 +981,7 @@ public class Battle : MonoBehaviour
             case Brine when defender.PokemonData.HP << 1 < defender.PokemonData.hpMax:
             case Pursuit when pursuitHitsOnSwitch:
             case Venoshock when defender.PokemonData.status is Status.Poison or Status.ToxicPoison:
+            case MoveEffect.Round when doRound:
                 effectivePower <<= 1;
                 break;
             case KnockOff when Item.CanBeStolen(defender.item):
@@ -980,6 +1038,7 @@ public class Battle : MonoBehaviour
         float helpingHand = Mathf.Pow(1.5f, attacker.helpingHand);
         float effectiveAttack = move.Data().physical ?
             GetAttack(attacker.index, isCritical) : GetSpAtk(attacker.index, isCritical);
+        if (move.Data().effect == FoulPlay) effectiveAttack = GetAttack(defender.index, isCritical);
         float effectiveDefense = (move.Data().physical || move.Data().effect == Psyshock) ?
             GetDefense(defender.index, isCritical) : GetSpdef(defender.index, isCritical);
         float attackOverDefense = effectiveAttack / effectiveDefense;
@@ -1361,6 +1420,7 @@ public class Battle : MonoBehaviour
                             PokemonOnField[attacker].PokemonData.HP > target.PokemonData.HP:
                     case SuckerPunch when
                             Moves[i].Data().power == 0 || target.done:
+                    case Synchronoise when !SharesType(attacker, i):
                         target.isHit = false;
                         target.isTarget = false; //Make ExecuteMove announce move failure
                         break;
@@ -1582,8 +1642,10 @@ public class Battle : MonoBehaviour
                                 || UproarOnField && !HasAbility(i, Soundproof):
                             case Wish when target.healBlocked:
                             case Captivate when !OppositeGenders(attacker, i):
-                            case SkillSwap or SuppressAbility when
+                            case SkillSwap or SuppressAbility or WorrySeed or SimpleBeam or
+                                Entrainment when
                                 target.ability.Unchangeable():
+                            case WorrySeed or SimpleBeam when HasAbility(i, Truant):
                             case RolePlay or SkillSwap when
                                 PokemonOnField[attacker].ability.Unchangeable():
                                 continue;
@@ -2097,10 +2159,13 @@ public class Battle : MonoBehaviour
             case DefenseUp1:
             case DefenseUp2:
                 return PokemonOnField[attacker].defenseStage < 6;
+            case SpAtkUp1:
+            case SpAtkUp2:
             case SpAtkUp3:
                 return PokemonOnField[attacker].spAtkStage < 6;
             case SpDefUp2:
                 return PokemonOnField[attacker].spDefStage < 6;
+            case SpeedUp1:
             case SpeedUp2:
                 return PokemonOnField[attacker].speedStage < 6;
             case EvasionUp1:
@@ -2777,7 +2842,7 @@ public class Battle : MonoBehaviour
             !user.HasType(GetMove(index).type))
         {
             yield return AbilityPopupStart(index);
-            yield return BattleEffect.Protean(this, index, GetMove(index).type);
+            yield return BattleEffect.BecomeType(this, index, GetMove(index).type);
             yield return AbilityPopupEnd(index);
         }
 
@@ -2856,7 +2921,7 @@ public class Battle : MonoBehaviour
                 BattleTerrain.Volcano => MoveID.LavaPlume,
                 BattleTerrain.Marsh => MoveID.MudBomb,
                 BattleTerrain.BurialGround => MoveID.ShadowBall,
-                BattleTerrain.UltraSpace => MoveID.None, //MoveID.Psyshock,
+                BattleTerrain.UltraSpace => MoveID.Psyshock,
                 BattleTerrain.Space => MoveID.DracoMeteor,
                 _ => MoveID.None
             };
@@ -2942,6 +3007,7 @@ public class Battle : MonoBehaviour
             case MeFirst when Moves[Targets[index]].Data().effect == MeFirst:
             case Copycat when (lastMoveUsed.HasFlag(cannotMimic)):
             case LastResort when !user.CanUseLastResort:
+            case AfterYou when PokemonOnField[Targets[index]].done:
                 yield return Announce(BattleText.MoveFailed);
                 user.done = true;
                 MoveCleanup();
@@ -3053,6 +3119,13 @@ public class Battle : MonoBehaviour
                 }
                 else singleMovePower = presentPower;
                 break;
+            case AfterYou:
+                yield return Announce(MonNameWithPrefix(Targets[index], true) +
+                    " took the kind offer!");
+                user.done = true;
+                MoveCleanup();
+                StartCoroutine(TryMove(Targets[index]));
+                yield break;
             default: break;
         }
         if (GetMove(index).targets == Target.Field)
@@ -3975,8 +4048,14 @@ public class Battle : MonoBehaviour
             case SkillSwap:
                 yield return BattleEffect.SkillSwap(this, attacker, index);
                 break;
+            case Entrainment:
+                yield return BattleEffect.Entrainment(this, attacker, index);
+                break;
             case WorrySeed:
                 yield return BattleEffect.WorrySeed(this, index);
+                break;
+            case SimpleBeam:
+                yield return BattleEffect.SimpleBeam(this, index);
                 break;
             case Imprison:
                 yield return Announce(MonNameWithPrefix(index, true)
@@ -4075,6 +4154,9 @@ public class Battle : MonoBehaviour
             case SpDefUp2:
                 yield return BattleEffect.StatUp(this, index, Stat.SpDef, 2, attacker);
                 break;
+            case SpeedUp1:
+                yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
+                break;
             case SpeedUp2:
                 yield return BattleEffect.StatUp(this, index, Stat.Speed, 2, attacker);
                 break;
@@ -4167,11 +4249,15 @@ public class Battle : MonoBehaviour
                 break;
             case AttackDefenseUp1:
                 yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
-                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker);
                 break;
             case AttackSpeedUp1:
                 yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
                 yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
+                break;
+            case AttackAccuracyUp1:
+                yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.Accuracy, 1, attacker);
                 break;
             case DefenseSpDefUp1:
                 yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker);
@@ -4237,6 +4323,9 @@ public class Battle : MonoBehaviour
                         + " began charging power!");
                 }
                 yield return BattleEffect.StatUp(this, index, Stat.SpDef, 1, index);
+                break;
+            case MoveEffect.Round:
+                doRound = true;
                 break;
             case Flinch:
             case Snore:
@@ -4956,6 +5045,7 @@ public class Battle : MonoBehaviour
         partyBackButtonInactive = false;
         followMeActive = false;
         snatch = false;
+        doRound = false;
         switch (battleType)
         {
             case BattleType.Single:

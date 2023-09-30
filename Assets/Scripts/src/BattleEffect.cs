@@ -1077,7 +1077,7 @@ public static class BattleEffect
             + " became the " + TypeUtils.typeName[(int)newType] + " type!");
     }
 
-    public static IEnumerator Protean(Battle battle, int index, Type type)
+    public static IEnumerator BecomeType(Battle battle, int index, Type type)
     {
         battle.PokemonOnField[index].newType1 = type;
         battle.PokemonOnField[index].newType2 = type;
@@ -1633,22 +1633,32 @@ public static class BattleEffect
 
     public static IEnumerator RolePlay(Battle battle, int user, int target)
     {
-        //Do AbilityUtils check for unchangeable abilities
-        //Ability switch anim for user
+        yield return battle.AbilityPopupStart(user);
         battle.PokemonOnField[user].ability = battle.PokemonOnField[target].ability;
+        yield return battle.abilityControllers[user].ChangeAbility(
+            battle.PokemonOnField[user].ability.Name());
         yield return battle.Announce(battle.MonNameWithPrefix(user, true)
             + " copied " + battle.MonNameWithPrefix(target, false) + "'s "
-            + NameTable.Ability[(int)battle.PokemonOnField[user].ability] + "!");
+            + battle.PokemonOnField[user].ability.Name() + "!");
+        yield return battle.AbilityPopupEnd(user);
         yield return battle.EntryAbilityCheck(user);
     }
 
     public static IEnumerator SkillSwap(Battle battle, int user, int target)
     {
+        battle.StartCoroutine(battle.AbilityPopupStart(user));
+        yield return battle.AbilityPopupStart(target);
         Ability swappedAbility = battle.PokemonOnField[user].ability;
         battle.PokemonOnField[user].ability = battle.PokemonOnField[target].ability;
         battle.PokemonOnField[target].ability = swappedAbility;
+        battle.StartCoroutine(battle.abilityControllers[user].ChangeAbility(
+            battle.PokemonOnField[user].ability.Name()));
+        yield return battle.abilityControllers[target].ChangeAbility(
+            swappedAbility.Name());
         yield return battle.Announce(battle.MonNameWithPrefix(user, true)
            + " swapped Abilities with its target!");
+        battle.StartCoroutine(battle.AbilityPopupEnd(user));
+        yield return battle.AbilityPopupEnd(target);
         if (battle.GetSpeed(user) > battle.GetSpeed(target)
             || (battle.GetSpeed(user) == battle.GetSpeed(target)
             && (battle.random.Next() & 1) == 1))
@@ -1661,6 +1671,18 @@ public static class BattleEffect
             yield return battle.EntryAbilityCheck(target);
             yield return battle.EntryAbilityCheck(user);
         }
+    }
+
+    public static IEnumerator Entrainment(Battle battle, int user, int target)
+    {
+        yield return battle.AbilityPopupStart(target);
+        battle.PokemonOnField[target].ability = battle.PokemonOnField[user].ability;
+        yield return battle.abilityControllers[target].ChangeAbility(
+            battle.PokemonOnField[target].ability.Name());
+        yield return battle.Announce(battle.MonNameWithPrefix(target, true) +
+            " acquired " + battle.PokemonOnField[target].ability.Name() + "!");
+        yield return battle.AbilityPopupEnd(target);
+        yield return battle.EntryAbilityCheck(user);
     }
 
     public static IEnumerator HelpingHand(Battle battle, int user, int target)
@@ -1823,6 +1845,16 @@ public static class BattleEffect
         battle.PokemonOnField[index].ability = Ability.Insomnia;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
             " acquired Insomnia!");
+        yield return battle.AbilityPopupEnd(index);
+    }
+
+    public static IEnumerator SimpleBeam(Battle battle, int index)
+    {
+        yield return battle.AbilityPopupStart(index);
+        yield return battle.abilityControllers[index].ChangeAbility(NameTable.Ability[(int)Ability.Simple]);
+        battle.PokemonOnField[index].ability = Ability.Simple;
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+            " acquired Simple!");
         yield return battle.AbilityPopupEnd(index);
     }
 

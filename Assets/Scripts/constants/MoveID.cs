@@ -492,6 +492,19 @@ public enum MoveID
     FlameBurst,
     SludgeWave,
     QuiverDance,
+    HeavySlam,
+    Synchronoise,
+    ElectroBall,
+    Soak,
+    FlameCharge,
+    Coil,
+    LowSweep,
+    AcidSpray,
+    FoulPlay,
+    SimpleBeam,
+    Entrainment,
+    AfterYou,
+    Round,
 
     //Nonstandard moves
 
