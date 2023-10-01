@@ -2,6 +2,7 @@
 using UnityEngine.Tilemaps;
 using static TileConfig;
 
+[CreateAssetMenu(fileName = "AnimatedTile", menuName = "ScriptableObjects/Tiles/AnimatedIndexedTile", order = 1)]
 public class AnimatedIndexedTile : AnimatedTile, IIndexedObject, IBehaviourObject
 {
     public TileID tileID;

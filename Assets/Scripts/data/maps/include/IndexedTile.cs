@@ -2,6 +2,7 @@
 using UnityEngine.Tilemaps;
 using static TileConfig;
 
+[CreateAssetMenu(fileName = "IndexedTile", menuName = "ScriptableObjects/Tiles/IndexedTile", order = 1)]
 public class IndexedTile : Tile, IIndexedObject, IBehaviourObject
 {
     public static Vector2 centerV2 = new(0.5F, 0.5F);
