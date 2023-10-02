@@ -155,12 +155,13 @@ public abstract class LoadedChar : MonoBehaviour
 
     public void CheckTileBehavior(Vector2Int pos)
     {
-        switch (((IBehaviourObject)p.mapManager.level1.GetTile(new Vector3Int(2 * pos.x, 2 * pos.y, 0))).Behaviour)
-        {
-            case TileBehaviour.StartGrassAnimation:
-                p.StartCoroutine(TriggeredTileAnim.TallGrassShake(pos, this));
-                break;
-        }
+        if (p.mapManager.level1.GetTile(new Vector3Int(2 * pos.x, 2 * pos.y, 0)) is IBehaviourObject)
+            switch (((IBehaviourObject)p.mapManager.level1.GetTile(new Vector3Int(2 * pos.x, 2 * pos.y, 0))).Behaviour)
+            {
+                case TileBehaviour.StartGrassAnimation:
+                    p.StartCoroutine(TriggeredTileAnim.TallGrassShake(pos, this));
+                    break;
+            }
     }
 
     public IEnumerator WalkInDirection()

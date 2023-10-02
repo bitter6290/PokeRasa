@@ -7,7 +7,10 @@ using UnityEngine.Tilemaps;
 public class Tileset : ScriptableObject
 {
     public string tilePath;
-    public List<Tile> Tiles;
-    public Tile[,] defaultTiles = new Tile[2,2];
+    public List<TileBase> Tiles;
+    public TileBase defaultSW;
+    public TileBase defaultSE;
+    public TileBase defaultNW;
+    public TileBase defaultNE;
 }
 

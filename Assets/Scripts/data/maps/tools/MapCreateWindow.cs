@@ -10,6 +10,7 @@ public class MapCreateWindow : EditorWindow
     int width = 20;
     int height = 20;
     new string name = "";
+	Tileset tileset;
 
 	public void OnGUI()
 	{
@@ -17,13 +18,15 @@ public class MapCreateWindow : EditorWindow
 		width = EditorGUILayout.IntField("Width:", width);
 		height = EditorGUILayout.IntField("Height:", height);
 		name = EditorGUILayout.TextField("Name:", name);
+		tileset = (Tileset)EditorGUILayout.ObjectField("Tileset", tileset, typeof(Tileset), false);
 		if (GUILayout.Button("Cancel")) Close();
-		if (GUILayout.Button("Create"))
+        if (GUILayout.Button("Create") && tileset)
 		{
             MapData data = CreateInstance<MapData>();
             data.height = height;
             data.width = width;
             data.name = name;
+			data.tileset = tileset;
 			int freeIds = projectData.freeMapIDs.Count;
 			if (freeIds > 0)
 			{

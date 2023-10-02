@@ -8,6 +8,7 @@ public class MapData : ScriptableObject
 
     [SerializeField]
     private string mapTiles;
+    public Tileset tileset;
     public int height;
     public int width;
     public Connection[] connection = new Connection[0];

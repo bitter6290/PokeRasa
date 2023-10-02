@@ -129,57 +129,6 @@ public class MapHelper : MapManager
 
     public void SyncTilesets()
     {
-        foreach (TileBase i in Tiles.TileTable)
-        {
-            IndexedTile tile = i as IndexedTile;
-            if (tile == null)
-            {
-                AnimatedIndexedTile animTile = i as AnimatedIndexedTile;
-                if (animTile == null || animTile.Index == (int)TileID.noTile) continue;
-                else
-                {
-                    AnimatedIndexedTile animTest = AssetDatabase.LoadAssetAtPath<AnimatedIndexedTile>(
-                        "Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), animTile.Index) + ".asset"
-                    );
-                    if (animTest == null)
-                    {
-                        if (File.Exists("Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), animTile.Index) + ".asset"))
-                        { File.Delete("Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), animTile.Index) + ".asset"); }
-                        AssetDatabase.CreateAsset(i,
-                            "Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), animTile.Index) + ".asset");
-                    }
-                    else
-                    {
-                        animTest.m_AnimatedSprites = animTile.m_AnimatedSprites;
-                        animTest.m_MaxSpeed = animTile.m_MaxSpeed;
-                        animTest.m_MinSpeed = animTile.m_MinSpeed;
-                        animTest.tileID = animTile.tileID;
-                    }
-                }
-
-            }
-            else
-            {
-                if (tile.Index == (int)TileID.noTile) continue;
-                IndexedTile test = AssetDatabase.LoadAssetAtPath<IndexedTile>(
-                    "Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), tile.Index) + ".asset"
-                );
-                if (test == null)
-                {
-                    if (File.Exists("Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), tile.Index) + ".asset"))
-                    { File.Delete("Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), tile.Index) + ".asset"); }
-                    AssetDatabase.CreateAsset(i,
-                        "Assets/Generated Palettes/General/tile_" + Enum.GetName(typeof(TileID), tile.Index) + ".asset");
-                }
-                else
-                {
-                    test.sprite = tile.sprite;
-                    test.tileID = tile.tileID;
-                    test.transform = tile.transform;
-                }
-            }
-            AssetDatabase.SaveAssets();
-        }
         foreach (CollisionTile i in Tiles.CollisionTileTable)
         {
             CollisionTile test = AssetDatabase.LoadAssetAtPath<CollisionTile>(
