@@ -13,9 +13,10 @@ public class Pokemon : ICloneable
 
     public int xp;
     public int level;
-    public int currentLevelXP;
-    public int nextLevelXP;
-    public int levelProgress;
+    public int currentLevelXP => XP.LevelToXP(level, SpeciesData.xpClass);
+    public int nextLevelXP => XP.LevelToXP(level + 1, SpeciesData.xpClass);
+    public float levelProgress => level >= PokemonConst.maxLevel ? 0 :
+            (float)(xp - currentLevelXP) / (nextLevelXP - currentLevelXP);
 
     private int ivHP;
     private int ivAttack;
@@ -81,6 +82,8 @@ public class Pokemon : ICloneable
     public bool gainedLevel;
 
     public int id;
+
+    public bool checkEvolution;
 
 
 
@@ -194,20 +197,10 @@ public class Pokemon : ICloneable
     }
     public void LevelUp()
     {
-        level += 1;
-        currentLevelXP = nextLevelXP;
-        GetNextLevel();
+        level++;
+        int maxHpBefore = hpMax;
         CalculateStats();
-    }
-    public void GetNextLevel()
-    {
-        nextLevelXP = XP.LevelToXP(level + 1, SpeciesData.xpClass);
-    }
-    public int GetLevelProgress()
-    {
-        return level >= PokemonConst.maxLevel ? 0 :
-            (xp - XP.LevelToXP(level, SpeciesData.xpClass)) * 8
-            / (nextLevelXP - XP.LevelToXP(level, SpeciesData.xpClass));
+        HP += hpMax - maxHpBefore;
     }
     public int Moves
         => move2 == MoveID.None ? 1 : move3 == MoveID.None ? 2 : move4 == MoveID.None ? 3 : 4;
@@ -249,9 +242,6 @@ public class Pokemon : ICloneable
         monName = SpeciesData.speciesName;
 
         level = Level;
-        currentLevelXP = XP.LevelToXP(level, SpeciesData.xpClass);
-        nextLevelXP = level >= PokemonConst.maxLevel ? 0 : XP.LevelToXP(level + 1, SpeciesData.xpClass);
-        levelProgress = 0;
 
         ivHP = IvHP;
         ivAttack = IvAttack;

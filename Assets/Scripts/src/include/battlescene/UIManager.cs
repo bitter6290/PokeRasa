@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
                     hpBox.enabled = battle.battleType == BattleType.Single;
                     hpBox.text = LeadingZero2(battle.PokemonOnField[3].PokemonData.HP.ToString()) + " / "
                         + LeadingZero2(battle.PokemonOnField[3].PokemonData.hpMax.ToString());
+                    battle.xpController.spriteRenderer.enabled = true;
                 }
             }
             else
@@ -54,6 +55,7 @@ public class UIManager : MonoBehaviour
                 if (i == 3)
                 {
                     hpBox.enabled = false;
+                    battle.xpController.spriteRenderer.enabled = false;
                 }
             }
         }

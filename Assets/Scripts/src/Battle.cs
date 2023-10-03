@@ -52,6 +52,7 @@ public class Battle : MonoBehaviour
     public MaskManager[] maskManager;
     public MenuManager menuManager;
     public HealthBarManager[] healthBarManager;
+    public XPController xpController;
 
     public AbilityPopupController[] abilityControllers = new AbilityPopupController[6];
 
@@ -1455,14 +1456,18 @@ public class Battle : MonoBehaviour
         Pokemon mon = PlayerPokemon[partyIndex];
         yield return Announce(mon.monName + " gained "
             + amount + " Exp. points!");
-        mon.xp += amount;
-        while (XP.LevelToXP(mon.level, mon.SpeciesData.xpClass) < mon.xp && mon.level < PokemonConst.maxLevel)
+        if (mon.onField && battleType == BattleType.Single)
         {
-            mon.level++;
-            int maxHpBefore = mon.hpMax;
-            mon.CalculateStats();
-            mon.HP += (mon.hpMax - maxHpBefore);
-            yield return Announce(mon.monName + " grew to level " + mon.level + "!");
+            yield return xpController.GainXP(amount);
+        }
+        else
+        {
+            mon.xp += amount;
+            while (XP.LevelToXP(mon.level, mon.SpeciesData.xpClass) < mon.xp && mon.level < PokemonConst.maxLevel)
+            {
+                mon.LevelUp();
+                yield return Announce(mon.monName + " grew to level " + mon.level + "!");
+            }
         }
     }
 

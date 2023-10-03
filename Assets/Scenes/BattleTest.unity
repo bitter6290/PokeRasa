@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p: {fileID: 0}
-  currentMap: 0
+  currentMap: {fileID: 0}
   pos: {x: 0, y: 0}
   currentHeight: 0
   moveTarget: {x: 0, y: 0}
@@ -1513,8 +1513,10 @@ MonoBehaviour:
   storyFlags: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   trainerFlags: 00
   money: 0
+  triggers: []
+  signposts: []
   currentTerrain: 0
-  lastMap: 0
+  lastMap: {fileID: 0}
   state: 0
   locked: 0
   opponent: {fileID: 0}
@@ -1529,9 +1531,6 @@ MonoBehaviour:
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -1574,14 +1573,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -1624,14 +1621,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -1674,14 +1669,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -1724,14 +1717,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -1774,14 +1765,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -1824,6 +1813,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
 --- !u!4 &457605094
 Transform:
   m_ObjectHideFlags: 0
@@ -3197,6 +3187,107 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &807052539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 807052542}
+  - component: {fileID: 807052541}
+  - component: {fileID: 807052540}
+  m_Layer: 0
+  m_Name: XP (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &807052540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807052539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102ede86572464abb87ab5a2f940a110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battle: {fileID: 1034585559}
+  spriteRenderer: {fileID: 0}
+  defaultColor: {r: 0.21568629, g: 0.9843138, b: 1, a: 1}
+  flashColor: {r: 0.8160377, g: 1, b: 0.99135333, a: 1}
+--- !u!212 &807052541
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807052539}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -2129262313, guid: 14587b61d47944288810c95ea1cb1c7f, type: 3}
+  m_Color: {r: 0.21226418, g: 0.9844121, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &807052542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807052539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: -1.125, z: 0}
+  m_LocalScale: {x: 2, y: 0.0625, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &833436939
 GameObject:
   m_ObjectHideFlags: 0
@@ -11480,9 +11571,6 @@ MonoBehaviour:
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -11525,14 +11613,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -11575,14 +11661,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -11625,14 +11709,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -11675,14 +11757,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -11725,14 +11805,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -11775,15 +11853,13 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   PlayerPokemon:
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -11826,14 +11902,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -11876,14 +11950,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -11926,14 +11998,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -11976,14 +12046,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -12026,14 +12094,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -12076,6 +12142,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   state: 0
   currentPlayerMon: 3
   OpponentName: Test Pilot
@@ -12095,6 +12162,7 @@ MonoBehaviour:
   - {fileID: 1474041821}
   - {fileID: 0}
   - {fileID: 0}
+  xpController: {fileID: 807052540}
   abilityControllers:
   - {fileID: 479158828}
   - {fileID: 0}
@@ -12168,9 +12236,6 @@ MonoBehaviour:
       gender: 0
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 1
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -12213,6 +12278,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -12222,11 +12288,12 @@ MonoBehaviour:
     evasionStage: 0
     accuracyStage: 0
     critStage: 0
-    attack: 5
-    defense: 5
-    spAtk: 5
-    spDef: 5
-    speed: 5
+    overrideAttacks: 0
+    attackOverride: 0
+    spAtkOverride: 0
+    overrideDefenses: 0
+    defenseOverride: 0
+    spDefOverride: 0
     side: 0
     position: 0
     index: 0
@@ -12264,6 +12331,7 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    autotomized: 0
     charged: 0
     toxicCounter: 0
     moveDamageDone: 0
@@ -12297,6 +12365,7 @@ MonoBehaviour:
     perishSong: 0
     perishCounter: 0
     followMe: 0
+    wasRagePowder: 0
     helpingHand: 0
     isTransformed: 0
     transformedMon:
@@ -12305,9 +12374,6 @@ MonoBehaviour:
       gender: 2
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 0
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -12350,9 +12416,11 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     ability: 0
     endure: 0
     protect: 0
+    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -12400,6 +12468,9 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    telekinesis: 0
+    telekinesisTimer: 0
+    smackDown: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -12424,9 +12495,6 @@ MonoBehaviour:
       gender: 0
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 1
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -12469,6 +12537,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -12478,11 +12547,12 @@ MonoBehaviour:
     evasionStage: 0
     accuracyStage: 0
     critStage: 0
-    attack: 5
-    defense: 5
-    spAtk: 5
-    spDef: 5
-    speed: 5
+    overrideAttacks: 0
+    attackOverride: 0
+    spAtkOverride: 0
+    overrideDefenses: 0
+    defenseOverride: 0
+    spDefOverride: 0
     side: 0
     position: 1
     index: 0
@@ -12520,6 +12590,7 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    autotomized: 0
     charged: 0
     toxicCounter: 0
     moveDamageDone: 0
@@ -12553,6 +12624,7 @@ MonoBehaviour:
     perishSong: 0
     perishCounter: 0
     followMe: 0
+    wasRagePowder: 0
     helpingHand: 0
     isTransformed: 0
     transformedMon:
@@ -12561,9 +12633,6 @@ MonoBehaviour:
       gender: 2
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 0
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -12606,9 +12675,11 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     ability: 0
     endure: 0
     protect: 0
+    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -12656,6 +12727,9 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    telekinesis: 0
+    telekinesisTimer: 0
+    smackDown: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -12680,9 +12754,6 @@ MonoBehaviour:
       gender: 0
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 1
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -12725,6 +12796,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -12734,11 +12806,12 @@ MonoBehaviour:
     evasionStage: 0
     accuracyStage: 0
     critStage: 0
-    attack: 5
-    defense: 5
-    spAtk: 5
-    spDef: 5
-    speed: 5
+    overrideAttacks: 0
+    attackOverride: 0
+    spAtkOverride: 0
+    overrideDefenses: 0
+    defenseOverride: 0
+    spDefOverride: 0
     side: 0
     position: 2
     index: 0
@@ -12776,6 +12849,7 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    autotomized: 0
     charged: 0
     toxicCounter: 0
     moveDamageDone: 0
@@ -12809,6 +12883,7 @@ MonoBehaviour:
     perishSong: 0
     perishCounter: 0
     followMe: 0
+    wasRagePowder: 0
     helpingHand: 0
     isTransformed: 0
     transformedMon:
@@ -12817,9 +12892,6 @@ MonoBehaviour:
       gender: 2
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 0
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -12862,9 +12934,11 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     ability: 0
     endure: 0
     protect: 0
+    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -12912,6 +12986,9 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    telekinesis: 0
+    telekinesisTimer: 0
+    smackDown: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -12936,9 +13013,6 @@ MonoBehaviour:
       gender: 0
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 1
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -12981,6 +13055,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -12990,11 +13065,12 @@ MonoBehaviour:
     evasionStage: 0
     accuracyStage: 0
     critStage: 0
-    attack: 5
-    defense: 5
-    spAtk: 5
-    spDef: 5
-    speed: 5
+    overrideAttacks: 0
+    attackOverride: 0
+    spAtkOverride: 0
+    overrideDefenses: 0
+    defenseOverride: 0
+    spDefOverride: 0
     side: 1
     position: 0
     index: 0
@@ -13032,6 +13108,7 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    autotomized: 0
     charged: 0
     toxicCounter: 0
     moveDamageDone: 0
@@ -13065,6 +13142,7 @@ MonoBehaviour:
     perishSong: 0
     perishCounter: 0
     followMe: 0
+    wasRagePowder: 0
     helpingHand: 0
     isTransformed: 0
     transformedMon:
@@ -13073,9 +13151,6 @@ MonoBehaviour:
       gender: 2
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 0
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -13118,9 +13193,11 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     ability: 0
     endure: 0
     protect: 0
+    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -13168,6 +13245,9 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    telekinesis: 0
+    telekinesisTimer: 0
+    smackDown: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -13192,9 +13272,6 @@ MonoBehaviour:
       gender: 0
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 1
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -13237,6 +13314,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -13246,11 +13324,12 @@ MonoBehaviour:
     evasionStage: 0
     accuracyStage: 0
     critStage: 0
-    attack: 5
-    defense: 5
-    spAtk: 5
-    spDef: 5
-    speed: 5
+    overrideAttacks: 0
+    attackOverride: 0
+    spAtkOverride: 0
+    overrideDefenses: 0
+    defenseOverride: 0
+    spDefOverride: 0
     side: 1
     position: 1
     index: 0
@@ -13288,6 +13367,7 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    autotomized: 0
     charged: 0
     toxicCounter: 0
     moveDamageDone: 0
@@ -13321,6 +13401,7 @@ MonoBehaviour:
     perishSong: 0
     perishCounter: 0
     followMe: 0
+    wasRagePowder: 0
     helpingHand: 0
     isTransformed: 0
     transformedMon:
@@ -13329,9 +13410,6 @@ MonoBehaviour:
       gender: 2
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 0
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -13374,9 +13452,11 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     ability: 0
     endure: 0
     protect: 0
+    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -13424,6 +13504,9 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    telekinesis: 0
+    telekinesisTimer: 0
+    smackDown: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -13448,9 +13531,6 @@ MonoBehaviour:
       gender: 0
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 1
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -13493,6 +13573,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -13502,11 +13583,12 @@ MonoBehaviour:
     evasionStage: 0
     accuracyStage: 0
     critStage: 0
-    attack: 5
-    defense: 5
-    spAtk: 5
-    spDef: 5
-    speed: 5
+    overrideAttacks: 0
+    attackOverride: 0
+    spAtkOverride: 0
+    overrideDefenses: 0
+    defenseOverride: 0
+    spDefOverride: 0
     side: 1
     position: 2
     index: 0
@@ -13544,6 +13626,7 @@ MonoBehaviour:
     flinched: 0
     usedDefenseCurl: 0
     minimized: 0
+    autotomized: 0
     charged: 0
     toxicCounter: 0
     moveDamageDone: 0
@@ -13577,6 +13660,7 @@ MonoBehaviour:
     perishSong: 0
     perishCounter: 0
     followMe: 0
+    wasRagePowder: 0
     helpingHand: 0
     isTransformed: 0
     transformedMon:
@@ -13585,9 +13669,6 @@ MonoBehaviour:
       gender: 2
       xp: 0
       level: 0
-      currentLevelXP: 0
-      nextLevelXP: 0
-      levelProgress: 0
       evHP: 0
       evAttack: 0
       evDefense: 0
@@ -13630,9 +13711,11 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
+      checkEvolution: 0
     ability: 0
     endure: 0
     protect: 0
+    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -13680,6 +13763,9 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    telekinesis: 0
+    telekinesisTimer: 0
+    smackDown: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -18079,3 +18165,4 @@ SceneRoots:
   - {fileID: 457605094}
   - {fileID: 927516989}
   - {fileID: 403855782}
+  - {fileID: 807052542}

@@ -159,6 +159,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Square_LeftAnchored
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04d1fa031cb841998a6b810f5ae4f9a
+      internalID: -2129262313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape:
     - - {x: -128, y: 128}
@@ -175,6 +196,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Square: 7482667652216324306
+      Square_LeftAnchored: -2129262313
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

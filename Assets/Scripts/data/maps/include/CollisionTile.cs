@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
+[CreateAssetMenu(fileName = "CollisionTile", menuName = "ScriptableObjects/CollisionTile", order = 1)]
 public class CollisionTile : Tile
 {
     public CollisionID collisionID;

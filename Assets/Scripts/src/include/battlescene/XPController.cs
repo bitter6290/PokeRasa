@@ -1,0 +1,63 @@
+﻿using System.Collections;
+using UnityEngine;
+public class XPController : MonoBehaviour
+{
+    public Battle battle;
+    public SpriteRenderer spriteRenderer;
+
+    public Color defaultColor;
+    public Color flashColor;
+
+    private bool doAlignment = true;
+
+    public void AlignBar()
+    {
+        if (battle.PokemonOnField[3].exists)
+            gameObject.transform.localScale = new(Mathf.Min(2,2 * battle.PokemonOnField[3].PokemonData.levelProgress), 0.0625F, 1);
+    }
+
+    public IEnumerator GainXP(int XP)
+    {
+        doAlignment = false;
+        Pokemon mon = battle.PokemonOnField[3].PokemonData;
+        if (mon.level >= PokemonConst.maxLevel) yield break;
+        int baseXP = mon.xp;
+        float baseTime = Time.time;
+        float duration = Mathf.Pow(XP, 0.33F);
+        float endTime = baseTime + Mathf.Pow(XP, 0.33F);
+        while (Time.time < endTime)
+        {
+            float progress = (Time.time - baseTime) / duration;
+            mon.xp = (int)(baseXP + progress * XP);
+            AlignBar();
+            if (mon.ShouldLevelUp()) yield return AnnounceLevelUp();
+            yield return null;
+        }
+        doAlignment = true;
+    }
+
+    public IEnumerator AnnounceLevelUp()
+    {
+        Pokemon mon = battle.PokemonOnField[3].PokemonData;
+        mon.LevelUp();
+        yield return AnimUtils.ColorChange(spriteRenderer, defaultColor, flashColor, 0.3F);
+        yield return AnimUtils.ColorChange(spriteRenderer, flashColor, defaultColor, 0.3F);
+        yield return battle.Announce(battle.MonNameWithPrefix(3, true) + " grew to level "
+            + mon.level + "!");
+        AlignBar();
+    }
+
+    public void Start()
+    {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    }
+
+    public void Update()
+    {
+        if (doAlignment)
+        {
+            AlignBar();
+            spriteRenderer.color = defaultColor;
+        }
+    }
+}

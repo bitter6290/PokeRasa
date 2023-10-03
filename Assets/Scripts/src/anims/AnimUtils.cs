@@ -119,7 +119,24 @@ public static class AnimUtils
             sprite.color = new(firstColor[0], firstColor[1], firstColor[2], firstColor[3] * (endTime - Time.time) / duration);
             yield return null;
         }
-        UnityEngine.Object.Destroy(sprite.gameObject);
+        Object.Destroy(sprite.gameObject);
+    }
+
+    public static IEnumerator ColorChange(SpriteRenderer sprite, Color oldColor, Color newColor, float duration)
+    {
+        float baseTime = Time.time;
+        float endTime = baseTime + duration;
+        while (Time.time < endTime)
+        {
+            float progress = (Time.time - baseTime) / duration;
+            sprite.color = new(
+                (1 - progress) * oldColor.r + progress * newColor.r,
+                (1 - progress) * oldColor.g + progress * newColor.g,
+                (1 - progress) * oldColor.b + progress * newColor.b,
+                (1 - progress) * oldColor.a + progress * newColor.a);
+            yield return null;
+        }
+        sprite.color = newColor;
     }
 
     public static IEnumerator Ellipse(Transform sprite, float depth, float width, float duration, bool smooth)
