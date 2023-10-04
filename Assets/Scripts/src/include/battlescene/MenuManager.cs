@@ -54,6 +54,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI announce;
 
     [SerializeField] private GameObject megaIndicator;
+    [SerializeField] private GameObject summaryIndicator;
 
     private AudioClip SelectMove;
     private AudioClip MoveCursor;
@@ -214,10 +215,7 @@ public class MenuManager : MonoBehaviour
         battle.state = BattleState.PlayerInput;
     }
 
-    private string LeadingZero(string input)
-    {
-        return input.Length == 1 ? "0" + input : input;
-    }
+    public static string LeadingZero(string input) => input.Length == 1 ? "0" + input : input;
 
     private Color partyMonColor(int index)
     {
@@ -243,6 +241,7 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        if (battle.menuOpen) return;
         switch (battle.state)
         {
             case BattleState.PlayerInput:
@@ -334,6 +333,8 @@ public class MenuManager : MonoBehaviour
                         {
                             megaIndicator.SetActive(false);
                         }
+
+                        summaryIndicator.SetActive(false);
 
                         if (Input.GetKeyDown(KeyCode.RightArrow))
                         {
@@ -502,6 +503,7 @@ public class MenuManager : MonoBehaviour
                         partyMon6.enabled = false;
 
                         megaIndicator.SetActive(false);
+                        summaryIndicator.SetActive(false);
 
                         if (Input.GetKeyDown(KeyCode.RightArrow))
                         {
@@ -707,6 +709,7 @@ public class MenuManager : MonoBehaviour
                         partyMon6.sprite = battle.playerMonIcons[5];
 
                         megaIndicator.SetActive(false);
+                        summaryIndicator.SetActive(true);
 
                         if (Input.GetKeyDown(KeyCode.RightArrow))
                         {
@@ -924,6 +927,15 @@ public class MenuManager : MonoBehaviour
 
                             }
                         }
+                        if (Input.GetKeyDown(KeyCode.S))
+                        {
+                            Debug.Log("S");
+                            if (currentMon > 0 && currentMon <= 6)
+                            {
+                                battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Select Move"));
+                                battle.StartCoroutine(MoveScreen.Create(battle.player, battle.PlayerPokemon[currentPartyMon - 1], battle));
+                            }
+                        }
                         break;
                 }
                 break;
@@ -966,6 +978,7 @@ public class MenuManager : MonoBehaviour
                 partyMon5.enabled = false;
                 partyMon6.enabled = false;
                 megaIndicator.SetActive(false);
+                summaryIndicator.SetActive(false);
                 break;
         }
     }

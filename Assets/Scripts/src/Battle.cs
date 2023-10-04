@@ -67,6 +67,8 @@ public class Battle : MonoBehaviour
     public bool hasOpponentMegaEvolved = false;
     private int monToMega = 0;
 
+    public bool menuOpen = false;
+
     public bool[] healingWish = new bool[6];
 
     public int textSpeed = 25;
@@ -5197,6 +5199,7 @@ public class Battle : MonoBehaviour
         futureSight = new();
         turnsElapsed = 0;
         doAbilityEffect = new bool[6];
+        menuOpen = false;
         PokemonOnField = new BattlePokemon[6]
         {
             BattlePokemon.MakeEmptyBattleMon(false,0,this),

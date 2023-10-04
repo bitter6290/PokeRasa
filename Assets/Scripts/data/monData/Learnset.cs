@@ -3,7 +3,7 @@ public static class Learnset
 {
     public static LearnsetMove[] EmptyLearnset = new LearnsetMove[]
     {
-        new LearnsetMove(1, None)
+        new LearnsetMove(1, Splash), //Make sure things work
     };
     public static LearnsetMove[] BulbasaurLearnset = new LearnsetMove[]
     {

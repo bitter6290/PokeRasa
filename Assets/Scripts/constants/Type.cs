@@ -71,6 +71,9 @@ public static class TypeUtils
         "Fairy"
     };
 
+    public static string Name(this Type type) =>
+        type == Type.Typeless ? "???" : typeName[(int)type];
+
     public static readonly Color[] typeColor = new Color[18]
     {
         new Color(242F/255F, 242F/255F, 242F/255F), //Normal
@@ -93,6 +96,9 @@ public static class TypeUtils
         new Color(247F/255F, 195F/255F, 232F/255F), //Fairy
 
     };
+
+    public static Color Color(this Type type) => type == Type.Typeless ?
+        UnityEngine.Color.white : typeColor[(int)type];
 
     public static float Effectiveness(Type Attacker, Type Defender)
     {
@@ -131,6 +137,7 @@ public static class TypeUtils
         BerryEffect.ReduceFairyDamage
     };
 
-    public static BerryEffect GetReducingBerry(this Type type) => type == Type.Typeless ? BerryEffect.NoneApply : typeBerries[(int)type];
+    public static BerryEffect GetReducingBerry(this Type type) => type == Type.Typeless ?
+        BerryEffect.NoneApply : typeBerries[(int)type];
 
 }
