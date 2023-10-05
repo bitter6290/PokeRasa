@@ -187,6 +187,7 @@ public class Battle : MonoBehaviour
     public int[] MoveNums = new int[6];
 
     public Sprite[] playerMonIcons = new Sprite[6];
+    public Sprite[] playerMonIcons2 = new Sprite[6]; 
 
     public string MonNameWithPrefix(int index, bool capitalized)
     {
@@ -5220,6 +5221,11 @@ public class Battle : MonoBehaviour
                 Resources.Load<Texture2D>("Sprites/Pokemon/"
                 + Species.SpeciesTable[(int)PlayerPokemon[i].species].graphicsLocation
                 + "/icon"), new Rect(0.0F, 32.0F, 32.0F, 32.0F), new Vector2(0.5F, 0.5F),
+                64);
+            playerMonIcons2[i] = Sprite.Create(
+                Resources.Load<Texture2D>("Sprites/Pokemon/"
+                + Species.SpeciesTable[(int)PlayerPokemon[i].species].graphicsLocation
+                + "/icon"), new Rect(0.0F, 0.0F, 32.0F, 32.0F), new Vector2(0.5F, 0.5F),
                 64);
             PlayerPokemon[i].itemChanged = false;
             OpponentPokemon[i].itemChanged = false;

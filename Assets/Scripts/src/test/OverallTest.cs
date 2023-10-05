@@ -12,6 +12,9 @@ public class OverallTest : MonoBehaviour
     private Pokemon testPokemon4 = Pokemon.WildPokemon(SpeciesID.NidoranM, 10);
     private Pokemon testPokemon5 = Pokemon.WildPokemon(SpeciesID.Porygon, 10);
     private Pokemon testPokemon6 = Pokemon.WildPokemon(SpeciesID.Charizard, 10);
+    private Pokemon testPokemon7 = Pokemon.WildPokemon(SpeciesID.Infernape, 10);
+    private Pokemon testPokemon8 = Pokemon.WildPokemon(SpeciesID.Huntail, 10);
+    private Pokemon testPokemon9 = Pokemon.WildPokemon(SpeciesID.Porygon2, 10);
 
     // Start is called before the first frame update
     public void Start()
@@ -30,10 +33,12 @@ public class OverallTest : MonoBehaviour
         player.TryAddMon(testPokemon2);
         player.TryAddMon(testPokemon4);
         player.TryAddMon(testPokemon5);
+        player.TryAddMon(testPokemon7);
+        player.TryAddMon(testPokemon8);
+        player.TryAddMon(testPokemon9);
         battle.OpponentPokemon = new Pokemon[] { testPokemon, testPokemon3, testPokemon6,
         Pokemon.MakeEmptyMon, Pokemon.MakeEmptyMon, Pokemon.MakeEmptyMon };
-        battle.PlayerPokemon = new Pokemon[] { testPokemon2, testPokemon4, testPokemon5,
-        Pokemon.MakeEmptyMon, Pokemon.MakeEmptyMon, Pokemon.MakeEmptyMon };
+        battle.PlayerPokemon = player.Party;
         battle.StartCoroutine(battle.StartBattle());
     }
 
@@ -90,7 +95,7 @@ public class OverallTest : MonoBehaviour
             defender.PokemonData.item = ItemID.LiechiBerry;
             battle.Moves[0] = MoveID.Splash;
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && Input.GetKeyDown(KeyCode.RightShift))
         {
             Pokemon tester = battle.PokemonOnField[3].PokemonData;
             tester.move1 = MoveID.Stockpile;

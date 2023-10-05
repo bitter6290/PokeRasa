@@ -701,12 +701,18 @@ public class MenuManager : MonoBehaviour
                         partyMon5.enabled = battle.PlayerPokemon[4].exists;
                         partyMon6.enabled = battle.PlayerPokemon[5].exists;
 
-                        partyMon1.sprite = battle.playerMonIcons[0];
-                        partyMon2.sprite = battle.playerMonIcons[2];
-                        partyMon3.sprite = battle.playerMonIcons[1];
-                        partyMon4.sprite = battle.playerMonIcons[3];
-                        partyMon5.sprite = battle.playerMonIcons[4];
-                        partyMon6.sprite = battle.playerMonIcons[5];
+                        partyMon1.sprite = currentPartyMon == 1 && Time.time % 0.36 > 0.18 ?
+                            battle.playerMonIcons2[0] : battle.playerMonIcons[0];
+                        partyMon2.sprite = currentPartyMon == 3 && Time.time % 0.36 > 0.18 ?
+                            battle.playerMonIcons2[2] : battle.playerMonIcons[2];
+                        partyMon3.sprite = currentPartyMon == 2 && Time.time % 0.36 > 0.18 ?
+                            battle.playerMonIcons2[1] : battle.playerMonIcons[1];
+                        partyMon4.sprite = currentPartyMon == 4 && Time.time % 0.36 > 0.18 ?
+                            battle.playerMonIcons2[3] : battle.playerMonIcons[3];
+                        partyMon5.sprite = currentPartyMon == 5 && Time.time % 0.36 > 0.18 ?
+                            battle.playerMonIcons2[4] : battle.playerMonIcons[4];
+                        partyMon6.sprite = currentPartyMon == 6 && Time.time % 0.36 > 0.18 ?
+                            battle.playerMonIcons2[5] : battle.playerMonIcons[5];
 
                         megaIndicator.SetActive(false);
                         summaryIndicator.SetActive(true);
