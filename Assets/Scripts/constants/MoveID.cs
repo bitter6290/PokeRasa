@@ -11,7 +11,7 @@ public enum MoveID
     IcePunch,
     ThunderPunch,
     Scratch,
-    ViceGrip,
+    ViseGrip,
     Guillotine,
     RazorWind,
     SwordsDance,

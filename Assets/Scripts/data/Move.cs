@@ -4,247 +4,251 @@ using UnityEngine;
 using static Type;
 using static MoveData;
 using static MoveFlags;
+using static MoveDesc;
 
 public static class Move
 {
     public const int AlwaysHit = 101;
+    public const int noFlag = 0;
+
     public static MoveData None = FakeMove;
     public static MoveData Pound = new(
         "Pound", Normal,
         40, 100, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 35,
-        makesContact); //Done
+        makesContact, PoundDesc); //Done
     public static MoveData KarateChop = new(
         "Karate Chop", Fighting,
         50, 100, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 25,
-        highCrit + makesContact); //Done
+        highCrit + makesContact, KarateChopDesc); //Done
     public static MoveData DoubleSlap = new(
         "Double Slap", Normal,
         15, 85, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Target.Single, 10,
-        makesContact); //Done
+        makesContact, DoubleSlapDesc); //Done
     public static MoveData CometPunch = new(
         "Comet Punch", Normal,
         18, 85, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Target.Single, 15,
-         makesContact + punchMove); //Needs anim
+         makesContact + punchMove, CometPunchDesc); //Needs anim
     public static MoveData MegaPunch = new(
         "Mega Punch", Normal,
         80, 85, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 20,
-         makesContact + punchMove); //Needs anim
+         makesContact + punchMove, MegaPunchDesc); //Needs anim
     public static MoveData PayDay = new(
         "Pay Day", Normal,
         40, 100, 0,
         MoveEffect.PayDay, 101,
-        true, Target.Single, 20); //Needs anim and money implementation
+        true, Target.Single, 20, noFlag, PayDayDesc); //Needs anim and money implementation
     public static MoveData FirePunch = new(
         "Fire Punch", Fire,
         75, 100, 0,
         MoveEffect.Burn, 10,
         true, Target.Single, 15,
-        makesContact + punchMove); //Needs anim
+        makesContact + punchMove, FirePunchDesc); //Needs anim
     public static MoveData IcePunch = new(
         "Ice Punch", Ice,
         75, 100, 0,
         MoveEffect.Freeze, 10,
         true, Target.Single, 15,
-        makesContact + punchMove); //Needs anim
+        makesContact + punchMove, IcePunchDesc); //Needs anim
     public static MoveData ThunderPunch = new(
         "Thunder Punch", Electric,
         75, 100, 0,
         MoveEffect.Paralyze, 10,
         true, Target.Single, 15,
-        makesContact + punchMove); //Needs anim
+        makesContact + punchMove, ThunderPunchDesc); //Needs anim
     public static MoveData Scratch = new(
         "Scratch", Normal,
         40, 100, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 35,
-        makesContact); //Needs anim
-    public static MoveData ViceGrip = new(
-        "Vice Grip", Normal,
+        makesContact, ScratchDesc); //Needs anim
+    public static MoveData ViseGrip = new(
+        "Vise Grip", Normal,
         55, 100, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 30,
-        makesContact); //Needs anim
+        makesContact, ViseGripDesc); //Needs anim
     public static MoveData Guillotine = new(
         "Guillotine", Normal,
         1, 30, 0,
         MoveEffect.OHKO, 0,
         true, Target.Single, 5,
-        makesContact); //Needs anim
+        makesContact, GuillotineDesc); //Needs anim
     public static MoveData RazorWind = new(
         "Razor Wind", Normal,
         80, 100, 0,
         MoveEffect.ChargingAttack, 0,
-        false, Target.Opponent + Target.Spread, 10); //Needs anim
+        false, Target.Opponent + Target.Spread, 10,
+        noFlag, RazorWindDesc); //Needs anim
     public static MoveData SwordsDance = new(
         "Swords Dance", Normal,
         0, AlwaysHit, 0,
         MoveEffect.AttackUp2, 0,
-        false, Target.Self, 20, snatchAffected);
+        false, Target.Self, 20, snatchAffected, SwordsDanceDesc);
     public static MoveData Cut = new(
         "Cut", Normal,
         50, 95, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 30,
-        makesContact + sharpnessBoosted); //Needs anim
+        makesContact + sharpnessBoosted, CutDesc); //Needs anim
     public static MoveData Gust = new(
         "Gust", Flying,
         40, 100, 0,
         MoveEffect.Hit, 0,
         false, Target.Single, 35,
-        hitFlyingMon); //Needs anim
+        hitFlyingMon, GustDesc); //Needs anim
     public static MoveData WingAttack = new(
         "Wing Attack", Flying,
         60, 100, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 35,
-        makesContact); //Needs anim
+        makesContact, WingAttackDesc); //Needs anim
     public static MoveData Whirlwind = new(
         "Whirlwind", Normal,
         0, AlwaysHit, -6,
         MoveEffect.ForcedSwitch, 100,
         false, Target.Single, 20,
-        magicBounceAffected); //Needs anim
+        magicBounceAffected, WhirlwindDesc); //Needs anim
     public static MoveData Fly = new(
         "Fly", Flying,
         0, 100, 0,
         MoveEffect.ChargingAttack, 0,
         true, Target.Single, 15,
-        gravityDisabled); //Needs anim
+        gravityDisabled, FlyDesc); //Needs anim
     public static MoveData Bind = new(
         "Bind", Normal,
         15, 85, 0,
         MoveEffect.ContinuousDamage, 100,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact, BindDesc); //Needs anim
     public static MoveData Slam = new(
         "Slam", Normal,
         80, 75, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact, SlamDesc); //Needs anim
     public static MoveData VineWhip = new(
         "Vine Whip", Grass,
         45, 100, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 25,
-        makesContact); //Needs anim
+        makesContact, VineWhipDesc); //Needs anim
     public static MoveData Stomp = new(
         "Stomp", Normal,
         65, 100, 0,
         MoveEffect.Flinch, 30,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact, StompDesc); //Needs anim
     public static MoveData DoubleKick = new(
         "Double Kick", Fighting,
         30, 100, 0,
         MoveEffect.MultiHit2, 0,
         true, Target.Single, 30,
-        makesContact); //Needs anim
+        makesContact, DoubleKickDesc); //Needs anim
     public static MoveData MegaKick = new(
         "Mega Kick", Normal,
         120, 75, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 5,
-        makesContact); //Needs anim
+        makesContact, MegaKickDesc); //Needs anim
     public static MoveData JumpKick = new(
         "Jump Kick", Fighting,
         100, 20, 0,
         MoveEffect.Crash50Max, 0,
         true, Target.Single, 10,
-        makesContact + gravityDisabled); //Needs anim
+        makesContact + gravityDisabled, JumpKickDesc); //Needs anim
     public static MoveData RollingKick = new(
         "Rolling Kick", Fighting,
         60, 85, 0,
         MoveEffect.Flinch, 30,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact, RollingKickDesc); //Needs anim
     public static MoveData SandAttack = new(
         "Sand Attack", Ground,
         0, 100, 0,
         MoveEffect.AccuracyDown1, 100,
         false, Target.Single, 15,
-        magicBounceAffected); //Needs anim
+        magicBounceAffected, SandAttackDesc); //Needs anim
     public static MoveData Headbutt = new(
         "Headbutt", Normal,
         70, 100, 0,
         MoveEffect.Flinch, 30,
         true, Target.Single, 15,
-        makesContact); //Needs field effect and anim
+        makesContact, HeadbuttDesc); //Needs field effect and anim
     public static MoveData HornAttack = new(
         "Horn Attack", Normal,
         65, 100, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 25,
-        makesContact); //Needs anim
+        makesContact, HornAttackDesc); //Needs anim
     public static MoveData FuryAttack = new(
         "Fury Attack", Normal,
         15, 85, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact, FuryAttackDesc); //Needs anim
     public static MoveData HornDrill = new(
         "Horn Drill", Normal,
         1, 30, 0,
         MoveEffect.OHKO, 0,
         true, Target.Single, 5,
-        makesContact); //Needs anim
+        makesContact, HornDrillDesc); //Needs anim
     public static MoveData Tackle = new(
         "Tackle", Normal,
         40, 100, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 35,
-        makesContact); //Needs anim
+        makesContact, TackleDesc); //Needs anim
     public static MoveData BodySlam = new(
         "Body Slam", Normal,
         85, 100, 0,
         MoveEffect.Paralyze, 30,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact, BodySlamDesc); //Needs anim
     public static MoveData Wrap = new(
         "Wrap", Normal,
         15, 90, 0,
         MoveEffect.ContinuousDamage, 100,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact, WrapDesc); //Needs anim
     public static MoveData TakeDown = new(
         "Take Down", Normal,
         90, 85, 0,
         MoveEffect.Recoil25, 0,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact, TakeDownDesc); //Needs anim
     public static MoveData Thrash = new(
         "Thrash", Normal,
         120, 100, 0,
         MoveEffect.Thrash, 0,
         true, Target.Self, 10,
-        makesContact); //Needs anim
+        makesContact, ThrashDesc); //Needs anim
     public static MoveData DoubleEdge = new(
         "Double Edge", Normal,
         120, 100, 0,
         MoveEffect.Recoil33, 0,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact, DoubleEdgeDesc); //Needs anim
     public static MoveData TailWhip = new(
         "Tail Whip", Normal,
         0, 100, 0,
         MoveEffect.DefenseDown1, 100,
         false, Target.Opponent + Target.Spread, 30,
-        magicBounceAffected); //Needs anim
+        magicBounceAffected, TailWhipDesc); //Needs anim
     public static MoveData PoisonSting = new(
         "Poison Sting", Poison,
         15, 100, 0,
         MoveEffect.Poison, 30,
-        true, Target.Single, 35); //Needs anim
+        true, Target.Single, 35, noFlag, PoisonStingDesc); //Needs anim
     public static MoveData Twineedle = new(
         "Twineedle", Bug,
         25, 100, 0,
@@ -2571,7 +2575,7 @@ public static class Move
         IcePunch,
         ThunderPunch,
         Scratch,
-        ViceGrip,
+        ViseGrip,
         Guillotine,
         RazorWind,
         SwordsDance,
