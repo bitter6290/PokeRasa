@@ -1645,6 +1645,7 @@ public class Battle : MonoBehaviour
                                 break;
                             case ForcedSwitch when target.ingrained:
                             case PerishSong when HasAbility(i, Soundproof):
+                            case DestinyBond when PokemonOnField[attacker].cannotUseDestinyBondAgain:
                             case Yawn when target.yawnNextTurn
                                 || target.yawnThisTurn || target.PokemonData.status != Status.None
                                 || UproarOnField && !HasAbility(i, Soundproof):
@@ -2415,6 +2416,7 @@ public class Battle : MonoBehaviour
         Debug.Log(GetMove(index).name);
         bool goAhead = true;
         mon.invulnerability = Invulnerability.None;
+        mon.cannotUseDestinyBondAgain = mon.destinyBond;
         mon.destinyBond = false;
         mon.grudge = false;
         if (GetMove(index).effect == FocusPunchWindup)

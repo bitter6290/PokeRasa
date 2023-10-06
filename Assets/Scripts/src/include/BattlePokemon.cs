@@ -170,6 +170,7 @@ public class BattlePokemon
     public int lockOnTarget = 0;
 
     public bool destinyBond = false;
+    public bool cannotUseDestinyBondAgain = false;
     public bool gotDestinyBondHit = false;
     public string destinyBondAttacker = "";
 
