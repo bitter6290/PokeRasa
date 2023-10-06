@@ -1,4 +1,6 @@
-﻿public static class MoveDesc
+﻿using Unity.VisualScripting;
+
+public static class MoveDesc
 {
     public static string NotDoneYetDesc = "Description not done yet";
 
@@ -257,7 +259,110 @@
     public static string WhirlpoolDesc = "The user traps the target inside a violent, swirling whirlpool that inflicts damage for four to five turns.";
     public static string BeatUpDesc = "The user gets all party Pokémon to attack the target. The more party Pokémon, the greater the number of attacks.";
 
-
+    //Gen 3
+    public static string FakeOutDesc = "This attack hits first and makes the target flinch. It works only on the first turn each time the user enters battle.";
+    public static string UproarDesc = "The user attacks in an uproar for three turns. During that time, no Pokémon can fall asleep.";
+    public static string StockpileDesc = "The user stores power and boosts its Defense and Sp. Def stats. This move can be used up to three times.";
+    public static string SpitUpDesc = "The power stored using the move Stockpile is released at once in an attack. The more power is stored, the greater the move's power.";
+    public static string SwallowDesc = "The power stored using the move Stockpile is absorbed by the user to restore its own HP. The more power is stored, the more HP is restored.";
+    public static string HeatWaveDesc = "The user attacks by exhaling hot breath on opposing Pokémon. This may also leave them with a burn.";
+    public static string HailDesc = "The user summons a snowstorm lasting five turns. This boosts the Defense stats of Ice types."; //Not the original Hail description, but the effect should now match Snowscape.
+    public static string TormentDesc = "The user torments and enrages the target, making it incapable of using the same move twice in a row.";
+    public static string FlatterDesc = "Flattery is used to confuse the target. However, this also boosts the target's Sp. Atk stat.";
+    public static string WillOWispDesc = "The user shoots a sinister flame at the target to inflict a burn.";
+    public static string MementoDesc = "The user faints. In return, the target's Attack and Sp. Atk stats are harshly lowered.";
+    public static string FacadeDesc = "This move's power is doubled if the user is poisoned, burned, or paralyzed.";
+    public static string FocusPunchDesc = "The user focuses its mind before launching a punch. This move fails if the user is hit before using the move.";
+    public static string SmellingSaltsDesc = "This attack's power is doubled when used on a target with paralysis. This also cures the target's paralysis, however.";
+    public static string FollowMeDesc = "The user draws attention to itself, making all opposing Pokémon take aim only at the user.";
+    public static string NaturePowerDesc = "This attack makes use of nature's power. Its effects vary depending on the user's environment.";
+    public static string ChargeDesc = "The user becomes charged, boosting the power of the next Electric-type move it uses. This also boosts the user's Sp. Def stat.";
+    public static string TauntDesc = "The target is taunted into a rage that allows it to use only attack moves for three turns.";
+    public static string HelpingHandDesc = "The user assists an ally by boosting the power of that ally's attack.";
+    public static string TrickDesc = "The user catches the target off guard and swaps the target's held item with its own.";
+    public static string RolePlayDesc = "The user mimics the target completely, copying the target's Ability.";
+    public static string WishDesc = "One turn after this move is used, the user's or its replacement's HP is restored by up to half the user's max HP.";
+    public static string AssistDesc = "The user hurriedly and randomly uses a move among those known by ally Pokémon.";
+    public static string IngrainDesc = "The user lays roots that restore its own HP every turn. Because the user is now rooted, it can't switch out.";
+    public static string SuperpowerDesc = "The user attacks the target with great power. This also lowers the user's Attack and Defense stats.";
+    public static string MagicCoatDesc = "A barrier reflects back to the target moves like Leech Seed and moves that damage status.";
+    public static string RecycleDesc = "The user recycles a held item that has been used in battle so it can be used again.";
+    public static string RevengeDesc = "This attack move's power is doubled if the user has been hurt by the opponent in the same turn.";
+    public static string BrickBreakDesc = "The user attacks with a swift chop. This move can also break barriers, such as Light Screen and Reflect.";
+    public static string YawnDesc = "The user lets loose a huge yawn that lulls the target into falling asleep on the next turn.";
+    public static string KnockOffDesc = "The user slaps down the target's held item, making it unusable for that battle. This move does more damage if the target has a held item.";
+    public static string EndeavorDesc = "The user inflicts damage by cutting down the target's HP to roughly equal the user's HP.";
+    public static string EruptionDesc = "The user attacks opposing Pokémon with explosive fury. The lower the user's HP, the lower the move's power.";
+    public static string SkillSwapDesc = "The user employs its psychic power to exchange Abilities with the target.";
+    public static string ImprisonDesc = "If opposing Pokémon know any move also known by the user, they are prevented from using it.";
+    public static string RefreshDesc = "The user rests to cure itself of poisoning, a burn, or paralysis.";
+    public static string GrudgeDesc = "If the user faints, the user's grudge fully depletes the PP of the opponent's move that knocked it out.";
+    public static string SnatchDesc = "The user steals the effects of any attempts to use a healing or stat-changing move.";
+    public static string SecretPowerDesc = "The additional effects of this attack depend upon where it was used.";
+    public static string DiveDesc = "The user dives on the first turn, then floats up and attacks on the next turn.";
+    public static string ArmThrustDesc = "The user attacks the target with open-palmed arm thrusts. This move hits two to five times in a row.";
+    public static string CamouflageDesc = "The user's type is changed depending on its environment, such as at water's edge, in grass, or in a cave.";
+    public static string TailGlowDesc = "The user stares at flashing lights to focus its mind, drastically boosting its Sp. Atk stat.";
+    public static string LusterPurgeDesc = "The user lets loose a damaging burst of light. This may also lower the target's Sp. Def stat.";
+    public static string MistBallDesc = "A mist-like flurry of down envelops and damages the target. This may also lower the target's Sp. Atk stat.";
+    public static string FeatherDanceDesc = "The user covers the target's body with a mass of down that harshly lowers its Attack stat.";
+    public static string TeeterDanceDesc = "The user performs a wobbly dance that confuses every Pokémon around it.";
+    public static string BlazeKickDesc = "The user launches a kick that has a heightened chance of landing a critical hit. This may also leave the target with a burn.";
+    public static string MudSportDesc = "The user kicks up mud on the battlefield. This weakens Electric-type moves for five turns.";
+    public static string IceBallDesc = "The user attacks the target for five turns. The move's power increases each time it hits.";
+    public static string NeedleArmDesc = "The user attacks by wildly swinging its thorny arms. This may also make the target flinch.";
+    public static string SlackOffDesc = "The user slacks off, restoring its own HP by up to half its max HP.";
+    public static string HyperVoiceDesc = "The user attacks by letting loose a horribly loud, resounding cry.";
+    public static string PoisonFangDesc = "The user bites the target with toxic fangs. This may also leave the target badly poisoned.";
+    public static string CrushClawDesc = "The user slashes the target with hard and sharp claws. This may also lower the target's Defense stat.";
+    public static string BlastBurnDesc = "The target is razed by a fiery explosion. The user can't move on the next turn.";
+    public static string HydroCannonDesc = "The target is hit with a watery blast. The user can't move on the next turn.";
+    public static string MeteorMashDesc = "The target is hit with a hard punch fired like a meteor. This may also boost the user's Attack stat.";
+    public static string AstonishDesc = "The user attacks the target by crying out in a startling fashion. This may also make the target flinch.";
+    public static string WeatherBallDesc = "This move's type and power change depending on the weather at the time the move is used.";
+    public static string AromatherapyDesc = "The user releases a soothing scent that heals all status conditions affecting the user's party.";
+    public static string FakeTearsDesc = "The user feigns crying to fluster the target. This harshly lowers the target's Sp. Def stat.";
+    public static string AirCutterDesc = "The user launches razor-like wind to slash opposing Pokémon. This move has a heightened chance of landing a critical hit.";
+    public static string OverheatDesc = "The user attacks the target with all its might. The recoil from this move harshly lowers the user's Sp. Atk stat.";
+    public static string OdorSleuthDesc = "Enables a Ghost-type target to be hit by Normal- and Fighting-type attacks. This also enables an evasive target to be hit.";
+    public static string RockTombDesc = "The user hurls boulders at the target to inflict damage. This also lowers the target's Speed stat by cutting off its movement.";
+    public static string SilverWindDesc = "The target is attacked with powdery scales blown by the wind. This may also raise all the user's stats.";
+    public static string MetalSoundDesc = "A horrible sound like scraping metal harshly lowers the target's Sp. Def stat.";
+    public static string GrassWhistleDesc = "The user plays a pleasant melody that lulls the target into a deep sleep.";
+    public static string TickleDesc = "The user tickles the target into laughing, lowering its Attack and Defense stats.";
+    public static string CosmicPowerDesc = "The user absorbs a mystical power from space to boost its Defense and Sp. Def stats.";
+    public static string WaterSpoutDesc = "The user spouts water to damage opposing Pokémon. The lower the user's HP, the lower the move's power.";
+    public static string SignalBeamDesc = "The user attacks with a sinister beam of light. This may also confuse the target.";
+    public static string ShadowPunchDesc = "The user throws a punch from the shadows. This attack never misses.";
+    public static string ExtrasensoryDesc = "The user attacks with an odd, unseeable power. This may also make the target flinch.";
+    public static string SkyUppercutDesc = "The user attacks the target with an uppercut thrown skyward with force.";
+    public static string SandTombDesc = "The user traps the target inside a harshly raging sandstorm that inflicts damage for four to five turns.";
+    public static string SheerColdDesc = "The target faints instantly. This move is less likely to hit the target if used by Pokémon other than Ice types.";
+    public static string MuddyWaterDesc = "The user attacks by shooting muddy water at opposing Pokémon. This may also lower their accuracy.";
+    public static string BulletSeedDesc = "The user attacks by forcefully shooting seeds at the target. This move hits two to five times in a row.";
+    public static string AerialAceDesc = "The user confounds the target with speed, then slashes. This attack never misses.";
+    public static string IcicleSpearDesc = "The user attacks by launching sharp icicles at the target. This move hits two to five times in a row.";
+    public static string IronDefenseDesc = "The user hardens its body's surface like iron, sharply boosting its Defense stat.";
+    public static string BlockDesc = "The user blocks the target's way with arms spread wide to prevent the target from fleeing.";
+    public static string HowlDesc = "The user howls loudly to rouse itself and its allies. This boosts their Attack stats.";
+    public static string DragonClawDesc = "The user slashes the target with huge, sharp claws to inflict damage.";
+    public static string FrenzyPlantDesc = "The user slams the target with the roots of an enormous tree. The user can't move on the next turn.";
+    public static string BulkUpDesc = "The user tenses its muscles to bulk up its body, boosting its Attack and Defense stats.";
+    public static string BounceDesc = "The user bounces up high on the first turn, then drops onto the target on the next turn. This may also leave the target with paralysis.";
+    public static string MudShotDesc = "The user attacks by hurling a blob of mud at the target. This also lowers the target's Speed stat.";
+    public static string PoisonTailDesc = "The user hits the target with its tail. This move has a heightened chance of landing a critical hit and may also poison the target.";
+    public static string CovetDesc = "The user endearingly approaches the target, then steals the target's held item.";
+    public static string VoltTackleDesc = "The user electrifies itself and charges the target to inflict damage. This also damages the user quite a lot and may leave the target with paralysis.";
+    public static string MagicalLeafDesc = "The user scatters curious leaves that chase the target. This attack never misses.";
+    public static string WaterSportDesc = "The user soaks the battlefield with water. This weakens Fire-type moves for five turns.";
+    public static string CalmMindDesc = "The user quietly focuses its mind and calms its spirit to boost its Sp. Atk and Sp. Def stats.";
+    public static string LeafBladeDesc = "The user handles a sharp leaf like a sword and cuts the target to inflict damage. This move has a heightened chance of landing a critical hit.";
+    public static string DragonDanceDesc = "The user vigorously performs a mystic, powerful dance that boosts its Attack and Speed stats.";
+    public static string RockBlastDesc = "The user attacks by hurling hard rocks at the target. This move hits two to five times in a row.";
+    public static string ShockWaveDesc = "The user strikes the target with a quick jolt of electricity. This attack never misses.";
+    public static string WaterPulseDesc = "The user attacks the target with a pulsing blast of water. This may also confuse the target.";
+    public static string DoomDesireDesc = "Two turns after this move is used, a concentrated bundle of light blasts the target.";
+    public static string PsychoBoostDesc = "The user attacks the target at full power. The attack's recoil harshly lowers the user's Sp. Atk stat.";
 }
 /*
 */

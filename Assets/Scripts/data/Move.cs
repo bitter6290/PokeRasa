@@ -1470,447 +1470,496 @@ public static class Move
         40, 100, 3,
         MoveEffect.FakeOut, 100,
         true, Target.Single, 10,
-        makesContact); //Needs anim
+        makesContact, FakeOutDesc); //Needs anim
     public static MoveData Uproar = new(
         "Uproar", Normal,
         90, 100, 0,
         MoveEffect.Uproar, 100,
         false, Target.Self, 10,
-        soundMove + effectOnSelfOnly); //Needs anim
+        soundMove + effectOnSelfOnly, UproarDesc); //Needs anim
     public static MoveData Stockpile = SelfTargetingMove(
         "Stockpile", Normal, 0, MoveEffect.Stockpile, 20,
-        snatchAffected); //Needs anim
+        snatchAffected, StockpileDesc); //Needs anim
     public static MoveData SpitUp = new(
         "Spit Up", Normal,
         1, 100, 0,
         MoveEffect.SpitUp, 0,
-        false, Target.Single, 10); //Needs anim
+        false, Target.Single, 10, noFlag, SpitUpDesc); //Needs anim
     public static MoveData Swallow = SelfTargetingMove(
-        "Swallow", Normal, 0, MoveEffect.Swallow, 10, snatchAffected); //Needs anim
+        "Swallow", Normal, 0, MoveEffect.Swallow, 10,
+        snatchAffected, SwallowDesc); //Needs anim
     public static MoveData HeatWave = new(
         "Heat Wave", Fire,
         95, 90, 0,
         MoveEffect.Burn, 10,
-        false, Target.Opponent + Target.Spread, 10); //Needs anim
+        false, Target.Opponent + Target.Spread, 10,
+        noFlag, HeatWaveDesc); //Needs anim
     public static MoveData Hail = FieldMove(
-        "Hail", Ice, 0, MoveEffect.Weather, 10); //Needs anim
+        "Hail", Ice, 0, MoveEffect.Weather, 10, noFlag, HailDesc); //Needs anim
     public static MoveData Torment = SingleTargetStatusMove(
-        "Torment", Dark, 100, 0, MoveEffect.Torment, 15, magicBounceAffected); //Needs anim
+        "Torment", Dark, 100, 0, MoveEffect.Torment, 15,
+        magicBounceAffected, TormentDesc); //Needs anim
     public static MoveData Flatter = SingleTargetStatusMove(
-        "Flatter", Dark, 100, 0, MoveEffect.Flatter, 15, magicBounceAffected); //Needs anim
+        "Flatter", Dark, 100, 0, MoveEffect.Flatter, 15,
+        magicBounceAffected, FlatterDesc); //Needs anim
     public static MoveData WillOWisp = SingleTargetStatusMove(
-        "Will-O-Wisp", Fire, 85, 0, MoveEffect.Burn, 15, magicBounceAffected); //Needs anim
+        "Will-O-Wisp", Fire, 85, 0, MoveEffect.Burn, 15,
+        magicBounceAffected, WillOWispDesc); //Needs anim
     public static MoveData Memento = SingleTargetStatusMove(
-        "Memento", Dark, 100, 0, MoveEffect.Memento, 10); //Needs anim
+        "Memento", Dark, 100, 0, MoveEffect.Memento, 10,
+        noFlag, MementoDesc); //Needs anim
     public static MoveData Facade = new(
         "Facade", Normal,
         70, 100, 0,
         MoveEffect.Facade, 0,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact, FacadeDesc); //Needs anim
     public static MoveData FocusPunch = new(
         "Focus Punch", Fighting,
         150, 100, 9,
         MoveEffect.FocusPunchWindup, 100,
         true, Target.Single, 20,
-        effectOnSelfOnly); //Needs anim
+        effectOnSelfOnly, FocusPunchDesc); //Needs anim
     public static MoveData SmellingSalts = new(
         "Smelling Salts", Normal,
         70, 100, 0,
         MoveEffect.SmellingSalts, 100,
         true, Target.Single, 10,
-        makesContact); //Needs anim
+        makesContact, SmellingSaltsDesc); //Needs anim
     public static MoveData FollowMe = SelfTargetingMove(
         "Follow Me", Normal, 2, MoveEffect.FollowMe, 20); //Needs anim
     public static MoveData NaturePower = new(
         "Nature Power", Normal,
         1, 100, 0,
         MoveEffect.NaturePower, 0,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        noFlag, NaturePowerDesc); //Needs anim
     public static MoveData Charge = SelfTargetingMove(
-        "Charge", Electric, 0, MoveEffect.Charge, 20, snatchAffected); //Needs anim
+        "Charge", Electric, 0, MoveEffect.Charge, 20,
+        snatchAffected, ChargeDesc); //Needs anim
     public static MoveData Taunt = SingleTargetStatusMove(
-        "Taunt", Dark, 100, 0, MoveEffect.Taunt, 20, magicBounceAffected); //Needs anim
+        "Taunt", Dark, 100, 0, MoveEffect.Taunt, 20,
+        magicBounceAffected, TauntDesc); //Needs anim
     public static MoveData HelpingHand = new(
         "Helping Hand", Normal,
         0, 100, 5,
         MoveEffect.HelpingHand, 100,
-        false, Target.Ally, 20); //Needs anim
+        false, Target.Ally, 20,
+        noFlag, HelpingHandDesc); //Needs anim
     public static MoveData Trick = SingleTargetStatusMove(
-        "Trick", Type.Psychic, 100, 0, MoveEffect.Trick, 10); //Needs anim
+        "Trick", Type.Psychic, 100, 0, MoveEffect.Trick, 10,
+        noFlag, TrickDesc); //Needs anim
     public static MoveData RolePlay = SingleTargetStatusMove(
-        "Role Play", Type.Psychic, 100, 0, MoveEffect.RolePlay, 10); //Needs anim
+        "Role Play", Type.Psychic, 100, 0, MoveEffect.RolePlay, 10,
+        noFlag, RolePlayDesc); //Needs anim
     public static MoveData Wish = SelfTargetingMove(
         "Wish", Normal, 0, MoveEffect.Wish, 10,
-        snatchAffected + healBlockAffected); //Needs anim
+        snatchAffected + healBlockAffected, WishDesc); //Needs anim
     public static MoveData Assist = SelfTargetingMove(
-        "Assist", Normal, 0, MoveEffect.Assist, 20); //Needs anim
+        "Assist", Normal, 0, MoveEffect.Assist, 20,
+        noFlag, AssistDesc); //Needs anim
     public static MoveData Ingrain = SelfTargetingMove(
-        "Ingrain", Grass, 0, MoveEffect.Ingrain, 20, snatchAffected); //Needs anim
+        "Ingrain", Grass, 0, MoveEffect.Ingrain, 20,
+        snatchAffected, IngrainDesc); //Needs anim
     public static MoveData Superpower = new(
         "Superpower", Fighting,
         120, 100, 0,
         MoveEffect.AttackDefenseDown1, 100,
         true, Target.Single, 5,
-        effectOnSelfOnly + makesContact); //Needs anim
+        effectOnSelfOnly + makesContact, SuperpowerDesc); //Needs anim
     public static MoveData MagicCoat = SelfTargetingMove(
-        "Magic Coat", Type.Psychic, 4, MoveEffect.MagicCoat, 15); //Needs anim
+        "Magic Coat", Type.Psychic, 4, MoveEffect.MagicCoat, 15,
+        noFlag, MagicCoatDesc); //Needs anim
     public static MoveData Recycle = SelfTargetingMove(
-        "Recycle", Normal, 0, MoveEffect.Recycle, 10, snatchAffected); //Needs anim
+        "Recycle", Normal, 0, MoveEffect.Recycle, 10,
+        snatchAffected, RecycleDesc); //Needs anim
     public static MoveData Revenge = new(
         "Revenge", Fighting,
         60, 100, -4,
         MoveEffect.Revenge, 0,
         true, Target.Single, 10,
-        makesContact); //Needs anim
+        makesContact, RevengeDesc); //Needs anim
     public static MoveData BrickBreak = new(
         "Brick Break", Fighting,
         75, 100, 0,
         MoveEffect.BreakScreens, 100,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact, BrickBreakDesc); //Needs anim
     public static MoveData Yawn = SingleTargetStatusMove(
-        "Yawn", Normal, 100, 0, MoveEffect.Yawn, 10, magicBounceAffected); //Needs anim
+        "Yawn", Normal, 100, 0, MoveEffect.Yawn, 10,
+        magicBounceAffected, YawnDesc); //Needs anim
     public static MoveData KnockOff = new(
         "Knock Off", Dark,
         65, 100, 0,
         MoveEffect.KnockOff, 100,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact, KnockOffDesc); //Needs anim
     public static MoveData Endeavor = new(
         "Endeavor", Normal,
         1, 100, 0,
         MoveEffect.Endeavor, 0,
         true, Target.Single, 5,
-        makesContact); //Needs anim
+        makesContact, EndeavorDesc); //Needs anim
     public static MoveData Eruption = new(
         "Eruption", Fire,
         150, 100, 0,
         MoveEffect.HealthPower, 0,
-        false, Target.Opponent + Target.Spread, 5); //Needs anim
+        false, Target.Opponent + Target.Spread, 5,
+        noFlag, EruptionDesc); //Needs anim
     public static MoveData SkillSwap = SingleTargetStatusMove(
-        "Skill Swap", Type.Psychic, 100, 0, MoveEffect.SkillSwap, 10); //Needs anim
+        "Skill Swap", Type.Psychic, 100, 0, MoveEffect.SkillSwap, 10,
+        noFlag, SkillSwapDesc); //Needs anim
     public static MoveData Imprison = SelfTargetingMove(
-        "Imprison", Type.Psychic, 0, MoveEffect.Imprison, 10, snatchAffected); //Needs anim
+        "Imprison", Type.Psychic, 0, MoveEffect.Imprison, 10,
+        snatchAffected, ImprisonDesc); //Needs anim
     public static MoveData Refresh = SelfTargetingMove(
-        "Refresh", Normal, 0, MoveEffect.HealStatus, 20, snatchAffected); //Needs anim
+        "Refresh", Normal, 0, MoveEffect.HealStatus, 20,
+        snatchAffected, RefreshDesc); //Needs anim
     public static MoveData Grudge = SelfTargetingMove(
-        "Grudge", Ghost, 0, MoveEffect.Grudge, 5); //Needs anim
+        "Grudge", Ghost, 0, MoveEffect.Grudge, 5,
+        noFlag, GrudgeDesc); //Needs anim
     public static MoveData Snatch = SelfTargetingMove(
-        "Snatch", Dark, 4, MoveEffect.Snatch, 10); //Needs anim
+        "Snatch", Dark, 4, MoveEffect.Snatch, 10,
+        noFlag, SnatchDesc); //Needs anim
     public static MoveData SecretPower = new(
         "Secret Power", Normal,
         70, 100, 0,
         MoveEffect.SecretPower, 30,
-        true, Target.Single, 20); //Needs anim, including different anims based on terrain
+        true, Target.Single, 20,
+        noFlag, SecretPowerDesc); //Needs anim, including different anims based on terrain
     public static MoveData Dive = new(
         "Dive", Water,
         80, 100, 0,
         MoveEffect.ChargingAttack, 0,
-        true, Target.Single, 10); //Needs anim
+        true, Target.Single, 10,
+        noFlag, DiveDesc); //Needs anim
     public static MoveData ArmThrust = new(
         "Arm Thrust", Fighting,
         15, 100, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Target.Single, 20,
-        makesContact); //Needs anim
+        makesContact, ArmThrustDesc); //Needs anim
     public static MoveData Camouflage = SelfTargetingMove(
-        "Camouflage", Normal, 0, MoveEffect.Camouflage, 20, snatchAffected); //Needs anim
+        "Camouflage", Normal, 0, MoveEffect.Camouflage, 20,
+        snatchAffected, CamouflageDesc); //Needs anim
     public static MoveData TailGlow = SelfTargetingMove(
-        "Tail Glow", Bug, 0, MoveEffect.SpAtkUp3, 20, snatchAffected); //Needs anim
+        "Tail Glow", Bug, 0, MoveEffect.SpAtkUp3, 20,
+        snatchAffected, TailGlowDesc); //Needs anim
     public static MoveData LusterPurge = new(
         "Luster Purge", Type.Psychic,
         70, 100, 0,
         MoveEffect.SpDefDown1, 50,
-        false, Target.Single, 5); //Needs anim
+        false, Target.Single, 5,
+        noFlag, LusterPurgeDesc); //Needs anim
     public static MoveData MistBall = new(
         "Mist Ball", Type.Psychic,
         70, 100, 0,
         MoveEffect.SpAtkDown1, 50,
         false, Target.Single, 5,
-        bulletMove); //Needs anim
+        bulletMove, MistBallDesc); //Needs anim
     public static MoveData FeatherDance = SingleTargetStatusMove(
-        "Feather Dance", Flying, 100, 0, MoveEffect.AttackDown2, 15, magicBounceAffected); //Needs anim
+        "Feather Dance", Flying, 100, 0, MoveEffect.AttackDown2, 15,
+        magicBounceAffected, FeatherDanceDesc); //Needs anim
     public static MoveData TeeterDance = new(
         "Teeter Dance", Normal,
         0, 100, 0,
         MoveEffect.Confuse, 100,
-        false, Target.Surrounding, 20); //Needs anim
+        false, Target.Surrounding, 20,
+        noFlag, TeeterDanceDesc); //Needs anim
     public static MoveData BlazeKick = new(
         "Blaze Kick", Fire,
         85, 90, 0,
         MoveEffect.Burn, 10,
         true, Target.Single, 10,
-        makesContact + highCrit); //Needs anim
+        makesContact + highCrit, BlazeKickDesc); //Needs anim
     public static MoveData MudSport = FieldMove(
-        "Mud Sport", Ground, 0, MoveEffect.MudSport, 15); //Needs anim
+        "Mud Sport", Ground, 0, MoveEffect.MudSport, 15,
+        noFlag, MudSportDesc); //Needs anim
     public static MoveData IceBall = new(
         "Ice Ball", Ice,
         30, 90, 0,
         MoveEffect.Rollout, 100,
         true, Target.Single, 20,
-        effectOnSelfOnly + makesContact + bulletMove); //Needs anim
+        effectOnSelfOnly + makesContact + bulletMove, IceBallDesc); //Needs anim
     public static MoveData NeedleArm = new(
         "Needle Arm", Grass,
         60, 100, 0,
         MoveEffect.Flinch, 30,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact, NeedleArmDesc); //Needs anim
     public static MoveData SlackOff = SelfTargetingMove(
         "Slack Off", Normal, 0, MoveEffect.Heal50, 5,
-        snatchAffected + healBlockAffected); //Needs anim
+        snatchAffected + healBlockAffected, SlackOffDesc); //Needs anim
     public static MoveData HyperVoice = new(
         "Hyper Voice", Normal,
         90, 100, 0,
         MoveEffect.Hit, 0,
         false, Target.Opponent + Target.Spread, 10,
-        soundMove); //Needs anim
+        soundMove, HyperVoiceDesc); //Needs anim
     public static MoveData PoisonFang = new(
         "Poison Fang", Poison,
         50, 100, 0,
         MoveEffect.Toxic, 50,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact, PoisonFangDesc); //Needs anim
     public static MoveData CrushClaw = new(
         "Crush Claw", Normal,
         75, 95, 0,
         MoveEffect.DefenseDown1, 50,
         true, Target.Single, 10,
-        makesContact); //Needs anim
+        makesContact, CrushClawDesc); //Needs anim
     public static MoveData BlastBurn = new(
         "Blast Burn", Fire,
         150, 90, 0,
         MoveEffect.Recharge, 100,
-        false, Target.Single, 5); //Needs anim
+        false, Target.Single, 5,
+        noFlag, BlastBurnDesc); //Needs anim
     public static MoveData HydroCannon = new(
         "Hydro Cannon", Water,
         150, 90, 0,
         MoveEffect.Recharge, 100,
-        false, Target.Single, 5); //Needs anim
+        false, Target.Single, 5,
+        noFlag, HydroCannonDesc); //Needs anim
     public static MoveData MeteorMash = new(
         "Meteor Mash", Steel,
         90, 90, 0,
         MoveEffect.AttackUp1, 20,
         true, Target.Single, 10,
-        makesContact + effectOnSelfOnly); //Needs anim
+        makesContact + effectOnSelfOnly, MeteorMashDesc); //Needs anim
     public static MoveData Astonish = new(
         "Astonish", Ghost,
         30, 100, 0,
         MoveEffect.Flinch, 30,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact, AstonishDesc); //Needs anim
     public static MoveData WeatherBall = new(
         "Weather Ball", Normal,
         50, 100, 0,
         MoveEffect.WeatherBall, 0,
         false, Target.Single, 10,
-        bulletMove); //Needs anim
+        bulletMove, WeatherBallDesc); //Needs anim
     public static MoveData Aromatherapy = FieldMove(
-        "Aromatherapy", Grass, 0, MoveEffect.HealBell, 5, snatchAffected); //Needs anim
+        "Aromatherapy", Grass, 0, MoveEffect.HealBell, 5,
+        snatchAffected, AromatherapyDesc); //Needs anim
     public static MoveData FakeTears = SingleTargetStatusMove(
-        "Fake Tears", Dark, 100, 0, MoveEffect.SpDefDown2, 20, magicBounceAffected); //Needs anim
+        "Fake Tears", Dark, 100, 0, MoveEffect.SpDefDown2, 20,
+        magicBounceAffected, FakeTearsDesc); //Needs anim
     public static MoveData AirCutter = new(
         "Air Cutter", Flying,
         60, 95, 0,
         MoveEffect.Hit, 0,
         false, Target.Opponent + Target.Spread, 25,
-        highCrit + sharpnessBoosted); //Needs anim
+        highCrit + sharpnessBoosted, AirCutterDesc); //Needs anim
     public static MoveData Overheat = new(
         "Overheat", Fire,
         130, 90, 0,
         MoveEffect.SpAtkDown2, 100,
         false, Target.Single, 5,
-        effectOnSelfOnly); //Needs anim
+        effectOnSelfOnly, OverheatDesc); //Needs anim
     public static MoveData OdorSleuth = new(
         "Odor Sleuth", Normal,
         0, 101, 0,
         MoveEffect.Foresight, 100,
         false, Target.Single, 40,
-        magicBounceAffected); //Needs anim
+        magicBounceAffected, OdorSleuthDesc); //Needs anim
     public static MoveData RockTomb = new(
         "Rock Tomb", Rock,
         60, 95, 0,
         MoveEffect.SpeedDown1, 100,
-        true, Target.Single, 15); //Needs anim
+        true, Target.Single, 15,
+        noFlag, RockTombDesc); //Needs anim
     public static MoveData SilverWind = new(
         "Silver Wind", Bug,
         60, 100, 0,
         MoveEffect.AllUp1, 10,
         false, Target.Single, 5,
-        effectOnSelfOnly); //Needs anim
+        effectOnSelfOnly, SilverWindDesc); //Needs anim
     public static MoveData MetalSound = SingleTargetStatusMove(
         "Metal Sound", Steel, 85, 0, MoveEffect.SpDefDown2, 40,
-        soundMove + magicBounceAffected); //Needs anim
+        soundMove + magicBounceAffected, MetalSoundDesc); //Needs anim
     public static MoveData GrassWhistle = SingleTargetStatusMove(
         "Grass Whistle", Grass, 55, 0, MoveEffect.Sleep, 15,
-        soundMove + magicBounceAffected); //Needs anim
+        soundMove + magicBounceAffected, GrassWhistleDesc); //Needs anim
     public static MoveData Tickle = SingleTargetStatusMove(
         "Tickle", Normal, 100, 0, MoveEffect.AttackDefenseDown1, 20,
-        magicBounceAffected); //Needs anim
+        magicBounceAffected, TickleDesc); //Needs anim
     public static MoveData CosmicPower = SelfTargetingMove(
         "Cosmic Power", Type.Psychic, 0, MoveEffect.DefenseSpDefUp1, 20,
-        snatchAffected); //Needs anim
+        snatchAffected, CosmicPowerDesc); //Needs anim
     public static MoveData WaterSpout = new(
         "Water Spout", Water,
         150, 100, 0,
         MoveEffect.HealthPower, 0,
-        false, Target.Opponent + Target.Spread, 5); //Needs anim
+        false, Target.Opponent + Target.Spread, 5,
+        noFlag, WaterSpoutDesc); //Needs anim
     public static MoveData SignalBeam = new(
         "Signal Beam", Bug,
         75, 100, 0,
         MoveEffect.Confuse, 10,
-        false, Target.Single, 15); //Needs anim
+        false, Target.Single, 15,
+        noFlag, SignalBeamDesc); //Needs anim
     public static MoveData ShadowPunch = new(
         "Shadow Punch", Ghost,
         60, 101, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 20,
-        makesContact + punchMove); //Needs anim
+        makesContact + punchMove, ShadowPunchDesc); //Needs anim
     public static MoveData Extrasensory = new(
         "Extrasensory", Type.Psychic,
         80, 100, 0,
         MoveEffect.Flinch, 10,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        noFlag, ExtrasensoryDesc); //Needs anim
     public static MoveData SkyUppercut = new(
         "Sky Uppercut", Fighting,
         85, 90, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 15,
-        hitFlyingMon + makesContact + punchMove); //Needs anim
+        hitFlyingMon + makesContact + punchMove, SkyUppercutDesc); //Needs anim
     public static MoveData SandTomb = new(
         "Sand Tomb", Ground,
         35, 85, 0,
         MoveEffect.ContinuousDamage, 100,
-        true, Target.Single, 15); //Needs anim
+        true, Target.Single, 15,
+        noFlag, SandTombDesc); //Needs anim
     public static MoveData SheerCold = new(
         "Sheer Cold", Ice,
         1, 30, 0,
         MoveEffect.OHKO, 0,
-        false, Target.Single, 5); //Needs anim
+        false, Target.Single, 5,
+        noFlag, SheerColdDesc); //Needs anim
     public static MoveData MuddyWater = new(
         "Muddy Water", Water,
         90, 85, 0,
         MoveEffect.AccuracyDown1, 30,
-        false, Target.Opponent + Target.Spread, 10); //Needs anim
+        false, Target.Opponent + Target.Spread, 10,
+        noFlag, MuddyWaterDesc); //Needs anim
     public static MoveData BulletSeed = new(
         "Bullet Seed", Grass,
         25, 100, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Target.Single, 30,
-        bulletMove); //Needs anim
+        bulletMove, BulletSeedDesc); //Needs anim
     public static MoveData AerialAce = new(
         "Aerial Ace", Flying,
         60, 101, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 20,
-        makesContact + sharpnessBoosted); //Needs anim
+        makesContact + sharpnessBoosted, AerialAceDesc); //Needs anim
     public static MoveData IcicleSpear = new(
         "Icicle Spear", Ice,
         25, 100, 0,
         MoveEffect.MultiHit2to5, 0,
-        true, Target.Single, 30); //Needs anim
+        true, Target.Single, 30,
+        noFlag, IcicleSpearDesc); //Needs anim
     public static MoveData IronDefense = SelfTargetingMove(
         "Iron Defense", Steel, 0, MoveEffect.DefenseUp2, 15,
-        snatchAffected); //Needs anim
+        snatchAffected, IronDefenseDesc); //Needs anim
     public static MoveData Block = SingleTargetStatusMove(
         "Block", Normal, 101, 0, MoveEffect.Trap, 5,
-        magicBounceAffected); //Needs anim
+        magicBounceAffected, BlockDesc); //Needs anim
     public static MoveData Howl = new(
         "Howl", Normal,
         0, 101, 0,
         MoveEffect.AttackUp1, 100,
         false, Target.Ally + Target.Self + Target.Spread + Target.Ranged, 40,
-        soundMove + snatchAffected); //Needs anim
+        soundMove + snatchAffected, HowlDesc); //Needs anim
     public static MoveData DragonClaw = new(
         "Dragon Claw", Dragon,
         80, 100, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact, DragonClawDesc); //Needs anim
     public static MoveData FrenzyPlant = new(
         "Frenzy Plant", Grass,
         150, 90, 0,
         MoveEffect.Recharge, 100,
-        false, Target.Single, 5); //Needs anim
+        false, Target.Single, 5,
+        noFlag, FrenzyPlantDesc); //Needs anim
     public static MoveData BulkUp = SelfTargetingMove(
         "Bulk Up", Fighting, 0, MoveEffect.AttackDefenseUp1, 20,
-        snatchAffected); //Needs anim
+        snatchAffected, BulkUpDesc); //Needs anim
     public static MoveData Bounce = new(
         "Bounce", Flying,
         85, 85, 0,
         MoveEffect.ChargingAttack, 100,
         true, Target.Single, 5,
-        gravityDisabled); //Needs anim
+        gravityDisabled, BounceDesc); //Needs anim
     public static MoveData MudShot = new(
         "Mud Shot", Ground,
         55, 95, 0,
         MoveEffect.SpeedDown1, 100,
-        false, Target.Single, 15); //Needs anim
+        false, Target.Single, 15,
+        noFlag, MudShotDesc); //Needs anim
     public static MoveData PoisonTail = new(
         "Poison Tail", Poison,
         50, 100, 0,
         MoveEffect.Poison, 10,
         true, Target.Single, 25,
-        highCrit + makesContact); //Needs anim
+        highCrit + makesContact, PoisonTailDesc); //Needs anim
     public static MoveData Covet = new(
         "Covet", Normal,
         60, 100, 0,
         MoveEffect.Thief, 100,
         true, Target.Single, 25,
-        makesContact); //Needs anim
+        makesContact, CovetDesc); //Needs anim
     public static MoveData VoltTackle = new(
         "Volt Tackle", Electric,
         120, 100, 0,
         MoveEffect.VoltTackle, 10,
         true, Target.Single, 15,
-        makesContact); //Needs anim
+        makesContact, VoltTackleDesc); //Needs anim
     public static MoveData MagicalLeaf = new(
         "Magical Leaf", Grass,
         60, 101, 0,
         MoveEffect.Hit, 20,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        noFlag, MagicalLeafDesc); //Needs anim
     public static MoveData WaterSport = FieldMove(
-        "Water Sport", Water, 0, MoveEffect.WaterSport, 15); //Needs anim
+        "Water Sport", Water, 0, MoveEffect.WaterSport, 15,
+        noFlag, WaterSpoutDesc); //Needs anim
     public static MoveData CalmMind = SelfTargetingMove(
         "Calm Mind", Type.Psychic, 0, MoveEffect.SpAtkSpDefUp1, 20,
-        snatchAffected); //Needs anim
+        snatchAffected, CalmMindDesc); //Needs anim
     public static MoveData LeafBlade = new(
         "Leaf Blade", Grass,
         90, 100, 0,
         MoveEffect.Hit, 0,
         true, Target.Single, 15,
-        highCrit + sharpnessBoosted); //Needs anim
+        highCrit + sharpnessBoosted, LeafBladeDesc); //Needs anim
     public static MoveData DragonDance = SelfTargetingMove(
         "Dragon Dance", Dragon, 0, MoveEffect.AttackSpeedUp1, 20,
-        snatchAffected); //Needs anim
+        snatchAffected, DragonDanceDesc); //Needs anim
     public static MoveData RockBlast = new(
         "Rock Blast", Rock,
         25, 90, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Target.Single, 10,
-        bulletMove); //Needs anim
+        bulletMove, RockBlastDesc); //Needs anim
     public static MoveData ShockWave = new(
         "Shock Wave", Electric,
         60, 101, 0,
         MoveEffect.Hit, 0,
-        false, Target.Single, 20); //Needs anim
+        false, Target.Single, 20,
+        noFlag, ShockWaveDesc); //Needs anim
     public static MoveData WaterPulse = new(
         "Water Pulse", Water,
         60, 100, 0,
         MoveEffect.Confuse, 30,
         false, Target.Single + Target.Ranged, 20,
-        megaLauncherBoosted); //Needs anim
+        megaLauncherBoosted, WaterPulseDesc); //Needs anim
     public static MoveData DoomDesire = new(
         "Doom Desire", Steel,
         140, 100, 0,
         MoveEffect.FutureSight, 100,
-        false, Target.Single, 5); //Needs anim
+        false, Target.Single, 5,
+        noFlag, DoomDesireDesc); //Needs anim
     public static MoveData PsychoBoost = new(
         "Psycho Boost", Type.Psychic,
         140, 90, 0,
         MoveEffect.SpAtkDown2, 100,
         false, Target.Single, 5,
-        effectOnSelfOnly); //Needs anim
+        effectOnSelfOnly, PsychoBoostDesc); //Needs anim
 
     //Gen 4
 
