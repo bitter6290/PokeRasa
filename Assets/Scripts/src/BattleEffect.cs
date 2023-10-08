@@ -1090,14 +1090,7 @@ public static class BattleEffect
     {
         for (int i = 0; i < 6; i++)
         {
-            battle.PokemonOnField[i].attackStage = 0;
-            battle.PokemonOnField[i].defenseStage = 0;
-            battle.PokemonOnField[i].spAtkStage = 0;
-            battle.PokemonOnField[i].spDefStage = 0;
-            battle.PokemonOnField[i].speedStage = 0;
-            battle.PokemonOnField[i].accuracyStage = 0;
-            battle.PokemonOnField[i].evasionStage = 0;
-            battle.PokemonOnField[i].critStage = 0;
+            battle.PokemonOnField[i].ApplyStatStruct(new());
         }
         yield return battle.Announce("All stat changes were reversed!");
     }
@@ -1978,5 +1971,34 @@ public static class BattleEffect
         target.spAtkOverride = newSpAtk;
         yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
             + " shared its power with the target!");
+    }
+
+    public static IEnumerator AllySwitch(Battle battle, int index, int attacker)
+    {
+        BattlePokemon storeMon = battle.PokemonOnField[index];
+        battle.PokemonOnField[index] = battle.PokemonOnField[attacker];
+        battle.PokemonOnField[attacker] = storeMon;
+        battle.PokemonOnField[index].index = index;
+        battle.PokemonOnField[attacker].index = attacker;
+        yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
+            + " and " + battle.MonNameWithPrefix(index, false)
+            + " switched places!");
+    }
+
+    public static IEnumerator ReflectType(Battle battle, int user, int target)
+    {
+        BattlePokemon attacker = battle.PokemonOnField[user];
+        BattlePokemon defender = battle.PokemonOnField[target];
+        attacker.newType1 = defender.Type1;
+        attacker.newType2 = defender.Type2;
+        if(defender.hasType3)
+        {
+            attacker.Type3 = defender.Type3;
+            attacker.hasType3 = true;
+        }
+        attacker.typesOverriden = true;
+        yield return battle.Announce(battle.MonNameWithPrefix(user, true) +
+            "'s type changed to match " + battle.MonNameWithPrefix(target, false) +
+            "'s!");
     }
 }

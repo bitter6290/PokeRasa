@@ -2633,7 +2633,90 @@ public static class Move
         MoveEffect.Round, 101,
         false, Target.Single, 15,
         soundMove, RoundDesc); //Needs anim
-
+    public static MoveData EchoedVoice = new(
+        "Echoed Voice", Normal,
+        40, 100, 0,
+        MoveEffect.EchoedVoice, 0,
+        false, Target.Single, 15,
+        soundMove, EchoedVoiceDesc); //Needs anim
+    public static MoveData ChipAway = new(
+        "Chip Away", Normal,
+        70, 100, 0,
+        MoveEffect.IgnoreDefenseStage, 0,
+        true, Target.Single, 20,
+        makesContact, ChipAwayDesc); //Needs anim
+    public static MoveData ClearSmog = new(
+        "Clear Smog", Poison,
+        50, 101, 0,
+        MoveEffect.ClearStats, 100,
+        false, Target.Single, 15,
+        noFlag, ClearSmogDesc); //Needs anim
+    public static MoveData StoredPower = new(
+        "Stored Power", Type.Psychic,
+        20, 100, 0,
+        MoveEffect.UserStatPower, 0,
+        false, Target.Single, 10,
+        noFlag, StoredPowerDesc); //Needs anim
+    public static MoveData QuickGuard = SelfTargetingMove(
+        "Quick Guard", Fighting, 3, MoveEffect.QuickGuard, 15,
+        snatchAffected, QuickGuardDesc); //Needs anim
+    public static MoveData AllySwitch = new(
+        "Ally Switch", Type.Psychic,
+        0, 101, 0,
+        MoveEffect.AllySwitch, 101,
+        false, Target.Ally, 15,
+        usesProtectCounter, AllySwitchDesc); //Needs anim
+    public static MoveData Scald = new(
+        "Scald", Water,
+        80, 100, 0,
+        MoveEffect.Burn, 30,
+        false, Target.Single, 15,
+        noFlag, ScaldDesc); //Needs anim
+    public static MoveData ShellSmash = SelfTargetingMove(
+        "Shell Smash", Normal, 0, MoveEffect.ShellSmash, 15,
+        snatchAffected, ShellSmashDesc); //Needs anim
+    public static MoveData HealPulse = SingleTargetStatusMove(
+        "Heal Pulse", Type.Psychic, 101, 0, MoveEffect.HealPulse, 10,
+        healBlockAffected, HealPulseDesc); //Needs anim
+    public static MoveData Hex = new(
+        "Hex", Ghost,
+        65, 100, 0,
+        MoveEffect.Hex, 0,
+        false, Target.Single, 10,
+        noFlag, HexDesc); //Needs anim
+    public static MoveData SkyDrop = new(
+        "Sky Drop", Flying,
+        60, 101, 0,
+        MoveEffect.SkyDrop, 101,
+        true, Target.Single, 10,
+        noFlag, SkyDropDesc); //Needs anim
+    public static MoveData ShiftGear = SelfTargetingMove(
+        "Shift Gear", Steel, 0, MoveEffect.AttackUp1SpeedUp2, 10,
+        snatchAffected, ShiftGearDesc); //Needs anim
+    public static MoveData CircleThrow = new(
+        "Circle Throw", Fighting,
+        60, 90, -6,
+        MoveEffect.ForcedSwitch, 101,
+        true, Target.Single, 10,
+        makesContact, CircleThrowDesc); //Needs anim
+    public static MoveData Incinerate = new(
+        "Incinerate", Fire,
+        60, 100, 0,
+        MoveEffect.Incinerate, 100,
+        false, Target.Spread + Target.Opponent, 15,
+        noFlag, IncinerateDesc); //Needs anim
+    public static MoveData Quash = SingleTargetStatusMove(
+        "Quash", Dark, 100, 0, MoveEffect.Quash, 15,
+        noFlag, QuashDesc); //Needs anim
+    public static MoveData Acrobatics = new(
+        "Acrobatics", Flying,
+        55, 100, 0,
+        MoveEffect.Acrobatics, 0,
+        true, Target.Single, 15,
+        makesContact, AcrobaticsDesc); //Needs anim
+    public static MoveData ReflectType = SingleTargetStatusMove(
+        "Reflect Type", Normal, 101, 0, MoveEffect.ReflectType, 15,
+        noFlag, ReflectTypeDesc); //Needs anim
 
 
     //Non-standard moves
@@ -2721,6 +2804,12 @@ public static class Move
         MoveEffect.Feint, 100,
         true, Target.Single, 5,
         mimicBypass + makesContact, InvalidMove); //Needs anim
+    public static MoveData SkyDropAttack = new(
+        "Sky Drop", Flying,
+        60, 100, 0,
+        MoveEffect.SkyDropHit, 0,
+        true, Target.Single, 10,
+        makesContact, InvalidMove);
     public static MoveData Struggle = new(
         "Struggle", Typeless,
         50, 100, 0,
@@ -3237,6 +3326,23 @@ public static class Move
         Entrainment,
         AfterYou,
         Round,
+        EchoedVoice,
+        ChipAway,
+        ClearSmog,
+        StoredPower,
+        QuickGuard,
+        AllySwitch,
+        Scald,
+        ShellSmash,
+        HealPulse,
+        Hex,
+        SkyDrop,
+        ShiftGear,
+        CircleThrow,
+        Incinerate,
+        Quash,
+        Acrobatics,
+        ReflectType,
 
 
         //Nonstandard moves
@@ -3255,5 +3361,6 @@ public static class Move
         DiveAttack,
         BounceAttack,
         ShadowForceAttack,
+        SkyDropAttack,
     };
 }

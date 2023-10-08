@@ -364,6 +364,8 @@ public static class MoveDesc
     public static string WaterPulseDesc = "The user attacks the target with a pulsing blast of water. This may also confuse the target.";
     public static string DoomDesireDesc = "Two turns after this move is used, a concentrated bundle of light blasts the target.";
     public static string PsychoBoostDesc = "The user attacks the target at full power. The attack's recoil harshly lowers the user's Sp. Atk stat.";
+
+    //Gen 4
     public static string RoostDesc = "The user lands and rests its body. This move restores the user's HP by up to half its max HP.";
     public static string GravityDesc = "Enables Flying types or Pokémon with the Levitate Ability to be hit by Ground-type moves for five turns. Moves that involve flying can't be used.";
     public static string MiracleEyeDesc = "Enables a Dark-type target to be hit by Psychic-type attacks. This also enables an evasive target to be hit.";
@@ -508,4 +510,22 @@ public static class MoveDesc
     public static string EntrainmentDesc = "The user dances with an odd rhythm that compels the target to mimic it, making the target's Ability the same as the user's.";
     public static string AfterYouDesc = "The user helps the target and makes it use its move right after the user.";
     public static string RoundDesc = "The user attacks the target with a song. If others use this move, they will act immediately after the initial user, and the power of their Rounds will be boosted.";
+    public static string EchoedVoiceDesc = "The user attacks the target with an echoing voice. If this move is used consecutively by any Pokémon, its power is boosted.";
+    public static string ChipAwayDesc = "Looking for an opening, the user strikes consistently. The target's stat changes don't affect this attack's damage.";
+    public static string ClearSmogDesc = "The user attacks the target by throwing a clump of special mud. All stat changes are eliminated.";
+    public static string StoredPowerDesc = "The user attacks the target with stored power. The more the user's stats are boosted, the greater the move's power.";
+    public static string QuickGuardDesc = "The user protects itself and its allies from priority moves.";
+    public static string AllySwitchDesc = "The user teleports using a strange power and switches places with one of its allies. This move's chance of failing rises if it is used in succession.";
+    public static string ScaldDesc = "The user attacks by shooting boiling hot water at the target. This may also leave the target with a burn.";
+    public static string ShellSmashDesc = "The user breaks its shell, which lowers its Defense and Sp. Def stats but sharply boosts its Attack, Sp. Atk, and Speed stats.";
+    public static string HealPulseDesc = "The user emits a healing pulse that restores the target's HP by up to half of its max HP.";
+    public static string HexDesc = "This relentless attack does massive damage to a target affected by status conditions.";
+    public static string SkyDropDesc = "The user takes the target into the sky, then drops it during the next turn. The target cannot attack while in the sky.";
+    public static string ShiftGearDesc = "The user rotates its gears, boosting its Attack stat and sharply boosting its Speed stat.";
+    public static string CircleThrowDesc = "The target is thrown, and a different Pokémon is dragged out. In the wild, this ends a battle against a single Pokémon.";
+    public static string IncinerateDesc = "The user attacks opposing Pokémon with fire. If a Pokémon is holding a certain item, such as a Berry, the item becomes burned up and unusable.";
+    public static string QuashDesc = "The user suppresses the target and makes its move go last.";
+    public static string AcrobaticsDesc = "The user nimbly strikes the target. This attack does massive damage if the user isn't holding an item.";
+    public static string ReflectTypeDesc = "The user reflects the target's type to become the same type as the target.";
+
 }

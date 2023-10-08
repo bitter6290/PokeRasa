@@ -505,6 +505,23 @@ public enum MoveID
     Entrainment,
     AfterYou,
     Round,
+    EchoedVoice,
+    ChipAway,
+    ClearSmog,
+    StoredPower,
+    QuickGuard,
+    AllySwitch,
+    Scald,
+    ShellSmash,
+    HealPulse,
+    Hex,
+    SkyDrop,
+    ShiftGear,
+    CircleThrow,
+    Incinerate,
+    Quash,
+    Acrobatics,
+    ReflectType,
 
     //Nonstandard moves
 
@@ -522,6 +539,7 @@ public enum MoveID
     DiveAttack,
     BounceAttack,
     ShadowForceAttack,
+    SkyDropAttack,
 
     Count,
 

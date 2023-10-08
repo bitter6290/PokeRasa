@@ -76,6 +76,7 @@ public class BattlePokemon
     public bool lockedInNextTurn = false;
     public MoveID lockedInMove;
     public Invulnerability invulnerability;
+    public bool beingSkyDropped = false;
     public bool dontCheckPP = false;
 
     public bool choseMove = false;
@@ -145,7 +146,6 @@ public class BattlePokemon
 
     public bool endure = false;
     public bool protect = false;
-    public bool wideGuard = false;
     public int protectCounter = 0;
 
     public bool magicCoat = false;
@@ -217,6 +217,7 @@ public class BattlePokemon
     public bool imprisoned = false;
 
     public bool magnetRise = false;
+    public int magnetRiseTimer = 0;
     public bool telekinesis = false;
     public int telekinesisTimer = 0;
 
@@ -243,6 +244,8 @@ public class BattlePokemon
     public MoveID moveUsedThisTurn = MoveID.None;
     public MoveID lastMoveUsed = MoveID.None;
     public int lastMoveSlot = 0;
+
+    public bool quashed = false;
 
     public bool meFirst = false;
 
@@ -395,6 +398,10 @@ public class BattlePokemon
             || Type2 == type
             || (hasType3 && Type3 == type);
     }
+
+    public bool IsTypeless =>
+        Type1 == Type.Typeless && Type2 == Type.Typeless &&
+        (!hasType3 || Type3 == Type.Typeless);
 
     public Type Type1 => typesOverriden
                             ? newType1
