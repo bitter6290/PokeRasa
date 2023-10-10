@@ -23,15 +23,28 @@ public class XPController : MonoBehaviour
         if (mon.level >= PokemonConst.maxLevel) yield break;
         int baseXP = mon.xp;
         float baseTime = Time.time;
-        float duration = Mathf.Pow(XP, 0.33F);
-        float endTime = baseTime + Mathf.Pow(XP, 0.33F);
-        while (Time.time < endTime)
+        float duration = Mathf.Pow(XP, 0.33F) * 0.2F;
+        float endTime = baseTime + duration;
+        while (Time.time <= endTime)
         {
             float progress = (Time.time - baseTime) / duration;
             mon.xp = (int)(baseXP + progress * XP);
             AlignBar();
-            if (mon.ShouldLevelUp()) yield return AnnounceLevelUp();
+            if (mon.ShouldLevelUp())
+            {
+                float currentTime = Time.time;
+                yield return AnnounceLevelUp();
+                baseTime += Time.time - currentTime;
+                endTime += Time.time - currentTime;
+            }
             yield return null;
+        }
+        mon.xp = baseXP + XP;
+        AlignBar();
+        if (mon.ShouldLevelUp())
+        {
+            yield return AnnounceLevelUp();
+            AlignBar();
         }
         doAlignment = true;
     }

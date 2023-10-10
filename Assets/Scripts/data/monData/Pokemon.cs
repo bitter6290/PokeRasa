@@ -110,6 +110,8 @@ public class Pokemon : ICloneable
 
     public bool HasMove(MoveID move) => move1 == move || move2 == move || move3 == move || move4 == move;
 
+    public Ability GetAbility => SpeciesData.abilities[whichAbility];
+
     public void SetTransformPP()
     {
         pp1 = 5;

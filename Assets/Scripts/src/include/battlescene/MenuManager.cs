@@ -939,7 +939,7 @@ public class MenuManager : MonoBehaviour
                             if (currentMon > 0 && currentMon <= 6)
                             {
                                 battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Select Move"));
-                                battle.StartCoroutine(MoveScreen.Create(battle.player, battle.PlayerPokemon[currentPartyMon - 1], battle));
+                                battle.StartCoroutine(SummaryScreen.Create(battle.player, battle.PlayerPokemon[currentPartyMon - 1], battle));
                             }
                         }
                         break;

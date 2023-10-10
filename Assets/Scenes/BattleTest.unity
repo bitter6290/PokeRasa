@@ -12312,6 +12312,8 @@ MonoBehaviour:
   waterSportTimer: 0
   snatch: 0
   snatchingMon: 0
+  echoedVoiceUsed: 0
+  echoedVoiceIntensity: 0
   isFutureSightTargeted: 000000000000
   doAbilityEffect: 000000000000
   oneAnnouncementDone: 0
@@ -12412,6 +12414,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -12506,7 +12509,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -12522,6 +12524,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -12554,6 +12557,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -12571,6 +12575,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -12671,6 +12676,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -12765,7 +12771,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -12781,6 +12786,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -12813,6 +12819,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -12830,6 +12837,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -12930,6 +12938,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -13024,7 +13033,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -13040,6 +13048,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -13072,6 +13081,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -13089,6 +13099,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -13189,6 +13200,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -13283,7 +13295,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -13299,6 +13310,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -13331,6 +13343,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -13348,6 +13361,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -13448,6 +13462,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -13542,7 +13557,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -13558,6 +13572,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -13590,6 +13605,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -13607,6 +13623,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -13707,6 +13724,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -13801,7 +13819,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -13817,6 +13834,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -13849,6 +13867,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -13866,6 +13885,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -16136,7 +16156,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1638.9999, y: 789}
+  m_SizeDelta: {x: 1407, y: 827}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1581459741
 GameObject:

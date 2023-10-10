@@ -4,8 +4,18 @@ using UnityEngine.UI;
 using System.Collections;
 using static MenuManager;
 
-public class MoveScreen : MonoBehaviour
+public class SummaryScreen : MonoBehaviour
 {
+    public enum ScreenState
+    {
+        MonScreen,
+        MoveScreen,
+    }
+
+    public Transform container;
+
+    //Move screen
+
     public TextMeshProUGUI moveName;
     public TextMeshProUGUI moveType;
     public RawImage moveTypeBox;
@@ -47,6 +57,19 @@ public class MoveScreen : MonoBehaviour
 
     public int selectedMove;
 
+    //Mon screen
+
+    public Image monBox;
+
+    public TextMeshProUGUI hpCurrent;
+    public TextMeshProUGUI hpMax;
+    public TextMeshProUGUI attack;
+    public TextMeshProUGUI defense;
+    public TextMeshProUGUI spAtk;
+    public TextMeshProUGUI spDef;
+    public TextMeshProUGUI speed;
+
+
     public Pokemon mon;
     public Battle battle;
     public Player player;
@@ -54,9 +77,14 @@ public class MoveScreen : MonoBehaviour
 
     public AudioClip selectionSound;
 
-    private MoveData currentData => mon.MoveIDs[selectedMove].Data();
+    private MoveData CurrentData => mon.MoveIDs[selectedMove].Data();
 
-    public static IEnumerator CloseScreen(MoveScreen screen)
+    private ScreenState state = ScreenState.MoveScreen;
+    private bool moving = false;
+
+    const int screenWidth = 1250;
+
+    public static IEnumerator CloseScreen(SummaryScreen screen)
     {
         Battle battle = null;
         if (screen.battle) battle = screen.battle;
@@ -65,14 +93,14 @@ public class MoveScreen : MonoBehaviour
         Destroy(screen.gameObject);
         yield return new WaitForSeconds(0.5F);
         yield return player.FadeFromBlack(0.3F);
-        if(battle) battle.menuOpen = false;
+        if (battle) battle.menuOpen = false;
     }
 
     public static IEnumerator Create(Player player, Pokemon mon, Battle battle = null)
     {
         yield return player.FadeToBlack(0.3F);
         GameObject screen = Instantiate(Resources.Load<GameObject>("Prefabs/Summary Screen/Move Info Screen"));
-        MoveScreen screenScript = screen.GetComponent<MoveScreen>();
+        SummaryScreen screenScript = screen.GetComponent<SummaryScreen>();
         screenScript.player = player;
         screenScript.battle = battle;
         screenScript.mon = mon;
@@ -81,15 +109,18 @@ public class MoveScreen : MonoBehaviour
         yield return player.FadeFromBlack(0.3F);
     }
 
-    public void Start()
+    public void RefreshAll()
     {
-        canvas.worldCamera = FindAnyObjectByType<Camera>();
-
         monName.text = mon.monName;
         monIcon0 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + mon.SpeciesData.graphicsLocation + "/icon"),
             new(0, 32, 32, 32), new(0.5F, 0.5F));
         monIcon1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + mon.SpeciesData.graphicsLocation + "/icon"),
             new(0, 0, 32, 32), new(0.5F, 0.5F));
+
+        Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + mon.SpeciesData.graphicsLocation + "/anim_front");
+        if (test) monBox.sprite = Sprite.Create(test, new(0, 64, 64, 64), new(0.5F, 0.5F));
+        else monBox.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + mon.SpeciesData.graphicsLocation + "/front"),
+            new(0, 0, 64, 64), new(0.5F, 0.5F));
 
         move1Box.color = mon.MoveIDs[0].Data().type.Color();
         move2Box.color = mon.MoveIDs[1].Data().type.Color();
@@ -104,6 +135,14 @@ public class MoveScreen : MonoBehaviour
         move3PP.text = LeadingZero(mon.pp3.ToString()) + " / " + LeadingZero(mon.maxPp3.ToString());
         move4PP.text = LeadingZero(mon.pp4.ToString()) + " / " + LeadingZero(mon.maxPp4.ToString());
 
+        hpCurrent.text = mon.HP.ToString();
+        hpMax.text = mon.hpMax.ToString();
+        attack.text = mon.attack.ToString();
+        defense.text = mon.defense.ToString();
+        spAtk.text = mon.spAtk.ToString();
+        spDef.text = mon.spDef.ToString();
+        speed.text = mon.speed.ToString();
+
         totalMoves = mon.Moves;
         move2Box.enabled = totalMoves > 1;
         move2Name.enabled = totalMoves > 1;
@@ -114,14 +153,21 @@ public class MoveScreen : MonoBehaviour
         move4Box.enabled = totalMoves > 3;
         move4Name.enabled = totalMoves > 3;
         move4PP.enabled = totalMoves > 3;
-        audioSource = gameObject.AddComponent<AudioSource>();
         selectedMove = 0;
-        Refresh(false);
+        RefreshMove(false);
     }
 
-    private void Refresh(bool playSound = true)
+    public void Start()
     {
-        MoveData cachedData = currentData;
+        canvas.worldCamera = FindAnyObjectByType<Camera>();
+        audioSource = gameObject.AddComponent<AudioSource>();
+
+        RefreshAll();
+    }
+
+    private void RefreshMove(bool playSound = true)
+    {
+        MoveData cachedData = CurrentData;
         moveName.text = cachedData.name.ToString();
         movePower.text = cachedData.power < 2 ? "--" : cachedData.power.ToString();
         moveAccuracy.text = cachedData.accuracy == 101 ? "--" : cachedData.accuracy.ToString();
@@ -140,31 +186,71 @@ public class MoveScreen : MonoBehaviour
         if (playSound) audioSource.PlayOneShot(selectionSound);
     }
 
+    public IEnumerator MoveToMon() //x from 0 to -1250
+    {
+        moving = true;
+        float startTime = Time.time;
+        audioSource.PlayOneShot(selectionSound);
+        while(Time.time < startTime + 0.3F)
+        {
+            container.localPosition = new(1250 * (Time.time - startTime) / 0.3F, 0);
+            yield return null;
+        }
+        container.localPosition = new(1250, 0, 0);
+        state = ScreenState.MonScreen;
+        moving = false;
+    }
+
+    public IEnumerator MonToMove() //x from -1250 to 0
+    {
+        moving = true;
+        float startTime = Time.time;
+        audioSource.PlayOneShot(selectionSound);
+        while (Time.time < startTime + 0.3F)
+        {
+            container.localPosition = new(1250 - 1250 * (Time.time - startTime) / 0.3F, 0);
+            yield return null;
+        }
+        container.localPosition = new(0, 0, 0);
+        state = ScreenState.MoveScreen;
+        moving = false;
+    }
+
     public void Update()
     {
-        monImage.sprite = Time.time % 0.36F > 0.18F ? monIcon0 : monIcon1;
-        if (Input.GetKeyDown(KeyCode.DownArrow)) switch (selectedMove)
-            {
-                case 0 when totalMoves > 1:
-                    selectedMove = 1; Refresh(); break;
-                case 1 when totalMoves > 2:
-                    selectedMove = 2; Refresh(); break;
-                case 2 when totalMoves > 3:
-                    selectedMove = 3; Refresh(); break;
-                default: break;
-            }
-        else if (Input.GetKeyDown(KeyCode.UpArrow)) switch (selectedMove)
-            {
-                case 1:
-                    selectedMove = 0; Refresh(); break;
-                case 2:
-                    selectedMove = 1; Refresh(); break;
-                case 3:
-                    selectedMove = 2; Refresh(); break;
-                default: break;
-            }
-        else if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete)) player.StartCoroutine(CloseScreen(this));
-
+        if (moving) return;
+        switch (state)
+        {
+            case ScreenState.MoveScreen:
+                monImage.sprite = Time.time % 0.36F > 0.18F ? monIcon0 : monIcon1;
+                if (Input.GetKeyDown(KeyCode.DownArrow)) switch (selectedMove)
+                    {
+                        case 0 when totalMoves > 1:
+                            selectedMove = 1; RefreshMove(); break;
+                        case 1 when totalMoves > 2:
+                            selectedMove = 2; RefreshMove(); break;
+                        case 2 when totalMoves > 3:
+                            selectedMove = 3; RefreshMove(); break;
+                        default: break;
+                    }
+                else if (Input.GetKeyDown(KeyCode.UpArrow)) switch (selectedMove)
+                    {
+                        case 1:
+                            selectedMove = 0; RefreshMove(); break;
+                        case 2:
+                            selectedMove = 1; RefreshMove(); break;
+                        case 3:
+                            selectedMove = 2; RefreshMove(); break;
+                        default: break;
+                    }
+                else if (Input.GetKeyDown(KeyCode.LeftArrow)) StartCoroutine(MoveToMon());
+                else if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete)) player.StartCoroutine(CloseScreen(this));
+                break;
+            case ScreenState.MonScreen:
+                if (Input.GetKeyDown(KeyCode.RightArrow)) StartCoroutine(MonToMove());
+                else if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.Delete)) player.StartCoroutine(CloseScreen(this));
+                break;
+        }
         
     }
 }
