@@ -1,6 +1,6 @@
 ﻿public static class NameTable
 {
-    public static string[] Ability = new string[]
+    public static string[] Ability = new string[(int)global::Ability.Count]
     {
     "None",
     "Stench",
@@ -298,11 +298,17 @@
     "Supreme Overlord",
     "Costar",
     "Toxic Debris",
+    "Armor Tail",
     "Earth Eater",
     "Mycelium Might",
+    "Hospitality",
+    "Mind's Eye",
+    "Embody Aspect",
+    "Embody Aspect",
+    "Embody Aspect",
+    "Embody Aspect",
     "Toxic Chain",
     "Supersweet Syrup",
-    "Hospitality",
     };
 
     public static string[] Stat = new string[9]

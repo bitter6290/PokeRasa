@@ -10,19 +10,6 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI hpBox;
     public Battle battle;
 
-    private string LeadingZero2(string input)
-    {
-        switch (input.Length)
-        {
-            case 1:
-                return "00" + input;
-            case 2:
-                return "0" + input;
-            default:
-                return input;
-        }
-    }
-
     // Start is called before the first frame update
     public void Start()
     {
@@ -43,8 +30,8 @@ public class UIManager : MonoBehaviour
                 if (i == 3)
                 {
                     hpBox.enabled = battle.battleType == BattleType.Single;
-                    hpBox.text = LeadingZero2(battle.PokemonOnField[3].PokemonData.HP.ToString()) + " / "
-                        + LeadingZero2(battle.PokemonOnField[3].PokemonData.hpMax.ToString());
+                    hpBox.text = battle.PokemonOnField[3].PokemonData.HP.ToString().LeadingZero2() + " / "
+                        + battle.PokemonOnField[3].PokemonData.hpMax.ToString().LeadingZero2();
                     battle.xpController.spriteRenderer.enabled = true;
                 }
             }

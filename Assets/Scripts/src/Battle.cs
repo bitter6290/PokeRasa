@@ -2221,7 +2221,7 @@ public class Battle : MonoBehaviour
         switchingMon = index;
         choseSwitchMon = false;
         menuManager.currentPartyMon = 1;
-        menuManager.menuMode = MenuMode.Party;
+        menuManager.PartyMenu();
         state = BattleState.PlayerInput;
         while (!choseSwitchMon)
         {
@@ -3278,7 +3278,7 @@ public class Battle : MonoBehaviour
                         choseSwitchMon = false;
                         yield return DoMoveAnimation(index, Moves[index]);
                         menuManager.currentPartyMon = 1;
-                        menuManager.menuMode = MenuMode.Party;
+                        menuManager.PartyMenu();
                         state = BattleState.PlayerInput;
                         while (!choseSwitchMon)
                         {
@@ -5217,7 +5217,7 @@ public class Battle : MonoBehaviour
                     switchingMon = 3;
                     choseSwitchMon = false;
                     menuManager.currentPartyMon = 1;
-                    menuManager.menuMode = MenuMode.Party;
+                    menuManager.PartyMenu();
                     state = BattleState.PlayerInput;
                     while (!choseSwitchMon)
                     {
@@ -5297,7 +5297,7 @@ public class Battle : MonoBehaviour
         }
         if (!menuManager.GetNextPokemon())
         {
-            menuManager.menuMode = MenuMode.Main;
+            menuManager.MainMenu();
             menuManager.megaEvolving = false;
             state = BattleState.PlayerInput;
         }
