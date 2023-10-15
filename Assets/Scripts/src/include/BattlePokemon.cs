@@ -354,21 +354,21 @@ public class BattlePokemon
         || CanUseMove(2) == MoveSelectOutcome.Success
         || CanUseMove(3) == MoveSelectOutcome.Success;
 
-    public void DoNonMoveDamage(int damage)
+    public IEnumerator DoNonMoveDamage(int damage)
     {
         if (damage > PokemonData.HP)
         {
             PokemonData.fainted = true;
-            PokemonData.HP = 0;
+            yield return Battle.DoDamage(PokemonData, PokemonData.HP);
         }
         else
         {
-            PokemonData.HP -= damage;
+            yield return Battle.DoDamage(PokemonData, damage);
             damagedThisTurn = true;
         }
     }
 
-    public void DoProportionalDamage(float proportion) => DoNonMoveDamage((int)(PokemonData.hpMax * proportion));
+    public IEnumerator DoProportionalDamage(float proportion) => DoNonMoveDamage((int)(PokemonData.hpMax * proportion));
 
     public int GetPP(int index)
     {

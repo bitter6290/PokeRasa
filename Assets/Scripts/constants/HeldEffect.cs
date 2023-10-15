@@ -4,6 +4,7 @@
     Flinch10,
     DeepSeaTooth,
     DeepSeaScale,
+    ProtectFromWeather,
     CritRateUp1,
     NormalPowerUp20,
     FirePowerUp20,

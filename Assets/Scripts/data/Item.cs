@@ -679,6 +679,14 @@ public static class Item
         graphicsPath = "razor_fang"
     };
 
+    public static HeldItem UtilityUmbrella = new()
+    {
+        itemName = "Utility Umbrella",
+        price = 10000,
+        heldEffect = ProtectFromWeather,
+        graphicsPath = "utility_umbrella"
+    };
+
     //Plates
 
     public static PlateItem BlankPlate = new()

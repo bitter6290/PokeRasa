@@ -98,7 +98,7 @@ public static class TypeUtils
     };
 
     public static bool WhiteText(this Type type) => type is Type.Water or
-        Type.Dark or Type.Dragon or Type.Poison;
+        Type.Dark or Type.Dragon or Type.Poison or Type.Fighting;
 
     public static Color TextColor(this Type type) => type.WhiteText() ? UnityEngine.Color.white : UnityEngine.Color.black;
 

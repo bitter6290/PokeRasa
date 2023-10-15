@@ -522,6 +522,7 @@ public enum MoveID
     Quash,
     Acrobatics,
     ReflectType,
+    Retaliate,
 
     //Nonstandard moves
 

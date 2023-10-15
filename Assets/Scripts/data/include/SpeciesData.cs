@@ -262,7 +262,7 @@ public struct SpeciesData
             }
         };
 
-    public static SpeciesData Wormadam(string graphics, 
+    public static SpeciesData Wormadam(string graphics,
         Type type2, int baseHP, int baseAttack, int baseDefense,
         int baseSpAtk, int baseSpDef, int baseSpeed,
         short evYield, int backSpriteHeight) => new()
@@ -302,74 +302,74 @@ public struct SpeciesData
     //Cherrim constructor
     public static SpeciesData Cherrim(string graphics,
         int backSpriteHeight) => new()
-    {
-        speciesName = "Cherrim",
-        type1 = Grass,
-        type2 = Grass,
-        baseHP = 70,
-        baseAttack = 60,
-        baseDefense = 70,
-        baseSpAtk = 87,
-        baseSpDef = 78,
-        baseSpeed = 85,
-        evYield = SpAtk* 2,
-        evolution = Evolution.None,
-        xpClass = MediumFast,
-        xpYield = 158,
-        learnset = EmptyLearnset, //Not done
-        malePercent = 50,
-        eggGroup1 = EggGroup.Fairy,
-        eggGroup2 = EggGroup.Grass,
-        eggCycles = 20,
-        catchRate = 75,
-        baseFriendship = 70,
-        cryLocation = "cherrim",
-        graphicsLocation = graphics,
-        backSpriteHeight = backSpriteHeight,
-        pokedexData = Pokedex.Bulbasaur,
-        abilities = new Ability[3]
         {
-            FlowerGift,
-            FlowerGift,
-            FlowerGift,
-        }
-    };
+            speciesName = "Cherrim",
+            type1 = Grass,
+            type2 = Grass,
+            baseHP = 70,
+            baseAttack = 60,
+            baseDefense = 70,
+            baseSpAtk = 87,
+            baseSpDef = 78,
+            baseSpeed = 85,
+            evYield = SpAtk* 2,
+            evolution = Evolution.None,
+            xpClass = MediumFast,
+            xpYield = 158,
+            learnset = EmptyLearnset, //Not done
+            malePercent = 50,
+            eggGroup1 = EggGroup.Fairy,
+            eggGroup2 = EggGroup.Grass,
+            eggCycles = 20,
+            catchRate = 75,
+            baseFriendship = 70,
+            cryLocation = "cherrim",
+            graphicsLocation = graphics,
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Bulbasaur,
+            abilities = new Ability[3]
+            {
+                FlowerGift,
+                FlowerGift,
+                FlowerGift,
+            }
+        };
 
     //Rotom constructor
     public static SpeciesData RotomForm(Type type2, string graphics,
         int backSpriteHeight) => new()
-    {
-        speciesName = "Rotom",
-        type1 = Electric,
-        type2 = type2,
-        baseHP = 50,
-        baseAttack = 65,
-        baseDefense = 107,
-        baseSpAtk = 105,
-        baseSpDef = 107,
-        baseSpeed = 86,
-        evYield = Speed + SpAtk,
-        evolution = Evolution.None,
-        xpClass = MediumFast,
-        xpYield = 182,
-        learnset = EmptyLearnset, //Todo: Rotom's learnset
-        malePercent = Genderless,
-        eggGroup1 = EggGroup.Amorphous,
-        eggGroup2 = EggGroup.Amorphous,
-        eggCycles = 20,
-        catchRate = 45,
-        baseFriendship = 70,
-        cryLocation = "rotom",
-        graphicsLocation = graphics,
-        backSpriteHeight = backSpriteHeight,
-        pokedexData = Pokedex.Rotom,
-        abilities = new Ability[3]
         {
-        Levitate,
-        Levitate,
-        Levitate,
-        }
-    };
+            speciesName = "Rotom",
+            type1 = Electric,
+            type2 = type2,
+            baseHP = 50,
+            baseAttack = 65,
+            baseDefense = 107,
+            baseSpAtk = 105,
+            baseSpDef = 107,
+            baseSpeed = 86,
+            evYield = Speed + SpAtk,
+            evolution = Evolution.None,
+            xpClass = MediumFast,
+            xpYield = 182,
+            learnset = EmptyLearnset, //Todo: Rotom's learnset
+            malePercent = Genderless,
+            eggGroup1 = EggGroup.Amorphous,
+            eggGroup2 = EggGroup.Amorphous,
+            eggCycles = 20,
+            catchRate = 45,
+            baseFriendship = 70,
+            cryLocation = "rotom",
+            graphicsLocation = graphics,
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Rotom,
+            abilities = new Ability[3]
+            {
+            Levitate,
+            Levitate,
+            Levitate,
+            }
+        };
 
     //Arceus constructor
     public static SpeciesData Arceus(Type type, string graphics) => new()
@@ -411,109 +411,109 @@ public struct SpeciesData
     public static SpeciesData Dialga(
         int baseAttack, int baseSpDef,
         string graphics, int backSpriteHeight) => new()
-    {
-        speciesName = "Dialga",
-        type1 = Steel,
-        type2 = Dragon,
-        baseHP = 100,
-        baseAttack = baseAttack,
-        baseDefense = 120,
-        baseSpAtk = 150,
-        baseSpDef = baseSpDef,
-        baseSpeed = 90,
-        evYield = 3 * SpAtk,
-        evolution = Evolution.None, //Not done
-        xpClass = Slow,
-        xpYield = 306,
-        learnset = EmptyLearnset, //Not done
-        malePercent = Genderless,
-        eggGroup1 = EggGroup.Undiscovered,
-        eggGroup2 = EggGroup.Undiscovered,
-        eggCycles = 120,
-        catchRate = 3,
-        baseFriendship = 0,
-        cryLocation = "dialga", //Verify
-        graphicsLocation = graphics, //Verify
-        backSpriteHeight = backSpriteHeight,
-        pokedexData = Pokedex.Bulbasaur, //Not done
-        abilities = new Ability[3]
         {
-            Pressure,
-            Pressure,
-            Telepathy,
-        },
-    };
+            speciesName = "Dialga",
+            type1 = Steel,
+            type2 = Dragon,
+            baseHP = 100,
+            baseAttack = baseAttack,
+            baseDefense = 120,
+            baseSpAtk = 150,
+            baseSpDef = baseSpDef,
+            baseSpeed = 90,
+            evYield = 3 * SpAtk,
+            evolution = Evolution.None, //Not done
+            xpClass = Slow,
+            xpYield = 306,
+            learnset = EmptyLearnset, //Not done
+            malePercent = Genderless,
+            eggGroup1 = EggGroup.Undiscovered,
+            eggGroup2 = EggGroup.Undiscovered,
+            eggCycles = 120,
+            catchRate = 3,
+            baseFriendship = 0,
+            cryLocation = "dialga", //Verify
+            graphicsLocation = graphics, //Verify
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Bulbasaur, //Not done
+            abilities = new Ability[3]
+            {
+                Pressure,
+                Pressure,
+                Telepathy,
+            },
+        };
     public static SpeciesData Palkia(
         int baseAttack, int baseSpeed,
         string graphics, int backSpriteHeight) => new()
-    {
-        speciesName = "Palkia",
-        type1 = Water,
-        type2 = Dragon,
-        baseHP = 90,
-        baseAttack = baseAttack,
-        baseDefense = 100,
-        baseSpAtk = 150,
-        baseSpDef = 120,
-        baseSpeed =  baseSpeed,
-        evYield = 3 * SpAtk,
-        evolution = Evolution.None, //Not done
-        xpClass = Slow,
-        xpYield = 306,
-        learnset = EmptyLearnset, //Not done
-        malePercent = Genderless,
-        eggGroup1 = EggGroup.Undiscovered,
-        eggGroup2 = EggGroup.Undiscovered,
-        eggCycles = 120,
-        catchRate = 3,
-        baseFriendship = 0,
-        cryLocation = "palkia", //Verify
-        graphicsLocation = graphics, //Verify
-        backSpriteHeight = backSpriteHeight,
-        pokedexData = Pokedex.Bulbasaur, //Not done
-        abilities = new Ability[3]
         {
-            Pressure,
-            Pressure,
-            Telepathy,
-        },
-    };
+            speciesName = "Palkia",
+            type1 = Water,
+            type2 = Dragon,
+            baseHP = 90,
+            baseAttack = baseAttack,
+            baseDefense = 100,
+            baseSpAtk = 150,
+            baseSpDef = 120,
+            baseSpeed =  baseSpeed,
+            evYield = 3 * SpAtk,
+            evolution = Evolution.None, //Not done
+            xpClass = Slow,
+            xpYield = 306,
+            learnset = EmptyLearnset, //Not done
+            malePercent = Genderless,
+            eggGroup1 = EggGroup.Undiscovered,
+            eggGroup2 = EggGroup.Undiscovered,
+            eggCycles = 120,
+            catchRate = 3,
+            baseFriendship = 0,
+            cryLocation = "palkia", //Verify
+            graphicsLocation = graphics, //Verify
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Bulbasaur, //Not done
+            abilities = new Ability[3]
+            {
+                Pressure,
+                Pressure,
+                Telepathy,
+            },
+        };
     public static SpeciesData Giratina(
         int baseAttack, int baseSpAtk,
         int baseDefense, int baseSpDef,
         string graphics, int backSpriteHeight) => new()
-    {
-        speciesName = "Giratina",
-        type1 = Ghost,
-        type2 = Dragon,
-        baseHP = 150,
-        baseAttack = baseAttack,
-        baseDefense = baseDefense,
-        baseSpAtk = baseSpAtk,
-        baseSpDef = baseSpDef,
-        baseSpeed = 90,
-        evYield = 3 * HP,
-        evolution = Evolution.None, //Not done
-        xpClass = Slow,
-        xpYield = 306,
-        learnset = EmptyLearnset, //Not done
-        malePercent = Genderless,
-        eggGroup1 = EggGroup.Undiscovered,
-        eggGroup2 = EggGroup.Undiscovered,
-        eggCycles = 120,
-        catchRate = 3,
-        baseFriendship = 0,
-        cryLocation = "giratina", //Verify
-        graphicsLocation = graphics, //Verify
-        backSpriteHeight = backSpriteHeight,
-        pokedexData = Pokedex.Bulbasaur, //Not done
-        abilities = new Ability[3]
         {
-            Pressure,
-            Pressure,
-            Telepathy,
-        },
-    };
+            speciesName = "Giratina",
+            type1 = Ghost,
+            type2 = Dragon,
+            baseHP = 150,
+            baseAttack = baseAttack,
+            baseDefense = baseDefense,
+            baseSpAtk = baseSpAtk,
+            baseSpDef = baseSpDef,
+            baseSpeed = 90,
+            evYield = 3 * HP,
+            evolution = Evolution.None, //Not done
+            xpClass = Slow,
+            xpYield = 306,
+            learnset = EmptyLearnset, //Not done
+            malePercent = Genderless,
+            eggGroup1 = EggGroup.Undiscovered,
+            eggGroup2 = EggGroup.Undiscovered,
+            eggCycles = 120,
+            catchRate = 3,
+            baseFriendship = 0,
+            cryLocation = "giratina", //Verify
+            graphicsLocation = graphics, //Verify
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Bulbasaur, //Not done
+            abilities = new Ability[3]
+            {
+                Pressure,
+                Pressure,
+                Telepathy,
+            },
+        };
 
     //Shaymin constructor
     public static SpeciesData Shaymin(
@@ -521,40 +521,40 @@ public struct SpeciesData
         int baseHP, int baseAttack, int baseDefense,
         int baseSpAtk, int baseSpDef, int baseSpeed,
         string cry, string graphics, int backSpriteHeight) => new()
-    {
-        speciesName = "Shaymin",
-        type1 = Grass,
-        type2 = type2,
-        baseHP = baseHP,
-        baseAttack = baseAttack,
-        baseDefense = baseDefense,
-        baseSpAtk = baseSpAtk,
-        baseSpDef = baseSpDef,
-        baseSpeed = baseSpeed,
-        evYield = 3 * HP,
-        evolution = Evolution.None, //Not done
-        xpClass = MediumSlow,
-        xpYield = 270,
-        learnset = EmptyLearnset, //Not done
-        malePercent = Genderless,
-        eggGroup1 = EggGroup.Undiscovered,
-        eggGroup2 = EggGroup.Undiscovered,
-        eggCycles = 120,
-        catchRate = 45,
-        baseFriendship = 100,
-        cryLocation = cry, //Verify
-        graphicsLocation = graphics, //Verify
-        backSpriteHeight = backSpriteHeight,
-        pokedexData = Pokedex.Bulbasaur, //Not done
-        abilities = new Ability[3]
-    {
-            ability,
-            ability,
-            ability,
-    },
-    };
+    
     //Mega constructor
-
+    {
+            speciesName = "Shaymin",
+            type1 = Grass,
+            type2 = type2,
+            baseHP = baseHP,
+            baseAttack = baseAttack,
+            baseDefense = baseDefense,
+            baseSpAtk = baseSpAtk,
+            baseSpDef = baseSpDef,
+            baseSpeed = baseSpeed,
+            evYield = 3 * HP,
+            evolution = Evolution.None, //Not done
+            xpClass = MediumSlow,
+            xpYield = 270,
+            learnset = EmptyLearnset, //Not done
+            malePercent = Genderless,
+            eggGroup1 = EggGroup.Undiscovered,
+            eggGroup2 = EggGroup.Undiscovered,
+            eggCycles = 120,
+            catchRate = 45,
+            baseFriendship = 100,
+            cryLocation = cry, //Verify
+            graphicsLocation = graphics, //Verify
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Bulbasaur, //Not done
+            abilities = new Ability[3]
+        {
+                ability,
+                ability,
+                ability,
+        },
+    };
     public static SpeciesData Mega(SpeciesData baseSpecies,
     int baseAttack, int baseDefense, int baseSpAtk, int baseSpDef, int baseSpeed,
     int backSpriteHeight, PokedexData pokedexData, Ability ability,

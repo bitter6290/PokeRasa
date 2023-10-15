@@ -21,6 +21,9 @@ public class Side
     public bool quickGuard = false;
     public bool allySwitchUsed = false;
 
+    public bool retaliateNext = false;
+    public bool retaliateNow = false;
+
     public readonly Battle battle;
     public readonly bool whichSide;
 

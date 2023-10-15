@@ -527,5 +527,5 @@ public static class MoveDesc
     public static string QuashDesc = "The user suppresses the target and makes its move go last.";
     public static string AcrobaticsDesc = "The user nimbly strikes the target. This attack does massive damage if the user isn't holding an item.";
     public static string ReflectTypeDesc = "The user reflects the target's type to become the same type as the target.";
-
+    public static string RetaliateDesc = "The user gets revenge for a fainted ally. If an ally fainted in the previous turn, this move's power is increased.";
 }

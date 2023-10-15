@@ -181,9 +181,10 @@ public enum MoveEffect : ushort
     Brine,
     Facade,
     Hex,
-    Pursuit,
-    Revenge,
     Payback,
+    Pursuit,
+    Retaliate,
+    Revenge,
     Venoshock,
     WeatherBall,
     //Moves with unique power calcs

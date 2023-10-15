@@ -7,8 +7,7 @@ using static System.Convert;
 
 public class HealthBarManager : MonoBehaviour
 {
-    public Slider healthSlider;
-    public Image healthBar;
+    public RawImage healthBar;
     [SerializeField]
     private double duration;
     [SerializeField]
@@ -21,27 +20,13 @@ public class HealthBarManager : MonoBehaviour
     public Battle battle;
     public int index;
 
-    public void SetParameters(int HP, int maxHP)
+    private Pokemon Mon => battle.PokemonOnField[index].PokemonData;
+
+    public void Update()
     {
-        healthSlider.minValue = -0.85F * maxHP;
-        healthSlider.maxValue = maxHP;
-        healthSlider.value = HP;
-        UpdateColor();
-    }
-    public void SetSpeed()
-    {
-        duration = Sqrt(Abs(healthSlider.value - battle.PokemonOnField[index].PokemonData.HP) / 4.0F);
-        interval = (float)Abs((healthSlider.value - battle.PokemonOnField[index].PokemonData.HP) / duration / 10.0F);
-        changed = true;
-    }
-    public void SnapHealth(int HP)
-    {
-        healthSlider.value = HP;
-        changed = false;
-    }
-    public void UpdateColor()
-    {
-        switch (Floor(healthSlider.value * 4 / healthSlider.maxValue))
+        wholeBar.SetActive(battle.PokemonOnField[index].exists);
+        healthBar.transform.localScale = new((float)Mon.HP / Mon.hpMax, 1, 1);
+        switch (((Mon.HP * 4) - 1) / Mon.hpMax)
         {
             case 0:
                 healthBar.color = HealthBarColors.Red;
@@ -49,38 +34,9 @@ public class HealthBarManager : MonoBehaviour
             case 1:
                 healthBar.color = HealthBarColors.Amber;
                 return;
-            case 2:
-            case 3:
-            case 4:
+            default:
                 healthBar.color = HealthBarColors.Green;
                 return;
         }
-    }
-    public void Start()
-    {
-        UpdateColor();
-    }
-    public void Update()
-    {
-        wholeBar.SetActive(battle.PokemonOnField[index].exists);
-        healthSlider.minValue = -0.85F * battle.PokemonOnField[index].PokemonData.hpMax;
-        healthSlider.maxValue = battle.PokemonOnField[index].PokemonData.hpMax;
-        if (healthSlider.value == battle.PokemonOnField[index].PokemonData.HP)
-        {
-            changed = false;
-            return;
-        }
-        else if (changed == false)
-        {
-            changed = true;
-            SetSpeed();
-        }
-        else if (Time.time > nextTime)
-        {
-            healthSlider.value = Mathf.MoveTowards(healthSlider.value, battle.PokemonOnField[index].PokemonData.HP, interval);
-            nextTime += 0.1F;
-            UpdateColor();
-        }
-
     }
 }

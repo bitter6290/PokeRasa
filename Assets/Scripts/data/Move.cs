@@ -2717,6 +2717,12 @@ public static class Move
     public static MoveData ReflectType = SingleTargetStatusMove(
         "Reflect Type", Normal, 101, 0, MoveEffect.ReflectType, 15,
         noFlag, ReflectTypeDesc); //Needs anim
+    public static MoveData Retaliate = new(
+        "Retaliate", Normal,
+        70, 100, 0,
+        MoveEffect.Retaliate, 0,
+        true, Target.Single, 5,
+        makesContact, RetaliateDesc); //Needs anim
 
 
     //Non-standard moves
@@ -3343,6 +3349,7 @@ public static class Move
         Quash,
         Acrobatics,
         ReflectType,
+        Retaliate,
 
 
         //Nonstandard moves
