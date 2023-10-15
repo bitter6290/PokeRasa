@@ -511,7 +511,7 @@ public static class BattleEffect
     {
         string faintedMonName = battle.MonNameWithPrefix(index, true);
         yield return BattleAnim.Faint(battle, index);
-        battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index > 2, index % 3, battle);
+        battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index, battle);
         yield return null;
         battle.spriteRenderer[index].maskInteraction = SpriteMaskInteraction.None;
         yield return battle.Announce(faintedMonName + " fainted!");
@@ -607,11 +607,11 @@ public static class BattleEffect
                 else
                     yield return battle.Announce(battle.OpponentName + " withdrew " + battle.MonNameWithPrefix(index, false) + "!");
             }
-            battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(false, index, battle);
+            battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index, battle);
             yield return battle.Announce(battle.OpponentName + " sent out "
                 + battle.OpponentPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
-                battle.OpponentPokemon[partyIndex], index > 2, index % 3, false, battle);
+                battle.OpponentPokemon[partyIndex], index, false, battle);
             battle.PokemonOnField[index].partyIndex = partyIndex;
             battle.HandleFacing(index);
             battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
@@ -629,10 +629,10 @@ public static class BattleEffect
                     yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "! Come back!");
             }
             battle.LeaveFieldCleanup(index);
-            battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(true, index - 3, battle);
+            battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index, battle);
             yield return battle.Announce("Go! " + battle.PlayerPokemon[partyIndex].monName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
-                            battle.PlayerPokemon[partyIndex], index > 2, index % 3, true, battle);
+                            battle.PlayerPokemon[partyIndex], index, true, battle);
             battle.PokemonOnField[index].partyIndex = partyIndex;
             battle.HandleFacing(index);
             battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
@@ -644,7 +644,7 @@ public static class BattleEffect
     public static void LeaveField(Battle battle, int index)
     {
         battle.LeaveFieldCleanup(index);
-        battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(true, index % 3, battle);
+        battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index, battle);
     }
 
     public static IEnumerator BatonPass(Battle battle, int index, int partyIndex)
@@ -692,7 +692,7 @@ public static class BattleEffect
                     battle.LeaveFieldCleanup(index);
                     battle.PokemonOnField[index] = new BattlePokemon(
                         RemainingPokemon[partyIndex],
-                        index > 2, index % 3, index > 2, battle)
+                        index, index > 2, battle)
                     {
                         done = true,
                         partyIndex = partyIndex
@@ -1232,6 +1232,28 @@ public static class BattleEffect
         }
     }
 
+    public static IEnumerator Bestow(Battle battle, int attacker, int defender)
+    {
+        BattlePokemon user = battle.PokemonOnField[attacker];
+        BattlePokemon target = battle.PokemonOnField[defender];
+        if (user.item == ItemID.None || target.item != ItemID.None)
+            yield return battle.Announce(BattleText.MoveFailed);
+        //Todo: add other failure conditions
+        if (user.item.Data().type == ItemType.Plate && user.PokemonData.SpeciesData.speciesName == "Arceus")
+        {
+            yield return battle.Announce(BattleText.MoveFailed);
+        }
+        else
+        {
+            target.PokemonData.newItem = user.item;
+            user.PokemonData.newItem = ItemID.None;
+            target.PokemonData.itemChanged = true;
+            user.PokemonData.itemChanged = true;
+            yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
+                + " gave " + battle.MonNameWithPrefix(defender, false) + " its "
+                + target.item.Data().itemName + "!");
+        }
+    }
     public static IEnumerator KnockOff(Battle battle, int attacker, int defender)
     {
         if (Item.CanBeStolen(battle.PokemonOnField[defender].PokemonData.item)
@@ -1384,46 +1406,28 @@ public static class BattleEffect
 
     public static List<Type> GetConversion2Types(Type type)
     {
-        switch (type)
+        return type switch
         {
-            case Type.Normal:
-                return new List<Type>() { Type.Rock, Type.Steel, Type.Ghost };
-            case Type.Fire:
-                return new List<Type>() { Type.Water, Type.Fire, Type.Rock, Type.Dragon };
-            case Type.Water:
-                return new List<Type>() { Type.Grass, Type.Water, Type.Dragon };
-            case Type.Grass:
-                return new List<Type>() { Type.Fire, Type.Grass, Type.Bug, Type.Flying, Type.Poison, Type.Steel, Type.Dragon };
-            case Type.Electric:
-                return new List<Type>() { Type.Electric, Type.Grass, Type.Dragon, Type.Ground };
-            case Type.Ice:
-                return new List<Type>() { Type.Fire, Type.Water, Type.Ice, Type.Steel };
-            case Type.Ground:
-                return new List<Type>() { Type.Grass, Type.Bug, Type.Flying };
-            case Type.Rock:
-                return new List<Type>() { Type.Ground, Type.Fighting, Type.Steel };
-            case Type.Fighting:
-                return new List<Type>() { Type.Psychic, Type.Flying, Type.Bug, Type.Fairy, Type.Ghost, Type.Poison };
-            case Type.Flying:
-                return new List<Type>() { Type.Rock, Type.Electric, Type.Steel };
-            case Type.Bug:
-                return new List<Type>() { Type.Fire, Type.Flying, Type.Steel, Type.Poison, Type.Fairy, Type.Fighting, Type.Ghost };
-            case Type.Poison:
-                return new List<Type>() { Type.Ground, Type.Rock, Type.Poison, Type.Steel, Type.Ghost };
-            case Type.Psychic:
-                return new List<Type>() { Type.Psychic, Type.Dark, Type.Steel };
-            case Type.Ghost:
-                return new List<Type>() { Type.Dark, Type.Normal };
-            case Type.Dragon:
-                return new List<Type>() { Type.Steel, Type.Fairy };
-            case Type.Dark:
-                return new List<Type>() { Type.Fighting, Type.Dark, Type.Fairy };
-            case Type.Steel:
-                return new List<Type>() { Type.Fire, Type.Water, Type.Electric, Type.Steel };
-            case Type.Fairy:
-                return new List<Type>() { Type.Steel, Type.Poison, Type.Fire };
-            default: return new List<Type>();
-        }
+            Type.Normal => new List<Type>() { Type.Rock, Type.Steel, Type.Ghost },
+            Type.Fire => new List<Type>() { Type.Water, Type.Fire, Type.Rock, Type.Dragon },
+            Type.Water => new List<Type>() { Type.Grass, Type.Water, Type.Dragon },
+            Type.Grass => new List<Type>() { Type.Fire, Type.Grass, Type.Bug, Type.Flying, Type.Poison, Type.Steel, Type.Dragon },
+            Type.Electric => new List<Type>() { Type.Electric, Type.Grass, Type.Dragon, Type.Ground },
+            Type.Ice => new List<Type>() { Type.Fire, Type.Water, Type.Ice, Type.Steel },
+            Type.Ground => new List<Type>() { Type.Grass, Type.Bug, Type.Flying },
+            Type.Rock => new List<Type>() { Type.Ground, Type.Fighting, Type.Steel },
+            Type.Fighting => new List<Type>() { Type.Psychic, Type.Flying, Type.Bug, Type.Fairy, Type.Ghost, Type.Poison },
+            Type.Flying => new List<Type>() { Type.Rock, Type.Electric, Type.Steel },
+            Type.Bug => new List<Type>() { Type.Fire, Type.Flying, Type.Steel, Type.Poison, Type.Fairy, Type.Fighting, Type.Ghost },
+            Type.Poison => new List<Type>() { Type.Ground, Type.Rock, Type.Poison, Type.Steel, Type.Ghost },
+            Type.Psychic => new List<Type>() { Type.Psychic, Type.Dark, Type.Steel },
+            Type.Ghost => new List<Type>() { Type.Dark, Type.Normal },
+            Type.Dragon => new List<Type>() { Type.Steel, Type.Fairy },
+            Type.Dark => new List<Type>() { Type.Fighting, Type.Dark, Type.Fairy },
+            Type.Steel => new List<Type>() { Type.Fire, Type.Water, Type.Electric, Type.Steel },
+            Type.Fairy => new List<Type>() { Type.Steel, Type.Poison, Type.Fire },
+            _ => new List<Type>(),
+        };
     }
 
     public static IEnumerator Conversion2(Battle battle, int index, int target)
@@ -1523,7 +1527,6 @@ public static class BattleEffect
 
     public static IEnumerator StartUproar(Battle battle, int index)
     {
-        BattlePokemon user = battle.PokemonOnField[index];
         yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " caused an uproar!");
         for (int i = 0; i < 6; i++)
         {
@@ -1618,13 +1621,12 @@ public static class BattleEffect
     {
         battle.StartCoroutine(battle.AbilityPopupStart(user));
         yield return battle.AbilityPopupStart(target);
-        Ability swappedAbility = battle.PokemonOnField[user].ability;
-        battle.PokemonOnField[user].ability = battle.PokemonOnField[target].ability;
-        battle.PokemonOnField[target].ability = swappedAbility;
+        (battle.PokemonOnField[target].ability, battle.PokemonOnField[user].ability) =
+            (battle.PokemonOnField[user].ability, battle.PokemonOnField[target].ability);
         battle.StartCoroutine(battle.abilityControllers[user].ChangeAbility(
             battle.PokemonOnField[user].ability.Name()));
         yield return battle.abilityControllers[target].ChangeAbility(
-            swappedAbility.Name());
+            battle.PokemonOnField[target].ability.Name());
         yield return battle.Announce(battle.MonNameWithPrefix(user, true)
            + " swapped Abilities with its target!");
         battle.StartCoroutine(battle.AbilityPopupEnd(user));
@@ -1895,7 +1897,7 @@ public static class BattleEffect
         battle.trickRoomTimer = 5;
     }
 
-    public static IEnumerator StartWonderRoom(Battle battle, int index)
+    public static IEnumerator StartWonderRoom(Battle battle)
     {
         yield return battle.Announce("It created a bizarre area in which" +
             " Defense and Sp. Defense are swapped!");
@@ -1903,7 +1905,7 @@ public static class BattleEffect
         battle.wonderRoomTimer = 5;
     }
 
-    public static IEnumerator StartMagicRoom(Battle battle, int index)
+    public static IEnumerator StartMagicRoom(Battle battle)
     {
         yield return battle.Announce("It created a bizarre area in which" +
             " held items lose their effects!");
@@ -1952,9 +1954,8 @@ public static class BattleEffect
 
     public static IEnumerator AllySwitch(Battle battle, int index, int attacker)
     {
-        BattlePokemon storeMon = battle.PokemonOnField[index];
-        battle.PokemonOnField[index] = battle.PokemonOnField[attacker];
-        battle.PokemonOnField[attacker] = storeMon;
+        (battle.PokemonOnField[attacker], battle.PokemonOnField[index]) =
+            (battle.PokemonOnField[index], battle.PokemonOnField[attacker]);
         battle.PokemonOnField[index].index = index;
         battle.PokemonOnField[attacker].index = attacker;
         yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
@@ -1977,5 +1978,27 @@ public static class BattleEffect
         yield return battle.Announce(battle.MonNameWithPrefix(user, true) +
             "'s type changed to match " + battle.MonNameWithPrefix(target, false) +
             "'s!");
+    }
+
+    public static IEnumerator MakeRainbow(Battle battle, int index)
+    {
+        yield return battle.Announce("A rainbow appeared over " +
+            (index > 2 ? "your" : "the foe's" + " Pokémon!"));
+        battle.Sides[battle.GetSide(index)].rainbow = true;
+        battle.Sides[battle.GetSide(index)].rainbowTurns = 4;
+    }
+    public static IEnumerator MakeSwamp(Battle battle, int index)
+    {
+        yield return battle.Announce("A swamp appeared around " +
+            (index > 2 ? "your" : "the foe's" + " Pokémon!"));
+        battle.Sides[battle.GetSide(index)].swamp = true;
+        battle.Sides[battle.GetSide(index)].swampTurns = 4;
+    }
+    public static IEnumerator MakeBurningField(Battle battle, int index)
+    {
+        yield return battle.Announce("A burning field surrounds " +
+            (index > 2 ? "your" : "the foe's" + " Pokémon!"));
+        battle.Sides[battle.GetSide(index)].burningField = true;
+        battle.Sides[battle.GetSide(index)].burningFieldTurns = 4;
     }
 }

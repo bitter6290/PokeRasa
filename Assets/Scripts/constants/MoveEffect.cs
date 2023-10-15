@@ -69,6 +69,7 @@ public enum MoveEffect : ushort
     //Other status moves
     AfterYou,
     Attract,
+    Bestow,
     Curse,
     Defog,
     Disable,
@@ -150,6 +151,7 @@ public enum MoveEffect : ushort
     EchoedVoice,
     Endeavor,
     FalseSwipe,
+    FinalGambit,
     Fling,
     FuryCutter,
     FutureSight,
@@ -213,6 +215,10 @@ public enum MoveEffect : ushort
     FocusPunchAttack,
     SkyDrop,
     SkyDropHit,
+    Pledge,
+    Rainbow,
+    Swamp,
+    BurningField,
     //Field effects
     Gravity,
     Haze,
@@ -285,6 +291,7 @@ public static class MoveEffectUtils
     public static bool IsStatusMove(this MoveEffect effect)
         => effect is Paralyze or Freeze or Burn or Sleep or Poison or Toxic
         or TriAttack;
+
     public static bool IsShieldDustAffected(this MoveEffect effect)
     {
         return effect.IsStatusMove() || effect.IsStatDrop()

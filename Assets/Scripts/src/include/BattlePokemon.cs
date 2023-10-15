@@ -34,8 +34,8 @@ public class BattlePokemon
     public int defenseOverride;
     public int spDefOverride;
 
-    public bool side;
-    public int position;
+    public bool side => index >= 3;
+    public int position => index % 3;
     public int index;
 
     public int turnOnField;
@@ -282,13 +282,12 @@ public class BattlePokemon
         + Max(0, evasionStage)
         + Max(0, accuracyStage);
 
-    public BattlePokemon(Pokemon pokemonData, bool side, int position, bool player, Battle battle, bool exists = true)
+    public BattlePokemon(Pokemon pokemonData, int index, bool player, Battle battle, bool exists = true)
     {
         pokemonData.onField = true;
         PokemonData = pokemonData;
         this.exists = exists;
-        this.side = side;
-        this.position = position;
+        this.index = index;
         this.player = player;
         ability = Species.SpeciesTable[(int)pokemonData.species].abilities[pokemonData.whichAbility];
         this.battle = battle;
@@ -453,10 +452,10 @@ public class BattlePokemon
 
     public int BaseSpeed => isTransformed ? transformedMon.speed : PokemonData.speed;
 
-    public static BattlePokemon MakeEmptyBattleMon(bool side, int position, Battle battle)
+    public static BattlePokemon MakeEmptyBattleMon(int index, Battle battle)
     {
         Pokemon emptyMon = Pokemon.MakeEmptyMon;
-        return new BattlePokemon(emptyMon, side, position, false, battle, false);
+        return new BattlePokemon(emptyMon, index, false, battle, false);
     }
 
     public StatStruct MakeStatStruct()

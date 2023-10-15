@@ -528,4 +528,11 @@ public static class MoveDesc
     public static string AcrobaticsDesc = "The user nimbly strikes the target. This attack does massive damage if the user isn't holding an item.";
     public static string ReflectTypeDesc = "The user reflects the target's type to become the same type as the target.";
     public static string RetaliateDesc = "The user gets revenge for a fainted ally. If an ally fainted in the previous turn, this move's power is increased.";
+    public static string FinalGambitDesc = "The user risks everything to attack the target. The user faints but inflicts damage equal to its own HP.";
+    public static string BestowDesc = "The user passes its held item to the target when the target isn't holding an item.";
+    public static string InfernoDesc = "The user attacks by engulfing the target in an intense fire. This leaves the target with a burn.";
+    public static string WaterPledgeDesc = "A column of water hits the target. When used with its fire counterpart, this move's power is boosted and a rainbow appears.";
+    public static string FirePledgeDesc = "A column of fire hits the target. When used with its grass counterpart, this move's power is boosted and a vast sea of fire appears.";
+    public static string GrassPledgeDesc = "A column of grass hits the target. When used with its water counterpart, this move's power is boosted and a vast swamp appears.";
+
 }

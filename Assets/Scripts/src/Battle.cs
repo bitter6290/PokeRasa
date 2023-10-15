@@ -169,6 +169,21 @@ public class Battle : MonoBehaviour
         }
     }
 
+    private bool AlliesWillPledge(int index)
+    {
+        Pledge userPledge = PledgeFromMove(Moves[index]);
+        for (int i = index / 3 * 3; i < index / 3 * 3 + 3; i++)
+        {
+            if(i != index && !PokemonOnField[i].done &&
+                PledgeFromMove(Moves[i]) is not Pledge.None
+                && PledgeFromMove(Moves[i]) != userPledge)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private bool OpponentLost
     {
         get
@@ -699,6 +714,7 @@ public class Battle : MonoBehaviour
             default: break;
         }
         if (Sides[index / 3].tailwind) speed <<= 1;
+        if (Sides[index / 3].swamp) speed >>= 2;
         if (trickRoom) speed = 10000 - speed;
         if (HasAbility(index, Stall)) speed -= 32768;
         if (HasAbility(index, MyceliumMight) && GetMove(index).power == 0) speed -= 32768;
@@ -1059,6 +1075,8 @@ public class Battle : MonoBehaviour
         effectivePower = Max(1, effectivePower);
         float critical = isCritical ? CritModifier(attacker.index) : 1.0F;
         float stab = attacker.HasType(effectiveType) ? StabModifier(attacker.index) : 1.0F;
+        if (move is MoveID.RainbowPledge or MoveID.SwampPledge or MoveID.BurningFieldPledge)
+            stab = StabModifier(attacker.index);
         float multitarget = isMultiTarget ? 0.75F : 1.0F;
         float helpingHand = Mathf.Pow(1.5f, attacker.helpingHand);
         float effectiveAttack = move.Data().physical ?
@@ -1716,6 +1734,8 @@ public class Battle : MonoBehaviour
                             case Incinerate or KnockOff or Trick or Thief when
                                 HasAbility(i, StickyHold):
                             case Thief when PokemonOnField[attacker].item != ItemID.None:
+                            case Bestow when PokemonOnField[attacker].item == ItemID.None:
+                            case Bestow when PokemonOnField[i].item != ItemID.None:
                             case ReflectType when target.IsTypeless:
                                 continue;
                             case FutureSight:
@@ -1746,7 +1766,8 @@ public class Battle : MonoBehaviour
                                 goto default;
                             default:
                                 if (random.NextDouble() * 100.0F
-                                    <= move.Data().effectChance * (HasAbility(attacker, SereneGrace) ? 2 : 1))
+                                    <= move.Data().effectChance * (HasAbility(attacker, SereneGrace) ? 2 : 1)
+                                    * (Sides[GetSide(attacker)].rainbow ? 2 : 1))
                                 {
                                     //Debug.Log(i + "got effect");
                                     target.gotMoveEffect = true;
@@ -2012,6 +2033,8 @@ public class Battle : MonoBehaviour
                         damage = 40; break;
                     case DirectLevel:
                         damage = attackingMon.PokemonData.level; break;
+                    case FinalGambit:
+                        damage = attackingMon.PokemonData.HP; break;
                     case Counter:
                         damage = attackingMon.damageTaken << 1; break;
                     case MetalBurst:
@@ -2699,6 +2722,43 @@ public class Battle : MonoBehaviour
         }
     }
 
+    private Pledge PledgeFromMove(MoveID move) => move switch
+    {
+        MoveID.GrassPledge => Pledge.Grass,
+        MoveID.FirePledge => Pledge.Fire,
+        MoveID.WaterPledge => Pledge.Water,
+        _ => Pledge.None
+    };
+
+
+    private (bool, MoveID) GetPledge(int index)
+    {
+        Pledge user = PledgeFromMove(Moves[index]);
+        Pledge previous = Sides[GetSide(index)].currentPledge;
+        return user switch
+        {
+            Pledge.Water => previous switch
+            {
+                Pledge.Fire => (true, MoveID.RainbowPledge),
+                Pledge.Grass => (true, MoveID.SwampPledge),
+                _ => (false, Moves[index])
+            },
+            Pledge.Fire => previous switch
+            {
+                Pledge.Water => (true, MoveID.RainbowPledge),
+                Pledge.Grass => (true, MoveID.BurningFieldPledge),
+                _ => (false, Moves[index]),
+            },
+            Pledge.Grass => previous switch
+            {
+                Pledge.Water => (true, MoveID.SwampPledge),
+                Pledge.Fire => (true, MoveID.BurningFieldPledge),
+                _ => (false, Moves[index]),
+            },
+            _ => (false, Moves[index])
+        };
+    }
+
     public IEnumerator HandleToxicSpikes(int index, bool bad)
     {
         if (PokemonOnField[index].HasType(Type.Poison))
@@ -2986,6 +3046,27 @@ public class Battle : MonoBehaviour
 
         switch (GetMove(index).effect)
         {
+            case MoveEffect.Pledge when Sides[GetSide(index)].currentPledge != Pledge.None:
+                bool announceCombinedMove;
+                (announceCombinedMove, Moves[index]) = GetPledge(index);
+                if (announceCombinedMove)
+                {
+                    yield return Announce("The two moves have combined into one!");
+                }
+                break;
+            case MoveEffect.Pledge when AlliesWillPledge(index):
+                yield return Announce(MonNameWithPrefix(index, true) +
+                    " waits for its partner's move!");
+                Sides[GetSide(index)].currentPledge = Moves[index] switch
+                {
+                    MoveID.GrassPledge => Pledge.Grass,
+                    MoveID.FirePledge => Pledge.Fire,
+                    MoveID.WaterPledge => Pledge.Water,
+                    _ => Pledge.None,
+                };
+                user.done = true;
+                MoveCleanup();
+                yield break;
             case MirrorMove:
                 user.dontCheckPP = true;
                 Moves[index] = user.lastTargetedMove;
@@ -3230,7 +3311,7 @@ public class Battle : MonoBehaviour
                     user.uproarTimer = 0;
                 }
                 break;
-            case SelfDestruct:
+            case SelfDestruct or FinalGambit:
                 yield return DoFatalDamage(index);
                 user.PokemonData.fainted = true;
                 goto default;
@@ -3853,7 +3934,7 @@ public class Battle : MonoBehaviour
                 yield return ProcessFaintingSingle(index);
                 yield return ProcessBerries(index, false);
                 break;
-            case SelfDestruct or Memento:
+            case SelfDestruct or Memento or FinalGambit:
                 yield return ProcessFaintingSingle(index);
                 break;
             case SpitUp:
@@ -4149,6 +4230,9 @@ public class Battle : MonoBehaviour
                 break;
             case Trick:
                 yield return BattleEffect.SwitchItems(this, attacker, index);
+                break;
+            case Bestow:
+                yield return BattleEffect.Bestow(this, attacker, index);
                 break;
             case RolePlay:
                 yield return BattleEffect.RolePlay(this, attacker, index);
@@ -4866,10 +4950,19 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.StartTrickRoom(this, index);
                 break;
             case WonderRoom:
-                yield return BattleEffect.StartWonderRoom(this, index);
+                yield return BattleEffect.StartWonderRoom(this);
                 break;
             case MagicRoom:
-                yield return BattleEffect.StartMagicRoom(this, index);
+                yield return BattleEffect.StartMagicRoom(this);
+                break;
+            case Rainbow:
+                yield return BattleEffect.MakeRainbow(this, index);
+                break;
+            case Swamp:
+                yield return BattleEffect.MakeSwamp(this, index);
+                break;
+            case BurningField:
+                yield return BattleEffect.MakeBurningField(this, index);
                 break;
             case Hit:
             default:
@@ -5161,6 +5254,52 @@ public class Battle : MonoBehaviour
                         + " Lucky Chant wore off!");
                 }
             }
+            if (Sides[i].burningField)
+            {
+                Sides[i].burningFieldTurns--;
+                if (Sides[i].burningFieldTurns <= 0)
+                {
+                    Sides[i].burningField = false;
+                    yield return Announce("The burning field around "
+                        + (i == 0 ? "the foe's Pokémon" : "your Pokémon")
+                        + " wore off!");
+                }
+                else
+                {
+                    foreach (BattlePokemon mon in Sides[i].Mons)
+                    {
+                        if (mon.exists && !mon.HasType(Type.Fire))
+                        {
+                            yield return mon.DoProportionalDamage(0.125F);
+                            yield return Announce(MonNameWithPrefix(mon.index, true)
+                                + " is hurt by the burning field!");
+                            yield return ProcessFaintingSingle(mon.index);
+                        }
+                    }
+                }
+            }
+            if (Sides[i].rainbow)
+            {
+                Sides[i].rainbowTurns--;
+                if (Sides[i].rainbowTurns <= 0)
+                {
+                    Sides[i].rainbow = false;
+                    yield return Announce("The rainbow above " +
+                        (i == 0 ? "the foes'" : "your") +
+                        " Pokémon disappeared!");
+                }
+            }
+            if (Sides[i].swamp)
+            {
+                Sides[i].swampTurns--;
+                if (Sides[i].swampTurns <= 0)
+                {
+                    Sides[i].swamp = false;
+                    yield return Announce("The swamp around " +
+                        (i == 0 ? "the foes'" : "your") +
+                        " Pokémon disappeared!");
+                }
+            }
         }
         if (mudSport)
             if (mudSportTimer-- <= 1)
@@ -5305,6 +5444,7 @@ public class Battle : MonoBehaviour
             side.quickGuard = false;
             side.retaliateNow = side.retaliateNext;
             side.retaliateNext = false;
+            side.currentPledge = Pledge.None;
         }
         if (!menuManager.GetNextPokemon())
         {
@@ -5360,12 +5500,12 @@ public class Battle : MonoBehaviour
         menuOpen = false;
         PokemonOnField = new BattlePokemon[6]
         {
-            BattlePokemon.MakeEmptyBattleMon(false,0,this),
-            BattlePokemon.MakeEmptyBattleMon(false,1,this),
-            BattlePokemon.MakeEmptyBattleMon(false,2,this),
-            BattlePokemon.MakeEmptyBattleMon(true,0,this),
-            BattlePokemon.MakeEmptyBattleMon(true,1,this),
-            BattlePokemon.MakeEmptyBattleMon(true,2,this),
+            BattlePokemon.MakeEmptyBattleMon(0,this),
+            BattlePokemon.MakeEmptyBattleMon(1,this),
+            BattlePokemon.MakeEmptyBattleMon(2,this),
+            BattlePokemon.MakeEmptyBattleMon(3,this),
+            BattlePokemon.MakeEmptyBattleMon(4,this),
+            BattlePokemon.MakeEmptyBattleMon(5,this),
         };
         Sides = new Side[2]
         {
@@ -5400,7 +5540,7 @@ public class Battle : MonoBehaviour
             }
             if (wildBattle)
             {
-                PokemonOnField[0] = new BattlePokemon(OpponentPokemon[0], false, 0, false, this);
+                PokemonOnField[0] = new BattlePokemon(OpponentPokemon[0], 0, false, this);
                 yield return Announce("A wild " + PokemonOnField[0].PokemonData.monName + " appeared!");
             }
             else
@@ -5426,11 +5566,11 @@ public class Battle : MonoBehaviour
             {
                 case false:
                     yield return Announce(OpponentName + " sent out " + pokemonData.monName + "!");
-                    PokemonOnField[index] = new BattlePokemon(pokemonData, index > 2, index % 3, false, this);
+                    PokemonOnField[index] = new BattlePokemon(pokemonData, index, false, this);
                     break;
                 case true:
                     yield return Announce("Go! " + pokemonData.monName + "!");
-                    PokemonOnField[index] = new BattlePokemon(pokemonData, index > 2, index % 3, true, this);
+                    PokemonOnField[index] = new BattlePokemon(pokemonData, index, true, this);
                     break;
             }
             audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"

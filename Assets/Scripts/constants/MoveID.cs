@@ -523,6 +523,12 @@ public enum MoveID
     Acrobatics,
     ReflectType,
     Retaliate,
+    FinalGambit,
+    Bestow,
+    Inferno,
+    WaterPledge,
+    FirePledge,
+    GrassPledge,
 
     //Nonstandard moves
 
@@ -541,6 +547,9 @@ public enum MoveID
     BounceAttack,
     ShadowForceAttack,
     SkyDropAttack,
+    RainbowPledge,
+    SwampPledge,
+    BurningFieldPledge,
 
     Count,
 

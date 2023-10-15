@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Side
 {
     public bool lightScreen = false;
@@ -21,11 +23,34 @@ public class Side
     public bool quickGuard = false;
     public bool allySwitchUsed = false;
 
+    //Pledge effects
+    public bool rainbow = false;
+    public int rainbowTurns = 0;
+    public bool swamp = false;
+    public int swampTurns = 0;
+    public bool burningField = false;
+    public int burningFieldTurns = 0;
+    public Pledge currentPledge = Pledge.None;
+
     public bool retaliateNext = false;
     public bool retaliateNow = false;
 
     public readonly Battle battle;
     public readonly bool whichSide;
+
+    public List<BattlePokemon> Mons =>
+        whichSide ? new()
+        {
+            battle.PokemonOnField[3],
+            battle.PokemonOnField[4],
+            battle.PokemonOnField[5],
+        }
+        : new()
+        {
+            battle.PokemonOnField[0],
+            battle.PokemonOnField[1],
+            battle.PokemonOnField[2],
+        };
 
     public Side(bool side, Battle battle)
     {

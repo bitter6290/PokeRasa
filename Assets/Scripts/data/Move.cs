@@ -1,6 +1,3 @@
-using System.Reflection;
-using System.Threading;
-using UnityEngine;
 using static Type;
 using static MoveData;
 using static MoveFlags;
@@ -2723,6 +2720,39 @@ public static class Move
         MoveEffect.Retaliate, 0,
         true, Target.Single, 5,
         makesContact, RetaliateDesc); //Needs anim
+    public static MoveData FinalGambit = new(
+        "Final Gambit", Fighting,
+        1, 100, 0,
+        MoveEffect.FinalGambit, 0,
+        false, Target.Single, 5,
+        noFlag, FinalGambitDesc); //Needs anim
+    public static MoveData Bestow = SingleTargetStatusMove(
+        "Bestow", Normal, 101, 0, MoveEffect.Bestow, 15, noFlag, BestowDesc); //Needs anim
+    public static MoveData Inferno = new(
+        "Inferno", Fire,
+        100, 50, 0,
+        MoveEffect.Burn, 100,
+        false, Target.Single, 5,
+        noFlag, InfernoDesc); //Needs anim
+    public static MoveData WaterPledge = new(
+        "Water Pledge", Water,
+        80, 100, 0,
+        MoveEffect.Pledge, 0,
+        false, Target.Single, 10,
+        noFlag, WaterPledgeDesc); //Needs anim
+    public static MoveData FirePledge = new(
+        "Fire Pledge", Fire,
+        80, 100, 0,
+        MoveEffect.Pledge, 0,
+        false, Target.Single, 10,
+        noFlag, FirePledgeDesc); //Needs anim
+    public static MoveData GrassPledge = new(
+        "Grass Pledge", Grass,
+        80, 100, 0,
+        MoveEffect.Pledge, 0,
+        false, Target.Single, 10,
+        noFlag, GrassPledgeDesc); //Needs anim
+    //Todo: Test Pledge moves once double battles are working
 
 
     //Non-standard moves
@@ -2815,13 +2845,31 @@ public static class Move
         60, 100, 0,
         MoveEffect.SkyDropHit, 0,
         true, Target.Single, 10,
-        makesContact, InvalidMove);
+        makesContact, InvalidMove); //Needs anim
+    public static MoveData RainbowPledge = new(
+        "Water Pledge", Water,
+        150, 100, 0,
+        MoveEffect.Rainbow, 100,
+        false, Target.Single, 10,
+        effectOnSelfOnly, InvalidMove); //Needs anim
+    public static MoveData SwampPledge = new(
+        "Grass Pledge", Grass,
+        150, 100, 0,
+        MoveEffect.Swamp, 100,
+        false, Target.Single, 10,
+        noFlag, InvalidMove); //Needs anim
+    public static MoveData BurningFieldPledge = new(
+        "Fire Pledge", Fire,
+        150, 100, 0,
+        MoveEffect.BurningField, 100,
+        false, Target.Single, 10,
+        noFlag, InvalidMove); //Needs anim
     public static MoveData Struggle = new(
         "Struggle", Typeless,
         50, 100, 0,
         MoveEffect.Recoil25Max, 100,
         true, Target.Single, 0,
-        cannotMimic, StruggleDesc); //Meeds anim
+        cannotMimic, StruggleDesc);
 
 
     public static MoveData[] MoveTable = new MoveData[(int)MoveID.Count] {
@@ -3350,6 +3398,12 @@ public static class Move
         Acrobatics,
         ReflectType,
         Retaliate,
+        FinalGambit,
+        Bestow,
+        Inferno,
+        WaterPledge,
+        FirePledge,
+        GrassPledge,
 
 
         //Nonstandard moves
@@ -3369,5 +3423,8 @@ public static class Move
         BounceAttack,
         ShadowForceAttack,
         SkyDropAttack,
+        RainbowPledge,
+        SwampPledge,
+        BurningFieldPledge,
     };
 }
