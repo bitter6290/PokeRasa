@@ -675,7 +675,7 @@ public static class BattleEffect
                 Pokemon[] PokemonArray = index < 3 ? battle.OpponentPokemon : battle.PlayerPokemon;
                 for (int i = 0; i < 6; i++)
                 {
-                    if (PokemonArray[i] == battle.PokemonOnField[index].PokemonData) { continue; }
+                    if (PokemonArray[i] == battle.PokemonOnField[index].PokemonData) continue;
                     if (PokemonArray[i].exists
                             && !PokemonArray[i].fainted)
                     {
@@ -684,7 +684,8 @@ public static class BattleEffect
                 }
                 if (RemainingPokemon.Count == 0)
                 {
-                    yield return battle.Announce(BattleText.MoveFailed);
+                    if (battle.ShowFailure)
+                        yield return battle.Announce(BattleText.MoveFailed);
                 }
                 else
                 {

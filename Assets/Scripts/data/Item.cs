@@ -916,6 +916,34 @@ public static class Item
         graphicsPath = "oval_stone"
     };
 
+    public static AbstractItem ShockDrive = new()
+    {
+        itemName = "Shock Drive",
+        price = 100000,
+        graphicsPath = "shock_drive"
+    };
+
+    public static AbstractItem BurnDrive = new()
+    {
+        itemName = "Burn Drive",
+        price = 100000,
+        graphicsPath = "burn_drive"
+    };
+
+    public static AbstractItem ChillDrive = new()
+    {
+        itemName = "Chill Drive",
+        price = 100000,
+        graphicsPath = "chill_drive"
+    };
+
+    public static AbstractItem DouseDrive = new()
+    {
+        itemName = "Douse Drive",
+        price = 100000,
+        graphicsPath = "douse_drive"
+    };
+
     //Mega stones
 
     public static MegaStone Venusaurite = new()
@@ -1442,6 +1470,10 @@ public static class Item
         Magmarizer,
         DubiousDisk,
         OvalStone,
+        ShockDrive,
+        BurnDrive,
+        ChillDrive,
+        DouseDrive,
         //Mega stones
         Venusaurite,
         CharizarditeX,

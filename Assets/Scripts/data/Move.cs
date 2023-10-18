@@ -2753,6 +2753,234 @@ public static class Move
         false, Target.Single, 10,
         noFlag, GrassPledgeDesc); //Needs anim
     //Todo: Test Pledge moves once double battles are working
+    public static MoveData VoltSwitch = new(
+        "Volt Switch", Electric,
+        70, 100, 0,
+        MoveEffect.SwitchHit, 100,
+        false, Target.Single, 20,
+        noFlag, VoltSwitchDesc); //Needs anim
+    public static MoveData StruggleBug = new(
+        "Struggle Bug", Bug,
+        50, 100, 0,
+        MoveEffect.SpAtkDown1, 101,
+        false, Target.Opponent + Target.Spread, 20,
+        noFlag, StruggleBugDesc); //Needs anim
+    public static MoveData Bulldoze = new(
+        "Bulldoze", Ground,
+        60, 100, 0,
+        MoveEffect.SpeedDown1, 101,
+        true, Target.Surrounding, 20,
+        noFlag, BulldozeDesc); //Needs anim
+    public static MoveData FrostBreath = new(
+        "Frost Breath", Ice,
+        60, 90, 0,
+        MoveEffect.AlwaysCrit, 0,
+        false, Target.Single, 10,
+        noFlag, FrostBreathDesc); //Needs anim
+    public static MoveData DragonTail = new(
+        "Dragon Tail", Dragon,
+        60, 90, -6,
+        MoveEffect.ForcedSwitch, 101,
+        true, Target.Single, 10,
+        makesContact, DragonTailDesc); //Needs anim
+    public static MoveData WorkUp = SelfTargetingMove(
+        "Work Up", Normal, 0, MoveEffect.AttackSpAtkUp1, 30,
+        snatchAffected, WorkUpDesc); //Needs anim
+    public static MoveData Electroweb = new(
+        "Electroweb", Electric,
+        55, 95, 0,
+        MoveEffect.SpeedDown1, 101,
+        false, Target.Opponent + Target.Spread, 15,
+        noFlag, ElectrowebDesc); //Needs anim
+    public static MoveData WildCharge = new(
+        "Wild Charge", Electric,
+        90, 100, 0,
+        MoveEffect.Recoil25, 101,
+        true, Target.Single, 15,
+        makesContact, WildChargeDesc); //Needs anim
+    public static MoveData DrillRun = new(
+        "Drill Run", Ground,
+        80, 95, 0,
+        MoveEffect.Hit, 0,
+        true, Target.Single, 10,
+        makesContact + highCrit, DrillRunDesc); //Needs anim
+    public static MoveData DualChop = new(
+        "Dual Chop", Dragon,
+        40, 90, 0,
+        MoveEffect.MultiHit2, 0,
+        true, Target.Single, 15,
+        makesContact, DualChopDesc); //Needs anim
+    public static MoveData HeartStamp = new(
+        "Heart Stamp", Type.Psychic,
+        60, 100, 0,
+        MoveEffect.Flinch, 30,
+        true, Target.Single, 25,
+        makesContact, HeartStampDesc); //Needs anim
+    public static MoveData HornLeech = new(
+        "Horn Leech", Grass,
+        75, 100, 0,
+        MoveEffect.Absorb50, 100,
+        true, Target.Single, 10,
+        makesContact + healBlockAffected, HornLeechDesc); //Needs anim
+    public static MoveData SacredSword = new(
+        "Sacred Sword", Fighting,
+        90, 100, 0,
+        MoveEffect.IgnoreDefenseStage, 0,
+        true, Target.Single, 15,
+        makesContact + sharpnessBoosted, SacredSwordDesc); //Needs anim
+    public static MoveData RazorShell = new(
+        "Razor Shell", Water,
+        75, 95, 0,
+        MoveEffect.DefenseDown1, 50,
+        true, Target.Single, 10,
+        makesContact + sharpnessBoosted, RazorShellDesc); //Needs anim
+    public static MoveData HeatCrash = new(
+        "Heat Crash", Fire,
+        1, 100, 0,
+        MoveEffect.RelativeWeightPower, 0,
+        true, Target.Single, 10,
+        makesContact, HeatCrashDesc); //Needs anim
+    public static MoveData LeafTornado = new(
+        "Leaf Tornado", Grass,
+        65, 90, 0,
+        MoveEffect.AccuracyDown1, 50,
+        false, Target.Single, 10,
+        noFlag, LeafTornadoDesc); //Needs anim
+    public static MoveData Steamroller = new(
+        "Steamroller", Bug,
+        65, 100, 0,
+        MoveEffect.Flinch, 30,
+        true, Target.Single, 20,
+        makesContact, SteamrollerDesc); //Needs anim
+    public static MoveData CottonGuard = SelfTargetingMove(
+        "Cotton Guard", Grass, 0, MoveEffect.DefenseUp3, 10,
+        snatchAffected, CottonGuardDesc); //Needs anim
+    public static MoveData NightDaze = new(
+        "Night Daze", Dark,
+        85, 95, 0,
+        MoveEffect.AccuracyDown1, 40,
+        false, Target.Single, 10,
+        noFlag, NightDazeDesc); //Needs anim
+    public static MoveData Psystrike = new(
+        "Psystrike", Type.Psychic,
+        100, 100, 0,
+        MoveEffect.Psyshock, 0,
+        false, Target.Single, 10,
+        noFlag, PsystrikeDesc); //Needs anim
+    public static MoveData TailSlap = new(
+        "Tail Slap", Normal,
+        25, 85, 0,
+        MoveEffect.MultiHit2to5, 0,
+        true, Target.Single, 10,
+        makesContact, TailSlapDesc); //Needs anim
+    public static MoveData Hurricane = new(
+        "Hurricane", Flying,
+        110, 70, 0,
+        MoveEffect.Confuse, 30,
+        false, Target.Single + Target.Ranged, 10,
+        alwaysHitsInRain, HurricaneDesc); //Needs anim
+    public static MoveData HeadCharge = new(
+        "Head Charge", Normal,
+        120, 100, 0,
+        MoveEffect.Recoil25, 0,
+        true, Target.Single, 15,
+        makesContact, HeadChargeDesc); //Needs anim
+    public static MoveData GearGrind = new(
+        "Gear Grind", Steel,
+        50, 85, 0,
+        MoveEffect.MultiHit2, 0,
+        true, Target.Single, 15,
+        makesContact, GearGrindDesc); //Needs anim
+    public static MoveData SearingShot = new(
+        "Searing Shot", Fire,
+        100, 100, 0,
+        MoveEffect.Burn, 30,
+        false, Target.Single, 5,
+        bulletMove, SearingShotDesc); //Needs anim
+    public static MoveData TechnoBlast = new(
+        "Techno Blast", Normal,
+        120, 100, 0,
+        MoveEffect.TechnoBlast, 0,
+        false, Target.Single, 5,
+        noFlag, TechnoBlastDesc); //Needs anim
+    public static MoveData RelicSong = new(
+        "Relic Song", Normal,
+        75, 100, 0,
+        MoveEffect.Sleep, 10,
+        false, Target.Opponent + Target.Spread, 10,
+        soundMove, RelicSongDesc); //Needs anim; Todo: Meloetta's form change
+    public static MoveData SecretSword = new(
+        "Secret Sword", Fighting,
+        85, 100, 0,
+        MoveEffect.Psyshock, 0,
+        false, Target.Single, 10,
+        noFlag, SecretSwordDesc); //Needs anim; Todo: Keldeo's form change
+    public static MoveData Glaciate = new(
+        "Glaciate", Ice,
+        65, 95, 0,
+        MoveEffect.SpeedDown1, 101,
+        false, Target.Opponent + Target.Spread, 10,
+        noFlag, GlaciateDesc); //Needs anim
+    public static MoveData BoltStrike = new(
+        "Bolt Strike", Electric,
+        130, 85, 0,
+        MoveEffect.Paralyze, 20,
+        true, Target.Single, 5,
+        makesContact, BoltStrikeDesc); //Needs anim
+    public static MoveData BlueFlare = new(
+        "Blue Flare", Fire,
+        130, 85, 0,
+        MoveEffect.Burn, 20,
+        false, Target.Single, 5,
+        noFlag, BlueFlareDesc); //Needs anim
+    public static MoveData FieryDance = new(
+        "Fiery Dance", Fire,
+        80, 100, 0,
+        MoveEffect.SpAtkUp1, 50,
+        false, Target.Single, 10,
+        effectOnSelfOnly, FieryDanceDesc); //Needs anim
+    public static MoveData FreezeShock = new(
+        "Freeze Shock", Ice,
+        140, 90, 0,
+        MoveEffect.ChargingAttack, 0,
+        true, Target.Single, 5,
+        noFlag, FreezeShockDesc); //Needs anim
+    public static MoveData IceBurn = new(
+        "Ice Burn", Ice,
+        140, 90, 0,
+        MoveEffect.ChargingAttack, 0,
+        false, Target.Single, 5,
+        noFlag, IceBurnDesc); //Needs anim
+    public static MoveData Snarl = new(
+        "Snarl", Dark,
+        55, 95, 0,
+        MoveEffect.SpAtkDown1, 101,
+        false, Target.Opponent + Target.Spread, 15,
+        soundMove, SnarlDesc); //Needs anim
+    public static MoveData IcicleCrash = new(
+        "Icicle Crash", Ice,
+        85, 90, 0,
+        MoveEffect.Flinch, 30,
+        true, Target.Single, 10,
+        noFlag, IcicleCrashDesc); //Needs anim
+    public static MoveData VCreate = new(
+        "V-Create", Fire,
+        180, 95, 0,
+        MoveEffect.DefSpDefSpeedDown1, 101,
+        true, Target.Single, 5,
+        effectOnSelfOnly + makesContact, VCreateDesc); //Needs anim
+    public static MoveData FusionFlare = new(
+        "Fusion Flare", Fire,
+        100, 100, 0,
+        MoveEffect.FusionFlare, 0,
+        false, Target.Single, 5,
+        noFlag, FusionFlareDesc); //Needs anims (with check for Fusion Bolt)
+    public static MoveData FusionBolt = new(
+        "Fusion Bolt", Electric,
+        100, 100, 0,
+        MoveEffect.FusionBolt, 0,
+        true, Target.Single, 5,
+        noFlag, FusionBoltDesc); //Needs anims (with check for Fusion Flare)
 
 
     //Non-standard moves
@@ -2863,6 +3091,18 @@ public static class Move
         150, 100, 0,
         MoveEffect.BurningField, 100,
         false, Target.Single, 10,
+        noFlag, InvalidMove); //Needs anim
+    public static MoveData FreezeShockAttack = new(
+        "Freeze Shock", Ice,
+        140, 90, 0,
+        MoveEffect.Paralyze, 30,
+        true, Target.Single, 5,
+        noFlag, InvalidMove); //Needs anim
+    public static MoveData IceBurnAttack = new(
+        "Ice Burn", Ice,
+        140, 90, 0,
+        MoveEffect.Burn, 30,
+        false, Target.Single, 5,
         noFlag, InvalidMove); //Needs anim
     public static MoveData Struggle = new(
         "Struggle", Typeless,
@@ -3404,7 +3644,40 @@ public static class Move
         WaterPledge,
         FirePledge,
         GrassPledge,
-
+        VoltSwitch,
+        StruggleBug,
+        Bulldoze,
+        FrostBreath,
+        DragonTail,
+        WorkUp,
+        Electroweb,
+        WildCharge,
+        DrillRun,
+        DualChop,
+        HeartStamp,
+        HornLeech,
+        SacredSword,
+        RazorShell,
+        HeatCrash,
+        LeafTornado,
+        Steamroller,
+        CottonGuard,
+        NightDaze,
+        Psystrike,
+        TailSlap,
+        Hurricane,
+        HeadCharge,
+        GearGrind,
+        SearingShot,
+        TechnoBlast,
+        RelicSong,
+        SecretSword,
+        Glaciate,
+        BoltStrike,
+        BlueFlare,
+        FieryDance,
+        FreezeShock,
+        IceBurn,
 
         //Nonstandard moves
 
@@ -3426,5 +3699,7 @@ public static class Move
         RainbowPledge,
         SwampPledge,
         BurningFieldPledge,
+        FreezeShockAttack,
+        IceBurnAttack,
     };
 }

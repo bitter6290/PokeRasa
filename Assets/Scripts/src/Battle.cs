@@ -598,7 +598,16 @@ public class Battle : MonoBehaviour
                 }
                 break;
             case Judgement:
-                return EffectiveItem(index).PlateType();
+                effectiveType = EffectiveItem(index).PlateType(); break;
+            case TechnoBlast:
+                effectiveType =  EffectiveItem(index) switch
+                {
+                    ShockDrive => Type.Electric,
+                    BurnDrive => Type.Fire,
+                    ChillDrive => Type.Ice,
+                    DouseDrive => Type.Water,
+                    _ => Type.Normal
+                }; break;
             default: break;
         }
         switch (EffectiveAbility(index))
@@ -1023,6 +1032,8 @@ public class Battle : MonoBehaviour
             case Acrobatics when attacker.item == ItemID.None:
             case Retaliate when Sides[attacker.side ? 1 : 0].retaliateNow
                     || Sides[attacker.side ? 1 : 0].retaliateNext:
+            case FusionBolt when lastMoveUsed.Data().effect == FusionFlare:
+            case FusionFlare when lastMoveUsed.Data().effect == FusionBolt:
                 effectivePower <<= 1;
                 break;
             case KnockOff when Item.CanBeStolen(defender.item):
@@ -1716,7 +1727,7 @@ public class Battle : MonoBehaviour
                         {
                             case ForcedSwitch when HasAbility(i, SuctionCups):
                                 abilityEffects.Enqueue((i, i, SuctionCups));
-                                break;
+                                continue;
                             case ForcedSwitch when target.ingrained:
                             case PerishSong when HasAbility(i, Soundproof):
                             case DestinyBond when PokemonOnField[attacker].cannotUseDestinyBondAgain:
@@ -3496,6 +3507,18 @@ public class Battle : MonoBehaviour
                         yield return Announce(MonNameWithPrefix(index, true)
                             + " vanished instantly!");
                         break;
+                    case MoveID.FreezeShock:
+                        user.lockedInNextTurn = true;
+                        user.lockedInMove = MoveID.FreezeShockAttack;
+                        yield return Announce(MonNameWithPrefix(index, true)
+                            + " became cloaked in a freezing light!");
+                        break;
+                    case MoveID.IceBurn:
+                        user.lockedInNextTurn = true;
+                        user.lockedInMove = MoveID.IceBurnAttack;
+                        yield return Announce(MonNameWithPrefix(index, true)
+                            + " became cloaked in a freezing light!");
+                        break;
                     default:
                         break;
                 }
@@ -4334,6 +4357,9 @@ public class Battle : MonoBehaviour
             case DefenseUp2:
                 yield return BattleEffect.StatUp(this, index, Stat.Defense, 2, attacker);
                 break;
+            case DefenseUp3:
+                yield return BattleEffect.StatUp(this, index, Stat.Defense, 3, attacker);
+                break;
             case SpAtkUp1:
                 yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
                 break;
@@ -4443,6 +4469,10 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
                 yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker);
                 break;
+            case AttackSpAtkUp1:
+                yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
+                yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
+                break;
             case AttackSpeedUp1:
                 yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
                 yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
@@ -4480,6 +4510,11 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
                 yield return BattleEffect.StatUp(this, index, Stat.SpDef, 1, attacker);
                 yield return BattleEffect.StatUp(this, index, Stat.Speed, 1, attacker);
+                break;
+            case DefSpDefSpeedDown1:
+                yield return BattleEffect.StatDown(this, index, Stat.Defense, 1, attacker);
+                yield return BattleEffect.StatDown(this, index, Stat.SpDef, 1, attacker);
+                yield return BattleEffect.StatDown(this, index, Stat.Speed, 1, attacker);
                 break;
             case ShellSmash:
                 yield return BattleEffect.StatDown(this, index, Stat.Defense, 1, attacker);

@@ -117,6 +117,10 @@
     Magmarizer,
     DubiousDisk,
     OvalStone,
+    ShockDrive,
+    BurnDrive,
+    ChillDrive,
+    DouseDrive,
     //Mega stones
     Venusaurite,
     CharizarditeX,
