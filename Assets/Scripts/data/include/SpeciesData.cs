@@ -8,7 +8,7 @@ using static Ability;
 using static Learnset;
 
 
-public struct SpeciesData
+public class SpeciesData
 {
     public const int Genderless = 255;
 
@@ -312,7 +312,7 @@ public struct SpeciesData
             baseSpAtk = 87,
             baseSpDef = 78,
             baseSpeed = 85,
-            evYield = SpAtk* 2,
+            evYield = SpAtk * 2,
             evolution = Evolution.None,
             xpClass = MediumFast,
             xpYield = 158,
@@ -455,7 +455,7 @@ public struct SpeciesData
             baseDefense = 100,
             baseSpAtk = 150,
             baseSpDef = 120,
-            baseSpeed =  baseSpeed,
+            baseSpeed = baseSpeed,
             evYield = 3 * SpAtk,
             evolution = Evolution.None, //Not done
             xpClass = Slow,
@@ -521,9 +521,7 @@ public struct SpeciesData
         int baseHP, int baseAttack, int baseDefense,
         int baseSpAtk, int baseSpDef, int baseSpeed,
         string cry, string graphics, int backSpriteHeight) => new()
-    
-    //Mega constructor
-    {
+        {
             speciesName = "Shaymin",
             type1 = Grass,
             type2 = type2,
@@ -549,12 +547,193 @@ public struct SpeciesData
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Bulbasaur, //Not done
             abilities = new Ability[3]
+            {
+                ability,
+                ability,
+                ability,
+            },
+        };
+
+    //Basculin constructor
+
+    public static SpeciesData Basculin(string graphics, Ability firstAbility,
+        EvolutionData[] evolution) => new()
+    {
+        speciesName = "Basculin",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 70,
+        baseAttack = 92,
+        baseDefense = 65,
+        baseSpAtk = 80,
+        baseSpDef = 55,
+        baseSpeed = 98,
+        evYield = 2 * Speed,
+        evolution = evolution, //Not done
+        xpClass = MediumFast,
+        xpYield = 161,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water2,
+        eggGroup2 = EggGroup.Water2,
+        eggCycles = 40,
+        catchRate = 25,
+        baseFriendship = 70,
+        cryLocation = "basculin", //Verify
+        graphicsLocation = graphics,
+        backSpriteHeight = 16, //Not done
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
         {
-                ability,
-                ability,
-                ability,
+            firstAbility,
+            Adaptability,
+            MoldBreaker,
         },
     };
+
+    //Deerling constructor
+    public static SpeciesData Deerling(string graphics, EvolutionData[] evolution) => new()
+    {
+        speciesName = "Deerling",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 60,
+        baseAttack = 60,
+        baseDefense = 50,
+        baseSpAtk = 40,
+        baseSpDef = 50,
+        baseSpeed = 75,
+        evYield = Speed,
+        evolution = evolution,
+        xpClass = MediumFast,
+        xpYield = 67,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "deerling",
+        graphicsLocation = graphics,
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Chlorophyll,
+            SapSipper,
+            SereneGrace,
+        }
+    };
+
+    //Sawsbuck constructor
+    public static SpeciesData Sawsbuck(string graphics) => new()
+    {
+        speciesName = "Sawsbuck",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 80,
+        baseAttack = 100,
+        baseDefense = 70,
+        baseSpAtk = 60,
+        baseSpDef = 70,
+        baseSpeed = 95,
+        evYield = Attack * 2,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 166,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "sawsbuck",
+        graphicsLocation = graphics,
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Chlorophyll,
+            SapSipper,
+            SereneGrace
+        }
+    };
+
+    //Keldeo constructor
+    public static SpeciesData Keldeo(string graphics) => new()
+    {
+        speciesName = "Keldeo",
+        type1 = Water,
+        type2 = Fighting,
+        baseHP = 91,
+        baseAttack = 72,
+        baseDefense = 90,
+        baseSpAtk = 129,
+        baseSpDef = 90,
+        baseSpeed = 108,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None, //Not done
+        xpClass = Slow,
+        xpYield = 261,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 80,
+        catchRate = 3,
+        baseFriendship = 35,
+        cryLocation = "keldeo", //Verify
+        graphicsLocation = graphics, //Verify
+        backSpriteHeight = 0, //Not done
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Justified,
+            Justified,
+            Justified,
+        },
+    };
+
+    //Genesect constructor
+    public static SpeciesData Genesect(string graphics) => new()
+    {
+        speciesName = "Genesect",
+        type1 = Bug,
+        type2 = Steel,
+        baseHP = 71,
+        baseAttack = 120,
+        baseDefense = 95,
+        baseSpAtk = 120,
+        baseSpDef = 95,
+        baseSpeed = 99,
+        evYield = Attack + SpAtk + Speed,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "genesect",
+        graphicsLocation = graphics,
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            Download,
+            Download,
+            Download
+        }
+    };
+
+
+    //Mega constructor
+
     public static SpeciesData Mega(SpeciesData baseSpecies,
     int baseAttack, int baseDefense, int baseSpAtk, int baseSpDef, int baseSpeed,
     int backSpriteHeight, PokedexData pokedexData, Ability ability,

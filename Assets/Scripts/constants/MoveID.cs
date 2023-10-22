@@ -563,6 +563,11 @@ public enum MoveID
     FieryDance,
     FreezeShock,
     IceBurn,
+    Snarl,
+    IcicleCrash,
+    VCreate,
+    FusionFlare,
+    FusionBolt,
 
     //Nonstandard moves
 

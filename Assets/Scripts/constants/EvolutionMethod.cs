@@ -10,6 +10,7 @@ public enum EvolutionMethod
     ItemMaleOnly,
     Trade,
     TradeItem,
+    TradeForMon,
     Friendship,
     FriendshipDay,
     FriendshipNight,

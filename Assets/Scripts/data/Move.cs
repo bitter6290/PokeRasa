@@ -3678,6 +3678,11 @@ public static class Move
         FieryDance,
         FreezeShock,
         IceBurn,
+        Snarl,
+        IcicleCrash,
+        VCreate,
+        FusionFlare,
+        FusionBolt,
 
         //Nonstandard moves
 
