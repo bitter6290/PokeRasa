@@ -599,38 +599,38 @@ public class SpeciesData
 
     public static SpeciesData Basculin(string graphics, Ability firstAbility,
         EvolutionData[] evolution) => new()
-    {
-        speciesName = "Basculin",
-        type1 = Water,
-        type2 = Water,
-        baseHP = 70,
-        baseAttack = 92,
-        baseDefense = 65,
-        baseSpAtk = 80,
-        baseSpDef = 55,
-        baseSpeed = 98,
-        evYield = 2 * Speed,
-        evolution = evolution, //Not done
-        xpClass = MediumFast,
-        xpYield = 161,
-        learnset = EmptyLearnset, //Not done
-        malePercent = 50,
-        eggGroup1 = EggGroup.Water2,
-        eggGroup2 = EggGroup.Water2,
-        eggCycles = 40,
-        catchRate = 25,
-        baseFriendship = 70,
-        cryLocation = "basculin", //Verify
-        graphicsLocation = graphics,
-        backSpriteHeight = 16, //Not done
-        pokedexData = Pokedex.Basculin, //Not done
-        abilities = new Ability[3]
         {
-            firstAbility,
-            Adaptability,
-            MoldBreaker,
-        },
-    };
+            speciesName = "Basculin",
+            type1 = Water,
+            type2 = Water,
+            baseHP = 70,
+            baseAttack = 92,
+            baseDefense = 65,
+            baseSpAtk = 80,
+            baseSpDef = 55,
+            baseSpeed = 98,
+            evYield = 2 * Speed,
+            evolution = evolution, //Not done
+            xpClass = MediumFast,
+            xpYield = 161,
+            learnset = EmptyLearnset, //Not done
+            malePercent = 50,
+            eggGroup1 = EggGroup.Water2,
+            eggGroup2 = EggGroup.Water2,
+            eggCycles = 40,
+            catchRate = 25,
+            baseFriendship = 70,
+            cryLocation = "basculin", //Verify
+            graphicsLocation = graphics,
+            backSpriteHeight = 16, //Not done
+            pokedexData = Pokedex.Basculin, //Not done
+            abilities = new Ability[3]
+            {
+                firstAbility,
+                Adaptability,
+                MoldBreaker,
+            },
+        };
 
     //Deerling constructor
     public static SpeciesData Deerling(string graphics, EvolutionData[] evolution) => new()

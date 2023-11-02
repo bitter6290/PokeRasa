@@ -7,7 +7,7 @@ public static class TriggeredTileAnim
     public static IEnumerator TallGrassShake(Vector2Int pos, LoadedChar c)
     {
         GameObject grassAnim = new();
-        grassAnim.transform.position = new(pos.x,pos.y);
+        grassAnim.transform.position = new(pos.x, pos.y);
         SpriteRenderer renderer = grassAnim.AddComponent<SpriteRenderer>();
         renderer.sortingOrder = -2;
         for (int i = 1; i <= 4; i++)
@@ -16,7 +16,7 @@ public static class TriggeredTileAnim
             yield return new WaitForSeconds(0.2F);
         }
         renderer.sprite = Sprite.Create(tallGrassShake, new Rect(0, 0, 16, 16), Vector2.zero, 16);
-        while(c.pos == pos)
+        while (c.pos == pos)
         {
             yield return null;
         }
