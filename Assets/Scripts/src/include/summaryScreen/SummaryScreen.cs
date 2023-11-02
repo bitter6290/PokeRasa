@@ -100,6 +100,9 @@ public class SummaryScreen : MonoBehaviour
     public Color goodNature;
     public Color badNature;
 
+    public TextMeshProUGUI itemName;
+    public Image itemSprite;
+
 
     public int index;
     private Pokemon mon => player.Party[index];
@@ -198,6 +201,19 @@ public class SummaryScreen : MonoBehaviour
 
         abilityName.text = mon.GetAbility.Name();
         abilityDesc.text = mon.GetAbility.Description();
+
+        if (mon.CurrentItem is not ItemID.None)
+        {
+            itemSprite.enabled = true;
+            itemName.text = mon.CurrentItem.Data().itemName;
+            itemSprite.sprite = mon.CurrentItem.Sprite();
+        }
+        else
+        {
+            itemSprite.enabled = false;
+            itemName.text = "No Item";
+        }
+
 
         moveScreenName.text = mon.monName;
         monIcon0 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + mon.SpeciesData.graphicsLocation + "/icon"),

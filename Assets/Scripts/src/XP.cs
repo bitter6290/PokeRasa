@@ -23,7 +23,7 @@ public static class XP
     }
     public static int MediumSlowXP(int level)
     {
-        return (Max(0, (level * (100 + (level * ((6 * level / 5) - 15)))) - 140));
+        return (Max(0, (int)(level * (100 + (level * ((level * 1.2F) - 15)))) - 140));
     }
     public static int SlowXP(int level)
     {

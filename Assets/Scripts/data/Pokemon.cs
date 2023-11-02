@@ -69,6 +69,8 @@ public class Pokemon : ICloneable
     public bool itemChanged;
     public ItemID newItem;
 
+    public ItemID CurrentItem => itemChanged ? newItem : item;
+
     public bool onField = false;
     public int lastIndex = 0;
 
