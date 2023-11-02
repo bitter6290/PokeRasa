@@ -6,7 +6,7 @@ using static Type;
 using static XPClass;
 using static Ability;
 using static Learnset;
-
+using UnityEngine;
 
 public class SpeciesData
 {
@@ -46,11 +46,52 @@ public class SpeciesData
     public string graphicsLocation;
     public int backSpriteHeight;
 
-    //Todo: add egg groups
+    public bool genderDifferences = false;
 
     public PokedexData pokedexData;
 
     public Ability[] abilities;
+
+
+    public Sprite BackSprite => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/back"),
+        new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+
+    public Sprite FrontSprite1
+    {
+        get
+        {
+            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/anim_front");
+            if (test == null)
+            {
+                return Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/front"),
+                    new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+            }
+            else
+            {
+                return Sprite.Create(test, new Rect(0.0f, 64.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+            }
+        }
+    }
+
+    public Sprite FrontSprite2
+    {
+        get
+        {
+            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/anim_front");
+            if (test == null)
+            {
+                return Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/front"),
+                    new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+            }
+            else
+            {
+                return Sprite.Create(test, new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+            }
+        }
+    }
+
+    public Sprite Icon => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
+        new Rect(0.0f, 0.0f, 16.0f, 16.0f), new Vector2(0.5f, 0.5f), 64.0f);
 
     //Unown constructor
     public static SpeciesData Unown(string path, int backSpriteHeight) => new()
@@ -78,7 +119,7 @@ public class SpeciesData
         cryLocation = "unown",
         graphicsLocation = path,
         backSpriteHeight = backSpriteHeight,
-        pokedexData = Pokedex.Unown, //Not done
+        pokedexData = Pokedex.Unown,
         abilities = new Ability[3]
         {
             Levitate,
@@ -113,7 +154,7 @@ public class SpeciesData
         cryLocation = "castform",
         graphicsLocation = path,
         backSpriteHeight = backSpriteHeight,
-        pokedexData = Pokedex.Castform, //Not done
+        pokedexData = Pokedex.Castform,
         abilities = new Ability[3]
         {
             Forecast,
@@ -149,7 +190,7 @@ public class SpeciesData
             cryLocation = "deoxys",
             graphicsLocation = graphics,
             backSpriteHeight = backSpriteHeight,
-            pokedexData = Pokedex.Deoxys, //Not done
+            pokedexData = Pokedex.Deoxys,
             abilities = new Ability[3]
             {
                 Pressure,
@@ -290,7 +331,7 @@ public class SpeciesData
             cryLocation = "wormadam", //Verify
             graphicsLocation = graphics, //Verify
             backSpriteHeight = backSpriteHeight,
-            pokedexData = Pokedex.Wormadam, //Not done
+            pokedexData = Pokedex.Wormadam,
             abilities = new Ability[3]
             {
                 Anticipation,
@@ -326,7 +367,7 @@ public class SpeciesData
             cryLocation = "cherrim",
             graphicsLocation = graphics,
             backSpriteHeight = backSpriteHeight,
-            pokedexData = Pokedex.Bulbasaur,
+            pokedexData = Pokedex.Cherrim,
             abilities = new Ability[3]
             {
                 FlowerGift,
@@ -397,7 +438,7 @@ public class SpeciesData
         cryLocation = "arceus", //Verify
         graphicsLocation = graphics, //Verify
         backSpriteHeight = 3,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Arceus,
         abilities = new Ability[3]
         {
             Multitype,
@@ -435,7 +476,7 @@ public class SpeciesData
             cryLocation = "dialga", //Verify
             graphicsLocation = graphics, //Verify
             backSpriteHeight = backSpriteHeight,
-            pokedexData = Pokedex.Bulbasaur, //Not done
+            pokedexData = Pokedex.Dialga,
             abilities = new Ability[3]
             {
                 Pressure,
@@ -470,7 +511,7 @@ public class SpeciesData
             cryLocation = "palkia", //Verify
             graphicsLocation = graphics, //Verify
             backSpriteHeight = backSpriteHeight,
-            pokedexData = Pokedex.Bulbasaur, //Not done
+            pokedexData = Pokedex.Palkia,
             abilities = new Ability[3]
             {
                 Pressure,
@@ -506,7 +547,7 @@ public class SpeciesData
             cryLocation = "giratina", //Verify
             graphicsLocation = graphics, //Verify
             backSpriteHeight = backSpriteHeight,
-            pokedexData = Pokedex.Bulbasaur, //Not done
+            pokedexData = Pokedex.Giratina,
             abilities = new Ability[3]
             {
                 Pressure,
@@ -545,7 +586,7 @@ public class SpeciesData
             cryLocation = cry, //Verify
             graphicsLocation = graphics, //Verify
             backSpriteHeight = backSpriteHeight,
-            pokedexData = Pokedex.Bulbasaur, //Not done
+            pokedexData = Pokedex.Shaymin,
             abilities = new Ability[3]
             {
                 ability,
@@ -582,7 +623,7 @@ public class SpeciesData
         cryLocation = "basculin", //Verify
         graphicsLocation = graphics,
         backSpriteHeight = 16, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Basculin, //Not done
         abilities = new Ability[3]
         {
             firstAbility,
@@ -617,7 +658,7 @@ public class SpeciesData
         cryLocation = "deerling",
         graphicsLocation = graphics,
         backSpriteHeight = 9,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Deerling, //Not done
         abilities = new Ability[3]
         {
             Chlorophyll,
@@ -652,7 +693,7 @@ public class SpeciesData
         cryLocation = "sawsbuck",
         graphicsLocation = graphics,
         backSpriteHeight = 5,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Sawsbuck, //Not done
         abilities = new Ability[3]
         {
             Chlorophyll,
@@ -687,7 +728,7 @@ public class SpeciesData
         cryLocation = "keldeo", //Verify
         graphicsLocation = graphics, //Verify
         backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Keldeo, //Not done
         abilities = new Ability[3]
         {
             Justified,
@@ -722,7 +763,7 @@ public class SpeciesData
         cryLocation = "genesect",
         graphicsLocation = graphics,
         backSpriteHeight = 8,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Genesect,
         abilities = new Ability[3]
         {
             Download,
@@ -771,4 +812,7 @@ public class SpeciesData
                  ability,
          }
      };
+
+    public static SpeciesData[] SingleSpecies(SpeciesData species) =>
+        new SpeciesData[1] { species };
 }

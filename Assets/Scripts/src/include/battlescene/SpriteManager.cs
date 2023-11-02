@@ -18,6 +18,7 @@ public class SpriteManager : MonoBehaviour
 
     public Battle battle;
     public int index;
+    public BattlePokemon TrackedMon => battle.PokemonOnField[index];
 
     private float basePosition;
 
@@ -33,16 +34,19 @@ public class SpriteManager : MonoBehaviour
     {
         if (isBack)
         {
-            Sprite1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation + "/back"),
+            Sprite1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation +
+                (TrackedMon.PokemonData.UsesFemaleSprites ? "/backf" : "/back")),
                 new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
             hasSecondFrame = false;
         }
         else
         {
-            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation + "/anim_front");
+            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation +
+                (TrackedMon.PokemonData.UsesFemaleSprites ? "/anim_frontf" : "/anim_front"));
             if (test == null)
             {
-                Sprite1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation + "/front"),
+                Sprite1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation +
+                    (TrackedMon.PokemonData.UsesFemaleSprites ? "/frontf" : "/front")),
                     new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
                 hasSecondFrame = false;
             }
@@ -68,12 +72,12 @@ public class SpriteManager : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (currentMon != battle.PokemonOnField[index].apparentSpecies)
+        if (currentMon != TrackedMon.apparentSpecies)
         {
-            currentMon = battle.PokemonOnField[index].apparentSpecies;
+            currentMon = TrackedMon.apparentSpecies;
             updateSpecies();
         }
         sprite.sprite = hasSecondFrame && secondFrame ? Sprite2 : Sprite1;
-        sprite.enabled = battle.PokemonOnField[index].exists;
+        sprite.enabled = TrackedMon.exists;
     }
 }

@@ -1,9 +1,11 @@
 ﻿public struct PokedexData
 {
-    public int pokedexNumber;
-    public string pokedexName;
-    public string pokedexEntry;
+    public int number;
+    public string name;
+    public string entry;
+    public string category;
     //Todo: add form tables for regional/mega/other forms
     public int weight; //in g
     public int height; //in cm
+    public SpeciesData[] forms;
 }

@@ -758,8 +758,11 @@ public enum SpeciesID
 
     KyuremWhite,
     KyuremBlack,
+
     KeldeoResolute,
+
     MeloettaPirouette,
+
     GenesectDouse,
     GenesectShock,
     GenesectBurn,

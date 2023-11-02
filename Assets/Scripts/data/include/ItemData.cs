@@ -276,4 +276,7 @@ public static class ItemUtils
     }
 
     public static ItemData Data(this ItemID item) => Item.ItemTable[(int)item];
+    public static Sprite Sprite(this ItemID item) => UnityEngine.Sprite.Create(
+        Resources.Load<Texture2D>("Sprites/Items/" + item.Data().graphicsPath),
+        new(0F, 0F, 24F, 24F), new(0.5F, 0.5F));
 }

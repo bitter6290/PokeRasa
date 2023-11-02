@@ -150,7 +150,7 @@ public class SummaryScreen : MonoBehaviour
             new(0, 0, 64, 64), new(0.5F, 0.5F));
 
         monScreenName.text = mon.monName;
-        speciesText.text = mon.SpeciesData.pokedexData.pokedexNumber.ToString().LeadingZero2() + " / " + mon.SpeciesData.speciesName;
+        speciesText.text = mon.SpeciesData.pokedexData.number.ToString().LeadingZero2() + " / " + mon.SpeciesData.speciesName;
 
         type1Box.color = mon.SpeciesData.type1.Color();
         type1.text = mon.SpeciesData.type1.Name();

@@ -1351,6 +1351,15 @@ public static class Item
         graphicsPath = "galladite"
     };
 
+    public static MegaStone Audinite = new()
+    {
+        itemName = "Audinite",
+        price = 40000,
+        originalSpecies = Audino,
+        destinationSpecies = AudinoMega,
+        graphicsPath = "audinite"
+    };
+
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
     {
         None,
@@ -1520,6 +1529,7 @@ public static class Item
         Lucarionite,
         Abomasite,
         Galladite,
+        Audinite
     };
 }
 

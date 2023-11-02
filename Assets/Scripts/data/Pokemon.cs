@@ -85,6 +85,8 @@ public class Pokemon : ICloneable
 
     public bool checkEvolution;
 
+    public bool UsesFemaleSprites => SpeciesData.genderDifferences && gender == Gender.Female;
+
 
 
     public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?

@@ -167,6 +167,7 @@
     Lucarionite,
     Abomasite,
     Galladite,
+    Audinite,
 
     Count,
 }
