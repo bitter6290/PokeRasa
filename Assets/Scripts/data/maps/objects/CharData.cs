@@ -4,7 +4,7 @@ using UnityEngine;
 public delegate void ObjectMovement(LoadedChar loadedChar);
 public delegate bool SeeCondition(Player p);
 
-public abstract class CharData
+public abstract class CharData : ScriptableObject
 {
     public int index;
     public MapData map;
@@ -19,14 +19,14 @@ public abstract class CharData
     public bool hasSeeScript = false;
     public int sightRadius;
 
-    public ScriptDomain scriptDomain;
+    public CharScripts charScripts;
 
-    public CharScript OnInteract => AllScripts.CharScripts[scriptDomain][index].OnInteract;
-    public SeeCondition SeeCheck => AllScripts.CharScripts[scriptDomain][index].SeeCheck;
-    public CharScript OnSee => AllScripts.CharScripts[scriptDomain][index].OnSee;
-    public CharScript OnWin => AllScripts.CharScripts[scriptDomain][index].OnWin;
+    public CharScript OnInteract => charScripts.OnInteract;
+    public SeeCondition SeeCheck => charScripts.SeeCheck;
+    public CharScript OnSee => charScripts.OnSee;
+    public CharScript OnWin => charScripts.OnWin;
 
-    public ObjectMovement GetMovement => AllScripts.CharScripts[scriptDomain][index].GetMovement;
+    public ObjectMovement GetMovement => charScripts.GetMovement;
 
     public bool IsLoaded(Player p)
     {

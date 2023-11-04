@@ -172,7 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7788cd816d50e4107843de3e443f1e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 1721390855}
   healthBar: {fileID: 1829995854}
   duration: 0
   interval: 0
@@ -301,6 +300,7 @@ MonoBehaviour:
   currentHeight: 0
   moveTarget: {x: 0, y: 0}
   facing: 0
+  charData: {fileID: 0}
   hasCollision: 0
   moving: 0
   active: 0
@@ -1661,7 +1661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7788cd816d50e4107843de3e443f1e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 533688501}
   healthBar: {fileID: 391295356}
   duration: 0
   interval: 0
@@ -1719,11 +1718,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 533688500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.015029073, y: -0.04670626}
-  m_SizeDelta: {x: -1.3744466, y: 0.87321866}
-  m_Pivot: {x: 0.49104697, y: 0.4465059}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0.68994707, y: 0.000005751848}
+  m_SizeDelta: {x: 1.6255534, y: 0.062488675}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &391295355
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1741,7 +1740,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 391295353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1752,16 +1751,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &434466010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,7 +2136,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 533688500}
-  - component: {fileID: 533688501}
   m_Layer: 0
   m_Name: HPBarPlayer
   m_TagString: Untagged
@@ -2170,57 +2165,6 @@ RectTransform:
   m_AnchoredPosition: {x: 356.64, y: -51.71559}
   m_SizeDelta: {x: 3, y: -0.81073}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &533688501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533688499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 0
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 0
-  m_TargetGraphic: {fileID: 0}
-  m_FillRect: {fileID: 391295354}
-  m_HandleRect: {fileID: 0}
-  m_Direction: 0
-  m_MinValue: -85
-  m_MaxValue: 100
-  m_WholeNumbers: 0
-  m_Value: 100
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &537078158
 GameObject:
   m_ObjectHideFlags: 0
@@ -14450,7 +14394,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1721390854}
-  - component: {fileID: 1721390855}
   m_Layer: 0
   m_Name: HPBarOpponent
   m_TagString: Untagged
@@ -14480,57 +14423,6 @@ RectTransform:
   m_AnchoredPosition: {x: -160.516, y: 196.519}
   m_SizeDelta: {x: 3, y: -0.81073}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1721390855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1721390853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 0
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 0
-  m_TargetGraphic: {fileID: 0}
-  m_FillRect: {fileID: 1829995852}
-  m_HandleRect: {fileID: 0}
-  m_Direction: 0
-  m_MinValue: -85
-  m_MaxValue: 100
-  m_WholeNumbers: 0
-  m_Value: 100
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1740102754
 GameObject:
   m_ObjectHideFlags: 0
@@ -15737,6 +15629,8 @@ MonoBehaviour:
   waterSportTimer: 0
   snatch: 0
   snatchingMon: 0
+  echoedVoiceUsed: 0
+  echoedVoiceIntensity: 0
   isFutureSightTargeted: 000000000000
   doAbilityEffect: 000000000000
   oneAnnouncementDone: 0
@@ -15805,8 +15699,6 @@ MonoBehaviour:
     overrideDefenses: 0
     defenseOverride: 0
     spDefOverride: 0
-    side: 0
-    position: 0
     index: 0
     turnOnField: 0
     exists: 0
@@ -15837,6 +15729,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -15931,7 +15824,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -15947,6 +15839,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -15979,6 +15872,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -15996,6 +15890,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -16064,8 +15959,6 @@ MonoBehaviour:
     overrideDefenses: 0
     defenseOverride: 0
     spDefOverride: 0
-    side: 0
-    position: 1
     index: 0
     turnOnField: 0
     exists: 0
@@ -16096,6 +15989,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -16190,7 +16084,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -16206,6 +16099,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -16238,6 +16132,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -16255,6 +16150,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -16323,8 +16219,6 @@ MonoBehaviour:
     overrideDefenses: 0
     defenseOverride: 0
     spDefOverride: 0
-    side: 0
-    position: 2
     index: 0
     turnOnField: 0
     exists: 0
@@ -16355,6 +16249,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -16449,7 +16344,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -16465,6 +16359,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -16497,6 +16392,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -16514,6 +16410,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -16582,8 +16479,6 @@ MonoBehaviour:
     overrideDefenses: 0
     defenseOverride: 0
     spDefOverride: 0
-    side: 1
-    position: 0
     index: 0
     turnOnField: 0
     exists: 0
@@ -16614,6 +16509,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -16708,7 +16604,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -16724,6 +16619,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -16756,6 +16652,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -16773,6 +16670,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -16841,8 +16739,6 @@ MonoBehaviour:
     overrideDefenses: 0
     defenseOverride: 0
     spDefOverride: 0
-    side: 1
-    position: 1
     index: 0
     turnOnField: 0
     exists: 0
@@ -16873,6 +16769,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -16967,7 +16864,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -16983,6 +16879,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -17015,6 +16912,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -17032,6 +16930,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -17100,8 +16999,6 @@ MonoBehaviour:
     overrideDefenses: 0
     defenseOverride: 0
     spDefOverride: 0
-    side: 1
-    position: 2
     index: 0
     turnOnField: 0
     exists: 0
@@ -17132,6 +17029,7 @@ MonoBehaviour:
     lockedInNextTurn: 0
     lockedInMove: 0
     invulnerability: 0
+    beingSkyDropped: 0
     dontCheckPP: 0
     choseMove: 0
     flinched: 0
@@ -17226,7 +17124,6 @@ MonoBehaviour:
     ability: 0
     endure: 0
     protect: 0
-    wideGuard: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -17242,6 +17139,7 @@ MonoBehaviour:
     hasLockOn: 0
     lockOnTarget: 0
     destinyBond: 0
+    cannotUseDestinyBondAgain: 0
     gotDestinyBondHit: 0
     destinyBondAttacker: 
     encored: 0
@@ -17274,6 +17172,7 @@ MonoBehaviour:
     hasAquaRing: 0
     imprisoned: 0
     magnetRise: 0
+    magnetRiseTimer: 0
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
@@ -17291,6 +17190,7 @@ MonoBehaviour:
     moveUsedThisTurn: 0
     lastMoveUsed: 0
     lastMoveSlot: 0
+    quashed: 0
     meFirst: 0
     usedMove: 
     battle: {fileID: 0}
@@ -17645,11 +17545,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1721390854}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.015029073, y: -0.04670626}
-  m_SizeDelta: {x: -1.3744466, y: 0.87321866}
-  m_Pivot: {x: 0.49104697, y: 0.4465059}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0.68994665, y: 0.000005543232}
+  m_SizeDelta: {x: 1.6255534, y: 0.062488675}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1829995853
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17667,7 +17567,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1829995851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -17678,16 +17578,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &1834503854
 GameObject:
   m_ObjectHideFlags: 0

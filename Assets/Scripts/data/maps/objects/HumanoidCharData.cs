@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
+using static CharGraphics;
 
-[System.Serializable]
+[CreateAssetMenu(fileName = "Character", menuName = "ScriptableObjects/Humanoid Character", order = 2)]
 public class HumanoidCharData : CharData
 {
-    public HumanoidGraphicsID graphics;
+    public Texture2D graphics;
 
     public override void Load(Player p, MapData map)
     {
@@ -13,7 +14,7 @@ public class HumanoidCharData : CharData
         newChar.currentMap = map;
         newChar.pos = pos;
         newChar.currentMap = p.currentMap;
-        newChar.graphics = CharGraphics.humanoidGraphicsTable[(int)graphics];
+        newChar.graphics = HumanoidFromStandardImage(graphics);
         newChar.facing = Direction.S;
         newChar.charObject = charObject;
         newChar.charData = this;

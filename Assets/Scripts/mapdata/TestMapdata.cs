@@ -32,16 +32,6 @@ public static class TestMapdata
 
     public static CharData[] charData =
     {
-        new HumanoidCharData
-        {
-            index = 0,
-            pos = new(3,2),
-            hasCollision = true,
-            hasSeeScript = true,
-            loadedByDefault = true,
-            sightRadius = 3,
-            graphics = HumanoidGraphicsID.mayWalk,
-        }
     };
 
     public static TileTrigger[] triggers =

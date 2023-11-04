@@ -869,8 +869,11 @@ public class Battle : MonoBehaviour
                 }
             }
         }
-        if (speedTieList.Count > 1) currentMove = speedTieList[random.Next() % speedTieList.Count];
-        if (currentPriority == megaPriority) monToMega = currentMove;
+        if (speedTieList.Count > 1)
+        {
+            if (currentMove == HandleMega) monToMega = speedTieList[random.Next() % speedTieList.Count];
+            else currentMove = speedTieList[random.Next() % speedTieList.Count];
+        }
         return currentMove;
     }
 
@@ -2632,7 +2635,7 @@ public class Battle : MonoBehaviour
     public IEnumerator CheckLeppaBerry(int index, int moveNum)
     {
         BattlePokemon mon = PokemonOnField[index];
-        if (mon.GetPP(moveNum) == 0 &&
+        if (mon.GetPP(moveNum - 1) == 0 &&
             EffectiveItem(index).BerryEffect() == At0PPRestore10PP)
         {
             yield return BattleAnim.UseItem(this, index);

@@ -6,10 +6,6 @@ using static ScriptDomain;
 // appropriate dictionary in this file.
 public static class AllScripts
 {
-    public static Dictionary<ScriptDomain, CharScripts[]> CharScripts = new()
-    {
-        { Test, Test_Scripts.charScripts }
-    };
     public static Dictionary<ScriptDomain, Dictionary<string, ObjectScript>> ObjectScripts = new()
     {
         { Test, Test_Scripts.objectScripts }

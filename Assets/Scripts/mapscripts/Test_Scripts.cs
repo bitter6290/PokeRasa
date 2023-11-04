@@ -4,10 +4,6 @@ using UnityEngine;
 
 public static class Test_Scripts
 {
-    public static CharScripts[] charScripts = new CharScripts[]
-    {
-        May_CharScripts
-    };
 
     public static Dictionary<string, ObjectScript> objectScripts = new()
     {
@@ -26,15 +22,6 @@ public static class Test_Scripts
         TestMapdata.charData[0].Load(p, p.currentMap);
         yield break;
     }
-
-    public static CharScripts May_CharScripts => new()
-    {
-        OnInteract = May_OnInteract,
-        SeeCheck = p => !TrainerFlag.MayTest.Get(p),
-        OnSee = May_OnSee,
-        OnWin = May_OnWin,
-        GetMovement = May_GetMovement,
-    };
 
     public static IEnumerator May_OnInteract(Player p, LoadedChar c)
     {
