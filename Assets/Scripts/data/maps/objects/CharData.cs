@@ -6,11 +6,7 @@ public delegate bool SeeCondition(Player p);
 
 public abstract class CharData : ScriptableObject
 {
-    public int index;
-    public MapData map;
-    public int CharID => index + (map.index << 16);
-
-    public Vector2Int pos;
+    public string id;
 
     public MapData[] mapsToLoad;
 
@@ -30,9 +26,9 @@ public abstract class CharData : ScriptableObject
 
     public bool IsLoaded(Player p)
     {
-        foreach (int i in p.loadedChars.Keys) if (CharID == i) return true;
+        foreach (string i in p.loadedChars.Keys) if (id == i) return true;
         return false;
     }
 
-    public abstract void Load(Player p, MapData map);
+    public abstract LoadedChar Load(Player p, MapData map, Vector2Int pos);
 }

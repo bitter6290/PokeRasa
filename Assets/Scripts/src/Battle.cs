@@ -15,6 +15,7 @@ using static BerryEffect;
 using static ItemID;
 using static MoveFlags;
 using static MoveEffect;
+using System.Linq;
 
 public class Battle : MonoBehaviour
 {
@@ -316,6 +317,17 @@ public class Battle : MonoBehaviour
         return weight;
     }
 
+    private List<int> PriorityForRedirection
+    {
+        get {
+            List<(int index, int speed, int turnsWithAbility)> list = new();
+            for (int i = 0; i < 6; i++)
+            {
+                if (PokemonOnField[i].exists) list.Add((i, GetSpeed(i), PokemonOnField[i].timeWithAbility));
+            }
+            return list.OrderBy(t => t.speed).ThenByDescending(t => t.turnsWithAbility).Select(t => t.index).ToList();
+        }
+    }
 
     private static int RelativeWeightMovePower(float ratio) => ratio switch
     {
@@ -1622,6 +1634,26 @@ public class Battle : MonoBehaviour
         }
     }
 
+    private void CheckForRedirection(int index)
+    {
+        bool ragePowderOK = !HasAbility(index, Overcoat)
+            && !PokemonOnField[index].HasType(Type.Grass);
+        if (followMeActive)
+        {
+            for (int i = 3 * (index / 3); i < (3 * (index / 3)) + 3; i++)
+            {
+                if (PokemonOnField[i].followMe
+                    && Target.CanTarget(index, i, Moves[index])
+                    && (!PokemonOnField[i].wasRagePowder || ragePowderOK))
+                {
+                    Targets[index] = i;
+                    return;
+                }
+            }
+        }
+
+    }
+
     private void GetCrits(int attacker, MoveID move)
     {
         for (int i = 0; i < 6; i++)
@@ -1849,7 +1881,8 @@ public class Battle : MonoBehaviour
                         break;
                     case RoughSkin or IronBarbs when MakesContact(attacker, move):
                     case Mummy when MakesContact(attacker, move) &&
-                        !EffectiveAbility(defender).Unchangeable():
+                        !EffectiveAbility(defender).Unchangeable() &&
+                        EffectiveAbility(defender) is not Mummy:
                     case Gooey when MakesContact(attacker, move):
                         abilityEffects.Enqueue((defender, attacker, EffectiveAbility(defender)));
                         break;
@@ -1906,7 +1939,11 @@ public class Battle : MonoBehaviour
                         PokemonOnField[i].PokemonData.temporarySpecies = SpeciesID.CastformSnowy;
                         PokemonOnField[i].PokemonData.transformed = true;
                     }
-                    else PokemonOnField[i].PokemonData.transformed = false;
+                    else
+                    {
+                        //Add transformation animation
+                        PokemonOnField[i].PokemonData.transformed = false;
+                    }
                     break;
             }
         }
@@ -1952,6 +1989,7 @@ public class Battle : MonoBehaviour
                     yield return Announce(MonNameWithPrefix(target, true)
                        + " acquired Mummy!");
                     PokemonOnField[target].ability = Mummy;
+                    PokemonOnField[target].timeWithAbility = 0;
                     yield return AbilityPopupEnd(target);
                     yield return AbilityPopupEnd(source);
                     break;
@@ -2849,6 +2887,7 @@ public class Battle : MonoBehaviour
                         yield return abilityControllers[index].ChangeAbility(
                             EffectiveAbility(i).Name());
                         PokemonOnField[index].ability = EffectiveAbility(i);
+                        PokemonOnField[index].timeWithAbility = 0;
                         yield return Announce(MonNameWithPrefix(index, true)
                             + " traced the foe's "
                             + EffectiveAbility(i).Name()
@@ -5448,6 +5487,7 @@ public class Battle : MonoBehaviour
                 currentMon.flinched = false;
 
                 currentMon.turnOnField++;
+                currentMon.timeWithAbility++;
             }
             else
             {
@@ -5790,7 +5830,11 @@ public class Battle : MonoBehaviour
         yield return new WaitForSeconds(1.0F); //4.60
         yield return Announce(MonNameWithPrefix(index, true) + " has Mega Evolved into "
             + mon.PokemonData.SpeciesData.speciesName + "!");
-        mon.ability = mon.PokemonData.SpeciesData.abilities[0];
+        if (mon.ability != mon.PokemonData.SpeciesData.abilities[0])
+        {
+            mon.ability = mon.PokemonData.SpeciesData.abilities[0];
+            mon.timeWithAbility = 0;
+        }
         yield return EntryAbilityCheck(index);
         megaEvolveOnMove[index] = false;
         DoNextMove();

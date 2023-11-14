@@ -34,10 +34,12 @@ public class Player : LoadedChar
     public bool locked;
     //public Direction facing;
 
-    public Dictionary<int, LoadedChar> loadedChars;
+    public Dictionary<string, (MapData map, LoadedChar chara)> loadedChars;
     public LoadedChar opponent;
 
     public bool whichStep;
+
+    public MapDirectory mapDirectory;
 
     //public CollisionID currentHeight;
     public MapManager mapManager;
@@ -106,8 +108,8 @@ public class Player : LoadedChar
         yield break;
     }
 
-    public void DeactivateAll() { foreach (LoadedChar i in loadedChars.Values) i.Deactivate(); }
-    public void ActivateAll() { foreach (LoadedChar i in loadedChars.Values) i.Activate(); }
+    public void DeactivateAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.Deactivate(); }
+    public void ActivateAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.Activate(); }
 
     public void RemoveAllChars() => loadedChars = new();
 
@@ -182,9 +184,9 @@ public class Player : LoadedChar
     {
         mapManager.mapData = currentMap;
         mapManager.ReadMap();
-        currentMap.BeforeLoad(this);
+        currentMap.mapScripts.BeforeLoad(this);
         RefreshObjects();
-        currentMap.OnLoad(this);
+        currentMap.mapScripts.OnLoad(this);
     }
 
     public void RefreshTriggers()
@@ -208,7 +210,7 @@ public class Player : LoadedChar
             Debug.Log("Adding " + i.map);
             maps.Add(i.map);
         }
-        foreach (LoadedChar i in loadedChars.Values)
+        foreach ((MapData m, LoadedChar i) in loadedChars.Values)
         {
             bool keep = false;
             Debug.Log(currentMap);
@@ -226,8 +228,8 @@ public class Player : LoadedChar
             foreach (MapData j in maps)
             {
                 Debug.Log("Testing " + j);
-                Debug.Log("MapID is " + i.charData.map);
-                if (i.charData.map == j)
+                Debug.Log("MapID is " + m);
+                if (m == j)
                 {
                     Debug.Log("Matched");
                     if (i.currentMap != currentMap)
@@ -251,16 +253,16 @@ public class Player : LoadedChar
         }
         foreach (MapData i in maps)
         {
-            foreach (CharData j in i.humanoidChars)
+            foreach ((CharData data, Vector2Int pos) in i.chars)
             {
-                if (!j.IsLoaded(this))
+                if (!data.IsLoaded(this))
                 {
-                    j.Load(this, i);
+                    LoadedChar chara = data.Load(this, i, pos);
                     if (i != currentMap)
                     {
                         foreach (Connection k in currentMap.connection)
                         {
-                            if (k.map == i) j.pos += GetMapOffset(k);
+                            if (k.map == i) chara.pos += GetMapOffset(k);
                         };
                     }
                 }
@@ -275,19 +277,28 @@ public class Player : LoadedChar
         RefreshChars();
     }
 
-    public LoadedChar GetChar(int index, MapData map = null)
+    public LoadedChar GetChar(string id)
     {
-        map ??= currentMap;
-        return loadedChars[map.index << 16 + index];
+        return loadedChars[id].chara;
     }
 
     public void SwitchAndReposition(Vector2Int pos)
     {
         mapManager.mapData = currentMap;
         mapManager.ReadAndReposition(this, pos);
-        currentMap.BeforeLoad(this);
+        currentMap.mapScripts.BeforeLoad(this);
         RefreshObjects();
-        currentMap.OnLoad(this);
+        currentMap.mapScripts.OnLoad(this);
+    }
+
+    public MapData GetMapByID(string id)
+    {
+        if (currentMap.id == id) { return currentMap; }
+        foreach (MapData map in mapDirectory.maps)
+        {
+            if (map.id == id) return map;
+        }
+        return null;
     }
 
     public void AlignPlayer() => playerGraphics.playerTransform.position = new Vector3(pos.x + 0.5F, pos.y + 0.5F, pos.y);
@@ -301,7 +312,7 @@ public class Player : LoadedChar
         if (checkChars)
         {
             if (pos == this.pos || (state == PlayerState.Moving && pos == moveTarget)) return CollisionID.Impassable;
-            if (loadedChars.Count > 0) foreach (LoadedChar loadedChar in loadedChars.Values)
+            if (loadedChars.Count > 0) foreach ((MapData _, LoadedChar loadedChar) in loadedChars.Values)
                     if (loadedChar.pos == pos || (loadedChar.moving && loadedChar.moveTarget == pos)) return CollisionID.Impassable;
         }
         if (pos.x >= 0 && pos.y >= 0 && pos.x < currentMap.width && pos.y < currentMap.height)
@@ -652,7 +663,7 @@ public class Player : LoadedChar
         {
             if (i.pos == new Vector2Int(pos.x, pos.y))
             {
-                StartCoroutine(i.script(this));
+                StartCoroutine(i.script.OnTrigger(this));
                 return true;
             }
         }
@@ -662,7 +673,7 @@ public class Player : LoadedChar
     public bool CheckForCharacters()
     {
         Vector2Int facingTile = GetFacingTile();
-        foreach (LoadedChar i in loadedChars.Values)
+        foreach ((MapData _, LoadedChar i) in loadedChars.Values)
         {
             if (i.pos == facingTile && i.available)
             {
@@ -680,7 +691,7 @@ public class Player : LoadedChar
         {
             if (i.pos == facingTile)
             {
-                i.script(this);
+                StartCoroutine(i.script.OnTrigger(this));
                 return true;
             }
         }

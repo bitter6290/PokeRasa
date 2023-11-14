@@ -127,8 +127,8 @@ public abstract class LoadedChar : MonoBehaviour
     public IEnumerator Unload()
     {
         yield return null;
-        Debug.Log("Deleting" + charData.CharID);
-        p.loadedChars.Remove(charData.CharID);
+        Debug.Log("Deleting" + charData.id);
+        p.loadedChars.Remove(charData.id);
         Destroy(charObject);
         Destroy(this);
     }

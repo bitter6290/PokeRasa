@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public static class CharScriptUtils
+public static class MapAndObjectScriptUtils
 {
     public static List<System.Type> GetAllCharScripts
     {
@@ -20,12 +20,52 @@ public static class CharScriptUtils
             return charScripts;
         }
     }
+    public static List<System.Type> GetAllMapScripts
+    {
+        get
+        {
+            List<System.Type> charScripts = new();
+            foreach (System.Type T in typeof(MapScripts).Assembly.GetTypes()
+                .Where(t => t.IsSubclassOf(typeof(MapScripts)) && !t.IsAbstract))
+            {
+                charScripts.Add(T);
+            }
+            return charScripts;
+        }
+    }
+    public static List<System.Type> GetAllTriggerScripts
+    {
+        get
+        {
+            List<System.Type> charScripts = new();
+            foreach (System.Type T in typeof(TriggerScript).Assembly.GetTypes()
+                .Where(t => t.IsSubclassOf(typeof(TriggerScript)) && !t.IsAbstract))
+            {
+                charScripts.Add(T);
+            }
+            return charScripts;
+        }
+    }
     public static string TypeToName(System.Type T) => T.Namespace + '.' + T.Name;
-    public static string NameToPath(string name)
+    public static string ObjectNameToPath(string name)
     {
         string[] splitString = name.Split('.');
         (splitString[1], splitString[0]) = (splitString[0], splitString[1]);
-        return "Assets/MapScripts/" + string.Join('/', splitString) + ".asset";
+        return "Assets/MapScripts/" + string.Join('/', splitString) + "_objectscripts.asset";
+
+    }
+    public static string MapscriptNameToPath(string name)
+    {
+        string[] splitString = name.Split('.');
+        (splitString[1], splitString[0]) = (splitString[0], splitString[1]);
+        return "Assets/MapScripts/" + string.Join('/', splitString) + "_mapscripts.asset";
+
+    }
+    public static string TriggerNameToPath(string name)
+    {
+        string[] splitString = name.Split('.');
+        (splitString[1], splitString[0]) = (splitString[0], splitString[1]);
+        return "Assets/MapScripts/" + string.Join('/', splitString) + "_triggerscript.asset";
 
     }
 
@@ -35,13 +75,15 @@ public static class CharScriptUtils
         return string.Join('/', splitString.SkipLast(1));
     }
 
-    public static string TypeToPath(this System.Type T) => NameToPath(TypeToName(T));
+    public static string TypeToObjectPath(this System.Type T) => ObjectNameToPath(TypeToName(T));
+    public static string TypeToTriggerPath(this System.Type T) => TriggerNameToPath(TypeToName(T));
+    public static string TypeToMapscriptPath(this System.Type T) => MapscriptNameToPath(TypeToName(T));
     [MenuItem("Services/NameTest")]
     public static void NameTest()
     {
         foreach (System.Type T in GetAllCharScripts)
         {
-            Debug.Log(NameToPath(TypeToName(T)));
+            Debug.Log(ObjectNameToPath(TypeToName(T)));
         }
     }
     [MenuItem("Services/Create Missing Scripts")]
@@ -49,13 +91,35 @@ public static class CharScriptUtils
     {
         foreach (System.Type T in GetAllCharScripts)
         {
-            string newPath = T.TypeToPath();
+            string newPath = T.TypeToObjectPath();
             if (!AssetDatabase.LoadAssetAtPath<CharScripts>(newPath))
             {
                 var newObject = ScriptableObject.CreateInstance(T);
                 if (!Directory.Exists(PathToDirectory(newPath)))
                     _ = Directory.CreateDirectory(PathToDirectory(newPath));
-                AssetDatabase.CreateAsset(newObject, T.TypeToPath());
+                AssetDatabase.CreateAsset(newObject, newPath);
+            }
+        }
+        foreach (System.Type T in GetAllMapScripts)
+        {
+            string newPath = T.TypeToMapscriptPath();
+            if(!AssetDatabase.LoadAssetAtPath<MapScripts>(newPath))
+            {
+                var newObject = ScriptableObject.CreateInstance(T);
+                if (!Directory.Exists(PathToDirectory(newPath)))
+                    _ = Directory.CreateDirectory(PathToDirectory(newPath));
+                AssetDatabase.CreateAsset(newObject, newPath);
+            }
+        }
+        foreach (System.Type T in GetAllTriggerScripts)
+        {
+            string newPath = T.TypeToTriggerPath();
+            if (!AssetDatabase.LoadAssetAtPath<TriggerScript>(newPath))
+            {
+                var newObject = ScriptableObject.CreateInstance(T);
+                if (!Directory.Exists(PathToDirectory(newPath)))
+                    _ = Directory.CreateDirectory(PathToDirectory(newPath));
+                AssetDatabase.CreateAsset(newObject, newPath);
             }
         }
     }

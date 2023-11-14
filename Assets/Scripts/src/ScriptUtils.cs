@@ -15,7 +15,6 @@ public static class ScriptUtils
     {
         {"NoScript", NoCharScript }
     };
-    public static MapScripts NoMapScripts = new();
     public static T GetRandom<T>(this List<T> list)
     {
         var random = new System.Random();

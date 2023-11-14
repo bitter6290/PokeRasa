@@ -143,6 +143,7 @@ public class BattlePokemon
     public Pokemon transformedMon = Pokemon.MakeEmptyMon;
 
     public Ability ability;
+    public int timeWithAbility = 0;
 
     public bool endure = false;
     public bool protect = false;

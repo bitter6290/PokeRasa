@@ -265,373 +265,6 @@ Transform:
   - {fileID: 217411667}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &41364717
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 41364719}
-  - component: {fileID: 41364718}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &41364718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41364717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ebb930df3d964340b67816b267af7ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  p: {fileID: 0}
-  currentMap: {fileID: 0}
-  pos: {x: 0, y: 0}
-  currentHeight: 0
-  moveTarget: {x: 0, y: 0}
-  facing: 0
-  charData: {fileID: 0}
-  hasCollision: 0
-  moving: 0
-  active: 0
-  free: 0
-  available: 0
-  doMove: 1
-  keepOnLoad: 0
-  charObject: {fileID: 0}
-  charRenderer: {fileID: 0}
-  TM: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  HM: 0000000000000000
-  keyItem: 0000000000000000
-  storyFlags: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  trainerFlags: 00
-  money: 0
-  triggers: []
-  signposts: []
-  currentTerrain: 0
-  lastMap: {fileID: 0}
-  state: 0
-  locked: 0
-  opponent: {fileID: 0}
-  whichStep: 0
-  mapManager: {fileID: 0}
-  announcer: {fileID: 0}
-  camera: {fileID: 0}
-  textSpeed: 25
-  Party:
-  - species: 0
-    monName: 
-    gender: 0
-    xp: 0
-    level: 0
-    evHP: 0
-    evAttack: 0
-    evDefense: 0
-    evSpAtk: 0
-    evSpDef: 0
-    evSpeed: 0
-    totalEv: 0
-    whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
-    move1: 0
-    maxPp1: 0
-    pp1: 0
-    move2: 0
-    maxPp2: 0
-    pp2: 0
-    move3: 0
-    maxPp3: 0
-    pp3: 0
-    move4: 0
-    maxPp4: 0
-    pp4: 0
-    HP: 0
-    status: 0
-    sleepTurns: 0
-    fainted: 0
-    exists: 0
-    item: 0
-    itemChanged: 0
-    newItem: 0
-    onField: 0
-    lastIndex: 0
-    transformed: 0
-    temporarySpecies: 0
-    friendship: 0
-    hiddenPowerType: 0
-    gainedLevel: 0
-    id: 0
-    checkEvolution: 0
-  - species: 0
-    monName: 
-    gender: 0
-    xp: 0
-    level: 0
-    evHP: 0
-    evAttack: 0
-    evDefense: 0
-    evSpAtk: 0
-    evSpDef: 0
-    evSpeed: 0
-    totalEv: 0
-    whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
-    move1: 0
-    maxPp1: 0
-    pp1: 0
-    move2: 0
-    maxPp2: 0
-    pp2: 0
-    move3: 0
-    maxPp3: 0
-    pp3: 0
-    move4: 0
-    maxPp4: 0
-    pp4: 0
-    HP: 0
-    status: 0
-    sleepTurns: 0
-    fainted: 0
-    exists: 0
-    item: 0
-    itemChanged: 0
-    newItem: 0
-    onField: 0
-    lastIndex: 0
-    transformed: 0
-    temporarySpecies: 0
-    friendship: 0
-    hiddenPowerType: 0
-    gainedLevel: 0
-    id: 0
-    checkEvolution: 0
-  - species: 0
-    monName: 
-    gender: 0
-    xp: 0
-    level: 0
-    evHP: 0
-    evAttack: 0
-    evDefense: 0
-    evSpAtk: 0
-    evSpDef: 0
-    evSpeed: 0
-    totalEv: 0
-    whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
-    move1: 0
-    maxPp1: 0
-    pp1: 0
-    move2: 0
-    maxPp2: 0
-    pp2: 0
-    move3: 0
-    maxPp3: 0
-    pp3: 0
-    move4: 0
-    maxPp4: 0
-    pp4: 0
-    HP: 0
-    status: 0
-    sleepTurns: 0
-    fainted: 0
-    exists: 0
-    item: 0
-    itemChanged: 0
-    newItem: 0
-    onField: 0
-    lastIndex: 0
-    transformed: 0
-    temporarySpecies: 0
-    friendship: 0
-    hiddenPowerType: 0
-    gainedLevel: 0
-    id: 0
-    checkEvolution: 0
-  - species: 0
-    monName: 
-    gender: 0
-    xp: 0
-    level: 0
-    evHP: 0
-    evAttack: 0
-    evDefense: 0
-    evSpAtk: 0
-    evSpDef: 0
-    evSpeed: 0
-    totalEv: 0
-    whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
-    move1: 0
-    maxPp1: 0
-    pp1: 0
-    move2: 0
-    maxPp2: 0
-    pp2: 0
-    move3: 0
-    maxPp3: 0
-    pp3: 0
-    move4: 0
-    maxPp4: 0
-    pp4: 0
-    HP: 0
-    status: 0
-    sleepTurns: 0
-    fainted: 0
-    exists: 0
-    item: 0
-    itemChanged: 0
-    newItem: 0
-    onField: 0
-    lastIndex: 0
-    transformed: 0
-    temporarySpecies: 0
-    friendship: 0
-    hiddenPowerType: 0
-    gainedLevel: 0
-    id: 0
-    checkEvolution: 0
-  - species: 0
-    monName: 
-    gender: 0
-    xp: 0
-    level: 0
-    evHP: 0
-    evAttack: 0
-    evDefense: 0
-    evSpAtk: 0
-    evSpDef: 0
-    evSpeed: 0
-    totalEv: 0
-    whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
-    move1: 0
-    maxPp1: 0
-    pp1: 0
-    move2: 0
-    maxPp2: 0
-    pp2: 0
-    move3: 0
-    maxPp3: 0
-    pp3: 0
-    move4: 0
-    maxPp4: 0
-    pp4: 0
-    HP: 0
-    status: 0
-    sleepTurns: 0
-    fainted: 0
-    exists: 0
-    item: 0
-    itemChanged: 0
-    newItem: 0
-    onField: 0
-    lastIndex: 0
-    transformed: 0
-    temporarySpecies: 0
-    friendship: 0
-    hiddenPowerType: 0
-    gainedLevel: 0
-    id: 0
-    checkEvolution: 0
-  - species: 0
-    monName: 
-    gender: 0
-    xp: 0
-    level: 0
-    evHP: 0
-    evAttack: 0
-    evDefense: 0
-    evSpAtk: 0
-    evSpDef: 0
-    evSpeed: 0
-    totalEv: 0
-    whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
-    move1: 0
-    maxPp1: 0
-    pp1: 0
-    move2: 0
-    maxPp2: 0
-    pp2: 0
-    move3: 0
-    maxPp3: 0
-    pp3: 0
-    move4: 0
-    maxPp4: 0
-    pp4: 0
-    HP: 0
-    status: 0
-    sleepTurns: 0
-    fainted: 0
-    exists: 0
-    item: 0
-    itemChanged: 0
-    newItem: 0
-    onField: 0
-    lastIndex: 0
-    transformed: 0
-    temporarySpecies: 0
-    friendship: 0
-    hiddenPowerType: 0
-    gainedLevel: 0
-    id: 0
-    checkEvolution: 0
---- !u!4 &41364719
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41364717}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1941136, y: 3.2356772, z: -5.558073}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &47669287
 GameObject:
   m_ObjectHideFlags: 0
@@ -14964,7 +14597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c228eb94ca94feeba441e27b313415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 41364718}
+  player: {fileID: 0}
   wildBattle: 0
   escapeAttempts: 0
   OpponentPokemon:
@@ -15822,6 +15455,7 @@ MonoBehaviour:
       id: 0
       checkEvolution: 0
     ability: 0
+    timeWithAbility: 0
     endure: 0
     protect: 0
     protectCounter: 0
@@ -16082,6 +15716,7 @@ MonoBehaviour:
       id: 0
       checkEvolution: 0
     ability: 0
+    timeWithAbility: 0
     endure: 0
     protect: 0
     protectCounter: 0
@@ -16342,6 +15977,7 @@ MonoBehaviour:
       id: 0
       checkEvolution: 0
     ability: 0
+    timeWithAbility: 0
     endure: 0
     protect: 0
     protectCounter: 0
@@ -16602,6 +16238,7 @@ MonoBehaviour:
       id: 0
       checkEvolution: 0
     ability: 0
+    timeWithAbility: 0
     endure: 0
     protect: 0
     protectCounter: 0
@@ -16862,6 +16499,7 @@ MonoBehaviour:
       id: 0
       checkEvolution: 0
     ability: 0
+    timeWithAbility: 0
     endure: 0
     protect: 0
     protectCounter: 0
@@ -17122,6 +16760,7 @@ MonoBehaviour:
       id: 0
       checkEvolution: 0
     ability: 0
+    timeWithAbility: 0
     endure: 0
     protect: 0
     protectCounter: 0
@@ -18242,7 +17881,6 @@ SceneRoots:
   - {fileID: 1479699854}
   - {fileID: 1516881604}
   - {fileID: 35164473}
-  - {fileID: 41364719}
   - {fileID: 565041781}
   - {fileID: 871119641}
   - {fileID: 1337584341}

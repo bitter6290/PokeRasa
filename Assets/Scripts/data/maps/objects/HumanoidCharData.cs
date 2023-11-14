@@ -6,13 +6,12 @@ public class HumanoidCharData : CharData
 {
     public Texture2D graphics;
 
-    public override void Load(Player p, MapData map)
+    public override LoadedChar Load(Player p, MapData map, Vector2Int pos)
     {
-        foreach (int i in p.loadedChars.Keys) if (CharID == i) return;
+        foreach (string i in p.loadedChars.Keys) if (id == i) return null;
         GameObject charObject = new();
         HumanoidChar newChar = charObject.AddComponent<HumanoidChar>();
         newChar.currentMap = map;
-        newChar.pos = pos;
         newChar.currentMap = p.currentMap;
         newChar.graphics = HumanoidFromStandardImage(graphics);
         newChar.facing = Direction.S;
@@ -26,11 +25,13 @@ public class HumanoidCharData : CharData
         newChar.available = true;
         newChar.Actions = new();
         newChar.p = p;
+        newChar.pos = pos;
         newChar.AlignObject();
         newChar.UpdateCollision();
-        Debug.Log(CharID);
+        Debug.Log(id);
         Object.DontDestroyOnLoad(newChar);
         Object.DontDestroyOnLoad(charObject);
-        p.loadedChars.Add(CharID, newChar);
+        p.loadedChars.Add(id, (map, newChar));
+        return newChar;
     }
 }

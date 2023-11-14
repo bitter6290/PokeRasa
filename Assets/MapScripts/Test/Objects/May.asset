@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba925fea6fa7487e970cc218ee8a036, type: 3}
   m_Name: May
   m_EditorClassIdentifier: 
-  index: 0
-  map: {fileID: 11400000, guid: 0ad9a16a74a2449bbb98e1f8733ce282, type: 2}
-  pos: {x: 3, y: 3}
+  id: Test_May
   mapsToLoad: []
   loadedByDefault: 1
   hasCollision: 1
   hasSeeScript: 1
   sightRadius: 3
-  charScripts: {fileID: 11400000, guid: b866ff1f95d1b4008a1a7447370a67b8, type: 2}
+  charScripts: {fileID: 11400000, guid: d52bd207e6e4646718a616ebce1643c2, type: 2}
   graphics: {fileID: 2800000, guid: e78ed976ffa54470e9a7e822c2cce889, type: 3}
