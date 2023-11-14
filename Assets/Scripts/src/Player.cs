@@ -253,16 +253,20 @@ public class Player : LoadedChar
         }
         foreach (MapData i in maps)
         {
-            foreach ((CharData data, Vector2Int pos) in i.chars)
+            foreach (mapChar charData in i.chars)
             {
-                if (!data.IsLoaded(this))
+                if (!charData.data.IsLoaded(this))
                 {
-                    LoadedChar chara = data.Load(this, i, pos);
+                    LoadedChar chara = charData.data.Load(this, i, charData.pos);
                     if (i != currentMap)
                     {
                         foreach (Connection k in currentMap.connection)
                         {
-                            if (k.map == i) chara.pos += GetMapOffset(k);
+                            if (k.map == i)
+                            {
+                                chara.pos += GetMapOffset(k);
+                                chara.AlignObject();
+                            }
                         };
                     }
                 }

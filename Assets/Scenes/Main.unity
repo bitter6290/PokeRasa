@@ -152,12 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebb930df3d964340b67816b267af7ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p: {fileID: 0}
+  p: {fileID: 126826194}
   currentMap: {fileID: 11400000, guid: 0ad9a16a74a2449bbb98e1f8733ce282, type: 2}
   pos: {x: 0, y: 0}
   currentHeight: 0
   moveTarget: {x: 0, y: 0}
   facing: 0
+  charData: {fileID: 0}
   hasCollision: 0
   moving: 0
   active: 0
@@ -181,6 +182,7 @@ MonoBehaviour:
   locked: 0
   opponent: {fileID: 0}
   whichStep: 0
+  mapDirectory: {fileID: 11400000, guid: 0685808eece8b46219a5945e2fbf7718, type: 2}
   mapManager: {fileID: 0}
   announcer: {fileID: 0}
   camera: {fileID: 0}
@@ -191,9 +193,6 @@ MonoBehaviour:
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -236,14 +235,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -286,14 +283,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -336,14 +331,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -386,14 +379,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -436,14 +427,12 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
   - species: 0
     monName: 
     gender: 0
     xp: 0
     level: 0
-    currentLevelXP: 0
-    nextLevelXP: 0
-    levelProgress: 0
     evHP: 0
     evAttack: 0
     evDefense: 0
@@ -486,6 +475,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
+    checkEvolution: 0
 --- !u!4 &126826195
 Transform:
   m_ObjectHideFlags: 0

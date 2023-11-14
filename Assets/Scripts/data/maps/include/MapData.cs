@@ -15,13 +15,13 @@ public class MapData : ScriptableObject
 
     public TileTrigger[] triggers = new TileTrigger[0];
     public TileTrigger[] signposts = new TileTrigger[0];
-    public (CharData data, Vector2Int pos)[] chars = new (CharData data, Vector2Int pos)[0];
+    public mapChar[] chars = new mapChar[0];
     public WildDataset[] grassData = new WildDataset[9];
 
     public (CharData, Vector2Int) CharFromId(string id)
     {
-        foreach ((CharData data, Vector2Int pos) in chars){
-            if (data.id == id) return (data, pos);
+        foreach (mapChar charData in chars){
+            if (charData.data.id == id) return (charData.data, charData.pos);
         }
         return (null, Vector2Int.zero);
     }
@@ -39,4 +39,11 @@ public class MapData : ScriptableObject
     {
         mapTiles = newTiles;
     }
+}
+
+[Serializable]
+public struct mapChar
+{
+    public CharData data;
+    public Vector2Int pos;
 }
