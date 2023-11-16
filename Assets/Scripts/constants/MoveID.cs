@@ -569,6 +569,12 @@ public enum MoveID
     FusionFlare,
     FusionBolt,
 
+    //Gen 6
+    FlyingPress,
+    MatBlock,
+    Belch,
+    Rototiller,
+
     //Nonstandard moves
 
     ConfusionHit,
@@ -615,5 +621,9 @@ public static class MoveUtils
         move.Data().effect is MoveEffect.Heal50 or MoveEffect.Absorb50
         or MoveEffect.HealingWish or MoveEffect.DreamEater or MoveEffect.HealWeather
         or MoveEffect.Roost or MoveEffect.Swallow or MoveEffect.Rest;
+    public static bool SheerForceAffected(this MoveID move) =>
+        move.HasFlag(MoveFlags.effectOnSelfOnly) ?
+        move.Data().effect.IsSheerForceAffectedSelfOnly() :
+        move.Data().effect.IsSheerForceAffectedNotSelfOnly();
     //Todo: update Triage for Gen 5+ moves
 }

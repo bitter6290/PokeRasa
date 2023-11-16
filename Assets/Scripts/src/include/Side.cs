@@ -21,6 +21,7 @@ public class Side
     public bool stealthRock = false;
     public bool wideGuard = false;
     public bool quickGuard = false;
+    public bool matBlock = false;
     public bool allySwitchUsed = false;
 
     //Pledge effects

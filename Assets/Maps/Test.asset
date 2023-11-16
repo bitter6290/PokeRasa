@@ -24,6 +24,9 @@ MonoBehaviour:
     script: {fileID: 11400000, guid: 1f6166229f75146169f6c2a27cab0e8d, type: 2}
     active: 1
   signposts: []
+  chars:
+  - data: {fileID: 11400000, guid: e469a3b71287c43cd826b58944b95f0d, type: 2}
+    pos: {x: 3, y: 3}
   grassData:
   - wildMons: []
     encounterPercent: 0

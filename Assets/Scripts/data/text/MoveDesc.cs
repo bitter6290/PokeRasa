@@ -573,4 +573,9 @@ public static class MoveDesc
     public static string VCreateDesc = "The user emits a hot flame from its forehead and hurls itself at the target to inflict damage. This also lowers the user's Defense, Sp. Def, and Speed stats.";
     public static string FusionFlareDesc = "The user brings down a giant flame. This move's power is boosted when influenced by an enormous lightning bolt.";
     public static string FusionBoltDesc = "The user throws down a giant lightning bolt. This move's power is boosted when influenced by an enormous flame.";
+    //Gen 6
+    public static string FlyingPressDesc = "The user dives down onto the target from the sky. This move is Fighting and Flying type simultaneously.";
+    public static string MatBlockDesc = "Using a pulled-up mat as a shield, the user protects itself and its allies from damaging moves. This does not stop status moves.";
+    public static string BelchDesc = "The user lets out a damaging belch at the target. The user must eat a held Berry to use this move.";
+    public static string RototillerDesc = "Tilling the soil, the user makes it easier for plants to grow. This raises the Attack and Sp. Atk stats of Grass-type Pokémon.";
 }

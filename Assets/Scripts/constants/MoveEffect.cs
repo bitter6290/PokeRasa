@@ -147,6 +147,7 @@ public enum MoveEffect : ushort
     AlwaysCrit,
     Assurance,
     BeatUp,
+    Belch,
     ChargingAttack,
     ContinuousDamage,
     Counter,
@@ -156,6 +157,7 @@ public enum MoveEffect : ushort
     FalseSwipe,
     FinalGambit,
     Fling,
+    FlyingPress,
     FuryCutter,
     FutureSight,
     HiddenPower,
@@ -262,6 +264,7 @@ public enum MoveEffect : ushort
     Ingrain,
     MagicCoat,
     MagnetRise,
+    MatBlock,
     Metronome,
     Mimic,
     MirrorMove,
@@ -283,6 +286,7 @@ public enum MoveEffect : ushort
     FollowMe,
     HelpingHand,
     RagePowder,
+    Rototiller,
 }
 
 public static class MoveEffectUtils
@@ -298,11 +302,32 @@ public static class MoveEffectUtils
         => effect is Paralyze or Freeze or Burn or Sleep or Poison or Toxic
         or TriAttack;
 
+    public static bool IsStatRaise(this MoveEffect effect)
+        => effect is AttackUp1 or AttackUp2 or DefenseUp1 or DefenseUp2
+        or DefenseUp3 or SpAtkUp1 or SpAtkUp2 or SpAtkUp2 or SpAtkUp3
+        or SpDefUp2 or SpeedUp1 or SpeedUp2 or EvasionUp1
+        or EvasionUp2 or CritRateUp2 or AttackAccuracyUp1
+        or AttackDefenseUp1 or AttackDefAccUp1 or SpAtkSpDefUp1
+        or SpAtkSpDefSpeedUp1 or AllUp1 or Autotomize or Acupressure
+        or BellyDrum or Charge or DefenseCurl or Growth or Minimize;
+
     public static bool IsShieldDustAffected(this MoveEffect effect)
     {
         return effect.IsStatusMove() || effect.IsStatDrop()
             || effect is Flinch;
     }
+
+    public static bool IsSheerForceAffectedNotSelfOnly(this MoveEffect effect)
+    {
+        return effect.IsStatDrop() || effect.IsStatDrop()
+            || effect is Flinch or Trap or Confuse or SmackDown
+            or Curse or Nightmare or PerishSong or LeechSeed
+            or Telekinesis or Yawn or Disable or Embargo or HealBlock;
+    }
+
+    public static bool IsSheerForceAffectedSelfOnly(this MoveEffect effect) =>
+        effect.IsStatRaise() || effect is StealthRock or Spikes;
+
     public static bool HasRecoil(this MoveEffect effect)
         => effect is Recoil25 or Recoil33 or Crash50Max;
 }

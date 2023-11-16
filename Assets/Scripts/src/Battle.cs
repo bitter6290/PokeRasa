@@ -453,6 +453,26 @@ public class Battle : MonoBehaviour
     public float RealEffectiveness(int attacker, int defender, Type defenderType, MoveID move)
     {
         Type moveType = GetEffectiveType(move, attacker);
+        if (move.Data().effect == FlyingPress)
+            return RealEffectiveness(attacker, defender, defenderType, moveType) *
+                RealEffectiveness(attacker, defender, defenderType, Type.Flying);
+        if (moveType == Type.Ground)
+        {
+            if (!IsGrounded(defender)) return 0.0F;
+            else if (IsGrounded(defender) && defenderType == Type.Flying) return 1.0F;
+        }
+        if (defenderType == Type.Flying && PokemonOnField[defender].roosting) return 1.0F;
+        if (defenderType == Type.Ghost && moveType is Type.Normal or Type.Fighting
+            && PokemonOnField[defender].identified
+            && !PokemonOnField[defender].identifiedByMiracleEye) return 1.0F;
+        if (defenderType == Type.Dark && moveType == Type.Psychic
+            && PokemonOnField[defender].identified
+            && PokemonOnField[defender].identifiedByMiracleEye) return 1.0F;
+        return TypeUtils.Effectiveness(moveType, defenderType);
+    }
+
+    public float RealEffectiveness(int attacker, int defender, Type defenderType, Type moveType)
+    {
         if (moveType == Type.Ground)
         {
             if (!IsGrounded(defender)) return 0.0F;
@@ -1380,8 +1400,10 @@ public class Battle : MonoBehaviour
     {
         if ((PokemonOnField[defender].protect
             || (Sides[GetSide(defender)].wideGuard && (move.Data().targets & Target.Spread) != 0)
-            || (Sides[GetSide(defender)].quickGuard && GetPriority(attacker) > 0))
-             && move.Data().effect != Feint)
+            || (Sides[GetSide(defender)].quickGuard && GetPriority(attacker) > 0)
+            || (Sides[GetSide(defender)].matBlock && move.Data().power > 0))
+             && move.Data().effect != Feint &&
+             !(EffectiveAbility(attacker) is UnseenFist && move.HasFlag(makesContact)))
         {
             PokemonOnField[defender].wasProtected = true;
             return false;
@@ -1694,6 +1716,7 @@ public class Battle : MonoBehaviour
                         PokemonOnField[i].eatenBerry = PokemonOnField[i].item;
                         UseUpItem(i);
                         PokemonOnField[i].gotReducingBerryEffect = true;
+                        PokemonOnField[i].PokemonData.canBelch = true;
                     }
                 }
                 else if (EffectiveItem(i).BerryEffect()
@@ -1702,6 +1725,7 @@ public class Battle : MonoBehaviour
                     PokemonOnField[i].eatenBerry = PokemonOnField[i].item;
                     UseUpItem(i);
                     PokemonOnField[i].ateRetaliationBerry = true;
+                    PokemonOnField[i].PokemonData.canBelch = true;
                 }
             }
         }
@@ -1783,6 +1807,9 @@ public class Battle : MonoBehaviour
                             case Bestow when PokemonOnField[attacker].item == ItemID.None:
                             case Bestow when PokemonOnField[i].item != ItemID.None:
                             case ReflectType when target.IsTypeless:
+                            case Nightmare when target.PokemonData.status is not Status.Sleep:
+                            case Rototiller when (!target.HasType(Type.Grass) || !IsGrounded(i) ||
+                                target.invulnerability is not Invulnerability.None):
                                 continue;
                             case FutureSight:
                                 target.gotMoveEffect = !isFutureSightTargeted[i];
@@ -2497,6 +2524,7 @@ public class Battle : MonoBehaviour
             yield return BattleAnim.UseItem(this, index);
             PokemonOnField[index].eatenBerry = EffectiveItem(index);
             UseUpItem(index);
+            PokemonOnField[index].PokemonData.canBelch = true;
             yield return DoBerryEffect(index, PokemonOnField[index].eatenBerry.BerryEffect());
         }
         else yield break;
@@ -2688,6 +2716,7 @@ public class Battle : MonoBehaviour
             }
             mon.eatenBerry = mon.item;
             UseUpItem(index);
+            PokemonOnField[index].PokemonData.canBelch = true;
         }
     }
 
@@ -3197,6 +3226,7 @@ public class Battle : MonoBehaviour
             case Taunt when PokemonOnField[Targets[index]].taunted:
             case Quash when PokemonOnField[Targets[index]].quashed ||
                 PokemonOnField[Targets[index]].done:
+            case Belch when !PokemonOnField[index].PokemonData.canBelch:
                 yield return Announce(BattleText.MoveFailed);
                 user.done = true;
                 MoveCleanup();
@@ -4204,8 +4234,14 @@ public class Battle : MonoBehaviour
             (index, attacker) = (attacker, index);
         }
         MoveEffect effect = move.Data().effect;
-        if (effect == Fling) effect =
-                EffectiveItem(attacker).Data().flingEffect;
+        if (effect == Fling)
+        {
+            effect = EffectiveItem(attacker).Data().flingEffect;
+            if (EffectiveItem(attacker).Data().type is ItemType.Berry)
+            {
+                yield return DoBerryEffect(index, EffectiveItem(attacker).BerryEffect());
+            }
+        }
         switch (effect)
         {
             case Burn:
@@ -4512,6 +4548,7 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.StatUp(this, index, Stat.Defense, 1, attacker);
                 break;
             case AttackSpAtkUp1:
+            case Rototiller:
                 yield return BattleEffect.StatUp(this, index, Stat.Attack, 1, attacker);
                 yield return BattleEffect.StatUp(this, index, Stat.SpAtk, 1, attacker);
                 break;
@@ -4675,6 +4712,7 @@ public class Battle : MonoBehaviour
                         PokemonOnField[index].item.Data().itemName + "!");
                     yield return DoBerryEffect(attacker, PokemonOnField[index].item.BerryEffect());
                     UseUpItem(index);
+                    PokemonOnField[attacker].PokemonData.canBelch = true;
                 }
                 break;
             case Incinerate:
@@ -4692,13 +4730,15 @@ public class Battle : MonoBehaviour
             case Feint:
                 if (PokemonOnField[index].protect ||
                     Sides[GetSide(index)].wideGuard ||
-                    Sides[GetSide(index)].quickGuard)
+                    Sides[GetSide(index)].quickGuard ||
+                    Sides[GetSide(index)].matBlock)
                 {
                     yield return Announce(MonNameWithPrefix(index, true)
                         + " fell for the feint!");
                     PokemonOnField[index].protect = false;
                     Sides[GetSide(index)].wideGuard = false;
                     Sides[GetSide(index)].quickGuard = false;
+                    Sides[GetSide(index)].matBlock = false;
                 }
                 break;
             case DestinyBond:
@@ -4845,6 +4885,11 @@ public class Battle : MonoBehaviour
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " protected its team!");
                 Sides[GetSide(index)].quickGuard = true;
+                break;
+            case MatBlock:
+                yield return Announce(MonNameWithPrefix(index, true) +
+    "               intends to flip up a mat and block incoming attacks!");
+                Sides[GetSide(index)].matBlock = true;
                 break;
             case AllySwitch:
                 yield return BattleEffect.AllySwitch(this, index, attacker);
@@ -5520,6 +5565,7 @@ public class Battle : MonoBehaviour
         {
             side.wideGuard = false;
             side.quickGuard = false;
+            side.matBlock = false;
             side.retaliateNow = side.retaliateNext;
             side.retaliateNext = false;
             side.currentPledge = Pledge.None;
@@ -5604,6 +5650,7 @@ public class Battle : MonoBehaviour
                 64);
             PlayerPokemon[i].itemChanged = false;
             OpponentPokemon[i].itemChanged = false;
+            PlayerPokemon[i].canBelch = false;
         }
         if (battleType == BattleType.Single)
         {

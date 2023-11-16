@@ -2981,7 +2981,26 @@ public static class Move
         MoveEffect.FusionBolt, 0,
         true, Target.Single, 5,
         noFlag, FusionBoltDesc); //Needs anims (with check for Fusion Flare)
-
+    public static MoveData FlyingPress = new(
+        "Flying Press", Fighting,
+        100, 95, 0,
+        MoveEffect.FlyingPress, 0,
+        true, Target.Single, 10,
+        gravityDisabled + makesContact, FlyingPressDesc); //Needs anim
+    public static MoveData MatBlock = SelfTargetingMove(
+        "Mat Block", Fighting, 0, MoveEffect.MatBlock, 10, snatchAffected, MatBlockDesc); //Needs anim
+    public static MoveData Belch = new(
+        "Belch", Poison,
+        120, 90, 0,
+        MoveEffect.Belch, 0,
+        false, Target.Single, 10,
+        noFlag, BelchDesc); //Needs anim
+    public static MoveData Rototiller = new(
+        "Rototiller", Ground,
+        0, 101, 0,
+        MoveEffect.Rototiller, 101,
+        false, Target.All, 10,
+        noFlag, RototillerDesc); //Needs anim
 
     //Non-standard moves
     public static MoveData ConfusionHit = new(
@@ -3683,6 +3702,12 @@ public static class Move
         VCreate,
         FusionFlare,
         FusionBolt,
+
+        //Gen 6
+        FlyingPress,
+        MatBlock,
+        Belch,
+        Rototiller,
 
         //Nonstandard moves
 
