@@ -10,7 +10,7 @@
                 species = SpeciesID.Squirtle,
                 gender = Gender.Any,
                 nature = Nature.Any,
-                evIv = Spread.random,
+                evIv = Spreads.random,
                 level = 1
             }
         }

@@ -60,4 +60,9 @@ public static class BattleText
     public static string EndPsychicTerrain = "The weirdness disappeared from the battlefield.";
 
     public static string Safeguard = " is protected by Safeguard!";
+
+    public static string SpikesDisappeared = "The spikes disappeared from the ground around ";
+    public static string ToxicSpikesDisappeared = "The toxic spikes disappeared from the ground around ";
+    public static string StealthRockDisappeared = "The pointed stones disappeared from around ";
+    public static string StickyWebDisappeared = "The sticky web disappeared from under ";
 }

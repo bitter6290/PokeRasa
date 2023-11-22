@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static System.Math;
+using static Battle;
+using static BattleText;
 
 public static class BattleEffect
 {
@@ -22,28 +24,28 @@ public static class BattleEffect
         {
             case 0:
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + BattleText.CantGoHigher);
+                    + "'s " + NameTable.Stat[(int)statID] + CantGoHigher);
                 break;
             case 1:
                 if (battle.doStatAnim) yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRose);
+                    + "'s " + NameTable.Stat[(int)statID] + StatRose);
                 break;
             case 2:
                 if (battle.doStatAnim) yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRoseSharply);
+                    + "'s " + NameTable.Stat[(int)statID] + StatRoseSharply);
                 break;
             default:
                 if (battle.doStatAnim) yield return BattleAnim.StatUp(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatRoseDrastically);
+                    + "'s " + NameTable.Stat[(int)statID] + StatRoseDrastically);
                 break;
         }
         if (stagesRaised > 0) battle.doStatAnim = false;
     }
 
-    public static IEnumerator StatDown(Battle battle, int index, Stat statID, int amount, int attacker, bool checkContrary = true)
+    public static IEnumerator StatDown(Battle battle, int index, Stat statID, int amount, int attacker, bool checkContrary = true, bool checkSide = true)
     {
         switch (battle.EffectiveAbility(index))
         {
@@ -55,68 +57,70 @@ public static class BattleEffect
             case Ability.KeenEye when statID == Stat.Accuracy:
             case Ability.HyperCutter when statID == Stat.Attack:
             case Ability.BigPecks when statID == Stat.Defense:
-                if (battle.GetSide(attacker) != battle.GetSide(index) &&
+                if ((!checkSide || GetSide(attacker) != GetSide(index)) &&
                         !battle.HasMoldBreaker(attacker))
                 {
                     yield return battle.AbilityPopupStart(index);
-                    yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s stats weren't lowered!");
+                    yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                        "'s stats weren't lowered!");
                     yield return battle.AbilityPopupEnd(index);
                     yield break;
                 }
                 else break;
         }
-        if (battle.GetSide(attacker) != battle.GetSide(index)
-            && battle.Sides[battle.GetSide(index)].mist)
+        if ((!checkSide || GetSide(attacker) != GetSide(index))
+            && battle.Sides[GetSide(index)].mist)
         {
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is protected by Mist!");
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                " is protected by Mist!");
             yield break;
         }
-        else if (battle.GetSide(attacker) != battle.GetSide(index)
+        else if ((!checkSide || GetSide(attacker) != GetSide(index))
             && battle.EffectiveAbility(index) is
             Ability.WhiteSmoke or Ability.ClearBody
             && !battle.HasMoldBreaker(attacker))
         {
             yield return battle.AbilityPopupStart(index);
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) + "'s stats weren't lowered!");
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                "'s stats weren't lowered!");
             yield return battle.AbilityPopupEnd(index);
             yield break;
         }
-        else if (statID == Stat.Attack)
-        {
-
-        }
+        
         int stagesLowered = battle.PokemonOnField[index].LowerStat(statID, amount);
         switch (stagesLowered)
         {
             case 0:
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + BattleText.CantGoLower);
+                    + "'s " + NameTable.Stat[(int)statID] + CantGoLower);
                 break;
             case 1:
                 if (battle.doStatAnim) yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFell);
+                    + "'s " + NameTable.Stat[(int)statID] + StatFell);
                 break;
             case 2:
                 if (battle.doStatAnim) yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFellSharply);
+                    + "'s " + NameTable.Stat[(int)statID] + StatFellSharply);
                 break;
             default:
                 if (battle.doStatAnim) yield return BattleAnim.StatDown(battle, index);
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + BattleText.StatFellDrastically);
+                    + "'s " + NameTable.Stat[(int)statID] + StatFellDrastically);
                 break;
         }
         if (stagesLowered > 0) battle.doStatAnim = false;
-        if (battle.GetSide(attacker) != battle.GetSide(index) && battle.HasAbility(index, Ability.Defiant))
+        if ((!checkSide || GetSide(attacker) != GetSide(index)) &&
+            battle.HasAbility(index, Ability.Defiant))
         {
             battle.doStatAnim = true;
             yield return battle.AbilityPopupStart(index);
             yield return StatUp(battle, index, Stat.Attack, 2, attacker);
             yield return battle.AbilityPopupEnd(index);
         }
-        if (battle.GetSide(attacker) != battle.GetSide(index) && battle.HasAbility(index, Ability.Competitive))
+        if ((!checkSide || GetSide(attacker) != GetSide(index))
+            && battle.HasAbility(index, Ability.Competitive))
         {
             battle.doStatAnim = true;
             yield return battle.AbilityPopupStart(index);
@@ -131,14 +135,14 @@ public static class BattleEffect
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
             if (battle.ShowFailure)
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
             if (battle.ShowFailure)
             {
-                yield return battle.Announce(BattleText.MoveFailed);
+                yield return battle.Announce(MoveFailed);
                 yield break;
             }
         }
@@ -158,14 +162,14 @@ public static class BattleEffect
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
             if (battle.ShowFailure)
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
             if (battle.ShowFailure)
             {
-                yield return battle.Announce(BattleText.MoveFailed);
+                yield return battle.Announce(MoveFailed);
                 yield break;
             }
         }
@@ -237,14 +241,14 @@ public static class BattleEffect
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
             if (battle.ShowFailure)
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
         else if (target.PokemonData.status != Status.None)
         {
             if (battle.ShowFailure)
             {
-                yield return battle.Announce(BattleText.MoveFailed);
+                yield return battle.Announce(MoveFailed);
             }
             yield break;
         }
@@ -274,13 +278,13 @@ public static class BattleEffect
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
             if (battle.ShowFailure)
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
         else if (target.PokemonData.status != Status.None)
         {
             if (battle.ShowFailure)
-                yield return battle.Announce(BattleText.MoveFailed);
+                yield return battle.Announce(MoveFailed);
             yield break;
         }
         else if ((target.HasType(Type.Poison)
@@ -312,13 +316,13 @@ public static class BattleEffect
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
             if (battle.ShowFailure)
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
         else if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
             if (battle.ShowFailure)
-                yield return battle.Announce(BattleText.MoveFailed);
+                yield return battle.Announce(MoveFailed);
             yield break;
         }
         else if (battle.HasAbility(index, Ability.MagmaArmor))
@@ -349,13 +353,13 @@ public static class BattleEffect
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
             if (battle.ShowFailure)
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.Safeguard);
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
         if (battle.PokemonOnField[index].PokemonData.status != Status.None)
         {
             if (battle.ShowFailure)
-                yield return battle.Announce(BattleText.MoveFailed);
+                yield return battle.Announce(MoveFailed);
             yield break;
         }
         else if (battle.EffectiveAbility(index) is Ability.Insomnia or Ability.VitalSpirit)
@@ -427,7 +431,7 @@ public static class BattleEffect
     {
         battle.PokemonOnField[index].PokemonData.status = Status.None;
         battle.PokemonOnField[index].nightmare = false;
-        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + BattleText.WokeUp);
+        yield return battle.Announce(battle.MonNameWithPrefix(index, true) + WokeUp);
     }
 
     public static IEnumerator Confuse(Battle battle, int index)
@@ -460,7 +464,7 @@ public static class BattleEffect
         if (target.disabled
             || target.lastMoveUsed is MoveID.None or MoveID.Struggle)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
             yield break;
         }
         target.disabled = true;
@@ -503,7 +507,7 @@ public static class BattleEffect
         }
         else
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
         }
     }
 
@@ -685,7 +689,7 @@ public static class BattleEffect
                 if (RemainingPokemon.Count == 0)
                 {
                     if (battle.ShowFailure)
-                        yield return battle.Announce(BattleText.MoveFailed);
+                        yield return battle.Announce(MoveFailed);
                 }
                 else
                 {
@@ -803,16 +807,16 @@ public static class BattleEffect
         switch (weather)
         {
             case Weather.Sun:
-                yield return battle.Announce(BattleText.SunStart);
+                yield return battle.Announce(SunStart);
                 break;
             case Weather.Rain:
-                yield return battle.Announce(BattleText.RainStart);
+                yield return battle.Announce(RainStart);
                 break;
             case Weather.Sand:
-                yield return battle.Announce(BattleText.SandStart);
+                yield return battle.Announce(SandStart);
                 break;
             case Weather.Snow:
-                yield return battle.Announce(BattleText.SnowStart);
+                yield return battle.Announce(SnowStart);
                 break;
         }
         yield return battle.DoWeatherTransformations();
@@ -828,16 +832,16 @@ public static class BattleEffect
             switch (battle.weather)
             {
                 case Weather.Sun:
-                    yield return battle.Announce(BattleText.SunEnd);
+                    yield return battle.Announce(SunEnd);
                     break;
                 case Weather.Rain:
-                    yield return battle.Announce(BattleText.RainEnd);
+                    yield return battle.Announce(RainEnd);
                     break;
                 case Weather.Sand:
-                    yield return battle.Announce(BattleText.SandEnd);
+                    yield return battle.Announce(SandEnd);
                     break;
                 case Weather.Snow:
-                    yield return battle.Announce(BattleText.SnowEnd);
+                    yield return battle.Announce(SnowEnd);
                     break;
             }
             battle.weather = Weather.None;
@@ -848,16 +852,16 @@ public static class BattleEffect
             switch (battle.weather)
             {
                 case Weather.Sun:
-                    yield return battle.Announce(BattleText.SunContinue);
+                    yield return battle.Announce(SunContinue);
                     break;
                 case Weather.Rain:
-                    yield return battle.Announce(BattleText.RainContinue);
+                    yield return battle.Announce(RainContinue);
                     break;
                 case Weather.Sand:
-                    yield return battle.Announce(BattleText.SandContinue);
+                    yield return battle.Announce(SandContinue);
                     break;
                 case Weather.Snow:
-                    yield return battle.Announce(BattleText.SnowContinue);
+                    yield return battle.Announce(SnowContinue);
                     break;
             }
             battle.weatherTimer--;
@@ -869,7 +873,7 @@ public static class BattleEffect
         if (battle.Sides[index < 3 ? 0 : 1].safeguard
             || battle.UproarOnField)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
             yield break;
         }
         if (user.PokemonData.HP
@@ -885,7 +889,7 @@ public static class BattleEffect
         }
         else
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
         }
     }
 
@@ -908,7 +912,7 @@ public static class BattleEffect
         BattlePokemon user = battle.PokemonOnField[index];
         if (user.isTransformed || battle.PokemonOnField[target].isTransformed)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
         }
         else
         {
@@ -959,7 +963,7 @@ public static class BattleEffect
         if (battle.PokemonOnField[attacker].PokemonData.HP
             > battle.PokemonOnField[target].PokemonData.HP)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
             yield break;
         }
         int newHP = (battle.PokemonOnField[attacker].PokemonData.HP + battle.PokemonOnField[target].PokemonData.HP) >> 1;
@@ -999,7 +1003,7 @@ public static class BattleEffect
         if (((Move.MoveTable[(int)battle.PokemonOnField[target].lastMoveUsed].moveFlags & MoveFlags.cannotMimic) != 0)
             || battle.PokemonOnField[index].PokemonData.HasMove(battle.PokemonOnField[target].lastMoveUsed))
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
             yield break;
         }
         user.mimicking = true;
@@ -1059,6 +1063,7 @@ public static class BattleEffect
     {
         battle.PokemonOnField[index].newType1 = type;
         battle.PokemonOnField[index].newType2 = type;
+        battle.PokemonOnField[index].hasType3 = false;
         battle.PokemonOnField[index].typesOverriden = true;
         yield return battle.Announce(battle.MonNameWithPrefix(index, true)
             + " became the " + TypeUtils.typeName[(int)type] + " type!");
@@ -1068,9 +1073,48 @@ public static class BattleEffect
     {
         for (int i = 0; i < 6; i++)
         {
-            battle.PokemonOnField[i].ApplyStatStruct(new());
+            battle.PokemonOnField[i].ApplyStatStruct(
+                new()
+                {
+                    critRate = battle.PokemonOnField[i].critStage
+                }
+            );
         }
         yield return battle.Announce("All stat changes were reversed!");
+    }
+
+    public static IEnumerator CreateTerrain(Battle battle, Terrain terrain, bool extend)
+    {
+        //Todo: Add terrain animation
+        battle.terrain = terrain;
+        battle.terrainTimer = extend ? 8 : 5;
+        yield return battle.Announce(
+            terrain switch
+            {
+                Terrain.Grassy => "Grass grew to cover the battlefield!",
+                Terrain.Psychic => "The battlefield got weird!",
+                Terrain.Misty => "The battlefield grew shrouded in mist!",
+                Terrain.Electric => "Electricity covers the battlefield!",
+                _ => "Error: Tried to create invalid terrain"
+            }
+        );
+    }
+
+    public static IEnumerator RemoveTerrain(Battle battle)
+    {
+        //Todo: Add terrain removal animation
+        if (battle.terrain == Terrain.None) yield break;
+        yield return battle.Announce(
+            battle.terrain switch
+            {
+                Terrain.Grassy => "The grass disappeared from the battlefield!",
+                Terrain.Psychic => "The weirdness disappeared from the battlefield!",
+                Terrain.Misty => "The mist receded from the battlefield!",
+                Terrain.Electric => "The electricity disappeared from the battlefield!",
+                _ => "Error: Removing invalid terrain"
+            }
+        );
+        battle.terrain = Terrain.None;
     }
 
     public static IEnumerator StartSafeguard(Battle battle, int index)
@@ -1125,7 +1169,7 @@ public static class BattleEffect
         }
         else
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
         }
 
     }
@@ -1209,7 +1253,7 @@ public static class BattleEffect
             if (battle.ShowFailure)
             {
                 yield return battle.AbilityPopupStart(defender);
-                yield return battle.Announce(BattleText.MoveFailed);
+                yield return battle.Announce(MoveFailed);
                 yield return battle.AbilityPopupEnd(defender);
             }
             yield break;
@@ -1238,11 +1282,11 @@ public static class BattleEffect
         BattlePokemon user = battle.PokemonOnField[attacker];
         BattlePokemon target = battle.PokemonOnField[defender];
         if (user.item == ItemID.None || target.item != ItemID.None)
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
         //Todo: add other failure conditions
         if (user.item.Data().type == ItemType.Plate && user.PokemonData.SpeciesData.speciesName == "Arceus")
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
         }
         else
         {
@@ -1284,29 +1328,29 @@ public static class BattleEffect
 
     public static IEnumerator Spikes(Battle battle, int index)
     {
-        if (battle.Sides[battle.GetSide(5 - index)].spikes < 3)
+        if (battle.Sides[GetSide(5 - index)].spikes < 3)
         {
-            battle.Sides[battle.GetSide(5 - index)].spikes++;
+            battle.Sides[GetSide(5 - index)].spikes++;
             yield return battle.Announce("Spikes littered the ground around " +
                 (index < 3 ? "your Pokémon!" : "the opponent's Pokémon!"));
         }
         else
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
         }
     }
 
     public static IEnumerator ToxicSpikes(Battle battle, int index)
     {
-        if (battle.Sides[battle.GetSide(5 - index)].toxicSpikes < 2)
+        if (battle.Sides[GetSide(5 - index)].toxicSpikes < 2)
         {
-            battle.Sides[battle.GetSide(5 - index)].toxicSpikes++;
+            battle.Sides[GetSide(5 - index)].toxicSpikes++;
             yield return battle.Announce("Toxic spikes littered the ground around " +
                 (index < 3 ? "your Pokémon!" : "the opponent's Pokémon!"));
         }
         else
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
         }
     }
 
@@ -1332,13 +1376,13 @@ public static class BattleEffect
         }
         if (announce && worked) yield return battle.Announce("It reduced the PP of " + battle.MonNameWithPrefix(index, false)
             + "'s " + battle.GetMove(index).name + " by 4!");
-        else yield return battle.Announce(BattleText.MoveFailed);
+        else yield return battle.Announce(MoveFailed);
     }
 
     public static IEnumerator GetNightmare(Battle battle, int index)
     {
         if (battle.PokemonOnField[index].PokemonData.status != Status.Sleep || battle.PokemonOnField[index].nightmare)
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
         else
         {
             battle.PokemonOnField[index].nightmare = true;
@@ -1378,23 +1422,33 @@ public static class BattleEffect
         }
         else
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
         }
     }
 
     public static IEnumerator RemoveHazards(Battle battle, int index)
     {
         Side side = battle.Sides[index / 3];
-        string teamText = index > 2 ? "your Pokémon!" : "the opponent's Pokémon!";
+        string teamText = (index > 2 ? "your" : "the opponent's") + "team!";
         if (side.spikes > 0)
         {
-            yield return battle.Announce("The spikes disappeared from around " + teamText);
+            yield return battle.Announce(SpikesDisappeared + teamText);
             side.spikes = 0;
         }
         if (side.toxicSpikes > 0)
         {
-            yield return battle.Announce("The toxic spikes disappeared from around " + teamText);
+            yield return battle.Announce(ToxicSpikesDisappeared + teamText);
             side.toxicSpikes = 0;
+        }
+        if (side.stealthRock)
+        {
+            yield return battle.Announce(StealthRockDisappeared + teamText);
+            side.stealthRock = false;
+        }
+        if (side.stickyWeb)
+        {
+            yield return battle.Announce(StickyWebDisappeared + teamText);
+            side.stickyWeb = false;
         }
     }
 
@@ -1439,7 +1493,7 @@ public static class BattleEffect
             if (!battle.PokemonOnField[index].HasType(i)) possibleTypes.Add(i);
         if (possibleTypes.Count == 0)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
             yield break;
         }
         int whichType = random.Next() % possibleTypes.Count;
@@ -1515,7 +1569,7 @@ public static class BattleEffect
         BattlePokemon targetMon = battle.PokemonOnField[target];
         if (targetMon.encored || targetMon.lastMoveUsed == MoveID.None)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
             yield break;
         }
         targetMon.encored = true;
@@ -1684,7 +1738,7 @@ public static class BattleEffect
         BattlePokemon user = battle.PokemonOnField[index];
         if (user.item != ItemID.None || user.eatenBerry == ItemID.None)
         {
-            yield return battle.Announce(BattleText.MoveFailed);
+            yield return battle.Announce(MoveFailed);
             yield break;
         }
         else
@@ -1706,7 +1760,7 @@ public static class BattleEffect
 
     public static IEnumerator BreakScreens(Battle battle, int index)
     {
-        Side side = battle.Sides[battle.GetSide(index)];
+        Side side = battle.Sides[GetSide(index)];
         string sideText = index < 3 ? "The foes'" : "Your team's";
         if (side.lightScreen)
         {
@@ -1835,26 +1889,26 @@ public static class BattleEffect
     {
         foreach (Side i in battle.Sides)
         {
+            string sideText = (i.whichSide ? "your" : "the opponent's") + " team!";
             if (i.spikes > 0)
             {
-                yield return battle.Announce("The spikes disappeared from the ground around "
-                   + (i.whichSide ? "your" : "the opponents'")
-                   + " team!");
+                yield return battle.Announce(SpikesDisappeared + sideText);
                 i.spikes = 0;
             }
             if (i.toxicSpikes > 0)
             {
-                yield return battle.Announce("The toxic spikes disappeared from the ground around "
-                + (i.whichSide ? "your" : "the opponents'")
-                + " team!");
+                yield return battle.Announce(ToxicSpikesDisappeared + sideText);
                 i.toxicSpikes = 0;
             }
             if (i.stealthRock)
             {
-                yield return battle.Announce("The pointed stones disappeared from around "
-                + (i.whichSide ? "your" : "the opponents'")
-                + " team!");
+                yield return battle.Announce(StealthRockDisappeared + sideText);
                 i.stealthRock = false;
+            }
+            if (i.stickyWeb)
+            {
+                yield return battle.Announce(StickyWebDisappeared + sideText);
+                i.stickyWeb = false;
             }
             if (i.lightScreen)
             {
@@ -1881,11 +1935,11 @@ public static class BattleEffect
                 i.mist = false;
             }
         }
-        if (battle.Sides[battle.GetSide(target)].auroraVeil)
+        if (battle.Sides[GetSide(target)].auroraVeil)
         {
             yield return battle.Announce(target < 3 ? "The foes'" : "Your team's" +
                 " Aurora Veil wore off!");
-            battle.Sides[battle.GetSide(target)].auroraVeil = false;
+            battle.Sides[GetSide(target)].auroraVeil = false;
         }
         yield return StatDown(battle, target, Stat.Evasion, 1, attacker);
     }
@@ -1918,6 +1972,13 @@ public static class BattleEffect
     {
         yield return battle.Announce("Pointed stones float in the air around "
             + (index < 3 ? "your" : "the opponent's") + " team!");
+        battle.Sides[(5 - index) / 3].stealthRock = true;
+    }
+
+    public static IEnumerator StickyWeb(Battle battle, int index)
+    {
+        yield return battle.Announce("A sticky web spreads out under " +
+            (index < 3 ? "your" : "the opponent's") + " team!");
         battle.Sides[(5 - index) / 3].stealthRock = true;
     }
 
@@ -1985,21 +2046,29 @@ public static class BattleEffect
     {
         yield return battle.Announce("A rainbow appeared over " +
             (index > 2 ? "your" : "the foe's" + " Pokémon!"));
-        battle.Sides[battle.GetSide(index)].rainbow = true;
-        battle.Sides[battle.GetSide(index)].rainbowTurns = 4;
+        battle.Sides[GetSide(index)].rainbow = true;
+        battle.Sides[GetSide(index)].rainbowTurns = 4;
     }
     public static IEnumerator MakeSwamp(Battle battle, int index)
     {
         yield return battle.Announce("A swamp appeared around " +
             (index > 2 ? "your" : "the foe's" + " Pokémon!"));
-        battle.Sides[battle.GetSide(index)].swamp = true;
-        battle.Sides[battle.GetSide(index)].swampTurns = 4;
+        battle.Sides[GetSide(index)].swamp = true;
+        battle.Sides[GetSide(index)].swampTurns = 4;
     }
     public static IEnumerator MakeBurningField(Battle battle, int index)
     {
         yield return battle.Announce("A burning field surrounds " +
             (index > 2 ? "your" : "the foe's" + " Pokémon!"));
-        battle.Sides[battle.GetSide(index)].burningField = true;
-        battle.Sides[battle.GetSide(index)].burningFieldTurns = 4;
+        battle.Sides[GetSide(index)].burningField = true;
+        battle.Sides[GetSide(index)].burningFieldTurns = 4;
+    }
+
+    public static IEnumerator AddType3(Battle battle, int index, Type type)
+    {
+        yield return battle.Announce("The " + type.Name() + " type was added to " +
+            battle.MonNameWithPrefix(index, false) + "!");
+        battle.PokemonOnField[index].Type3 = type;
+        battle.PokemonOnField[index].hasType3 = true;
     }
 }

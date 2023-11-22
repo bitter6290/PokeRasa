@@ -19,9 +19,11 @@ public class Side
     public int luckyChantTurns = 0;
     public int toxicSpikes = 0;
     public bool stealthRock = false;
+    public bool stickyWeb = false;
     public bool wideGuard = false;
     public bool quickGuard = false;
     public bool matBlock = false;
+    public bool craftyShield = false;
     public bool allySwitchUsed = false;
 
     //Pledge effects

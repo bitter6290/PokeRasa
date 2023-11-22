@@ -54,6 +54,7 @@ public enum MoveEffect : ushort
     DefenseSpDefUp1,
     SpAtkSpDefUp1,
     AttackDefenseDown1,
+    AttackSpAtkDown1,
     DefenseSpDefDown1,
     AttackUp1SpeedUp2,
     AttackDefAccUp1,
@@ -66,8 +67,10 @@ public enum MoveEffect : ushort
     Captivate,
     Charge,
     DefenseCurl,
+    FlowerShield,
     Growth,
     Minimize,
+    Rototiller,
     ShellSmash,
     //Other status moves
     AfterYou,
@@ -76,11 +79,13 @@ public enum MoveEffect : ushort
     Curse,
     Defog,
     Disable,
+    Electrify,
     Embargo,
     Encore,
     Entrainment,
     ForcedSwitch,
     Foresight,
+    ForestsCurse,
     GuardSplit,
     GuardSwap,
     HealBlock,
@@ -93,6 +98,7 @@ public enum MoveEffect : ushort
     MindReader,
     MiracleEye,
     Nightmare,
+    PartingShot,
     PerishSong,
     PowerSplit,
     PowerSwap,
@@ -109,9 +115,11 @@ public enum MoveEffect : ushort
     SuppressAbility,
     Taunt,
     Telekinesis,
+    TopsyTurvy,
     Torment,
     Trap,
     Trick,
+    TrickOrTreat,
     WorrySeed,
     Yawn,
     //Direct damage
@@ -129,6 +137,7 @@ public enum MoveEffect : ushort
     FlareBlitz,
     //Other added effects
     Absorb50,
+    Absorb75,
     BreakScreens,
     ClearStats,
     FakeOut,
@@ -155,6 +164,7 @@ public enum MoveEffect : ushort
     EchoedVoice,
     Endeavor,
     FalseSwipe,
+    FellStinger,
     FinalGambit,
     Fling,
     FlyingPress,
@@ -188,6 +198,7 @@ public enum MoveEffect : ushort
     Acrobatics,
     Brine,
     Facade,
+    FreezeDry,
     Hex,
     Payback,
     Pursuit,
@@ -227,9 +238,13 @@ public enum MoveEffect : ushort
     BurningField,
     FusionFlare,
     FusionBolt,
+    //Terrain effects
+    GrassyTerrain,
+    MistyTerrain,
     //Field effects
     Gravity,
     Haze,
+    IonDeluge,
     LightScreen,
     LuckyChant,
     MagicRoom,
@@ -239,6 +254,7 @@ public enum MoveEffect : ushort
     Safeguard,
     StealthRock,
     Spikes,
+    StickyWeb,
     Tailwind,
     ToxicSpikes,
     TrickRoom,
@@ -253,6 +269,7 @@ public enum MoveEffect : ushort
     Conversion,
     Conversion2,
     Copycat,
+    CraftyShield,
     DestinyBond,
     Endure,
     Grudge,
@@ -286,7 +303,6 @@ public enum MoveEffect : ushort
     FollowMe,
     HelpingHand,
     RagePowder,
-    Rototiller,
 }
 
 public static class MoveEffectUtils
@@ -322,7 +338,7 @@ public static class MoveEffectUtils
         return effect.IsStatDrop() || effect.IsStatDrop()
             || effect is Flinch or Trap or Confuse or SmackDown
             or Curse or Nightmare or PerishSong or LeechSeed
-            or Telekinesis or Yawn or Disable or Embargo or HealBlock;
+            or Telekinesis or Yawn or Disable or Embargo or HealBlock or FellStinger;
     }
 
     public static bool IsSheerForceAffectedSelfOnly(this MoveEffect effect) =>

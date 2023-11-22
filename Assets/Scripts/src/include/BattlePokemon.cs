@@ -252,6 +252,8 @@ public class BattlePokemon
 
     public bool[] usedMove = new bool[4];
 
+    public bool electrify = false;
+
     public bool HatesStat(Stat stat) => PokemonData.Nature.NatureEffect(stat) < 1;
 
     public Battle battle;
@@ -399,6 +401,9 @@ public class BattlePokemon
             || (hasType3 && Type3 == type);
     }
 
+    public bool IsMonotype(Type type) =>
+        Type1 == type && Type2 == type && (Type3 == type || !hasType3);
+
     public bool IsTypeless =>
         Type1 == Type.Typeless && Type2 == Type.Typeless &&
         (!hasType3 || Type3 == Type.Typeless);
@@ -470,7 +475,7 @@ public class BattlePokemon
             speed = speedStage,
             accuracy = accuracyStage,
             evasion = evasionStage,
-            critRatio = critStage,
+            critRate = critStage,
         };
     }
 
@@ -483,7 +488,18 @@ public class BattlePokemon
         speedStage = statStruct.speed;
         accuracyStage = statStruct.accuracy;
         evasionStage = statStruct.evasion;
-        critStage = statStruct.critRatio;
+        critStage = statStruct.critRate;
+    }
+
+    public void InvertStatStages()
+    {
+        attackStage = -attackStage;
+        defenseStage = -defenseStage;
+        spAtkStage = -spAtkStage;
+        spDefStage = -spDefStage;
+        speedStage = -speedStage;
+        accuracyStage = -accuracyStage;
+        evasionStage = -evasionStage;
     }
 
     public BatonPassStruct MakeBatonPassStruct()

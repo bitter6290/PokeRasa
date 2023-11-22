@@ -1,4 +1,4 @@
-﻿public static class Spread
+﻿public static class Spreads
 {
     public static EvIvSpread random = new()
     {

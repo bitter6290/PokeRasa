@@ -25,4 +25,5 @@ public static class MoveFlags
     public const int extraFlinch10 = 1 << 21;
     public const int punchMove = 1 << 22;
     public const int incrementsProtectCounter = 1 << 23;
+    public const int windMove = 1 << 24;
 }

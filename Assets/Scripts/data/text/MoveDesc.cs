@@ -578,4 +578,27 @@ public static class MoveDesc
     public static string MatBlockDesc = "Using a pulled-up mat as a shield, the user protects itself and its allies from damaging moves. This does not stop status moves.";
     public static string BelchDesc = "The user lets out a damaging belch at the target. The user must eat a held Berry to use this move.";
     public static string RototillerDesc = "Tilling the soil, the user makes it easier for plants to grow. This raises the Attack and Sp. Atk stats of Grass-type Pokémon.";
+    public static string StickyWebDesc = "The user weaves a sticky net around the opposing team, which lowers their Speed stats upon switching into battle.";
+    public static string FellStingerDesc = "When the user knocks out a target with this move, the user's Attack stat is boosted drastically.";
+    public static string PhantomForceDesc = "The user vanishes somewhere, then strikes the target on the next turn. This move hits even if the target protects itself.";
+    public static string TrickOrTreatDesc = "The user takes the target trick-or-treating. This adds Ghost type to the target's type.";
+    public static string NobleRoarDesc = "Letting out a noble roar, the user intimidates the target and lowers its Attack and Sp. Atk stats.";
+    public static string IonDelugeDesc = "The user disperses electrically charged particles, which changes Normal-type moves to Electric-type moves.";
+    public static string ParabolicChargeDesc = "The user attacks everything around it. The user's HP is restored by half the damage taken by those hit.";
+    public static string ForestsCurseDesc = "The user puts a forest curse on the target. This adds Grass type to the target's type.";
+    public static string PetalBlizzardDesc = "The user stirs up a violent petal blizzard and damages everything around it.";
+    public static string FreezeDryDesc = "The user rapidly cools the target. This may also leave the target frozen. This move is super effective on Water types.";
+    public static string DisarmingVoiceDesc = "Letting out a charming cry, the user does emotional damage to opposing Pokémon. This attack never misses.";
+    public static string PartingShotDesc = "With a parting threat, the user lowers the target's Attack and Sp. Atk stats. Then it switches places with a party Pokémon in waiting.";
+    public static string DrainingKissDesc = "The user steals the target's HP with a kiss. The user's HP is restored by over half the damage taken by the target.";
+    public static string TopsyTurvyDesc = "All stat changes affecting the target turn topsy-turvy and become the opposite of what they were.";
+    public static string CraftyShieldDesc = "The user protects itself and its allies from status moves with a mysterious power. This does not stop moves that do damage.";
+    public static string FlowerShieldDesc = "The user raises the Defense stats of all Grass-type Pokémon in battle with a mysterious power.";
+    public static string GrassyTerrainDesc = "The user turns the ground into Grassy Terrain for five turns. This restores the HP of Pokémon on the ground a little every turn and powers up Grass-type moves.";
+    public static string MistyTerrainDesc = "This protects Pokémon on the ground from status conditions and halves damage from Dragon-type moves for five turns.";
+    public static string ElectrifyDesc = "If the target is electrified before it uses a move, the target's move becomes Electric type for that turn.";
+    public static string PlayRoughDesc = "The user attacks by playing rough with the target. This may also lower the target's Attack stat.";
+    public static string FairyWindDesc = "The user attacks by stirring up a fairy wind to strike the target.";
+    public static string MoonblastDesc = "Borrowing the power of the moon, the user attacks the target. This may also lower the target's Sp. Atk stat.";
+    public static string BoomburstDesc = "The user attacks everything around it with the destructive power of a terrible explosive sound.";
 }

@@ -574,6 +574,29 @@ public enum MoveID
     MatBlock,
     Belch,
     Rototiller,
+    StickyWeb,
+    FellStinger,
+    PhantomForce,
+    TrickOrTreat,
+    NobleRoar,
+    IonDeluge,
+    ParabolicCharge,
+    ForestsCurse,
+    PetalBlizzard,
+    FreezeDry,
+    DisarmingVoice,
+    PartingShot,
+    TopsyTurvy,
+    DrainingKiss,
+    CraftyShield,
+    FlowerShield,
+    GrassyTerrain,
+    MistyTerrain,
+    Electrify,
+    PlayRough,
+    FairyWind,
+    Moonblast,
+    Boomburst,
 
     //Nonstandard moves
 
@@ -597,6 +620,7 @@ public enum MoveID
     BurningFieldPledge,
     FreezeShockAttack,
     IceBurnAttack,
+    PhantomForceAttack,
 
     Count,
 

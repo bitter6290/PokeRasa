@@ -7,5 +7,5 @@
     public int speed;
     public int accuracy;
     public int evasion;
-    public int critRatio;
+    public int critRate;
 }

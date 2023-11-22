@@ -301,11 +301,11 @@ public enum Ability
     EarthEater,
     MyceliumMight,
     Hospitality, //Not done
-    MindsEye,
-    EmbodyTeal,
-    EmbodyFire,
-    EmbodyWater,
-    EmbodyRock,
+    MindsEye, //Not done
+    EmbodyTeal, //Not done
+    EmbodyFire, //Not done
+    EmbodyWater, //Not done
+    EmbodyRock, //Not done
     ToxicChain, //Not done
     SupersweetSyrup, //Not done
 
