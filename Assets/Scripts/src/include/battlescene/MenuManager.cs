@@ -152,6 +152,7 @@ public class MenuManager : MonoBehaviour
                     }
                     if (GetNextPokemon())
                     {
+                        GoToAnnounce();
                         battle.state = BattleState.Announcement;
                         MainMenu();
                         currentMove = 1;
@@ -168,6 +169,7 @@ public class MenuManager : MonoBehaviour
                 }
                 else
                 {
+                    GoToAnnounce();
                     battle.state = BattleState.Announcement;
                     StartCoroutine(AnnounceAndReturn(
                     battle.PokemonOnField[currentMon].GetMove(selectedMove - 1).Data().name
@@ -202,6 +204,7 @@ public class MenuManager : MonoBehaviour
 
     private void MovesMenu()
     {
+        menuMode = MenuMode.Moves;
         mon = battle.PokemonOnField[currentMon];
         box1.color = TypeUtils.typeColor[(int)mon.GetMove(0).Data().type];
         box2.color = mon.GetMove(1) == MoveID.None
@@ -420,9 +423,52 @@ public class MenuManager : MonoBehaviour
         menuMode = MenuMode.Party;
     }
 
+    public void GoToAnnounce() {
+        battle.state = BattleState.Announcement;
+        announce.enabled = true;
+        box1.enabled = false;
+        box2.enabled = false;
+        box3.enabled = false;
+        box4.enabled = false;
+        box5.enabled = false;
+        box6.enabled = false;
+        box7.enabled = false;
+        text1.enabled = false;
+        text2.enabled = false;
+        text3.enabled = false;
+        text4.enabled = false;
+        text5.enabled = false;
+        text7.enabled = false;
+        selector1.enabled = false;
+        selector2.enabled = false;
+        selector3.enabled = false;
+        selector4.enabled = false;
+        selector5.enabled = false;
+        selector6.enabled = false;
+        selector7.enabled = false;
+        pp1.enabled = false;
+        pp2.enabled = false;
+        pp3.enabled = false;
+        pp4.enabled = false;
+        partyText1.enabled = false;
+        partyText2.enabled = false;
+        partyText3.enabled = false;
+        partyText4.enabled = false;
+        partyText5.enabled = false;
+        partyText6.enabled = false;
+        partyMon1.enabled = false;
+        partyMon2.enabled = false;
+        partyMon3.enabled = false;
+        partyMon4.enabled = false;
+        partyMon5.enabled = false;
+        partyMon6.enabled = false;
+        megaIndicator.SetActive(false);
+        summaryIndicator.SetActive(false);
+    }
+
     private IEnumerator AnnounceAndReturn(string announcement)
     {
-        battle.state = BattleState.Announcement;
+        GoToAnnounce();
         yield return battle.Announce(announcement);
         battle.state = BattleState.PlayerInput;
         switch (menuMode)
@@ -460,255 +506,517 @@ public class MenuManager : MonoBehaviour
     public void Update()
     {
         if (battle.menuOpen) return;
-        switch (battle.state)
+        if (battle.state == BattleState.PlayerInput)
         {
-            case BattleState.PlayerInput:
-                announce.enabled = false;
-                switch (menuMode)
-                {
-                    case MenuMode.Moves:
-                        mon = battle.PokemonOnField[currentMon];
+            announce.enabled = false;
+            switch (menuMode)
+            {
+                case MenuMode.Moves:
+                    mon = battle.PokemonOnField[currentMon];
 
-                        selector1.enabled = currentMove == 1;
-                        selector2.enabled = currentMove == 2;
-                        selector3.enabled = currentMove == 3;
-                        selector4.enabled = currentMove == 4;
-                        selector5.enabled = currentMove == 0;
+                    selector1.enabled = currentMove == 1;
+                    selector2.enabled = currentMove == 2;
+                    selector3.enabled = currentMove == 3;
+                    selector4.enabled = currentMove == 4;
+                    selector5.enabled = currentMove == 0;
 
 
-                        if (battle.CanMegaEvolve(currentMon))
+                    if (battle.CanMegaEvolve(currentMon))
+                    {
+                        megaIndicator.SetActive(true);
+                        if (Input.GetKeyDown(KeyCode.M))
                         {
-                            megaIndicator.SetActive(true);
-                            if (Input.GetKeyDown(KeyCode.M))
-                            {
-                                megaEvolving = !megaEvolving;
-                                battle.megaEvolveOnMove[currentMon] = megaEvolving;
-                                battle.audioSource0.PlayOneShot(SelectMove);
+                            megaEvolving = !megaEvolving;
+                            battle.megaEvolveOnMove[currentMon] = megaEvolving;
+                            battle.audioSource0.PlayOneShot(SelectMove);
+                            battle.audioSource0.panStereo = 0;
+                        }
+                        megaIndicator.GetComponent<SpriteRenderer>().color = megaEvolving ? megaYesColor : megaNoColor;
+                    }
+                    else
+                    {
+                        megaIndicator.SetActive(false);
+                    }
+
+                    summaryIndicator.SetActive(false);
+
+                    if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 1:
+                                currentMove = mon.GetMove(1) == MoveID.None ? 0 : 2;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
                                 battle.audioSource0.panStereo = 0;
-                            }
-                            megaIndicator.GetComponent<SpriteRenderer>().color = megaEvolving ? megaYesColor : megaNoColor;
-                        }
-                        else
-                        {
-                            megaIndicator.SetActive(false);
-                        }
-
-                        summaryIndicator.SetActive(false);
-
-                        if (Input.GetKeyDown(KeyCode.RightArrow))
-                        {
-                            switch (currentMove)
-                            {
-                                case 1:
-                                    currentMove = mon.GetMove(1) == MoveID.None ? 0 : 2;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 2:
-                                    currentMove = 0;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 3:
-                                    if (mon.GetMove(3) != MoveID.None)
-                                    {
-                                        currentMove = 4;
-                                        battle.audioSource0.PlayOneShot(MoveCursor);
-                                        battle.audioSource0.panStereo = 0;
-                                    }
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        if (Input.GetKeyDown(KeyCode.LeftArrow))
-                        {
-                            switch (currentMove)
-                            {
-                                case 0:
-                                    currentMove = mon.GetMove(1) == MoveID.None ? 1 : 2;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 2:
-                                    currentMove = 1;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 4:
-                                    currentMove = 3;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        if (Input.GetKeyDown(KeyCode.DownArrow))
-                        {
-                            switch (currentMove)
-                            {
-                                case 1:
-                                    if (mon.GetMove(2) != MoveID.None)
-                                    {
-                                        currentMove = 3;
-                                        battle.audioSource0.PlayOneShot(MoveCursor);
-                                        battle.audioSource0.panStereo = 0;
-                                    }
-                                    break;
-                                case 2:
-                                    if (mon.GetMove(3) != MoveID.None)
-                                    {
-                                        currentMove = 4;
-                                        battle.audioSource0.PlayOneShot(MoveCursor);
-                                        battle.audioSource0.panStereo = 0;
-                                    }
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        if (Input.GetKeyDown(KeyCode.UpArrow))
-                        {
-                            switch (currentMove)
-                            {
-                                case 3:
-                                    currentMove = 1;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 4:
-                                    currentMove = 2;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        if (Input.GetKeyDown(KeyCode.Return))
-                        {
-                            battle.audioSource0.PlayOneShot(SelectMove);
-                            battle.audioSource0.panStereo = 0;
-                            switch (currentMove)
-                            {
-                                case 1:
-                                case 2:
-                                case 3:
-                                case 4:
-                                    TrySelectMove(currentMove);
-                                    break;
-                                case 0:
-                                    currentMove = 1;
-                                    MainMenu();
-                                    megaEvolving = false;
-                                    break;
-                            }
-                        }
-                        break;
-                    case MenuMode.Main:
-                        bool canUseAnyMove = battle.PokemonOnField[currentMon].CanUseAnyMove;
-
-                        selector1.enabled = currentMove == 1;
-                        selector2.enabled = currentMove == 2;
-                        selector3.enabled = currentMove == 3;
-                        selector4.enabled = currentMove == 4;
-                        selector5.enabled = currentMove == 0;
-
-                        if (Input.GetKeyDown(KeyCode.RightArrow))
-                        {
-                            switch (currentMove)
-                            {
-                                case 1:
-                                    currentMove = 2;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 3:
+                                break;
+                            case 2:
+                                currentMove = 0;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 3:
+                                if (mon.GetMove(3) != MoveID.None)
+                                {
                                     currentMove = 4;
                                     battle.audioSource0.PlayOneShot(MoveCursor);
                                     battle.audioSource0.panStereo = 0;
-                                    break;
-                                default:
-                                    break;
-                            }
+                                }
+                                break;
+                            default:
+                                break;
                         }
-                        if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    }
+                    if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        switch (currentMove)
                         {
-                            switch (currentMove)
-                            {
-                                case 2:
-                                    currentMove = 1;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 4:
+                            case 0:
+                                currentMove = mon.GetMove(1) == MoveID.None ? 1 : 2;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 2:
+                                currentMove = 1;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 4:
+                                currentMove = 3;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 1:
+                                if (mon.GetMove(2) != MoveID.None)
+                                {
                                     currentMove = 3;
                                     battle.audioSource0.PlayOneShot(MoveCursor);
                                     battle.audioSource0.panStereo = 0;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        if (Input.GetKeyDown(KeyCode.DownArrow))
-                        {
-                            switch (currentMove)
-                            {
-                                case 1:
-                                    currentMove = 3;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 2:
+                                }
+                                break;
+                            case 2:
+                                if (mon.GetMove(3) != MoveID.None)
+                                {
                                     currentMove = 4;
                                     battle.audioSource0.PlayOneShot(MoveCursor);
                                     battle.audioSource0.panStereo = 0;
-                                    break;
-                                default:
-                                    break;
-                            }
+                                }
+                                break;
+                            default:
+                                break;
                         }
-                        if (Input.GetKeyDown(KeyCode.UpArrow))
+                    }
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        switch (currentMove)
                         {
-                            switch (currentMove)
-                            {
-                                case 3:
-                                    currentMove = 1;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 4:
-                                    currentMove = 2;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                default:
-                                    break;
-                            }
+                            case 3:
+                                currentMove = 1;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 4:
+                                currentMove = 2;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            default:
+                                break;
                         }
-                        if (Input.GetKeyDown(KeyCode.Return))
+                    }
+                    if (Input.GetKeyDown(KeyCode.Return))
+                    {
+                        battle.audioSource0.PlayOneShot(SelectMove);
+                        battle.audioSource0.panStereo = 0;
+                        switch (currentMove)
                         {
-                            battle.audioSource0.volume = 0.6F;
-                            battle.audioSource0.PlayOneShot(SelectMove);
-                            battle.audioSource0.panStereo = 0;
-                            switch (currentMove)
-                            {
-                                case 1:
-                                    if (!canUseAnyMove)
+                            case 1:
+                            case 2:
+                            case 3:
+                            case 4:
+                                TrySelectMove(currentMove);
+                                break;
+                            case 0:
+                                currentMove = 1;
+                                MainMenu();
+                                megaEvolving = false;
+                                break;
+                        }
+                    }
+                    break;
+                case MenuMode.Main:
+                    bool canUseAnyMove = battle.PokemonOnField[currentMon].CanUseAnyMove;
+
+                    selector1.enabled = currentMove == 1;
+                    selector2.enabled = currentMove == 2;
+                    selector3.enabled = currentMove == 3;
+                    selector4.enabled = currentMove == 4;
+                    selector5.enabled = currentMove == 0;
+
+                    if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 1:
+                                currentMove = 2;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 3:
+                                currentMove = 4;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 2:
+                                currentMove = 1;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 4:
+                                currentMove = 3;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 1:
+                                currentMove = 3;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 2:
+                                currentMove = 4;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 3:
+                                currentMove = 1;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 4:
+                                currentMove = 2;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.Return))
+                    {
+                        battle.audioSource0.volume = 0.6F;
+                        battle.audioSource0.PlayOneShot(SelectMove);
+                        battle.audioSource0.panStereo = 0;
+                        switch (currentMove)
+                        {
+                            case 1:
+                                if (!canUseAnyMove)
+                                {
+                                    battle.Moves[currentMon] = MoveID.Struggle;
+                                    battle.PokemonOnField[currentMon].dontCheckPP = true;
+                                    battle.PokemonOnField[currentMon].choseMove = true;
+                                    switch (battle.battleType)
                                     {
-                                        battle.Moves[currentMon] = MoveID.Struggle;
-                                        battle.PokemonOnField[currentMon].dontCheckPP = true;
+                                        case BattleType.Single:
+                                            battle.Targets[currentMon] = 0;
+                                            break;
+                                    }
+                                    if (GetNextPokemon())
+                                    {
+                                        menuMode = MenuMode.Main;
+                                        GoToAnnounce();
+                                        currentMove = 1;
+                                        currentMon = 2;
+                                        GetNextPokemon();
+                                        battle.DoNextMove();
+                                    }
+                                    else
+                                    {
+                                        MainMenu();
+                                        currentMove = 1;
+                                    }
+                                }
+                                else
+                                {
+                                    MovesMenu();
+                                }
+                                break;
+                            case 3:
+                                battle.partyBackButtonInactive = false;
+                                currentPartyMon = 1;
+                                PartyMenu();
+                                break;
+                            case 4:
+                                if (battle.wildBattle)
+                                {
+                                    battle.StartCoroutine(battle.TryToRun());
+                                }
+                                else
+                                {
+                                    battle.state = BattleState.Announcement;
+                                    GoToAnnounce();
+                                    StartCoroutine(AnnounceAndReturn(
+                                        "No! There's no running from a trainer battle!"));
+                                }
+                                break;
+                            default:
+                                break;
+
+                        }
+                    }
+                    break;
+                case MenuMode.Party:
+                    announce.enabled = false;
+
+                    box7.enabled = !battle.partyBackButtonInactive;
+                    text7.enabled = !battle.partyBackButtonInactive;
+
+                    selector1.enabled = currentPartyMon == 1;
+                    selector2.enabled = currentPartyMon == 3;
+                    selector3.enabled = currentPartyMon == 2;
+                    selector4.enabled = currentPartyMon == 4;
+                    selector5.enabled = currentPartyMon == 5;
+                    selector6.enabled = currentPartyMon == 6;
+                    selector7.enabled = currentPartyMon == 0;
+
+                    bool useSprite2 = Time.time % 0.36 > 0.18;
+
+                    partyMon1.sprite = currentPartyMon == 1 && useSprite2 ?
+                        battle.playerMonIcons2[0] : battle.playerMonIcons[0];
+                    partyMon2.sprite = currentPartyMon == 3 && useSprite2 ?
+                        battle.playerMonIcons2[2] : battle.playerMonIcons[2];
+                    partyMon3.sprite = currentPartyMon == 2 && useSprite2 ?
+                        battle.playerMonIcons2[1] : battle.playerMonIcons[1];
+                    partyMon4.sprite = currentPartyMon == 4 && useSprite2 ?
+                        battle.playerMonIcons2[3] : battle.playerMonIcons[3];
+                    partyMon5.sprite = currentPartyMon == 5 && useSprite2 ?
+                        battle.playerMonIcons2[4] : battle.playerMonIcons[4];
+                    partyMon6.sprite = currentPartyMon == 6 && useSprite2 ?
+                        battle.playerMonIcons2[5] : battle.playerMonIcons[5];
+
+                    if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        switch (currentPartyMon)
+                        {
+                            case 1:
+                                currentPartyMon = box2.enabled ? 3 :
+                                    battle.partyBackButtonInactive ? 1 : 0;
+                                if (currentPartyMon != 1)
+                                {
+                                    battle.audioSource0.PlayOneShot(MoveCursor);
+                                    battle.audioSource0.panStereo = 0;
+                                }
+                                break;
+                            case 2:
+                                currentPartyMon = box4.enabled ? 4 :
+                                    battle.partyBackButtonInactive ? 2 : 0;
+                                if (currentPartyMon != 2)
+                                {
+                                    battle.audioSource0.PlayOneShot(MoveCursor);
+                                    battle.audioSource0.panStereo = 0;
+                                }
+                                break;
+                            case 3:
+                                currentPartyMon = box5.enabled ? 5 :
+                                    battle.partyBackButtonInactive ? 3 : 0;
+                                if (currentPartyMon != 3)
+                                {
+                                    battle.audioSource0.PlayOneShot(MoveCursor);
+                                    battle.audioSource0.panStereo = 0;
+                                }
+                                break;
+                            case 4:
+                                currentPartyMon = box6.enabled ? 6 :
+                                    battle.partyBackButtonInactive ? 4 : 0;
+                                if (currentPartyMon != 4)
+                                {
+                                    battle.audioSource0.PlayOneShot(MoveCursor);
+                                    battle.audioSource0.panStereo = 0;
+                                }
+                                break;
+                            case 5:
+                                if (!battle.partyBackButtonInactive)
+                                {
+                                    currentPartyMon = 0;
+                                    battle.audioSource0.PlayOneShot(MoveCursor);
+                                    battle.audioSource0.panStereo = 0;
+                                }
+                                break;
+                            case 6:
+                                if (!battle.partyBackButtonInactive)
+                                {
+                                    currentPartyMon = 0;
+                                    battle.audioSource0.PlayOneShot(MoveCursor);
+                                    battle.audioSource0.panStereo = 0;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        switch (currentPartyMon)
+                        {
+                            case 3:
+                                currentPartyMon = 1;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 4:
+                                currentPartyMon = 2;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 5:
+                                currentPartyMon = 3;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 6:
+                                currentPartyMon = 4;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 0:
+                                currentPartyMon =
+                                    box5.enabled ? 5 :
+                                    box2.enabled ? 3 : 1;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        switch (currentPartyMon)
+                        {
+                            case 1:
+                                if (box3.enabled)
+                                {
+                                    currentPartyMon = 2;
+                                    battle.audioSource0.PlayOneShot(MoveCursor);
+                                    battle.audioSource0.panStereo = 0;
+                                }
+                                break;
+                            case 3:
+                                currentPartyMon = box4.enabled ? 4 : 2;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 5:
+                                currentPartyMon = box6.enabled ? 6 : 4;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        switch (currentPartyMon)
+                        {
+                            case 2:
+                                currentPartyMon = 1;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 4:
+                                currentPartyMon = 3;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            case 6:
+                                currentPartyMon = 5;
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.Return))
+                    {
+                        battle.audioSource0.volume = 0.6F;
+                        battle.audioSource0.PlayOneShot(SelectMove);
+                        battle.audioSource0.panStereo = 0;
+                        switch (currentPartyMon)
+                        {
+                            case 1:
+                            case 2:
+                            case 3:
+                            case 4:
+                            case 5:
+                            case 6:
+                                if (battle.PlayerPokemon[currentPartyMon - 1].fainted)
+                                {
+                                    StartCoroutine(AnnounceAndReturn(
+                                        battle.PlayerPokemon[currentPartyMon - 1].monName
+                                        + " has no energy to battle!"));
+                                }
+                                else if (battle.PlayerPokemon[currentPartyMon - 1].onField)
+                                {
+                                    StartCoroutine(AnnounceAndReturn(
+                                        battle.PlayerPokemon[currentPartyMon - 1].monName
+                                        + " is already on the field!"));
+                                }
+                                else if (battle.IsTrapped(currentMon))
+                                {
+                                    StartCoroutine(AnnounceAndReturn(
+                                        battle.PokemonOnField[currentMon].PokemonData.monName
+                                        + " is trapped and cannot switch!"));
+                                }
+                                else
+                                {
+                                    if (battle.partyBackButtonInactive)
+                                    {
+                                        battle.state = BattleState.Announcement;
+                                        GoToAnnounce();
+                                        battle.switchingTarget = currentPartyMon - 1;
+                                        battle.choseSwitchMon = true;
+                                    }
+                                    else
+                                    {
                                         battle.PokemonOnField[currentMon].choseMove = true;
-                                        switch (battle.battleType)
-                                        {
-                                            case BattleType.Single:
-                                                battle.Targets[currentMon] = 0;
-                                                break;
-                                        }
+                                        battle.Moves[currentMon] = MoveID.Switch;
+                                        battle.SwitchTargets[currentMon] = currentPartyMon - 1;
                                         if (GetNextPokemon())
                                         {
                                             battle.state = BattleState.Announcement;
+                                            GoToAnnounce();
                                             MainMenu();
                                             currentMove = 1;
                                             currentMon = 2;
@@ -721,333 +1029,30 @@ public class MenuManager : MonoBehaviour
                                             currentMove = 1;
                                         }
                                     }
-                                    else
-                                    {
-                                        menuMode = MenuMode.Moves;
-                                        MovesMenu();
-                                    }
-                                    break;
-                                case 3:
-                                    battle.partyBackButtonInactive = false;
-                                    currentPartyMon = 1;
-                                    PartyMenu();
-                                    break;
-                                case 4:
-                                    if (battle.wildBattle)
-                                    {
-                                        battle.StartCoroutine(battle.TryToRun());
-                                    }
-                                    else
-                                    {
-                                        battle.state = BattleState.Announcement;
-                                        StartCoroutine(AnnounceAndReturn(
-                                            "No! There's no running from a trainer battle!"));
-                                    }
-                                    break;
-                                default:
-                                    break;
+                                }
+                                break;
+                            case 0:
+                                MainMenu();
+                                battle.audioSource0.volume = 0.6F;
+                                battle.audioSource0.PlayOneShot(SelectMove);
+                                battle.audioSource0.panStereo = 0;
+                                break;
+                            default:
+                                break;
 
-                            }
                         }
-                        break;
-                    case MenuMode.Party:
-                        announce.enabled = false;
-
-                        box7.enabled = !battle.partyBackButtonInactive;
-                        text7.enabled = !battle.partyBackButtonInactive;
-
-                        selector1.enabled = currentPartyMon == 1;
-                        selector2.enabled = currentPartyMon == 3;
-                        selector3.enabled = currentPartyMon == 2;
-                        selector4.enabled = currentPartyMon == 4;
-                        selector5.enabled = currentPartyMon == 5;
-                        selector6.enabled = currentPartyMon == 6;
-                        selector7.enabled = currentPartyMon == 0;
-
-                        bool useSprite2 = Time.time % 0.36 > 0.18;
-
-                        partyMon1.sprite = currentPartyMon == 1 && useSprite2 ?
-                            battle.playerMonIcons2[0] : battle.playerMonIcons[0];
-                        partyMon2.sprite = currentPartyMon == 3 && useSprite2 ?
-                            battle.playerMonIcons2[2] : battle.playerMonIcons[2];
-                        partyMon3.sprite = currentPartyMon == 2 && useSprite2 ?
-                            battle.playerMonIcons2[1] : battle.playerMonIcons[1];
-                        partyMon4.sprite = currentPartyMon == 4 && useSprite2 ?
-                            battle.playerMonIcons2[3] : battle.playerMonIcons[3];
-                        partyMon5.sprite = currentPartyMon == 5 && useSprite2 ?
-                            battle.playerMonIcons2[4] : battle.playerMonIcons[4];
-                        partyMon6.sprite = currentPartyMon == 6 && useSprite2 ?
-                            battle.playerMonIcons2[5] : battle.playerMonIcons[5];
-
-                        if (Input.GetKeyDown(KeyCode.RightArrow))
+                    }
+                    if (Input.GetKeyDown(KeyCode.S))
+                    {
+                        Debug.Log("S");
+                        if (currentMon > 0 && currentMon <= 6)
                         {
-                            switch (currentPartyMon)
-                            {
-                                case 1:
-                                    currentPartyMon = box2.enabled ? 3 :
-                                        battle.partyBackButtonInactive ? 1 : 0;
-                                    if (currentPartyMon != 1)
-                                    {
-                                        battle.audioSource0.PlayOneShot(MoveCursor);
-                                        battle.audioSource0.panStereo = 0;
-                                    }
-                                    break;
-                                case 2:
-                                    currentPartyMon = box4.enabled ? 4 :
-                                        battle.partyBackButtonInactive ? 2 : 0;
-                                    if (currentPartyMon != 2)
-                                    {
-                                        battle.audioSource0.PlayOneShot(MoveCursor);
-                                        battle.audioSource0.panStereo = 0;
-                                    }
-                                    break;
-                                case 3:
-                                    currentPartyMon = box5.enabled ? 5 :
-                                        battle.partyBackButtonInactive ? 3 : 0;
-                                    if (currentPartyMon != 3)
-                                    {
-                                        battle.audioSource0.PlayOneShot(MoveCursor);
-                                        battle.audioSource0.panStereo = 0;
-                                    }
-                                    break;
-                                case 4:
-                                    currentPartyMon = box6.enabled ? 6 :
-                                        battle.partyBackButtonInactive ? 4 : 0;
-                                    if (currentPartyMon != 4)
-                                    {
-                                        battle.audioSource0.PlayOneShot(MoveCursor);
-                                        battle.audioSource0.panStereo = 0;
-                                    }
-                                    break;
-                                case 5:
-                                    if (!battle.partyBackButtonInactive)
-                                    {
-                                        currentPartyMon = 0;
-                                        battle.audioSource0.PlayOneShot(MoveCursor);
-                                        battle.audioSource0.panStereo = 0;
-                                    }
-                                    break;
-                                case 6:
-                                    if (!battle.partyBackButtonInactive)
-                                    {
-                                        currentPartyMon = 0;
-                                        battle.audioSource0.PlayOneShot(MoveCursor);
-                                        battle.audioSource0.panStereo = 0;
-                                    }
-                                    break;
-                                default:
-                                    break;
-                            }
+                            battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Select Move"));
+                            battle.StartCoroutine(SummaryScreen.Create(battle.player, currentPartyMon - 1, battle));
                         }
-                        if (Input.GetKeyDown(KeyCode.LeftArrow))
-                        {
-                            switch (currentPartyMon)
-                            {
-                                case 3:
-                                    currentPartyMon = 1;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 4:
-                                    currentPartyMon = 2;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 5:
-                                    currentPartyMon = 3;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 6:
-                                    currentPartyMon = 4;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 0:
-                                    currentPartyMon =
-                                        box5.enabled ? 5 :
-                                        box2.enabled ? 3 : 1;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        if (Input.GetKeyDown(KeyCode.DownArrow))
-                        {
-                            switch (currentPartyMon)
-                            {
-                                case 1:
-                                    if (box3.enabled)
-                                    {
-                                        currentPartyMon = 2;
-                                        battle.audioSource0.PlayOneShot(MoveCursor);
-                                        battle.audioSource0.panStereo = 0;
-                                    }
-                                    break;
-                                case 3:
-                                    currentPartyMon = box4.enabled ? 4 : 2;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 5:
-                                    currentPartyMon = box6.enabled ? 6 : 4;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        if (Input.GetKeyDown(KeyCode.UpArrow))
-                        {
-                            switch (currentPartyMon)
-                            {
-                                case 2:
-                                    currentPartyMon = 1;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 4:
-                                    currentPartyMon = 3;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                case 6:
-                                    currentPartyMon = 5;
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                        if (Input.GetKeyDown(KeyCode.Return))
-                        {
-                            battle.audioSource0.volume = 0.6F;
-                            battle.audioSource0.PlayOneShot(SelectMove);
-                            battle.audioSource0.panStereo = 0;
-                            switch (currentPartyMon)
-                            {
-                                case 1:
-                                case 2:
-                                case 3:
-                                case 4:
-                                case 5:
-                                case 6:
-                                    if (battle.PlayerPokemon[currentPartyMon - 1].fainted)
-                                    {
-                                        StartCoroutine(AnnounceAndReturn(
-                                            battle.PlayerPokemon[currentPartyMon - 1].monName
-                                            + " has no energy to battle!"));
-                                    }
-                                    else if (battle.PlayerPokemon[currentPartyMon - 1].onField)
-                                    {
-                                        StartCoroutine(AnnounceAndReturn(
-                                            battle.PlayerPokemon[currentPartyMon - 1].monName
-                                            + " is already on the field!"));
-                                    }
-                                    else if (battle.IsTrapped(currentMon))
-                                    {
-                                        StartCoroutine(AnnounceAndReturn(
-                                            battle.PokemonOnField[currentMon].PokemonData.monName
-                                            + " is trapped and cannot switch!"));
-                                    }
-                                    else
-                                    {
-                                        if (battle.partyBackButtonInactive)
-                                        {
-                                            battle.state = BattleState.Announcement;
-                                            battle.switchingTarget = currentPartyMon - 1;
-                                            battle.choseSwitchMon = true;
-                                        }
-                                        else
-                                        {
-                                            battle.PokemonOnField[currentMon].choseMove = true;
-                                            battle.Moves[currentMon] = MoveID.Switch;
-                                            battle.SwitchTargets[currentMon] = currentPartyMon - 1;
-                                            if (GetNextPokemon())
-                                            {
-                                                battle.state = BattleState.Announcement;
-                                                MainMenu();
-                                                currentMove = 1;
-                                                currentMon = 2;
-                                                GetNextPokemon();
-                                                battle.DoNextMove();
-                                            }
-                                            else
-                                            {
-                                                MainMenu();
-                                                currentMove = 1;
-                                            }
-                                        }
-                                    }
-                                    break;
-                                case 0:
-                                    MainMenu();
-                                    battle.audioSource0.volume = 0.6F;
-                                    battle.audioSource0.PlayOneShot(SelectMove);
-                                    battle.audioSource0.panStereo = 0;
-                                    break;
-                                default:
-                                    break;
-
-                            }
-                        }
-                        if (Input.GetKeyDown(KeyCode.S))
-                        {
-                            Debug.Log("S");
-                            if (currentMon > 0 && currentMon <= 6)
-                            {
-                                battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Select Move"));
-                                battle.StartCoroutine(SummaryScreen.Create(battle.player, currentPartyMon - 1, battle));
-                            }
-                        }
-                        break;
-                }
-                break;
-            case BattleState.Announcement:
-                announce.enabled = true;
-                box1.enabled = false;
-                box2.enabled = false;
-                box3.enabled = false;
-                box4.enabled = false;
-                box5.enabled = false;
-                box6.enabled = false;
-                box7.enabled = false;
-                text1.enabled = false;
-                text2.enabled = false;
-                text3.enabled = false;
-                text4.enabled = false;
-                text5.enabled = false;
-                text7.enabled = false;
-                selector1.enabled = false;
-                selector2.enabled = false;
-                selector3.enabled = false;
-                selector4.enabled = false;
-                selector5.enabled = false;
-                selector6.enabled = false;
-                selector7.enabled = false;
-                pp1.enabled = false;
-                pp2.enabled = false;
-                pp3.enabled = false;
-                pp4.enabled = false;
-                partyText1.enabled = false;
-                partyText2.enabled = false;
-                partyText3.enabled = false;
-                partyText4.enabled = false;
-                partyText5.enabled = false;
-                partyText6.enabled = false;
-                partyMon1.enabled = false;
-                partyMon2.enabled = false;
-                partyMon3.enabled = false;
-                partyMon4.enabled = false;
-                partyMon5.enabled = false;
-                partyMon6.enabled = false;
-                megaIndicator.SetActive(false);
-                summaryIndicator.SetActive(false);
-                break;
+                    }
+                    break;
+            }
         }
     }
 }

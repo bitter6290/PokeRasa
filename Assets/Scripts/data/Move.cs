@@ -85,7 +85,7 @@ public static class Move
         "Razor Wind", Normal,
         80, 100, 0,
         MoveEffect.ChargingAttack, 0,
-        false, Opponent + Spread, 10,
+        false, SpreadMove, 10,
         noFlag, RazorWindDesc); //Needs anim
     public static MoveData SwordsDance = new(
         "Swords Dance", Normal,
@@ -240,7 +240,7 @@ public static class Move
         "Tail Whip", Normal,
         0, 100, 0,
         MoveEffect.DefenseDown1, 100,
-        false, Opponent + Spread, 30,
+        false, SpreadMove, 30,
         magicBounceAffected, TailWhipDesc); //Needs anim
     public static MoveData PoisonSting = new(
         "Poison Sting", Poison,
@@ -261,7 +261,7 @@ public static class Move
         "Leer", Normal,
         0, 100, 0,
         MoveEffect.DefenseDown1, 100,
-        false, Opponent + Spread, 30,
+        false, SpreadMove, 30,
         magicBounceAffected, LeerDesc); //Needs anim
     public static MoveData Bite = new(
         "Bite", Dark,
@@ -273,7 +273,7 @@ public static class Move
         "Growl", Normal,
         0, 100, 0,
         MoveEffect.AttackDown1, 100,
-        false, Opponent + Spread, 40,
+        false, SpreadMove, 40,
         soundMove + magicBounceAffected, GrowlDesc);
     public static MoveData Roar = new(
         "Roar", Normal,
@@ -308,7 +308,7 @@ public static class Move
         "Acid", Poison,
         40, 100, 0,
         MoveEffect.SpDefDown1, 10,
-        false, Opponent + Spread, 30,
+        false, SpreadMove, 30,
         noFlag, AcidDesc); //Needs anim
     public static MoveData Ember = new(
         "Ember", Fire,
@@ -356,7 +356,7 @@ public static class Move
         "Blizzard", Ice,
         110, 70, 0,
         MoveEffect.Freeze, 10,
-        false, Opponent + Spread, 5,
+        false, SpreadMove, 5,
         windMove, BlizzardDesc); //Needs anim
     public static MoveData Psybeam = new(
         "Psybeam", Type.Psychic,
@@ -452,7 +452,7 @@ public static class Move
         "Razor Leaf", Grass,
         55, 95, 0,
         MoveEffect.Hit, 0,
-        true, Opponent + Spread, 25,
+        true, SpreadMove, 25,
         highCrit + sharpnessBoosted, RazorLeafDesc); //Needs anim
     public static MoveData SolarBeam = new(
         "Solar Beam", Grass,
@@ -487,7 +487,7 @@ public static class Move
         "String Shot", Bug,
         0, 95, 0,
         MoveEffect.SpeedDown1, 100,
-        false, Opponent + Spread, 40,
+        false, SpreadMove, 40,
         magicBounceAffected, StringShotDesc); //Needs anim
     public static MoveData DragonRage = new(
         "Dragon Rage", Dragon,
@@ -753,7 +753,7 @@ public static class Move
         "Swift", Normal,
         60, 101, 0,
         MoveEffect.Hit, 0,
-        false, Opponent + Spread, 20,
+        false, SpreadMove, 20,
         noFlag, SwiftDesc); //Needs anim
     public static MoveData SkullBash = new(
         "Skull Bash", Normal,
@@ -811,7 +811,7 @@ public static class Move
         "Poison Gas", Poison,
         0, 90, 0,
         MoveEffect.Poison, 100,
-        false, Opponent + Spread, 40,
+        false, SpreadMove, 40,
         magicBounceAffected, PoisonGasDesc); //Needs anim
     public static MoveData Barrage = new(
         "Barrage", Normal,
@@ -845,7 +845,7 @@ public static class Move
         "Bubble", Water,
         40, 100, 0,
         MoveEffect.SpeedDown1, 10,
-        false, Opponent + Spread, 30,
+        false, SpreadMove, 30,
         noFlag, BubbleDesc); //Needs anim
     public static MoveData DizzyPunch = new(
         "Dizzy Punch", Normal,
@@ -893,8 +893,7 @@ public static class Move
         "Explosion", Normal,
         250, 100, 0,
         MoveEffect.SelfDestruct, 0,
-        true, Single
-        + Spread, 5, noFlag, ExplosionDesc); //Needs anim
+        true, Surrounding, 5, noFlag, ExplosionDesc); //Needs anim
     public static MoveData FurySwipes = new(
         "Fury Swipes", Normal,
         18, 80, 0,
@@ -916,7 +915,7 @@ public static class Move
         "Rock Slide", Rock,
         75, 90, 0,
         MoveEffect.Flinch, 30,
-        true, Opponent + Spread, 10,
+        true, SpreadMove, 10,
         noFlag, RockSlideDesc); //Needs anim
     public static MoveData HyperFang = new(
         "Hyper Fang", Normal,
@@ -1035,7 +1034,7 @@ public static class Move
         "Cotton Spore", Grass,
         0, 100, 0,
         MoveEffect.SpeedDown2, 100,
-        false, Opponent + Spread, 40,
+        false, SpreadMove, 40,
         magicBounceAffected, CottonSporeDesc); //Needs anim
     public static MoveData Reversal = new(
         "Reversal", Fighting,
@@ -1053,7 +1052,7 @@ public static class Move
         "Powder Snow", Ice,
         40, 100, 0,
         MoveEffect.Freeze, 10,
-        false, Opponent + Spread, 25,
+        false, SpreadMove, 25,
         noFlag, PowderSnowDesc); //Needs anim
     public static MoveData Protect = new(
         "Protect", Normal,
@@ -1143,7 +1142,7 @@ public static class Move
         "Icy Wind", Ice,
         55, 95, 0,
         MoveEffect.SpeedDown1, 100,
-        false, Opponent + Spread, 15,
+        false, SpreadMove, 15,
         windMove, IcyWindDesc); //Needs anim
     public static MoveData Detect = new(
         "Detect", Fighting,
@@ -1340,7 +1339,7 @@ public static class Move
         "Sweet Scent", Normal,
         0, 100, 0,
         MoveEffect.EvasionDown2, 100,
-        false, Opponent + Spread, 20,
+        false, SpreadMove, 20,
         magicBounceAffected, SweetScentDesc); //Needs anim
     public static MoveData IronTail = new(
         "Iron Tail", Steel,
@@ -1393,7 +1392,7 @@ public static class Move
         "Twister", Dragon,
         40, 100, 0,
         MoveEffect.Flinch, 20,
-        false, Opponent + Spread, 20,
+        false, SpreadMove, 20,
         hitFlyingMon + windMove, TwisterDesc); //Needs anim
     public static MoveData RainDance = new(
         "Rain Dance", Water,
@@ -1490,7 +1489,7 @@ public static class Move
         "Heat Wave", Fire,
         95, 90, 0,
         MoveEffect.Burn, 10,
-        false, Opponent + Spread, 10,
+        false, SpreadMove, 10,
         windMove, HeatWaveDesc); //Needs anim
     public static MoveData Hail = FieldMove(
         "Hail", Ice, 0, MoveEffect.Weather, 10, noFlag, HailDesc); //Needs anim
@@ -1603,7 +1602,7 @@ public static class Move
         "Eruption", Fire,
         150, 100, 0,
         MoveEffect.HealthPower, 0,
-        false, Opponent + Spread, 5,
+        false, SpreadMove, 5,
         noFlag, EruptionDesc); //Needs anim
     public static MoveData SkillSwap = SingleTargetStatusMove(
         "Skill Swap", Type.Psychic, 100, 0, MoveEffect.SkillSwap, 10,
@@ -1693,7 +1692,7 @@ public static class Move
         "Hyper Voice", Normal,
         90, 100, 0,
         MoveEffect.Hit, 0,
-        false, Opponent + Spread, 10,
+        false, SpreadMove, 10,
         soundMove, HyperVoiceDesc); //Needs anim
     public static MoveData PoisonFang = new(
         "Poison Fang", Poison,
@@ -1747,7 +1746,7 @@ public static class Move
         "Air Cutter", Flying,
         60, 95, 0,
         MoveEffect.Hit, 0,
-        false, Opponent + Spread, 25,
+        false, SpreadMove, 25,
         highCrit + sharpnessBoosted + windMove, AirCutterDesc); //Needs anim
     public static MoveData Overheat = new(
         "Overheat", Fire,
@@ -1789,7 +1788,7 @@ public static class Move
         "Water Spout", Water,
         150, 100, 0,
         MoveEffect.HealthPower, 0,
-        false, Opponent + Spread, 5,
+        false, SpreadMove, 5,
         noFlag, WaterSpoutDesc); //Needs anim
     public static MoveData SignalBeam = new(
         "Signal Beam", Bug,
@@ -1831,7 +1830,7 @@ public static class Move
         "Muddy Water", Water,
         90, 85, 0,
         MoveEffect.AccuracyDown1, 30,
-        false, Opponent + Spread, 10,
+        false, SpreadMove, 10,
         noFlag, MuddyWaterDesc); //Needs anim
     public static MoveData BulletSeed = new(
         "Bullet Seed", Grass,
@@ -2077,7 +2076,7 @@ public static class Move
         "Heal Block", Type.Psychic,
         0, 100, 0,
         MoveEffect.HealBlock, 100,
-        false, Opponent + Spread, 15,
+        false, SpreadMove, 15,
         magicBounceAffected, HealBlockDesc); //Needs anim
     public static MoveData WringOut = new(
         "Wring Out", Normal,
@@ -2480,7 +2479,7 @@ public static class Move
         "Dark Void", Dark,
         0, 50, 0,
         MoveEffect.Sleep, 100,
-        false, Opponent + Spread, 10,
+        false, SpreadMove, 10,
         magicBounceAffected, DarkVoidDesc); //Needs anim
     public static MoveData SeedFlare = new(
         "Seed Flare", Grass,
@@ -2764,7 +2763,7 @@ public static class Move
         "Struggle Bug", Bug,
         50, 100, 0,
         MoveEffect.SpAtkDown1, 101,
-        false, Opponent + Spread, 20,
+        false, SpreadMove, 20,
         noFlag, StruggleBugDesc); //Needs anim
     public static MoveData Bulldoze = new(
         "Bulldoze", Ground,
@@ -2791,7 +2790,7 @@ public static class Move
         "Electroweb", Electric,
         55, 95, 0,
         MoveEffect.SpeedDown1, 101,
-        false, Opponent + Spread, 15,
+        false, SpreadMove, 15,
         noFlag, ElectrowebDesc); //Needs anim
     public static MoveData WildCharge = new(
         "Wild Charge", Electric,
@@ -2908,7 +2907,7 @@ public static class Move
         "Relic Song", Normal,
         75, 100, 0,
         MoveEffect.Sleep, 10,
-        false, Opponent + Spread, 10,
+        false, SpreadMove, 10,
         soundMove, RelicSongDesc); //Needs anim; Todo: Meloetta's form change
     public static MoveData SecretSword = new(
         "Secret Sword", Fighting,
@@ -2920,7 +2919,7 @@ public static class Move
         "Glaciate", Ice,
         65, 95, 0,
         MoveEffect.SpeedDown1, 101,
-        false, Opponent + Spread, 10,
+        false, SpreadMove, 10,
         noFlag, GlaciateDesc); //Needs anim
     public static MoveData BoltStrike = new(
         "Bolt Strike", Electric,
@@ -2956,7 +2955,7 @@ public static class Move
         "Snarl", Dark,
         55, 95, 0,
         MoveEffect.SpAtkDown1, 101,
-        false, Opponent + Spread, 15,
+        false, SpreadMove, 15,
         soundMove, SnarlDesc); //Needs anim
     public static MoveData IcicleCrash = new(
         "Icicle Crash", Ice,
@@ -3028,7 +3027,7 @@ public static class Move
         "Parabolic Charge", Electric,
         65, 100, 0,
         MoveEffect.Absorb50, 100,
-        false, Single, 20,
+        false, Surrounding, 20,
         noFlag, ParabolicChargeDesc); //Needs anim
     public static MoveData ForestsCurse = SingleTargetStatusMove(
         "Forest's Curse", Grass, 100, 0, MoveEffect.ForestsCurse, 20, magicBounceAffected,
@@ -3100,6 +3099,178 @@ public static class Move
         MoveEffect.Hit, 0,
         false, Surrounding, 10,
         soundMove, BoomburstDesc); //Needs anim
+    public static MoveData FairyLock = FieldMove(
+        "Fairy Lock", Fairy, 0, MoveEffect.FairyLock, 10, noFlag, FairyLockDesc); //Needs anim
+    public static MoveData KingsShield = SelfTargetingMove(
+        "King's Shield", Steel, 4, MoveEffect.KingsShield, 10,
+        usesProtectCounter, KingsShieldDesc); //Needs anim
+    public static MoveData PlayNice = SingleTargetStatusMove(
+        "Play Nice", Normal, 101, 0, MoveEffect.AttackDown1, 20,
+        magicBounceAffected, PlayNiceDesc); //Needs anim
+    public static MoveData Confide = SingleTargetStatusMove(
+        "Confide", Normal, 101, 0, MoveEffect.SpAtkDown1, 20,
+        magicBounceAffected + soundMove, ConfideDesc); //Needs anim
+    public static MoveData DiamondStorm = new(
+        "Diamond Storm", Rock,
+        100, 95, 0,
+        MoveEffect.DiamondStorm, 100,
+        true, SpreadMove, 5,
+        effectOnSelfOnly, DiamondStormDesc); //Needs anim
+    public static MoveData SteamEruption = new(
+        "Steam Eruption", Water,
+        110, 95, 0,
+        MoveEffect.Burn, 30,
+        false, Single, 5,
+        noFlag, SteamEruptionDesc); //Needs anim
+    public static MoveData HyperspaceHole = new(
+        "Hyperspace Hole", Type.Psychic,
+        80, 101, 0,
+        MoveEffect.Feint, 100,
+        false, Single, 5,
+        noFlag, HyperspaceHoleDesc); //Needs anim
+    public static MoveData WaterShuriken = new(
+        "Water Shuriken", Water,
+        15, 100, 1,
+        MoveEffect.MultiHit2to5, 0,
+        false, Single, 20,
+        noFlag, WaterShurikenDesc); //Needs anim
+    public static MoveData MysticalFire = new(
+        "Mystical Fire", Fire,
+        75, 100, 0,
+        MoveEffect.SpAtkDown1, 101,
+        false, Single, 10,
+        noFlag, MysticalFireDesc); //Needs anim
+    public static MoveData SpikyShield = SelfTargetingMove(
+        "Spiky Shield", Grass, 4, MoveEffect.SpikyShield, 10,
+        noFlag, SpikyShieldDesc); //Needs anim
+    public static MoveData AromaticMist = new(
+        "Aromatic Mist", Fairy,
+        0, 101, 0,
+        MoveEffect.SpDefUp1, 101,
+        false, Ally, 20,
+        noFlag, AromaticMistDesc); //Needs anim
+    public static MoveData EerieImpulse = SingleTargetStatusMove(
+        "Eerie Impulse", Electric, 100, 0, MoveEffect.SpAtkDown2, 15,
+        magicBounceAffected, EerieImpulseDesc); //Needs anim
+    public static MoveData VenomDrench = new(
+        "VenomDrench", Poison,
+        0, 100, 0,
+        MoveEffect.VenomDrench, 101,
+        false, SpreadMove, 20,
+        magicBounceAffected, VenomDrenchDesc); //Needs anim
+    public static MoveData Powder = SingleTargetStatusMove(
+        "Powder", Bug, 100, 1, MoveEffect.Powder, 20,
+        magicBounceAffected + powderMove, PowderDesc); //Needs anim
+    public static MoveData Geomancy = SelfTargetingMove(
+        "Geomancy", Fairy, 0, MoveEffect.ChargingAttack, 10,
+        noFlag, GeomancyDesc); //Needs anim
+    public static MoveData MagneticFlux = new(
+        "Magnetic Flux", Electric,
+        0, 101, 0,
+        MoveEffect.MagneticFlux, 101,
+        false, Self + Ally + Ranged, 20,
+        snatchAffected, MagneticFluxDesc); //Needs anim
+    public static MoveData HappyHour = FieldMove(
+        "Happy Hour", Normal, 0, MoveEffect.HappyHour, 30,
+        noFlag, HappyHourDesc); //Needs anim
+    public static MoveData ElectricTerrain = FieldMove(
+        "Electric Terrain", Electric, 0, MoveEffect.ElectricTerrain, 10,
+        noFlag, ElectricTerrainDesc); //Needs anim
+    public static MoveData DazzlingGleam = new(
+        "Dazzling Gleam", Fairy,
+        80, 100, 0,
+        MoveEffect.Hit, 0,
+        false, SpreadMove, 10,
+        noFlag, DazzlingGleamDesc); //Needs anim
+    public static MoveData Celebrate = SelfTargetingMove(
+        "Celebrate", Normal, 0, MoveEffect.None, 40, noFlag, CelebrateDesc); //Needs anim
+    public static MoveData HoldHands = new(
+        "Hold Hands", Normal,
+        0, 101, 0,
+        MoveEffect.None, 101,
+        false, Ally, 40,
+        noFlag, HoldHandsDesc); //Needs anim
+    public static MoveData BabyDollEyes = SingleTargetStatusMove(
+        "Baby-Doll Eyed", Fairy, 100, 1, MoveEffect.AttackDown1, 30,
+        magicBounceAffected, BabyDollEyesDesc); //Needs anim
+    public static MoveData Nuzzle = new(
+        "Nuzzle", Electric,
+        20, 100, 0,
+        MoveEffect.Paralyze, 101,
+        true, Single, 20,
+        makesContact, NuzzleDesc); //Needs anim
+    public static MoveData HoldBack = new(
+        "Hold Back", Normal,
+        40, 100, 0,
+        MoveEffect.FalseSwipe, 0,
+        true, Single, 40,
+        makesContact, HoldBackDesc); //Needs anim
+    public static MoveData Infestation = new(
+        "Infestation", Bug,
+        20, 100, 0,
+        MoveEffect.ContinuousDamage, 101,
+        false, Single, 20,
+        makesContact, InfestationDesc); //Needs anim
+    public static MoveData PowerUpPunch = new(
+        "Power-Up Punch", Fighting,
+        40, 100, 0,
+        MoveEffect.AttackUp1, 101,
+        true, Single, 20,
+        makesContact + effectOnSelfOnly, PowerUpPunchDesc); //Needs anim
+    public static MoveData OblivionWing = new(
+        "Oblivion Wing", Flying,
+        80, 100, 0,
+        MoveEffect.Absorb75, 101,
+        false, Single + Ranged, 10,
+        healBlockAffected, OblivionWingDesc); //Needs anim
+    public static MoveData ThousandArrows = new(
+        "Thousand Arrows", Ground,
+        90, 100, 0,
+        MoveEffect.ThousandArrows, 101,
+        true, SpreadMove, 10,
+        noFlag, ThousandArrowsDesc); //Needs anim
+    public static MoveData ThousandWaves = new(
+        "Thousand Waves", Ground,
+        90, 100, 0,
+        MoveEffect.Trap, 101,
+        true, SpreadMove, 10,
+        noFlag, ThousandWavesDesc); //Needs anim
+    public static MoveData LandsWrath = new(
+        "Land's Wrath", Ground,
+        90, 100, 0,
+        MoveEffect.Hit, 0,
+        true, SpreadMove, 10,
+        noFlag, LandsWrathDesc); //Needs anim
+    public static MoveData LightOfRuin = new(
+        "Light of Ruin", Fairy,
+        140, 90, 0,
+        MoveEffect.Recoil50, 0,
+        false, Single, 5,
+        noFlag, LightOfRuinDesc); //Needs anim
+    public static MoveData OriginPulse = new(
+        "Origin Pulse", Water,
+        110, 85, 0,
+        MoveEffect.Hit, 0,
+        false, SpreadMove, 10,
+        megaLauncherBoosted, OriginPulseDesc); //Needs anim
+    public static MoveData PrecipiceBlades = new(
+        "Precipice Blades", Ground,
+        120, 85, 0,
+        MoveEffect.Hit, 0,
+        true, SpreadMove, 10,
+        noFlag, PrecipiceBladesDesc); //Needs anim
+    public static MoveData DragonAscent = new(
+        "Dragon Ascent", Flying,
+        120, 100, 0,
+        MoveEffect.DefenseSpDefDown1, 101,
+        true, Single, 5,
+        effectOnSelfOnly, DragonAscentDesc); //Needs anim
+    public static MoveData HyperspaceFury = new(
+        "Hyperspace Fury", Dark,
+        100, 101, 0,
+        MoveEffect.HyperspaceFury, 101,
+        true, Single, 5,
+        noFlag, HyperspaceFuryDesc); //Needs anim
 
 
     //Non-standard moves
@@ -3119,19 +3290,19 @@ public static class Move
         "Razor Wind", Normal,
         80, 100, 0,
         MoveEffect.Hit, 0,
-        false, Opponent + Spread, 0,
+        false, SpreadMove, 0,
         mimicBypass, InvalidMove); //Needs anim
     public static MoveData DigAttack = new(
         "Dig", Ground,
         80, 100, 0,
         MoveEffect.Hit, 0,
-        false, Opponent + Spread, 0,
+        false, SpreadMove, 0,
         mimicBypass + makesContact, InvalidMove); //Needs anim
     public static MoveData FlyAttack = new(
         "Fly", Flying,
         90, 95, 0,
         MoveEffect.Hit, 0,
-        false, Opponent + Spread, 0,
+        false, SpreadMove, 0,
         mimicBypass + makesContact, InvalidMove); //Needs anim
     public static MoveData SolarBeamAttack = new(
         "Solar Beam", Grass,
@@ -3229,6 +3400,9 @@ public static class Move
         MoveEffect.Feint, 100,
         true, Single, 5,
         mimicBypass + makesContact, InvalidMove); //Needs anim
+    public static MoveData GeomancyExecution = SelfTargetingMove(
+        "Geomancy", Fairy, 0, MoveEffect.SpAtkSpDefSpeedUp2, 10,
+        noFlag, InvalidMove); //Needs anim
     public static MoveData Struggle = new(
         "Struggle", Typeless,
         50, 100, 0,
@@ -3837,6 +4011,41 @@ public static class Move
         FairyWind,
         Moonblast,
         Boomburst,
+        FairyLock,
+        KingsShield,
+        PlayNice,
+        Confide,
+        DiamondStorm,
+        SteamEruption,
+        HyperspaceHole,
+        WaterShuriken,
+        MysticalFire,
+        SpikyShield,
+        AromaticMist,
+        EerieImpulse,
+        VenomDrench,
+        Powder,
+        Geomancy,
+        MagneticFlux,
+        HappyHour,
+        ElectricTerrain,
+        DazzlingGleam,
+        Celebrate,
+        HoldHands,
+        BabyDollEyes,
+        Nuzzle,
+        HoldBack,
+        Infestation,
+        PowerUpPunch,
+        OblivionWing,
+        ThousandArrows,
+        ThousandWaves,
+        LandsWrath,
+        LightOfRuin,
+        OriginPulse,
+        PrecipiceBlades,
+        DragonAscent,
+        HyperspaceFury,
 
         //Nonstandard moves
 
@@ -3861,5 +4070,6 @@ public static class Move
         FreezeShockAttack,
         IceBurnAttack,
         PhantomForceAttack,
+        GeomancyExecution,
     };
 }

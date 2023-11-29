@@ -20,11 +20,11 @@ public class BattlePokemon
     public int accuracyStage = 0;
     public int critStage = 0;
 
-    public int attack => (int)(BaseAttack * StageToModifierNormal(attackStage));
-    public int defense => (int)(BaseDefense * StageToModifierNormal(defenseStage));
-    public int spAtk => (int)(BaseSpAtk * StageToModifierNormal(spAtkStage));
-    public int spDef => (int)(BaseSpDef * StageToModifierNormal(spDefStage));
-    public int speed => (int)(BaseSpeed * StageToModifierNormal(speedStage));
+    public int Attack => (int)(BaseAttack * StageToModifierNormal(attackStage));
+    public int Defense => (int)(BaseDefense * StageToModifierNormal(defenseStage));
+    public int SpAtk => (int)(BaseSpAtk * StageToModifierNormal(spAtkStage));
+    public int SpDef => (int)(BaseSpDef * StageToModifierNormal(spDefStage));
+    public int Speed => (int)(BaseSpeed * StageToModifierNormal(speedStage));
 
     public bool overrideAttacks;
     public int attackOverride;
@@ -34,8 +34,8 @@ public class BattlePokemon
     public int defenseOverride;
     public int spDefOverride;
 
-    public bool side => index >= 3;
-    public int position => index % 3;
+    public bool Side => index >= 3;
+    public int Position => index % 3;
     public int index;
 
     public int turnOnField;
@@ -146,8 +146,9 @@ public class BattlePokemon
     public int timeWithAbility = 0;
 
     public bool endure = false;
-    public bool protect = false;
+    public Protection protection = Protection.None;
     public int protectCounter = 0;
+    public bool Protect => protection != Protection.None;
 
     public bool magicCoat = false;
 
@@ -224,6 +225,8 @@ public class BattlePokemon
 
     public bool smackDown = false;
 
+    public bool powdered = false;
+
     public bool grudge = false;
     public bool gotGrudgeEffect = false;
 
@@ -260,17 +263,16 @@ public class BattlePokemon
 
     public MoveID lastTargetedMove = MoveID.None;
 
-    public ItemID baseItem => PokemonData.itemChanged ? PokemonData.newItem : PokemonData.item;
-    public ItemID item => embargoed ?
-            (baseItem.Data().type is ItemType.MegaStone ? baseItem : ItemID.None)
-            : baseItem;
+    public ItemID BaseItem => PokemonData.itemChanged ? PokemonData.newItem : PokemonData.item;
+    public ItemID Item => embargoed ?
+            (BaseItem.Data().type is ItemType.MegaStone ? BaseItem : ItemID.None)
+            : BaseItem;
 
     public int EffectiveWeight => Max(100, PokemonData.SpeciesData.pokedexData.weight -
         (autotomized ? 100000 : 0));
 
     public bool CanUseLastResort =>
-        PokemonData.Moves == 1 ? false :
-        UsedNoneOrLastResort(0) && UsedNoneOrLastResort(1) &&
+        PokemonData.Moves != 1 && UsedNoneOrLastResort(0) && UsedNoneOrLastResort(1) &&
         UsedNoneOrLastResort(2) && UsedNoneOrLastResort(3);
 
     public bool UsedNoneOrLastResort(int i)
@@ -297,7 +299,7 @@ public class BattlePokemon
         pokemonData.lastIndex = index;
     }
 
-    public SpeciesID apparentSpecies => isTransformed ? transformedMon.species : PokemonData.getSpecies;
+    public SpeciesID ApparentSpecies => isTransformed ? transformedMon.species : PokemonData.getSpecies;
 
     public bool AtFullHealth => PokemonData.HP == PokemonData.hpMax;
     public float HealthProportion => (float)PokemonData.HP / PokemonData.hpMax;
@@ -384,13 +386,13 @@ public class BattlePokemon
     public int GetMaxPP(int index)
     {
         return mimicking && (index == mimicSlot - 1) ?
-            mimicMaxPP : isTransformed ? (int)5 : index switch
+            mimicMaxPP : isTransformed ? 5 : index switch
             {
                 0 => PokemonData.maxPp1,
                 1 => PokemonData.maxPp2,
                 2 => PokemonData.maxPp3,
                 3 => PokemonData.maxPp4,
-                _ => (int)0
+                _ => 0
             };
     }
 
@@ -540,7 +542,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int raisedStages = (int)Min(6 - attackStage, amount);
+                    int raisedStages = Min(6 - attackStage, amount);
                     attackStage += raisedStages;
                     return raisedStages;
                 }
@@ -551,7 +553,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int raisedStages = (int)Min(6 - defenseStage, amount);
+                    int raisedStages = Min(6 - defenseStage, amount);
                     defenseStage += raisedStages;
                     return raisedStages;
                 }
@@ -562,7 +564,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int raisedStages = (int)Min(6 - spAtkStage, amount);
+                    int raisedStages = Min(6 - spAtkStage, amount);
                     spAtkStage += raisedStages;
                     return raisedStages;
                 }
@@ -573,7 +575,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int raisedStages = (int)Min(6 - spDefStage, amount);
+                    int raisedStages = Min(6 - spDefStage, amount);
                     spDefStage += raisedStages;
                     return raisedStages;
                 }
@@ -584,7 +586,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int raisedStages = (int)Min(6 - speedStage, amount);
+                    int raisedStages = Min(6 - speedStage, amount);
                     speedStage += raisedStages;
                     return raisedStages;
                 }
@@ -595,7 +597,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int raisedStages = (int)Min(6 - accuracyStage, amount);
+                    int raisedStages = Min(6 - accuracyStage, amount);
                     accuracyStage += raisedStages;
                     return raisedStages;
                 }
@@ -606,7 +608,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int raisedStages = (int)Min(6 - evasionStage, amount);
+                    int raisedStages = Min(6 - evasionStage, amount);
                     evasionStage += raisedStages;
                     return raisedStages;
                 }
@@ -626,7 +628,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int loweredStages = (int)Min(attackStage + 6, amount);
+                    int loweredStages = Min(attackStage + 6, amount);
                     attackStage -= loweredStages;
                     return loweredStages;
                 }
@@ -637,7 +639,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int loweredStages = (int)Min(defenseStage + 6, amount);
+                    int loweredStages = Min(defenseStage + 6, amount);
                     defenseStage -= loweredStages;
                     return loweredStages;
                 }
@@ -648,7 +650,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int loweredStages = (int)Min(spAtkStage + 6, amount);
+                    int loweredStages = Min(spAtkStage + 6, amount);
                     spAtkStage -= loweredStages;
                     return loweredStages;
                 }
@@ -659,7 +661,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int loweredStages = (int)Min(spDefStage + 6, amount);
+                    int loweredStages = Min(spDefStage + 6, amount);
                     spDefStage -= loweredStages;
                     return loweredStages;
                 }
@@ -670,7 +672,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int loweredStages = (int)Min(speedStage + 6, amount);
+                    int loweredStages = Min(speedStage + 6, amount);
                     speedStage -= loweredStages;
                     return loweredStages;
                 }
@@ -681,7 +683,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int raisedStages = (int)Min(6 + accuracyStage, amount);
+                    int raisedStages = Min(6 + accuracyStage, amount);
                     accuracyStage -= raisedStages;
                     return raisedStages;
                 }
@@ -692,7 +694,7 @@ public class BattlePokemon
                 }
                 else
                 {
-                    int raisedStages = (int)Min(6 + evasionStage, amount);
+                    int raisedStages = Min(6 + evasionStage, amount);
                     evasionStage -= raisedStages;
                     return raisedStages;
                 }

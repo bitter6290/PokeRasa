@@ -8,7 +8,7 @@ using static Ability;
 using static Learnset;
 using UnityEngine;
 
-public class SpeciesData
+public struct SpeciesData
 {
     public const int Genderless = 255;
 
@@ -46,7 +46,7 @@ public class SpeciesData
     public string graphicsLocation;
     public int backSpriteHeight;
 
-    public bool genderDifferences = false;
+    public bool genderDifferences;
 
     public PokedexData pokedexData;
 

@@ -8,4 +8,5 @@ public enum ContinuousDamage : byte
     Whirlpool,
     SandTomb,
     MagmaStorm,
+    Infestation,
 }

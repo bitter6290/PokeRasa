@@ -75,17 +75,6 @@ public static class BattleEffect
                 " is protected by Mist!");
             yield break;
         }
-        else if ((!checkSide || GetSide(attacker) != GetSide(index))
-            && battle.EffectiveAbility(index) is
-            Ability.WhiteSmoke or Ability.ClearBody
-            && !battle.HasMoldBreaker(attacker))
-        {
-            yield return battle.AbilityPopupStart(index);
-            yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
-                "'s stats weren't lowered!");
-            yield return battle.AbilityPopupEnd(index);
-            yield break;
-        }
         
         int stagesLowered = battle.PokemonOnField[index].LowerStat(statID, amount);
         switch (stagesLowered)
@@ -545,49 +534,61 @@ public static class BattleEffect
                 target.getsContinuousDamage = true;
                 target.continuousDamageType = ContinuousDamage.Wrap;
                 target.continuousDamageSource = attacker;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was wrapped by "
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                    " was wrapped by "
                     + battle.MonNameWithPrefix(target.continuousDamageSource, false) + "!");
                 break;
             case MoveID.Bind:
                 target.getsContinuousDamage = true;
                 target.continuousDamageType = ContinuousDamage.Bind;
                 target.continuousDamageSource = attacker;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is squeezed by "
-                    + battle.MonNameWithPrefix(target.continuousDamageSource, false)
-                    + "'s Bind!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                    " is squeezed by " +
+                    battle.MonNameWithPrefix(target.continuousDamageSource, false) + "'s Bind!");
                 break;
             case MoveID.FireSpin:
                 target.getsContinuousDamage = true;
                 target.continuousDamageType = ContinuousDamage.FireSpin;
                 target.continuousDamageSource = attacker;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was trapped in the vortex!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                    " was trapped in the vortex!");
                 break;
             case MoveID.Clamp:
                 target.getsContinuousDamage = true;
                 target.continuousDamageType = ContinuousDamage.Clamp;
                 target.continuousDamageSource = attacker;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was clamped by "
-                    + battle.MonNameWithPrefix(target.continuousDamageSource, false) + "!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                    " was clamped by " +
+                    battle.MonNameWithPrefix(target.continuousDamageSource, false) + "!");
                 break;
             case MoveID.Whirlpool:
                 target.getsContinuousDamage = true;
                 target.continuousDamageType = ContinuousDamage.Whirlpool;
                 target.continuousDamageSource = attacker;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was trapped in the vortex!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                    " was trapped in the vortex!");
                 break;
             case MoveID.SandTomb:
                 target.getsContinuousDamage = true;
                 target.continuousDamageType = ContinuousDamage.SandTomb;
                 target.continuousDamageSource = attacker;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + " was trapped by Sand Tomb!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                    " was trapped by Sand Tomb!");
                 break;
             case MoveID.MagmaStorm:
                 target.getsContinuousDamage = true;
                 target.continuousDamageType = ContinuousDamage.MagmaStorm;
                 target.continuousDamageSource = attacker;
-                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                    + " was trapped in the swirling magma!");
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                    " was trapped in the swirling magma!");
+                break;
+            case MoveID.Infestation:
+                target.getsContinuousDamage = true;
+                target.continuousDamageType = ContinuousDamage.Infestation;
+                target.continuousDamageSource = attacker;
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true) +
+                    " has been inflicted by " +
+                    battle.MonNameWithPrefix(attacker, false) + "'s Infestation!");
                 break;
             default:
                 yield return battle.Announce("Error 111");
@@ -748,43 +749,50 @@ public static class BattleEffect
         {
             case ContinuousDamage.Wrap:
                 //yield return BattleAnim.Wrap(battle, index);
-                damage = target.PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 3;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " is hurt by Wrap!");
                 break;
             case ContinuousDamage.Bind:
                 //yield return BattleAnim.Bind(battle, index);
-                damage = target.PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 3;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + " is hurt by Bind!");
                 break;
             case ContinuousDamage.FireSpin:
                 //yield return BattleAnim.FireSpin(battle, index);
-                damage = target.PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 3;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + " is hurt by Fire Spin!");
                 break;
             case ContinuousDamage.Clamp:
                 //yield return BattleAnim.Clamp(battle, index);
-                damage = target.PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 3;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + " is hurt by Clamp!");
                 break;
             case ContinuousDamage.Whirlpool:
                 //yield return BattleAnim.Whirlpool(battle, index);
-                damage = target.PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 3;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + " is hurt by Whirlpool!");
                 break;
             case ContinuousDamage.SandTomb:
                 //yield return BattleAnim.SandTomb(battle, index);
-                damage = target.PokemonData.hpMax >> 4;
+                damage = target.PokemonData.hpMax >> 3;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + " is hurt by Sand Tomb!");
                 break;
-            case ContinuousDamage.MagmaStorm:                //yield return BattleAnim.SandTomb(battle, index);
-                damage = target.PokemonData.hpMax >> 4;
+            case ContinuousDamage.MagmaStorm:
+                //yield return BattleAnim.MagmaStorm(battle, index);
+                damage = target.PokemonData.hpMax >> 3;
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                     + " is hurt by the swirling magma!");
+                break;
+            case ContinuousDamage.Infestation:
+                //yield return BattleAnim.Infestation(battle, index);
+                damage = target.PokemonData.hpMax >> 3;
+                yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                    + " is hurt by Infestation!");
                 break;
             default:
                 yield return battle.Announce("Error 112");
@@ -797,7 +805,7 @@ public static class BattleEffect
         }
         else
         {
-            target.PokemonData.HP -= damage;
+            yield return target.DoNonMoveDamage(damage);
         }
     }
     public static IEnumerator StartWeather(Battle battle, Weather weather, int turns)
@@ -1259,21 +1267,21 @@ public static class BattleEffect
             yield break;
         }
         if (battle.PokemonOnField[attacker].PokemonData.item == ItemID.None
-        && Item.CanBeStolen(battle.PokemonOnField[defender].item)
-        && Item.CanBeStolen(battle.PokemonOnField[attacker].item)
+        && Item.CanBeStolen(battle.PokemonOnField[defender].Item)
+        && Item.CanBeStolen(battle.PokemonOnField[attacker].Item)
         && !battle.HasAbility(defender, Ability.StickyHold))
         {
-            ItemID attackerItem = battle.PokemonOnField[attacker].item;
-            battle.PokemonOnField[attacker].PokemonData.newItem = battle.PokemonOnField[defender].item;
+            ItemID attackerItem = battle.PokemonOnField[attacker].Item;
+            battle.PokemonOnField[attacker].PokemonData.newItem = battle.PokemonOnField[defender].Item;
             battle.PokemonOnField[defender].PokemonData.newItem = attackerItem;
             battle.PokemonOnField[defender].PokemonData.itemChanged = true;
             battle.PokemonOnField[attacker].PokemonData.itemChanged = true;
             yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
                 + " switched items with " + battle.MonNameWithPrefix(defender, false) + "!");
             yield return battle.Announce(battle.MonNameWithPrefix(defender, true)
-                + " obtained one " + battle.PokemonOnField[defender].item.Data().itemName + "!");
+                + " obtained one " + battle.PokemonOnField[defender].Item.Data().itemName + "!");
             yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
-    + " obtained one " + battle.PokemonOnField[attacker].item.Data().itemName + "!");
+    + " obtained one " + battle.PokemonOnField[attacker].Item.Data().itemName + "!");
         }
     }
 
@@ -1281,22 +1289,22 @@ public static class BattleEffect
     {
         BattlePokemon user = battle.PokemonOnField[attacker];
         BattlePokemon target = battle.PokemonOnField[defender];
-        if (user.item == ItemID.None || target.item != ItemID.None)
+        if (user.Item == ItemID.None || target.Item != ItemID.None)
             yield return battle.Announce(MoveFailed);
         //Todo: add other failure conditions
-        if (user.item.Data().type == ItemType.Plate && user.PokemonData.SpeciesData.speciesName == "Arceus")
+        if (user.Item.Data().type == ItemType.Plate && user.PokemonData.SpeciesData.speciesName == "Arceus")
         {
             yield return battle.Announce(MoveFailed);
         }
         else
         {
-            target.PokemonData.newItem = user.item;
+            target.PokemonData.newItem = user.Item;
             user.PokemonData.newItem = ItemID.None;
             target.PokemonData.itemChanged = true;
             user.PokemonData.itemChanged = true;
             yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
                 + " gave " + battle.MonNameWithPrefix(defender, false) + " its "
-                + target.item.Data().itemName + "!");
+                + target.Item.Data().itemName + "!");
         }
     }
     public static IEnumerator KnockOff(Battle battle, int attacker, int defender)
@@ -1306,7 +1314,7 @@ public static class BattleEffect
         {
             yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)
                 + " knocked off " + battle.MonNameWithPrefix(defender, false)
-                + "'s " + battle.PokemonOnField[defender].item.Data().itemName + "!");
+                + "'s " + battle.PokemonOnField[defender].Item.Data().itemName + "!");
             battle.PokemonOnField[defender].PokemonData.newItem = ItemID.None;
             battle.PokemonOnField[defender].PokemonData.itemChanged = true;
         }
@@ -1736,7 +1744,7 @@ public static class BattleEffect
     public static IEnumerator Recycle(Battle battle, int index)
     {
         BattlePokemon user = battle.PokemonOnField[index];
-        if (user.item != ItemID.None || user.eatenBerry == ItemID.None)
+        if (user.Item != ItemID.None || user.eatenBerry == ItemID.None)
         {
             yield return battle.Announce(MoveFailed);
             yield break;
@@ -1754,7 +1762,7 @@ public static class BattleEffect
             }
             user.eatenBerry = ItemID.None;
             yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-                + " found one " + user.item.Data().itemName + "!");
+                + " found one " + user.Item.Data().itemName + "!");
         }
     }
 

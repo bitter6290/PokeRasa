@@ -72,9 +72,9 @@ public class SpriteManager : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (currentMon != TrackedMon.apparentSpecies)
+        if (currentMon != TrackedMon.ApparentSpecies)
         {
-            currentMon = TrackedMon.apparentSpecies;
+            currentMon = TrackedMon.ApparentSpecies;
             updateSpecies();
         }
         sprite.sprite = hasSecondFrame && secondFrame ? Sprite2 : Sprite1;

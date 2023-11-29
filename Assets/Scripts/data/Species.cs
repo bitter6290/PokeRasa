@@ -22025,7 +22025,7 @@ public static class Species
     public static SpeciesData GenesectBurn = Genesect("genesect/burn");
     public static SpeciesData GenesectChill = Genesect("genesect/chill"); 
 
-    public static SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count] {
+    public static SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count] { //Todo: Change TempCount to Count
         Missingno,
         Bulbasaur,
         Ivysaur,

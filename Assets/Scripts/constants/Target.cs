@@ -15,6 +15,7 @@ public static class Target
 
     public const int Single = Opponent + Ally;
     public const int Surrounding = Opponent + Ally + Spread;
+    public const int SpreadMove = Opponent + Spread;
 
     public static bool CanTarget(int attacker, int defender, MoveID move)
     {

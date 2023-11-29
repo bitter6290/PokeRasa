@@ -29,6 +29,7 @@ public enum MoveEffect : ushort
     SpAtkUp1,
     SpAtkUp2,
     SpAtkUp3,
+    SpDefUp1,
     SpDefUp2,
     SpeedUp1,
     SpeedUp2,
@@ -60,6 +61,7 @@ public enum MoveEffect : ushort
     AttackDefAccUp1,
     SpAtkSpDefSpeedUp1,
     DefSpDefSpeedDown1,
+    SpAtkSpDefSpeedUp2,
     AllUp1,
     Acupressure,
     Autotomize,
@@ -67,11 +69,15 @@ public enum MoveEffect : ushort
     Captivate,
     Charge,
     DefenseCurl,
+    DiamondStorm,
+    HyperspaceFury,
     FlowerShield,
     Growth,
+    MagneticFlux,
     Minimize,
     Rototiller,
     ShellSmash,
+    VenomDrench,
     //Other status moves
     AfterYou,
     Attract,
@@ -83,6 +89,7 @@ public enum MoveEffect : ushort
     Embargo,
     Encore,
     Entrainment,
+    FairyLock,
     ForcedSwitch,
     Foresight,
     ForestsCurse,
@@ -100,6 +107,7 @@ public enum MoveEffect : ushort
     Nightmare,
     PartingShot,
     PerishSong,
+    Powder,
     PowerSplit,
     PowerSwap,
     PsychoShift,
@@ -129,8 +137,9 @@ public enum MoveEffect : ushort
     Psywave,
     SuperFang,
     //Recoil
-    Recoil33,
     Recoil25,
+    Recoil33,
+    Recoil50,
     Recoil25Max,
     Crash50Max,
     VoltTackle,
@@ -144,6 +153,7 @@ public enum MoveEffect : ushort
     Feint,
     FlameBurst,
     Flinch,
+    HappyHour,
     KnockOff,
     PayDay,
     RapidSpin,
@@ -151,6 +161,7 @@ public enum MoveEffect : ushort
     SmackDown,
     SmellingSalts,
     Thief,
+    ThousandArrows,
     WakeUpSlap,
     //Unique attack types
     AlwaysCrit,
@@ -239,6 +250,7 @@ public enum MoveEffect : ushort
     FusionFlare,
     FusionBolt,
     //Terrain effects
+    ElectricTerrain,
     GrassyTerrain,
     MistyTerrain,
     //Field effects
@@ -269,9 +281,7 @@ public enum MoveEffect : ushort
     Conversion,
     Conversion2,
     Copycat,
-    CraftyShield,
     DestinyBond,
-    Endure,
     Grudge,
     Heal50,
     HealBell,
@@ -279,15 +289,11 @@ public enum MoveEffect : ushort
     HealStatus,
     HealWeather,
     Ingrain,
-    MagicCoat,
     MagnetRise,
-    MatBlock,
     Metronome,
     Mimic,
     MirrorMove,
     PowerTrick,
-    Protect,
-    QuickGuard,
     Recycle,
     Rest,
     Roost,
@@ -296,8 +302,17 @@ public enum MoveEffect : ushort
     Teleport,
     Transform,
     Sketch,
-    WideGuard,
     Wish,
+    //Protection effects
+    CraftyShield,
+    Endure,
+    KingsShield,
+    MagicCoat,
+    MatBlock,
+    Protect,
+    QuickGuard,
+    SpikyShield,
+    WideGuard,
     //Effects for doubles/triples
     AllySwitch,
     FollowMe,
@@ -336,14 +351,14 @@ public static class MoveEffectUtils
     public static bool IsSheerForceAffectedNotSelfOnly(this MoveEffect effect)
     {
         return effect.IsStatDrop() || effect.IsStatDrop()
-            || effect is Flinch or Trap or Confuse or SmackDown
-            or Curse or Nightmare or PerishSong or LeechSeed
-            or Telekinesis or Yawn or Disable or Embargo or HealBlock or FellStinger;
+            || effect is Flinch or Trap or Confuse or SmackDown or ThousandArrows or
+            Curse or Nightmare or PerishSong or LeechSeed or Telekinesis or
+            Yawn or Disable or Embargo or HealBlock or FellStinger;
     }
 
     public static bool IsSheerForceAffectedSelfOnly(this MoveEffect effect) =>
         effect.IsStatRaise() || effect is StealthRock or Spikes;
 
     public static bool HasRecoil(this MoveEffect effect)
-        => effect is Recoil25 or Recoil33 or Crash50Max;
+        => effect is Recoil25 or Recoil33 or Recoil50 or Crash50Max;
 }
