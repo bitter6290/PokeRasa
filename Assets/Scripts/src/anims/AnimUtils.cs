@@ -384,7 +384,7 @@ public static class AnimUtils
         while (Time.time < endTime)
         {
             sprite.color = new Color(initialColor.r, initialColor.g, initialColor.b,
-                (Time.time - baseTime) / duration);
+                initialColor.a + (1 - initialColor.a) * (Time.time - baseTime) / duration);
             yield return null;
         }
     }

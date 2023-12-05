@@ -1988,35 +1988,29 @@ public class Battle : MonoBehaviour
                 case FlowerGift when PokemonOnField[i].PokemonData.species == SpeciesID.Cherrim:
                     if (IsWeatherAffected(i, Weather.Sun))
                     {
-                        //Add transformation animation
-                        PokemonOnField[i].PokemonData.temporarySpecies = SpeciesID.CherrimSunshine;
-                        PokemonOnField[i].PokemonData.transformed = true;
+                        yield return BattleAnim.Transform(this, i, SpeciesID.CherrimSunshine);
                     }
                     else PokemonOnField[i].PokemonData.transformed = false;
                     break;
                 case Forecast when PokemonOnField[i].PokemonData.species == SpeciesID.Castform:
-                    if (IsWeatherAffected(i, Weather.Sun))
+                    if (IsWeatherAffected(i, Weather.Sun) &&
+                        PokemonOnField[i].ApparentSpecies is not SpeciesID.CastformSunny)
                     {
-                        //Add transformation animation
-                        PokemonOnField[i].PokemonData.temporarySpecies = SpeciesID.CastformSunny;
-                        PokemonOnField[i].PokemonData.transformed = true;
+                        yield return BattleAnim.Transform(this, i, SpeciesID.CastformSunny);
                     }
-                    else if (IsWeatherAffected(i, Weather.Rain))
+                    else if (IsWeatherAffected(i, Weather.Rain) &&
+                        PokemonOnField[i].ApparentSpecies is not SpeciesID.CastformRainy)
                     {
-                        //Add transformation animation
-                        PokemonOnField[i].PokemonData.temporarySpecies = SpeciesID.CastformRainy;
-                        PokemonOnField[i].PokemonData.transformed = true;
+                        yield return BattleAnim.Transform(this, i, SpeciesID.CastformRainy);
                     }
-                    else if (IsWeatherAffected(i, Weather.Snow))
+                    else if (IsWeatherAffected(i, Weather.Snow) &&
+                        PokemonOnField[i].ApparentSpecies is not SpeciesID.CastformSnowy)
                     {
-                        //Add transformation animation
-                        PokemonOnField[i].PokemonData.temporarySpecies = SpeciesID.CastformSnowy;
-                        PokemonOnField[i].PokemonData.transformed = true;
+                        yield return BattleAnim.Transform(this, i, SpeciesID.CastformSnowy);
                     }
-                    else
+                    else if (PokemonOnField[i].ApparentSpecies is not SpeciesID.Castform)
                     {
-                        //Add transformation animation
-                        PokemonOnField[i].PokemonData.transformed = false;
+                        yield return BattleAnim.Transform(this, i, untransform: true);
                     }
                     break;
             }
@@ -6169,8 +6163,9 @@ public class Battle : MonoBehaviour
         if (index > 2 && hasPlayerMegaEvolved) return false;
         if (index < 3 && hasOpponentMegaEvolved) return false;
         if (EffectiveItem(index).MegaStoneUser() == PokemonOnField[index].PokemonData.getSpecies) return true;
-        //else if PokemonOnField[index].PokemonData.species == SpeciesID.Rayquaza
-        //  && PokemonOnField[index].PokemonData.HasMove(MoveID.DragonAscent) return true;
+        else if (PokemonOnField[index].PokemonData.species == SpeciesID.Rayquaza
+                && PokemonOnField[index].PokemonData.HasMove(MoveID.DragonAscent))
+            return true;
         else return false;
     }
 

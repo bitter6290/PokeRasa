@@ -661,6 +661,81 @@
     public static string MeloettaDesc = "The melodies sung by Meloetta have the power to make Pokémon that hear them happy or sad.";
     public static string GenesectDesc = "This ancient bug Pokémon was altered by Team Plasma. They upgraded the cannon on its back.";
 
+    //Gen 6
+    public static string ChespinDesc = "The quills on its head are usually soft. When it flexes them, the points become so hard and sharp that they can pierce rock.";
+    public static string QuilladinDesc = "It relies on its sturdy shell to deflect predators’ attacks. It counterattacks with its sharp quills.";
+    public static string ChesnaughtDesc = "Its Tackle is forceful enough to flip a 50-ton tank. It shields its allies from danger with its own body.";
+    public static string FennekinDesc = "Eating a twig fills it with energy, and its roomy ears give vent to air hotter than 390 degrees Fahrenheit.";
+    public static string BraixenDesc = "It has a twig stuck in its tail. With friction from its tail fur, it sets the twig on fire and launches into battle.";
+    public static string DelphoxDesc = "It gazes into the flame at the tip of its branch to achieve a focused state, which allows it to see into the future.";
+    public static string FroakieDesc = "It secretes flexible bubbles from its chest and back. The bubbles reduce the damage it would otherwise take when attacked.";
+    public static string FrogadierDesc = "It can throw bubble-covered pebbles with precise control, hitting empty cans up to a hundred feet away.";
+    public static string GreninjaDesc = "It creates throwing stars out of compressed water. When it spins them and throws them at high speed, these stars can split metal in two.";
+    public static string BunnelbyDesc = "It excels at digging holes. Using its ears, it can dig a nest 33 feet deep in one night.";
+    public static string DiggersbyDesc = "With power equal to an excavator, it can dig through dense bedrock. It’s a huge help during tunnel construction.";
+    public static string FletchlingDesc = "This Pokémon is normally calm, but once it enters battle, its hormonal balance changes and it becomes aggressive.";
+    public static string FletchinderDesc = "Fletchinder scatters embers in tall grass where bug Pokémon might be hiding and then catches them as they come leaping out.";
+    public static string TalonflameDesc = "It has top-notch flying capabilities. It flies around easily, even while carrying prey that weighs more than 220 lbs.";
+    public static string ScatterbugDesc = "Any poison this Pokémon takes in is converted into a black powder and secreted. That’s why Scatterbug can eat poisonous leaves and roots.";
+    public static string SpewpaDesc = "If Rufflet attacks this Pokémon by pecking at it, it will retaliate with its sharp fur and poisonous black powder.";
+    public static string VivillonDesc = "Vivillon with many different patterns are found all over the world. These patterns are affected by the climate of their habitat.";
+    public static string LitleoDesc = "When Litleo are young, female Pyroar will teach them how to hunt. Once the Litleo mature, they will leave the pride and set out on their own.";
+    public static string PyroarDesc = "The females of a pride work together to bring down prey. It’s thanks to them that their pride doesn’t starve.";
+    public static string FlabebeRedDesc = "This Flabébé rides a red flower. Immediately after birth, this Pokémon begins flying around in search of a flower it likes.";
+    public static string FloetteRedDesc = "This Pokémon uses red wavelengths of light to pour its own energy into flowers and draw forth their latent potential.";
+    public static string FlorgesRedDesc = "They say that flower gardens created by Florges are constantly showered with a power that can heal both body and spirit.";
+    public static string SkiddoDesc = "Until recently, people living in the mountains would ride on the backs of these Pokémon to traverse the mountain paths.";
+    public static string GogoatDesc = "These Pokémon live in herds in mountainous places. The victor in their contests of clashing horns will become the leader of the herd.";
+    public static string PanchamDesc = "It chooses a Pangoro as its master and then imitates its master’s actions. This is how it learns to battle and hunt for prey.";
+    public static string PangoroDesc = "This Pokémon is quick to anger, and it has no problem using its prodigious strength to get its way. It lives for duels against Obstagoon.";
+    public static string FurfrouDesc = "Left alone, its fur will grow longer and longer, but it will only allow someone it trusts to cut it.";
+    public static string EspurrDesc = "Though Espurr’s expression never changes, behind that blank stare is an intense struggle to contain its devastating psychic power.";
+    public static string MeowsticMDesc = "Revealing the eyelike patterns on the insides of its ears will unleash its psychic powers. It normally keeps the patterns hidden, however.";
+    public static string HonedgeDesc = "Honedge’s soul once belonged to a person who was killed a long time ago by the sword that makes up Honedge’s body.";
+    public static string DoubladeDesc = "Honedge evolves into twins. The two blades rub together to emit a metallic sound that unnerves opponents.";
+    public static string AegislashShieldDesc = "Its potent spectral powers allow it to manipulate others. It once used its powers to force people and Pokémon to build a kingdom to its liking.";
+    public static string SpritzeeDesc = "A scent pouch within this Pokémon’s body allows it to create various scents. A change in its diet will alter the fragrance it produces.";
+    public static string AromatisseDesc = "The scent that constantly emits from its fur is so powerful that this Pokémon’s companions will eventually lose their sense of smell.";
+    public static string SwirlixDesc = "It eats its own weight in sugar every day. If it doesn’t get enough sugar, it becomes incredibly grumpy.";
+    public static string SlurpuffDesc = "By taking in a person’s scent, it can sniff out their mental and physical condition. It’s hoped that this skill will have many medical applications.";
+    public static string InkayDesc = "It spins while making its luminescent spots flash. These spots allow it to communicate with others by using different patterns of light.";
+    public static string MalamarDesc = "Gazing at its luminescent spots will quickly induce a hypnotic state, putting the observer under Malamar’s control.";
+    public static string BinacleDesc = "After two Binacle find a suitably sized rock, they adhere themselves to it and live together. They cooperate to gather food during high tide.";
+    public static string BarbaracleDesc = "Seven Binacle come together to form one Barbaracle. The Binacle that serves as the head gives orders to those serving as the limbs.";
+    public static string SkrelpDesc = "Skrelp evades its enemies by hiding amid drifting seaweed. It eats rotten seaweed to create its poison.";
+    public static string DragalgeDesc = "Using a liquid poison, Dragalge indiscriminately attacks anything that wanders into its territory. This poison can corrode the undersides of boats.";
+    public static string ClauncherDesc = "This Pokémon launches water by detonating gas inside its right claw. It snipes flying Pokémon.";
+    public static string ClawitzerDesc = "Clawitzer can move through the water at a speed of 60 knots by using gas inside its body to expel water from the back of its claw.";
+    public static string HelioptileDesc = "When spread, the frills on its head act like solar panels, generating the power behind this Pokémon’s electric moves.";
+    public static string HelioliskDesc = "One Heliolisk basking in the sun with its frill outspread is all it would take to produce enough electricity to power a city.";
+    public static string TyruntDesc = "This is an ancient Pokémon, revived in modern times. It has a violent disposition, and it’ll tear apart anything it gets between its hefty jaws.";
+    public static string TyrantrumDesc = "A single bite of Tyrantrum’s massive jaws will demolish a car. This Pokémon was the king of the ancient world.";
+    public static string AmauraDesc = "This Pokémon was successfully restored from a fossil. In the past, it lived with others of its kind in cold lands where there were fewer predators.";
+    public static string AurorusDesc = "When gripped by rage, Aurorus will emanate freezing air, covering everything around it in ice.";
+    public static string SylveonDesc = "Sylveon cuts an elegant figure as it dances lightly around, feelers fluttering, but its piercing moves aim straight for its opponents’ weak spots.";
+    public static string HawluchaDesc = "Its elegant finishing moves—performed by nimbly leaping around using its wings—are polished in the forest where it was born and raised.";
+    public static string DedenneDesc = "It’s small and its electricity-generating organ is not fully developed, so it uses its tail to absorb electricity from people’s homes and charge itself.";
+    public static string CarbinkDesc = "When beset by attackers, Carbink wipes them all out by firing high-energy beams from the gems embedded in its body.";
+    public static string GoomyDesc = "Most of a Goomy’s body is water. A membrane covers the whole Pokémon to prevent it from shriveling up in dry weather.";
+    public static string SliggooDesc = "The swirly protrusion on its back is filled with all its vital organs, such as its brain and heart.";
+    public static string GoodraDesc = "It loves the rain. This mellow Pokémon can be seen walking around on the plains and in the mountains on rainy days.";
+    public static string KlefkiDesc = "Once it absorbs a key’s metal ions, it discards the key without a second thought. However, it will hang on to keys it favors for decades.";
+    public static string PhantumpDesc = "After a lost child perished in the forest, their spirit possessed a tree stump, causing the spirit’s rebirth as this Pokémon.";
+    public static string TrevenantDesc = "People fear it due to a belief that it devours any who try to cut down trees in its forest, but to the Pokémon it shares its woods with, it’s kind.";
+    public static string PumpkabooDesc = "The pumpkin body is inhabited by a spirit trapped in this world. As the sun sets, it becomes restless and active.";
+    public static string GourgeistDesc = "It enwraps its prey in its hairlike arms. It sings joyfully as it observes the suffering of its prey.";
+    public static string BergmiteDesc = "They live in mountainous regions of frigid cold. On rare occasions, they ride on the back of an Avalugg to cross seas and move to new habitats.";
+    public static string AvaluggDesc = "This Pokémon uses its massive icy body to flatten anything that gets in its way. When it’s floating out on the ocean, it looks exactly like drift ice.";
+    public static string NoibatDesc = "Noibat can change the frequency of its sound waves at will, and it generates ultrasonic waves of up to 200,000 hertz.";
+    public static string NoivernDesc = "Ultrasonic waves emitted by a Noivern can pulverize a large boulder. This Pokémon has a cruel disposition.";
+    public static string XerneasDesc = "Legends say it can share eternal life. It slept for a thousand years in the form of a tree before its revival.";
+    public static string YveltalDesc = "When its life comes to an end, it absorbs the life energy of every living thing and turns into a cocoon once more.";
+    public static string Zygarde50Desc = "When the Kalos region’s ecosystem falls into disarray, it appears and reveals its secret power.";
+    public static string DiancieDesc = "A sudden transformation of Carbink, its pink, glimmering body is said to be the loveliest sight in the whole world.";
+    public static string HoopaDesc = "It is said to be able to seize anything it desires with its six rings and six huge arms. With its power sealed, it is transformed into a much smaller form.";
+    public static string VolcanionDesc = "It lets out billows of steam and disappears into the dense fog. It’s said to live in mountains where humans do not tread.";
+
+
     //Alolan forms
     public static string RattataAlolaDesc = "It shows no interest in anything that isn’t fresh. If you take it shopping with you, it will help you pick out ingredients.";
     public static string RaticateAlolaDesc = "It has an incredibly greedy personality. Its nest is filled with so much food gathered by Rattata at its direction, it can’t possibly eat it all.";
@@ -702,6 +777,10 @@
     public static string SamurottHisuiDesc = "Hard of heart and deft of blade, this rare form of Samurott is a product of the Pokémon’s evolution in the region of Hisui. Its turbulent blows crash into foes like ceaseless pounding waves.";
     public static string LilligantHisuiDesc = "Its well-developed legs are the result of a life spent on mountains covered in deep snow. The scent it exudes from its flower crown heartens those in proximity.";
     public static string BasculinWhiteDesc = "Though it appears similar to other Basculin, its temperament is much gentler.";
+    public static string SliggooHisuiDesc = "Its metallic shell developed as a result of the mucus on its skin reacting with the iron in Hisui’s water.";
+    public static string GoodraHisuiDesc = "It loathes solitude and is extremely clingy - it will fume and run riot if those dearest to it ever leave its side.";
+    public static string AvaluggHisuiDesc = "The armor of ice covering its lower jaw puts steel to shame and can shatter rocks with ease. This Pokémon barrels along steep mountain paths, cleaving through the deep snow.";
+
 
     //Paldean forms
     public static string TaurosPaldeaCombatDesc = "This Pokémon has a muscular body and excels at close-quarters combat. It uses its short horns to strike the opponent’s weak spots.";
@@ -759,4 +838,22 @@
     public static string KyuremWhiteDesc = "It has foreseen that a world of truth will arrive for people and Pokémon. It strives to protect that future.";
     public static string KyuremBlackDesc = "It’s said that this Pokémon battles in order to protect the ideal world that will exist in the future for people and Pokémon.";
     public static string KeldeoResoluteDesc = "Keldeo has strengthened its resolve for battle, filling its body with power and changing its form.";
+    public static string FlabebeBlueDesc = "This Pokémon likes blue flowers best of all. It floats upward using the power emanating from its flower and bobs along lightly through the air.";
+    public static string FlabebeOrangeDesc = "It receives strength from flowers and gives them some of its energy in return. This Pokémon likes orange flowers best of all.";
+    public static string FlabebeWhiteDesc = "When evening falls, it searches out a place blooming with flowers of the same white color as itself, and then it goes to sleep.";
+    public static string FlabebeYellowDesc = "It unleashes a variety of moves by drawing forth the power hidden within flowers. This Pokémon is particularly fond of yellow flowers.";
+    public static string FloetteBlueDesc = "It exchanges power with flowers via wavelengths of visible light. This form of Floette can sync with the wavelength that produces the color blue.";
+    public static string FloetteOrangeDesc = "This Pokémon cannot use moves on its own. When it syncs with flowers, it becomes able to use Grass-type moves.";
+    public static string FloetteWhiteDesc = "If it finds someone messing up a flower bed, it will attack them without mercy. This Floette takes particularly good care of white flowers.";
+    public static string FloetteYellowDesc = "Floette can draw forth the latent capabilities of Grass-type Pokémon. It syncs with yellow flowers.";
+    public static string FloetteEternalDesc = "Terrifying energy is concealed within its ominous flower, but Floette still swings it about innocently.";
+    public static string FlorgesBlueDesc = "Blue pigments were tremendously expensive in the past, so paintings of blue Florges are highly valuable.";
+    public static string FlorgesOrangeDesc = "In times long past, castle governors would lovingly raise Florges to care for their castles’ exquisite gardens.";
+    public static string FlorgesWhiteDesc = "A Florges adorned with white flowers can sync with the wavelengths of various colors to draw forth their power.";
+    public static string FlorgesYellowDesc = "This Pokémon battles by drawing forth the power of yellow flowers. It ruthlessly punishes anyone who tramples on flowering plants.";
+    public static string MeowsticFDesc = "Females are a bit more selfish and aggressive than males. If they don’t get what they want, they will torment you with their psychic abilities.";
+    public static string AegislashBladeDesc = "Once upon a time, a king with an Aegislash reigned over the land. His Pokémon eventually drained him of life, and his kingdom fell with him.";
+    public static string Zygarde10Desc = "Its sharp fangs make short work of finishing off its enemies, but it’s unable to maintain this body indefinitely. After a period of time, it falls apart.";
+    public static string ZygardeCompleteDesc = "This is Zygarde’s perfected form. From the orifice on its chest, it radiates high-powered energy that eliminates everything.";
+
 }

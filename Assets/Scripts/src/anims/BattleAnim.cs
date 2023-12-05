@@ -154,6 +154,23 @@ public static class BattleAnim
         yield return AttractHeart(battle, index, 0.3F); //1.40
     }
 
+    public static IEnumerator Transform(Battle battle, int index, SpeciesID destinationSpecies = SpeciesID.Missingno,
+        bool untransform = false)
+    {
+        SpriteRenderer renderer = battle.spriteRenderer[index];
+        float alpha = renderer.color.a;
+        yield return Fade(renderer, 0.0F, 0.5F);
+        if (untransform)
+            battle.PokemonOnField[index].PokemonData.transformed = false;
+        else
+        {
+            battle.PokemonOnField[index].PokemonData.transformed = true;
+            battle.PokemonOnField[index].PokemonData.temporarySpecies = destinationSpecies;
+        }
+        yield return new WaitForSeconds(0.5F);
+        yield return Fade(renderer, alpha, 0.5F);
+    }
+
     public static IEnumerator MegaEvolution(Battle battle, int index)
     {
         GameObject megaCircle = NewSpriteFromTexture("Sprites/Battle/MegaCircle", battle.spriteTransform[index],

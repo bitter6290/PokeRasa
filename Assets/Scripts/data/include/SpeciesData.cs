@@ -93,6 +93,13 @@ public struct SpeciesData
     public Sprite Icon => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
         new Rect(0.0f, 0.0f, 16.0f, 16.0f), new Vector2(0.5f, 0.5f), 64.0f);
 
+    public static SpeciesData OverwriteAbility(SpeciesData baseSpecies, Ability ability)
+    {
+        SpeciesData copy = baseSpecies;
+        copy.abilities = new Ability[3] { ability, ability, ability };
+        return copy;
+    }
+
     //Unown constructor
     public static SpeciesData Unown(string path, int backSpriteHeight) => new()
     {
@@ -769,6 +776,391 @@ public struct SpeciesData
             Download,
             Download,
             Download
+        }
+    };
+
+    //Scatterbug line constructors
+
+    public static SpeciesData Scatterbug(SpeciesID nextEvo) => new()
+    {
+        speciesName = "Scatterbug",
+        type1 = Bug,
+        type2 = Bug,
+        baseHP = 38,
+        baseAttack = 35,
+        baseDefense = 40,
+        baseSpAtk = 27,
+        baseSpDef = 25,
+        baseSpeed = 35,
+        evYield = Defense,
+        evolution = EvolutionData.LevelEvolution(9, nextEvo), //Not done
+        xpClass = MediumFast,
+        xpYield = 40,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "scatterbug", //Verify
+        graphicsLocation = "scatterbug", //Verify
+        backSpriteHeight = 0, //Not done
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            ShieldDust,
+            CompoundEyes,
+            FriendGuard,
+        },
+    };
+
+    public static SpeciesData Spewpa(SpeciesID nextEvo) => new()
+    {
+        speciesName = "Spewpa",
+        type1 = Bug,
+        type2 = Bug,
+        baseHP = 45,
+        baseAttack = 22,
+        baseDefense = 60,
+        baseSpAtk = 27,
+        baseSpDef = 30,
+        baseSpeed = 29,
+        evYield = 2 * Defense,
+        evolution = EvolutionData.LevelEvolution(12, nextEvo), //Not done
+        xpClass = MediumFast,
+        xpYield = 75,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "spewpa", //Verify
+        graphicsLocation = "spewpa", //Verify
+        backSpriteHeight = 0, //Not done
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new Ability[3]
+        {
+            ShedSkin,
+            ShedSkin,
+            FriendGuard,
+        },
+    };
+
+    public static SpeciesData Vivillon(string graphicsSubfolder) => new()
+    {
+        speciesName = "Vivillon",
+        type1 = Bug,
+        type2 = Flying,
+        baseHP = 80,
+        baseAttack = 52,
+        baseDefense = 50,
+        baseSpAtk = 90,
+        baseSpDef = 50,
+        baseSpeed = 89,
+        evYield = HP + Speed + SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 185,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "vivillon",
+        graphicsLocation = "vivillon/" + graphicsSubfolder,
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Vivillon,
+        abilities = new Ability[3]
+        {
+            ShieldDust,
+            CompoundEyes,
+            FriendGuard
+        }
+    };
+
+    //Flabébé line constructors
+    public static SpeciesData Flabebe(SpeciesID nextEvo, string graphicsSubfolder) => new()
+    {
+        speciesName = "Flabébé",
+        type1 = Fairy,
+        type2 = Fairy,
+        baseHP = 44,
+        baseAttack = 38,
+        baseDefense = 39,
+        baseSpAtk = 61,
+        baseSpDef = 79,
+        baseSpeed = 42,
+        evYield = SpDef,
+        evolution = EvolutionData.LevelEvolution(19, nextEvo),
+        xpClass = MediumFast,
+        xpYield = 61,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Fairy,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 20,
+        catchRate = 225,
+        baseFriendship = 70,
+        cryLocation = "flabebe",
+        graphicsLocation = "flabebe/" + graphicsSubfolder,
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Flabebe,
+        abilities = new Ability[3]
+        {
+            FlowerVeil,
+            FlowerVeil,
+            Symbiosis
+        }
+    };
+
+    public static SpeciesData Floette(SpeciesID nextEvo, string graphicsSubfolder,
+        bool eternal = false) => new()
+    {
+        speciesName = "Floette",
+        type1 = Fairy,
+        type2 = Fairy,
+        baseHP = 54,
+        baseAttack = 45,
+        baseDefense = 47,
+        baseSpAtk = 75,
+        baseSpDef = 98,
+        baseSpeed = 52,
+        evYield = SpDef * 2,
+        evolution = eternal ? Evolution.None :
+            EvolutionData.ItemEvolution(ItemID.ShinyStone, nextEvo),
+        xpClass = MediumFast,
+        xpYield = 130,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Fairy,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 20,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "floette",
+        graphicsLocation = "floette/" + graphicsSubfolder,
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.Floette,
+        abilities = new Ability[3]
+        {
+            FlowerVeil,
+            FlowerVeil,
+            Symbiosis
+        }
+    };
+
+    public static SpeciesData Florges(string graphicsSubfolder) => new()
+    {
+        speciesName = "Florges",
+        type1 = Fairy,
+        type2 = Fairy,
+        baseHP = 78,
+        baseAttack = 65,
+        baseDefense = 68,
+        baseSpAtk = 112,
+        baseSpDef = 154,
+        baseSpeed = 75,
+        evYield = SpDef * 3,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 248,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Fairy,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "florges",
+        graphicsLocation = "florges/" + graphicsSubfolder,
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Florges,
+        abilities = new Ability[3]
+        {
+            FlowerVeil,
+            FlowerVeil,
+            Symbiosis
+        }
+    };
+
+    public static SpeciesData Furfrou(string graphicsSubfolder, bool backSprite0 = false) => new()
+    {
+        speciesName = "Furfrou",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 75,
+        baseAttack = 80,
+        baseDefense = 60,
+        baseSpAtk = 65,
+        baseSpDef = 90,
+        baseSpeed = 102,
+        evYield = Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 165,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 160,
+        baseFriendship = 70,
+        cryLocation = "furfrou",
+        graphicsLocation = "furfrou/" + graphicsSubfolder,
+        backSpriteHeight = backSprite0 ? 0 : 1,
+        pokedexData = Pokedex.Furfrou,
+        abilities = new Ability[3]
+        {
+            FurCoat,
+            FurCoat,
+            FurCoat
+        }
+    };
+
+    //Aegislash constructor
+    public static SpeciesData Aegislash(bool blade) => new()
+    {
+        speciesName = "Aegislash",
+        type1 = Steel,
+        type2 = Ghost,
+        baseHP = 60,
+        baseAttack = blade ? 140 : 50,
+        baseDefense = blade ? 50 : 140,
+        baseSpAtk = blade ? 140 : 50,
+        baseSpDef = blade ? 50 : 140,
+        baseSpeed = 60,
+        evYield = 2 * Defense + SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 234,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "aegislash",
+        graphicsLocation = "aegislash" + (blade ? "/blade" : ""),
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Aegislash,
+        abilities = new Ability[3]
+        {
+            StanceChange,
+            StanceChange,
+            StanceChange
+        }
+    };
+
+    //Pumpkaboo line constructors
+
+    public static SpeciesData Pumpkaboo(int baseHP, int baseSpeed, SpeciesID nextEvo,
+        string graphicsSubfolder, int backSpriteHeight) => new()
+        {
+            speciesName = "Pumpkaboo",
+            type1 = Ghost,
+            type2 = Grass,
+            baseHP = baseHP,
+            baseAttack = 66,
+            baseDefense = 70,
+            baseSpAtk = 44,
+            baseSpDef = 55,
+            baseSpeed = baseSpeed,
+            evYield = Defense,
+            evolution = EvolutionData.TradeEvolution(nextEvo),
+            xpClass = MediumFast,
+            xpYield = 67,
+            learnset = EmptyLearnset, //Not done
+            malePercent = 50,
+            eggGroup1 = EggGroup.Amorphous,
+            eggGroup2 = EggGroup.Amorphous,
+            eggCycles = 20,
+            catchRate = 120,
+            baseFriendship = 70,
+            cryLocation = "pumpkaboo",
+            graphicsLocation = "pumpkaboo/" + graphicsSubfolder,
+            backSpriteHeight = backSpriteHeight,
+            pokedexData = Pokedex.Pumpkaboo,
+            abilities = new Ability[3]
+            {
+                Pickup,
+                Frisk,
+                Insomnia,
+            }
+        };
+
+    public static SpeciesData Gourgeist(int baseHP, int baseAttack, int baseSpeed,
+    string graphicsSubfolder, int backSpriteHeight) => new()
+    {
+        speciesName = "Pumpkaboo",
+        type1 = Ghost,
+        type2 = Grass,
+        baseHP = baseHP,
+        baseAttack = baseAttack,
+        baseDefense = 122,
+        baseSpAtk = 58,
+        baseSpDef = 75,
+        baseSpeed = baseSpeed,
+        evYield = Defense * 2,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 173,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "gourgeist",
+        graphicsLocation = "gourgeist/" + graphicsSubfolder,
+        backSpriteHeight = backSpriteHeight,
+        pokedexData = Pokedex.Gourgeist,
+        abilities = new Ability[3]
+        {
+                Pickup,
+                Frisk,
+                Insomnia,
+        }
+    };
+
+    //Xerneas constructor
+    public static SpeciesData Xerneas(string graphics) => new()
+    {
+        speciesName = "Xerneas",
+        type1 = Fairy,
+        type2 = Fairy,
+        baseHP = 126,
+        baseAttack = 131,
+        baseDefense = 95,
+        baseSpAtk = 131,
+        baseSpDef = 98,
+        baseSpeed = 99,
+        evYield = 3 * HP,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 306,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "xerneas",
+        graphicsLocation = graphics,
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Xerneas,
+        abilities = new Ability[3]
+        {
+            FairyAura,
+            FairyAura,
+            FairyAura
         }
     };
 

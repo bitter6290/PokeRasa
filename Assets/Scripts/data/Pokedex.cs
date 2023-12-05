@@ -6806,6 +6806,819 @@ public static class Pokedex
             Species.GenesectChill
         }
     };
+    public static PokedexData Chespin = new()
+    {
+        number = 650,
+        name = "Chespin",
+        category = "SpinyNut",
+        height = 40,
+        weight = 9000,
+        entry = ChespinDesc,
+        forms = SingleSpecies(Species.Chespin),
+    };
+    public static PokedexData Quilladin = new()
+    {
+        number = 651,
+        name = "Quilladin",
+        category = "SpinyArmor",
+        height = 70,
+        weight = 29000,
+        entry = QuilladinDesc,
+        forms = SingleSpecies(Species.Quilladin),
+    };
+    public static PokedexData Chesnaught = new()
+    {
+        number = 652,
+        name = "Chesnaught",
+        category = "SpinyArmor",
+        height = 160,
+        weight = 90000,
+        entry = ChesnaughtDesc,
+        forms = SingleSpecies(Species.Chesnaught),
+    };
+    public static PokedexData Fennekin = new()
+    {
+        number = 653,
+        name = "Fennekin",
+        category = "Fox",
+        height = 40,
+        weight = 9400,
+        entry = FennekinDesc,
+        forms = SingleSpecies(Species.Fennekin),
+    };
+    public static PokedexData Braixen = new()
+    {
+        number = 654,
+        name = "Braixen",
+        category = "Fox",
+        height = 100,
+        weight = 14500,
+        entry = BraixenDesc,
+        forms = SingleSpecies(Species.Braixen),
+    };
+    public static PokedexData Delphox = new()
+    {
+        number = 655,
+        name = "Delphox",
+        category = "Fox",
+        height = 150,
+        weight = 39000,
+        entry = DelphoxDesc,
+        forms = SingleSpecies(Species.Delphox),
+    };
+    public static PokedexData Froakie = new()
+    {
+        number = 656,
+        name = "Froakie",
+        category = "BubbleFrog",
+        height = 30,
+        weight = 7000,
+        entry = FroakieDesc,
+        forms = SingleSpecies(Species.Froakie),
+    };
+    public static PokedexData Frogadier = new()
+    {
+        number = 657,
+        name = "Frogadier",
+        category = "BubbleFrog",
+        height = 60,
+        weight = 10900,
+        entry = FrogadierDesc,
+        forms = SingleSpecies(Species.Frogadier),
+    };
+    public static PokedexData Greninja = new()
+    {
+        number = 658,
+        name = "Greninja",
+        category = "Ninja",
+        height = 150,
+        weight = 40000,
+        entry = GreninjaDesc,
+        forms = SingleSpecies(Species.Greninja),
+    };
+    public static PokedexData Bunnelby = new()
+    {
+        number = 659,
+        name = "Bunnelby",
+        category = "Digging",
+        height = 40,
+        weight = 5000,
+        entry = BunnelbyDesc,
+        forms = SingleSpecies(Species.Bunnelby),
+    };
+    public static PokedexData Diggersby = new()
+    {
+        number = 660,
+        name = "Diggersby",
+        category = "Digging",
+        height = 100,
+        weight = 42400,
+        entry = DiggersbyDesc,
+        forms = SingleSpecies(Species.Diggersby),
+    };
+    public static PokedexData Fletchling = new()
+    {
+        number = 661,
+        name = "Fletchling",
+        category = "TinyRobin",
+        height = 30,
+        weight = 1700,
+        entry = FletchlingDesc,
+        forms = SingleSpecies(Species.Fletchling),
+    };
+    public static PokedexData Fletchinder = new()
+    {
+        number = 662,
+        name = "Fletchinder",
+        category = "Ember",
+        height = 70,
+        weight = 16000,
+        entry = FletchinderDesc,
+        forms = SingleSpecies(Species.Fletchinder),
+    };
+    public static PokedexData Talonflame = new()
+    {
+        number = 663,
+        name = "Talonflame",
+        category = "Scorching",
+        height = 120,
+        weight = 24500,
+        entry = TalonflameDesc,
+        forms = SingleSpecies(Species.Talonflame),
+    };
+    public static PokedexData Scatterbug = new()
+    {
+        number = 664,
+        name = "Scatterbug",
+        category = "Scatterdust",
+        height = 30,
+        weight = 2500,
+        entry = ScatterbugDesc,
+        forms = SingleSpecies(Species.ScatterbugMeadow),
+    };
+    public static PokedexData Spewpa = new()
+    {
+        number = 665,
+        name = "Spewpa",
+        category = "Scatterdust",
+        height = 30,
+        weight = 8400,
+        entry = SpewpaDesc,
+        forms = SingleSpecies(Species.SpewpaMeadow),
+    };
+    public static PokedexData Vivillon = new()
+    {
+        number = 666,
+        name = "Vivillon",
+        category = "Scale",
+        height = 120,
+        weight = 17000,
+        entry = VivillonDesc,
+        forms = new[]
+        {
+            Species.VivillonMeadow,
+            Species.VivillonArchipelago,
+            Species.VivillonContinental,
+            Species.VivillonElegant,
+            Species.VivillonFancy,
+            Species.VivillonGarden,
+            Species.VivillonHighPlains,
+            Species.VivillonIcySnow,
+            Species.VivillonJungle,
+            Species.VivillonMarine,
+            Species.VivillonModern,
+            Species.VivillonMonsoon,
+            Species.VivillonOcean,
+            Species.VivillonPokeBall,
+            Species.VivillonPolar,
+            Species.VivillonRiver,
+            Species.VivillonSandstorm,
+            Species.VivillonSavanna,
+            Species.VivillonSun,
+            Species.VivillonTundra,
+        }
+    };
+    public static PokedexData Litleo = new()
+    {
+        number = 667,
+        name = "Litleo",
+        category = "LionCub",
+        height = 60,
+        weight = 13500,
+        entry = LitleoDesc,
+        forms = SingleSpecies(Species.Litleo),
+    };
+    public static PokedexData Pyroar = new()
+    {
+        number = 668,
+        name = "Pyroar",
+        category = "Royal",
+        height = 150,
+        weight = 81500,
+        entry = PyroarDesc,
+        forms = SingleSpecies(Species.Pyroar),
+    };
+    public static PokedexData Flabebe = new()
+    {
+        number = 669,
+        name = "Flabebe",
+        category = "SingleBloom",
+        height = 10,
+        weight = 100,
+        entry = FlabebeRedDesc,
+        forms = new[]
+        {
+            Species.FlabebeRed,
+            Species.FlabebeYellow,
+            Species.FlabebeOrange,
+            Species.FlabebeBlue,
+            Species.FlabebeWhite
+        }
+    };
+    public static PokedexData Floette = new()
+    {
+        number = 670,
+        name = "Floette",
+        category = "SingleBloom",
+        height = 20,
+        weight = 900,
+        entry = FloetteRedDesc,
+        forms = new[]
+        {
+            Species.FloetteRed,
+            Species.FloetteYellow,
+            Species.FloetteOrange,
+            Species.FloetteBlue,
+            Species.FloetteWhite,
+            Species.FloetteEternal
+        }
+    };
+    public static PokedexData Florges = new()
+    {
+        number = 671,
+        name = "Florges",
+        category = "Garden",
+        height = 110,
+        weight = 10000,
+        entry = FlorgesRedDesc,
+        forms = new[]
+        {
+            Species.FlorgesRed,
+            Species.FlorgesYellow,
+            Species.FlorgesOrange,
+            Species.FlorgesBlue,
+            Species.FlorgesWhite
+        }
+    };
+    public static PokedexData Skiddo = new()
+    {
+        number = 672,
+        name = "Skiddo",
+        category = "Mount",
+        height = 90,
+        weight = 31000,
+        entry = SkiddoDesc,
+        forms = SingleSpecies(Species.Skiddo),
+    };
+    public static PokedexData Gogoat = new()
+    {
+        number = 673,
+        name = "Gogoat",
+        category = "Mount",
+        height = 170,
+        weight = 91000,
+        entry = GogoatDesc,
+        forms = SingleSpecies(Species.Gogoat),
+    };
+    public static PokedexData Pancham = new()
+    {
+        number = 674,
+        name = "Pancham",
+        category = "Playful",
+        height = 60,
+        weight = 8000,
+        entry = PanchamDesc,
+        forms = SingleSpecies(Species.Pancham),
+    };
+    public static PokedexData Pangoro = new()
+    {
+        number = 675,
+        name = "Pangoro",
+        category = "Daunting",
+        height = 210,
+        weight = 136000,
+        entry = PangoroDesc,
+        forms = SingleSpecies(Species.Pangoro),
+    };
+    public static PokedexData Furfrou = new()
+    {
+        number = 676,
+        name = "Furfrou",
+        category = "Poodle",
+        height = 120,
+        weight = 28000,
+        entry = FurfrouDesc,
+        forms = new[]
+        {
+            Species.FurfrouNatural,
+            Species.FurfrouHeart,
+            Species.FurfrouStar,
+            Species.FurfrouDiamond,
+            Species.FurfrouDebutante,
+            Species.FurfrouMatron,
+            Species.FurfrouDandy,
+            Species.FurfrouLaReine,
+            Species.FurfrouKabuki,
+            Species.FurfrouPharaoh
+        }
+    };
+    public static PokedexData Espurr = new()
+    {
+        number = 677,
+        name = "Espurr",
+        category = "Restraint",
+        height = 30,
+        weight = 3500,
+        entry = EspurrDesc,
+        forms = SingleSpecies(Species.Espurr),
+    };
+    public static PokedexData Meowstic = new()
+    {
+        number = 678,
+        name = "Meowstic",
+        category = "Constraint",
+        height = 60,
+        weight = 8500,
+        entry = MeowsticMDesc,
+        forms = new[]
+        {
+            Species.MeowsticM,
+            Species.MeowsticF
+        },
+    };
+    public static PokedexData Honedge = new()
+    {
+        number = 679,
+        name = "Honedge",
+        category = "Sword",
+        height = 80,
+        weight = 2000,
+        entry = HonedgeDesc,
+        forms = SingleSpecies(Species.Honedge),
+    };
+    public static PokedexData Doublade = new()
+    {
+        number = 680,
+        name = "Doublade",
+        category = "Sword",
+        height = 80,
+        weight = 4500,
+        entry = DoubladeDesc,
+        forms = SingleSpecies(Species.Doublade),
+    };
+    public static PokedexData Aegislash = new()
+    {
+        number = 681,
+        name = "Aegislash",
+        category = "RoyalSword",
+        height = 170,
+        weight = 53000,
+        entry = AegislashShieldDesc,
+        forms = new[]
+        {
+            Species.AegislashShield,
+            Species.AegislashBlade
+        },
+    };
+    public static PokedexData Spritzee = new()
+    {
+        number = 682,
+        name = "Spritzee",
+        category = "Perfume",
+        height = 20,
+        weight = 500,
+        entry = SpritzeeDesc,
+        forms = SingleSpecies(Species.Spritzee),
+    };
+    public static PokedexData Aromatisse = new()
+    {
+        number = 683,
+        name = "Aromatisse",
+        category = "Fragrance",
+        height = 80,
+        weight = 15500,
+        entry = AromatisseDesc,
+        forms = SingleSpecies(Species.Aromatisse),
+    };
+    public static PokedexData Swirlix = new()
+    {
+        number = 684,
+        name = "Swirlix",
+        category = "CottonCandy",
+        height = 40,
+        weight = 3500,
+        entry = SwirlixDesc,
+        forms = SingleSpecies(Species.Swirlix),
+    };
+    public static PokedexData Slurpuff = new()
+    {
+        number = 685,
+        name = "Slurpuff",
+        category = "Meringue",
+        height = 80,
+        weight = 5000,
+        entry = SlurpuffDesc,
+        forms = SingleSpecies(Species.Slurpuff),
+    };
+    public static PokedexData Inkay = new()
+    {
+        number = 686,
+        name = "Inkay",
+        category = "Revolving",
+        height = 40,
+        weight = 3500,
+        entry = InkayDesc,
+        forms = SingleSpecies(Species.Inkay),
+    };
+    public static PokedexData Malamar = new()
+    {
+        number = 687,
+        name = "Malamar",
+        category = "Overturning",
+        height = 150,
+        weight = 47000,
+        entry = MalamarDesc,
+        forms = SingleSpecies(Species.Malamar),
+    };
+    public static PokedexData Binacle = new()
+    {
+        number = 688,
+        name = "Binacle",
+        category = "Two-Handed",
+        height = 50,
+        weight = 31000,
+        entry = BinacleDesc,
+        forms = SingleSpecies(Species.Binacle),
+    };
+    public static PokedexData Barbaracle = new()
+    {
+        number = 689,
+        name = "Barbaracle",
+        category = "Collective",
+        height = 130,
+        weight = 96000,
+        entry = BarbaracleDesc,
+        forms = SingleSpecies(Species.Barbaracle),
+    };
+    public static PokedexData Skrelp = new()
+    {
+        number = 690,
+        name = "Skrelp",
+        category = "MockKelp",
+        height = 50,
+        weight = 7300,
+        entry = SkrelpDesc,
+        forms = SingleSpecies(Species.Skrelp),
+    };
+    public static PokedexData Dragalge = new()
+    {
+        number = 691,
+        name = "Dragalge",
+        category = "MockKelp",
+        height = 180,
+        weight = 81500,
+        entry = DragalgeDesc,
+        forms = SingleSpecies(Species.Dragalge),
+    };
+    public static PokedexData Clauncher = new()
+    {
+        number = 692,
+        name = "Clauncher",
+        category = "WaterGun",
+        height = 50,
+        weight = 8300,
+        entry = ClauncherDesc,
+        forms = SingleSpecies(Species.Clauncher),
+    };
+    public static PokedexData Clawitzer = new()
+    {
+        number = 693,
+        name = "Clawitzer",
+        category = "Howitzer",
+        height = 130,
+        weight = 35300,
+        entry = ClawitzerDesc,
+        forms = SingleSpecies(Species.Clawitzer),
+    };
+    public static PokedexData Helioptile = new()
+    {
+        number = 694,
+        name = "Helioptile",
+        category = "Generator",
+        height = 50,
+        weight = 6000,
+        entry = HelioptileDesc,
+        forms = SingleSpecies(Species.Helioptile),
+    };
+    public static PokedexData Heliolisk = new()
+    {
+        number = 695,
+        name = "Heliolisk",
+        category = "Generator",
+        height = 100,
+        weight = 21000,
+        entry = HelioliskDesc,
+        forms = SingleSpecies(Species.Heliolisk),
+    };
+    public static PokedexData Tyrunt = new()
+    {
+        number = 696,
+        name = "Tyrunt",
+        category = "RoyalHeir",
+        height = 80,
+        weight = 26000,
+        entry = TyruntDesc,
+        forms = SingleSpecies(Species.Tyrunt),
+    };
+    public static PokedexData Tyrantrum = new()
+    {
+        number = 697,
+        name = "Tyrantrum",
+        category = "Despot",
+        height = 250,
+        weight = 270000,
+        entry = TyrantrumDesc,
+        forms = SingleSpecies(Species.Tyrantrum),
+    };
+    public static PokedexData Amaura = new()
+    {
+        number = 698,
+        name = "Amaura",
+        category = "Tundra",
+        height = 130,
+        weight = 25200,
+        entry = AmauraDesc,
+        forms = SingleSpecies(Species.Amaura),
+    };
+    public static PokedexData Aurorus = new()
+    {
+        number = 699,
+        name = "Aurorus",
+        category = "Tundra",
+        height = 270,
+        weight = 225000,
+        entry = AurorusDesc,
+        forms = SingleSpecies(Species.Aurorus),
+    };
+    public static PokedexData Sylveon = new()
+    {
+        number = 700,
+        name = "Sylveon",
+        category = "Intertwine",
+        height = 100,
+        weight = 23500,
+        entry = SylveonDesc,
+        forms = SingleSpecies(Species.Sylveon),
+    };
+    public static PokedexData Hawlucha = new()
+    {
+        number = 701,
+        name = "Hawlucha",
+        category = "Wrestling",
+        height = 80,
+        weight = 21500,
+        entry = HawluchaDesc,
+        forms = SingleSpecies(Species.Hawlucha),
+    };
+    public static PokedexData Dedenne = new()
+    {
+        number = 702,
+        name = "Dedenne",
+        category = "Antenna",
+        height = 20,
+        weight = 2200,
+        entry = DedenneDesc,
+        forms = SingleSpecies(Species.Dedenne),
+    };
+    public static PokedexData Carbink = new()
+    {
+        number = 703,
+        name = "Carbink",
+        category = "Jewel",
+        height = 30,
+        weight = 5700,
+        entry = CarbinkDesc,
+        forms = SingleSpecies(Species.Carbink),
+    };
+    public static PokedexData Goomy = new()
+    {
+        number = 704,
+        name = "Goomy",
+        category = "SoftTissue",
+        height = 30,
+        weight = 2800,
+        entry = GoomyDesc,
+        forms = SingleSpecies(Species.Goomy),
+    };
+    public static PokedexData Sliggoo = new()
+    {
+        number = 705,
+        name = "Sliggoo",
+        category = "SoftTissue",
+        height = 80,
+        weight = 17500,
+        entry = SliggooDesc,
+        forms = SingleSpecies(Species.Sliggoo),
+    };
+    public static PokedexData Goodra = new()
+    {
+        number = 706,
+        name = "Goodra",
+        category = "Dragon",
+        height = 200,
+        weight = 150500,
+        entry = GoodraDesc,
+        forms = SingleSpecies(Species.Goodra),
+    };
+    public static PokedexData Klefki = new()
+    {
+        number = 707,
+        name = "Klefki",
+        category = "KeyRing",
+        height = 20,
+        weight = 3000,
+        entry = KlefkiDesc,
+        forms = SingleSpecies(Species.Klefki),
+    };
+    public static PokedexData Phantump = new()
+    {
+        number = 708,
+        name = "Phantump",
+        category = "Stump",
+        height = 40,
+        weight = 7000,
+        entry = PhantumpDesc,
+        forms = SingleSpecies(Species.Phantump),
+    };
+    public static PokedexData Trevenant = new()
+    {
+        number = 709,
+        name = "Trevenant",
+        category = "ElderTree",
+        height = 150,
+        weight = 71000,
+        entry = TrevenantDesc,
+        forms = SingleSpecies(Species.Trevenant),
+    };
+    public static PokedexData Pumpkaboo = new()
+    {
+        number = 710,
+        name = "Pumpkaboo",
+        category = "Pumpkin",
+        height = 40,
+        weight = 5000,
+        entry = PumpkabooDesc,
+        forms = new[]
+        {
+            Species.PumpkabooAverage,
+            Species.PumpkabooSmall,
+            Species.PumpkabooLarge,
+            Species.PumpkabooSuper
+        }
+    };
+    public static PokedexData Gourgeist = new()
+    {
+        number = 711,
+        name = "Gourgeist",
+        category = "Pumpkin",
+        height = 90,
+        weight = 12500,
+        entry = GourgeistDesc,
+        forms = new[]
+        {
+            Species.GourgeistAverage,
+            Species.GourgeistSmall,
+            Species.GourgeistLarge,
+            Species.GourgeistSuper
+        }
+    };
+    public static PokedexData Bergmite = new()
+    {
+        number = 712,
+        name = "Bergmite",
+        category = "IceChunk",
+        height = 100,
+        weight = 99500,
+        entry = BergmiteDesc,
+        forms = SingleSpecies(Species.Bergmite),
+    };
+    public static PokedexData Avalugg = new()
+    {
+        number = 713,
+        name = "Avalugg",
+        category = "Iceberg",
+        height = 200,
+        weight = 505000,
+        entry = AvaluggDesc,
+        forms = SingleSpecies(Species.Avalugg),
+    };
+    public static PokedexData Noibat = new()
+    {
+        number = 714,
+        name = "Noibat",
+        category = "SoundWave",
+        height = 50,
+        weight = 8000,
+        entry = NoibatDesc,
+        forms = SingleSpecies(Species.Noibat),
+    };
+    public static PokedexData Noivern = new()
+    {
+        number = 715,
+        name = "Noivern",
+        category = "SoundWave",
+        height = 150,
+        weight = 85000,
+        entry = NoivernDesc,
+        forms = SingleSpecies(Species.Noivern),
+    };
+    public static PokedexData Xerneas = new()
+    {
+        number = 716,
+        name = "Xerneas",
+        category = "Life",
+        height = 300,
+        weight = 215000,
+        entry = XerneasDesc,
+        forms = new[]
+        {
+            Species.XerneasInactive,
+            Species.XerneasActive
+        },
+    };
+    public static PokedexData Yveltal = new()
+    {
+        number = 717,
+        name = "Yveltal",
+        category = "Destruction",
+        height = 580,
+        weight = 203000,
+        entry = YveltalDesc,
+        forms = SingleSpecies(Species.Yveltal),
+    };
+    public static PokedexData Zygarde = new()
+    {
+        number = 718,
+        name = "Zygarde",
+        category = "Order",
+        height = 500,
+        weight = 305000,
+        entry = Zygarde50Desc,
+        forms = new[]
+        {
+            Species.Zygarde50,
+            Species.Zygarde10,
+            Species.ZygardeComplete
+        }
+    };
+    public static PokedexData Diancie = new()
+    {
+        number = 719,
+        name = "Diancie",
+        category = "Jewel",
+        height = 70,
+        weight = 8800,
+        entry = DiancieDesc,
+        forms = new[]
+        {
+            Species.Diancie,
+            Species.DiancieMega
+        }
+    };
+    public static PokedexData Hoopa = new()
+    {
+        number = 720,
+        name = "Hoopa",
+        category = "Mischief",
+        height = 50,
+        weight = 9000,
+        entry = HoopaDesc,
+        forms = new[]
+        {
+            Species.Hoopa,
+            Species.HoopaUnbound
+        }
+    };
+    public static PokedexData Volcanion = new()
+    {
+        number = 721,
+        name = "Volcanion",
+        category = "Steam",
+        height = 170,
+        weight = 195000,
+        entry = VolcanionDesc,
+        forms = SingleSpecies(Species.Volcanion),
+    };
 
 
 }

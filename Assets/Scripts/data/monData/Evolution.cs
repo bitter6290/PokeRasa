@@ -398,6 +398,19 @@ public static class Evolution
     public static EvolutionData[] Zweilous = LevelEvolution(64, SpeciesID.Hydreigon);
     public static EvolutionData[] Larvesta = LevelEvolution(59, SpeciesID.Volcarona);
 
+    //Gen 6
+
+    public static EvolutionData[] Chespin = LevelEvolution(16, SpeciesID.Quilladin);
+    public static EvolutionData[] Quilladin = LevelEvolution(36, SpeciesID.Chesnaught);
+    public static EvolutionData[] Fennekin = LevelEvolution(16, SpeciesID.Braixen);
+    public static EvolutionData[] Braixen = LevelEvolution(36, SpeciesID.Delphox);
+    public static EvolutionData[] Froakie = LevelEvolution(16, SpeciesID.Frogadier);
+    public static EvolutionData[] Frogadier = LevelEvolution(26, SpeciesID.Greninja);
+    public static EvolutionData[] Bunnelby = LevelEvolution(20, SpeciesID.Diggersby);
+    public static EvolutionData[] Fletchling = LevelEvolution(17, SpeciesID.Fletchinder);
+    public static EvolutionData[] Fletchinder = LevelEvolution(35, SpeciesID.Talonflame);
+
+
 
     public static EvolutionData[] DeerlingSummer = LevelEvolution(34, SpeciesID.SawsbuckSummer);
     public static EvolutionData[] DeerlingAutumn = LevelEvolution(34, SpeciesID.SawsbuckAutumn);

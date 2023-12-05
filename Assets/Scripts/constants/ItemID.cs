@@ -168,6 +168,7 @@
     Abomasite,
     Galladite,
     Audinite,
+    Diancite,
 
     Count,
 }

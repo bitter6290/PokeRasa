@@ -1360,6 +1360,15 @@ public static class Item
         graphicsPath = "audinite"
     };
 
+    public static MegaStone Diancite = new()
+    {
+        itemName = "Diancite",
+        price = 40000,
+        originalSpecies = Diancie,
+        destinationSpecies = DiancieMega,
+        graphicsPath = "diancite"
+    };
+
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
     {
         None,
@@ -1529,7 +1538,8 @@ public static class Item
         Lucarionite,
         Abomasite,
         Galladite,
-        Audinite
+        Audinite,
+        Diancite,
     };
 }
 
