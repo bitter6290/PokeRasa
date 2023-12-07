@@ -5,6 +5,7 @@ using static BerryEffect;
 using static FieldEffect;
 using static HeldEffect;
 
+
 public static class Item
 {
     public static bool CanBeStolen(ItemID item) =>
@@ -1369,6 +1370,175 @@ public static class Item
         graphicsPath = "diancite"
     };
 
+    public static ZCrystalGeneric NormaliumZ = new()
+    {
+        itemName = "Normalium Z",
+        price = 100000,
+        moveType = Type.Normal,
+        zMovePhysical = MoveID.BreakneckBlitzPhysical,
+        zMoveSpecial = MoveID.BreakneckBlitzSpecial,
+        graphicsPath = "normalium_z"
+    };
+
+    public static ZCrystalGeneric FightiniumZ = new()
+    {
+        itemName = "Fightinium Z",
+        price = 100000,
+        moveType = Type.Fighting,
+        zMovePhysical = MoveID.AllOutPummelingPhysical,
+        zMoveSpecial = MoveID.AllOutPummelingSpecial,
+        graphicsPath = "fightinium_z"
+    };
+
+    public static ZCrystalGeneric FlyiniumZ = new()
+    {
+        itemName = "Flyinium Z",
+        price = 100000,
+        moveType = Type.Flying,
+        zMovePhysical = MoveID.SupersonicSkystrikePhysical,
+        zMoveSpecial = MoveID.SupersonicSkystrikeSpecial,
+        graphicsPath = "flyinium_z"
+    };
+
+    public static ZCrystalGeneric PoisoniumZ = new()
+    {
+        itemName = "Poisonium Z",
+        price = 100000,
+        moveType = Type.Poison,
+        zMovePhysical = MoveID.AcidDownpourPhysical,
+        zMoveSpecial = MoveID.AcidDownpourSpecial,
+        graphicsPath = "poisonium_z"
+    };
+
+    public static ZCrystalGeneric GroundiumZ = new()
+    {
+        itemName = "Groundium Z",
+        price = 100000,
+        moveType = Type.Ground,
+        zMovePhysical = MoveID.TectonicRagePhysical,
+        zMoveSpecial = MoveID.TectonicRageSpecial,
+        graphicsPath = "groundium_z"
+    };
+
+    public static ZCrystalGeneric RockiumZ = new()
+    {
+        itemName = "Rockium Z",
+        price = 100000,
+        moveType = Type.Rock,
+        zMovePhysical = MoveID.ContinentalCrushPhysical,
+        zMoveSpecial = MoveID.ContinentalCrushSpecial,
+        graphicsPath = "rockium_z"
+    };
+
+    public static ZCrystalGeneric BuginiumZ = new()
+    {
+        itemName = "Buginium Z",
+        price = 100000,
+        moveType = Type.Bug,
+        zMovePhysical = MoveID.SavageSpinOutPhysical,
+        zMoveSpecial = MoveID.SavageSpinOutSpecial,
+        graphicsPath = "buginium_z"
+    };
+    public static ZCrystalGeneric GhostiumZ = new()
+    {
+        itemName = "Ghostium Z",
+        price = 100000,
+        moveType = Type.Ghost,
+        zMovePhysical = MoveID.NeverEndingNightmarePhysical,
+        zMoveSpecial = MoveID.NeverEndingNightmareSpecial,
+        graphicsPath = "ghostium_z"
+    };
+    public static ZCrystalGeneric SteeliumZ = new()
+    {
+        itemName = "Steelium Z",
+        price = 100000,
+        moveType = Type.Steel,
+        zMovePhysical = MoveID.CorkscrewCrashPhysical,
+        zMoveSpecial = MoveID.CorkscrewCrashSpecial,
+        graphicsPath = "steelium_z"
+    };
+    public static ZCrystalGeneric FiriumZ = new()
+    {
+        itemName = "Firium Z",
+        price = 100000,
+        moveType = Type.Fire,
+        zMovePhysical = MoveID.InfernoOverdrivePhysical,
+        zMoveSpecial = MoveID.InfernoOverdriveSpecial,
+        graphicsPath = "firium_z"
+    };
+    public static ZCrystalGeneric WateriumZ = new()
+    {
+        itemName = "Waterium Z",
+        price = 100000,
+        moveType = Type.Water,
+        zMovePhysical = MoveID.HydroVortexPhysical,
+        zMoveSpecial = MoveID.HydroVortexSpecial,
+        graphicsPath = "waterium_z"
+    };
+    public static ZCrystalGeneric GrassiumZ = new()
+    {
+        itemName = "Grassium Z",
+        price = 100000,
+        moveType = Type.Grass,
+        zMovePhysical = MoveID.BloomDoomPhysical,
+        zMoveSpecial = MoveID.BloomDoomSpecial,
+        graphicsPath = "grassium_z"
+    };
+    public static ZCrystalGeneric ElectriumZ = new()
+    {
+        itemName = "Electrium Z",
+        price = 100000,
+        moveType = Type.Electric,
+        zMovePhysical = MoveID.GigavoltHavocPhysical,
+        zMoveSpecial = MoveID.GigavoltHavocSpecial,
+        graphicsPath = "electrium_z"
+    };
+    public static ZCrystalGeneric PsychiumZ = new()
+    {
+        itemName = "Psychium Z",
+        price = 100000,
+        moveType = Type.Psychic,
+        zMovePhysical = MoveID.ShatteredPsychePhysical,
+        zMoveSpecial = MoveID.ShatteredPsycheSpecial,
+        graphicsPath = "psychium_z"
+    };
+    public static ZCrystalGeneric IciumZ = new()
+    {
+        itemName = "Icium Z",
+        price = 100000,
+        moveType = Type.Ice,
+        zMovePhysical = MoveID.SubzeroSlammerPhysical,
+        zMoveSpecial = MoveID.SubzeroSlammerSpecial,
+        graphicsPath = "icium_z"
+    };
+    public static ZCrystalGeneric DragoniumZ = new()
+    {
+        itemName = "Dragonium Z",
+        price = 100000,
+        moveType = Type.Dragon,
+        zMovePhysical = MoveID.DevastatingDrakePhysical,
+        zMoveSpecial = MoveID.DevastatingDrakeSpecial,
+        graphicsPath = "dragonium_z"
+    };
+    public static ZCrystalGeneric DarkiniumZ = new()
+    {
+        itemName = "Darkinium Z",
+        price = 100000,
+        moveType = Type.Dark,
+        zMovePhysical = MoveID.BlackHoleEclipsePhysical,
+        zMoveSpecial = MoveID.BlackHoleEclipseSpecial,
+        graphicsPath = "darkinium_z"
+    };
+    public static ZCrystalGeneric FairiumZ = new()
+    {
+        itemName = "Fairium Z",
+        price = 100000,
+        moveType = Type.Fairy,
+        zMovePhysical = MoveID.TwinkleTacklePhysical,
+        zMoveSpecial = MoveID.TwinkleTackleSpecial,
+        graphicsPath = "fairium_z"
+    };
+
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
     {
         None,
@@ -1540,6 +1710,26 @@ public static class Item
         Galladite,
         Audinite,
         Diancite,
+        //Z-Crystals
+        NormaliumZ,
+        FightiniumZ,
+        FlyiniumZ,
+        PoisoniumZ,
+        GroundiumZ,
+        RockiumZ,
+        BuginiumZ,
+        GhostiumZ,
+        SteeliumZ,
+        FiriumZ,
+        WateriumZ,
+        GrassiumZ,
+        ElectriumZ,
+        PsychiumZ,
+        IciumZ,
+        DragoniumZ,
+        DarkiniumZ,
+        FairiumZ,
+
     };
 }
 

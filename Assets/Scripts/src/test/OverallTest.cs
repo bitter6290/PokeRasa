@@ -19,14 +19,18 @@ public class OverallTest : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        testPokemon2.item = ItemID.Venusaurite;
         testPokemon.move1 = MoveID.Splash;
         testPokemon.whichAbility = 0;
         testPokemon.pp1 = 40;
         testPokemon.maxPp1 = 40;
+        testPokemon2.item = ItemID.Venusaurite;
         testPokemon2.move1 = MoveID.Rollout;
-        testPokemon2.pp1 = 40;
-        testPokemon2.maxPp1 = 40;
+        testPokemon2.pp2 = 40;
+        testPokemon2.maxPp2 = 40;
+        testPokemon4.maxPp1 = 10;
+        testPokemon4.item = ItemID.NormaliumZ;
+        testPokemon4.move2 = MoveID.Scratch;
+        testPokemon4.pp1 = 10;
         testPokemon5.whichAbility = 0;
         testPokemon6.item = ItemID.CharizarditeY;
         player.EmptyParty();

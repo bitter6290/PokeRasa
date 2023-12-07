@@ -11,5 +11,6 @@
     MegaStone,
     KeyItem,
     AbstractItem,
-    ZCrystal,
+    ZCrystalGeneric,
+    ZCrystalSpecific,
 }

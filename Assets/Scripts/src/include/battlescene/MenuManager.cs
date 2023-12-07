@@ -54,7 +54,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI announce;
 
     [SerializeField] private GameObject megaIndicator;
+    [SerializeField] private TextMeshProUGUI megaKey;
+    [SerializeField] private SpriteRenderer megaSymbol;
+
     [SerializeField] private GameObject summaryIndicator;
+
+    [SerializeField] private Sprite megaSprite;
+    [SerializeField] private Sprite zSprite;
 
     private AudioClip SelectMove;
     private AudioClip MoveCursor;
@@ -67,7 +73,10 @@ public class MenuManager : MonoBehaviour
 
     public int currentPartyMon = 1; //0 means Back
 
+    private bool canMegaEvolve;
+    private bool canUseZMove;
     public bool megaEvolving;
+    public bool usingZMove;
 
     public MenuMode menuMode;
 
@@ -84,16 +93,14 @@ public class MenuManager : MonoBehaviour
     private static Color megaNoColor = new(220.0F / 255.0F, 239.0F / 255.0F, 1);
     private static Color megaYesColor = new(0, 137.0F / 255.0F, 1);
 
+    private static Color zNoColor = new(220.0F / 255.0F, 1, 239.0F / 255.0F);
+    private static Color zYesColor = new(0, 1, 137.0F / 255.0F);
+
     private static Color partyOK = new(25.0F / 255.0F, 25.0F / 255.0F, 128.0F / 255.0F);
     private static Color partyFainted = new(128.0F / 255.0F, 25.0F / 255.0F, 25.0F / 255.0F);
 
     private static Color backColor = new(240F / 255F, 160F / 255F, 160F / 255F);
     private static Color partyColor = new(240F / 255F, 240F / 255F, 240F / 255F);
-
-    private void _()
-    {
-
-    }
 
     private void TrySelectMove(int selectedMove)
     {
@@ -152,9 +159,8 @@ public class MenuManager : MonoBehaviour
                     }
                     if (GetNextPokemon())
                     {
+                        menuMode = MenuMode.Main;
                         GoToAnnounce();
-                        battle.state = BattleState.Announcement;
-                        MainMenu();
                         currentMove = 1;
                         currentMon = 2;
                         GetNextPokemon();
@@ -279,10 +285,16 @@ public class MenuManager : MonoBehaviour
         partyMon4.enabled = false;
         partyMon5.enabled = false;
         partyMon6.enabled = false;
+
+        RefreshMegaAndZ();
     }
 
     public void MainMenu()
     {
+        usingZMove = false;
+        megaEvolving = false;
+        battle.megaEvolveOnMove[currentMon] = false;
+        battle.usingZMove[currentMon] = false;
         bool canUseAnyMove = battle.PokemonOnField[currentMon].CanUseAnyMove;
 
         box1.color = canUseAnyMove ? moveColor : struggleColor;
@@ -423,6 +435,40 @@ public class MenuManager : MonoBehaviour
         menuMode = MenuMode.Party;
     }
 
+    public void RefreshMegaAndZ()
+    {
+        if (battle.CanMegaEvolve(currentMon))
+        {
+            canMegaEvolve = true;
+            canUseZMove = false;
+            megaKey.text = "M";
+            megaSymbol.sprite = megaSprite;
+            megaIndicator.GetComponent<SpriteRenderer>().color =
+                megaEvolving ? megaYesColor : megaNoColor;
+            megaIndicator.SetActive(true);
+        }
+        else
+        {
+            canMegaEvolve = false;
+            megaEvolving = false;
+            if (battle.CanUseZMove(currentMon, currentMove - 1))
+            {
+                canUseZMove = true;
+                megaKey.text = "Z";
+                megaSymbol.sprite = zSprite;
+                megaIndicator.GetComponent<SpriteRenderer>().color =
+                    usingZMove ? zYesColor : zNoColor;
+                megaIndicator.SetActive(true);
+            }
+            else
+            {
+                megaIndicator.SetActive(false);
+                usingZMove = false;
+                canUseZMove = false;
+            }
+        }
+    }
+
     public void GoToAnnounce() {
         battle.state = BattleState.Announcement;
         announce.enabled = true;
@@ -496,7 +542,7 @@ public class MenuManager : MonoBehaviour
         partyText5.color = partyColor;
         partyText6.color = partyColor;
 
-        MainMenu();
+        GoToAnnounce();
         currentMon = 3;
         SelectMove = Resources.Load<AudioClip>("Sound/Battle SFX/Select Move");
         MoveCursor = Resources.Load<AudioClip>("Sound/Battle SFX/Move Cursor");
@@ -521,21 +567,29 @@ public class MenuManager : MonoBehaviour
                     selector5.enabled = currentMove == 0;
 
 
-                    if (battle.CanMegaEvolve(currentMon))
+                    if (canMegaEvolve)
                     {
-                        megaIndicator.SetActive(true);
                         if (Input.GetKeyDown(KeyCode.M))
                         {
                             megaEvolving = !megaEvolving;
                             battle.megaEvolveOnMove[currentMon] = megaEvolving;
                             battle.audioSource0.PlayOneShot(SelectMove);
                             battle.audioSource0.panStereo = 0;
+                            megaIndicator.GetComponent<SpriteRenderer>().color =
+                                megaEvolving ? megaYesColor : megaNoColor;
                         }
-                        megaIndicator.GetComponent<SpriteRenderer>().color = megaEvolving ? megaYesColor : megaNoColor;
                     }
-                    else
+                    else if (canUseZMove)
                     {
-                        megaIndicator.SetActive(false);
+                        if (Input.GetKeyDown(KeyCode.Z))
+                        {
+                            usingZMove = !usingZMove;
+                            battle.usingZMove[currentMon] = usingZMove;
+                            battle.audioSource0.PlayOneShot(SelectMove);
+                            battle.audioSource0.panStereo = 0;
+                            megaIndicator.GetComponent<SpriteRenderer>().color =
+                                usingZMove ? zYesColor : zNoColor;
+                        }
                     }
 
                     summaryIndicator.SetActive(false);
@@ -546,11 +600,13 @@ public class MenuManager : MonoBehaviour
                         {
                             case 1:
                                 currentMove = mon.GetMove(1) == MoveID.None ? 0 : 2;
+                                RefreshMegaAndZ();
                                 battle.audioSource0.PlayOneShot(MoveCursor);
                                 battle.audioSource0.panStereo = 0;
                                 break;
                             case 2:
                                 currentMove = 0;
+                                RefreshMegaAndZ();
                                 battle.audioSource0.PlayOneShot(MoveCursor);
                                 battle.audioSource0.panStereo = 0;
                                 break;
@@ -558,6 +614,7 @@ public class MenuManager : MonoBehaviour
                                 if (mon.GetMove(3) != MoveID.None)
                                 {
                                     currentMove = 4;
+                                    RefreshMegaAndZ();
                                     battle.audioSource0.PlayOneShot(MoveCursor);
                                     battle.audioSource0.panStereo = 0;
                                 }
@@ -572,16 +629,19 @@ public class MenuManager : MonoBehaviour
                         {
                             case 0:
                                 currentMove = mon.GetMove(1) == MoveID.None ? 1 : 2;
+                                RefreshMegaAndZ();
                                 battle.audioSource0.PlayOneShot(MoveCursor);
                                 battle.audioSource0.panStereo = 0;
                                 break;
                             case 2:
                                 currentMove = 1;
+                                RefreshMegaAndZ();
                                 battle.audioSource0.PlayOneShot(MoveCursor);
                                 battle.audioSource0.panStereo = 0;
                                 break;
                             case 4:
                                 currentMove = 3;
+                                RefreshMegaAndZ();
                                 battle.audioSource0.PlayOneShot(MoveCursor);
                                 battle.audioSource0.panStereo = 0;
                                 break;
@@ -597,6 +657,7 @@ public class MenuManager : MonoBehaviour
                                 if (mon.GetMove(2) != MoveID.None)
                                 {
                                     currentMove = 3;
+                                    RefreshMegaAndZ();
                                     battle.audioSource0.PlayOneShot(MoveCursor);
                                     battle.audioSource0.panStereo = 0;
                                 }
@@ -605,6 +666,7 @@ public class MenuManager : MonoBehaviour
                                 if (mon.GetMove(3) != MoveID.None)
                                 {
                                     currentMove = 4;
+                                    RefreshMegaAndZ();
                                     battle.audioSource0.PlayOneShot(MoveCursor);
                                     battle.audioSource0.panStereo = 0;
                                 }
@@ -619,11 +681,13 @@ public class MenuManager : MonoBehaviour
                         {
                             case 3:
                                 currentMove = 1;
+                                RefreshMegaAndZ();
                                 battle.audioSource0.PlayOneShot(MoveCursor);
                                 battle.audioSource0.panStereo = 0;
                                 break;
                             case 4:
                                 currentMove = 2;
+                                RefreshMegaAndZ();
                                 battle.audioSource0.PlayOneShot(MoveCursor);
                                 battle.audioSource0.panStereo = 0;
                                 break;
@@ -646,7 +710,6 @@ public class MenuManager : MonoBehaviour
                             case 0:
                                 currentMove = 1;
                                 MainMenu();
-                                megaEvolving = false;
                                 break;
                         }
                     }
@@ -783,7 +846,6 @@ public class MenuManager : MonoBehaviour
                                 }
                                 else
                                 {
-                                    battle.state = BattleState.Announcement;
                                     GoToAnnounce();
                                     StartCoroutine(AnnounceAndReturn(
                                         "No! There's no running from a trainer battle!"));
@@ -1003,7 +1065,6 @@ public class MenuManager : MonoBehaviour
                                 {
                                     if (battle.partyBackButtonInactive)
                                     {
-                                        battle.state = BattleState.Announcement;
                                         GoToAnnounce();
                                         battle.switchingTarget = currentPartyMon - 1;
                                         battle.choseSwitchMon = true;
@@ -1015,9 +1076,8 @@ public class MenuManager : MonoBehaviour
                                         battle.SwitchTargets[currentMon] = currentPartyMon - 1;
                                         if (GetNextPokemon())
                                         {
-                                            battle.state = BattleState.Announcement;
+                                            menuMode = MenuMode.Main;
                                             GoToAnnounce();
-                                            MainMenu();
                                             currentMove = 1;
                                             currentMon = 2;
                                             GetNextPokemon();

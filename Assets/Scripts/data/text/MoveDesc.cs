@@ -636,4 +636,25 @@ public static class MoveDesc
     public static string PrecipiceBladesDesc = "The user attacks opposing Pokémon by manifesting the power of the land in fearsome blades of stone.";
     public static string DragonAscentDesc = "The user attacks the target by dropping out of the sky at high speed. This also lowers the user's Defense and Sp. Def stats.";
     public static string HyperspaceFuryDesc = "Using its many arms, the user unleashes a barrage of attacks that ignore the effects of moves like Protect and Detect. This also lowers the user's Defense stat.";
+
+    //Gen 7
+    public static string BreakneckBlitzDesc = "The user builds up its momentum using its Z-Power and crashes into the target at full speed. The power varies, depending on the original move.";
+    public static string AllOutPummelingDesc = "The user rams an energy orb created by its Z-Power into the target with full force. The power varies, depending on the original move.";
+    public static string SupersonicSkystrikeDesc = "The user soars up with its Z-Power and plummets toward the target at full speed. The power varies, depending on the original move.";
+    public static string AcidDownpourDesc = "The user creates a poisonous swamp using its Z-Power and sinks the target into it at full force. The power varies, depending on the original move.";
+    public static string TectonicRageDesc = "The user burrows deep into the ground and slams into the target with the full force of its Z-Power. The power varies, depending on the original move.";
+    public static string ContinentalCrushDesc = "The user summons a huge rock mountain using its Z-Power and drops it onto the target with full force. The power varies, depending on the original move.";
+    public static string SavageSpinOutDesc = "The user binds the target with full force with threads of silk that the user spits using its Z-Power. The power varies, depending on the original move.";
+    public static string NeverEndingNightmareDesc = "Deep-seated grudges summoned by the user's Z-Power trap the target. The power varies, depending on the original move.";
+    public static string CorkscrewCrashDesc = "The user spins very fast and rams into the target with the full force of its Z-Power. The power varies, depending on the original move.";
+    public static string InfernoOverdriveDesc = "The user breathes a stream of intense fire toward the target with the full force of its Z-Power. The power varies depending on the original move.";
+    public static string HydroVortexDesc = "The user creates a huge whirling current using its Z-Power to swallow the target with full force. The power varies, depending on the original move.";
+    public static string BloomDoomDesc = "The user collects energy from plants using its Z-Power and attacks the target with full force. The power varies, depending on the original move.";
+    public static string GigavoltHavocDesc = "The user hits the target with a powerful electric current collected by its Z-Power. The power varies, depending on the original move.";
+    public static string ShatteredPsycheDesc = "The user controls the target with its Z-Power and hurts the target with full force. The power varies, depending on the original move.";
+    public static string SubzeroSlammerDesc = "The user dramatically drops the temperature using its Z-Power and freezes the target with full force. The power varies, depending on the original move.";
+    public static string DevastatingDrakeDesc = "The user materializes its aura using its Z-Power and attacks the target with full force. The power varies, depending on the original move.";
+    public static string BlackHoleEclipseDesc = "The user gathers dark energy using its Z-Power and sucks the target into it. The power varies, depending on the original move.";
+    public static string TwinkleTackleDesc = "The user gathers dark energy using its Z-Power and sucks the target into it. The power varies, depending on the original move.";
+    public static string CatastropikaDesc = "The user, Pikachu, surrounds itself with the maximum amount of electricity using its Z-Power and pounces on its target with full force.";
 }

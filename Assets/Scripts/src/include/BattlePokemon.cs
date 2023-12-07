@@ -55,6 +55,7 @@ public class BattlePokemon
     public bool abilityHealed25 = false;
     public bool abilityActivated = false;
     public bool wasProtected = false;
+    public bool onlyProtected75 = false;
     public bool enduredHit = false;
     public bool gotSuperEffectiveHit = false;
 
@@ -256,6 +257,8 @@ public class BattlePokemon
     public bool[] usedMove = new bool[4];
 
     public bool electrify = false;
+
+    public MoveID zMoveBase;
 
     public bool HatesStat(Stat stat) => PokemonData.Nature.NatureEffect(stat) < 1;
 

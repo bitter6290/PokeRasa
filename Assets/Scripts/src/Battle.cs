@@ -17,7 +17,6 @@ using static MoveFlags;
 using static MoveEffect;
 using static Stat;
 using System.Linq;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class Battle : MonoBehaviour
 {
@@ -71,9 +70,16 @@ public class Battle : MonoBehaviour
     public bool hasOpponentMegaEvolved = false;
     private int monToMega = 0;
 
+    public bool[] usingZMove = new bool[6];
+    public int[] zMovePower = new int[6];
+    public bool hasPlayerUsedZMove = false;
+    public bool hasOpponentUsedZMove = false;
+
     public bool menuOpen = false;
 
     public bool[] healingWish = new bool[6];
+
+    public bool[] zPowerHeal = new bool[6];
 
     public int textSpeed = 25;
     public float persistenceTime = 1.5F;
@@ -1074,6 +1080,9 @@ public class Battle : MonoBehaviour
                     _ => 40,
                 };
                 break;
+            case ZMove:
+                effectivePower = attacker.zMoveBase.Data().zMovePower;
+                break;
             case Payback when defender.done && Moves[defender.index] != MoveID.Switch:
             case Assurance when defender.damagedThisTurn:
             case Facade when attacker.PokemonData.status != Status.None:
@@ -1218,6 +1227,7 @@ public class Battle : MonoBehaviour
             * effectivePower * attackOverDefense / 50) + 2)
             * effectiveTypeModifier * helpingHand * weather
             * stab * multitarget * critical * burn * screen * sport
+            * (defender.onlyProtected75 ? 0.25F : 1.0F)
             * AttackerAbilityModifier(attacker, defender, move)
             * DefenderAbilityModifier(defender, GetEffectiveType(move, attacker.index), move)
             * invulnerabiltyBonus * roll / 100);
@@ -1433,7 +1443,13 @@ public class Battle : MonoBehaviour
             move.Data().effect is not Feint or HyperspaceFury &&
             !(HasAbility(attacker, UnseenFist) && move.HasFlag(makesContact)))
         {
-            PokemonOnField[defender].wasProtected = true;
+            if (move.Data().effect is ZMove)
+            {
+                PokemonOnField[defender].isHit = true;
+                PokemonOnField[defender].onlyProtected75 = true;
+            }
+            else
+                PokemonOnField[defender].wasProtected = true;
             return false;
         }
         switch (PokemonOnField[defender].invulnerability)
@@ -3027,7 +3043,13 @@ public class Battle : MonoBehaviour
         if (healingWish[index] && !(PokemonOnField[index].AtFullHealth &&
             PokemonOnField[index].PokemonData.status == Status.None))
         {
+            zPowerHeal[index] = false;
             yield return HealingWishEffect(index);
+        }
+        else if (zPowerHeal[index])
+        {
+            yield return BattleEffect.Heal(this, index, PokemonOnField[index].PokemonData.hpMax);
+            zPowerHeal[index] = false;
         }
     }
 
@@ -3156,6 +3178,22 @@ public class Battle : MonoBehaviour
             PokemonOnField[index].focused = true;
             yield return Announce(MonNameWithPrefix(index, true) + " is tightening its focus!");
             yield break;
+        }
+
+        if (usingZMove[index])
+        {
+            //Todo: Z-move animations
+            yield return Announce(MonNameWithPrefix(index, true) +
+                " surrounded itself with its Z-Power!");
+            if (index < 3) hasOpponentUsedZMove = true;
+            else hasPlayerUsedZMove = true;
+            if (GetMove(index).power == 0)
+                yield return DoZMoveEffect(index, GetMove(index).zMoveEffect);
+            else
+            {
+            yield return Announce(MonNameWithPrefix(index, true) +
+                " unleashes its full-force Z-Move!");
+            }
         }
 
         yield return Announce(user.PokemonData.monName + " used " + GetMove(index).name + "!");
@@ -3775,6 +3813,11 @@ public class Battle : MonoBehaviour
                 {
                     if (PokemonOnField[i].isHit)
                     {
+                        if (PokemonOnField[i].onlyProtected75)
+                        {
+                            yield return Announce(MonNameWithPrefix(index, true) +
+                                " couldn't protect itself fully and got hurt!");
+                        }
                         float effectiveness = GetTypeEffectiveness(user, PokemonOnField[i], Moves[index]);
                         if (GetMove(index).effect is not Direct40 or Direct20 or
                             DirectLevel or Endeavor or PainSplit or OHKO)
@@ -4326,6 +4369,7 @@ public class Battle : MonoBehaviour
             mon.gotAbilityEffectSelf = false;
             mon.abilityHealed25 = false;
             mon.wasProtected = false;
+            mon.onlyProtected75 = false;
             mon.gotAteBoost = false;
             mon.gotReducingBerryEffect = false;
             mon.ateRetaliationBerry = false;
@@ -5260,6 +5304,106 @@ public class Battle : MonoBehaviour
         }
     }
 
+    private IEnumerator DoZMoveEffect(int index, ZMoveEffect effect)
+    {
+        BattlePokemon mon = PokemonOnField[index];
+        if (index < 3) hasOpponentUsedZMove = true;
+        else hasPlayerUsedZMove = true;
+        switch (effect)
+        {
+            case ZMoveEffect.None:
+                break;
+            case ZMoveEffect.AttackUp1:
+                yield return BattleEffect.StatUp(this, index, Attack, 1, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.AttackUp2:
+                yield return BattleEffect.StatUp(this, index, Attack, 2, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.AttackUp3:
+                yield return BattleEffect.StatUp(this, index, Attack, 3, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.DefenseUp1:
+                yield return BattleEffect.StatUp(this, index, Defense, 1, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.SpAtkUp1:
+                yield return BattleEffect.StatUp(this, index, SpAtk, 1, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.SpAtkUp2:
+                yield return BattleEffect.StatUp(this, index, SpAtk, 2, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.SpDefUp1:
+                yield return BattleEffect.StatUp(this, index, SpDef, 1, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.SpDefUp2:
+                yield return BattleEffect.StatUp(this, index, SpDef, 2, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.SpeedUp1:
+                yield return BattleEffect.StatUp(this, index, Speed, 1, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.SpeedUp2:
+                yield return BattleEffect.StatUp(this, index, Speed, 2, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.AccuracyUp1:
+                yield return BattleEffect.StatUp(this, index, Accuracy, 1, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.EvasionUp1:
+                yield return BattleEffect.StatUp(this, index, Evasion, 1, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.CritRateUp2:
+                yield return BattleEffect.StatUp(this, index, CritRate, 2, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.AllUp1:
+                yield return BattleEffect.StatUp(this, index, Attack, 1, index);
+                yield return BattleEffect.StatUp(this, index, Defense, 1, index);
+                yield return BattleEffect.StatUp(this, index, SpAtk, 1, index);
+                yield return BattleEffect.StatUp(this, index, SpDef, 1, index);
+                yield return BattleEffect.StatUp(this, index, Speed, 1, index);
+                doStatAnim = true;
+                break;
+            case ZMoveEffect.NormalizeDebuffs:
+                mon.attackStage = Max(0, mon.attackStage);
+                mon.defenseStage = Max(0, mon.defenseStage);
+                mon.spAtkStage = Max(0, mon.spAtkStage);
+                mon.spDefStage = Max(0, mon.spDefStage);
+                mon.speedStage = Max(0, mon.speedStage);
+                mon.accuracyStage = Max(0, mon.accuracyStage);
+                mon.evasionStage = Max(0, mon.evasionStage);
+                yield return Announce(MonNameWithPrefix(index, true) +
+                    "'s lowered stats were returned to normal!");
+                break;
+            case ZMoveEffect.FollowMe:
+                PokemonOnField[index].followMe = true;
+                followMeActive = true;
+                yield return Announce(MonNameWithPrefix(index, true)
+                    + " became the center of attention!");
+                break;
+            case ZMoveEffect.Heal100:
+                yield return BattleEffect.Heal(this, index, PokemonOnField[index].PokemonData.hpMax);
+                break;
+            case ZMoveEffect.HealSwitchedMon100:
+                zPowerHeal[index] = true;
+                break;
+            case ZMoveEffect.Curse:
+                if (mon.HasType(Type.Ghost) )
+                    goto case ZMoveEffect.Heal100;
+                else
+                    goto case ZMoveEffect.AttackUp1;
+        }
+    }
+
     private IEnumerator DoFieldEffect(int index, MoveID move)
     {
         MoveEffect effect = move.Data().effect;
@@ -5885,6 +6029,7 @@ public class Battle : MonoBehaviour
         {
             menuManager.MainMenu();
             menuManager.megaEvolving = false;
+            menuManager.usingZMove = false;
             state = BattleState.PlayerInput;
         }
         else
@@ -5934,6 +6079,11 @@ public class Battle : MonoBehaviour
         turnsElapsed = 0;
         doAbilityEffect = new bool[6];
         menuOpen = false;
+        hasPlayerMegaEvolved = false;
+        hasOpponentMegaEvolved = false;
+        hasPlayerUsedZMove = false;
+        hasOpponentUsedZMove = false;
+        menuManager.GoToAnnounce();
         PokemonOnField = new BattlePokemon[6]
         {
             BattlePokemon.MakeEmptyBattleMon(0,this),
@@ -6074,7 +6224,16 @@ public class Battle : MonoBehaviour
         Debug.Log(index);
         if (PokemonOnField[index].GetPP(move - 1) > 0)
         {
-            Moves[index] = PokemonOnField[index].GetMove(move - 1);
+            BattlePokemon mon = PokemonOnField[index];
+            MoveID moveid = mon.GetMove(move - 1);
+            if (usingZMove[index] &&
+                moveid.Data().power > 0)
+            {
+                mon.zMoveBase = moveid;
+                Moves[index] = mon.PokemonData.CurrentItem.ZMoveResult(
+                    moveid.Data().physical);
+            }
+            else Moves[index] = moveid;
             MoveNums[index] = move;
             if (battleType == BattleType.Single) Targets[index] = 3 - index;
             return true;
@@ -6153,18 +6312,31 @@ public class Battle : MonoBehaviour
         yield return Announce(BattleText.MoveFailed);
     }
 
+    public bool MegaEvolutionLockedIn(bool side)
+    {
+        for (int i = side ? 3 : 0; i < (side ? 6 : 3); i++)
+        {
+            if (PokemonOnField[i].choseMove && megaEvolveOnMove[i]) return true;
+        }
+        return false;
+    }
+
     public bool CanMegaEvolve(int index)
     {
         if (index < 3)
         {
             Debug.Log("Has Opponent evolved: " + hasOpponentMegaEvolved);
-            Debug.Log("Opponent's mega stone user: " + EffectiveItem(index).MegaStoneUser());
+            Debug.Log("Opponent's mega stone's user: " + EffectiveItem(index).MegaStoneUser());
         }
-        if (index > 2 && hasPlayerMegaEvolved) return false;
-        if (index < 3 && hasOpponentMegaEvolved) return false;
+        if (index > 2 && (hasPlayerMegaEvolved || MegaEvolutionLockedIn(true)))
+            return false;
+        if (index < 3 && (hasOpponentMegaEvolved || MegaEvolutionLockedIn(false)))
+            return false;
         if (EffectiveItem(index).MegaStoneUser() == PokemonOnField[index].PokemonData.getSpecies) return true;
         else if (PokemonOnField[index].PokemonData.species == SpeciesID.Rayquaza
-                && PokemonOnField[index].PokemonData.HasMove(MoveID.DragonAscent))
+                && PokemonOnField[index].PokemonData.HasMove(MoveID.DragonAscent)
+                && EffectiveItem(index).Data().type is not
+                ItemType.ZCrystalGeneric or ItemType.ZCrystalSpecific)
             return true;
         else return false;
     }
@@ -6198,6 +6370,24 @@ public class Battle : MonoBehaviour
         yield return EntryAbilityCheck(index);
         megaEvolveOnMove[index] = false;
         DoNextMove();
+    }
+
+    public bool CanUseZMove(int index, int moveSlot)
+    {
+        Pokemon mon = PokemonOnField[index].PokemonData;
+        if (mon.PP[moveSlot] < 1) return false;
+        if (index > 2 && (hasPlayerUsedZMove ||
+            usingZMove[3] || usingZMove[4] || usingZMove[5]))
+            return false;
+        if (index < 3 && (hasOpponentUsedZMove ||
+            usingZMove[0] || usingZMove[1] || usingZMove[2]))
+            return false;
+        if (mon.MoveIDs[moveSlot].Data().type == mon.CurrentItem.ZMoveType())
+            return true;
+        if (mon.MoveIDs[moveSlot] == mon.CurrentItem.ZMoveBase() &&
+            mon.species == mon.CurrentItem.ZMoveUser())
+            return true;
+        return false;
     }
 
     public IEnumerator TryToRun()

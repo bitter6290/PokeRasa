@@ -205,6 +205,7 @@ public enum MoveEffect : ushort
     TechnoBlast,
     Thrash,
     Uproar,
+    ZMove,
     //Moves which double in power under certain conditions
     Acrobatics,
     Brine,

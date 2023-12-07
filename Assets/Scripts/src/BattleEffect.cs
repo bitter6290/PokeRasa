@@ -925,6 +925,7 @@ public static class BattleEffect
         else
         {
             //BattleAnim.TransformMon(Battle battle, int index, int target)
+            yield return AnimUtils.Fade(battle.spriteRenderer[index], 0.0F, 0.5F);
             user.isTransformed = true;
             user.transformedMon = battle.PokemonOnField[target].PokemonData.Clone() as Pokemon;
             user.transformedMon.SetTransformPP();
@@ -932,6 +933,8 @@ public static class BattleEffect
             user.ApplyStatStruct(
                 battle.PokemonOnField[target].MakeStatStruct()
                 );
+            yield return new WaitForSeconds(0.5F);
+            yield return AnimUtils.Fade(battle.spriteRenderer[index], 1.0F, 0.5F);
             yield return battle.Announce(battle.MonNameWithPrefix(index, true)
                 + " transformed into " + battle.MonNameWithPrefix(target, false));
             yield return battle.EntryAbilityCheck(index);

@@ -174,6 +174,42 @@ public class MegaStone : ItemData //subdata length 2
     }
 }
 
+public class ZCrystalGeneric : ItemData //subdata length 3
+{
+    public Type moveType;
+    public MoveID zMovePhysical;
+    public MoveID zMoveSpecial;
+    public override int[] ItemSubdata => new int[3]
+    {
+        (int)moveType,
+        (int)zMovePhysical,
+        (int)zMoveSpecial
+    };
+    public ZCrystalGeneric()
+    {
+        type = ItemType.ZCrystalGeneric;
+        flingPower = 0;
+    }
+}
+
+public class ZCrystalSpecific : ItemData //subdata length 3
+{
+    public SpeciesID user;
+    public MoveID baseMove;
+    public MoveID zMove;
+    public override int[] ItemSubdata => new int[3]
+    {
+        (int)user,
+        (int)baseMove,
+        (int)zMove
+    };
+    public ZCrystalSpecific()
+    {
+        type = ItemType.ZCrystalSpecific;
+        flingPower = 0;
+    }
+}
+
 public class KeyItem : ItemData //subdata length 1
 {
     public int KeyItemID;
@@ -272,6 +308,52 @@ public static class ItemUtils
                 return (Type)item.Data().ItemSubdata[2];
             default:
                 return Type.Typeless;
+        }
+    }
+
+    public static Type ZMoveType(this ItemID item)
+    {
+        switch (item.Data().type)
+        {
+            case ItemType.ZCrystalGeneric:
+                return (Type)item.Data().ItemSubdata[0];
+            default:
+                return Type.Typeless;
+        }
+    }
+
+    public static SpeciesID ZMoveUser(this ItemID item)
+    {
+        switch(item.Data().type)
+        {
+            case ItemType.ZCrystalSpecific:
+                return (SpeciesID)item.Data().ItemSubdata[0];
+            default:
+                return SpeciesID.Missingno;
+        }
+    }
+
+    public static MoveID ZMoveBase(this ItemID item)
+    {
+        switch (item.Data().type)
+        {
+            case ItemType.ZCrystalSpecific:
+                return (MoveID)item.Data().ItemSubdata[1];
+            default:
+                return MoveID.None;
+        }
+    }
+
+    public static MoveID ZMoveResult(this ItemID item, bool physical)
+    {
+        switch (item.Data().type)
+        {
+            case ItemType.ZCrystalGeneric:
+                return (MoveID)item.Data().ItemSubdata[physical ? 1 : 2];
+            case ItemType.ZCrystalSpecific:
+                return (MoveID)item.Data().ItemSubdata[2];
+            default:
+                return MoveID.None;
         }
     }
 

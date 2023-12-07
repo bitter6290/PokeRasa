@@ -14640,6 +14640,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14688,6 +14689,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14736,6 +14738,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14784,6 +14787,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14832,6 +14836,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14880,6 +14885,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14929,6 +14935,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14977,6 +14984,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -15025,6 +15033,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -15073,6 +15082,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -15121,6 +15131,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -15169,6 +15180,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -15224,8 +15236,13 @@ MonoBehaviour:
   megaEvolveOnMove: 000000000000
   hasPlayerMegaEvolved: 0
   hasOpponentMegaEvolved: 0
+  usingZMove: 000000000000
+  zMovePower: 000000000000000000000000000000000000000000000000
+  hasPlayerUsedZMove: 0
+  hasOpponentUsedZMove: 0
   menuOpen: 0
   healingWish: 000000000000
+  zPowerHeal: 000000000000
   textSpeed: 10
   persistenceTime: 2
   partyBackButtonInactive: 0
@@ -15243,6 +15260,7 @@ MonoBehaviour:
   lastMoveUsed: 0
   currentMovingMon: 0
   payDay: 0
+  happyHour: 0
   weather: 0
   weatherTimer: 0
   terrain: 0
@@ -15264,6 +15282,9 @@ MonoBehaviour:
   snatchingMon: 0
   echoedVoiceUsed: 0
   echoedVoiceIntensity: 0
+  ionDeluge: 0
+  fairyLockNext: 0
+  fairyLockNow: 0
   isFutureSightTargeted: 000000000000
   doAbilityEffect: 000000000000
   oneAnnouncementDone: 0
@@ -15308,6 +15329,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -15346,6 +15368,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    onlyProtected75: 0
     enduredHit: 0
     gotSuperEffectiveHit: 0
     roosting: 0
@@ -15445,6 +15468,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -15457,7 +15481,7 @@ MonoBehaviour:
     ability: 0
     timeWithAbility: 0
     endure: 0
-    protect: 0
+    protection: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -15510,6 +15534,7 @@ MonoBehaviour:
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
+    powdered: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -15527,6 +15552,8 @@ MonoBehaviour:
     quashed: 0
     meFirst: 0
     usedMove: 
+    electrify: 0
+    zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
@@ -15569,6 +15596,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -15607,6 +15635,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    onlyProtected75: 0
     enduredHit: 0
     gotSuperEffectiveHit: 0
     roosting: 0
@@ -15706,6 +15735,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -15718,7 +15748,7 @@ MonoBehaviour:
     ability: 0
     timeWithAbility: 0
     endure: 0
-    protect: 0
+    protection: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -15771,6 +15801,7 @@ MonoBehaviour:
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
+    powdered: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -15788,6 +15819,8 @@ MonoBehaviour:
     quashed: 0
     meFirst: 0
     usedMove: 
+    electrify: 0
+    zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
@@ -15830,6 +15863,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -15868,6 +15902,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    onlyProtected75: 0
     enduredHit: 0
     gotSuperEffectiveHit: 0
     roosting: 0
@@ -15967,6 +16002,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -15979,7 +16015,7 @@ MonoBehaviour:
     ability: 0
     timeWithAbility: 0
     endure: 0
-    protect: 0
+    protection: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -16032,6 +16068,7 @@ MonoBehaviour:
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
+    powdered: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -16049,6 +16086,8 @@ MonoBehaviour:
     quashed: 0
     meFirst: 0
     usedMove: 
+    electrify: 0
+    zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
@@ -16091,6 +16130,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -16129,6 +16169,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    onlyProtected75: 0
     enduredHit: 0
     gotSuperEffectiveHit: 0
     roosting: 0
@@ -16228,6 +16269,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -16240,7 +16282,7 @@ MonoBehaviour:
     ability: 0
     timeWithAbility: 0
     endure: 0
-    protect: 0
+    protection: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -16293,6 +16335,7 @@ MonoBehaviour:
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
+    powdered: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -16310,6 +16353,8 @@ MonoBehaviour:
     quashed: 0
     meFirst: 0
     usedMove: 
+    electrify: 0
+    zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
@@ -16352,6 +16397,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -16390,6 +16436,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    onlyProtected75: 0
     enduredHit: 0
     gotSuperEffectiveHit: 0
     roosting: 0
@@ -16489,6 +16536,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -16501,7 +16549,7 @@ MonoBehaviour:
     ability: 0
     timeWithAbility: 0
     endure: 0
-    protect: 0
+    protection: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -16554,6 +16602,7 @@ MonoBehaviour:
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
+    powdered: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -16571,6 +16620,8 @@ MonoBehaviour:
     quashed: 0
     meFirst: 0
     usedMove: 
+    electrify: 0
+    zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
   - PokemonData:
@@ -16613,6 +16664,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -16651,6 +16703,7 @@ MonoBehaviour:
     abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
+    onlyProtected75: 0
     enduredHit: 0
     gotSuperEffectiveHit: 0
     roosting: 0
@@ -16750,6 +16803,7 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
+      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -16762,7 +16816,7 @@ MonoBehaviour:
     ability: 0
     timeWithAbility: 0
     endure: 0
-    protect: 0
+    protection: 0
     protectCounter: 0
     magicCoat: 0
     infatuated: 0
@@ -16815,6 +16869,7 @@ MonoBehaviour:
     telekinesis: 0
     telekinesisTimer: 0
     smackDown: 0
+    powdered: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -16832,6 +16887,8 @@ MonoBehaviour:
     quashed: 0
     meFirst: 0
     usedMove: 
+    electrify: 0
+    zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
   battleType: 0
@@ -16903,12 +16960,17 @@ MonoBehaviour:
   partyText6: {fileID: 1775450699}
   announce: {fileID: 1147491813}
   megaIndicator: {fileID: 1088125711}
+  megaKey: {fileID: 1655931772}
+  megaSymbol: {fileID: 618936293}
   summaryIndicator: {fileID: 602029259}
+  megaSprite: {fileID: 1290465575, guid: 32fc34712c11a43668b4f74273b19ae6, type: 3}
+  zSprite: {fileID: 21300000, guid: 24829c61855cb46ad99558340862c4e5, type: 3}
   battle: {fileID: 1814309873}
   currentMon: 3
   currentMove: 1
   currentPartyMon: 0
   megaEvolving: 0
+  usingZMove: 0
   menuMode: 0
 --- !u!114 &1814309875
 MonoBehaviour:
