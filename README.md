@@ -1,15 +1,15 @@
 # PokeRasa
-Implementation of the Pokemon battle engine in Unity, with a few overworld functions planned as well.
+Implementation of the Pokemon battle engine and overworld in Unity
 
 
 # Features
 - Comprehensive Pokémon data structures, with plans to include all released Pokémon
-- Fully functioning battle system, with plans to include all moves, abilities and regional gimmicks (Megas, Z-moves, etc.)
+- Fully functioning battle system, with Megas and Z-Moves fully implemented and Terastalization and Dynamax planned in the future
 - Accessible scripting system for overworld characters and scripts
 - Map editor included in the Map Maker scene
 
 # Progress
-- All moves and Pokémon up to Gen 4 are fully implemented, along with a majority of abilities.
+- All moves and Pokémon up to Gen 6 are fully implemented, along with a majority of abilities and all Gen 7 moves. Animations are still missing for most of these moves.
 
 # How To
 - Create a new project with Unity, then import everything in the Assets folder. The Battle scene, which handles single battles, is included as of now (08/24/23), but in the long run other battle modes will be added.
