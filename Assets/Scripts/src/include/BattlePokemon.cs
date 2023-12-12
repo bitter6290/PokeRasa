@@ -34,6 +34,9 @@ public class BattlePokemon
     public int defenseOverride;
     public int spDefOverride;
 
+    public bool overrideSpeed;
+    public int speedOverride;
+
     public bool Side => index >= 3;
     public int Position => index % 3;
     public int index;
@@ -55,7 +58,7 @@ public class BattlePokemon
     public bool abilityHealed25 = false;
     public bool abilityActivated = false;
     public bool wasProtected = false;
-    public bool onlyProtected75 = false;
+    public bool protected75 = false;
     public bool enduredHit = false;
     public bool gotSuperEffectiveHit = false;
 
@@ -78,6 +81,8 @@ public class BattlePokemon
     public MoveID lockedInMove;
     public Invulnerability invulnerability;
     public bool beingSkyDropped = false;
+    public bool skyDropping = false;
+    public int skyDropTarget = 0;
     public bool dontCheckPP = false;
 
     public bool choseMove = false;
@@ -137,6 +142,7 @@ public class BattlePokemon
 
     public bool followMe = false;
     public bool wasRagePowder = false;
+    public bool spotlight = false;
 
     public int helpingHand = 0;
 
@@ -156,6 +162,11 @@ public class BattlePokemon
     public bool infatuated = false;
     public int infatuationTarget = 0;
 
+    public bool beakBlast = false;
+
+    public bool shellTrap = false;
+    public bool shellTrapWorks = false;
+
     public bool taunted = false;
     public int tauntTimer = 0;
 
@@ -163,14 +174,16 @@ public class BattlePokemon
 
     public bool cursed = false;
 
+    public bool moveFailedThisTurn = false;
+    public bool moveFailedLastTurn = false;
+
     public bool nightmare = false;
 
     public bool identified = false;
     public bool identifiedByMiracleEye = false;
 
-    public bool usedLockOn = false;
-    public bool hasLockOn = false;
-    public int lockOnTarget = 0;
+    public bool laserFocusNow = false;
+    public bool laserFocusNext = false;
 
     public bool destinyBond = false;
     public bool cannotUseDestinyBondAgain = false;
@@ -180,6 +193,9 @@ public class BattlePokemon
     public bool encored = false;
     public int encoreTimer = 0;
     public MoveID encoredMove = MoveID.None;
+
+    public bool throatChop = false;
+    public int throatChopTurns = 0;
 
     public int furyCutterIntensity = 0;
 
@@ -251,6 +267,8 @@ public class BattlePokemon
     public int lastMoveSlot = 0;
 
     public bool quashed = false;
+
+    public bool goingNext = false;
 
     public bool meFirst = false;
 
@@ -438,8 +456,10 @@ public class BattlePokemon
     private int BaseAttackRaw => isTransformed ? transformedMon.attack : PokemonData.attack;
     private int BaseDefenseRaw => isTransformed ? transformedMon.defense : PokemonData.defense;
 
-    public int BaseSpAtkRaw => isTransformed ? transformedMon.spAtk : PokemonData.spAtk;
-    public int BaseSpDefRaw => isTransformed ? transformedMon.spDef : PokemonData.spDef;
+    private int BaseSpAtkRaw => isTransformed ? transformedMon.spAtk : PokemonData.spAtk;
+    private int BaseSpDefRaw => isTransformed ? transformedMon.spDef : PokemonData.spDef;
+
+    private int BaseSpeedRaw => isTransformed ? transformedMon.speed : PokemonData.speed;
 
     public int BaseAttack
     {
@@ -461,7 +481,7 @@ public class BattlePokemon
     public int BaseSpAtk => overrideAttacks ? spAtkOverride : BaseSpAtkRaw;
     public int BaseSpDef => overrideDefenses ? spDefOverride : BaseSpDefRaw;
 
-    public int BaseSpeed => isTransformed ? transformedMon.speed : PokemonData.speed;
+    public int BaseSpeed => overrideSpeed ? speedOverride : BaseSpeedRaw;
 
     public static BattlePokemon MakeEmptyBattleMon(int index, Battle battle)
     {

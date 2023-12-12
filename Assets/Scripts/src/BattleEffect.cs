@@ -8,14 +8,16 @@ using static BattleText;
 public static class BattleEffect
 {
     public static System.Random random = new();
-    public static IEnumerator StatUp(Battle battle, int index, Stat statID, int amount, int attacker, bool checkContrary = true)
+    public static IEnumerator StatUp(Battle battle, int index, Stat statID,
+        int amount, int attacker, bool checkContrary = true, bool checkSimple = true)
     {
-        if (battle.HasAbility(index, Ability.Contrary) && checkContrary)
+        if (battle.HasAbility(index, Ability.Contrary) && checkContrary
+            && !battle.HasMoldBreaker(index))
         {
             yield return StatDown(battle, index, statID, amount, attacker, false);
             yield break;
         }
-        if (battle.HasAbility(index, Ability.Simple))
+        if (battle.HasAbility(index, Ability.Simple) && checkSimple)
         {
             amount <<= 1;
         }
@@ -45,7 +47,8 @@ public static class BattleEffect
         if (stagesRaised > 0) battle.doStatAnim = false;
     }
 
-    public static IEnumerator StatDown(Battle battle, int index, Stat statID, int amount, int attacker, bool checkContrary = true, bool checkSide = true)
+    public static IEnumerator StatDown(Battle battle, int index, Stat statID,
+        int amount, int attacker, bool checkContrary = true, bool checkSide = true)
     {
         switch (battle.EffectiveAbility(index))
         {
@@ -224,18 +227,18 @@ public static class BattleEffect
                 break;
         }
     }
-    public static IEnumerator GetPoison(Battle battle, int index)
+    public static IEnumerator GetPoison(Battle battle, int index, bool announceFailure = true, int attacker = 63)
     {
         BattlePokemon target = battle.PokemonOnField[index];
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
-            if (battle.ShowFailure)
+            if (battle.ShowFailure && announceFailure)
                 yield return battle.Announce(battle.MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
         else if (target.PokemonData.status != Status.None)
         {
-            if (battle.ShowFailure)
+            if (battle.ShowFailure && announceFailure)
             {
                 yield return battle.Announce(MoveFailed);
             }
@@ -244,15 +247,18 @@ public static class BattleEffect
         else if ((target.HasType(Type.Poison)
             || target.HasType(Type.Steel)))
         {
-            if (battle.ShowFailure)
+            if (battle.ShowFailure && announceFailure)
                 yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false));
             yield break;
         }
-        else if (battle.EffectiveAbility(index) == Ability.Immunity)
+        else if (battle.EffectiveAbility(index) is Ability.Immunity && !battle.HasMoldBreaker(attacker))
         {
-            yield return battle.AbilityPopupStart(index);
-            yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
-            yield return battle.AbilityPopupEnd(index);
+            if (announceFailure)
+            {
+                yield return battle.AbilityPopupStart(index);
+                yield return battle.Announce("It doesn't affect " + battle.MonNameWithPrefix(index, false) + "...");
+                yield return battle.AbilityPopupEnd(index);
+            }
         }
         else
         {
@@ -337,7 +343,7 @@ public static class BattleEffect
             yield return battle.Announce(battle.MonNameWithPrefix(index, true) + " was frozen solid!");
         }
     }
-    public static IEnumerator FallAsleep(Battle battle, int index)
+    public static IEnumerator FallAsleep(Battle battle, int index, int attacker = 63)
     {
         if (battle.Sides[index < 3 ? 0 : 1].safeguard)
         {
@@ -351,7 +357,8 @@ public static class BattleEffect
                 yield return battle.Announce(MoveFailed);
             yield break;
         }
-        else if (battle.EffectiveAbility(index) is Ability.Insomnia or Ability.VitalSpirit)
+        else if (battle.EffectiveAbility(index) is Ability.Insomnia or Ability.VitalSpirit
+            && !battle.HasMoldBreaker(attacker))
         {
             if (battle.ShowFailure)
             {
@@ -481,7 +488,7 @@ public static class BattleEffect
         bool overrideBlock = false)
     {
         BattlePokemon target = battle.PokemonOnField[index];
-        if (target.healBlocked) yield break;
+        if (target.healBlocked && !overrideBlock) yield break;
         if (target.PokemonData.HP < target.PokemonData.hpMax)
         {
             yield return BattleAnim.Heal(battle, index);
@@ -950,7 +957,7 @@ public static class BattleEffect
         else
         {
             battle.Sides[side].reflect = true;
-            battle.Sides[side].reflectTurns = 5;
+            battle.Sides[side].reflectTurns = 5; //Todo: light clay
             yield return battle.Announce("Reflect raised " + (side == 1 ? "your team's " : "the opponents' ") + "Defense!");
         }
     }
@@ -964,8 +971,23 @@ public static class BattleEffect
         else
         {
             battle.Sides[side].lightScreen = true;
-            battle.Sides[side].lightScreenTurns = 5;
+            battle.Sides[side].lightScreenTurns = 5; //Todo: light clay
             yield return battle.Announce("Light Screen raised " + (side == 1 ? "your team's " : "the opponents' ") + "Special Defense!");
+        }
+    }
+
+    public static IEnumerable StartAuroraVeil(Battle battle, int side)
+    {
+        if (battle.Sides[side].auroraVeil)
+        {
+            yield break;
+        }
+        else
+        {
+            battle.Sides[side].auroraVeil = true;
+            battle.Sides[side].auroraVeilTurns = 5; //Todo: light clay
+            yield return battle.Announce("Aurora Veil raised " + (side == 1 ? "your team's " : "the opponents' ") +
+                "Defense and Special Defense!");
         }
     }
 
@@ -1957,26 +1979,53 @@ public static class BattleEffect
 
     public static IEnumerator StartTrickRoom(Battle battle, int index)
     {
-        yield return battle.Announce(battle.MonNameWithPrefix(index, true)
-            + " twisted the dimensions!");
-        battle.trickRoom = true;
-        battle.trickRoomTimer = 5;
+        if (battle.trickRoom)
+        {
+            yield return battle.Announce("The twisted dimensions returned to normal!");
+            battle.trickRoom = false;
+            battle.trickRoomTimer = 0;
+        }
+        else
+        {
+            yield return battle.Announce(battle.MonNameWithPrefix(index, true)
+                + " twisted the dimensions!");
+            battle.trickRoom = true;
+            battle.trickRoomTimer = 5;
+        }
     }
 
     public static IEnumerator StartWonderRoom(Battle battle)
     {
-        yield return battle.Announce("It created a bizarre area in which" +
-            " Defense and Sp. Defense are swapped!");
-        battle.wonderRoom = true;
-        battle.wonderRoomTimer = 5;
+        if (battle.wonderRoom)
+        {
+            yield return battle.Announce("The effects of Wonder Room wore off!");
+            battle.wonderRoom = false;
+            battle.wonderRoomTimer = 0;
+        }
+        else
+        {
+            yield return battle.Announce("It created a bizarre area in which" +
+                " Defense and Sp. Defense are swapped!");
+            battle.wonderRoom = true;
+            battle.wonderRoomTimer = 5;
+        }
     }
 
     public static IEnumerator StartMagicRoom(Battle battle)
     {
-        yield return battle.Announce("It created a bizarre area in which" +
-            " held items lose their effects!");
-        battle.magicRoom = true;
-        battle.magicRoomTimer = 5;
+        if (battle.magicRoom)
+        {
+            yield return battle.Announce("The effects of Magic Room wore off!");
+            battle.magicRoom = false;
+            battle.magicRoomTimer = 0;
+        }
+        else
+        {
+            yield return battle.Announce("It created a bizarre area in which" +
+                " held items lose their effects!");
+            battle.magicRoom = true;
+            battle.magicRoomTimer = 5;
+        }
     }
 
     public static IEnumerator StealthRock(Battle battle, int index)

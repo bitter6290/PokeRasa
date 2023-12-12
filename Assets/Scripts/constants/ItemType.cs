@@ -13,4 +13,6 @@
     AbstractItem,
     ZCrystalGeneric,
     ZCrystalSpecific,
+    ZCrystalMoveSpecific,
+    HoldToTransform, //Todo: implement after party menu, trigger on giving/taking items
 }

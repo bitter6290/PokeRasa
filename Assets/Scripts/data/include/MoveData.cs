@@ -57,7 +57,7 @@ public readonly struct MoveData
 
     public static MoveData FakeMove => new("Error 106", Type.Typeless, 0, 0, 0, MoveEffect.None, 0, false, Target.None, 0, 0, "This move should never be visible.", 0);
 
-    public static MoveData SingleTargetNoEffect(string name, Type type, int power, int accuracy, int priority, bool physical, int pp, int moveFlags, int zMovePower, string moveDesc)
+    public static MoveData SingleTargetNoAddedEffect(string name, Type type, int power, int accuracy, int priority, bool physical, int pp, int moveFlags, int zMovePower, string moveDesc)
         => new(name, type, power, accuracy, priority, MoveEffect.None, 0, physical, Target.Opponent + Target.Ally, pp, moveFlags, moveDesc, zMovePower);
 
     public static MoveData ZMove(string name, Type type, bool physical, string desc) =>

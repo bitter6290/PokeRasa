@@ -5,4 +5,5 @@ public enum Protection
     Protect,
     KingsShield,
     SpikyShield,
+    BanefulBunker,
 }

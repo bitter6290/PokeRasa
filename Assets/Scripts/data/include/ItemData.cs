@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public abstract class ItemData
 {
@@ -210,6 +211,22 @@ public class ZCrystalSpecific : ItemData //subdata length 3
     }
 }
 
+public class ZCrystalMoveSpecific : ItemData //subdata length 2
+{
+    public MoveID baseMove;
+    public MoveID zMove;
+    public override int[] ItemSubdata => new int[2]
+    {
+        (int)baseMove,
+        (int)zMove
+    };
+    public ZCrystalMoveSpecific()
+    {
+        type = ItemType.ZCrystalMoveSpecific;
+        flingPower = 0;
+    }
+}
+
 public class KeyItem : ItemData //subdata length 1
 {
     public int KeyItemID;
@@ -218,6 +235,21 @@ public class KeyItem : ItemData //subdata length 1
     {
         type = ItemType.KeyItem;
         flingPower = 0;
+    }
+}
+
+public class HoldToTransform : ItemData //subdata length 2
+{
+    public SpeciesID baseSpecies;
+    public SpeciesID transformedSpecies;
+    public override int[] ItemSubdata => new int[2]
+    {
+        (int)baseSpecies,
+        (int)transformedSpecies
+    };
+    public HoldToTransform()
+    {
+        type = ItemType.HoldToTransform;
     }
 }
 

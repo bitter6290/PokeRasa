@@ -1539,6 +1539,295 @@ public static class Item
         graphicsPath = "fairium_z"
     };
 
+    public static ZCrystalSpecific PikaniumZ = new()
+    {
+        itemName = "Pikanium Z",
+        price = 200000,
+        user = Pikachu,
+        baseMove = MoveID.VoltTackle,
+        zMove = MoveID.Catastropika,
+        graphicsPath = "pikanium_z"
+    };
+    public static ZCrystalSpecific DecidiumZ = new()
+    {
+        itemName = "Decidium Z",
+        price = 200000,
+        //user = Decidueye,
+        baseMove = MoveID.SpiritShackle,
+        zMove = MoveID.SinisterArrowRaid,
+        graphicsPath = "decidium_z"
+    };
+    public static ZCrystalSpecific InciniumZ = new()
+    {
+        itemName = "Incinium Z",
+        price = 200000,
+        //user = Incineroar,
+        baseMove = MoveID.DarkestLariat,
+        zMove = MoveID.MaliciousMoonsault,
+        graphicsPath = "incinium_z"
+    };
+    public static ZCrystalSpecific PrimariumZ = new()
+    {
+        itemName = "Primarium Z",
+        price = 200000,
+        //user = Primarina,
+        baseMove = MoveID.SparklingAria,
+        zMove = MoveID.OceanicOperetta,
+        graphicsPath = "primarium_z"
+    };
+    public static ZCrystalMoveSpecific TapuniumZ = new()
+    {
+        itemName = "Tapunium Z",
+        price = 200000,
+        baseMove = MoveID.NaturesMadness,
+        zMove = MoveID.GuardianOfAlola,
+        graphicsPath = "tapunium_z"
+    };
+    public static ZCrystalSpecific MarshadiumZ = new()
+    {
+        itemName = "Marshadium Z",
+        price = 200000,
+        //user = Marshadow,
+        baseMove = MoveID.SpectralThief,
+        zMove = MoveID.SoulStealingSevenStarStrike,
+        graphicsPath = "marshadium_z"
+    };
+    public static ZCrystalSpecific AloraichiumZ = new()
+    {
+        itemName = "Aloraichium Z",
+        price = 200000,
+        //user = RaichuAlola,
+        baseMove = MoveID.Thunderbolt,
+        zMove = MoveID.StokedSparksurfer,
+        graphicsPath = "aloraichium_z"
+    };
+    public static ZCrystalSpecific SnorliumZ = new()
+    {
+        itemName = "Snorlium Z",
+        price = 200000,
+        user = Snorlax,
+        baseMove = MoveID.GigaImpact,
+        zMove = MoveID.PulverizingPancake,
+        graphicsPath = "snorlium_z"
+    };
+    public static ZCrystalSpecific EeviumZ = new()
+    {
+        itemName = "Eevium Z",
+        price = 200000,
+        user = Eevee,
+        baseMove = MoveID.LastResort,
+        zMove = MoveID.ExtremeEvoboost,
+        graphicsPath = "eevium_z"
+    };
+    public static ZCrystalSpecific MewniumZ = new()
+    {
+        itemName = "Mewnium Z",
+        price = 200000,
+        user = Mew,
+        baseMove = MoveID.Psychic,
+        zMove = MoveID.GenesisSupernova,
+        graphicsPath = "mewnium_z"
+    };
+    public static ZCrystalSpecific PikashuniumZ = new()
+    {
+        itemName = "Pikashunium Z",
+        price = 200000,
+        user = Pikachu, //Todo: change to pikachu in a hat
+        baseMove = MoveID.Thunderbolt,
+        zMove = MoveID.TenMillionVoltThunderbolt,
+        graphicsPath = "pikashunium_z"
+    };
+    public static ZCrystalSpecific UltranecrozmiumZ = new()
+    {
+        itemName = "Ultranecrozmium Z",
+        price = 200000,
+        //user = NecrozmaUltra,
+        baseMove = MoveID.PhotonGeyser,
+        zMove = MoveID.LightThatBurnsTheSky,
+        graphicsPath = "ultranecrozmium_z"
+    };
+    public static ZCrystalMoveSpecific SolganiumZ = new()
+    {
+        itemName = "Solganium Z",
+        price = 200000,
+        baseMove = MoveID.SunsteelStrike,
+        zMove = MoveID.SearingSunrazeSmash,
+        graphicsPath = "solganium_z"
+    };
+    public static ZCrystalMoveSpecific LunaliumZ = new()
+    {
+        itemName = "Lunalium Z",
+        price = 200000,
+        baseMove = MoveID.MoongeistBeam,
+        zMove = MoveID.MenacingMoonrazeMaelstrom,
+        graphicsPath = "lunalium_z"
+    };
+    public static ZCrystalSpecific MimikiumZ = new()
+    {
+        itemName = "Mimikium Z",
+        price = 200000,
+        //user = Mimikyu,
+        baseMove = MoveID.PlayRough,
+        zMove = MoveID.LetsSnuggleForever,
+        graphicsPath = "mimikium_z"
+    };
+    public static ZCrystalSpecific LycaniumZ = new()
+    {
+        itemName = "Lycanium Z",
+        price = 200000,
+        //user = Lycanroc, //Todo: Add other Lycanroc forms
+        baseMove = MoveID.StoneEdge,
+        zMove = MoveID.SplinteredStormshards,
+        graphicsPath = "lycanium_z"
+    };
+    public static ZCrystalSpecific KommoniumZ = new()
+    {
+        itemName = "Kommonium Z",
+        price = 200000,
+        //user = KommoO,
+        baseMove = MoveID.ClangingScales,
+        zMove = MoveID.ClangorousSoulblaze,
+        graphicsPath = "kommonium_z"
+    };
+
+    public static HoldToTransform FightingMemory = new()
+    {
+        itemName = "Fighting Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyFighting,
+        graphicsPath = "fighting_memory"
+    };
+    public static HoldToTransform FlyingMemory = new()
+    {
+        itemName = "Flying Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyFlying,
+        graphicsPath = "flying_memory"
+    };
+    public static HoldToTransform PoisonMemory = new()
+    {
+        itemName = "Poison Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyPoison,
+        graphicsPath = "poison_memory"
+    };
+    public static HoldToTransform GroundMemory = new()
+    {
+        itemName = "Ground Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyGround,
+        graphicsPath = "ground_memory"
+    };
+    public static HoldToTransform RockMemory = new()
+    {
+        itemName = "Rock Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyRock,
+        graphicsPath = "rock_memory"
+    };
+    public static HoldToTransform BugMemory = new()
+    {
+        itemName = "Bug Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyBug,
+        graphicsPath = "bug_memory"
+    };
+    public static HoldToTransform GhostMemory = new()
+    {
+        itemName = "Ghost Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyGhost,
+        graphicsPath = "ghost_memory"
+    };
+    public static HoldToTransform SteelMemory = new()
+    {
+        itemName = "Steel Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallySteel,
+        graphicsPath = "steel_memory"
+    };
+    public static HoldToTransform FireMemory = new()
+    {
+        itemName = "Fire Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyFire,
+        graphicsPath = "fire_memory"
+    };
+    public static HoldToTransform WaterMemory = new()
+    {
+        itemName = "Water Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyWater,
+        graphicsPath = "water_memory"
+    };
+    public static HoldToTransform GrassMemory = new()
+    {
+        itemName = "Grass Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyGrass,
+        graphicsPath = "grass_memory"
+    };
+    public static HoldToTransform ElectricMemory = new()
+    {
+        itemName = "Electric Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyElectric,
+        graphicsPath = "electric_memory"
+    };
+    public static HoldToTransform PsychicMemory = new()
+    {
+        itemName = "Psychic Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyPsychic,
+        graphicsPath = "psychic_memory"
+    };
+    public static HoldToTransform IceMemory = new()
+    {
+        itemName = "Ice Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyIce,
+        graphicsPath = "ice_memory"
+    };
+    public static HoldToTransform DragonMemory = new()
+    {
+        itemName = "Dragon Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyDragon,
+        graphicsPath = "dragon_memory"
+    };
+    public static HoldToTransform DarkMemory = new()
+    {
+        itemName = "Dark Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyDark,
+        graphicsPath = "dark_memory"
+    };
+    public static HoldToTransform FairyMemory = new()
+    {
+        itemName = "Fairy Memory",
+        price = 100000,
+        //baseSpecies = Silvally,
+        //transformedSpecies = SilvallyFairy,
+        graphicsPath = "fairy_memory"
+    };
+
+
     public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
     {
         None,
@@ -1662,6 +1951,25 @@ public static class Item
         BurnDrive,
         ChillDrive,
         DouseDrive,
+        //Hold-to-transform items
+            //Memories
+        FightingMemory,
+        FlyingMemory,
+        PoisonMemory,
+        GroundMemory,
+        RockMemory,
+        BugMemory,
+        GhostMemory,
+        SteelMemory,
+        FireMemory,
+        WaterMemory,
+        GrassMemory,
+        ElectricMemory,
+        PsychicMemory,
+        IceMemory,
+        DragonMemory,
+        DarkMemory,
+        FairyMemory,
         //Mega stones
         Venusaurite,
         CharizarditeX,
