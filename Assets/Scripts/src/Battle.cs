@@ -4926,6 +4926,12 @@ public class Battle : MonoBehaviour
                     yield return BattleEffect.StartReflect(this, index / 3);
                 }
                 break;
+            case Haze:
+                yield return BattleEffect.Haze(this);
+                break;
+            case HealBell:
+                yield return BattleEffect.HealBell(this, index);
+                break;
             case AttackUp1:
                 yield return BattleEffect.StatUp(this, index, Attack, 1, attacker);
                 break;

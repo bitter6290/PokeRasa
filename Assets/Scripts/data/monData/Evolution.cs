@@ -409,7 +409,38 @@ public static class Evolution
     public static EvolutionData[] Bunnelby = LevelEvolution(20, SpeciesID.Diggersby);
     public static EvolutionData[] Fletchling = LevelEvolution(17, SpeciesID.Fletchinder);
     public static EvolutionData[] Fletchinder = LevelEvolution(35, SpeciesID.Talonflame);
-
+    public static EvolutionData[] Litleo = LevelEvolution(35, SpeciesID.Pyroar);
+    public static EvolutionData[] Skiddo = LevelEvolution(32, SpeciesID.Gogoat);
+    public static EvolutionData[] Pancham = SingleEvolution(LevelUpWithDarkInParty, 32, SpeciesID.Pangoro);
+    public static EvolutionData[] Espurr = new EvolutionData[]
+    {
+        new(LevelUpMaleOnly, 25, SpeciesID.MeowsticM),
+        new(LevelUpFemaleOnly, 25, SpeciesID.MeowsticF)
+    };
+    public static EvolutionData[] Honedge = LevelEvolution(35, SpeciesID.Doublade);
+    public static EvolutionData[] Doublade = ItemEvolution(DuskStone, SpeciesID.AegislashShield);
+    public static EvolutionData[] Spritzee = SingleEvolution(TradeItem, Satchet, SpeciesID.Aromatisse);
+    public static EvolutionData[] Swirlix = SingleEvolution(TradeItem, WhippedDream, SpeciesID.Slurpuff);
+    public static EvolutionData[] Inkay = SingleEvolution(LevelUpsideDown, 30, SpeciesID.Malamar);
+    public static EvolutionData[] Binacle = LevelEvolution(39, SpeciesID.Barbaracle);
+    public static EvolutionData[] Skrelp = LevelEvolution(48, SpeciesID.Dragalge);
+    public static EvolutionData[] Clauncher = LevelEvolution(37, SpeciesID.Clawitzer);
+    public static EvolutionData[] Helioptile = ItemEvolution(SunStone, SpeciesID.Heliolisk);
+    public static EvolutionData[] Tyrunt = SingleEvolution(LevelUpDay, 39, SpeciesID.Tyrantrum);
+    public static EvolutionData[] Amaura = SingleEvolution(LevelUpNight, 39, SpeciesID.Aururus);
+    public static EvolutionData[] Goomy = new EvolutionData[]
+    {
+        new(LevelUp, 40, SpeciesID.Sliggoo),
+        //new(???, 40, SpeciesID.SliggooHisui)
+    };
+    public static EvolutionData[] Sliggoo = SingleEvolution(LevelUpRain, 50, SpeciesID.Goodra);
+    public static EvolutionData[] Phantump = TradeEvolution(SpeciesID.Trevenant);
+    public static EvolutionData[] Bergmite = new EvolutionData[]
+    {
+        new(LevelUp, 37, SpeciesID.Avalugg),
+        //new(???, 37, SpeciesID.AvaluggHisui)
+    };
+    public static EvolutionData[] Noibat = LevelEvolution(48, SpeciesID.Noivern);
 
 
     public static EvolutionData[] DeerlingSummer = LevelEvolution(34, SpeciesID.SawsbuckSummer);

@@ -945,6 +945,20 @@ public static class Item
         graphicsPath = "douse_drive"
     };
 
+    public static AbstractItem Satchet = new()
+    {
+        itemName = "Satchet",
+        price = 20000,
+        graphicsPath = "satchet"
+    };
+
+    public static AbstractItem WhippedDream = new()
+    {
+        itemName = "Whipped Dream",
+        price = 20000,
+        graphicsPath = "whipped_dream"
+    };
+
     //Mega stones
 
     public static MegaStone Venusaurite = new()
@@ -1951,6 +1965,8 @@ public static class Item
         BurnDrive,
         ChillDrive,
         DouseDrive,
+        Satchet,
+        WhippedDream,
         //Hold-to-transform items
             //Memories
         FightingMemory,
@@ -2037,7 +2053,22 @@ public static class Item
         DragoniumZ,
         DarkiniumZ,
         FairiumZ,
-
+        PikaniumZ,
+        DecidiumZ,
+        InciniumZ,
+        PrimariumZ,
+        TapuniumZ,
+        MarshadiumZ,
+        AloraichiumZ,
+        SnorliumZ,
+        MewniumZ,
+        PikashuniumZ,
+        UltranecrozmiumZ,
+        SolganiumZ,
+        LunaliumZ,
+        MimikiumZ,
+        LycaniumZ,
+        KommoniumZ,
     };
 }
 

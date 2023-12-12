@@ -20994,7 +20994,7 @@ public static class Species
         baseSpDef = 45,
         baseSpeed = 38,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Chespin,
         xpClass = MediumSlow,
         xpYield = 63,
         learnset = EmptyLearnset, //Not done
@@ -21006,8 +21006,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "chespin", //Verify
         graphicsLocation = "chespin", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Chespin,
         abilities = new Ability[3]
         {
             Overgrow,
@@ -21027,7 +21027,7 @@ public static class Species
         baseSpDef = 58,
         baseSpeed = 57,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Quilladin,
         xpClass = MediumSlow,
         xpYield = 142,
         learnset = EmptyLearnset, //Not done
@@ -21039,8 +21039,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "quilladin", //Verify
         graphicsLocation = "quilladin", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Quilladin,
         abilities = new Ability[3]
         {
             Overgrow,
@@ -21060,7 +21060,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 64,
         evYield = 3 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 239,
         learnset = EmptyLearnset, //Not done
@@ -21072,8 +21072,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "chesnaught", //Verify
         graphicsLocation = "chesnaught", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Chesnaught,
         abilities = new Ability[3]
         {
             Overgrow,
@@ -21093,7 +21093,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 60,
         evYield = SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Fennekin,
         xpClass = MediumSlow,
         xpYield = 61,
         learnset = EmptyLearnset, //Not done
@@ -21105,8 +21105,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "fennekin", //Verify
         graphicsLocation = "fennekin", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Fennekin,
         abilities = new Ability[3]
         {
             Blaze,
@@ -21126,7 +21126,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 73,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Braixen,
         xpClass = MediumSlow,
         xpYield = 143,
         learnset = EmptyLearnset, //Not done
@@ -21138,8 +21138,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "braixen", //Verify
         graphicsLocation = "braixen", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Braixen,
         abilities = new Ability[3]
         {
             Blaze,
@@ -21159,7 +21159,7 @@ public static class Species
         baseSpDef = 100,
         baseSpeed = 104,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 240,
         learnset = EmptyLearnset, //Not done
@@ -21171,8 +21171,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "delphox", //Verify
         graphicsLocation = "delphox", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Delphox,
         abilities = new Ability[3]
         {
             Blaze,
@@ -21192,7 +21192,7 @@ public static class Species
         baseSpDef = 44,
         baseSpeed = 71,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Froakie,
         xpClass = MediumSlow,
         xpYield = 63,
         learnset = EmptyLearnset, //Not done
@@ -21204,8 +21204,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "froakie", //Verify
         graphicsLocation = "froakie", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Froakie,
         abilities = new Ability[3]
         {
             Torrent,
@@ -21225,7 +21225,7 @@ public static class Species
         baseSpDef = 56,
         baseSpeed = 97,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Frogadier,
         xpClass = MediumSlow,
         xpYield = 142,
         learnset = EmptyLearnset, //Not done
@@ -21237,8 +21237,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "frogadier", //Verify
         graphicsLocation = "frogadier", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Frogadier,
         abilities = new Ability[3]
         {
             Torrent,
@@ -21258,7 +21258,7 @@ public static class Species
         baseSpDef = 71,
         baseSpeed = 122,
         evYield = 3 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 239,
         learnset = EmptyLearnset, //Not done
@@ -21270,8 +21270,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "greninja", //Verify
         graphicsLocation = "greninja", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Greninja,
         abilities = new Ability[3]
         {
             Torrent,
@@ -21291,7 +21291,7 @@ public static class Species
         baseSpDef = 36,
         baseSpeed = 57,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Bunnelby,
         xpClass = MediumFast,
         xpYield = 47,
         learnset = EmptyLearnset, //Not done
@@ -21303,8 +21303,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "bunnelby", //Verify
         graphicsLocation = "bunnelby", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bunnelby,
         abilities = new Ability[3]
         {
             Pickup,
@@ -21324,7 +21324,7 @@ public static class Species
         baseSpDef = 77,
         baseSpeed = 78,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 148,
         learnset = EmptyLearnset, //Not done
@@ -21336,8 +21336,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "diggersby", //Verify
         graphicsLocation = "diggersby", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Diggersby,
         abilities = new Ability[3]
         {
             Pickup,
@@ -21357,7 +21357,7 @@ public static class Species
         baseSpDef = 38,
         baseSpeed = 62,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Fletchling,
         xpClass = MediumSlow,
         xpYield = 56,
         learnset = EmptyLearnset, //Not done
@@ -21369,8 +21369,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "fletchling", //Verify
         graphicsLocation = "fletchling", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 14,
+        pokedexData = Pokedex.Fletchling,
         abilities = new Ability[3]
         {
             BigPecks,
@@ -21390,7 +21390,7 @@ public static class Species
         baseSpDef = 52,
         baseSpeed = 84,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Fletchinder,
         xpClass = MediumSlow,
         xpYield = 134,
         learnset = EmptyLearnset, //Not done
@@ -21402,8 +21402,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "fletchinder", //Verify
         graphicsLocation = "fletchinder", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Fletchinder,
         abilities = new Ability[3]
         {
             FlameBody,
@@ -21423,7 +21423,7 @@ public static class Species
         baseSpDef = 69,
         baseSpeed = 126,
         evYield = 3 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 175,
         learnset = EmptyLearnset, //Not done
@@ -21435,8 +21435,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "talonflame", //Verify
         graphicsLocation = "talonflame", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Talonflame,
         abilities = new Ability[3]
         {
             FlameBody,
@@ -21463,7 +21463,7 @@ public static class Species
         baseSpDef = 54,
         baseSpeed = 72,
         evYield = SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Litleo,
         xpClass = MediumSlow,
         xpYield = 74,
         learnset = EmptyLearnset, //Not done
@@ -21475,8 +21475,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "litleo", //Verify
         graphicsLocation = "litleo", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Litleo,
         abilities = new Ability[3]
         {
             Rivalry,
@@ -21496,7 +21496,7 @@ public static class Species
         baseSpDef = 66,
         baseSpeed = 106,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 177,
         learnset = EmptyLearnset, //Not done
@@ -21508,8 +21508,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "pyroar", //Verify
         graphicsLocation = "pyroar", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Pyroar,
         abilities = new Ability[3]
         {
             Rivalry,
@@ -21536,7 +21536,7 @@ public static class Species
         baseSpDef = 57,
         baseSpeed = 52,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Skiddo,
         xpClass = MediumFast,
         xpYield = 70,
         learnset = EmptyLearnset, //Not done
@@ -21548,8 +21548,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "skiddo", //Verify
         graphicsLocation = "skiddo", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Skiddo,
         abilities = new Ability[3]
         {
             SapSipper,
@@ -21569,7 +21569,7 @@ public static class Species
         baseSpDef = 81,
         baseSpeed = 68,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 186,
         learnset = EmptyLearnset, //Not done
@@ -21581,8 +21581,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "gogoat", //Verify
         graphicsLocation = "gogoat", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Gogoat,
         abilities = new Ability[3]
         {
             SapSipper,
@@ -21602,7 +21602,7 @@ public static class Species
         baseSpDef = 48,
         baseSpeed = 43,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Pancham,
         xpClass = MediumFast,
         xpYield = 70,
         learnset = EmptyLearnset, //Not done
@@ -21614,8 +21614,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "pancham", //Verify
         graphicsLocation = "pancham", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Pancham,
         abilities = new Ability[3]
         {
             IronFist,
@@ -21635,7 +21635,7 @@ public static class Species
         baseSpDef = 71,
         baseSpeed = 58,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 173,
         learnset = EmptyLearnset, //Not done
@@ -21647,8 +21647,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "pangoro", //Verify
         graphicsLocation = "pangoro", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Pangoro,
         abilities = new Ability[3]
         {
             IronFist,
@@ -21671,7 +21671,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 68,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Espurr,
         xpClass = MediumFast,
         xpYield = 71,
         learnset = EmptyLearnset, //Not done
@@ -21683,8 +21683,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "espurr", //Verify
         graphicsLocation = "espurr", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Espurr,
         abilities = new Ability[3]
         {
             KeenEye,
@@ -21704,7 +21704,7 @@ public static class Species
         baseSpDef = 81,
         baseSpeed = 104,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 163,
         learnset = EmptyLearnset, //Not done
@@ -21716,8 +21716,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "meowstic", //Verify
         graphicsLocation = "meowstic", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Meowstic,
         abilities = new Ability[3]
         {
             KeenEye,
@@ -21737,7 +21737,7 @@ public static class Species
         baseSpDef = 37,
         baseSpeed = 28,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Honedge,
         xpClass = MediumFast,
         xpYield = 65,
         learnset = EmptyLearnset, //Not done
@@ -21749,8 +21749,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "honedge", //Verify
         graphicsLocation = "honedge", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Honedge,
         abilities = new Ability[3]
         {
             NoGuard,
@@ -21770,7 +21770,7 @@ public static class Species
         baseSpDef = 49,
         baseSpeed = 35,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Doublade,
         xpClass = MediumFast,
         xpYield = 157,
         learnset = EmptyLearnset, //Not done
@@ -21782,8 +21782,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "doublade", //Verify
         graphicsLocation = "doublade", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Doublade,
         abilities = new Ability[3]
         {
             NoGuard,
@@ -21804,7 +21804,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 23,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Spritzee,
         xpClass = MediumFast,
         xpYield = 68,
         learnset = EmptyLearnset, //Not done
@@ -21816,8 +21816,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "spritzee", //Verify
         graphicsLocation = "spritzee", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Spritzee,
         abilities = new Ability[3]
         {
             Healer,
@@ -21837,7 +21837,7 @@ public static class Species
         baseSpDef = 89,
         baseSpeed = 29,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 162,
         learnset = EmptyLearnset, //Not done
@@ -21849,8 +21849,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "aromatisse", //Verify
         graphicsLocation = "aromatisse", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Aromatisse,
         abilities = new Ability[3]
         {
             Healer,
@@ -21870,7 +21870,7 @@ public static class Species
         baseSpDef = 57,
         baseSpeed = 49,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Swirlix,
         xpClass = MediumFast,
         xpYield = 68,
         learnset = EmptyLearnset, //Not done
@@ -21882,8 +21882,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "swirlix", //Verify
         graphicsLocation = "swirlix", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Swirlix,
         abilities = new Ability[3]
         {
             SweetVeil,
@@ -21903,7 +21903,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 72,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 168,
         learnset = EmptyLearnset, //Not done
@@ -21915,8 +21915,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "slurpuff", //Verify
         graphicsLocation = "slurpuff", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Slurpuff,
         abilities = new Ability[3]
         {
             SweetVeil,
@@ -21936,7 +21936,7 @@ public static class Species
         baseSpDef = 46,
         baseSpeed = 45,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Inkay,
         xpClass = MediumFast,
         xpYield = 58,
         learnset = EmptyLearnset, //Not done
@@ -21948,8 +21948,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "inkay", //Verify
         graphicsLocation = "inkay", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Inkay,
         abilities = new Ability[3]
         {
             Contrary,
@@ -21969,7 +21969,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 73,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 169,
         learnset = EmptyLearnset, //Not done
@@ -21981,8 +21981,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "malamar", //Verify
         graphicsLocation = "malamar", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Malamar,
         abilities = new Ability[3]
         {
             Contrary,
@@ -22002,7 +22002,7 @@ public static class Species
         baseSpDef = 56,
         baseSpeed = 50,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Binacle,
         xpClass = MediumFast,
         xpYield = 61,
         learnset = EmptyLearnset, //Not done
@@ -22014,8 +22014,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "binacle", //Verify
         graphicsLocation = "binacle", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Binacle,
         abilities = new Ability[3]
         {
             ToughClaws,
@@ -22035,7 +22035,7 @@ public static class Species
         baseSpDef = 86,
         baseSpeed = 68,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 175,
         learnset = EmptyLearnset, //Not done
@@ -22047,8 +22047,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "barbaracle", //Verify
         graphicsLocation = "barbaracle", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Barbaracle,
         abilities = new Ability[3]
         {
             ToughClaws,
@@ -22068,7 +22068,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 30,
         evYield = SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Skrelp,
         xpClass = MediumFast,
         xpYield = 64,
         learnset = EmptyLearnset, //Not done
@@ -22080,8 +22080,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "skrelp", //Verify
         graphicsLocation = "skrelp", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Skrelp,
         abilities = new Ability[3]
         {
             PoisonPoint,
@@ -22101,7 +22101,7 @@ public static class Species
         baseSpDef = 123,
         baseSpeed = 44,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 173,
         learnset = EmptyLearnset, //Not done
@@ -22113,8 +22113,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "dragalge", //Verify
         graphicsLocation = "dragalge", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Dragalge,
         abilities = new Ability[3]
         {
             PoisonPoint,
@@ -22134,7 +22134,7 @@ public static class Species
         baseSpDef = 63,
         baseSpeed = 44,
         evYield = SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Clauncher,
         xpClass = Slow,
         xpYield = 66,
         learnset = EmptyLearnset, //Not done
@@ -22146,8 +22146,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "clauncher", //Verify
         graphicsLocation = "clauncher", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Clauncher,
         abilities = new Ability[3]
         {
             MegaLauncher,
@@ -22167,7 +22167,7 @@ public static class Species
         baseSpDef = 89,
         baseSpeed = 59,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 100,
         learnset = EmptyLearnset, //Not done
@@ -22179,8 +22179,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "clawitzer", //Verify
         graphicsLocation = "clawitzer", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Clawitzer,
         abilities = new Ability[3]
         {
             MegaLauncher,
@@ -22200,7 +22200,7 @@ public static class Species
         baseSpDef = 43,
         baseSpeed = 70,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Helioptile,
         xpClass = MediumFast,
         xpYield = 58,
         learnset = EmptyLearnset, //Not done
@@ -22212,8 +22212,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "helioptile", //Verify
         graphicsLocation = "helioptile", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Helioptile,
         abilities = new Ability[3]
         {
             DrySkin,
@@ -22233,7 +22233,7 @@ public static class Species
         baseSpDef = 94,
         baseSpeed = 109,
         evYield = Speed + SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 168,
         learnset = EmptyLearnset, //Not done
@@ -22245,8 +22245,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "heliolisk", //Verify
         graphicsLocation = "heliolisk", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.Heliolisk,
         abilities = new Ability[3]
         {
             DrySkin,
@@ -22266,7 +22266,7 @@ public static class Species
         baseSpDef = 45,
         baseSpeed = 48,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Tyrunt,
         xpClass = MediumFast,
         xpYield = 72,
         learnset = EmptyLearnset, //Not done
@@ -22278,8 +22278,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "tyrunt", //Verify
         graphicsLocation = "tyrunt", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Tyrunt,
         abilities = new Ability[3]
         {
             StrongJaw,
@@ -22299,7 +22299,7 @@ public static class Species
         baseSpDef = 59,
         baseSpeed = 71,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 182,
         learnset = EmptyLearnset, //Not done
@@ -22311,8 +22311,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "tyrantrum", //Verify
         graphicsLocation = "tyrantrum", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Tyrantrum,
         abilities = new Ability[3]
         {
             StrongJaw,
@@ -22332,7 +22332,7 @@ public static class Species
         baseSpDef = 63,
         baseSpeed = 46,
         evYield = HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Amaura,
         xpClass = MediumFast,
         xpYield = 72,
         learnset = EmptyLearnset, //Not done
@@ -22344,8 +22344,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "amaura", //Verify
         graphicsLocation = "amaura", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Amaura,
         abilities = new Ability[3]
         {
             Refrigerate,
@@ -22365,7 +22365,7 @@ public static class Species
         baseSpDef = 92,
         baseSpeed = 58,
         evYield = 2 * HP,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 104,
         learnset = EmptyLearnset, //Not done
@@ -22377,8 +22377,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "aurorus", //Verify
         graphicsLocation = "aurorus", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Aurorus,
         abilities = new Ability[3]
         {
             Refrigerate,
@@ -22398,7 +22398,7 @@ public static class Species
         baseSpDef = 130,
         baseSpeed = 60,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 184,
         learnset = EmptyLearnset, //Not done
@@ -22410,8 +22410,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "sylveon", //Verify
         graphicsLocation = "sylveon", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Sylveon,
         abilities = new Ability[3]
         {
             CuteCharm,
@@ -22431,7 +22431,7 @@ public static class Species
         baseSpDef = 63,
         baseSpeed = 118,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 175,
         learnset = EmptyLearnset, //Not done
@@ -22443,8 +22443,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "hawlucha", //Verify
         graphicsLocation = "hawlucha", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Hawlucha,
         abilities = new Ability[3]
         {
             Limber,
@@ -22464,7 +22464,7 @@ public static class Species
         baseSpDef = 67,
         baseSpeed = 101,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 151,
         learnset = EmptyLearnset, //Not done
@@ -22476,8 +22476,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "dedenne", //Verify
         graphicsLocation = "dedenne", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Dedenne,
         abilities = new Ability[3]
         {
             CheekPouch,
@@ -22497,7 +22497,7 @@ public static class Species
         baseSpDef = 150,
         baseSpeed = 50,
         evYield = Defense + SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 100,
         learnset = EmptyLearnset, //Not done
@@ -22509,8 +22509,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "carbink", //Verify
         graphicsLocation = "carbink", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Carbink,
         abilities = new Ability[3]
         {
             ClearBody,
@@ -22530,7 +22530,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 40,
         evYield = SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Goomy,
         xpClass = Slow,
         xpYield = 60,
         learnset = EmptyLearnset, //Not done
@@ -22542,8 +22542,8 @@ public static class Species
         baseFriendship = 35,
         cryLocation = "goomy", //Verify
         graphicsLocation = "goomy", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Goomy,
         abilities = new Ability[3]
         {
             SapSipper,
@@ -22563,7 +22563,7 @@ public static class Species
         baseSpDef = 113,
         baseSpeed = 60,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Sliggoo,
         xpClass = Slow,
         xpYield = 158,
         learnset = EmptyLearnset, //Not done
@@ -22575,8 +22575,8 @@ public static class Species
         baseFriendship = 35,
         cryLocation = "sliggoo", //Verify
         graphicsLocation = "sliggoo", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Sliggoo,
         abilities = new Ability[3]
         {
             SapSipper,
@@ -22596,7 +22596,7 @@ public static class Species
         baseSpDef = 150,
         baseSpeed = 80,
         evYield = 3 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
         learnset = EmptyLearnset, //Not done
@@ -22608,8 +22608,8 @@ public static class Species
         baseFriendship = 35,
         cryLocation = "goodra", //Verify
         graphicsLocation = "goodra", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Goodra,
         abilities = new Ability[3]
         {
             SapSipper,
@@ -22629,7 +22629,7 @@ public static class Species
         baseSpDef = 87,
         baseSpeed = 75,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 165,
         learnset = EmptyLearnset, //Not done
@@ -22641,8 +22641,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "klefki", //Verify
         graphicsLocation = "klefki", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Klefki,
         abilities = new Ability[3]
         {
             Prankster,
@@ -22662,7 +22662,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 38,
         evYield = Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Phantump,
         xpClass = MediumFast,
         xpYield = 62,
         learnset = EmptyLearnset, //Not done
@@ -22674,8 +22674,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "phantump", //Verify
         graphicsLocation = "phantump", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Phantump,
         abilities = new Ability[3]
         {
             NaturalCure,
@@ -22695,7 +22695,7 @@ public static class Species
         baseSpDef = 82,
         baseSpeed = 56,
         evYield = 2 * Attack,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 166,
         learnset = EmptyLearnset, //Not done
@@ -22707,8 +22707,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "trevenant", //Verify
         graphicsLocation = "trevenant", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Trevenant,
         abilities = new Ability[3]
         {
             NaturalCure,
@@ -22745,7 +22745,7 @@ public static class Species
         baseSpDef = 35,
         baseSpeed = 28,
         evYield = Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Bergmite,
         xpClass = MediumFast,
         xpYield = 61,
         learnset = EmptyLearnset, //Not done
@@ -22757,8 +22757,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "bergmite", //Verify
         graphicsLocation = "bergmite", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Bergmite,
         abilities = new Ability[3]
         {
             OwnTempo,
@@ -22778,7 +22778,7 @@ public static class Species
         baseSpDef = 46,
         baseSpeed = 28,
         evYield = 2 * Defense,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 180,
         learnset = EmptyLearnset, //Not done
@@ -22790,8 +22790,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "avalugg", //Verify
         graphicsLocation = "avalugg", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Avalugg,
         abilities = new Ability[3]
         {
             OwnTempo,
@@ -22811,7 +22811,7 @@ public static class Species
         baseSpDef = 40,
         baseSpeed = 55,
         evYield = Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.Noibat,
         xpClass = MediumFast,
         xpYield = 49,
         learnset = EmptyLearnset, //Not done
@@ -22823,8 +22823,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "noibat", //Verify
         graphicsLocation = "noibat", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Noibat,
         abilities = new Ability[3]
         {
             Frisk,
@@ -22844,7 +22844,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 123,
         evYield = 2 * Speed,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 187,
         learnset = EmptyLearnset, //Not done
@@ -22856,8 +22856,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "noivern", //Verify
         graphicsLocation = "noivern", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Noivern,
         abilities = new Ability[3]
         {
             Frisk,
@@ -22882,7 +22882,7 @@ public static class Species
             baseSpDef = 98,
             baseSpeed = 99,
             evYield = 3 * HP,
-            evolution = Evolution.None, //Not done
+            evolution = Evolution.None,
             xpClass = Slow,
             xpYield = 306,
             learnset = EmptyLearnset, //Not done
@@ -22894,8 +22894,8 @@ public static class Species
             baseFriendship = 0,
             cryLocation = "yveltal", //Verify
             graphicsLocation = "yveltal", //Verify
-            backSpriteHeight = 0, //Not done
-            pokedexData = Pokedex.Bulbasaur, //Not done
+            backSpriteHeight = 10,
+            pokedexData = Pokedex.Yveltal,
             abilities = new Ability[3]
         {
                 DarkAura,
@@ -22950,7 +22950,7 @@ public static class Species
         baseSpDef = 150,
         baseSpeed = 50,
         evYield = Defense + 2 * SpDef,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
         learnset = EmptyLearnset, //Not done
@@ -22962,8 +22962,8 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "diancie", //Verify
         graphicsLocation = "diancie", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Diancie,
         abilities = new Ability[3]
         {
             ClearBody,
@@ -22983,7 +22983,7 @@ public static class Species
         baseSpDef = 130,
         baseSpeed = 70,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
         learnset = EmptyLearnset, //Not done
@@ -22995,8 +22995,8 @@ public static class Species
         baseFriendship = 100,
         cryLocation = "hoopa", //Verify
         graphicsLocation = "hoopa", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Hoopa,
         abilities = new Ability[3]
         {
             Magician,
@@ -23016,7 +23016,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 70,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, //Not done
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
         learnset = EmptyLearnset, //Not done
@@ -23028,8 +23028,8 @@ public static class Species
         baseFriendship = 100,
         cryLocation = "volcanion", //Verify
         graphicsLocation = "volcanion", //Verify
-        backSpriteHeight = 0, //Not done
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Volcanion,
         abilities = new Ability[3]
         {
             WaterAbsorb,
@@ -23105,7 +23105,7 @@ public static class Species
         baseSpDef: 80,
         baseSpeed: 145,
         backSpriteHeight: 5,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Beedrill,
         ability: Adaptability
     );
 
@@ -23117,7 +23117,7 @@ public static class Species
         baseSpDef: 80,
         baseSpeed: 121,
         backSpriteHeight: 7,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Pidgeot,
         ability: NoGuard
     );
 
@@ -23129,7 +23129,7 @@ public static class Species
         baseSpDef: 105,
         baseSpeed: 150,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Alakazam,
         ability: Trace
     );
 
@@ -23141,7 +23141,7 @@ public static class Species
         baseSpDef: 80,
         baseSpeed: 30,
         backSpriteHeight: 9,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Slowbro,
         ability: ShellArmor
     );
 
@@ -23153,7 +23153,7 @@ public static class Species
         baseSpDef: 95,
         baseSpeed: 130,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Gengar,
         ability: ShadowTag
     );
 
@@ -23165,7 +23165,7 @@ public static class Species
         baseSpDef: 100,
         baseSpeed: 100,
         backSpriteHeight: 6,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Kangaskhan,
         ability: ParentalBond
     );
 
@@ -23178,7 +23178,7 @@ public static class Species
         baseSpDef: 90,
         baseSpeed: 105,
         backSpriteHeight: 7,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Pinsir,
         ability: Aerilate
     );
 
@@ -23191,7 +23191,7 @@ public static class Species
         baseSpDef: 130,
         baseSpeed: 81,
         backSpriteHeight: 2,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Gyarados,
         ability: MoldBreaker
     );
 
@@ -23203,7 +23203,7 @@ public static class Species
         baseSpDef: 95,
         baseSpeed: 150,
         backSpriteHeight: 8,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Aerodactyl,
         ability: ToughClaws
     );
 
@@ -23219,7 +23219,7 @@ public static class Species
         backSpriteHeight: 1,
         cry: "mega_mewtwo_x",
         graphics: "mewtwo/mega_x",
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Mewtwo,
         ability: Steadfast
      );
 
@@ -23234,7 +23234,7 @@ public static class Species
         backSpriteHeight: 2,
         cry: "mega_mewtwo_y",
         graphics: "mewtwo/mega_y",
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Mewtwo,
         ability: Insomnia
     );
 
@@ -23247,7 +23247,7 @@ public static class Species
         baseSpDef: 110,
         baseSpeed: 45,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Ampharos,
         ability: MoldBreaker
     );
 
@@ -23259,7 +23259,7 @@ public static class Species
         baseSpDef: 95,
         baseSpeed: 30,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done,
+        pokedexData: Pokedex.Steelix,
         ability: SandForce
     );
 
@@ -23271,7 +23271,7 @@ public static class Species
         baseSpDef: 100,
         baseSpeed: 75,
         backSpriteHeight: 4,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Scizor,
         ability: Technician
     );
 
@@ -23283,7 +23283,7 @@ public static class Species
         baseSpDef: 105,
         baseSpeed: 75,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Heracross,
         ability: SkillLink
     );
 
@@ -23295,7 +23295,7 @@ public static class Species
         baseSpDef: 90,
         baseSpeed: 115,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Houndoom,
         ability: SolarPower
     );
 
@@ -23307,7 +23307,7 @@ public static class Species
         baseSpDef: 120,
         baseSpeed: 71,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Tyranitar,
         ability: SandStream
     );
 
@@ -23320,7 +23320,7 @@ public static class Species
         baseSpDef: 85,
         baseSpeed: 145,
         backSpriteHeight: 3,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Sceptile,
         ability: LightningRod
     );
 
@@ -23332,7 +23332,7 @@ public static class Species
         baseSpDef: 80,
         baseSpeed: 100,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Blaziken,
         ability: SpeedBoost
     );
 
@@ -23344,7 +23344,7 @@ public static class Species
         baseSpDef: 110,
         baseSpeed: 70,
         backSpriteHeight: 6,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Swampert,
         ability: SwiftSwim
     );
 
@@ -23356,7 +23356,7 @@ public static class Species
         baseSpDef: 135,
         baseSpeed: 100,
         backSpriteHeight: 6,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Gardevoir,
         ability: Pixilate
     );
 
@@ -23368,7 +23368,7 @@ public static class Species
         baseSpDef: 115,
         baseSpeed: 20,
         backSpriteHeight: 13,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Sableye,
         ability: MagicBounce
     );
 
@@ -23380,7 +23380,7 @@ public static class Species
         baseSpDef: 95,
         baseSpeed: 50,
         backSpriteHeight: 6,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Mawile,
         ability: HugePower
     );
 
@@ -23393,7 +23393,7 @@ public static class Species
         baseSpDef: 80,
         baseSpeed: 50,
         backSpriteHeight: 7,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Aggron,
         ability: Filter
     );
 
@@ -23405,7 +23405,7 @@ public static class Species
         baseSpDef: 85,
         baseSpeed: 100,
         backSpriteHeight: 1,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Medicham,
         ability: PurePower
     );
 
@@ -23417,7 +23417,7 @@ public static class Species
         baseSpDef: 80,
         baseSpeed: 135,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Manectric,
         ability: Intimidate
     );
 
@@ -23429,7 +23429,7 @@ public static class Species
         baseSpDef: 65,
         baseSpeed: 105,
         backSpriteHeight: 3,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Sharpedo,
         ability: StrongJaw
     );
 
@@ -23441,7 +23441,7 @@ public static class Species
         baseSpDef: 105,
         baseSpeed: 20,
         backSpriteHeight: 9,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Camerupt,
         ability: SheerForce
     );
 
@@ -23454,7 +23454,7 @@ public static class Species
         baseSpDef: 105,
         baseSpeed: 80,
         backSpriteHeight: 10,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Altaria,
         ability: Pixilate
     );
 
@@ -23466,7 +23466,7 @@ public static class Species
         baseSpDef: 83,
         baseSpeed: 75,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Banette,
         ability: Prankster
     );
 
@@ -23478,7 +23478,7 @@ public static class Species
         baseSpDef: 60,
         baseSpeed: 115,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Absol,
         ability: MagicBounce
     );
 
@@ -23490,7 +23490,7 @@ public static class Species
         baseSpDef: 80,
         baseSpeed: 100,
         backSpriteHeight: 10,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Glalie,
         ability: Refrigerate
     );
 
@@ -23502,7 +23502,7 @@ public static class Species
         baseSpDef: 90,
         baseSpeed: 120,
         backSpriteHeight: 1,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Salamence,
         ability: Aerilate
     );
 
@@ -23514,7 +23514,7 @@ public static class Species
         baseSpDef: 110,
         baseSpeed: 110,
         backSpriteHeight: 6,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Metagross,
         ability: ToughClaws
     );
 
@@ -23526,7 +23526,7 @@ public static class Species
         baseSpDef: 150,
         baseSpeed: 110,
         backSpriteHeight: 1,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Latias,
         ability: Levitate
     );
 
@@ -23538,7 +23538,7 @@ public static class Species
         baseSpDef: 120,
         baseSpeed: 110,
         backSpriteHeight: 1,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Latios,
         ability: Levitate
     );
 
@@ -23550,7 +23550,7 @@ public static class Species
         baseSpDef: 100,
         baseSpeed: 115,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Rayquaza,
         ability: DeltaStream
     );
 
@@ -23563,7 +23563,7 @@ public static class Species
         baseSpDef: 96,
         baseSpeed: 135,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Lopunny,
         ability: Scrappy
     );
 
@@ -23575,7 +23575,7 @@ public static class Species
         baseSpDef: 95,
         baseSpeed: 92,
         backSpriteHeight: 4,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Garchomp,
         ability: SandForce
     );
 
@@ -23587,7 +23587,7 @@ public static class Species
         baseSpDef: 70,
         baseSpeed: 112,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Lucario,
         ability: Adaptability
     );
 
@@ -23599,7 +23599,7 @@ public static class Species
         baseSpDef: 105,
         baseSpeed: 30,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Abomasnow,
         ability: SnowWarning
     );
 
@@ -23611,7 +23611,7 @@ public static class Species
         baseSpDef: 115,
         baseSpeed: 110,
         backSpriteHeight: 3,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Gallade,
         ability: InnerFocus
     );
 
@@ -23624,7 +23624,7 @@ public static class Species
         baseSpDef: 126,
         baseSpeed: 50,
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Audino,
         ability: Healer
     );
 
@@ -23636,7 +23636,7 @@ public static class Species
         baseSpDef: 110,
         baseSpeed: 110,
         backSpriteHeight: 5,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Diancie,
         ability: MagicBounce
     );
     //Unown forms
@@ -23941,7 +23941,7 @@ public static class Species
         cryLocation = "darmanitan", //Verify
         graphicsLocation = "darmanitan", //Verify
         backSpriteHeight = 7,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Darmanitan,
         abilities = new Ability[3]
         {
             SheerForce,
@@ -23983,7 +23983,7 @@ public static class Species
         cryLocation = "tornadus_therian", //Verify
         graphicsLocation = "tornadus/therian", //Verify
         backSpriteHeight = 0,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Tornadus,
         abilities = new Ability[3]
         {
             Regenerator,
@@ -24016,7 +24016,7 @@ public static class Species
         cryLocation = "thundurus_therian", //Verify
         graphicsLocation = "thundurus/therian", //Verify
         backSpriteHeight = 5,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Thundurus,
         abilities = new Ability[3]
         {
             VoltAbsorb,
@@ -24050,7 +24050,7 @@ public static class Species
         cryLocation = "landorus_therian", //Verify
         graphicsLocation = "landorus/therian", //Verify
         backSpriteHeight = 7,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Landorus,
         abilities = new Ability[3]
         {
             Intimidate,
@@ -24084,7 +24084,7 @@ public static class Species
         cryLocation = "kyurem_white", //Verify
         graphicsLocation = "kyurem/white", //Verify
         backSpriteHeight = 0,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Kyurem,
         abilities = new Ability[3]
         {
             Turboblaze,
@@ -24118,7 +24118,7 @@ public static class Species
         cryLocation = "kyurem_black", //Verify
         graphicsLocation = "kyurem/black", //Verify
         backSpriteHeight = 3,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Kyurem,
         abilities = new Ability[3]
         {
             Teravolt,
@@ -24153,7 +24153,7 @@ public static class Species
         cryLocation = "meloetta", //Verify
         graphicsLocation = "meloetta", //Verify
         backSpriteHeight = 4,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Meloetta,
         abilities = new Ability[3]
         {
             SereneGrace,
@@ -24267,7 +24267,7 @@ public static class Species
 		baseSpDef = 81,
 		baseSpeed = 104,
 		evYield = 2 * Speed,
-		evolution = Evolution.None, //Not done
+		evolution = Evolution.None,
 		xpClass = MediumFast,
 		xpYield = 163,
 		learnset = EmptyLearnset, //Not done
@@ -24279,8 +24279,8 @@ public static class Species
 		baseFriendship = 70,
 		cryLocation = "meowstic", //Verify
         graphicsLocation = "meowstic/female", //Verify
-        backSpriteHeight = 0, //Not done
-		pokedexData = Pokedex.Bulbasaur, //Not done
+        backSpriteHeight = 9,
+		pokedexData = Pokedex.Meowstic,
 		abilities = new Ability[3]
 		{
 			KeenEye,
@@ -24386,7 +24386,7 @@ public static class Species
 		baseSpDef = 95,
 		baseSpeed = 85,
 		evYield = 3 * HP,
-		evolution = Evolution.None, //Not done
+		evolution = Evolution.None,
 		xpClass = Slow,
 		xpYield = 319,
 		learnset = EmptyLearnset, //Not done
@@ -24398,8 +24398,8 @@ public static class Species
 		baseFriendship = 0,
 		cryLocation = "zygarde_complete", //Verify
 		graphicsLocation = "zygarde/complete", //Verify
-		backSpriteHeight = 0, //Not done
-		pokedexData = Pokedex.Bulbasaur, //Not done
+		backSpriteHeight = 0,
+		pokedexData = Pokedex.Zygarde,
 		abilities = new Ability[3]
 		{
 			PowerConstruct,
@@ -24422,11 +24422,11 @@ public static class Species
 		baseSpDef = 130,
 		baseSpeed = 80,
 		evYield = 3 * SpAtk,
-		evolution = Evolution.None, //Not done
+		evolution = Evolution.None,
 		xpClass = Slow,
 		xpYield = 270,
 		learnset = EmptyLearnset, //Not done
-		malePercent = SpeciesData.Genderless,
+		malePercent = Genderless,
 		eggGroup1 = EggGroup.Undiscovered,
 		eggGroup2 = EggGroup.Undiscovered,
 		eggCycles = 120,
@@ -24434,8 +24434,8 @@ public static class Species
 		baseFriendship = 100,
 		cryLocation = "hoopa unbound", //Verify
 		graphicsLocation = "hoopa unbound", //Verify
-		backSpriteHeight = 0, //Not done
-		pokedexData = Pokedex.Bulbasaur, //Not done
+		backSpriteHeight = 0,
+		pokedexData = Pokedex.Hoopa,
 		abilities = new Ability[3]
 		{
 			Magician,

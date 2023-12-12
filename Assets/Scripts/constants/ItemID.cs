@@ -121,8 +121,10 @@
     BurnDrive,
     ChillDrive,
     DouseDrive,
+    Satchet,
+    WhippedDream,
     //Hold-to-transform items
-        //Memories
+    //Memories
     FightingMemory,
     FlyingMemory,
     PoisonMemory,
@@ -207,6 +209,22 @@
     DragoniumZ,
     DarkiniumZ,
     FairiumZ,
+    PikaniumZ,
+    DecidiumZ,
+    InciniumZ,
+    PrimariumZ,
+    TapuniumZ,
+    MarshadiumZ,
+    AloraichiumZ,
+    SnorliumZ,
+    MewniumZ,
+    PikashuniumZ,
+    UltranecrozmiumZ,
+    SolganiumZ,
+    LunaliumZ,
+    MimikiumZ,
+    LycaniumZ,
+    KommoniumZ,
 
     Count,
 }

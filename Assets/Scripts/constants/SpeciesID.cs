@@ -713,7 +713,7 @@ public enum SpeciesID
     Tyrunt,
     Tyrantrum,
     Amaura,
-    Aururos,
+    Aururus,
     Sylveon,
     Hawlucha,
     Dedenne,

@@ -25,9 +25,14 @@ public enum EvolutionMethod
     LevelUpWithItemDay, //Happiny
     LevelUpWithItemNight,
     LevelUpWithMonInParty, //Mantyke
+    LevelUpWithDarkInParty,
     LevelUpMakeShedinja, //Nincada
     LevelUpMaleOnly,
     LevelUpFemaleOnly,
+    LevelUpsideDown, //Inkay
+    LevelUpDay,
+    LevelUpNight,
+    LevelUpRain,
 
     Incidental, //Shedinja
 
