@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 using static PokedexDesc;
 using static SpeciesData;
 
@@ -141,7 +142,7 @@ public static class Pokedex
     {
         number = 13,
         name = "Weedle",
-        category = "HairyBug",
+        category = "Hairy Bug",
         height = 30,
         weight = 3200,
         entry = WeedleDesc,
@@ -161,7 +162,7 @@ public static class Pokedex
     {
         number = 15,
         name = "Beedrill",
-        category = "PoisonBee",
+        category = "Poison Bee",
         height = 100,
         weight = 29500,
         entry = BeedrillDesc,
@@ -175,7 +176,7 @@ public static class Pokedex
     {
         number = 16,
         name = "Pidgey",
-        category = "TinyBird",
+        category = "Tiny Bird",
         height = 30,
         weight = 1800,
         entry = PidgeyDesc,
@@ -213,7 +214,11 @@ public static class Pokedex
         height = 30,
         weight = 3500,
         entry = RattataDesc,
-        forms = SingleSpecies(Species.Rattata),
+        forms = new[]
+        {
+            Species.Rattata,
+            Species.RattataAlola
+        }
     };
     public static PokedexData Raticate = new()
     {
@@ -223,13 +228,17 @@ public static class Pokedex
         height = 70,
         weight = 18500,
         entry = RaticateDesc,
-        forms = SingleSpecies(Species.Raticate),
+        forms = new[]
+        {
+            Species.Raticate,
+            Species.RaticateAlola
+        }
     };
     public static PokedexData Spearow = new()
     {
         number = 21,
         name = "Spearow",
-        category = "TinyBird",
+        category = "Tiny Bird",
         height = 30,
         weight = 2000,
         entry = SpearowDesc,
@@ -273,7 +282,25 @@ public static class Pokedex
         height = 40,
         weight = 6000,
         entry = PikachuDesc,
-        forms = SingleSpecies(Species.Pikachu),
+        forms = new[]
+        {
+            Species.Pikachu,
+            Species.PikachuCosplay,
+            Species.PikachuRockStar,
+            Species.PikachuBelle,
+            Species.PikachuPopStar,
+            Species.PikachuPhD,
+            Species.PikachuLibre,
+            Species.PikachuOriginal,
+            Species.PikachuHoenn,
+            Species.PikachuSinnoh,
+            Species.PikachuUnova,
+            Species.PikachuKalos,
+            Species.PikachuAlolaCap,
+            Species.PikachuPartnerCap,
+            Species.PikachuWorld,
+            Species.PikachuPartner
+        }
     };
     public static PokedexData Raichu = new()
     {
@@ -283,7 +310,11 @@ public static class Pokedex
         height = 80,
         weight = 30000,
         entry = RaichuDesc,
-        forms = SingleSpecies(Species.Raichu),
+        forms = new[]
+        {
+            Species.Raichu,
+            Species.RaichuAlola
+        }
     };
     public static PokedexData Sandshrew = new()
     {
@@ -293,7 +324,11 @@ public static class Pokedex
         height = 60,
         weight = 12000,
         entry = SandshrewDesc,
-        forms = SingleSpecies(Species.Sandshrew),
+        forms = new[]
+        {
+            Species.Sandshrew,
+            Species.SandshrewAlola
+        }
     };
     public static PokedexData Sandslash = new()
     {
@@ -303,13 +338,17 @@ public static class Pokedex
         height = 100,
         weight = 29500,
         entry = SandslashDesc,
-        forms = SingleSpecies(Species.Sandslash),
+        forms = new[]
+        {
+            Species.Sandslash,
+            Species.SandslashAlola
+        }
     };
     public static PokedexData NidoranF = new ()
 	{
 		number = 29,
 		name = "Nidoran",
-		category = "PoisonPin",
+		category = "Poison Pin",
 		height = 40,
 		weight = 7000,
 		entry = NidoranFDesc,
@@ -320,7 +359,7 @@ public static class Pokedex
     {
         number = 30,
         name = "Nidorina",
-        category = "PoisonPin",
+        category = "Poison Pin",
         height = 80,
         weight = 20000,
         entry = NidorinaDesc,
@@ -340,7 +379,7 @@ public static class Pokedex
     {
         number = 32,
         name = "Nidoran",
-        category = "PoisonPin",
+        category = "Poison Pin",
         height = 50,
         weight = 9000,
         entry = NidoranMDesc,
@@ -350,7 +389,7 @@ public static class Pokedex
     {
         number = 33,
         name = "Nidorino",
-        category = "PoisonPin",
+        category = "Poison Pin",
         height = 90,
         weight = 19500,
         entry = NidorinoDesc,
@@ -394,7 +433,11 @@ public static class Pokedex
         height = 60,
         weight = 9900,
         entry = VulpixDesc,
-        forms = SingleSpecies(Species.Vulpix),
+        forms = new[]
+        {
+            Species.Vulpix,
+            Species.VulpixAlola
+        }
     };
     public static PokedexData Ninetales = new()
     {
@@ -404,7 +447,11 @@ public static class Pokedex
         height = 110,
         weight = 19900,
         entry = NinetalesDesc,
-        forms = SingleSpecies(Species.Ninetales),
+        forms = new[]
+        {
+            Species.Ninetales,
+            Species.NinetalesAlola
+        }
     };
     public static PokedexData Jigglypuff = new()
     {
@@ -510,7 +557,7 @@ public static class Pokedex
     {
         number = 49,
         name = "Venomoth",
-        category = "PoisonMoth",
+        category = "Poison Moth",
         height = 150,
         weight = 12500,
         entry = VenomothDesc,
@@ -524,7 +571,11 @@ public static class Pokedex
         height = 20,
         weight = 800,
         entry = DiglettDesc,
-        forms = SingleSpecies(Species.Diglett),
+        forms = new[]
+        {
+            Species.Diglett,
+            Species.DiglettAlola
+        }
     };
     public static PokedexData Dugtrio = new()
     {
@@ -534,27 +585,39 @@ public static class Pokedex
         height = 70,
         weight = 33300,
         entry = DugtrioDesc,
-        forms = SingleSpecies(Species.Dugtrio),
+        forms = new[]
+        {
+            Species.Dugtrio,
+            Species.DugtrioAlola
+        }
     };
     public static PokedexData Meowth = new()
     {
         number = 52,
         name = "Meowth",
-        category = "ScratchCat",
+        category = "Scratch Cat",
         height = 40,
         weight = 4200,
         entry = MeowthDesc,
-        forms = SingleSpecies(Species.Meowth),
+        forms = new[]
+        {
+            Species.Meowth,
+            Species.MeowthAlola
+        }
     };
     public static PokedexData Persian = new()
     {
         number = 53,
         name = "Persian",
-        category = "ClassyCat",
+        category = "Classy Cat",
         height = 100,
         weight = 32000,
         entry = PersianDesc,
-        forms = SingleSpecies(Species.Persian),
+        forms = new[]
+        {
+            Species.Persian,
+            Species.PersianAlola
+        }
     };
     public static PokedexData Psyduck = new()
     {
@@ -580,7 +643,7 @@ public static class Pokedex
     {
         number = 56,
         name = "Mankey",
-        category = "PigMonkey",
+        category = "Pig Monkey",
         height = 50,
         weight = 28000,
         entry = MankeyDesc,
@@ -590,7 +653,7 @@ public static class Pokedex
     {
         number = 57,
         name = "Primeape",
-        category = "PigMonkey",
+        category = "Pig Monkey",
         height = 100,
         weight = 32000,
         entry = PrimeapeDesc,
@@ -768,7 +831,11 @@ public static class Pokedex
         height = 40,
         weight = 20000,
         entry = GeodudeDesc,
-        forms = SingleSpecies(Species.Geodude),
+        forms = new[]
+        {
+            Species.Geodude,
+            Species.GeodudeAlola
+        }
     };
     public static PokedexData Graveler = new()
     {
@@ -778,7 +845,11 @@ public static class Pokedex
         height = 100,
         weight = 105000,
         entry = GravelerDesc,
-        forms = SingleSpecies(Species.Graveler),
+        forms = new[]
+        {
+            Species.Graveler,
+            Species.GravelerAlola
+        }
     };
     public static PokedexData Golem = new()
     {
@@ -788,13 +859,17 @@ public static class Pokedex
         height = 140,
         weight = 300000,
         entry = GolemDesc,
-        forms = SingleSpecies(Species.Golem),
+        forms = new[]
+        {
+            Species.Golem,
+            Species.GolemAlola
+        }
     };
     public static PokedexData Ponyta = new()
     {
         number = 77,
         name = "Ponyta",
-        category = "FireHorse",
+        category = "Fire Horse",
         height = 100,
         weight = 30000,
         entry = PonytaDesc,
@@ -804,7 +879,7 @@ public static class Pokedex
     {
         number = 78,
         name = "Rapidash",
-        category = "FireHorse",
+        category = "Fire Horse",
         height = 170,
         weight = 95000,
         entry = RapidashDesc,
@@ -824,7 +899,7 @@ public static class Pokedex
     {
         number = 80,
         name = "Slowbro",
-        category = "HermitCrab",
+        category = "Hermit Crab",
         height = 160,
         weight = 78500,
         entry = SlowbroDesc,
@@ -858,7 +933,7 @@ public static class Pokedex
     {
         number = 83,
         name = "Farfetchd",
-        category = "WildDuck",
+        category = "Wild Duck",
         height = 80,
         weight = 15000,
         entry = FarfetchdDesc,
@@ -868,7 +943,7 @@ public static class Pokedex
     {
         number = 84,
         name = "Doduo",
-        category = "TwinBird",
+        category = "Twin Bird",
         height = 140,
         weight = 39200,
         entry = DoduoDesc,
@@ -878,7 +953,7 @@ public static class Pokedex
     {
         number = 85,
         name = "Dodrio",
-        category = "TripleBird",
+        category = "Triple Bird",
         height = 180,
         weight = 85200,
         entry = DodrioDesc,
@@ -912,7 +987,11 @@ public static class Pokedex
         height = 90,
         weight = 30000,
         entry = GrimerDesc,
-        forms = SingleSpecies(Species.Grimer),
+        forms = new[]
+        {
+            Species.Grimer,
+            Species.GrimerAlola
+        }
     };
     public static PokedexData Muk = new()
     {
@@ -922,7 +1001,11 @@ public static class Pokedex
         height = 120,
         weight = 30000,
         entry = MukDesc,
-        forms = SingleSpecies(Species.Muk),
+        forms = new[]
+        {
+            Species.Muk,
+            Species.MukAlola
+        }
     };
     public static PokedexData Shellder = new()
     {
@@ -982,7 +1065,7 @@ public static class Pokedex
     {
         number = 95,
         name = "Onix",
-        category = "RockSnake",
+        category = "Rock Snake",
         height = 880,
         weight = 210000,
         entry = OnixDesc,
@@ -1012,7 +1095,7 @@ public static class Pokedex
     {
         number = 98,
         name = "Krabby",
-        category = "RiverCrab",
+        category = "River Crab",
         height = 40,
         weight = 6500,
         entry = KrabbyDesc,
@@ -1066,7 +1149,11 @@ public static class Pokedex
         height = 200,
         weight = 120000,
         entry = ExeggutorDesc,
-        forms = SingleSpecies(Species.Exeggutor),
+        forms = new[]
+        {
+            Species.Exeggutor,
+            Species.ExeggutorAlola
+        }
     };
     public static PokedexData Cubone = new()
     {
@@ -1082,11 +1169,15 @@ public static class Pokedex
     {
         number = 105,
         name = "Marowak",
-        category = "BoneKeeper",
+        category = "Bone Keeper",
         height = 100,
         weight = 45000,
         entry = MarowakDesc,
-        forms = SingleSpecies(Species.Marowak),
+        forms = new[]
+        {
+            Species.Marowak,
+            Species.MarowakAlola
+        }
     };
     public static PokedexData Hitmonlee = new()
     {
@@ -1378,7 +1469,11 @@ public static class Pokedex
         height = 30,
         weight = 6500,
         entry = EeveeDesc,
-        forms = SingleSpecies(Species.Eevee),
+        forms = new[]
+        {
+            Species.Eevee,
+            Species.EeveePartner
+        }
     };
     public static PokedexData Vaporeon = new()
     {
@@ -1563,7 +1658,7 @@ public static class Pokedex
     {
         number = 151,
         name = "Mew",
-        category = "NewSpecies",
+        category = "New Species",
         height = 40,
         weight = 4000,
         entry = MewDesc,
@@ -1603,7 +1698,7 @@ public static class Pokedex
     {
         number = 155,
         name = "Cyndaquil",
-        category = "FireMouse",
+        category = "Fire Mouse",
         height = 50,
         weight = 7900,
         entry = CyndaquilDesc,
@@ -1633,7 +1728,7 @@ public static class Pokedex
     {
         number = 158,
         name = "Totodile",
-        category = "BigJaw",
+        category = "Big Jaw",
         height = 60,
         weight = 9500,
         entry = TotodileDesc,
@@ -1643,7 +1738,7 @@ public static class Pokedex
     {
         number = 159,
         name = "Croconaw",
-        category = "BigJaw",
+        category = "Big Jaw",
         height = 110,
         weight = 25000,
         entry = CroconawDesc,
@@ -1653,7 +1748,7 @@ public static class Pokedex
     {
         number = 160,
         name = "Feraligatr",
-        category = "BigJaw",
+        category = "Big Jaw",
         height = 230,
         weight = 88800,
         entry = FeraligatrDesc,
@@ -1673,7 +1768,7 @@ public static class Pokedex
     {
         number = 162,
         name = "Furret",
-        category = "LongBody",
+        category = "Long Body",
         height = 180,
         weight = 32500,
         entry = FurretDesc,
@@ -1703,7 +1798,7 @@ public static class Pokedex
     {
         number = 165,
         name = "Ledyba",
-        category = "FiveStar",
+        category = "Five Star",
         height = 100,
         weight = 10800,
         entry = LedybaDesc,
@@ -1713,7 +1808,7 @@ public static class Pokedex
     {
         number = 166,
         name = "Ledian",
-        category = "FiveStar",
+        category = "Five Star",
         height = 140,
         weight = 35600,
         entry = LedianDesc,
@@ -1723,7 +1818,7 @@ public static class Pokedex
     {
         number = 167,
         name = "Spinarak",
-        category = "StringSpit",
+        category = "String Spit",
         height = 50,
         weight = 8500,
         entry = SpinarakDesc,
@@ -1733,7 +1828,7 @@ public static class Pokedex
     {
         number = 168,
         name = "Ariados",
-        category = "LongLeg",
+        category = "Long Leg",
         height = 110,
         weight = 33500,
         entry = AriadosDesc,
@@ -1773,17 +1868,21 @@ public static class Pokedex
     {
         number = 172,
         name = "Pichu",
-        category = "TinyMouse",
+        category = "Tiny Mouse",
         height = 30,
         weight = 2000,
         entry = PichuDesc,
-        forms = SingleSpecies(Species.Pichu),
+        forms = new[]
+        {
+            Species.Pichu,
+            Species.PichuSpikyEared
+        }
     };
     public static PokedexData Cleffa = new()
     {
         number = 173,
         name = "Cleffa",
-        category = "StarShape",
+        category = "Star Shape",
         height = 30,
         weight = 3000,
         entry = CleffaDesc,
@@ -1803,7 +1902,7 @@ public static class Pokedex
     {
         number = 175,
         name = "Togepi",
-        category = "SpikeBall",
+        category = "Spike Ball",
         height = 30,
         weight = 1500,
         entry = TogepiDesc,
@@ -1823,7 +1922,7 @@ public static class Pokedex
     {
         number = 177,
         name = "Natu",
-        category = "TinyBird",
+        category = "Tiny Bird",
         height = 20,
         weight = 2000,
         entry = NatuDesc,
@@ -1887,7 +1986,7 @@ public static class Pokedex
     {
         number = 183,
         name = "Marill",
-        category = "AquaMouse",
+        category = "Aqua Mouse",
         height = 40,
         weight = 8500,
         entry = MarillDesc,
@@ -1897,7 +1996,7 @@ public static class Pokedex
     {
         number = 184,
         name = "Azumarill",
-        category = "AquaRabbit",
+        category = "Aqua Rabbit",
         height = 80,
         weight = 28500,
         entry = AzumarillDesc,
@@ -1957,7 +2056,7 @@ public static class Pokedex
     {
         number = 190,
         name = "Aipom",
-        category = "LongTail",
+        category = "Long Tail",
         height = 80,
         weight = 11500,
         entry = AipomDesc,
@@ -1987,7 +2086,7 @@ public static class Pokedex
     {
         number = 193,
         name = "Yanma",
-        category = "ClearWing",
+        category = "Clear Wing",
         height = 120,
         weight = 38000,
         entry = YanmaDesc,
@@ -1997,7 +2096,7 @@ public static class Pokedex
     {
         number = 194,
         name = "Wooper",
-        category = "WaterFish",
+        category = "Water Fish",
         height = 40,
         weight = 8500,
         entry = WooperDesc,
@@ -2007,7 +2106,7 @@ public static class Pokedex
     {
         number = 195,
         name = "Quagsire",
-        category = "WaterFish",
+        category = "Water Fish",
         height = 140,
         weight = 75000,
         entry = QuagsireDesc,
@@ -2115,7 +2214,7 @@ public static class Pokedex
     {
         number = 203,
         name = "Girafarig",
-        category = "LongNeck",
+        category = "Long Neck",
         height = 150,
         weight = 41500,
         entry = GirafarigDesc,
@@ -2145,7 +2244,7 @@ public static class Pokedex
     {
         number = 206,
         name = "Dunsparce",
-        category = "LandSnake",
+        category = "Land Snake",
         height = 150,
         weight = 14000,
         entry = DunsparceDesc,
@@ -2155,7 +2254,7 @@ public static class Pokedex
     {
         number = 207,
         name = "Gligar",
-        category = "FlyScorpion",
+        category = "Fly Scorpion",
         height = 110,
         weight = 64800,
         entry = GligarDesc,
@@ -2165,7 +2264,7 @@ public static class Pokedex
     {
         number = 208,
         name = "Steelix",
-        category = "IronSnake",
+        category = "Iron Snake",
         height = 920,
         weight = 400000,
         entry = SteelixDesc,
@@ -2233,7 +2332,7 @@ public static class Pokedex
     {
         number = 214,
         name = "Heracross",
-        category = "SingleHorn",
+        category = "Single Horn",
         height = 150,
         weight = 54000,
         entry = HeracrossDesc,
@@ -2247,7 +2346,7 @@ public static class Pokedex
     {
         number = 215,
         name = "Sneasel",
-        category = "SharpClaw",
+        category = "Sharp Claw",
         height = 90,
         weight = 28000,
         entry = SneaselDesc,
@@ -2257,7 +2356,7 @@ public static class Pokedex
     {
         number = 216,
         name = "Teddiursa",
-        category = "LittleBear",
+        category = "Little Bear",
         height = 60,
         weight = 8800,
         entry = TeddiursaDesc,
@@ -2367,7 +2466,7 @@ public static class Pokedex
     {
         number = 227,
         name = "Skarmory",
-        category = "ArmorBird",
+        category = "Armor Bird",
         height = 170,
         weight = 50500,
         entry = SkarmoryDesc,
@@ -2411,7 +2510,7 @@ public static class Pokedex
     {
         number = 231,
         name = "Phanpy",
-        category = "LongNose",
+        category = "Long Nose",
         height = 50,
         weight = 33500,
         entry = PhanpyDesc,
@@ -2441,8 +2540,8 @@ public static class Pokedex
     {
         number = 234,
         name = "Stantler",
-        category = "BigHorn",
-        height = 140,
+        category = "Big Horn",
+        height = 140, 
         weight = 71200,
         entry = StantlerDesc,
         forms = SingleSpecies(Species.Stantler),
@@ -2501,7 +2600,7 @@ public static class Pokedex
     {
         number = 240,
         name = "Magby",
-        category = "LiveCoal",
+        category = "Live Coal",
         height = 70,
         weight = 21400,
         entry = MagbyDesc,
@@ -2511,7 +2610,7 @@ public static class Pokedex
     {
         number = 241,
         name = "Miltank",
-        category = "MilkCow",
+        category = "Milk Cow",
         height = 120,
         weight = 75500,
         entry = MiltankDesc,
@@ -2561,7 +2660,7 @@ public static class Pokedex
     {
         number = 246,
         name = "Larvitar",
-        category = "RockSkin",
+        category = "Rock Skin",
         height = 60,
         weight = 72000,
         entry = LarvitarDesc,
@@ -2571,7 +2670,7 @@ public static class Pokedex
     {
         number = 247,
         name = "Pupitar",
-        category = "HardShell",
+        category = "Hard Shell",
         height = 120,
         weight = 152000,
         entry = PupitarDesc,
@@ -2615,7 +2714,7 @@ public static class Pokedex
     {
         number = 251,
         name = "Celebi",
-        category = "TimeTravel",
+        category = "Time Travel",
         height = 60,
         weight = 5000,
         entry = CelebiDesc,
@@ -2625,7 +2724,7 @@ public static class Pokedex
     {
         number = 252,
         name = "Treecko",
-        category = "WoodGecko",
+        category = "Wood Gecko",
         height = 50,
         weight = 5000,
         entry = TreeckoDesc,
@@ -2635,7 +2734,7 @@ public static class Pokedex
     {
         number = 253,
         name = "Grovyle",
-        category = "WoodGecko",
+        category = "Wood Gecko",
         height = 90,
         weight = 21600,
         entry = GrovyleDesc,
@@ -2669,7 +2768,7 @@ public static class Pokedex
     {
         number = 256,
         name = "Combusken",
-        category = "YoungFowl",
+        category = "Young Fowl",
         height = 90,
         weight = 19500,
         entry = CombuskenDesc,
@@ -2693,7 +2792,7 @@ public static class Pokedex
     {
         number = 258,
         name = "Mudkip",
-        category = "MudFish",
+        category = "Mud Fish",
         height = 40,
         weight = 7600,
         entry = MudkipDesc,
@@ -2703,7 +2802,7 @@ public static class Pokedex
     {
         number = 259,
         name = "Marshtomp",
-        category = "MudFish",
+        category = "Mud Fish",
         height = 70,
         weight = 28000,
         entry = MarshtompDesc,
@@ -2713,7 +2812,7 @@ public static class Pokedex
     {
         number = 260,
         name = "Swampert",
-        category = "MudFish",
+        category = "Mud Fish",
         height = 150,
         weight = 81900,
         entry = SwampertDesc,
@@ -2747,7 +2846,7 @@ public static class Pokedex
     {
         number = 263,
         name = "Zigzagoon",
-        category = "TinyRaccoon",
+        category = "Tiny Raccoon",
         height = 40,
         weight = 17500,
         entry = ZigzagoonDesc,
@@ -2807,7 +2906,7 @@ public static class Pokedex
     {
         number = 269,
         name = "Dustox",
-        category = "PoisonMoth",
+        category = "Poison Moth",
         height = 120,
         weight = 31600,
         entry = DustoxDesc,
@@ -2877,7 +2976,7 @@ public static class Pokedex
     {
         number = 276,
         name = "Taillow",
-        category = "TinySwallow",
+        category = "Tiny Swallow",
         height = 30,
         weight = 2300,
         entry = TaillowDesc,
@@ -2907,7 +3006,7 @@ public static class Pokedex
     {
         number = 279,
         name = "Pelipper",
-        category = "WaterBird",
+        category = "Water Bird",
         height = 120,
         weight = 28000,
         entry = PelipperDesc,
@@ -2951,7 +3050,7 @@ public static class Pokedex
     {
         number = 283,
         name = "Surskit",
-        category = "PondSkater",
+        category = "Pond Skater",
         height = 50,
         weight = 1700,
         entry = SurskitDesc,
@@ -3001,7 +3100,7 @@ public static class Pokedex
     {
         number = 288,
         name = "Vigoroth",
-        category = "WildMonkey",
+        category = "Wild Monkey",
         height = 140,
         weight = 46500,
         entry = VigorothDesc,
@@ -3061,7 +3160,7 @@ public static class Pokedex
     {
         number = 294,
         name = "Loudred",
-        category = "BigVoice",
+        category = "Big Voice",
         height = 100,
         weight = 40500,
         entry = LoudredDesc,
@@ -3071,7 +3170,7 @@ public static class Pokedex
     {
         number = 295,
         name = "Exploud",
-        category = "LoudNoise",
+        category = "Loud Noise",
         height = 150,
         weight = 84000,
         entry = ExploudDesc,
@@ -3091,7 +3190,7 @@ public static class Pokedex
     {
         number = 297,
         name = "Hariyama",
-        category = "ArmThrust",
+        category = "Arm Thrust",
         height = 230,
         weight = 253800,
         entry = HariyamaDesc,
@@ -3101,7 +3200,7 @@ public static class Pokedex
     {
         number = 298,
         name = "Azurill",
-        category = "PolkaDot",
+        category = "Polka Dot",
         height = 20,
         weight = 2000,
         entry = AzurillDesc,
@@ -3169,7 +3268,7 @@ public static class Pokedex
     {
         number = 304,
         name = "Aron",
-        category = "IronArmor",
+        category = "Iron Armor",
         height = 40,
         weight = 60000,
         entry = AronDesc,
@@ -3179,7 +3278,7 @@ public static class Pokedex
     {
         number = 305,
         name = "Lairon",
-        category = "IronArmor",
+        category = "Iron Armor",
         height = 90,
         weight = 120000,
         entry = LaironDesc,
@@ -3189,7 +3288,7 @@ public static class Pokedex
     {
         number = 306,
         name = "Aggron",
-        category = "IronArmor",
+        category = "Iron Armor",
         height = 210,
         weight = 360000,
         entry = AggronDesc,
@@ -3311,7 +3410,7 @@ public static class Pokedex
     {
         number = 317,
         name = "Swalot",
-        category = "PoisonBag",
+        category = "Poison Bag",
         height = 170,
         weight = 80000,
         entry = SwalotDesc,
@@ -3345,7 +3444,7 @@ public static class Pokedex
     {
         number = 320,
         name = "Wailmer",
-        category = "BallWhale",
+        category = "Ball Whale",
         height = 200,
         weight = 130000,
         entry = WailmerDesc,
@@ -3355,7 +3454,7 @@ public static class Pokedex
     {
         number = 321,
         name = "Wailord",
-        category = "FloatWhale",
+        category = "Float Whale",
         height = 1450,
         weight = 398000,
         entry = WailordDesc,
@@ -3419,7 +3518,7 @@ public static class Pokedex
     {
         number = 327,
         name = "Spinda",
-        category = "SpotPanda",
+        category = "Spot Panda",
         height = 110,
         weight = 5000,
         entry = SpindaDesc,
@@ -3429,7 +3528,7 @@ public static class Pokedex
     {
         number = 328,
         name = "Trapinch",
-        category = "AntPit",
+        category = "Ant Pit",
         height = 70,
         weight = 15000,
         entry = TrapinchDesc,
@@ -3479,7 +3578,7 @@ public static class Pokedex
     {
         number = 333,
         name = "Swablu",
-        category = "CottonBird",
+        category = "Cotton Bird",
         height = 40,
         weight = 1200,
         entry = SwabluDesc,
@@ -3503,7 +3602,7 @@ public static class Pokedex
     {
         number = 335,
         name = "Zangoose",
-        category = "CatFerret",
+        category = "Cat Ferret",
         height = 130,
         weight = 40300,
         entry = ZangooseDesc,
@@ -3513,7 +3612,7 @@ public static class Pokedex
     {
         number = 336,
         name = "Seviper",
-        category = "FangSnake",
+        category = "Fang Snake",
         height = 270,
         weight = 52500,
         entry = SeviperDesc,
@@ -3583,7 +3682,7 @@ public static class Pokedex
     {
         number = 343,
         name = "Baltoy",
-        category = "ClayDoll",
+        category = "Clay Doll",
         height = 50,
         weight = 21500,
         entry = BaltoyDesc,
@@ -3593,7 +3692,7 @@ public static class Pokedex
     {
         number = 344,
         name = "Claydol",
-        category = "ClayDoll",
+        category = "Clay Doll",
         height = 150,
         weight = 108000,
         entry = ClaydolDesc,
@@ -3603,7 +3702,7 @@ public static class Pokedex
     {
         number = 345,
         name = "Lileep",
-        category = "SeaLily",
+        category = "Sea Lily",
         height = 100,
         weight = 23800,
         entry = LileepDesc,
@@ -3623,7 +3722,7 @@ public static class Pokedex
     {
         number = 347,
         name = "Anorith",
-        category = "OldShrimp",
+        category = "Old Shrimp",
         height = 70,
         weight = 12500,
         entry = AnorithDesc,
@@ -3679,7 +3778,7 @@ public static class Pokedex
     {
         number = 352,
         name = "Kecleon",
-        category = "ColorSwap",
+        category = "Color Swap",
         height = 100,
         weight = 22000,
         entry = KecleonDesc,
@@ -3743,7 +3842,7 @@ public static class Pokedex
     {
         number = 358,
         name = "Chimecho",
-        category = "WindChime",
+        category = "Wind Chime",
         height = 60,
         weight = 1000,
         entry = ChimechoDesc,
@@ -3777,7 +3876,7 @@ public static class Pokedex
     {
         number = 361,
         name = "Snorunt",
-        category = "SnowHat",
+        category = "Snow Hat",
         height = 70,
         weight = 16800,
         entry = SnoruntDesc,
@@ -3811,7 +3910,7 @@ public static class Pokedex
     {
         number = 364,
         name = "Sealeo",
-        category = "BallRoll",
+        category = "Ball Roll",
         height = 110,
         weight = 87600,
         entry = SealeoDesc,
@@ -3821,7 +3920,7 @@ public static class Pokedex
     {
         number = 365,
         name = "Walrein",
-        category = "IceBreak",
+        category = "Ice Break",
         height = 140,
         weight = 150600,
         entry = WalreinDesc,
@@ -3841,7 +3940,7 @@ public static class Pokedex
     {
         number = 367,
         name = "Huntail",
-        category = "DeepSea",
+        category = "Deep Sea",
         height = 170,
         weight = 27000,
         entry = HuntailDesc,
@@ -3851,7 +3950,7 @@ public static class Pokedex
     {
         number = 368,
         name = "Gorebyss",
-        category = "SouthSea",
+        category = "South Sea",
         height = 180,
         weight = 22600,
         entry = GorebyssDesc,
@@ -3881,7 +3980,7 @@ public static class Pokedex
     {
         number = 371,
         name = "Bagon",
-        category = "RockHead",
+        category = "Rock Head",
         height = 60,
         weight = 42100,
         entry = BagonDesc,
@@ -3915,7 +4014,7 @@ public static class Pokedex
     {
         number = 374,
         name = "Beldum",
-        category = "IronBall",
+        category = "Iron Ball",
         height = 60,
         weight = 95200,
         entry = BeldumDesc,
@@ -3925,7 +4024,7 @@ public static class Pokedex
     {
         number = 375,
         name = "Metang",
-        category = "IronClaw",
+        category = "Iron Claw",
         height = 120,
         weight = 202500,
         entry = MetangDesc,
@@ -3935,7 +4034,7 @@ public static class Pokedex
     {
         number = 376,
         name = "Metagross",
-        category = "IronLeg",
+        category = "Iron Leg",
         height = 160,
         weight = 550000,
         entry = MetagrossDesc,
@@ -3949,7 +4048,7 @@ public static class Pokedex
     {
         number = 377,
         name = "Regirock",
-        category = "RockPeak",
+        category = "Rock Peak",
         height = 170,
         weight = 230000,
         entry = RegirockDesc,
@@ -4007,7 +4106,7 @@ public static class Pokedex
     {
         number = 382,
         name = "Kyogre",
-        category = "SeaBasin",
+        category = "Sea Basin",
         height = 450,
         weight = 352000,
         entry = KyogreDesc,
@@ -4027,7 +4126,7 @@ public static class Pokedex
     {
         number = 384,
         name = "Rayquaza",
-        category = "SkyHigh",
+        category = "Sky High",
         height = 700,
         weight = 206500,
         entry = RayquazaDesc,
@@ -4069,7 +4168,7 @@ public static class Pokedex
     {
         number = 387,
         name = "Turtwig",
-        category = "TinyLeaf",
+        category = "Tiny Leaf",
         height = 40,
         weight = 10200,
         entry = TurtwigDesc,
@@ -4189,7 +4288,7 @@ public static class Pokedex
     {
         number = 399,
         name = "Bidoof",
-        category = "PlumpMouse",
+        category = "Plump Mouse",
         height = 50,
         weight = 20000,
         entry = BidoofDesc,
@@ -4249,7 +4348,7 @@ public static class Pokedex
     {
         number = 405,
         name = "Luxray",
-        category = "GleamEyes",
+        category = "Gleam Eyes",
         height = 140,
         weight = 42000,
         entry = LuxrayDesc,
@@ -4279,7 +4378,7 @@ public static class Pokedex
     {
         number = 408,
         name = "Cranidos",
-        category = "HeadButt",
+        category = "Head Butt",
         height = 90,
         weight = 31500,
         entry = CranidosDesc,
@@ -4289,7 +4388,7 @@ public static class Pokedex
     {
         number = 409,
         name = "Rampardos",
-        category = "HeadButt",
+        category = "Head Butt",
         height = 160,
         weight = 102500,
         entry = RampardosDesc,
@@ -4359,7 +4458,7 @@ public static class Pokedex
     {
         number = 415,
         name = "Combee",
-        category = "TinyBee",
+        category = "Tiny Bee",
         height = 30,
         weight = 5500,
         entry = CombeeDesc,
@@ -4389,7 +4488,7 @@ public static class Pokedex
     {
         number = 418,
         name = "Buizel",
-        category = "SeaWeasel",
+        category = "Sea Weasel",
         height = 70,
         weight = 29500,
         entry = BuizelDesc,
@@ -4399,7 +4498,7 @@ public static class Pokedex
     {
         number = 419,
         name = "Floatzel",
-        category = "SeaWeasel",
+        category = "Sea Weasel",
         height = 110,
         weight = 33500,
         entry = FloatzelDesc,
@@ -4433,7 +4532,7 @@ public static class Pokedex
     {
         number = 422,
         name = "Shellos",
-        category = "SeaSlug",
+        category = "Sea Slug",
         height = 30,
         weight = 6300,
         entry = ShellosDesc,
@@ -4447,7 +4546,7 @@ public static class Pokedex
     {
         number = 423,
         name = "Gastrodon",
-        category = "SeaSlug",
+        category = "Sea Slug",
         height = 90,
         weight = 29900,
         entry = GastrodonDesc,
@@ -4461,7 +4560,7 @@ public static class Pokedex
     {
         number = 424,
         name = "Ambipom",
-        category = "LongTail",
+        category = "Long Tail",
         height = 120,
         weight = 20300,
         entry = AmbipomDesc,
@@ -4525,7 +4624,7 @@ public static class Pokedex
     {
         number = 430,
         name = "Honchkrow",
-        category = "BigBoss",
+        category = "Big Boss",
         height = 90,
         weight = 27300,
         entry = HonchkrowDesc,
@@ -4545,7 +4644,7 @@ public static class Pokedex
     {
         number = 432,
         name = "Purugly",
-        category = "TigerCat",
+        category = "Tiger Cat",
         height = 100,
         weight = 43800,
         entry = PuruglyDesc,
@@ -4595,7 +4694,7 @@ public static class Pokedex
     {
         number = 437,
         name = "Bronzong",
-        category = "BronzeBell",
+        category = "Bronze Bell",
         height = 130,
         weight = 187000,
         entry = BronzongDesc,
@@ -4636,7 +4735,7 @@ public static class Pokedex
     {
         number = 441,
         name = "Chatot",
-        category = "MusicNote",
+        category = "Music Note",
         height = 50,
         weight = 1900,
         entry = ChatotDesc,
@@ -4656,7 +4755,7 @@ public static class Pokedex
     {
         number = 443,
         name = "Gible",
-        category = "LandShark",
+        category = "Land Shark",
         height = 70,
         weight = 20500,
         entry = GibleDesc,
@@ -4754,7 +4853,7 @@ public static class Pokedex
     {
         number = 452,
         name = "Drapion",
-        category = "OgreScorp",
+        category = "Ogre Scorpion",
         height = 130,
         weight = 61500,
         entry = DrapionDesc,
@@ -4764,7 +4863,7 @@ public static class Pokedex
     {
         number = 453,
         name = "Croagunk",
-        category = "ToxicMouth",
+        category = "Toxic Mouth",
         height = 70,
         weight = 23000,
         entry = CroagunkDesc,
@@ -4774,7 +4873,7 @@ public static class Pokedex
     {
         number = 454,
         name = "Toxicroak",
-        category = "ToxicMouth",
+        category = "Toxic Mouth",
         height = 130,
         weight = 44400,
         entry = ToxicroakDesc,
@@ -4784,7 +4883,7 @@ public static class Pokedex
     {
         number = 455,
         name = "Carnivine",
-        category = "BugCatcher",
+        category = "Bug Catcher",
         height = 140,
         weight = 27000,
         entry = CarnivineDesc,
@@ -4794,7 +4893,7 @@ public static class Pokedex
     {
         number = 456,
         name = "Finneon",
-        category = "WingFish",
+        category = "Wing Fish",
         height = 40,
         weight = 7000,
         entry = FinneonDesc,
@@ -4824,7 +4923,7 @@ public static class Pokedex
     {
         number = 459,
         name = "Snover",
-        category = "FrostTree",
+        category = "Frost Tree",
         height = 100,
         weight = 50500,
         entry = SnoverDesc,
@@ -4834,7 +4933,7 @@ public static class Pokedex
     {
         number = 460,
         name = "Abomasnow",
-        category = "FrostTree",
+        category = "Frost Tree",
         height = 220,
         weight = 135500,
         entry = AbomasnowDesc,
@@ -4848,7 +4947,7 @@ public static class Pokedex
     {
         number = 461,
         name = "Weavile",
-        category = "SharpClaw",
+        category = "Sharp Claw",
         height = 110,
         weight = 34000,
         entry = WeavileDesc,
@@ -4858,7 +4957,7 @@ public static class Pokedex
     {
         number = 462,
         name = "Magnezone",
-        category = "MagnetArea",
+        category = "Magnet Area",
         height = 120,
         weight = 180000,
         entry = MagnezoneDesc,
@@ -4928,7 +5027,7 @@ public static class Pokedex
     {
         number = 469,
         name = "Yanmega",
-        category = "OgreDarner",
+        category = "Ogre Darner",
         height = 190,
         weight = 51500,
         entry = YanmegaDesc,
@@ -4948,7 +5047,7 @@ public static class Pokedex
     {
         number = 471,
         name = "Glaceon",
-        category = "FreshSnow",
+        category = "Fresh Snow",
         height = 80,
         weight = 25900,
         entry = GlaceonDesc,
@@ -4958,7 +5057,7 @@ public static class Pokedex
     {
         number = 472,
         name = "Gliscor",
-        category = "FangScorp",
+        category = "Fang Scorpion",
         height = 200,
         weight = 42500,
         entry = GliscorDesc,
@@ -4968,7 +5067,7 @@ public static class Pokedex
     {
         number = 473,
         name = "Mamoswine",
-        category = "TwinTusk",
+        category = "Twin Tusk",
         height = 250,
         weight = 291000,
         entry = MamoswineDesc,
@@ -5022,7 +5121,7 @@ public static class Pokedex
     {
         number = 478,
         name = "Froslass",
-        category = "SnowLand",
+        category = "Snow Land",
         height = 130,
         weight = 26600,
         entry = FroslassDesc,
@@ -5108,7 +5207,7 @@ public static class Pokedex
     {
         number = 485,
         name = "Heatran",
-        category = "LavaDome",
+        category = "Lava Dome",
         height = 170,
         weight = 430000,
         entry = HeatranDesc,
@@ -5152,7 +5251,7 @@ public static class Pokedex
     {
         number = 489,
         name = "Phione",
-        category = "SeaDrifter",
+        category = "Sea Drifter",
         height = 40,
         weight = 3100,
         entry = PhioneDesc,
@@ -5212,7 +5311,7 @@ public static class Pokedex
     {
         number = 495,
         name = "Snivy",
-        category = "GrassSnake",
+        category = "Grass Snake",
         height = 60,
         weight = 8100,
         entry = SnivyDesc,
@@ -5222,7 +5321,7 @@ public static class Pokedex
     {
         number = 496,
         name = "Servine",
-        category = "GrassSnake",
+        category = "Grass Snake",
         height = 80,
         weight = 16000,
         entry = ServineDesc,
@@ -5242,7 +5341,7 @@ public static class Pokedex
     {
         number = 498,
         name = "Tepig",
-        category = "FirePig",
+        category = "Fire Pig",
         height = 50,
         weight = 9900,
         entry = TepigDesc,
@@ -5252,7 +5351,7 @@ public static class Pokedex
     {
         number = 499,
         name = "Pignite",
-        category = "FirePig",
+        category = "Fire Pig",
         height = 100,
         weight = 55500,
         entry = PigniteDesc,
@@ -5262,7 +5361,7 @@ public static class Pokedex
     {
         number = 500,
         name = "Emboar",
-        category = "FirePig",
+        category = "Fire Pig",
         height = 160,
         weight = 150000,
         entry = EmboarDesc,
@@ -5272,7 +5371,7 @@ public static class Pokedex
     {
         number = 501,
         name = "Oshawott",
-        category = "SeaOtter",
+        category = "Sea Otter",
         height = 50,
         weight = 5900,
         entry = OshawottDesc,
@@ -5332,7 +5431,7 @@ public static class Pokedex
     {
         number = 507,
         name = "Herdier",
-        category = "LoyalDog",
+        category = "Loyal Dog",
         height = 90,
         weight = 14700,
         entry = HerdierDesc,
@@ -5372,7 +5471,7 @@ public static class Pokedex
     {
         number = 511,
         name = "Pansage",
-        category = "GrassMonkey",
+        category = "Grass Monkey",
         height = 60,
         weight = 10500,
         entry = PansageDesc,
@@ -5382,7 +5481,7 @@ public static class Pokedex
     {
         number = 512,
         name = "Simisage",
-        category = "ThornMonkey",
+        category = "Thorn Monkey",
         height = 110,
         weight = 30500,
         entry = SimisageDesc,
@@ -5392,7 +5491,7 @@ public static class Pokedex
     {
         number = 513,
         name = "Pansear",
-        category = "HighTemp",
+        category = "High Temp",
         height = 60,
         weight = 11000,
         entry = PansearDesc,
@@ -5432,7 +5531,7 @@ public static class Pokedex
     {
         number = 517,
         name = "Munna",
-        category = "DreamEater",
+        category = "Dream Eater",
         height = 60,
         weight = 23300,
         entry = MunnaDesc,
@@ -5452,7 +5551,7 @@ public static class Pokedex
     {
         number = 519,
         name = "Pidove",
-        category = "TinyPigeon",
+        category = "Tiny Pigeon",
         height = 30,
         weight = 2100,
         entry = PidoveDesc,
@@ -5462,7 +5561,7 @@ public static class Pokedex
     {
         number = 520,
         name = "Tranquill",
-        category = "WildPigeon",
+        category = "Wild Pigeon",
         height = 60,
         weight = 15000,
         entry = TranquillDesc,
@@ -5726,7 +5825,7 @@ public static class Pokedex
     {
         number = 546,
         name = "Cottonee",
-        category = "CottonPuff",
+        category = "Cotton Puff",
         height = 30,
         weight = 600,
         entry = CottoneeDesc,
@@ -5786,7 +5885,7 @@ public static class Pokedex
     {
         number = 552,
         name = "Krokorok",
-        category = "DesertCroc",
+        category = "Desert Croc",
         height = 100,
         weight = 33400,
         entry = KrokorokDesc,
@@ -5806,7 +5905,7 @@ public static class Pokedex
     {
         number = 554,
         name = "Darumaka",
-        category = "ZenCharm",
+        category = "Zen Charm",
         height = 60,
         weight = 37500,
         entry = DarumakaDesc,
@@ -5836,7 +5935,7 @@ public static class Pokedex
     {
         number = 557,
         name = "Dwebble",
-        category = "RockInn",
+        category = "Rock Inn",
         height = 30,
         weight = 14500,
         entry = DwebbleDesc,
@@ -5846,7 +5945,7 @@ public static class Pokedex
     {
         number = 558,
         name = "Crustle",
-        category = "StoneHome",
+        category = "Stone Home",
         height = 140,
         weight = 200000,
         entry = CrustleDesc,
@@ -5926,7 +6025,7 @@ public static class Pokedex
     {
         number = 566,
         name = "Archen",
-        category = "FirstBird",
+        category = "First Bird",
         height = 50,
         weight = 9500,
         entry = ArchenDesc,
@@ -5936,7 +6035,7 @@ public static class Pokedex
     {
         number = 567,
         name = "Archeops",
-        category = "FirstBird",
+        category = "First Bird",
         height = 140,
         weight = 32000,
         entry = ArcheopsDesc,
@@ -5946,7 +6045,7 @@ public static class Pokedex
     {
         number = 568,
         name = "Trubbish",
-        category = "TrashBag",
+        category = "Trash Bag",
         height = 60,
         weight = 31000,
         entry = TrubbishDesc,
@@ -5956,7 +6055,7 @@ public static class Pokedex
     {
         number = 569,
         name = "Garbodor",
-        category = "TrashHeap",
+        category = "Trash Heap",
         height = 190,
         weight = 107300,
         entry = GarbodorDesc,
@@ -5966,7 +6065,7 @@ public static class Pokedex
     {
         number = 570,
         name = "Zorua",
-        category = "TrickyFox",
+        category = "Tricky Fox",
         height = 70,
         weight = 12500,
         entry = ZoruaDesc,
@@ -5976,7 +6075,7 @@ public static class Pokedex
     {
         number = 571,
         name = "Zoroark",
-        category = "IllusionFox",
+        category = "Illusion Fox",
         height = 160,
         weight = 81100,
         entry = ZoroarkDesc,
@@ -6026,7 +6125,7 @@ public static class Pokedex
     {
         number = 576,
         name = "Gothitelle",
-        category = "AstralBody",
+        category = "Astral Body",
         height = 150,
         weight = 44000,
         entry = GothitelleDesc,
@@ -6066,7 +6165,7 @@ public static class Pokedex
     {
         number = 580,
         name = "Ducklett",
-        category = "WaterBird",
+        category = "Water Bird",
         height = 50,
         weight = 5500,
         entry = DucklettDesc,
@@ -6076,7 +6175,7 @@ public static class Pokedex
     {
         number = 581,
         name = "Swanna",
-        category = "WhiteBird",
+        category = "White Bird",
         height = 130,
         weight = 24200,
         entry = SwannaDesc,
@@ -6086,7 +6185,7 @@ public static class Pokedex
     {
         number = 582,
         name = "Vanillite",
-        category = "FreshSnow",
+        category = "Fresh Snow",
         height = 40,
         weight = 5700,
         entry = VanilliteDesc,
@@ -6096,7 +6195,7 @@ public static class Pokedex
     {
         number = 583,
         name = "Vanillish",
-        category = "IcySnow",
+        category = "Icy Snow",
         height = 110,
         weight = 41000,
         entry = VanillishDesc,
@@ -6148,7 +6247,7 @@ public static class Pokedex
     {
         number = 587,
         name = "Emolga",
-        category = "SkySquirrel",
+        category = "Sky Squirrel",
         height = 40,
         weight = 5000,
         entry = EmolgaDesc,
@@ -6248,7 +6347,7 @@ public static class Pokedex
     {
         number = 597,
         name = "Ferroseed",
-        category = "ThornSeed",
+        category = "Thorn Seed",
         height = 60,
         weight = 18800,
         entry = FerroseedDesc,
@@ -6258,7 +6357,7 @@ public static class Pokedex
     {
         number = 598,
         name = "Ferrothorn",
-        category = "ThornPod",
+        category = "Thorn Pod",
         height = 100,
         weight = 110000,
         entry = FerrothornDesc,
@@ -6388,7 +6487,7 @@ public static class Pokedex
     {
         number = 611,
         name = "Fraxure",
-        category = "AxeJaw",
+        category = "Axe Jaw",
         height = 100,
         weight = 36000,
         entry = FraxureDesc,
@@ -6398,7 +6497,7 @@ public static class Pokedex
     {
         number = 612,
         name = "Haxorus",
-        category = "AxeJaw",
+        category = "Axe Jaw",
         height = 180,
         weight = 105500,
         entry = HaxorusDesc,
@@ -6448,7 +6547,7 @@ public static class Pokedex
     {
         number = 617,
         name = "Accelgor",
-        category = "ShellOut",
+        category = "Shell Out",
         height = 80,
         weight = 25300,
         entry = AccelgorDesc,
@@ -6468,7 +6567,7 @@ public static class Pokedex
     {
         number = 619,
         name = "Mienfoo",
-        category = "MartialArts",
+        category = "Martial Arts",
         height = 90,
         weight = 20000,
         entry = MienfooDesc,
@@ -6478,7 +6577,7 @@ public static class Pokedex
     {
         number = 620,
         name = "Mienshao",
-        category = "MartialArts",
+        category = "Martial Arts",
         height = 140,
         weight = 35500,
         entry = MienshaoDesc,
@@ -6518,7 +6617,7 @@ public static class Pokedex
     {
         number = 624,
         name = "Pawniard",
-        category = "SharpBlade",
+        category = "Sharp Blade",
         height = 50,
         weight = 10200,
         entry = PawniardDesc,
@@ -6528,7 +6627,7 @@ public static class Pokedex
     {
         number = 625,
         name = "Bisharp",
-        category = "SwordBlade",
+        category = "Sword Blade",
         height = 160,
         weight = 70000,
         entry = BisharpDesc,
@@ -6538,7 +6637,7 @@ public static class Pokedex
     {
         number = 626,
         name = "Bouffalant",
-        category = "BashBuffalo",
+        category = "Bash Buffalo",
         height = 160,
         weight = 94600,
         entry = BouffalantDesc,
@@ -6578,7 +6677,7 @@ public static class Pokedex
     {
         number = 630,
         name = "Mandibuzz",
-        category = "BoneVulture",
+        category = "Bone Vulture",
         height = 120,
         weight = 39500,
         entry = MandibuzzDesc,
@@ -6598,7 +6697,7 @@ public static class Pokedex
     {
         number = 632,
         name = "Durant",
-        category = "IronAnt",
+        category = "Iron Ant",
         height = 30,
         weight = 33000,
         entry = DurantDesc,
@@ -6658,7 +6757,7 @@ public static class Pokedex
     {
         number = 638,
         name = "Cobalion",
-        category = "IronWill",
+        category = "Iron Will",
         height = 210,
         weight = 250000,
         entry = CobalionDesc,
@@ -6702,7 +6801,7 @@ public static class Pokedex
     {
         number = 642,
         name = "Thundurus",
-        category = "BoltStrike",
+        category = "Bolt Strike",
         height = 150,
         weight = 61000,
         entry = ThundurusDesc,
@@ -6716,7 +6815,7 @@ public static class Pokedex
     {
         number = 643,
         name = "Reshiram",
-        category = "VastWhite",
+        category = "Vast White",
         height = 320,
         weight = 330000,
         entry = ReshiramDesc,
@@ -6726,7 +6825,7 @@ public static class Pokedex
     {
         number = 644,
         name = "Zekrom",
-        category = "DeepBlack",
+        category = "Deep Black",
         height = 290,
         weight = 345000,
         entry = ZekromDesc,
@@ -6810,7 +6909,7 @@ public static class Pokedex
     {
         number = 650,
         name = "Chespin",
-        category = "SpinyNut",
+        category = "Spiny Nut",
         height = 40,
         weight = 9000,
         entry = ChespinDesc,
@@ -6820,7 +6919,7 @@ public static class Pokedex
     {
         number = 651,
         name = "Quilladin",
-        category = "SpinyArmor",
+        category = "Spiny Armor",
         height = 70,
         weight = 29000,
         entry = QuilladinDesc,
@@ -6830,7 +6929,7 @@ public static class Pokedex
     {
         number = 652,
         name = "Chesnaught",
-        category = "SpinyArmor",
+        category = "Spiny Armor",
         height = 160,
         weight = 90000,
         entry = ChesnaughtDesc,
@@ -6870,7 +6969,7 @@ public static class Pokedex
     {
         number = 656,
         name = "Froakie",
-        category = "BubbleFrog",
+        category = "Bubble Frog",
         height = 30,
         weight = 7000,
         entry = FroakieDesc,
@@ -6880,7 +6979,7 @@ public static class Pokedex
     {
         number = 657,
         name = "Frogadier",
-        category = "BubbleFrog",
+        category = "Bubble Frog",
         height = 60,
         weight = 10900,
         entry = FrogadierDesc,
@@ -6920,7 +7019,7 @@ public static class Pokedex
     {
         number = 661,
         name = "Fletchling",
-        category = "TinyRobin",
+        category = "Tiny Robin",
         height = 30,
         weight = 1700,
         entry = FletchlingDesc,
@@ -7002,7 +7101,7 @@ public static class Pokedex
     {
         number = 667,
         name = "Litleo",
-        category = "LionCub",
+        category = "Lion Cub",
         height = 60,
         weight = 13500,
         entry = LitleoDesc,
@@ -7022,7 +7121,7 @@ public static class Pokedex
     {
         number = 669,
         name = "Flabebe",
-        category = "SingleBloom",
+        category = "Single Bloom",
         height = 10,
         weight = 100,
         entry = FlabebeRedDesc,
@@ -7039,7 +7138,7 @@ public static class Pokedex
     {
         number = 670,
         name = "Floette",
-        category = "SingleBloom",
+        category = "Single Bloom",
         height = 20,
         weight = 900,
         entry = FloetteRedDesc,
@@ -7180,7 +7279,7 @@ public static class Pokedex
     {
         number = 681,
         name = "Aegislash",
-        category = "RoyalSword",
+        category = "Royal Sword",
         height = 170,
         weight = 53000,
         entry = AegislashShieldDesc,
@@ -7214,7 +7313,7 @@ public static class Pokedex
     {
         number = 684,
         name = "Swirlix",
-        category = "CottonCandy",
+        category = "Cotton Candy",
         height = 40,
         weight = 3500,
         entry = SwirlixDesc,
@@ -7284,7 +7383,7 @@ public static class Pokedex
     {
         number = 691,
         name = "Dragalge",
-        category = "MockKelp",
+        category = "Mock Kelp",
         height = 180,
         weight = 81500,
         entry = DragalgeDesc,
@@ -7294,7 +7393,7 @@ public static class Pokedex
     {
         number = 692,
         name = "Clauncher",
-        category = "WaterGun",
+        category = "Water Gun",
         height = 50,
         weight = 8300,
         entry = ClauncherDesc,
@@ -7334,7 +7433,7 @@ public static class Pokedex
     {
         number = 696,
         name = "Tyrunt",
-        category = "RoyalHeir",
+        category = "Royal Heir",
         height = 80,
         weight = 26000,
         entry = TyruntDesc,
@@ -7414,7 +7513,7 @@ public static class Pokedex
     {
         number = 704,
         name = "Goomy",
-        category = "SoftTissue",
+        category = "Soft Tissue",
         height = 30,
         weight = 2800,
         entry = GoomyDesc,
@@ -7424,7 +7523,7 @@ public static class Pokedex
     {
         number = 705,
         name = "Sliggoo",
-        category = "SoftTissue",
+        category = "Soft Tissue",
         height = 80,
         weight = 17500,
         entry = SliggooDesc,
@@ -7444,7 +7543,7 @@ public static class Pokedex
     {
         number = 707,
         name = "Klefki",
-        category = "KeyRing",
+        category = "Key Ring",
         height = 20,
         weight = 3000,
         entry = KlefkiDesc,
@@ -7464,7 +7563,7 @@ public static class Pokedex
     {
         number = 709,
         name = "Trevenant",
-        category = "ElderTree",
+        category = "Elder Tree",
         height = 150,
         weight = 71000,
         entry = TrevenantDesc,
@@ -7506,7 +7605,7 @@ public static class Pokedex
     {
         number = 712,
         name = "Bergmite",
-        category = "IceChunk",
+        category = "Ice Chunk",
         height = 100,
         weight = 99500,
         entry = BergmiteDesc,
@@ -7526,7 +7625,7 @@ public static class Pokedex
     {
         number = 714,
         name = "Noibat",
-        category = "SoundWave",
+        category = "Sound Wave",
         height = 50,
         weight = 8000,
         entry = NoibatDesc,
@@ -7536,7 +7635,7 @@ public static class Pokedex
     {
         number = 715,
         name = "Noivern",
-        category = "SoundWave",
+        category = "Sound Wave",
         height = 150,
         weight = 85000,
         entry = NoivernDesc,
@@ -7619,6 +7718,945 @@ public static class Pokedex
         entry = VolcanionDesc,
         forms = SingleSpecies(Species.Volcanion),
     };
+    public static PokedexData Rowlet = new()
+    {
+        number = 722,
+        name = "Rowlet",
+        category = "Grass Quill",
+        height = 30,
+        weight = 1500,
+        entry = RowletDesc,
+        forms = SingleSpecies(Species.Rowlet),
+    };
+    public static PokedexData Dartrix = new()
+    {
+        number = 723,
+        name = "Dartrix",
+        category = "Blade Quill",
+        height = 70,
+        weight = 16000,
+        entry = DartrixDesc,
+        forms = SingleSpecies(Species.Dartrix),
+    };
+    public static PokedexData Decidueye = new()
+    {
+        number = 724,
+        name = "Decidueye",
+        category = "Arrow Quill",
+        height = 160,
+        weight = 36600,
+        entry = DecidueyeDesc,
+        forms = SingleSpecies(Species.Decidueye),
+    };
+    public static PokedexData Litten = new()
+    {
+        number = 725,
+        name = "Litten",
+        category = "Fire Cat",
+        height = 40,
+        weight = 4300,
+        entry = LittenDesc,
+        forms = SingleSpecies(Species.Litten),
+    };
+    public static PokedexData Torracat = new()
+    {
+        number = 726,
+        name = "Torracat",
+        category = "Fire Cat",
+        height = 70,
+        weight = 25000,
+        entry = TorracatDesc,
+        forms = SingleSpecies(Species.Torracat),
+    };
+    public static PokedexData Incineroar = new()
+    {
+        number = 727,
+        name = "Incineroar",
+        category = "Heel",
+        height = 180,
+        weight = 83000,
+        entry = IncineroarDesc,
+        forms = SingleSpecies(Species.Incineroar),
+    };
+    public static PokedexData Popplio = new()
+    {
+        number = 728,
+        name = "Popplio",
+        category = "Sea Lion",
+        height = 40,
+        weight = 7500,
+        entry = PopplioDesc,
+        forms = SingleSpecies(Species.Popplio),
+    };
+    public static PokedexData Brionne = new()
+    {
+        number = 729,
+        name = "Brionne",
+        category = "Pop Star",
+        height = 60,
+        weight = 17500,
+        entry = BrionneDesc,
+        forms = SingleSpecies(Species.Brionne),
+    };
+    public static PokedexData Primarina = new()
+    {
+        number = 730,
+        name = "Primarina",
+        category = "Soloist",
+        height = 180,
+        weight = 44000,
+        entry = PrimarinaDesc,
+        forms = SingleSpecies(Species.Primarina),
+    };
+    public static PokedexData Pikipek = new()
+    {
+        number = 731,
+        name = "Pikipek",
+        category = "Woodpecker",
+        height = 30,
+        weight = 1200,
+        entry = PikipekDesc,
+        forms = SingleSpecies(Species.Pikipek),
+    };
+    public static PokedexData Trumbeak = new()
+    {
+        number = 732,
+        name = "Trumbeak",
+        category = "Bugle Beak",
+        height = 60,
+        weight = 14800,
+        entry = TrumbeakDesc,
+        forms = SingleSpecies(Species.Trumbeak),
+    };
+    public static PokedexData Toucannon = new()
+    {
+        number = 733,
+        name = "Toucannon",
+        category = "Cannon",
+        height = 110,
+        weight = 26000,
+        entry = ToucannonDesc,
+        forms = SingleSpecies(Species.Toucannon),
+    };
+    public static PokedexData Yungoos = new()
+    {
+        number = 734,
+        name = "Yungoos",
+        category = "Loitering",
+        height = 40,
+        weight = 6000,
+        entry = YungoosDesc,
+        forms = SingleSpecies(Species.Yungoos),
+    };
+    public static PokedexData Gumshoos = new()
+    {
+        number = 735,
+        name = "Gumshoos",
+        category = "Stakeout",
+        height = 70,
+        weight = 14200,
+        entry = GumshoosDesc,
+        forms = SingleSpecies(Species.Gumshoos),
+    };
+    public static PokedexData Grubbin = new()
+    {
+        number = 736,
+        name = "Grubbin",
+        category = "Larva",
+        height = 40,
+        weight = 4400,
+        entry = GrubbinDesc,
+        forms = SingleSpecies(Species.Grubbin),
+    };
+    public static PokedexData Charjabug = new()
+    {
+        number = 737,
+        name = "Charjabug",
+        category = "Battery",
+        height = 50,
+        weight = 10500,
+        entry = CharjabugDesc,
+        forms = SingleSpecies(Species.Charjabug),
+    };
+    public static PokedexData Vikavolt = new()
+    {
+        number = 738,
+        name = "Vikavolt",
+        category = "Stag Beetle",
+        height = 150,
+        weight = 45000,
+        entry = VikavoltDesc,
+        forms = SingleSpecies(Species.Vikavolt),
+    };
+    public static PokedexData Crabrawler = new()
+    {
+        number = 739,
+        name = "Crabrawler",
+        category = "Boxing",
+        height = 60,
+        weight = 7000,
+        entry = CrabrawlerDesc,
+        forms = SingleSpecies(Species.Crabrawler),
+    };
+    public static PokedexData Crabominable = new()
+    {
+        number = 740,
+        name = "Crabominable",
+        category = "Woolly Crab",
+        height = 170,
+        weight = 180000,
+        entry = CrabominableDesc,
+        forms = SingleSpecies(Species.Crabominable),
+    };
+    public static PokedexData Oricorio = new()
+    {
+        number = 741,
+        name = "Oricorio",
+        category = "Dancing",
+        height = 60,
+        weight = 3400,
+        entry = OricorioBaileDesc,
+        forms = new[]
+        {
+            Species.OricorioBaile,
+            Species.OricorioPomPom,
+            Species.OricorioPau,
+            Species.OricorioSensu
+        },
+    };
+    public static PokedexData Cutiefly = new()
+    {
+        number = 742,
+        name = "Cutiefly",
+        category = "Bee Fly",
+        height = 10,
+        weight = 200,
+        entry = CutieflyDesc,
+        forms = SingleSpecies(Species.Cutiefly),
+    };
+    public static PokedexData Ribombee = new()
+    {
+        number = 743,
+        name = "Ribombee",
+        category = "Bee Fly",
+        height = 20,
+        weight = 500,
+        entry = RibombeeDesc,
+        forms = SingleSpecies(Species.Ribombee),
+    };
+    public static PokedexData Rockruff = new()
+    {
+        number = 744,
+        name = "Rockruff",
+        category = "Puppy",
+        height = 50,
+        weight = 9200,
+        entry = RockruffDesc,
+        forms = SingleSpecies(Species.RockruffNormal),
+    };
+    public static PokedexData Lycanroc = new()
+    {
+        number = 745,
+        name = "Lycanroc",
+        category = "Wolf",
+        height = 80,
+        weight = 25000,
+        entry = LycanrocMiddayDesc,
+        forms = new[]
+        {
+            Species.Lycanroc,
+            Species.LycanrocMidnight,
+            Species.LycanrocDusk
+        },
+    };
+    public static PokedexData Wishiwashi = new()
+    {
+        number = 746,
+        name = "Wishiwashi",
+        category = "Small Fry",
+        height = 20,
+        weight = 300,
+        entry = WishiwashiBaseDesc,
+        forms = new[]
+        {
+            Species.Wishiwashi,
+            Species.WishiwashiSchool
+        }
+    };
+    public static PokedexData Mareanie = new()
+    {
+        number = 747,
+        name = "Mareanie",
+        category = "Brutal Star",
+        height = 40,
+        weight = 8000,
+        entry = MareanieDesc,
+        forms = SingleSpecies(Species.Mareanie),
+    };
+    public static PokedexData Toxapex = new()
+    {
+        number = 748,
+        name = "Toxapex",
+        category = "Brutal Star",
+        height = 70,
+        weight = 14500,
+        entry = ToxapexDesc,
+        forms = SingleSpecies(Species.Toxapex),
+    };
+    public static PokedexData Mudbray = new()
+    {
+        number = 749,
+        name = "Mudbray",
+        category = "Donkey",
+        height = 100,
+        weight = 110000,
+        entry = MudbrayDesc,
+        forms = SingleSpecies(Species.Mudbray),
+    };
+    public static PokedexData Mudsdale = new()
+    {
+        number = 750,
+        name = "Mudsdale",
+        category = "Draft Horse",
+        height = 250,
+        weight = 920000,
+        entry = MudsdaleDesc,
+        forms = SingleSpecies(Species.Mudsdale),
+    };
+    public static PokedexData Dewpider = new()
+    {
+        number = 751,
+        name = "Dewpider",
+        category = "Water Bubble",
+        height = 30,
+        weight = 4000,
+        entry = DewpiderDesc,
+        forms = SingleSpecies(Species.Dewpider),
+    };
+    public static PokedexData Araquanid = new()
+    {
+        number = 752,
+        name = "Araquanid",
+        category = "Water Bubble",
+        height = 180,
+        weight = 82000,
+        entry = AraquanidDesc,
+        forms = SingleSpecies(Species.Araquanid),
+    };
+    public static PokedexData Fomantis = new()
+    {
+        number = 753,
+        name = "Fomantis",
+        category = "Sickle Grass",
+        height = 30,
+        weight = 1500,
+        entry = FomantisDesc,
+        forms = SingleSpecies(Species.Fomantis),
+    };
+    public static PokedexData Lurantis = new()
+    {
+        number = 754,
+        name = "Lurantis",
+        category = "Bloom Sickle",
+        height = 90,
+        weight = 18500,
+        entry = LurantisDesc,
+        forms = SingleSpecies(Species.Lurantis),
+    };
+    public static PokedexData Morelull = new()
+    {
+        number = 755,
+        name = "Morelull",
+        category = "Illuminate",
+        height = 20,
+        weight = 1500,
+        entry = MorelullDesc,
+        forms = SingleSpecies(Species.Morelull),
+    };
+    public static PokedexData Shiinotic = new()
+    {
+        number = 756,
+        name = "Shiinotic",
+        category = "Illuminate",
+        height = 100,
+        weight = 11500,
+        entry = ShiinoticDesc,
+        forms = SingleSpecies(Species.Shiinotic),
+    };
+    public static PokedexData Salandit = new()
+    {
+        number = 757,
+        name = "Salandit",
+        category = "Toxic Lizard",
+        height = 60,
+        weight = 4800,
+        entry = SalanditDesc,
+        forms = SingleSpecies(Species.Salandit),
+    };
+    public static PokedexData Salazzle = new()
+    {
+        number = 758,
+        name = "Salazzle",
+        category = "Toxic Lizard",
+        height = 120,
+        weight = 22200,
+        entry = SalazzleDesc,
+        forms = SingleSpecies(Species.Salazzle),
+    };
+    public static PokedexData Stufful = new()
+    {
+        number = 759,
+        name = "Stufful",
+        category = "Flailing",
+        height = 50,
+        weight = 6800,
+        entry = StuffulDesc,
+        forms = SingleSpecies(Species.Stufful),
+    };
+    public static PokedexData Bewear = new()
+    {
+        number = 760,
+        name = "Bewear",
+        category = "Strong Arm",
+        height = 210,
+        weight = 135000,
+        entry = BewearDesc,
+        forms = SingleSpecies(Species.Bewear),
+    };
+    public static PokedexData Bounsweet = new()
+    {
+        number = 761,
+        name = "Bounsweet",
+        category = "Fruit",
+        height = 30,
+        weight = 3200,
+        entry = BounsweetDesc,
+        forms = SingleSpecies(Species.Bounsweet),
+    };
+    public static PokedexData Steenee = new()
+    {
+        number = 762,
+        name = "Steenee",
+        category = "Fruit",
+        height = 70,
+        weight = 8200,
+        entry = SteeneeDesc,
+        forms = SingleSpecies(Species.Steenee),
+    };
+    public static PokedexData Tsareena = new()
+    {
+        number = 763,
+        name = "Tsareena",
+        category = "Fruit",
+        height = 120,
+        weight = 21400,
+        entry = TsareenaDesc,
+        forms = SingleSpecies(Species.Tsareena),
+    };
+    public static PokedexData Comfey = new()
+    {
+        number = 764,
+        name = "Comfey",
+        category = "Posy Picker",
+        height = 10,
+        weight = 300,
+        entry = ComfeyDesc,
+        forms = SingleSpecies(Species.Comfey),
+    };
+    public static PokedexData Oranguru = new()
+    {
+        number = 765,
+        name = "Oranguru",
+        category = "Sage",
+        height = 150,
+        weight = 76000,
+        entry = OranguruDesc,
+        forms = SingleSpecies(Species.Oranguru),
+    };
+    public static PokedexData Passimian = new()
+    {
+        number = 766,
+        name = "Passimian",
+        category = "Teamwork",
+        height = 200,
+        weight = 82800,
+        entry = PassimianDesc,
+        forms = SingleSpecies(Species.Passimian),
+    };
+    public static PokedexData Wimpod = new()
+    {
+        number = 767,
+        name = "Wimpod",
+        category = "Turn Tail",
+        height = 50,
+        weight = 12000,
+        entry = WimpodDesc,
+        forms = SingleSpecies(Species.Wimpod),
+    };
+    public static PokedexData Golisopod = new()
+    {
+        number = 768,
+        name = "Golisopod",
+        category = "Hard Scale",
+        height = 200,
+        weight = 108000,
+        entry = GolisopodDesc,
+        forms = SingleSpecies(Species.Golisopod),
+    };
+    public static PokedexData Sandygast = new()
+    {
+        number = 769,
+        name = "Sandygast",
+        category = "Sand Heap",
+        height = 50,
+        weight = 70000,
+        entry = SandygastDesc,
+        forms = SingleSpecies(Species.Sandygast),
+    };
+    public static PokedexData Palossand = new()
+    {
+        number = 770,
+        name = "Palossand",
+        category = "Sand Castle",
+        height = 130,
+        weight = 250000,
+        entry = PalossandDesc,
+        forms = SingleSpecies(Species.Palossand),
+    };
+    public static PokedexData Pyukumuku = new()
+    {
+        number = 771,
+        name = "Pyukumuku",
+        category = "Sea Cucumber",
+        height = 30,
+        weight = 1200,
+        entry = PyukumukuDesc,
+        forms = SingleSpecies(Species.Pyukumuku),
+    };
+    public static PokedexData TypeNull = new ()
+	{
+		number = 772,
+		name = "Type: Null",
+		category = "Synthetic",
+		height = 190,
+		weight = 120500,
+		entry = TypeNullDesc,
+        forms = SingleSpecies(Species.TypeNull),
 
+    };
+    public static PokedexData Silvally = new()
+    {
+        number = 773,
+        name = "Silvally",
+        category = "Synthetic",
+        height = 230,
+        weight = 100500,
+        entry = SilvallyDesc,
+        forms = new[]
+        {
+            Species.SilvallyNormal,
+            Species.SilvallyFighting,
+            Species.SilvallyFlying,
+            Species.SilvallyPoison,
+            Species.SilvallyGround,
+            Species.SilvallyRock,
+            Species.SilvallyBug,
+            Species.SilvallyGhost,
+            Species.SilvallySteel,
+            Species.SilvallyFire,
+            Species.SilvallyWater,
+            Species.SilvallyGrass,
+            Species.SilvallyElectric,
+            Species.SilvallyPsychic,
+            Species.SilvallyIce,
+            Species.SilvallyDragon,
+            Species.SilvallyDark,
+            Species.SilvallyFairy
+        },
+    };
+    public static PokedexData Minior = new()
+    {
+        number = 774,
+        name = "Minior",
+        category = "Meteor",
+        height = 30,
+        weight = 40000,
+        entry = MiniorMeteorDesc,
+        forms = new[]
+        {
+            Species.MiniorRedCore,
+            Species.MiniorOrangeCore,
+            Species.MiniorYellowCore,
+            Species.MiniorGreenCore,
+            Species.MiniorBlueCore,
+            Species.MiniorIndigoCore,
+            Species.MiniorVioletCore,
+            Species.MiniorRedMeteor
+        },
+    };
+    public static PokedexData Komala = new()
+    {
+        number = 775,
+        name = "Komala",
+        category = "Drowsing",
+        height = 40,
+        weight = 19900,
+        entry = KomalaDesc,
+        forms = SingleSpecies(Species.Komala),
+    };
+    public static PokedexData Turtonator = new()
+    {
+        number = 776,
+        name = "Turtonator",
+        category = "Blast Turtle",
+        height = 200,
+        weight = 212000,
+        entry = TurtonatorDesc,
+        forms = SingleSpecies(Species.Turtonator),
+    };
+    public static PokedexData Togedemaru = new()
+    {
+        number = 777,
+        name = "Togedemaru",
+        category = "Roly-Poly",
+        height = 30,
+        weight = 3300,
+        entry = TogedemaruDesc,
+        forms = SingleSpecies(Species.Togedemaru),
+    };
+    public static PokedexData Mimikyu = new()
+    {
+        number = 778,
+        name = "Mimikyu",
+        category = "Disguise",
+        height = 20,
+        weight = 700,
+        entry = MimikyuDesc,
+        forms = new[]
+        {
+            Species.MimikyuBase,
+            Species.MimikyuBusted
+        }
+    };
+    public static PokedexData Bruxish = new()
+    {
+        number = 779,
+        name = "Bruxish",
+        category = "Gnash Teeth",
+        height = 90,
+        weight = 19000,
+        entry = BruxishDesc,
+        forms = SingleSpecies(Species.Bruxish),
+    };
+    public static PokedexData Drampa = new()
+    {
+        number = 780,
+        name = "Drampa",
+        category = "Placid",
+        height = 300,
+        weight = 185000,
+        entry = DrampaDesc,
+        forms = SingleSpecies(Species.Drampa),
+    };
+    public static PokedexData Dhelmise = new()
+    {
+        number = 781,
+        name = "Dhelmise",
+        category = "Sea Creeper",
+        height = 390,
+        weight = 210000,
+        entry = DhelmiseDesc,
+        forms = SingleSpecies(Species.Dhelmise),
+    };
+    public static PokedexData JangmoO = new()
+    {
+        number = 782,
+        name = "Jangmo O",
+        category = "Scaly",
+        height = 60,
+        weight = 29700,
+        entry = JangmoODesc,
+        forms = SingleSpecies(Species.JangmoO),
+    };
+    public static PokedexData HakamoO = new()
+    {
+        number = 783,
+        name = "Hakamo O",
+        category = "Scaly",
+        height = 120,
+        weight = 47000,
+        entry = HakamoODesc,
+        forms = SingleSpecies(Species.HakamoO),
+    };
+    public static PokedexData KommoO = new()
+    {
+        number = 784,
+        name = "Kommo O",
+        category = "Scaly",
+        height = 160,
+        weight = 78200,
+        entry = KommoODesc,
+        forms = SingleSpecies(Species.KommoO),
+    };
+    public static PokedexData TapuKoko = new()
+    {
+        number = 785,
+        name = "Tapu Koko",
+        category = "Land Spirit",
+        height = 180,
+        weight = 20500,
+        entry = TapuKokoDesc,
+        forms = SingleSpecies(Species.TapuKoko),
+    };
+    public static PokedexData TapuLele = new()
+    {
+        number = 786,
+        name = "Tapu Lele",
+        category = "Land Spirit",
+        height = 120,
+        weight = 18600,
+        entry = TapuLeleDesc,
+        forms = SingleSpecies(Species.TapuLele),
+    };
+    public static PokedexData TapuBulu = new()
+    {
+        number = 787,
+        name = "Tapu Bulu",
+        category = "Land Spirit",
+        height = 190,
+        weight = 45500,
+        entry = TapuBuluDesc,
+        forms = SingleSpecies(Species.TapuBulu),
+    };
+    public static PokedexData TapuFini = new()
+    {
+        number = 788,
+        name = "Tapu Fini",
+        category = "Land Spirit",
+        height = 130,
+        weight = 21200,
+        entry = TapuFiniDesc,
+        forms = SingleSpecies(Species.TapuFini),
+    };
+    public static PokedexData Cosmog = new()
+    {
+        number = 789,
+        name = "Cosmog",
+        category = "Nebula",
+        height = 20,
+        weight = 100,
+        entry = CosmogDesc,
+        forms = SingleSpecies(Species.Cosmog),
+    };
+    public static PokedexData Cosmoem = new()
+    {
+        number = 790,
+        name = "Cosmoem",
+        category = "Protostar",
+        height = 10,
+        weight = 999900,
+        entry = CosmoemDesc,
+        forms = SingleSpecies(Species.Cosmoem),
+    };
+    public static PokedexData Solgaleo = new()
+    {
+        number = 791,
+        name = "Solgaleo",
+        category = "Sunne",
+        height = 340,
+        weight = 230000,
+        entry = SolgaleoDesc,
+        forms = SingleSpecies(Species.Solgaleo),
+    };
+    public static PokedexData Lunala = new()
+    {
+        number = 792,
+        name = "Lunala",
+        category = "Moone",
+        height = 400,
+        weight = 120000,
+        entry = LunalaDesc,
+        forms = SingleSpecies(Species.Lunala),
+    };
+    public static PokedexData Nihilego = new()
+    {
+        number = 793,
+        name = "Nihilego",
+        category = "Parasite",
+        height = 120,
+        weight = 55500,
+        entry = NihilegoDesc,
+        forms = SingleSpecies(Species.Nihilego),
+    };
+    public static PokedexData Buzzwole = new()
+    {
+        number = 794,
+        name = "Buzzwole",
+        category = "Swollen",
+        height = 240,
+        weight = 333600,
+        entry = BuzzwoleDesc,
+        forms = SingleSpecies(Species.Buzzwole),
+    };
+    public static PokedexData Pheromosa = new()
+    {
+        number = 795,
+        name = "Pheromosa",
+        category = "Lissome",
+        height = 180,
+        weight = 25000,
+        entry = PheromosaDesc,
+        forms = SingleSpecies(Species.Pheromosa),
+    };
+    public static PokedexData Xurkitree = new()
+    {
+        number = 796,
+        name = "Xurkitree",
+        category = "Glowing",
+        height = 380,
+        weight = 100000,
+        entry = XurkitreeDesc,
+        forms = SingleSpecies(Species.Xurkitree),
+    };
+    public static PokedexData Celesteela = new()
+    {
+        number = 797,
+        name = "Celesteela",
+        category = "Launch",
+        height = 920,
+        weight = 999900,
+        entry = CelesteelaDesc,
+        forms = SingleSpecies(Species.Celesteela),
+    };
+    public static PokedexData Kartana = new()
+    {
+        number = 798,
+        name = "Kartana",
+        category = "Drawn Sword",
+        height = 30,
+        weight = 100,
+        entry = KartanaDesc,
+        forms = SingleSpecies(Species.Kartana),
+    };
+    public static PokedexData Guzzlord = new()
+    {
+        number = 799,
+        name = "Guzzlord",
+        category = "Junkivore",
+        height = 550,
+        weight = 888000,
+        entry = GuzzlordDesc,
+        forms = SingleSpecies(Species.Guzzlord),
+    };
+    public static PokedexData Necrozma = new()
+    {
+        number = 800,
+        name = "Necrozma",
+        category = "Prism",
+        height = 240,
+        weight = 230000,
+        entry = NecrozmaDesc,
+        forms = new[]
+        {
+            Species.Necrozma,
+            Species.NecrozmaDuskMane,
+            Species.NecrozmaDawnWings,
+            Species.NecrozmaUltra
+        }
+    };
+    public static PokedexData Magearna = new()
+    {
+        number = 801,
+        name = "Magearna",
+        category = "Artificial",
+        height = 100,
+        weight = 80500,
+        entry = MagearnaDesc,
+        forms = new[]
+        {
+            Species.MagearnaBase,
+            Species.MagearnaOriginal
+        },
+    };
+    public static PokedexData Marshadow = new()
+    {
+        number = 802,
+        name = "Marshadow",
+        category = "Gloomdweller",
+        height = 70,
+        weight = 22200,
+        entry = MarshadowDesc,
+        forms = SingleSpecies(Species.Marshadow),
+    };
+    public static PokedexData Poipole = new()
+    {
+        number = 803,
+        name = "Poipole",
+        category = "Poison Pin",
+        height = 60,
+        weight = 1800,
+        entry = PoipoleDesc,
+        forms = SingleSpecies(Species.Poipole),
+    };
+    public static PokedexData Naganadel = new()
+    {
+        number = 804,
+        name = "Naganadel",
+        category = "Poison Pin",
+        height = 360,
+        weight = 150000,
+        entry = NaganadelDesc,
+        forms = SingleSpecies(Species.Naganadel),
+    };
+    public static PokedexData Stakataka = new()
+    {
+        number = 805,
+        name = "Stakataka",
+        category = "Rampart",
+        height = 550,
+        weight = 820000,
+        entry = StakatakaDesc,
+        forms = SingleSpecies(Species.Stakataka),
+    };
+    public static PokedexData Blacephalon = new()
+    {
+        number = 806,
+        name = "Blacephalon",
+        category = "Fireworks",
+        height = 180,
+        weight = 13000,
+        entry = BlacephalonDesc,
+        forms = SingleSpecies(Species.Blacephalon),
+    };
+    public static PokedexData Zeraora = new()
+    {
+        number = 807,
+        name = "Zeraora",
+        category = "Thunderclap",
+        height = 150,
+        weight = 44500,
+        entry = ZeraoraDesc,
+        forms = SingleSpecies(Species.Zeraora),
+    };
+    public static PokedexData Meltan = new()
+    {
+        number = 808,
+        name = "Meltan",
+        category = "Hex Nut",
+        height = 20,
+        weight = 8000,
+        entry = MeltanDesc,
+        forms = SingleSpecies(Species.Meltan),
+    };
+    public static PokedexData Melmetal = new()
+    {
+        number = 809,
+        name = "Melmetal",
+        category = "Hex Nut",
+        height = 250,
+        weight = 80000,
+        entry = MelmetalDesc,
+        forms = SingleSpecies(Species.Melmetal),
+    };
 
 }

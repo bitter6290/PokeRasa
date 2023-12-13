@@ -78,7 +78,6 @@ public static class BattleEffect
                 " is protected by Mist!");
             yield break;
         }
-        
         int stagesLowered = battle.PokemonOnField[index].LowerStat(statID, amount);
         switch (stagesLowered)
         {

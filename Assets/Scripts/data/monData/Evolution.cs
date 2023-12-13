@@ -24,7 +24,11 @@ public static class Evolution
     public static EvolutionData[] Rattata = LevelEvolution(20, SpeciesID.Raticate);
     public static EvolutionData[] Spearow = LevelEvolution(20, SpeciesID.Fearow);
     public static EvolutionData[] Ekans = LevelEvolution(22, SpeciesID.Arbok);
-    public static EvolutionData[] Pikachu = ItemEvolution(ThunderStone, SpeciesID.Raichu);
+    public static EvolutionData[] Pikachu = new EvolutionData[]
+    {
+        new(EvolutionItem, ThunderStone, SpeciesID.Raichu),
+        //new(???, ThunderStone, SpeciesID.RaichuAlola)
+    };
     public static EvolutionData[] Sandshrew = LevelEvolution(22, SpeciesID.Sandslash);
     public static EvolutionData[] NidoranF = LevelEvolution(16, SpeciesID.Nidorina);
     public static EvolutionData[] Nidorina = ItemEvolution(MoonStone, SpeciesID.Nidoqueen);
@@ -75,8 +79,16 @@ public static class Evolution
     public static EvolutionData[] Drowzee = LevelEvolution(26, SpeciesID.Hypno);
     public static EvolutionData[] Krabby = LevelEvolution(28, SpeciesID.Kingler);
     public static EvolutionData[] Voltorb = LevelEvolution(30, SpeciesID.Electrode);
-    public static EvolutionData[] Exeggcute = ItemEvolution(LeafStone, SpeciesID.Exeggutor);
-    public static EvolutionData[] Cubone = LevelEvolution(28, SpeciesID.Marowak);
+    public static EvolutionData[] Exeggcute = new EvolutionData[]
+    {
+        new(EvolutionItem, LeafStone, SpeciesID.Exeggutor),
+        //new(???, LeafStone, SpeciesID.ExeggutorAlola)
+    };
+    public static EvolutionData[] Cubone = new EvolutionData[]
+    {
+        new(LevelUp, 28, SpeciesID.Marowak),
+        //new(???, 28, SpeciesID.MarowakAlola)
+    };
     public static EvolutionData[] Lickitung = SingleEvolution(LevelUpWithMove, MoveID.Rollout, SpeciesID.Lickilicky);
     public static EvolutionData[] Koffing = LevelEvolution(35, SpeciesID.Weezing);
     public static EvolutionData[] Rhyhorn = LevelEvolution(42, SpeciesID.Rhydon);
@@ -427,7 +439,7 @@ public static class Evolution
     public static EvolutionData[] Clauncher = LevelEvolution(37, SpeciesID.Clawitzer);
     public static EvolutionData[] Helioptile = ItemEvolution(SunStone, SpeciesID.Heliolisk);
     public static EvolutionData[] Tyrunt = SingleEvolution(LevelUpDay, 39, SpeciesID.Tyrantrum);
-    public static EvolutionData[] Amaura = SingleEvolution(LevelUpNight, 39, SpeciesID.Aururus);
+    public static EvolutionData[] Amaura = SingleEvolution(LevelUpNight, 39, SpeciesID.Aurorus);
     public static EvolutionData[] Goomy = new EvolutionData[]
     {
         new(LevelUp, 40, SpeciesID.Sliggoo),
@@ -442,8 +454,76 @@ public static class Evolution
     };
     public static EvolutionData[] Noibat = LevelEvolution(48, SpeciesID.Noivern);
 
+    //Gen 7
+
+    public static EvolutionData[] Rowlet = LevelEvolution(17, SpeciesID.Dartrix);
+    public static EvolutionData[] Dartrix = new EvolutionData[]
+    {
+        new(LevelUp, 34, SpeciesID.Decidueye),
+        //new(???, 36, SpeciesID.DecidueyeHisui)
+    };
+    public static EvolutionData[] Litten = LevelEvolution(17, SpeciesID.Torracat);
+    public static EvolutionData[] Torracat = LevelEvolution(34, SpeciesID.Incineroar);
+    public static EvolutionData[] Popplio = LevelEvolution(17, SpeciesID.Brionne);
+    public static EvolutionData[] Brionne = LevelEvolution(34, SpeciesID.Primarina);
+    public static EvolutionData[] Pikipek = LevelEvolution(14, SpeciesID.Trumbeak);
+    public static EvolutionData[] Trumbeak = LevelEvolution(28, SpeciesID.Toucannon);
+    public static EvolutionData[] Yungoos = SingleEvolution(LevelUpDay, 20, SpeciesID.Gumshoos);
+    public static EvolutionData[] Grubbin = LevelEvolution(20, SpeciesID.Charjabug);
+    public static EvolutionData[] Charjabug = new EvolutionData[]
+    {
+        new(LevelUpMagneticField, 1, SpeciesID.Vikavolt),
+        new(EvolutionItem, ThunderStone, SpeciesID.Vikavolt)
+    };
+    public static EvolutionData[] Crabrawler = ItemEvolution(IceStone, SpeciesID.Crabominable);
+    public static EvolutionData[] Cutiefly = LevelEvolution(25, SpeciesID.Ribombee);
+    public static EvolutionData[] RockruffNormal = new EvolutionData[]
+    {
+        new(LevelUpDay, 25, SpeciesID.Lycanroc),
+        new(LevelUpNight, 25, SpeciesID.LycanrocMidnight),
+    };
+    public static EvolutionData[] RockruffOwnTempo = SingleEvolution(LevelUpEvening, 25, SpeciesID.LycanrocDusk);
+    public static EvolutionData[] Mareanie = LevelEvolution(38, SpeciesID.Toxapex);
+    public static EvolutionData[] Mudbray = LevelEvolution(30, SpeciesID.Mudsdale);
+    public static EvolutionData[] Dewpider = LevelEvolution(22, SpeciesID.Araquanid);
+    public static EvolutionData[] Fomantis = SingleEvolution(LevelUpDay, 34, SpeciesID.Lurantis);
+    public static EvolutionData[] Morelull = LevelEvolution(24, SpeciesID.Shiinotic);
+    public static EvolutionData[] Salandit = SingleEvolution(LevelUpFemaleOnly, 33, SpeciesID.Salazzle);
+    public static EvolutionData[] Stufful = LevelEvolution(27, SpeciesID.Bewear);
+    public static EvolutionData[] Bounsweet = LevelEvolution(18, SpeciesID.Steenee);
+    public static EvolutionData[] Steenee = SingleEvolution(LevelUpWithMove, MoveID.Stomp, SpeciesID.Tsareena);
+    public static EvolutionData[] Wimpod = LevelEvolution(30, SpeciesID.Golisopod);
+    public static EvolutionData[] Sandygast = LevelEvolution(42, SpeciesID.Palossand);
+    public static EvolutionData[] TypeNull = Friendship220Evolution(SpeciesID.SilvallyNormal);
+    public static EvolutionData[] JangmoO = LevelEvolution(35, SpeciesID.HakamoO);
+    public static EvolutionData[] HakamoO = LevelEvolution(45, SpeciesID.KommoO);
+    public static EvolutionData[] Cosmog = LevelEvolution(43, SpeciesID.Cosmoem);
+    public static EvolutionData[] Cosmoem = new EvolutionData[]
+    {
+        new(LevelUpDay, 53, SpeciesID.Solgaleo), // ¯\_(ツ)_/¯
+        new(LevelUpNight, 53, SpeciesID.Lunala),
+    };
+    public static EvolutionData[] Poipole = SingleEvolution(LevelUpWithMove, MoveID.DragonPulse, SpeciesID.Naganadel);
+
+    //Forms
 
     public static EvolutionData[] DeerlingSummer = LevelEvolution(34, SpeciesID.SawsbuckSummer);
     public static EvolutionData[] DeerlingAutumn = LevelEvolution(34, SpeciesID.SawsbuckAutumn);
     public static EvolutionData[] DeerlingWinter = LevelEvolution(34, SpeciesID.SawsbuckWinter);
+
+    //Regional forms
+    //Alola
+    public static EvolutionData[] RattataAlola = SingleEvolution(LevelUpNight, 20, SpeciesID.RaticateAlola);
+    public static EvolutionData[] SandshrewAlola = ItemEvolution(IceStone, SpeciesID.SandslashAlola);
+    public static EvolutionData[] VulpixAlola = ItemEvolution(IceStone, SpeciesID.NinetalesAlola);
+    public static EvolutionData[] DiglettAlola = LevelEvolution(26, SpeciesID.DugtrioAlola);
+    public static EvolutionData[] MeowthAlola = new EvolutionData[]
+    {
+        new(Friendship, 220, SpeciesID.PersianAlola),
+        //new(LevelUp, 28, SpeciesID.PersianAlola), //LGPE
+    };
+    public static EvolutionData[] GeodudeAlola = LevelEvolution(25, SpeciesID.GravelerAlola);
+    public static EvolutionData[] GravelerAlola = TradeEvolution(SpeciesID.GolemAlola);
+    public static EvolutionData[] GrimerAlola = LevelEvolution(38, SpeciesID.MukAlola);
+
 }

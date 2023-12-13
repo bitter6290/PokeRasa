@@ -103,7 +103,7 @@ public static class MapAndObjectScriptUtils
         foreach (System.Type T in GetAllMapScripts)
         {
             string newPath = T.TypeToMapscriptPath();
-            if(!AssetDatabase.LoadAssetAtPath<MapScripts>(newPath))
+            if (!AssetDatabase.LoadAssetAtPath<MapScripts>(newPath))
             {
                 var newObject = ScriptableObject.CreateInstance(T);
                 if (!Directory.Exists(PathToDirectory(newPath)))

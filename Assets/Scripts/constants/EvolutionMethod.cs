@@ -31,6 +31,7 @@ public enum EvolutionMethod
     LevelUpFemaleOnly,
     LevelUpsideDown, //Inkay
     LevelUpDay,
+    LevelUpEvening,
     LevelUpNight,
     LevelUpRain,
 

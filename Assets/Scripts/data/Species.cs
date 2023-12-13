@@ -1,11 +1,9 @@
-using Unity.VisualScripting;
 using static EvYield;
 using static Ability;
 using static Type;
 using static SpeciesData;
 using static XPClass;
 using static Learnset;
-using UnityEditor.Playables;
 
 public static class Species
 {
@@ -5679,39 +5677,7 @@ public static class Species
         },
     };
 
-    public static SpeciesData Pichu = new()
-    {
-        speciesName = "Pichu",
-        type1 = Electric,
-        type2 = Electric,
-        baseHP = 20,
-        baseAttack = 40,
-        baseDefense = 15,
-        baseSpAtk = 35,
-        baseSpDef = 35,
-        baseSpeed = 60,
-        evYield = Speed,
-        evolution = Evolution.Pichu,
-        xpClass = MediumFast,
-        xpYield = 41,
-        learnset = EmptyLearnset, //Not done
-        malePercent = 50,
-        eggGroup1 = EggGroup.Field,
-        eggGroup2 = EggGroup.Fairy,
-        eggCycles = 10,
-        catchRate = 190,
-        baseFriendship = 70,
-        cryLocation = "pichu", //Verify
-        graphicsLocation = "pichu", //Verify
-        backSpriteHeight = 8,
-        pokedexData = Pokedex.Pichu,
-        abilities = new Ability[3]
-        {
-            Static,
-            Static,
-            LightningRod,
-        },
-    };
+    public static SpeciesData Pichu = Pichu(false);
 
     public static SpeciesData Cleffa = new()
     {
@@ -23038,11 +23004,3324 @@ public static class Species
         },
     };
 
+    //Gen 7
+
+    public static SpeciesData Rowlet = new()
+    {
+        speciesName = "Rowlet",
+        type1 = Grass,
+        type2 = Flying,
+        baseHP = 68,
+        baseAttack = 55,
+        baseDefense = 55,
+        baseSpAtk = 50,
+        baseSpDef = 50,
+        baseSpeed = 42,
+        evYield = HP,
+        evolution = Evolution.Rowlet,
+        xpClass = MediumSlow,
+        xpYield = 64,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "rowlet", //Verify
+        graphicsLocation = "rowlet", //Verify
+        backSpriteHeight = 15,
+        pokedexData = Pokedex.Rowlet,
+        abilities = new Ability[3]
+        {
+            Overgrow,
+            Overgrow,
+            LongReach,
+        },
+    };
+    public static SpeciesData Dartrix = new()
+    {
+        speciesName = "Dartrix",
+        type1 = Grass,
+        type2 = Flying,
+        baseHP = 78,
+        baseAttack = 75,
+        baseDefense = 75,
+        baseSpAtk = 70,
+        baseSpDef = 70,
+        baseSpeed = 52,
+        evYield = 2 * HP,
+        evolution = Evolution.Dartrix,
+        xpClass = MediumSlow,
+        xpYield = 147,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "dartrix", //Verify
+        graphicsLocation = "dartrix", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Dartrix,
+        abilities = new Ability[3]
+        {
+            Overgrow,
+            Overgrow,
+            LongReach,
+        },
+    };
+    public static SpeciesData Decidueye = new()
+    {
+        speciesName = "Decidueye",
+        type1 = Grass,
+        type2 = Ghost,
+        baseHP = 78,
+        baseAttack = 107,
+        baseDefense = 75,
+        baseSpAtk = 100,
+        baseSpDef = 100,
+        baseSpeed = 70,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 239,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "decidueye", //Verify
+        graphicsLocation = "decidueye", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Decidueye,
+        abilities = new Ability[3]
+        {
+            Overgrow,
+            Overgrow,
+            LongReach,
+        },
+    };
+    public static SpeciesData Litten = new()
+    {
+        speciesName = "Litten",
+        type1 = Fire,
+        type2 = Fire,
+        baseHP = 45,
+        baseAttack = 65,
+        baseDefense = 40,
+        baseSpAtk = 60,
+        baseSpDef = 40,
+        baseSpeed = 70,
+        evYield = Speed,
+        evolution = Evolution.Litten,
+        xpClass = MediumSlow,
+        xpYield = 64,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "litten", //Verify
+        graphicsLocation = "litten", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Litten,
+        abilities = new Ability[3]
+        {
+            Blaze,
+            Blaze,
+            Intimidate,
+        },
+    };
+    public static SpeciesData Torracat = new()
+    {
+        speciesName = "Torracat",
+        type1 = Fire,
+        type2 = Fire,
+        baseHP = 65,
+        baseAttack = 85,
+        baseDefense = 50,
+        baseSpAtk = 80,
+        baseSpDef = 50,
+        baseSpeed = 90,
+        evYield = 2 * Speed,
+        evolution = Evolution.Torracat,
+        xpClass = MediumSlow,
+        xpYield = 147,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "torracat", //Verify
+        graphicsLocation = "torracat", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Torracat,
+        abilities = new Ability[3]
+        {
+            Blaze,
+            Blaze,
+            Intimidate,
+        },
+    };
+    public static SpeciesData Incineroar = new()
+    {
+        speciesName = "Incineroar",
+        type1 = Fire,
+        type2 = Dark,
+        baseHP = 95,
+        baseAttack = 115,
+        baseDefense = 90,
+        baseSpAtk = 80,
+        baseSpDef = 90,
+        baseSpeed = 60,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 239,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "incineroar", //Verify
+        graphicsLocation = "incineroar", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Incineroar,
+        abilities = new Ability[3]
+        {
+            Blaze,
+            Blaze,
+            Intimidate,
+        },
+    };
+    public static SpeciesData Popplio = new()
+    {
+        speciesName = "Popplio",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 50,
+        baseAttack = 54,
+        baseDefense = 54,
+        baseSpAtk = 66,
+        baseSpDef = 56,
+        baseSpeed = 40,
+        evYield = SpAtk,
+        evolution = Evolution.Popplio,
+        xpClass = MediumSlow,
+        xpYield = 64,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "popplio", //Verify
+        graphicsLocation = "popplio", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Popplio,
+        abilities = new Ability[3]
+        {
+            Torrent,
+            Torrent,
+            LiquidVoice,
+        },
+    };
+    public static SpeciesData Brionne = new()
+    {
+        speciesName = "Brionne",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 60,
+        baseAttack = 69,
+        baseDefense = 69,
+        baseSpAtk = 91,
+        baseSpDef = 81,
+        baseSpeed = 50,
+        evYield = 2 * SpAtk,
+        evolution = Evolution.Brionne,
+        xpClass = MediumSlow,
+        xpYield = 147,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "brionne", //Verify
+        graphicsLocation = "brionne", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Brionne,
+        abilities = new Ability[3]
+        {
+            Torrent,
+            Torrent,
+            LiquidVoice,
+        },
+    };
+    public static SpeciesData Primarina = new()
+    {
+        speciesName = "Primarina",
+        type1 = Water,
+        type2 = Fairy,
+        baseHP = 80,
+        baseAttack = 74,
+        baseDefense = 74,
+        baseSpAtk = 126,
+        baseSpDef = 116,
+        baseSpeed = 60,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 239,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "primarina", //Verify
+        graphicsLocation = "primarina", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Primarina,
+        abilities = new Ability[3]
+        {
+            Torrent,
+            Torrent,
+            LiquidVoice,
+        },
+    };
+    public static SpeciesData Pikipek = new()
+    {
+        speciesName = "Pikipek",
+        type1 = Normal,
+        type2 = Flying,
+        baseHP = 35,
+        baseAttack = 75,
+        baseDefense = 30,
+        baseSpAtk = 30,
+        baseSpDef = 30,
+        baseSpeed = 65,
+        evYield = Attack,
+        evolution = Evolution.Pikipek,
+        xpClass = MediumFast,
+        xpYield = 53,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 15,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "pikipek", //Verify
+        graphicsLocation = "pikipek", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Pikipek,
+        abilities = new Ability[3]
+        {
+            KeenEye,
+            SkillLink,
+            Pickup,
+        },
+    };
+    public static SpeciesData Trumbeak = new()
+    {
+        speciesName = "Trumbeak",
+        type1 = Normal,
+        type2 = Flying,
+        baseHP = 55,
+        baseAttack = 85,
+        baseDefense = 50,
+        baseSpAtk = 40,
+        baseSpDef = 50,
+        baseSpeed = 75,
+        evYield = 2 * Attack,
+        evolution = Evolution.Trumbeak,
+        xpClass = MediumFast,
+        xpYield = 124,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 15,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "trumbeak", //Verify
+        graphicsLocation = "trumbeak", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Trumbeak,
+        abilities = new Ability[3]
+        {
+            KeenEye,
+            SkillLink,
+            Pickup,
+        },
+    };
+    public static SpeciesData Toucannon = new()
+    {
+        speciesName = "Toucannon",
+        type1 = Normal,
+        type2 = Flying,
+        baseHP = 80,
+        baseAttack = 120,
+        baseDefense = 75,
+        baseSpAtk = 75,
+        baseSpDef = 75,
+        baseSpeed = 60,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 218,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "toucannon", //Verify
+        graphicsLocation = "toucannon", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Toucannon,
+        abilities = new Ability[3]
+        {
+            KeenEye,
+            SkillLink,
+            SheerForce,
+        },
+    };
+    public static SpeciesData Yungoos = new()
+    {
+        speciesName = "Yungoos",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 48,
+        baseAttack = 70,
+        baseDefense = 30,
+        baseSpAtk = 30,
+        baseSpDef = 30,
+        baseSpeed = 45,
+        evYield = Attack,
+        evolution = Evolution.Yungoos,
+        xpClass = MediumFast,
+        xpYield = 51,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "yungoos", //Verify
+        graphicsLocation = "yungoos", //Verify
+        backSpriteHeight = 14,
+        pokedexData = Pokedex.Yungoos,
+        abilities = new Ability[3]
+        {
+            Stakeout,
+            StrongJaw,
+            Adaptability,
+        },
+    };
+    public static SpeciesData Gumshoos = new()
+    {
+        speciesName = "Gumshoos",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 88,
+        baseAttack = 110,
+        baseDefense = 60,
+        baseSpAtk = 55,
+        baseSpDef = 60,
+        baseSpeed = 45,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 146,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 127,
+        baseFriendship = 70,
+        cryLocation = "gumshoos", //Verify
+        graphicsLocation = "gumshoos", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Gumshoos,
+        abilities = new Ability[3]
+        {
+            Stakeout,
+            StrongJaw,
+            Adaptability,
+        },
+    };
+    public static SpeciesData Grubbin = new()
+    {
+        speciesName = "Grubbin",
+        type1 = Bug,
+        type2 = Bug,
+        baseHP = 47,
+        baseAttack = 62,
+        baseDefense = 45,
+        baseSpAtk = 55,
+        baseSpDef = 45,
+        baseSpeed = 46,
+        evYield = Attack,
+        evolution = Evolution.Grubbin,
+        xpClass = MediumFast,
+        xpYield = 60,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "grubbin", //Verify
+        graphicsLocation = "grubbin", //Verify
+        backSpriteHeight = 16,
+        pokedexData = Pokedex.Grubbin,
+        abilities = new Ability[3]
+        {
+            Swarm,
+            Swarm,
+            Swarm,
+        },
+    };
+    public static SpeciesData Charjabug = new()
+    {
+        speciesName = "Charjabug",
+        type1 = Bug,
+        type2 = Electric,
+        baseHP = 57,
+        baseAttack = 82,
+        baseDefense = 95,
+        baseSpAtk = 55,
+        baseSpDef = 75,
+        baseSpeed = 36,
+        evYield = 2 * Defense,
+        evolution = Evolution.Charjabug,
+        xpClass = MediumFast,
+        xpYield = 140,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "charjabug", //Verify
+        graphicsLocation = "charjabug", //Verify
+        backSpriteHeight = 15,
+        pokedexData = Pokedex.Charjabug,
+        abilities = new Ability[3]
+        {
+            Battery,
+            Battery,
+            Battery,
+        },
+    };
+    public static SpeciesData Vikavolt = new()
+    {
+        speciesName = "Vikavolt",
+        type1 = Bug,
+        type2 = Electric,
+        baseHP = 77,
+        baseAttack = 70,
+        baseDefense = 90,
+        baseSpAtk = 145,
+        baseSpDef = 75,
+        baseSpeed = 43,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 225,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "vikavolt", //Verify
+        graphicsLocation = "vikavolt", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Vikavolt,
+        abilities = new Ability[3]
+        {
+            Levitate,
+            Levitate,
+            Levitate,
+        },
+    };
+    public static SpeciesData Crabrawler = new()
+    {
+        speciesName = "Crabrawler",
+        type1 = Fighting,
+        type2 = Fighting,
+        baseHP = 47,
+        baseAttack = 82,
+        baseDefense = 57,
+        baseSpAtk = 42,
+        baseSpDef = 47,
+        baseSpeed = 63,
+        evYield = Attack,
+        evolution = Evolution.Crabrawler,
+        xpClass = MediumFast,
+        xpYield = 68,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water3,
+        eggGroup2 = EggGroup.Water3,
+        eggCycles = 20,
+        catchRate = 225,
+        baseFriendship = 70,
+        cryLocation = "crabrawler", //Verify
+        graphicsLocation = "crabrawler", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Crabrawler,
+        abilities = new Ability[3]
+        {
+            HyperCutter,
+            IronFist,
+            AngerPoint,
+        },
+    };
+    public static SpeciesData Crabominable = new()
+    {
+        speciesName = "Crabominable",
+        type1 = Fighting,
+        type2 = Ice,
+        baseHP = 97,
+        baseAttack = 132,
+        baseDefense = 77,
+        baseSpAtk = 62,
+        baseSpDef = 67,
+        baseSpeed = 43,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 167,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water3,
+        eggGroup2 = EggGroup.Water3,
+        eggCycles = 20,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "crabominable", //Verify
+        graphicsLocation = "crabominable", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Crabominable,
+        abilities = new Ability[3]
+        {
+            HyperCutter,
+            IronFist,
+            AngerPoint,
+        },
+    };
+    public static SpeciesData OricorioBaile = Oricorio(Fire, "baile");
+    public static SpeciesData Cutiefly = new()
+    {
+        speciesName = "Cutiefly",
+        type1 = Bug,
+        type2 = Fairy,
+        baseHP = 40,
+        baseAttack = 45,
+        baseDefense = 40,
+        baseSpAtk = 55,
+        baseSpDef = 40,
+        baseSpeed = 84,
+        evYield = Speed,
+        evolution = Evolution.Cutiefly,
+        xpClass = MediumFast,
+        xpYield = 61,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "cutiefly", //Verify
+        graphicsLocation = "cutiefly", //Verify
+        backSpriteHeight = 15,
+        pokedexData = Pokedex.Cutiefly,
+        abilities = new Ability[3]
+        {
+            HoneyGather,
+            ShieldDust,
+            SweetVeil,
+        },
+    };
+    public static SpeciesData Ribombee = new()
+    {
+        speciesName = "Ribombee",
+        type1 = Bug,
+        type2 = Fairy,
+        baseHP = 60,
+        baseAttack = 55,
+        baseDefense = 60,
+        baseSpAtk = 95,
+        baseSpDef = 70,
+        baseSpeed = 124,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 162,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "ribombee", //Verify
+        graphicsLocation = "ribombee", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Ribombee,
+        abilities = new Ability[3]
+        {
+            HoneyGather,
+            ShieldDust,
+            SweetVeil,
+        },
+    };
+    public static SpeciesData RockruffNormal = Rockruff(
+        new[] { KeenEye, VitalSpirit, Steadfast }, Evolution.RockruffNormal);
+    public static SpeciesData Lycanroc = new()
+    {
+        speciesName = "Lycanroc",
+        type1 = Rock,
+        type2 = Rock,
+        baseHP = 75,
+        baseAttack = 115,
+        baseDefense = 65,
+        baseSpAtk = 55,
+        baseSpDef = 65,
+        baseSpeed = 112,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 170,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 90,
+        baseFriendship = 70,
+        cryLocation = "lycanroc", //Verify
+        graphicsLocation = "lycanroc", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Lycanroc,
+        abilities = new Ability[3]
+            {
+            KeenEye,
+            SandRush,
+            Steadfast,
+            },
+    };
+    public static SpeciesData Wishiwashi = new()
+    {
+        speciesName = "Wishiwashi",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 45,
+        baseAttack = 20,
+        baseDefense = 20,
+        baseSpAtk = 25,
+        baseSpDef = 25,
+        baseSpeed = 40,
+        evYield = HP,
+        evolution = Evolution.None,
+        xpClass = Fast,
+        xpYield = 61,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water2,
+        eggGroup2 = EggGroup.Water2,
+        eggCycles = 15,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "wishiwashi", //Verify
+        graphicsLocation = "wishiwashi", //Verify
+        backSpriteHeight = 18,
+        pokedexData = Pokedex.Wishiwashi,
+        abilities = new Ability[3]
+        {
+            Schooling,
+            Schooling,
+            Schooling,
+        },
+    };
+    public static SpeciesData Mareanie = new()
+    {
+        speciesName = "Mareanie",
+        type1 = Poison,
+        type2 = Water,
+        baseHP = 50,
+        baseAttack = 53,
+        baseDefense = 62,
+        baseSpAtk = 43,
+        baseSpDef = 52,
+        baseSpeed = 45,
+        evYield = Defense,
+        evolution = Evolution.Mareanie,
+        xpClass = MediumFast,
+        xpYield = 61,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Water1,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "mareanie", //Verify
+        graphicsLocation = "mareanie", //Verify
+        backSpriteHeight = 15,
+        pokedexData = Pokedex.Mareanie,
+        abilities = new Ability[3]
+        {
+            Merciless,
+            Limber,
+            Regenerator,
+        },
+    };
+    public static SpeciesData Toxapex = new()
+    {
+        speciesName = "Toxapex",
+        type1 = Poison,
+        type2 = Water,
+        baseHP = 50,
+        baseAttack = 63,
+        baseDefense = 152,
+        baseSpAtk = 53,
+        baseSpDef = 142,
+        baseSpeed = 35,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 173,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Water1,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "toxapex", //Verify
+        graphicsLocation = "toxapex", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Toxapex,
+        abilities = new Ability[3]
+        {
+            Merciless,
+            Limber,
+            Regenerator,
+        },
+    };
+    public static SpeciesData Mudbray = new()
+    {
+        speciesName = "Mudbray",
+        type1 = Ground,
+        type2 = Ground,
+        baseHP = 70,
+        baseAttack = 100,
+        baseDefense = 70,
+        baseSpAtk = 45,
+        baseSpDef = 55,
+        baseSpeed = 45,
+        evYield = Attack,
+        evolution = Evolution.Mudbray,
+        xpClass = MediumFast,
+        xpYield = 77,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "mudbray", //Verify
+        graphicsLocation = "mudbray", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Mudbray,
+        abilities = new Ability[3]
+        {
+            OwnTempo,
+            Stamina,
+            InnerFocus,
+        },
+    };
+    public static SpeciesData Mudsdale = new()
+    {
+        speciesName = "Mudsdale",
+        type1 = Ground,
+        type2 = Ground,
+        baseHP = 100,
+        baseAttack = 125,
+        baseDefense = 100,
+        baseSpAtk = 55,
+        baseSpDef = 85,
+        baseSpeed = 35,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 175,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "mudsdale", //Verify
+        graphicsLocation = "mudsdale", //Verify
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Mudsdale,
+        abilities = new Ability[3]
+        {
+            OwnTempo,
+            Stamina,
+            InnerFocus,
+        },
+    };
+    public static SpeciesData Dewpider = new()
+    {
+        speciesName = "Dewpider",
+        type1 = Water,
+        type2 = Bug,
+        baseHP = 38,
+        baseAttack = 40,
+        baseDefense = 52,
+        baseSpAtk = 40,
+        baseSpDef = 72,
+        baseSpeed = 27,
+        evYield = SpDef,
+        evolution = Evolution.Dewpider,
+        xpClass = MediumFast,
+        xpYield = 54,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 200,
+        baseFriendship = 70,
+        cryLocation = "dewpider", //Verify
+        graphicsLocation = "dewpider", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Dewpider,
+        abilities = new Ability[3]
+        {
+            WaterBubble,
+            WaterBubble,
+            WaterAbsorb,
+        },
+    };
+    public static SpeciesData Araquanid = new()
+    {
+        speciesName = "Araquanid",
+        type1 = Water,
+        type2 = Bug,
+        baseHP = 68,
+        baseAttack = 70,
+        baseDefense = 92,
+        baseSpAtk = 50,
+        baseSpDef = 132,
+        baseSpeed = 42,
+        evYield = 2 * SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 159,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Bug,
+        eggCycles = 15,
+        catchRate = 100,
+        baseFriendship = 70,
+        cryLocation = "araquanid", //Verify
+        graphicsLocation = "araquanid", //Verify
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Araquanid,
+        abilities = new Ability[3]
+        {
+            WaterBubble,
+            WaterBubble,
+            WaterAbsorb,
+        },
+    };
+    public static SpeciesData Fomantis = new()
+    {
+        speciesName = "Fomantis",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 40,
+        baseAttack = 55,
+        baseDefense = 35,
+        baseSpAtk = 50,
+        baseSpDef = 35,
+        baseSpeed = 35,
+        evYield = Attack,
+        evolution = Evolution.Fomantis,
+        xpClass = MediumFast,
+        xpYield = 50,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "fomantis", //Verify
+        graphicsLocation = "fomantis", //Verify
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Fomantis,
+        abilities = new Ability[3]
+        {
+            LeafGuard,
+            LeafGuard,
+            Contrary,
+        },
+    };
+    public static SpeciesData Lurantis = new()
+    {
+        speciesName = "Lurantis",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 70,
+        baseAttack = 105,
+        baseDefense = 90,
+        baseSpAtk = 80,
+        baseSpDef = 90,
+        baseSpeed = 45,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 168,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "lurantis", //Verify
+        graphicsLocation = "lurantis", //Verify
+        backSpriteHeight = 1,
+        pokedexData = Pokedex.Lurantis,
+        abilities = new Ability[3]
+        {
+            LeafGuard,
+            LeafGuard,
+            Contrary,
+        },
+    };
+    public static SpeciesData Morelull = new()
+    {
+        speciesName = "Morelull",
+        type1 = Grass,
+        type2 = Fairy,
+        baseHP = 40,
+        baseAttack = 35,
+        baseDefense = 55,
+        baseSpAtk = 65,
+        baseSpDef = 75,
+        baseSpeed = 15,
+        evYield = SpDef,
+        evolution = Evolution.Morelull,
+        xpClass = MediumFast,
+        xpYield = 57,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "morelull", //Verify
+        graphicsLocation = "morelull", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Morelull,
+        abilities = new Ability[3]
+        {
+            Illuminate,
+            EffectSpore,
+            RainDish,
+        },
+    };
+    public static SpeciesData Shiinotic = new()
+    {
+        speciesName = "Shiinotic",
+        type1 = Grass,
+        type2 = Fairy,
+        baseHP = 60,
+        baseAttack = 45,
+        baseDefense = 80,
+        baseSpAtk = 90,
+        baseSpDef = 100,
+        baseSpeed = 30,
+        evYield = 2 * SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 142,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "shiinotic", //Verify
+        graphicsLocation = "shiinotic", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Shiinotic,
+        abilities = new Ability[3]
+        {
+            Illuminate,
+            EffectSpore,
+            RainDish,
+        },
+    };
+    public static SpeciesData Salandit = new()
+    {
+        speciesName = "Salandit",
+        type1 = Poison,
+        type2 = Fire,
+        baseHP = 48,
+        baseAttack = 44,
+        baseDefense = 40,
+        baseSpAtk = 71,
+        baseSpDef = 40,
+        baseSpeed = 77,
+        evYield = Speed,
+        evolution = Evolution.Salandit,
+        xpClass = MediumFast,
+        xpYield = 64,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Dragon,
+        eggCycles = 20,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "salandit", //Verify
+        graphicsLocation = "salandit", //Verify
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Salandit,
+        abilities = new Ability[3]
+        {
+            Corrosion,
+            Corrosion,
+            Oblivious,
+        },
+    };
+    public static SpeciesData Salazzle = new()
+    {
+        speciesName = "Salazzle",
+        type1 = Poison,
+        type2 = Fire,
+        baseHP = 68,
+        baseAttack = 64,
+        baseDefense = 60,
+        baseSpAtk = 111,
+        baseSpDef = 60,
+        baseSpeed = 117,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 168,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Dragon,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "salazzle", //Verify
+        graphicsLocation = "salazzle", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Salazzle,
+        abilities = new Ability[3]
+        {
+            Corrosion,
+            Corrosion,
+            Oblivious,
+        },
+    };
+    public static SpeciesData Stufful = new()
+    {
+        speciesName = "Stufful",
+        type1 = Normal,
+        type2 = Fighting,
+        baseHP = 70,
+        baseAttack = 75,
+        baseDefense = 50,
+        baseSpAtk = 45,
+        baseSpDef = 50,
+        baseSpeed = 50,
+        evYield = Attack,
+        evolution = Evolution.Stufful,
+        xpClass = MediumFast,
+        xpYield = 68,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 140,
+        baseFriendship = 70,
+        cryLocation = "stufful", //Verify
+        graphicsLocation = "stufful", //Verify
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Stufful,
+        abilities = new Ability[3]
+        {
+            Fluffy,
+            Klutz,
+            CuteCharm,
+        },
+    };
+    public static SpeciesData Bewear = new()
+    {
+        speciesName = "Bewear",
+        type1 = Normal,
+        type2 = Fighting,
+        baseHP = 120,
+        baseAttack = 125,
+        baseDefense = 80,
+        baseSpAtk = 55,
+        baseSpDef = 60,
+        baseSpeed = 60,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 175,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 70,
+        baseFriendship = 70,
+        cryLocation = "bewear", //Verify
+        graphicsLocation = "bewear", //Verify
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.Bewear,
+        abilities = new Ability[3]
+        {
+            Fluffy,
+            Klutz,
+            Unnerve,
+        },
+    };
+    public static SpeciesData Bounsweet = new()
+    {
+        speciesName = "Bounsweet",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 42,
+        baseAttack = 30,
+        baseDefense = 38,
+        baseSpAtk = 30,
+        baseSpDef = 38,
+        baseSpeed = 32,
+        evYield = HP,
+        evolution = Evolution.Bounsweet,
+        xpClass = MediumSlow,
+        xpYield = 42,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 235,
+        baseFriendship = 70,
+        cryLocation = "bounsweet", //Verify
+        graphicsLocation = "bounsweet", //Verify
+        backSpriteHeight = 14,
+        pokedexData = Pokedex.Bounsweet,
+        abilities = new Ability[3]
+        {
+            LeafGuard,
+            Oblivious,
+            SweetVeil,
+        },
+    };
+    public static SpeciesData Steenee = new()
+    {
+        speciesName = "Steenee",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 52,
+        baseAttack = 40,
+        baseDefense = 48,
+        baseSpAtk = 40,
+        baseSpDef = 48,
+        baseSpeed = 62,
+        evYield = 2 * Speed,
+        evolution = Evolution.Steenee,
+        xpClass = MediumSlow,
+        xpYield = 102,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "steenee", //Verify
+        graphicsLocation = "steenee", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Steenee,
+        abilities = new Ability[3]
+        {
+            LeafGuard,
+            Oblivious,
+            SweetVeil,
+        },
+    };
+    public static SpeciesData Tsareena = new()
+    {
+        speciesName = "Tsareena",
+        type1 = Grass,
+        type2 = Grass,
+        baseHP = 72,
+        baseAttack = 120,
+        baseDefense = 98,
+        baseSpAtk = 50,
+        baseSpDef = 98,
+        baseSpeed = 72,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 230,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "tsareena", //Verify
+        graphicsLocation = "tsareena", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Tsareena,
+        abilities = new Ability[3]
+        {
+            LeafGuard,
+            QueenlyMajesty,
+            SweetVeil,
+        },
+    };
+    public static SpeciesData Comfey = new()
+    {
+        speciesName = "Comfey",
+        type1 = Fairy,
+        type2 = Fairy,
+        baseHP = 51,
+        baseAttack = 52,
+        baseDefense = 90,
+        baseSpAtk = 82,
+        baseSpDef = 110,
+        baseSpeed = 100,
+        evYield = 2 * SpDef,
+        evolution = Evolution.None,
+        xpClass = Fast,
+        xpYield = 170,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 25,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "comfey", //Verify
+        graphicsLocation = "comfey", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Comfey,
+        abilities = new Ability[3]
+        {
+            FlowerVeil,
+            Triage,
+            NaturalCure,
+        },
+    };
+    public static SpeciesData Oranguru = new()
+    {
+        speciesName = "Oranguru",
+        type1 = Normal,
+        type2 = Psychic,
+        baseHP = 90,
+        baseAttack = 60,
+        baseDefense = 80,
+        baseSpAtk = 90,
+        baseSpDef = 110,
+        baseSpeed = 60,
+        evYield = 2 * SpDef,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 172,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "oranguru", //Verify
+        graphicsLocation = "oranguru", //Verify
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Oranguru,
+        abilities = new Ability[3]
+        {
+            InnerFocus,
+            Telepathy,
+            Symbiosis,
+        },
+    };
+    public static SpeciesData Passimian = new()
+    {
+        speciesName = "Passimian",
+        type1 = Fighting,
+        type2 = Fighting,
+        baseHP = 100,
+        baseAttack = 120,
+        baseDefense = 90,
+        baseSpAtk = 40,
+        baseSpDef = 60,
+        baseSpeed = 80,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 172,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "passimian", //Verify
+        graphicsLocation = "passimian", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Passimian,
+        abilities = new Ability[3]
+        {
+            Receiver,
+            Receiver,
+            Defiant,
+        },
+    };
+    public static SpeciesData Wimpod = new()
+    {
+        speciesName = "Wimpod",
+        type1 = Bug,
+        type2 = Water,
+        baseHP = 25,
+        baseAttack = 35,
+        baseDefense = 40,
+        baseSpAtk = 20,
+        baseSpDef = 30,
+        baseSpeed = 80,
+        evYield = Speed,
+        evolution = Evolution.Wimpod,
+        xpClass = MediumFast,
+        xpYield = 46,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Water3,
+        eggCycles = 20,
+        catchRate = 90,
+        baseFriendship = 70,
+        cryLocation = "wimpod", //Verify
+        graphicsLocation = "wimpod", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Wimpod,
+        abilities = new Ability[3]
+        {
+            WimpOut,
+            WimpOut,
+            WimpOut,
+        },
+    };
+    public static SpeciesData Golisopod = new()
+    {
+        speciesName = "Golisopod",
+        type1 = Bug,
+        type2 = Water,
+        baseHP = 75,
+        baseAttack = 125,
+        baseDefense = 140,
+        baseSpAtk = 60,
+        baseSpDef = 90,
+        baseSpeed = 40,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 186,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Bug,
+        eggGroup2 = EggGroup.Water3,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "golisopod", //Verify
+        graphicsLocation = "golisopod", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Golisopod,
+        abilities = new Ability[3]
+        {
+            EmergencyExit,
+            EmergencyExit,
+            EmergencyExit,
+        },
+    };
+    public static SpeciesData Sandygast = new()
+    {
+        speciesName = "Sandygast",
+        type1 = Ghost,
+        type2 = Ground,
+        baseHP = 55,
+        baseAttack = 55,
+        baseDefense = 80,
+        baseSpAtk = 70,
+        baseSpDef = 45,
+        baseSpeed = 15,
+        evYield = Defense,
+        evolution = Evolution.Sandygast,
+        xpClass = MediumFast,
+        xpYield = 64,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 15,
+        catchRate = 140,
+        baseFriendship = 70,
+        cryLocation = "sandygast", //Verify
+        graphicsLocation = "sandygast", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Sandygast,
+        abilities = new Ability[3]
+        {
+            WaterCompaction,
+            WaterCompaction,
+            SandVeil,
+        },
+    };
+    public static SpeciesData Palossand = new()
+    {
+        speciesName = "Palossand",
+        type1 = Ghost,
+        type2 = Ground,
+        baseHP = 85,
+        baseAttack = 75,
+        baseDefense = 110,
+        baseSpAtk = 100,
+        baseSpDef = 75,
+        baseSpeed = 35,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 168,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 15,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "palossand", //Verify
+        graphicsLocation = "palossand", //Verify
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.Palossand,
+        abilities = new Ability[3]
+        {
+            WaterCompaction,
+            WaterCompaction,
+            SandVeil,
+        },
+    };
+    public static SpeciesData Pyukumuku = new()
+    {
+        speciesName = "Pyukumuku",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 55,
+        baseAttack = 60,
+        baseDefense = 130,
+        baseSpAtk = 30,
+        baseSpDef = 130,
+        baseSpeed = 5,
+        evYield = 2 * SpDef,
+        evolution = Evolution.None,
+        xpClass = Fast,
+        xpYield = 144,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Water1,
+        eggCycles = 15,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "pyukumuku", //Verify
+        graphicsLocation = "pyukumuku", //Verify
+        backSpriteHeight = 16,
+        pokedexData = Pokedex.Pyukumuku,
+        abilities = new Ability[3]
+        {
+            InnardsOut,
+            InnardsOut,
+            Unaware,
+        },
+    };
+    public static SpeciesData TypeNull = new ()
+	{
+		speciesName = "Type: Null",
+		type1 = Normal,
+		type2 = Normal,
+		baseHP = 95,
+		baseAttack = 95,
+		baseDefense = 95,
+		baseSpAtk = 95,
+		baseSpDef = 95,
+		baseSpeed = 59,
+		evYield = 2 * HP,
+		evolution = Evolution.TypeNull,
+		xpClass = Slow,
+		xpYield = 107,
+		learnset = EmptyLearnset, //Not done
+		malePercent = Genderless,
+		eggGroup1 = EggGroup.Undiscovered,
+		eggGroup2 = EggGroup.Undiscovered,
+		eggCycles = 120,
+		catchRate = 3,
+		baseFriendship = 0,
+		cryLocation = "type_null", //Verify
+		graphicsLocation = "type_null", //Verify
+		backSpriteHeight = 1,
+		pokedexData = Pokedex.TypeNull,
+		abilities = new Ability[3]
+		{
+			BattleArmor,
+			BattleArmor,
+			BattleArmor,
+		},
+	};
+    public static SpeciesData SilvallyNormal = Silvally(Normal, "normal");
+    public static SpeciesData MiniorRedMeteor = Minior(false);
+    public static SpeciesData Komala = new()
+    {
+        speciesName = "Komala",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 65,
+        baseAttack = 115,
+        baseDefense = 65,
+        baseSpAtk = 75,
+        baseSpDef = 95,
+        baseSpeed = 65,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 168,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "komala", //Verify
+        graphicsLocation = "komala", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Komala,
+        abilities = new Ability[3]
+        {
+            Comatose,
+            Comatose,
+            Comatose,
+        },
+    };
+    public static SpeciesData Turtonator = new()
+    {
+        speciesName = "Turtonator",
+        type1 = Fire,
+        type2 = Dragon,
+        baseHP = 60,
+        baseAttack = 78,
+        baseDefense = 135,
+        baseSpAtk = 91,
+        baseSpDef = 85,
+        baseSpeed = 36,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 170,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Dragon,
+        eggCycles = 20,
+        catchRate = 70,
+        baseFriendship = 70,
+        cryLocation = "turtonator", //Verify
+        graphicsLocation = "turtonator", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Turtonator,
+        abilities = new Ability[3]
+        {
+            ShellArmor,
+            ShellArmor,
+            ShellArmor,
+        },
+    };
+    public static SpeciesData Togedemaru = new()
+    {
+        speciesName = "Togedemaru",
+        type1 = Electric,
+        type2 = Steel,
+        baseHP = 65,
+        baseAttack = 98,
+        baseDefense = 63,
+        baseSpAtk = 40,
+        baseSpDef = 73,
+        baseSpeed = 96,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 152,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 10,
+        catchRate = 180,
+        baseFriendship = 70,
+        cryLocation = "togedemaru", //Verify
+        graphicsLocation = "togedemaru", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Togedemaru,
+        abilities = new Ability[3]
+        {
+            IronBarbs,
+            LightningRod,
+            Sturdy,
+        },
+    };
+    public static SpeciesData MimikyuBase = Mimikyu(false);
+    public static SpeciesData Bruxish = new()
+    {
+        speciesName = "Bruxish",
+        type1 = Water,
+        type2 = Psychic,
+        baseHP = 68,
+        baseAttack = 105,
+        baseDefense = 70,
+        baseSpAtk = 70,
+        baseSpDef = 70,
+        baseSpeed = 92,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 166,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water2,
+        eggGroup2 = EggGroup.Water2,
+        eggCycles = 15,
+        catchRate = 80,
+        baseFriendship = 70,
+        cryLocation = "bruxish", //Verify
+        graphicsLocation = "bruxish", //Verify
+        backSpriteHeight = 14,
+        pokedexData = Pokedex.Bruxish,
+        abilities = new Ability[3]
+        {
+            Dazzling,
+            StrongJaw,
+            WonderSkin,
+        },
+    };
+    public static SpeciesData Drampa = new()
+    {
+        speciesName = "Drampa",
+        type1 = Normal,
+        type2 = Dragon,
+        baseHP = 78,
+        baseAttack = 60,
+        baseDefense = 85,
+        baseSpAtk = 135,
+        baseSpDef = 91,
+        baseSpeed = 36,
+        evYield = 2 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 170,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Dragon,
+        eggCycles = 20,
+        catchRate = 70,
+        baseFriendship = 70,
+        cryLocation = "drampa", //Verify
+        graphicsLocation = "drampa", //Verify
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Drampa,
+        abilities = new Ability[3]
+        {
+            Berserk,
+            SapSipper,
+            CloudNine,
+        },
+    };
+    public static SpeciesData Dhelmise = new()
+    {
+        speciesName = "Dhelmise",
+        type1 = Ghost,
+        type2 = Grass,
+        baseHP = 70,
+        baseAttack = 131,
+        baseDefense = 100,
+        baseSpAtk = 86,
+        baseSpDef = 90,
+        baseSpeed = 40,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 181,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 25,
+        catchRate = 25,
+        baseFriendship = 70,
+        cryLocation = "dhelmise", //Verify
+        graphicsLocation = "dhelmise", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Dhelmise,
+        abilities = new Ability[3]
+        {
+            Steelworker,
+            Steelworker,
+            Steelworker,
+        },
+    };
+    public static SpeciesData JangmoO = new ()
+	{
+		speciesName = "Jangmo-O",
+		type1 = Dragon,
+		type2 = Dragon,
+		baseHP = 45,
+		baseAttack = 55,
+		baseDefense = 65,
+		baseSpAtk = 45,
+		baseSpDef = 45,
+		baseSpeed = 45,
+		evYield = Defense,
+		evolution = Evolution.JangmoO,
+		xpClass = Slow,
+		xpYield = 60,
+		learnset = EmptyLearnset, //Not done
+		malePercent = 50,
+		eggGroup1 = EggGroup.Dragon,
+		eggGroup2 = EggGroup.Dragon,
+		eggCycles = 40,
+		catchRate = 45,
+		baseFriendship = 70,
+		cryLocation = "jangmo_o", //Verify
+		graphicsLocation = "jangmo_o", //Verify
+		backSpriteHeight = 7,
+		pokedexData = Pokedex.JangmoO,
+		abilities = new Ability[3]
+		{
+			Bulletproof,
+			Soundproof,
+			Overcoat,
+		},
+	};
+    public static SpeciesData HakamoO = new()
+    {
+        speciesName = "Hakamo-O",
+        type1 = Dragon,
+        type2 = Fighting,
+        baseHP = 55,
+        baseAttack = 75,
+        baseDefense = 90,
+        baseSpAtk = 65,
+        baseSpDef = 70,
+        baseSpeed = 65,
+        evYield = 2 * Defense,
+        evolution = Evolution.HakamoO,
+        xpClass = Slow,
+        xpYield = 147,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Dragon,
+        eggGroup2 = EggGroup.Dragon,
+        eggCycles = 40,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "hakamo_o", //Verify
+        graphicsLocation = "hakamo_o", //Verify
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.HakamoO,
+        abilities = new Ability[3]
+        {
+            Bulletproof,
+            Soundproof,
+            Overcoat,
+        },
+    };
+    public static SpeciesData KommoO = new()
+    {
+        speciesName = "Kommo-O",
+        type1 = Dragon,
+        type2 = Fighting,
+        baseHP = 75,
+        baseAttack = 110,
+        baseDefense = 125,
+        baseSpAtk = 100,
+        baseSpDef = 105,
+        baseSpeed = 85,
+        evYield = 3 * Defense,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Dragon,
+        eggGroup2 = EggGroup.Dragon,
+        eggCycles = 40,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "kommo_o", //Verify
+        graphicsLocation = "kommo_o", //Verify
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.KommoO,
+        abilities = new Ability[3]
+        {
+                Bulletproof,
+                Soundproof,
+                Overcoat,
+        },
+    };
+    public static SpeciesData TapuKoko = new()
+    {
+        speciesName = "Tapu Koko",
+        type1 = Electric,
+        type2 = Fairy,
+        baseHP = 70,
+        baseAttack = 115,
+        baseDefense = 85,
+        baseSpAtk = 95,
+        baseSpDef = 75,
+        baseSpeed = 130,
+        evYield = 3 * Speed,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 15,
+        catchRate = 3,
+        baseFriendship = 70,
+        cryLocation = "tapu_koko", //Verify
+        graphicsLocation = "tapu_koko", //Verify
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.TapuKoko,
+        abilities = new Ability[3]
+        {
+                ElectricSurge,
+                ElectricSurge,
+                Telepathy,
+        },
+    };
+    public static SpeciesData TapuLele = new()
+    {
+        speciesName = "Tapu Lele",
+        type1 = Psychic,
+        type2 = Fairy,
+        baseHP = 70,
+        baseAttack = 85,
+        baseDefense = 75,
+        baseSpAtk = 130,
+        baseSpDef = 115,
+        baseSpeed = 95,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 15,
+        catchRate = 3,
+        baseFriendship = 70,
+        cryLocation = "tapu_lele", //Verify
+        graphicsLocation = "tapu_lele", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.TapuLele,
+        abilities = new Ability[3]
+        {
+                PsychicSurge,
+                PsychicSurge,
+                Telepathy,
+        },
+    };
+    public static SpeciesData TapuBulu = new()
+    {
+        speciesName = "Tapu Bulu",
+        type1 = Grass,
+        type2 = Fairy,
+        baseHP = 70,
+        baseAttack = 130,
+        baseDefense = 115,
+        baseSpAtk = 85,
+        baseSpDef = 95,
+        baseSpeed = 75,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 15,
+        catchRate = 3,
+        baseFriendship = 70,
+        cryLocation = "tapu_bulu", //Verify
+        graphicsLocation = "tapu_bulu", //Verify
+        backSpriteHeight = 1,
+        pokedexData = Pokedex.TapuBulu,
+        abilities = new Ability[3]
+        {
+                GrassySurge,
+                GrassySurge,
+                Telepathy,
+        },
+    };
+    public static SpeciesData TapuFini = new()
+    {
+        speciesName = "Tapu Fini",
+        type1 = Water,
+        type2 = Fairy,
+        baseHP = 70,
+        baseAttack = 75,
+        baseDefense = 115,
+        baseSpAtk = 95,
+        baseSpDef = 130,
+        baseSpeed = 85,
+        evYield = 3 * SpDef,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 15,
+        catchRate = 3,
+        baseFriendship = 70,
+        cryLocation = "tapu fini", //Verify
+        graphicsLocation = "tapu fini", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.TapuFini,
+        abilities = new Ability[3]
+        {
+                MistySurge,
+                MistySurge,
+                Telepathy,
+        },
+    };
+    public static SpeciesData Cosmog = new()
+    {
+        speciesName = "Cosmog",
+        type1 = Psychic,
+        type2 = Psychic,
+        baseHP = 43,
+        baseAttack = 29,
+        baseDefense = 31,
+        baseSpAtk = 29,
+        baseSpDef = 31,
+        baseSpeed = 37,
+        evYield = HP,
+        evolution = Evolution.Cosmog,
+        xpClass = Slow,
+        xpYield = 40,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "cosmog", //Verify
+        graphicsLocation = "cosmog", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Cosmog,
+        abilities = new Ability[3]
+        {
+                Unaware,
+                Unaware,
+                Unaware,
+        },
+    };
+    public static SpeciesData Cosmoem = new()
+    {
+        speciesName = "Cosmoem",
+        type1 = Psychic,
+        type2 = Psychic,
+        baseHP = 43,
+        baseAttack = 29,
+        baseDefense = 131,
+        baseSpAtk = 29,
+        baseSpDef = 131,
+        baseSpeed = 37,
+        evYield = Defense + SpDef,
+        evolution = Evolution.Cosmoem,
+        xpClass = Slow,
+        xpYield = 140,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "cosmoem", //Verify
+        graphicsLocation = "cosmoem", //Verify
+        backSpriteHeight = 17,
+        pokedexData = Pokedex.Cosmoem,
+        abilities = new Ability[3]
+        {
+                Sturdy,
+                Sturdy,
+                Sturdy,
+        },
+    };
+    public static SpeciesData Solgaleo = new()
+    {
+        speciesName = "Solgaleo",
+        type1 = Psychic,
+        type2 = Steel,
+        baseHP = 137,
+        baseAttack = 137,
+        baseDefense = 107,
+        baseSpAtk = 113,
+        baseSpDef = 89,
+        baseSpeed = 97,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 306,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "solgaleo", //Verify
+        graphicsLocation = "solgaleo", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Solgaleo,
+        abilities = new Ability[3]
+        {
+                FullMetalBody,
+                FullMetalBody,
+                FullMetalBody,
+        },
+    };
+    public static SpeciesData Lunala = new()
+    {
+        speciesName = "Lunala",
+        type1 = Psychic,
+        type2 = Ghost,
+        baseHP = 137,
+        baseAttack = 113,
+        baseDefense = 89,
+        baseSpAtk = 137,
+        baseSpDef = 107,
+        baseSpeed = 97,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 306,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "lunala", //Verify
+        graphicsLocation = "lunala", //Verify
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.Lunala,
+        abilities = new Ability[3]
+        {
+                ShadowShield,
+                ShadowShield,
+                ShadowShield,
+        },
+    };
+    public static SpeciesData Nihilego = new()
+    {
+        speciesName = "Nihilego",
+        type1 = Rock,
+        type2 = Poison,
+        baseHP = 109,
+        baseAttack = 53,
+        baseDefense = 47,
+        baseSpAtk = 127,
+        baseSpDef = 131,
+        baseSpeed = 103,
+        evYield = 3 * SpDef,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "nihilego", //Verify
+        graphicsLocation = "nihilego", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Nihilego,
+        abilities = new Ability[3]
+        {
+                BeastBoost,
+                BeastBoost,
+                BeastBoost,
+        },
+    };
+    public static SpeciesData Buzzwole = new()
+    {
+        speciesName = "Buzzwole",
+        type1 = Bug,
+        type2 = Fighting,
+        baseHP = 107,
+        baseAttack = 139,
+        baseDefense = 139,
+        baseSpAtk = 53,
+        baseSpDef = 53,
+        baseSpeed = 79,
+        evYield = Attack + 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "buzzwole", //Verify
+        graphicsLocation = "buzzwole", //Verify
+        backSpriteHeight = 14,
+        pokedexData = Pokedex.Buzzwole,
+        abilities = new Ability[3]
+        {
+                BeastBoost,
+                BeastBoost,
+                BeastBoost,
+        },
+    };
+    public static SpeciesData Pheromosa = new()
+    {
+        speciesName = "Pheromosa",
+        type1 = Bug,
+        type2 = Fighting,
+        baseHP = 71,
+        baseAttack = 137,
+        baseDefense = 37,
+        baseSpAtk = 137,
+        baseSpDef = 37,
+        baseSpeed = 151,
+        evYield = 3 * Speed,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "pheromosa", //Verify
+        graphicsLocation = "pheromosa", //Verify
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.Pheromosa,
+        abilities = new Ability[3]
+        {
+                BeastBoost,
+                BeastBoost,
+                BeastBoost,
+        },
+    };
+    public static SpeciesData Xurkitree = new()
+    {
+        speciesName = "Xurkitree",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 83,
+        baseAttack = 89,
+        baseDefense = 71,
+        baseSpAtk = 173,
+        baseSpDef = 71,
+        baseSpeed = 83,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "xurkitree", //Verify
+        graphicsLocation = "xurkitree", //Verify
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.Xurkitree,
+        abilities = new Ability[3]
+        {
+                BeastBoost,
+                BeastBoost,
+                BeastBoost,
+        },
+    };
+    public static SpeciesData Celesteela = new()
+    {
+        speciesName = "Celesteela",
+        type1 = Steel,
+        type2 = Flying,
+        baseHP = 97,
+        baseAttack = 101,
+        baseDefense = 103,
+        baseSpAtk = 107,
+        baseSpDef = 101,
+        baseSpeed = 61,
+        evYield = Attack + Defense + SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "celesteela", //Verify
+        graphicsLocation = "celesteela", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Celesteela,
+        abilities = new Ability[3]
+        {
+                BeastBoost,
+                BeastBoost,
+                BeastBoost,
+        },
+    };
+    public static SpeciesData Kartana = new()
+    {
+        speciesName = "Kartana",
+        type1 = Grass,
+        type2 = Steel,
+        baseHP = 59,
+        baseAttack = 181,
+        baseDefense = 131,
+        baseSpAtk = 59,
+        baseSpDef = 31,
+        baseSpeed = 109,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "kartana", //Verify
+        graphicsLocation = "kartana", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Kartana,
+        abilities = new Ability[3]
+        {
+                BeastBoost,
+                BeastBoost,
+                BeastBoost,
+        },
+    };
+    public static SpeciesData Guzzlord = new()
+    {
+        speciesName = "Guzzlord",
+        type1 = Dark,
+        type2 = Dragon,
+        baseHP = 223,
+        baseAttack = 101,
+        baseDefense = 53,
+        baseSpAtk = 97,
+        baseSpDef = 53,
+        baseSpeed = 43,
+        evYield = 3 * HP,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "guzzlord", //Verify
+        graphicsLocation = "guzzlord", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Guzzlord,
+        abilities = new Ability[3]
+        {
+                BeastBoost,
+                BeastBoost,
+                BeastBoost,
+        },
+    };
+    public static SpeciesData Necrozma = new()
+    {
+        speciesName = "Necrozma",
+        type1 = Psychic,
+        type2 = Psychic,
+        baseHP = 97,
+        baseAttack = 107,
+        baseDefense = 101,
+        baseSpAtk = 127,
+        baseSpDef = 89,
+        baseSpeed = 79,
+        evYield = Attack + 2 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 255,
+        baseFriendship = 0,
+        cryLocation = "necrozma", //Verify
+        graphicsLocation = "necrozma", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Necrozma,
+        abilities = new Ability[3]
+        {
+                PrismArmor,
+                PrismArmor,
+                PrismArmor,
+        },
+    };
+    public static SpeciesData MagearnaBase = Magearna(false);
+    public static SpeciesData Marshadow = new()
+    {
+        speciesName = "Marshadow",
+        type1 = Fighting,
+        type2 = Ghost,
+        baseHP = 90,
+        baseAttack = 125,
+        baseDefense = 80,
+        baseSpAtk = 90,
+        baseSpDef = 90,
+        baseSpeed = 125,
+        evYield = 2 * Attack + Speed,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "marshadow", //Verify
+        graphicsLocation = "marshadow", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Marshadow,
+        abilities = new Ability[3]
+        {
+            Technician,
+            Technician,
+            Technician,
+        },
+    };
+    public static SpeciesData Poipole = new()
+    {
+        speciesName = "Poipole",
+        type1 = Poison,
+        type2 = Poison,
+        baseHP = 67,
+        baseAttack = 73,
+        baseDefense = 67,
+        baseSpAtk = 73,
+        baseSpDef = 67,
+        baseSpeed = 73,
+        evYield = Speed,
+        evolution = Evolution.Poipole,
+        xpClass = Slow,
+        xpYield = 189,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "poipole", //Verify
+        graphicsLocation = "poipole", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Poipole,
+        abilities = new Ability[3]
+        {
+            BeastBoost,
+            BeastBoost,
+            BeastBoost,
+        },
+    };
+    public static SpeciesData Naganadel = new()
+    {
+        speciesName = "Naganadel",
+        type1 = Poison,
+        type2 = Dragon,
+        baseHP = 73,
+        baseAttack = 73,
+        baseDefense = 73,
+        baseSpAtk = 127,
+        baseSpDef = 73,
+        baseSpeed = 121,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 243,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "naganadel", //Verify
+        graphicsLocation = "naganadel", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Naganadel,
+        abilities = new Ability[3]
+        {
+            BeastBoost,
+            BeastBoost,
+            BeastBoost,
+        },
+    };
+    public static SpeciesData Stakataka = new()
+    {
+        speciesName = "Stakataka",
+        type1 = Rock,
+        type2 = Steel,
+        baseHP = 61,
+        baseAttack = 131,
+        baseDefense = 211,
+        baseSpAtk = 53,
+        baseSpDef = 101,
+        baseSpeed = 13,
+        evYield = 3 * Defense,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 30,
+        baseFriendship = 0,
+        cryLocation = "stakataka", //Verify
+        graphicsLocation = "stakataka", //Verify
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Stakataka,
+        abilities = new Ability[3]
+        {
+            BeastBoost,
+            BeastBoost,
+            BeastBoost,
+        },
+    };
+    public static SpeciesData Blacephalon = new()
+    {
+        speciesName = "Blacephalon",
+        type1 = Fire,
+        type2 = Ghost,
+        baseHP = 53,
+        baseAttack = 127,
+        baseDefense = 53,
+        baseSpAtk = 151,
+        baseSpDef = 79,
+        baseSpeed = 107,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 30,
+        baseFriendship = 0,
+        cryLocation = "blacephalon", //Verify
+        graphicsLocation = "blacephalon", //Verify
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Blacephalon,
+        abilities = new Ability[3]
+        {
+            BeastBoost,
+            BeastBoost,
+            BeastBoost,
+        },
+    };
+    public static SpeciesData Zeraora = new()
+    {
+        speciesName = "Zeraora",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 88,
+        baseAttack = 112,
+        baseDefense = 75,
+        baseSpAtk = 102,
+        baseSpDef = 80,
+        baseSpeed = 143,
+        evYield = 3 * Speed,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "zeraora", //Verify
+        graphicsLocation = "zeraora", //Verify
+        backSpriteHeight = 11,
+        pokedexData = Pokedex.Zeraora,
+        abilities = new Ability[3]
+        {
+            VoltAbsorb,
+            VoltAbsorb,
+            VoltAbsorb,
+        },
+    };
+    public static SpeciesData Meltan = new()
+    {
+        speciesName = "Meltan",
+        type1 = Steel,
+        type2 = Steel,
+        baseHP = 46,
+        baseAttack = 65,
+        baseDefense = 65,
+        baseSpAtk = 55,
+        baseSpDef = 35,
+        baseSpeed = 34,
+        evYield = Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 135,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "meltan", //Verify
+        graphicsLocation = "meltan", //Verify
+        backSpriteHeight = 12,
+        pokedexData = Pokedex.Meltan,
+        abilities = new Ability[3]
+        {
+            MagnetPull,
+            MagnetPull,
+            MagnetPull,
+        },
+    };
+    public static SpeciesData Melmetal = new()
+    {
+        speciesName = "Melmetal",
+        type1 = Steel,
+        type2 = Steel,
+        baseHP = 135,
+        baseAttack = 143,
+        baseDefense = 143,
+        baseSpAtk = 80,
+        baseSpDef = 65,
+        baseSpeed = 34,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "melmetal", //Verify
+        graphicsLocation = "melmetal", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Melmetal,
+        abilities = new Ability[3]
+        {
+            IronFist,
+            IronFist,
+            IronFist,
+        },
+    };
+
     //Forms
 
-    //Megas
+    //Regional forms
+    //Alola
+    public static SpeciesData RattataAlola = new ()
+	{
+		speciesName = "Rattata",
+		type1 = Dark,
+		type2 = Normal,
+		baseHP = 30,
+		baseAttack = 56,
+		baseDefense = 35,
+		baseSpAtk = 25,
+		baseSpDef = 35,
+		baseSpeed = 72,
+		evYield = Speed,
+		evolution = Evolution.RattataAlola,
+		xpClass = MediumFast,
+		xpYield = 51,
+		learnset = EmptyLearnset, //Not done
+		malePercent = 50,
+		eggGroup1 = EggGroup.Field,
+		eggGroup2 = EggGroup.Field,
+		eggCycles = 15,
+		catchRate = 255,
+		baseFriendship = 70,
+		cryLocation = "rattata", //Verify
+		graphicsLocation = "rattata/alolan", //Verify
+		backSpriteHeight = 7,
+		pokedexData = Pokedex.Rattata,
+		abilities = new Ability[3]
+		{
+			Gluttony,
+			Hustle,
+			ThickFat,
+		},
+	};
+public static SpeciesData RaticateAlola = new()
+{
+    speciesName = "Raticate",
+    type1 = Dark,
+    type2 = Normal,
+    baseHP = 75,
+    baseAttack = 71,
+    baseDefense = 70,
+    baseSpAtk = 40,
+    baseSpDef = 80,
+    baseSpeed = 77,
+    evYield = 2 * Speed,
+    evolution = Evolution.None,
+    xpClass = MediumFast,
+    xpYield = 145,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Field,
+    eggGroup2 = EggGroup.Field,
+    eggCycles = 15,
+    catchRate = 127,
+    baseFriendship = 70,
+    cryLocation = "raticate", //Verify
+    graphicsLocation = "raticate/alolan", //Verify
+    backSpriteHeight = 8,
+    pokedexData = Pokedex.Raticate,
+    abilities = new Ability[3]
+    {
+            Gluttony,
+            Hustle,
+            ThickFat,
+    },
+};
+public static SpeciesData RaichuAlola = new()
+{
+    speciesName = "Raichu",
+    type1 = Electric,
+    type2 = Psychic,
+    baseHP = 60,
+    baseAttack = 85,
+    baseDefense = 50,
+    baseSpAtk = 95,
+    baseSpDef = 85,
+    baseSpeed = 110,
+    evYield = 3 * Speed,
+    evolution = Evolution.None,
+    xpClass = MediumFast,
+    xpYield = 218,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Field,
+    eggGroup2 = EggGroup.Fairy,
+    eggCycles = 10,
+    catchRate = 75,
+    baseFriendship = 70,
+    cryLocation = "raichu", //Verify
+    graphicsLocation = "raichu/alolan", //Verify
+    backSpriteHeight = 6,
+    pokedexData = Pokedex.Raichu,
+    abilities = new Ability[3]
+    {
+            SurgeSurfer,
+            SurgeSurfer,
+            SurgeSurfer,
+    },
+};
+public static SpeciesData SandshrewAlola = new()
+{
+    speciesName = "Sandshrew",
+    type1 = Ice,
+    type2 = Steel,
+    baseHP = 50,
+    baseAttack = 75,
+    baseDefense = 90,
+    baseSpAtk = 10,
+    baseSpDef = 35,
+    baseSpeed = 40,
+    evYield = Defense,
+    evolution = Evolution.SandshrewAlola,
+    xpClass = MediumFast,
+    xpYield = 60,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Field,
+    eggGroup2 = EggGroup.Field,
+    eggCycles = 20,
+    catchRate = 255,
+    baseFriendship = 70,
+    cryLocation = "sandshrew", //Verify
+    graphicsLocation = "sandshrew/alolan", //Verify
+    backSpriteHeight = 13,
+    pokedexData = Pokedex.Sandshrew,
+    abilities = new Ability[3]
+    {
+            SnowCloak,
+            SnowCloak,
+            SlushRush,
+    },
+};
+public static SpeciesData SandslashAlola = new()
+{
+    speciesName = "Sandslash",
+    type1 = Ice,
+    type2 = Steel,
+    baseHP = 75,
+    baseAttack = 100,
+    baseDefense = 120,
+    baseSpAtk = 25,
+    baseSpDef = 65,
+    baseSpeed = 65,
+    evYield = 2 * Defense,
+    evolution = Evolution.None,
+    xpClass = MediumFast,
+    xpYield = 158,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Field,
+    eggGroup2 = EggGroup.Field,
+    eggCycles = 20,
+    catchRate = 90,
+    baseFriendship = 70,
+    cryLocation = "sandslash", //Verify
+    graphicsLocation = "sandslash/alolan", //Verify
+    backSpriteHeight = 6,
+    pokedexData = Pokedex.Sandslash,
+    abilities = new Ability[3]
+    {
+            SnowCloak,
+            SnowCloak,
+            SlushRush,
+    },
+};
+public static SpeciesData VulpixAlola = new()
+{
+    speciesName = "Vulpix",
+    type1 = Ice,
+    type2 = Ice,
+    baseHP = 38,
+    baseAttack = 41,
+    baseDefense = 40,
+    baseSpAtk = 50,
+    baseSpDef = 65,
+    baseSpeed = 65,
+    evYield = Speed,
+    evolution = Evolution.VulpixAlola,
+    xpClass = MediumFast,
+    xpYield = 60,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 25,
+    eggGroup1 = EggGroup.Field,
+    eggGroup2 = EggGroup.Field,
+    eggCycles = 20,
+    catchRate = 190,
+    baseFriendship = 70,
+    cryLocation = "vulpix", //Verify
+    graphicsLocation = "vulpix/alolan", //Verify
+    backSpriteHeight = 5,
+    pokedexData = Pokedex.Vulpix,
+    abilities = new Ability[3]
+    {
+            SnowCloak,
+            SnowCloak,
+            SnowWarning,
+    },
+};
+public static SpeciesData NinetalesAlola = new()
+{
+    speciesName = "Ninetales",
+    type1 = Ice,
+    type2 = Fairy,
+    baseHP = 73,
+    baseAttack = 67,
+    baseDefense = 75,
+    baseSpAtk = 81,
+    baseSpDef = 100,
+    baseSpeed = 109,
+    evYield = Speed + SpDef,
+    evolution = Evolution.None,
+    xpClass = MediumFast,
+    xpYield = 177,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 25,
+    eggGroup1 = EggGroup.Field,
+    eggGroup2 = EggGroup.Field,
+    eggCycles = 20,
+    catchRate = 75,
+    baseFriendship = 70,
+    cryLocation = "ninetales", //Verify
+    graphicsLocation = "ninetales/alolan", //Verify
+    backSpriteHeight = 5,
+    pokedexData = Pokedex.Ninetales,
+    abilities = new Ability[3]
+    {
+            SnowCloak,
+            SnowCloak,
+            SnowWarning,
+    },
+};
+public static SpeciesData DiglettAlola = new()
+{
+    speciesName = "Diglett",
+    type1 = Ground,
+    type2 = Steel,
+    baseHP = 10,
+    baseAttack = 55,
+    baseDefense = 30,
+    baseSpAtk = 35,
+    baseSpDef = 45,
+    baseSpeed = 90,
+    evYield = Speed,
+    evolution = Evolution.DiglettAlola,
+    xpClass = MediumFast,
+    xpYield = 53,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Field,
+    eggGroup2 = EggGroup.Field,
+    eggCycles = 20,
+    catchRate = 255,
+    baseFriendship = 70,
+    cryLocation = "diglett", //Verify
+    graphicsLocation = "diglett/alolan", //Verify
+    backSpriteHeight = 14,
+    pokedexData = Pokedex.Diglett,
+    abilities = new Ability[3]
+    {
+            SandVeil,
+            TanglingHair,
+            SandForce,
+    },
+};
+public static SpeciesData DugtrioAlola = new()
+{
+    speciesName = "Dugtrio",
+    type1 = Ground,
+    type2 = Steel,
+    baseHP = 35,
+    baseAttack = 100,
+    baseDefense = 60,
+    baseSpAtk = 50,
+    baseSpDef = 70,
+    baseSpeed = 110,
+    evYield = 2 * Speed,
+    evolution = Evolution.None,
+    xpClass = MediumFast,
+    xpYield = 149,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Field,
+    eggGroup2 = EggGroup.Field,
+    eggCycles = 20,
+    catchRate = 50,
+    baseFriendship = 70,
+    cryLocation = "dugtrio", //Verify
+    graphicsLocation = "dugtrio/alolan", //Verify
+    backSpriteHeight = 17,
+    pokedexData = Pokedex.Dugtrio,
+    abilities = new Ability[3]
+    {
+            SandVeil,
+            TanglingHair,
+            SandForce,
+    },
+};
+public static SpeciesData MeowthAlola = new()
+{
+    speciesName = "Meowth",
+    type1 = Dark,
+    type2 = Dark,
+    baseHP = 40,
+    baseAttack = 35,
+    baseDefense = 35,
+    baseSpAtk = 50,
+    baseSpDef = 40,
+    baseSpeed = 90,
+    evYield = Speed,
+    evolution = Evolution.MeowthAlola,
+    xpClass = MediumFast,
+    xpYield = 58,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Field,
+    eggGroup2 = EggGroup.Field,
+    eggCycles = 20,
+    catchRate = 255,
+    baseFriendship = 70,
+    cryLocation = "meowth", //Verify
+    graphicsLocation = "meowth/alolan", //Verify
+    backSpriteHeight = 7,
+    pokedexData = Pokedex.Meowth,
+    abilities = new Ability[3]
+    {
+            Pickup,
+            Technician,
+            Rattled,
+    },
+};
+public static SpeciesData PersianAlola = new()
+{
+    speciesName = "Persian",
+    type1 = Dark,
+    type2 = Dark,
+    baseHP = 65,
+    baseAttack = 60,
+    baseDefense = 60,
+    baseSpAtk = 75,
+    baseSpDef = 65,
+    baseSpeed = 115,
+    evYield = 2 * Speed,
+    evolution = Evolution.None,
+    xpClass = MediumFast,
+    xpYield = 154,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Field,
+    eggGroup2 = EggGroup.Field,
+    eggCycles = 20,
+    catchRate = 90,
+    baseFriendship = 70,
+    cryLocation = "persian", //Verify
+    graphicsLocation = "persian/alolan", //Verify
+    backSpriteHeight = 8,
+    pokedexData = Pokedex.Persian,
+    abilities = new Ability[3]
+    {
+            FurCoat,
+            Technician,
+            Rattled,
+    },
+};
+public static SpeciesData GeodudeAlola = new()
+{
+    speciesName = "Geodude",
+    type1 = Rock,
+    type2 = Electric,
+    baseHP = 40,
+    baseAttack = 80,
+    baseDefense = 100,
+    baseSpAtk = 30,
+    baseSpDef = 30,
+    baseSpeed = 20,
+    evYield = Defense,
+    evolution = Evolution.GeodudeAlola,
+    xpClass = MediumSlow,
+    xpYield = 60,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Mineral,
+    eggGroup2 = EggGroup.Mineral,
+    eggCycles = 15,
+    catchRate = 255,
+    baseFriendship = 70,
+    cryLocation = "geodude", //Verify
+    graphicsLocation = "geodude/alolan", //Verify
+    backSpriteHeight = 13,
+    pokedexData = Pokedex.Geodude,
+    abilities = new Ability[3]
+    {
+            MagnetPull,
+            Sturdy,
+            Galvanize,
+    },
+};
+public static SpeciesData GravelerAlola = new()
+{
+    speciesName = "Graveler",
+    type1 = Rock,
+    type2 = Electric,
+    baseHP = 55,
+    baseAttack = 95,
+    baseDefense = 115,
+    baseSpAtk = 45,
+    baseSpDef = 45,
+    baseSpeed = 35,
+    evYield = 2 * Defense,
+    evolution = Evolution.GravelerAlola,
+    xpClass = MediumSlow,
+    xpYield = 137,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Mineral,
+    eggGroup2 = EggGroup.Mineral,
+    eggCycles = 15,
+    catchRate = 120,
+    baseFriendship = 70,
+    cryLocation = "graveler", //Verify
+    graphicsLocation = "graveler/alolan", //Verify
+    backSpriteHeight = 10,
+    pokedexData = Pokedex.Graveler,
+    abilities = new Ability[3]
+    {
+            MagnetPull,
+            Sturdy,
+            Galvanize,
+    },
+};
+public static SpeciesData GolemAlola = new()
+{
+    speciesName = "Golem",
+    type1 = Rock,
+    type2 = Electric,
+    baseHP = 80,
+    baseAttack = 120,
+    baseDefense = 130,
+    baseSpAtk = 55,
+    baseSpDef = 65,
+    baseSpeed = 45,
+    evYield = 3 * Defense,
+    evolution = Evolution.None,
+    xpClass = MediumSlow,
+    xpYield = 223,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Mineral,
+    eggGroup2 = EggGroup.Mineral,
+    eggCycles = 15,
+    catchRate = 45,
+    baseFriendship = 70,
+    cryLocation = "golem", //Verify
+    graphicsLocation = "golem/alolan", //Verify
+    backSpriteHeight = 13,
+    pokedexData = Pokedex.Golem,
+    abilities = new Ability[3]
+    {
+            MagnetPull,
+            Sturdy,
+            Galvanize,
+    },
+};
+public static SpeciesData GrimerAlola = new()
+{
+    speciesName = "Grimer",
+    type1 = Poison,
+    type2 = Dark,
+    baseHP = 80,
+    baseAttack = 80,
+    baseDefense = 50,
+    baseSpAtk = 40,
+    baseSpDef = 50,
+    baseSpeed = 25,
+    evYield = HP,
+    evolution = Evolution.GrimerAlola,
+    xpClass = MediumFast,
+    xpYield = 65,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Amorphous,
+    eggGroup2 = EggGroup.Amorphous,
+    eggCycles = 20,
+    catchRate = 190,
+    baseFriendship = 70,
+    cryLocation = "grimer", //Verify
+    graphicsLocation = "grimer/alolan", //Verify
+    backSpriteHeight = 14,
+    pokedexData = Pokedex.Grimer,
+    abilities = new Ability[3]
+    {
+            PoisonTouch,
+            Gluttony,
+            PowerOfAlchemy,
+    },
+};
+public static SpeciesData MukAlola = new()
+{
+    speciesName = "Muk",
+    type1 = Poison,
+    type2 = Dark,
+    baseHP = 105,
+    baseAttack = 105,
+    baseDefense = 75,
+    baseSpAtk = 65,
+    baseSpDef = 100,
+    baseSpeed = 50,
+    evYield = HP + Attack,
+    evolution = Evolution.None,
+    xpClass = MediumFast,
+    xpYield = 175,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Amorphous,
+    eggGroup2 = EggGroup.Amorphous,
+    eggCycles = 20,
+    catchRate = 75,
+    baseFriendship = 70,
+    cryLocation = "muk", //Verify
+    graphicsLocation = "muk/alolan", //Verify
+    backSpriteHeight = 6,
+    pokedexData = Pokedex.Muk,
+    abilities = new Ability[3]
+    {
+            PoisonTouch,
+            Gluttony,
+            PowerOfAlchemy,
+    },
+};
+public static SpeciesData ExeggutorAlola = new()
+{
+    speciesName = "Exeggutor",
+    type1 = Grass,
+    type2 = Dragon,
+    baseHP = 95,
+    baseAttack = 105,
+    baseDefense = 85,
+    baseSpAtk = 125,
+    baseSpDef = 75,
+    baseSpeed = 45,
+    evYield = 2 * SpAtk,
+    evolution = Evolution.None,
+    xpClass = Slow,
+    xpYield = 186,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Grass,
+    eggGroup2 = EggGroup.Grass,
+    eggCycles = 20,
+    catchRate = 45,
+    baseFriendship = 70,
+    cryLocation = "exeggutor", //Verify
+    graphicsLocation = "exeggutor/alolan", //Verify
+    backSpriteHeight = 4,
+    pokedexData = Pokedex.Exeggutor,
+    abilities = new Ability[3]
+    {
+            Frisk,
+            Frisk,
+            Harvest,
+    },
+};
+public static SpeciesData MarowakAlola = new()
+{
+    speciesName = "Marowak",
+    type1 = Fire,
+    type2 = Ghost,
+    baseHP = 60,
+    baseAttack = 80,
+    baseDefense = 110,
+    baseSpAtk = 50,
+    baseSpDef = 80,
+    baseSpeed = 45,
+    evYield = 2 * Defense,
+    evolution = Evolution.None,
+    xpClass = MediumFast,
+    xpYield = 149,
+    learnset = EmptyLearnset, //Not done
+    malePercent = 50,
+    eggGroup1 = EggGroup.Monster,
+    eggGroup2 = EggGroup.Monster,
+    eggCycles = 20,
+    catchRate = 75,
+    baseFriendship = 70,
+    cryLocation = "marowak", //Verify
+    graphicsLocation = "marowak/alolan", //Verify
+    backSpriteHeight = 6,
+    pokedexData = Pokedex.Marowak,
+    abilities = new Ability[3]
+    {
+            CursedBody,
+            LightningRod,
+            RockHead,
+    },
+};
 
-    public static SpeciesData VenusaurMega = Mega(
+//Megas
+
+public static SpeciesData VenusaurMega = Mega(
             baseSpecies: Venusaur,
             baseAttack: 100,
             baseDefense: 123,
@@ -23639,7 +26918,93 @@ public static class Species
         pokedexData: Pokedex.Diancie,
         ability: MagicBounce
     );
-    //Unown forms
+
+    //Other forms
+
+    public static SpeciesData PikachuCosplay = PikachuCosplay("cosplay");
+    public static SpeciesData PikachuRockStar = PikachuCosplay("rock_star");
+    public static SpeciesData PikachuBelle = PikachuCosplay("belle");
+    public static SpeciesData PikachuPopStar = PikachuCosplay("pop_star");
+    public static SpeciesData PikachuPhD = PikachuCosplay("ph_d");
+    public static SpeciesData PikachuLibre = PikachuCosplay("libre");
+    public static SpeciesData PikachuOriginal = PikachuCap("original");
+    public static SpeciesData PikachuHoenn = PikachuCap("hoenn");
+    public static SpeciesData PikachuSinnoh = PikachuCap("sinnoh");
+    public static SpeciesData PikachuUnova = PikachuCap("unova");
+    public static SpeciesData PikachuKalos = PikachuCap("kalos");
+    public static SpeciesData PikachuAlolaCap = PikachuCap("alola");
+    public static SpeciesData PikachuPartnerCap = PikachuCap("partner");
+    public static SpeciesData PikachuWorld = PikachuCap("world");
+
+    public static SpeciesData PikachuPartner = new()
+    {
+        speciesName = "Pikachu",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 45,
+        baseAttack = 80,
+        baseDefense = 50,
+        baseSpAtk = 75,
+        baseSpDef = 60,
+        baseSpeed = 120,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 112,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Undiscovered, //Just to be safe
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 10,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "pikachu", //Verify
+        graphicsLocation = "pikachu", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Pikachu,
+        abilities = new Ability[3]
+        {
+            Static,
+            Static,
+            LightningRod,
+        },
+    };
+
+    public static SpeciesData EeveePartner = new()
+    {
+        speciesName = "Eevee",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 65,
+        baseAttack = 75,
+        baseDefense = 70,
+        baseSpAtk = 65,
+        baseSpDef = 85,
+        baseSpeed = 75,
+        evYield = SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 65,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 87,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 35,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "eevee", //Verify
+        graphicsLocation = "eevee", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Eevee,
+        abilities = new Ability[3]
+        {
+            RunAway,
+            Adaptability,
+            Anticipation,
+        },
+    };
+
+    public static SpeciesData PichuSpikyEared = Pichu(true);
 
     public static SpeciesData Unown_B
         = Unown("unown/b", 9);
@@ -24408,8 +27773,6 @@ public static class Species
 		},
 	};
 
-
-
     public static SpeciesData HoopaUnbound = new()
 	{
 		speciesName = "Hoopa",
@@ -24441,6 +27804,249 @@ public static class Species
 			Magician,
 			Magician,
 			Magician,
+		},
+	};
+
+    public static SpeciesData OricorioPomPom = Oricorio(Electric, "pom_pom");
+    public static SpeciesData OricorioPau = Oricorio(Psychic, "pau");
+    public static SpeciesData OricorioSensu = Oricorio(Ghost, "sensu");
+
+    public static SpeciesData RockruffOwnTempo = Rockruff(
+        new[] { OwnTempo, OwnTempo, OwnTempo }, Evolution.RockruffOwnTempo);
+
+    public static SpeciesData LycanrocMidnight = new ()
+	{
+		speciesName = "Lycanroc",
+		type1 = Rock,
+		type2 = Rock,
+		baseHP = 85,
+		baseAttack = 115,
+		baseDefense = 75,
+		baseSpAtk = 55,
+		baseSpDef = 75,
+		baseSpeed = 82,
+		evYield = 2 * Attack,
+		evolution = Evolution.None,
+		xpClass = MediumFast,
+		xpYield = 170,
+		learnset = EmptyLearnset, //Not done
+		malePercent = 50,
+		eggGroup1 = EggGroup.Field,
+		eggGroup2 = EggGroup.Field,
+		eggCycles = 15,
+		catchRate = 90,
+		baseFriendship = 70,
+		cryLocation = "lycanroc_midnight",
+		graphicsLocation = "lycanroc/midnight",
+		backSpriteHeight = 7,
+		pokedexData = Pokedex.Lycanroc,
+		abilities = new Ability[3]
+		{
+			KeenEye,
+			VitalSpirit,
+			NoGuard,
+		},
+	};
+    public static SpeciesData LycanrocDusk = new()
+    {
+        speciesName = "Lycanroc",
+        type1 = Rock,
+        type2 = Rock,
+        baseHP = 75,
+        baseAttack = 117,
+        baseDefense = 65,
+        baseSpAtk = 55,
+        baseSpDef = 65,
+        baseSpeed = 110,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 170,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 90,
+        baseFriendship = 70,
+        cryLocation = "lycanroc_dusk", //Verify
+        graphicsLocation = "lycanroc/dusk", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Lycanroc,
+        abilities = new Ability[3]
+        {
+            ToughClaws,
+            ToughClaws,
+            ToughClaws,
+        },
+    };
+    public static SpeciesData WishiwashiSchool = new ()
+	{
+		speciesName = "Wishiwashi",
+		type1 = Water,
+		type2 = Water,
+		baseHP = 45,
+		baseAttack = 140,
+		baseDefense = 130,
+		baseSpAtk = 140,
+		baseSpDef = 135,
+		baseSpeed = 30,
+		evYield = HP,
+		evolution = Evolution.None,
+		xpClass = Fast,
+		xpYield = 61,
+		learnset = EmptyLearnset, //Not done
+		malePercent = 50,
+		eggGroup1 = EggGroup.Water2,
+		eggGroup2 = EggGroup.Water2,
+		eggCycles = 15,
+		catchRate = 60,
+		baseFriendship = 70,
+		cryLocation = "wishiwashi_school",
+		graphicsLocation = "wishiwashi/school",
+		backSpriteHeight = 5,
+		pokedexData = Pokedex.Wishiwashi,
+		abilities = new Ability[3]
+		{
+			Schooling,
+			Schooling,
+			Schooling,
+		},
+	};
+
+    public static SpeciesData SilvallyFighting = Silvally(Fighting, "fighting");
+    public static SpeciesData SilvallyFlying = Silvally(Flying, "flying");
+    public static SpeciesData SilvallyPoison = Silvally(Poison, "poison");
+    public static SpeciesData SilvallyGround = Silvally(Ground, "ground");
+    public static SpeciesData SilvallyRock = Silvally(Rock, "rock");
+    public static SpeciesData SilvallyBug = Silvally(Bug, "bug");
+    public static SpeciesData SilvallyGhost = Silvally(Ghost, "ghost");
+    public static SpeciesData SilvallySteel = Silvally(Steel, "steel");
+    public static SpeciesData SilvallyFire = Silvally(Fire, "fire");
+    public static SpeciesData SilvallyWater = Silvally(Water, "water");
+    public static SpeciesData SilvallyGrass = Silvally(Grass, "grass");
+    public static SpeciesData SilvallyElectric = Silvally(Electric, "electric");
+    public static SpeciesData SilvallyPsychic = Silvally(Psychic, "psychic");
+    public static SpeciesData SilvallyIce = Silvally(Ice, "ice");
+    public static SpeciesData SilvallyDragon = Silvally(Dragon, "dragon");
+    public static SpeciesData SilvallyDark = Silvally(Dark, "dark");
+    public static SpeciesData SilvallyFairy = Silvally(Fairy, "fairy");
+
+    public static SpeciesData MiniorOrangeMeteor = Minior(false);
+    public static SpeciesData MiniorYellowMeteor = Minior(false);
+    public static SpeciesData MiniorGreenMeteor = Minior(false);
+    public static SpeciesData MiniorBlueMeteor = Minior(false);
+    public static SpeciesData MiniorIndigoMeteor = Minior(false);
+    public static SpeciesData MiniorVioletMeteor = Minior(false);
+    public static SpeciesData MiniorRedCore = Minior(true, "red");
+    public static SpeciesData MiniorOrangeCore = Minior(true, "orange");
+    public static SpeciesData MiniorYellowCore = Minior(true, "yellow");
+    public static SpeciesData MiniorGreenCore = Minior(true, "green");
+    public static SpeciesData MiniorBlueCore = Minior(true, "blue");
+    public static SpeciesData MiniorIndigoCore = Minior(true, "indigo");
+    public static SpeciesData MiniorVioletCore = Minior(true, "violet");
+
+    public static SpeciesData MimikyuBusted = Mimikyu(true);
+
+    public static SpeciesData MagearnaOriginal = Magearna(true);
+
+    public static SpeciesData NecrozmaDuskMane = new()
+    {
+        speciesName = "Necrozma",
+        type1 = Psychic,
+        type2 = Steel,
+        baseHP = 97,
+        baseAttack = 157,
+        baseDefense = 127,
+        baseSpAtk = 113,
+        baseSpDef = 109,
+        baseSpeed = 77,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 306,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 255,
+        baseFriendship = 0,
+        cryLocation = "necrozma_dusk_mane", //Verify
+        graphicsLocation = "necrozma/dusk_mane", //Verify
+        backSpriteHeight = 1,
+        pokedexData = Pokedex.Necrozma,
+        abilities = new Ability[3]
+        {
+            PrismArmor,
+            PrismArmor,
+            PrismArmor,
+        },
+    };
+    public static SpeciesData NecrozmaDawnWings = new()
+    {
+        speciesName = "Necrozma",
+        type1 = Psychic,
+        type2 = Ghost,
+        baseHP = 97,
+        baseAttack = 113,
+        baseDefense = 109,
+        baseSpAtk = 157,
+        baseSpDef = 127,
+        baseSpeed = 77,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 306,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 255,
+        baseFriendship = 0,
+        cryLocation = "necrozma_dawn_wings", //Verify
+        graphicsLocation = "necrozma/dawn_wings", //Verify
+        backSpriteHeight = 2,
+        pokedexData = Pokedex.Necrozma,
+        abilities = new Ability[3]
+        {
+            PrismArmor,
+            PrismArmor,
+            PrismArmor,
+        },
+    };
+    public static SpeciesData NecrozmaUltra = new ()
+	{
+		speciesName = "Necrozma",
+		type1 = Psychic,
+		type2 = Dragon,
+		baseHP = 97,
+		baseAttack = 167,
+		baseDefense = 97,
+		baseSpAtk = 167,
+		baseSpDef = 97,
+		baseSpeed = 129,
+		evYield = Attack + Speed + SpAtk,
+		evolution = Evolution.None,
+		xpClass = Slow,
+		xpYield = 339,
+		learnset = EmptyLearnset, //Not done
+		malePercent = Genderless,
+		eggGroup1 = EggGroup.Undiscovered,
+		eggGroup2 = EggGroup.Undiscovered,
+		eggCycles = 120,
+		catchRate = 255,
+		baseFriendship = 0,
+		cryLocation = "necrozma_ultra", //Verify
+		graphicsLocation = "necrozma/ultra", //Verify
+		backSpriteHeight = 3,
+		pokedexData = Pokedex.Necrozma,
+		abilities = new Ability[3]
+		{
+			Neuroforce,
+			Neuroforce,
+			Neuroforce,
 		},
 	};
 
@@ -25178,7 +28784,140 @@ public static SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count]
         Hoopa,
         Volcanion,
 
+        //Gen 7
+        Rowlet,
+        Dartrix,
+        Decidueye,
+        Litten,
+        Torracat,
+        Incineroar,
+        Popplio,
+        Brionne,
+        Primarina,
+        Pikipek,
+        Trumbeak,
+        Toucannon,
+        Yungoos,
+        Gumshoos,
+        Grubbin,
+        Charjabug,
+        Vikavolt,
+        Crabrawler,
+        Crabominable,
+        OricorioBaile,
+        Cutiefly,
+        Ribombee,
+        RockruffNormal,
+        Lycanroc,
+        Wishiwashi,
+        Mareanie,
+        Toxapex,
+        Mudbray,
+        Mudsdale,
+        Dewpider,
+        Araquanid,
+        Fomantis,
+        Lurantis,
+        Morelull,
+        Shiinotic,
+        Salandit,
+        Salazzle,
+        Stufful,
+        Bewear,
+        Bounsweet,
+        Steenee,
+        Tsareena,
+        Comfey,
+        Oranguru,
+        Passimian,
+        Wimpod,
+        Golisopod,
+        Sandygast,
+        Palossand,
+        Pyukumuku,
+        TypeNull,
+        SilvallyNormal,
+        MiniorRedMeteor,
+        Komala,
+        Turtonator,
+        Togedemaru,
+        MimikyuBase,
+        Bruxish,
+        Drampa,
+        Dhelmise,
+        JangmoO,
+        HakamoO,
+        KommoO,
+        TapuKoko,
+        TapuLele,
+        TapuBulu,
+        TapuFini,
+        Cosmog,
+        Cosmoem,
+        Solgaleo,
+        Lunala,
+        Nihilego,
+        Buzzwole,
+        Pheromosa,
+        Xurkitree,
+        Celesteela,
+        Kartana,
+        Guzzlord,
+        Necrozma,
+        MagearnaBase,
+        Marshadow,
+        Poipole,
+        Naganadel,
+        Stakataka,
+        Blacephalon,
+        Zeraora,
+        Meltan,
+        Melmetal,
+
         //Forms
+
+        //Regional forms
+        //Alola
+        RattataAlola,
+        RaticateAlola,
+        RaichuAlola,
+        SandshrewAlola,
+        SandslashAlola,
+        VulpixAlola,
+        NinetalesAlola,
+        DiglettAlola,
+        DugtrioAlola,
+        MeowthAlola,
+        PersianAlola,
+        GeodudeAlola,
+        GravelerAlola,
+        GolemAlola,
+        GrimerAlola,
+        MukAlola,
+        ExeggutorAlola,
+        MarowakAlola,
+
+        //Other forms
+
+        PikachuCosplay,
+        PikachuRockStar,
+        PikachuBelle,
+        PikachuPopStar,
+        PikachuPhD,
+        PikachuLibre,
+        PikachuOriginal,
+        PikachuHoenn,
+        PikachuSinnoh,
+        PikachuUnova,
+        PikachuKalos,
+        PikachuAlolaCap,
+        PikachuPartnerCap,
+        PikachuWorld,
+        PikachuPartner,
+
+        EeveePartner,
+
+        PichuSpikyEared,
 
         Unown_B,
         Unown_C,
@@ -25397,6 +29136,56 @@ public static SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count]
 
         HoopaUnbound,
 
+        OricorioPomPom,
+        OricorioPau,
+        OricorioSensu,
+
+        RockruffOwnTempo,
+
+        LycanrocMidnight,
+        LycanrocDusk,
+
+        WishiwashiSchool,
+
+        SilvallyFighting,
+        SilvallyFlying,
+        SilvallyPoison,
+        SilvallyGround,
+        SilvallyRock,
+        SilvallyBug,
+        SilvallyGhost,
+        SilvallySteel,
+        SilvallyFire,
+        SilvallyWater,
+        SilvallyGrass,
+        SilvallyElectric,
+        SilvallyPsychic,
+        SilvallyIce,
+        SilvallyDragon,
+        SilvallyDark,
+        SilvallyFairy,
+
+        MiniorOrangeMeteor,
+        MiniorYellowMeteor,
+        MiniorGreenMeteor,
+        MiniorBlueMeteor,
+        MiniorIndigoMeteor,
+        MiniorVioletMeteor,
+        MiniorRedCore,
+        MiniorOrangeCore,
+        MiniorYellowCore,
+        MiniorGreenCore,
+        MiniorBlueCore,
+        MiniorIndigoCore,
+        MiniorVioletCore,
+
+        MimikyuBusted,
+
+        NecrozmaDuskMane,
+        NecrozmaDawnWings,
+        NecrozmaUltra,
+
+        MagearnaOriginal,
 
         //Megas
 

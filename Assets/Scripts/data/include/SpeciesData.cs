@@ -96,9 +96,113 @@ public struct SpeciesData
     public static SpeciesData OverwriteAbility(SpeciesData baseSpecies, Ability ability)
     {
         SpeciesData copy = baseSpecies;
-        copy.abilities = new Ability[3] { ability, ability, ability };
+        copy.abilities = new[] { ability, ability, ability };
         return copy;
     }
+
+    //Pikachu forms
+    public static SpeciesData PikachuCap(string capName) => new()
+    {
+        speciesName = "Pikachu",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 35,
+        baseAttack = 55,
+        baseDefense = 40,
+        baseSpAtk = 50,
+        baseSpDef = 50,
+        baseSpeed = 90,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 112,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 100,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 10,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "pikachu", //Verify
+        graphicsLocation = "pikachu/" + capName + "_cap", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Pikachu,
+        abilities = new Ability[3]
+        {
+            Static,
+            Static,
+            LightningRod,
+        },
+    };
+
+    public static SpeciesData PikachuCosplay(string graphicsSubfolder) => new()
+    {
+        speciesName = "Pikachu",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 35,
+        baseAttack = 55,
+        baseDefense = 40,
+        baseSpAtk = 50,
+        baseSpDef = 50,
+        baseSpeed = 90,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 112,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 10,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "pikachu", //Verify
+        graphicsLocation = "pikachu/" + graphicsSubfolder, //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Pikachu,
+        abilities = new Ability[3]
+        {
+            Static,
+            Static,
+            LightningRod,
+        },
+    };
+
+    //Pichu constructor
+    public static SpeciesData Pichu(bool spikyEared) => new()
+    {
+        speciesName = "Pichu",
+        type1 = Electric,
+        type2 = Electric,
+        baseHP = 20,
+        baseAttack = 40,
+        baseDefense = 15,
+        baseSpAtk = 35,
+        baseSpDef = 35,
+        baseSpeed = 60,
+        evYield = Speed,
+        evolution = spikyEared ? Evolution.None : Evolution.Pichu,
+        xpClass = MediumFast,
+        xpYield = 41,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 10,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "pichu", //Verify
+        graphicsLocation = "pichu" + (spikyEared ? "/spiky_eared" : string.Empty), //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Pichu,
+        abilities = new Ability[3]
+    {
+            Static,
+            Static,
+            LightningRod,
+    },
+    };
 
     //Unown constructor
     public static SpeciesData Unown(string path, int backSpriteHeight) => new()
@@ -127,7 +231,7 @@ public struct SpeciesData
         graphicsLocation = path,
         backSpriteHeight = backSpriteHeight,
         pokedexData = Pokedex.Unown,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             Levitate,
             Levitate,
@@ -162,7 +266,7 @@ public struct SpeciesData
         graphicsLocation = path,
         backSpriteHeight = backSpriteHeight,
         pokedexData = Pokedex.Castform,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             Forecast,
             Forecast,
@@ -198,7 +302,7 @@ public struct SpeciesData
             graphicsLocation = graphics,
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Deoxys,
-            abilities = new Ability[3]
+            abilities = new[]
             {
                 Pressure,
                 Pressure,
@@ -233,7 +337,7 @@ public struct SpeciesData
             graphicsLocation = graphics,
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Burmy,
-            abilities = new Ability[3]
+            abilities = new[]
         {
             ShedSkin,
             ShedSkin,
@@ -268,7 +372,7 @@ public struct SpeciesData
             graphicsLocation = graphics,
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Shellos,
-            abilities = new Ability[3]
+            abilities = new[]
             {
                 StickyHold,
                 StormDrain,
@@ -302,7 +406,7 @@ public struct SpeciesData
             graphicsLocation = graphics,
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Gastrodon,
-            abilities = new Ability[3]
+            abilities = new[]
             {
                 StickyHold,
                 StormDrain,
@@ -339,7 +443,7 @@ public struct SpeciesData
             graphicsLocation = graphics, //Verify
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Wormadam,
-            abilities = new Ability[3]
+            abilities = new[]
             {
                 Anticipation,
                 Anticipation,
@@ -375,7 +479,7 @@ public struct SpeciesData
             graphicsLocation = graphics,
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Cherrim,
-            abilities = new Ability[3]
+            abilities = new[]
             {
                 FlowerGift,
                 FlowerGift,
@@ -411,7 +515,7 @@ public struct SpeciesData
             graphicsLocation = graphics,
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Rotom,
-            abilities = new Ability[3]
+            abilities = new[]
             {
             Levitate,
             Levitate,
@@ -446,7 +550,7 @@ public struct SpeciesData
         graphicsLocation = graphics, //Verify
         backSpriteHeight = 3,
         pokedexData = Pokedex.Arceus,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             Multitype,
             Multitype,
@@ -484,7 +588,7 @@ public struct SpeciesData
             graphicsLocation = graphics, //Verify
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Dialga,
-            abilities = new Ability[3]
+            abilities = new[]
             {
                 Pressure,
                 Pressure,
@@ -519,7 +623,7 @@ public struct SpeciesData
             graphicsLocation = graphics, //Verify
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Palkia,
-            abilities = new Ability[3]
+            abilities = new[]
             {
                 Pressure,
                 Pressure,
@@ -555,7 +659,7 @@ public struct SpeciesData
             graphicsLocation = graphics, //Verify
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Giratina,
-            abilities = new Ability[3]
+            abilities = new[]
             {
                 Pressure,
                 Pressure,
@@ -594,7 +698,7 @@ public struct SpeciesData
             graphicsLocation = graphics, //Verify
             backSpriteHeight = backSpriteHeight,
             pokedexData = Pokedex.Shaymin,
-            abilities = new Ability[3]
+            abilities = new[]
             {
                 ability,
                 ability,
@@ -631,7 +735,7 @@ public struct SpeciesData
             graphicsLocation = graphics,
             backSpriteHeight = 16, //Not done
             pokedexData = Pokedex.Basculin, //Not done
-            abilities = new Ability[3]
+            abilities = new[]
             {
                 firstAbility,
                 Adaptability,
@@ -666,7 +770,7 @@ public struct SpeciesData
         graphicsLocation = graphics,
         backSpriteHeight = 9,
         pokedexData = Pokedex.Deerling, //Not done
-        abilities = new Ability[3]
+        abilities = new[]
         {
             Chlorophyll,
             SapSipper,
@@ -701,7 +805,7 @@ public struct SpeciesData
         graphicsLocation = graphics,
         backSpriteHeight = 5,
         pokedexData = Pokedex.Sawsbuck, //Not done
-        abilities = new Ability[3]
+        abilities = new[]
         {
             Chlorophyll,
             SapSipper,
@@ -736,7 +840,7 @@ public struct SpeciesData
         graphicsLocation = graphics, //Verify
         backSpriteHeight = 0, //Not done
         pokedexData = Pokedex.Keldeo, //Not done
-        abilities = new Ability[3]
+        abilities = new[]
         {
             Justified,
             Justified,
@@ -771,7 +875,7 @@ public struct SpeciesData
         graphicsLocation = graphics,
         backSpriteHeight = 8,
         pokedexData = Pokedex.Genesect,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             Download,
             Download,
@@ -807,7 +911,7 @@ public struct SpeciesData
         graphicsLocation = "scatterbug", //Verify
         backSpriteHeight = 0, //Not done
         pokedexData = Pokedex.Bulbasaur, //Not done
-        abilities = new Ability[3]
+        abilities = new[]
         {
             ShieldDust,
             CompoundEyes,
@@ -841,7 +945,7 @@ public struct SpeciesData
         graphicsLocation = "spewpa", //Verify
         backSpriteHeight = 0, //Not done
         pokedexData = Pokedex.Bulbasaur, //Not done
-        abilities = new Ability[3]
+        abilities = new[]
         {
             ShedSkin,
             ShedSkin,
@@ -875,7 +979,7 @@ public struct SpeciesData
         graphicsLocation = "vivillon/" + graphicsSubfolder,
         backSpriteHeight = 0,
         pokedexData = Pokedex.Vivillon,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             ShieldDust,
             CompoundEyes,
@@ -910,7 +1014,7 @@ public struct SpeciesData
         graphicsLocation = "flabebe/" + graphicsSubfolder,
         backSpriteHeight = 12,
         pokedexData = Pokedex.Flabebe,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             FlowerVeil,
             FlowerVeil,
@@ -918,8 +1022,7 @@ public struct SpeciesData
         }
     };
 
-    public static SpeciesData Floette(SpeciesID nextEvo, string graphicsSubfolder,
-        bool eternal = false) => new()
+    public static SpeciesData Floette(SpeciesID nextEvo, string graphicsSubfolder, bool eternal = false) => new()
     {
         speciesName = "Floette",
         type1 = Fairy,
@@ -946,7 +1049,7 @@ public struct SpeciesData
         graphicsLocation = "floette/" + graphicsSubfolder,
         backSpriteHeight = 2,
         pokedexData = Pokedex.Floette,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             FlowerVeil,
             FlowerVeil,
@@ -980,7 +1083,7 @@ public struct SpeciesData
         graphicsLocation = "florges/" + graphicsSubfolder,
         backSpriteHeight = 9,
         pokedexData = Pokedex.Florges,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             FlowerVeil,
             FlowerVeil,
@@ -1014,7 +1117,7 @@ public struct SpeciesData
         graphicsLocation = "furfrou/" + graphicsSubfolder,
         backSpriteHeight = backSprite0 ? 0 : 1,
         pokedexData = Pokedex.Furfrou,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             FurCoat,
             FurCoat,
@@ -1046,10 +1149,10 @@ public struct SpeciesData
         catchRate = 45,
         baseFriendship = 70,
         cryLocation = "aegislash",
-        graphicsLocation = "aegislash" + (blade ? "/blade" : ""),
+        graphicsLocation = "aegislash" + (blade ? "/blade" : string.Empty),
         backSpriteHeight = 9,
         pokedexData = Pokedex.Aegislash,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             StanceChange,
             StanceChange,
@@ -1060,39 +1163,39 @@ public struct SpeciesData
     //Pumpkaboo line constructors
 
     public static SpeciesData Pumpkaboo(int baseHP, int baseSpeed, SpeciesID nextEvo,
-        string graphicsSubfolder, int backSpriteHeight) => new()
+    string graphicsSubfolder, int backSpriteHeight) => new()
+    {
+        speciesName = "Pumpkaboo",
+        type1 = Ghost,
+        type2 = Grass,
+        baseHP = baseHP,
+        baseAttack = 66,
+        baseDefense = 70,
+        baseSpAtk = 44,
+        baseSpDef = 55,
+        baseSpeed = baseSpeed,
+        evYield = Defense,
+        evolution = EvolutionData.TradeEvolution(nextEvo),
+        xpClass = MediumFast,
+        xpYield = 67,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "pumpkaboo",
+        graphicsLocation = "pumpkaboo/" + graphicsSubfolder,
+        backSpriteHeight = backSpriteHeight,
+        pokedexData = Pokedex.Pumpkaboo,
+        abilities = new[]
         {
-            speciesName = "Pumpkaboo",
-            type1 = Ghost,
-            type2 = Grass,
-            baseHP = baseHP,
-            baseAttack = 66,
-            baseDefense = 70,
-            baseSpAtk = 44,
-            baseSpDef = 55,
-            baseSpeed = baseSpeed,
-            evYield = Defense,
-            evolution = EvolutionData.TradeEvolution(nextEvo),
-            xpClass = MediumFast,
-            xpYield = 67,
-            learnset = EmptyLearnset, //Not done
-            malePercent = 50,
-            eggGroup1 = EggGroup.Amorphous,
-            eggGroup2 = EggGroup.Amorphous,
-            eggCycles = 20,
-            catchRate = 120,
-            baseFriendship = 70,
-            cryLocation = "pumpkaboo",
-            graphicsLocation = "pumpkaboo/" + graphicsSubfolder,
-            backSpriteHeight = backSpriteHeight,
-            pokedexData = Pokedex.Pumpkaboo,
-            abilities = new Ability[3]
-            {
-                Pickup,
-                Frisk,
-                Insomnia,
-            }
-        };
+            Pickup,
+            Frisk,
+            Insomnia,
+        }
+    };
 
     public static SpeciesData Gourgeist(int baseHP, int baseAttack, int baseSpeed,
     string graphicsSubfolder, int backSpriteHeight) => new()
@@ -1121,7 +1224,7 @@ public struct SpeciesData
         graphicsLocation = "gourgeist/" + graphicsSubfolder,
         backSpriteHeight = backSpriteHeight,
         pokedexData = Pokedex.Gourgeist,
-        abilities = new Ability[3]
+        abilities = new[]
         {
                 Pickup,
                 Frisk,
@@ -1156,7 +1259,7 @@ public struct SpeciesData
         graphicsLocation = graphics,
         backSpriteHeight = 0,
         pokedexData = Pokedex.Xerneas,
-        abilities = new Ability[3]
+        abilities = new[]
         {
             FairyAura,
             FairyAura,
@@ -1164,6 +1267,208 @@ public struct SpeciesData
         }
     };
 
+    //Oricorio constructor
+    public static SpeciesData Oricorio(Type type1, string graphicsSubfolder) => new()
+    {
+        speciesName = "Oricorio",
+        type1 = type1,
+        type2 = Flying,
+        baseHP = 75,
+        baseAttack = 70,
+        baseDefense = 70,
+        baseSpAtk = 98,
+        baseSpDef = 70,
+        baseSpeed = 93,
+        evYield = 2 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 167,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 25,
+        eggGroup1 = EggGroup.Flying,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "oricorio_" + graphicsSubfolder,
+        graphicsLocation = "oricorio/" + graphicsSubfolder,
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            Dancer,
+            Dancer,
+            Dancer
+        }
+    };
+
+    //Rockruff constructor
+    public static SpeciesData Rockruff(Ability[] abilities, EvolutionData[] evolution) => new()
+    {
+        speciesName = "Rockruff",
+        type1 = Rock,
+        type2 = Rock,
+        baseHP = 45,
+        baseAttack = 65,
+        baseDefense = 40,
+        baseSpAtk = 30,
+        baseSpDef = 40,
+        baseSpeed = 60,
+        evYield = Attack,
+        evolution = evolution,
+        xpClass = MediumFast,
+        xpYield = 56,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "rockruff",
+        graphicsLocation = "rockruff",
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = abilities
+    };
+
+    //Silvally constructor
+    public static SpeciesData Silvally(Type type, string graphicsSubfolder) => new()
+    {
+        speciesName = "Silvally",
+        type1 = type,
+        type2 = type,
+        baseHP = 95,
+        baseAttack = 95,
+        baseDefense = 95,
+        baseSpAtk = 95,
+        baseSpDef = 95,
+        baseSpeed = 95,
+        evYield = 3 * HP,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 257,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "silvally",
+        graphicsLocation = "silvally/" + graphicsSubfolder,
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            RKSSystem,
+            RKSSystem,
+            RKSSystem
+        }
+    };
+
+    //Minior constructor
+    public static SpeciesData Minior(bool core, string graphicsSubfolder = "") => new()
+    {
+        speciesName = "Minior",
+        type1 = Rock,
+        type2 = Flying,
+        baseHP = 60,
+        baseAttack = core ? 100 : 60,
+        baseDefense = core ? 60 : 100,
+        baseSpAtk = core ? 100 : 60,
+        baseSpDef = core ? 60 : 100,
+        baseSpeed = core ? 120 : 60,
+        evYield = Defense + SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 154,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 25,
+        catchRate = 30,
+        baseFriendship = 70,
+        cryLocation = "minior",
+        graphicsLocation = core ? "minior/core/" + graphicsSubfolder : "minior",
+        backSpriteHeight = core ? 15 : 14,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            ShieldsDown,
+            ShieldsDown,
+            ShieldsDown
+        }
+    };
+
+    public static SpeciesData Mimikyu(bool busted) => new()
+    {
+        speciesName = "Mimikyu",
+        type1 = Ghost,
+        type2 = Fairy,
+        baseHP = 55,
+        baseAttack = 90,
+        baseDefense = 80,
+        baseSpAtk = 50,
+        baseSpDef = 105,
+        baseSpeed = 96,
+        evYield = 2 * SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 167,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "mimikyu",
+        graphicsLocation = "mimikyu" + (busted ? "/busted" : string.Empty),
+        backSpriteHeight = busted ? 15 : 7,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            Disguise,
+            Disguise,
+            Disguise
+        }
+    };
+
+    public static SpeciesData Magearna(bool original) => new()
+    {
+        speciesName = "Magearna",
+        type1 = Steel,
+        type2 = Fairy,
+        baseHP = 80,
+        baseAttack = 95,
+        baseDefense = 115,
+        baseSpAtk = 130,
+        baseSpDef = 115,
+        baseSpeed = 65,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "magearna",
+        graphicsLocation = "magearna" + (original ? "/original_color" : string.Empty),
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            SoulHeart,
+            SoulHeart,
+            SoulHeart
+        }
+    };
 
     //Mega constructor
 
@@ -1173,7 +1478,7 @@ public struct SpeciesData
      Type type1 = Typeless, Type type2 = Typeless,
      string cry = "", string graphics = "", string name = "") => new()
      {
-         speciesName = name == "" ? "Mega " + baseSpecies.speciesName : name,
+         speciesName = name == string.Empty ? "Mega " + baseSpecies.speciesName : name,
          type1 = type1 == Typeless ? baseSpecies.type1 : type1,
          type2 = type2 == Typeless ? baseSpecies.type2 : type2,
          baseHP = baseSpecies.baseHP,
@@ -1193,11 +1498,11 @@ public struct SpeciesData
          eggCycles = baseSpecies.eggCycles,
          catchRate = baseSpecies.catchRate,
          baseFriendship = baseSpecies.baseFriendship,
-         cryLocation = cry == "" ? "mega_" + baseSpecies.cryLocation : cry,
-         graphicsLocation = graphics == "" ? baseSpecies.graphicsLocation + "/mega" : graphics,
+         cryLocation = cry == string.Empty ? "mega_" + baseSpecies.cryLocation : cry,
+         graphicsLocation = graphics == string.Empty ? baseSpecies.graphicsLocation + "/mega" : graphics,
          backSpriteHeight = backSpriteHeight,
          pokedexData = pokedexData,
-         abilities = new Ability[3]
+         abilities = new[]
          {
                  ability,
                  ability,
