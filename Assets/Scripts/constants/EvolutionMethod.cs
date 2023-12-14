@@ -29,7 +29,7 @@ public enum EvolutionMethod
     LevelUpMakeShedinja, //Nincada
     LevelUpMaleOnly,
     LevelUpFemaleOnly,
-    LevelUpsideDown, //Inkay
+    LevelUpsideDown, //Inkay, don't know how to implement this
     LevelUpDay,
     LevelUpEvening,
     LevelUpNight,

@@ -93,6 +93,8 @@ public struct SpeciesData
     public Sprite Icon => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
         new Rect(0.0f, 0.0f, 16.0f, 16.0f), new Vector2(0.5f, 0.5f), 64.0f);
 
+    public AudioClip Cry => Resources.Load<AudioClip>("Sound/Cries/" + cryLocation);
+
     public static SpeciesData OverwriteAbility(SpeciesData baseSpecies, Ability ability)
     {
         SpeciesData copy = baseSpecies;

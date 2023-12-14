@@ -12,7 +12,7 @@ namespace Scripts.Test
             if (TrainerFlag.MayTest.Get(p))
             {
                 yield return p.DoAnnouncements(new()
-            { "I shouldn't be fighting with baby Pokémon anyway..."});
+            { "I wish TMs were invented already..."});
             }
             else
             {

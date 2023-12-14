@@ -6,6 +6,7 @@ public enum SceneID
     Main,
     Map,
     Battle,
+    Evolution,
 }
 
 public static class SceneUtils

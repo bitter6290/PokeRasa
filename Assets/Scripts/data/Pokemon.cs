@@ -37,12 +37,12 @@ public class Pokemon : ICloneable
     public Nature Nature => nature;
     public int whichAbility;
 
-    public int hpMax;
-    public int attack;
-    public int defense;
-    public int spAtk;
-    public int spDef;
-    public int speed;
+    public int hpMax => CalculateHPMax();
+    public int attack => CalculateStat(Stat.Attack, SpeciesData.baseAttack, ivAttack, evAttack);
+    public int defense => CalculateStat(Stat.Defense, SpeciesData.baseDefense, ivDefense, evDefense);
+    public int spAtk => CalculateStat(Stat.SpAtk, SpeciesData.baseSpAtk, ivSpAtk, evSpAtk);
+    public int spDef => CalculateStat(Stat.SpDef, SpeciesData.baseSpDef, ivSpDef, evSpDef);
+    public int speed => CalculateStat(Stat.Speed, SpeciesData.baseSpeed, ivSpeed, evSpeed);
 
     public MoveID move1;
     public int maxPp1;
@@ -87,7 +87,8 @@ public class Pokemon : ICloneable
 
     public int id;
 
-    public bool checkEvolution;
+    public bool evolveAfterBattle;
+    public SpeciesID destinationSpecies;
 
     public bool UsesFemaleSprites => SpeciesData.genderDifferences && gender == Gender.Female;
 
@@ -141,7 +142,6 @@ public class Pokemon : ICloneable
         evSpAtk = spread.evSpAtk;
         evSpDef = spread.evSpDef;
         evSpeed = spread.evSpeed;
-        CalculateStats();
     }
 
     public void SetNature(Nature nature) => this.nature = nature;
@@ -167,37 +167,41 @@ public class Pokemon : ICloneable
         return (int)Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * NatureUtils.NatureEffect(nature, stat));
     }
 
-    public void CalculateStats()
-    {
-        hpMax = CalculateHPMax();
-        attack = CalculateStat(Stat.Attack, SpeciesData.baseAttack, ivAttack, evAttack);
-        defense = CalculateStat(Stat.Defense, SpeciesData.baseDefense, ivDefense, evDefense);
-        spAtk = CalculateStat(Stat.SpAtk, SpeciesData.baseSpAtk, ivSpAtk, evSpAtk);
-        spDef = CalculateStat(Stat.SpDef, SpeciesData.baseSpDef, ivSpDef, evSpDef);
-        speed = CalculateStat(Stat.Speed, SpeciesData.baseSpeed, ivSpeed, evSpeed);
-    }
-
     public bool ShouldLevelUp()
     {
         return level < PokemonConst.maxLevel && xp > nextLevelXP;
     }
-    public (bool, SpeciesID) ShouldEvolve()
+    public void CheckEvolution()
     {
-        for (int i = 0; i < SpeciesData.evolution.Length; i++)
+        if (evolveAfterBattle) return;
+        foreach (EvolutionData data in SpeciesData.evolution)
         {
-            if (CheckEvolutionMethod(SpeciesData.evolution[i].Method, SpeciesData.evolution[i].Data))
+            if (CheckEvolutionMethod(data.Method, data.Data))
             {
-                return (true, SpeciesData.evolution[i].Destination);
+                (evolveAfterBattle, destinationSpecies) =
+                    (true, data.Destination);
+                return;
             }
         }
-        return (false, SpeciesID.Missingno);
+        (evolveAfterBattle, destinationSpecies) = (false, SpeciesID.Missingno);
     }
     public bool CheckEvolutionMethod(EvolutionMethod method, int data)
     {
+
         switch (method)
         {
             case EvolutionMethod.LevelUp:
+            case EvolutionMethod.LevelUpMakeShedinja:
                 return level >= data;
+            case EvolutionMethod.LevelUpWithMove when HasMove((MoveID)data):
+            case EvolutionMethod.LevelUpMaleOnly when gender is Gender.Male:
+            case EvolutionMethod.LevelUpFemaleOnly when gender is Gender.Female:
+            case EvolutionMethod.LevelUpOddID when (id & 1) is 1:
+            case EvolutionMethod.LevelUpEvenID when (id & 1) is 0:
+            case EvolutionMethod.LevelUpHighAttack when attack > defense:
+            case EvolutionMethod.LevelUpHighDefense when defense > attack:
+            case EvolutionMethod.LevelUpEqualAttackDefense when defense == attack:
+                goto case EvolutionMethod.LevelUp;
             default:
             case EvolutionMethod.Never:
                 return false;
@@ -205,10 +209,10 @@ public class Pokemon : ICloneable
     }
     public void LevelUp()
     {
-        level++;
         int maxHpBefore = hpMax;
-        CalculateStats();
+        level++;
         HP += hpMax - maxHpBefore;
+        CheckEvolution();
     }
     public int Moves
         => move2 == MoveID.None ? 1 : move3 == MoveID.None ? 2 : move4 == MoveID.None ? 3 : 4;
@@ -270,13 +274,6 @@ public class Pokemon : ICloneable
         whichAbility = WhichAbility;
 
         xp = XP.LevelToXP(level, SpeciesData.xpClass);
-
-        hpMax = ToUInt16(((2 * SpeciesData.baseHP) + ivHP) * level / 100 + level + 10);
-        attack = ToUInt16(Floor((((2 * SpeciesData.baseAttack) + ivAttack + (evHP >> 2)) * level / 100 + 5) * nature.NatureEffect(Stat.Attack)));
-        defense = ToUInt16(Floor((((2 * SpeciesData.baseDefense) + ivDefense) * level / 100 + 5) * nature.NatureEffect(Stat.Defense)));
-        spAtk = ToUInt16(Floor((((2 * SpeciesData.baseSpAtk) + ivSpAtk) * level / 100 + 5) * nature.NatureEffect(Stat.SpAtk)));
-        spDef = ToUInt16(Floor((((2 * SpeciesData.baseSpDef) + ivSpDef) * level / 100 + 5) * nature.NatureEffect(Stat.SpDef)));
-        speed = ToUInt16(Floor((((2 * SpeciesData.baseSpeed) + ivSpeed) * level / 100 + 5) * nature.NatureEffect(Stat.Speed)));
 
         move1 = Move1;
         move2 = Move2;

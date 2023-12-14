@@ -7,11 +7,11 @@
         {
             new()
             {
-                species = SpeciesID.Squirtle,
+                species = SpeciesID.Blissey,
                 gender = Gender.Any,
                 nature = Nature.Any,
                 evIv = Spreads.random,
-                level = 1
+                level = 20,
             }
         }
     };

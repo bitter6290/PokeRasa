@@ -1197,3 +1197,8 @@ public enum SpeciesID
     Egg = Count + 1,
 
 }
+
+public static class SpeciesIDUtils
+{
+    public static SpeciesData Data(this SpeciesID id) => Species.SpeciesTable[(int)id];
+}

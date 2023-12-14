@@ -16,7 +16,6 @@ public class Player : LoadedChar
     public List<Box> boxes = new();
     public int money = 0;
 
-
     public Dictionary<ItemID, int> Bag;
     public Dictionary<MapData, bool[,]> neighborCollision;
 
@@ -350,6 +349,28 @@ public class Player : LoadedChar
         return (null, Vector2Int.zero);
     }
 
+    private IEnumerator CheckEvolutions()
+    {
+        Debug.Log("Checking evolutions");
+        List<Pokemon> toEvo = new();
+        bool doEvo = false;
+        foreach (Pokemon mon in Party) if (mon.evolveAfterBattle)
+            { toEvo.Add(mon); doEvo = true; }
+        if(doEvo)
+        {
+            yield return FadeToBlack(0.2F);
+            yield return Scene.Evolution.Load();
+            EvolutionScene evolutionScene = FindAnyObjectByType<EvolutionScene>();
+            foreach (Pokemon mon in toEvo)
+            {
+                yield return evolutionScene.PrepareScene(mon);
+                yield return FadeFromBlack(0.2F);
+                yield return evolutionScene.DoEvolutionScene();
+                yield return FadeToBlack(0.2F);
+            }
+        }
+    }
+
     public Vector2Int GetMapOffset(Connection connection)
     {
         return connection.direction switch
@@ -493,6 +514,7 @@ public class Player : LoadedChar
     {
         yield return FadeToBlack(0.2F);
         ResetTransformations();
+        yield return CheckEvolutions();
         yield return Scene.Map.Load();
         Debug.Log("Map loaded");
         camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
@@ -737,8 +759,13 @@ public class Player : LoadedChar
         AlignPlayer();
         CaptureCamera();
         UpdateCollision();
-        Party[0] = Pokemon.WildPokemon(SpeciesID.Venusaur, 4);
-        Party[0].item = ItemID.Venusaurite;
+        Party[0] = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 15);
+        Party[0].move1 = MoveID.Toxic;
+        Party[0].pp1 = 30;
+        Party[0].maxPp1 = 32;
+        Party[0].move2 = MoveID.Growl;
+        Party[0].pp2 = 40;
+        Party[0].maxPp2 = 40;
         active = true;
     }
     // Start is called before the first frame update

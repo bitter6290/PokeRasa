@@ -7010,7 +7010,6 @@ public class Battle : MonoBehaviour
             (SpeciesID)EffectiveItem(index).Data().ItemSubdata[1];
         CleanStatSwaps(mon);
         mon.PokemonData.transformed = true;
-        mon.PokemonData.CalculateStats();
         yield return new WaitForSeconds(1.8F); //3.60
         BattleAnim.Cry(mon.PokemonData.getSpecies, audioSource0);
         yield return new WaitForSeconds(1.0F); //4.60

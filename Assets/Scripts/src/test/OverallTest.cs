@@ -7,7 +7,7 @@ public class OverallTest : MonoBehaviour
     public Battle battle;
     public Player player;
     private Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Gyarados, 10);
-    private Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Venusaur, 10);
+    private Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 15);
     private Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
     private Pokemon testPokemon4 = Pokemon.WildPokemon(SpeciesID.NidoranM, 10);
     private Pokemon testPokemon5 = Pokemon.WildPokemon(SpeciesID.Porygon, 10);
@@ -71,7 +71,6 @@ public class OverallTest : MonoBehaviour
         {
             BattlePokemon dummy = battle.PokemonOnField[0];
             dummy.PokemonData.level = 100;
-            dummy.PokemonData.CalculateStats();
             dummy.PokemonData.HP = dummy.PokemonData.hpMax;
             dummy.PokemonData.move1 = MoveID.Splash;
             dummy.PokemonData.pp1 = 255;
