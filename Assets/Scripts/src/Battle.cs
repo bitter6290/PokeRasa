@@ -29,7 +29,7 @@ public class Battle : MonoBehaviour
     public Player player;
 
     public bool wildBattle;
-    public int escapeAttempts;
+    private int escapeAttempts;
 
     public Pokemon[] OpponentPokemon = new Pokemon[6];
     public Pokemon[] PlayerPokemon = new Pokemon[6];
@@ -67,8 +67,8 @@ public class Battle : MonoBehaviour
     public AudioSource audioSource1;
 
     public bool[] megaEvolveOnMove = new bool[6];
-    public bool hasPlayerMegaEvolved = false;
-    public bool hasOpponentMegaEvolved = false;
+    private bool hasPlayerMegaEvolved = false;
+    private bool hasOpponentMegaEvolved = false;
     private int monToMega = 0;
 
     public bool[] usingZMove = new bool[6];
@@ -78,17 +78,20 @@ public class Battle : MonoBehaviour
 
     public bool menuOpen = false;
 
-    public bool[] healingWish = new bool[6];
+    private bool[] healingWish = new bool[6];
 
-    public bool[] zPowerHeal = new bool[6];
+    private bool[] zPowerHeal = new bool[6];
 
-    public int textSpeed = 25;
-    public float persistenceTime = 1.5F;
+    private int textSpeed = 25;
+    private float persistenceTime = 1.5F;
 
     public bool partyBackButtonInactive;
     public int switchingMon;
     public int switchingTarget;
     public bool choseSwitchMon;
+
+    [SerializeField]
+    public BattlePokemon[] PokemonOnField;
 
     public int turnsElapsed;
 
@@ -173,7 +176,6 @@ public class Battle : MonoBehaviour
 
     public System.Random random = new();
 
-    public BattlePokemon[] PokemonOnField;
 
     private bool PlayerHasMonsInBack
     {
@@ -7027,6 +7029,7 @@ public class Battle : MonoBehaviour
 
     public bool CanUseZMove(int index, int moveSlot)
     {
+        if (moveSlot < 0) return false;
         Pokemon mon = PokemonOnField[index].PokemonData;
         if (mon.PP[moveSlot] < 1) return false;
         if (index > 2 && (hasPlayerUsedZMove ||
@@ -7037,11 +7040,20 @@ public class Battle : MonoBehaviour
             return false;
         if (mon.MoveIDs[moveSlot].Data().type == mon.CurrentItem.ZMoveType())
             return true;
-        if (mon.MoveIDs[moveSlot] == mon.CurrentItem.ZMoveBase() &&
-            (mon.species == mon.CurrentItem.ZMoveUser() ||
-            (mon.CurrentItem.Data().type is ItemType.ZCrystalMoveSpecific &&
-            mon.species is not SpeciesID.Smeargle))) //Kludgy way to deal with Nature's Madness Smeargle
-            return true;
+        if (mon.MoveIDs[moveSlot] == mon.CurrentItem.ZMoveBase())
+        {
+            if (mon.species == mon.CurrentItem.ZMoveUser()) return true;
+            if (mon.CurrentItem.Data().type is ItemType.ZCrystalMultipleSpecies)
+            {
+                Debug.Log("Checking Z-Move users");
+                ZCrystalMultipleSpecies item = (ZCrystalMultipleSpecies)mon.CurrentItem.Data();
+                foreach (SpeciesID species in item.users)
+                {
+                    if (mon.getSpecies == species) return true;
+                    else Debug.Log(mon.getSpecies.Data().speciesName + " is not " + species.Data().speciesName);
+                }
+            }
+        }
         return false;
     }
 
@@ -7062,6 +7074,7 @@ public class Battle : MonoBehaviour
         else
         {
             yield return Announce("Can't escape!");
+            escapeAttempts++;
             menuManager.CleanForTurnStart();
             PokemonOnField[3].done = true; PokemonOnField[4].done = true; PokemonOnField[5].done = true;
             DoNextMove();

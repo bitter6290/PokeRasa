@@ -211,18 +211,19 @@ public class ZCrystalSpecific : ItemData //subdata length 3
     }
 }
 
-public class ZCrystalMoveSpecific : ItemData //subdata length 2
+public class ZCrystalMultipleSpecies : ItemData //subdata length 2, plus extra list
 {
     public MoveID baseMove;
     public MoveID zMove;
+    public SpeciesID[] users;
     public override int[] ItemSubdata => new int[2]
     {
         (int)baseMove,
         (int)zMove
     };
-    public ZCrystalMoveSpecific()
+    public ZCrystalMultipleSpecies()
     {
-        type = ItemType.ZCrystalMoveSpecific;
+        type = ItemType.ZCrystalMultipleSpecies;
         flingPower = 0;
     }
 }
@@ -371,6 +372,8 @@ public static class ItemUtils
         {
             case ItemType.ZCrystalSpecific:
                 return (MoveID)item.Data().ItemSubdata[1];
+            case ItemType.ZCrystalMultipleSpecies:
+                return (MoveID)item.Data().ItemSubdata[0];
             default:
                 return MoveID.None;
         }
@@ -384,6 +387,8 @@ public static class ItemUtils
                 return (MoveID)item.Data().ItemSubdata[physical ? 1 : 2];
             case ItemType.ZCrystalSpecific:
                 return (MoveID)item.Data().ItemSubdata[2];
+            case ItemType.ZCrystalMultipleSpecies:
+                return (MoveID)item.Data().ItemSubdata[1];
             default:
                 return MoveID.None;
         }

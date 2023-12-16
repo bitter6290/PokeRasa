@@ -227,6 +227,7 @@ public enum MoveEffect : ushort
     Uproar,
     //Z-Moves
     ZMove,
+    ZMoveSpecific,
     SplinteredStormshards,
     GuardianOfAlola,
     GenesisSupernova,

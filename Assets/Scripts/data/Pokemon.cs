@@ -201,7 +201,15 @@ public class Pokemon : ICloneable
             case EvolutionMethod.LevelUpHighAttack when attack > defense:
             case EvolutionMethod.LevelUpHighDefense when defense > attack:
             case EvolutionMethod.LevelUpEqualAttackDefense when defense == attack:
+            case EvolutionMethod.LevelUpDay when TimeUtils.timeOfDay is TimeOfDay.Day:
+            case EvolutionMethod.LevelUpNight when TimeUtils.timeOfDay is TimeOfDay.Night:
+            case EvolutionMethod.LevelUpEvening when TimeUtils.timeOfDay is TimeOfDay.Evening:
                 goto case EvolutionMethod.LevelUp;
+            case EvolutionMethod.Friendship:
+                return friendship >= data;
+            case EvolutionMethod.FriendshipDay when TimeUtils.timeOfDay is TimeOfDay.Day:
+            case EvolutionMethod.FriendshipNight when TimeUtils.timeOfDay is TimeOfDay.Night:
+                goto case EvolutionMethod.Friendship;
             default:
             case EvolutionMethod.Never:
                 return false;

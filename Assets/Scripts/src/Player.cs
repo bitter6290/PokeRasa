@@ -8,13 +8,15 @@ using Scene = SceneID;
 
 public class Player : LoadedChar
 {
-    public bool[] TM = new bool[96];
+    public bool[] TM = new bool[(int)TMID.Count];
     public bool[] HM = new bool[8];
     public bool[] keyItem = new bool[8];
     public bool[] storyFlags = new bool[(int)Flag.Count];
     public bool[] trainerFlags = new bool[(int)TrainerFlag.Count];
     public List<Box> boxes = new();
     public int money = 0;
+
+    public TODShading todShading;
 
     public Dictionary<ItemID, int> Bag;
     public Dictionary<MapData, bool[,]> neighborCollision;
@@ -47,6 +49,7 @@ public class Player : LoadedChar
 
     public new GameObject camera;
     private GameObject blackScreen;
+    private SpriteRenderer blackScreenRenderer;
 
     public override IEnumerator WalkNorth() { yield return playerGraphics.WalkNorth(this, 0.3F); }
     public override IEnumerator WalkSouth() { yield return playerGraphics.WalkSouth(this, 0.3F); }
@@ -107,6 +110,22 @@ public class Player : LoadedChar
         yield break;
     }
 
+    public int NumberOf(ItemID item)
+    {
+        int number;
+        if (Bag.TryGetValue(item, out number)) return number;
+        else return 0;
+    }
+
+    public void UseItem(ItemID item, int number = 1)
+    {
+        int remaining = NumberOf(item);
+        if (remaining is 0) return;
+        remaining -= number;
+        if (remaining <= 0) Bag.Remove(item);
+        else Bag[item] = remaining;
+    }
+
     public void DeactivateAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.Deactivate(); }
     public void ActivateAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.Activate(); }
 
@@ -149,6 +168,12 @@ public class Player : LoadedChar
         {
             Party[i] = Pokemon.MakeEmptyMon;
         }
+    }
+
+    public void ResetData()
+    {
+        TM = new bool[(int)TMID.Count];
+        HM = new bool[(int)Flag.Count];
     }
 
     public void RenderMap()
@@ -468,10 +493,12 @@ public class Player : LoadedChar
     {
         Pokemon[] opponentParty = opponentTeam.GetParty();
         state = PlayerState.Locked;
+        locked = true;
         active = false;
         DeactivateAll();
         mapManager.ClearMap();
         opponent = opponentChar;
+        yield return FadeToBlack(0.2F);
         yield return Scene.Battle.Load();
         Battle battle = FindAnyObjectByType<Battle>();
         battle.player = this;
@@ -482,6 +509,7 @@ public class Player : LoadedChar
         battle.battleType = BattleType.Single;
         battle.wildBattle = false;
         battle.battleTerrain = currentTerrain;
+        yield return FadeFromBlack(0.2F);
         battle.StartCoroutine(battle.StartBattle());
     }
 
@@ -489,6 +517,7 @@ public class Player : LoadedChar
     {
         Debug.Log("Start Single Wild Battle");
         state = PlayerState.Locked;
+        locked = true;
         active = false;
         DeactivateAll();
         yield return FadeToBlack(0.2F);
@@ -516,6 +545,7 @@ public class Player : LoadedChar
         ResetTransformations();
         yield return CheckEvolutions();
         yield return Scene.Map.Load();
+        todShading = TODShading.Initialize(this);
         Debug.Log("Map loaded");
         camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
         FindAnnouncer();
@@ -544,35 +574,24 @@ public class Player : LoadedChar
 
     public IEnumerator FadeToBlack(float duration)
     {
-        if (blackScreen != null) Destroy(blackScreen);
-        blackScreen = new();
-        blackScreen.transform.parent = transform;
-        blackScreen.transform.localScale = new(1000, 1000, 1000);
-        blackScreen.transform.position = new(0, 0, -20);
-        SpriteRenderer renderer = blackScreen.AddComponent<SpriteRenderer>();
-        renderer.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0, 0, 4, 4), new Vector2(0.5F, 0.5F), 4);
-        renderer.color = new(0, 0, 0, 0);
-        renderer.sortingOrder = 10;
         float baseTime = Time.time;
         float endTime = baseTime + duration;
         while(Time.time < endTime)
         {
-            renderer.color = new(0, 0, 0, (Time.time - baseTime) / duration);
+            blackScreenRenderer.color = new(0, 0, 0, (Time.time - baseTime) / duration);
             yield return null;
         }
     }
 
     public IEnumerator FadeFromBlack(float duration)
     {
-        SpriteRenderer renderer = blackScreen.GetComponent<SpriteRenderer>();
-        float baseTime = Time.time;
-        float endTime = baseTime + duration;
+        float endTime = Time.time + duration;
         while (Time.time < endTime)
         {
-            renderer.color = new(0, 0, 0, (endTime - Time.time) / duration);
+            blackScreenRenderer.color = new(0, 0, 0, (endTime - Time.time) / duration);
             yield return null;
         }
-        Destroy(blackScreen);
+        blackScreenRenderer.color = new(0, 0, 0, 0);
     }
 
 
@@ -751,6 +770,7 @@ public class Player : LoadedChar
     public IEnumerator InitMapTest()
     {
         yield return Scene.Map.Load();
+        todShading = TODShading.Initialize(this);
         camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
         FindAnnouncer();
         mapManager = gameObject.AddComponent<MapManager>();
@@ -773,6 +793,14 @@ public class Player : LoadedChar
     {
         p = this;
         random = new();
+        blackScreen = new("BlackScreen");
+        blackScreen.transform.parent = transform;
+        blackScreen.transform.localScale = new(1000, 1000, 1000);
+        blackScreen.transform.position = new(0, 0, -20);
+        blackScreenRenderer = blackScreen.AddComponent<SpriteRenderer>();
+        blackScreenRenderer.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0, 0, 4, 4), new Vector2(0.5F, 0.5F), 4);
+        blackScreenRenderer.color = new(0, 0, 0, 0);
+        blackScreenRenderer.sortingOrder = 10;
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex((int)Scene.Main))
         {
             StartCoroutine(InitMapTest());

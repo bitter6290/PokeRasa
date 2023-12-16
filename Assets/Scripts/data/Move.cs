@@ -3133,7 +3133,7 @@ public static class Move
     public static MoveData Catastropika = new(
         "Catastropika", Electric,
         210, 101, 0,
-        MoveEffect.ZMove, 0,
+        MoveEffect.ZMoveSpecific, 0,
         true, Single, 1,
         makesContact, CatastropikaDesc, 0); //Needs anim
     public static MoveData ShoreUp = SelfTargetingMove(
@@ -3305,19 +3305,19 @@ public static class Move
     public static MoveData SinisterArrowRaid = new(
         "Sinister Arrow Raid", Ghost,
         180, 101, 0,
-        MoveEffect.ZMove, 0,
+        MoveEffect.ZMoveSpecific, 0,
         true, Single, 1,
         noFlag, SinisterArrowRaidDesc, 0); //Needs anim
     public static MoveData MaliciousMoonsault = new(
         "Malicious Moonsault", Dark,
         180, 101, 0,
-        MoveEffect.ZMove, 0,
+        MoveEffect.ZMoveSpecific, 0,
         true, Single, 1,
         makesContact, MaliciousMoonsaultDesc, 0); //Needs anim
     public static MoveData OceanicOperetta = new(
         "Oceanic Operetta", Water,
         195, 101, 0,
-        MoveEffect.ZMove, 0,
+        MoveEffect.ZMoveSpecific, 0,
         false, Single, 1,
         noFlag, OceanicOperettaDesc, 0); //Needs anim
     public static MoveData GuardianOfAlola = new(
@@ -3329,19 +3329,19 @@ public static class Move
     public static MoveData SoulStealingSevenStarStrike = new(
         "Soul-Stealing 7-Star Strike", Ghost,
         195, 101, 0,
-        MoveEffect.ZMove, 0,
+        MoveEffect.ZMoveSpecific, 0,
         true, Single, 1,
         makesContact, SoulStealingSevenStarStrikeDesc, 0); //Needs anim
     public static MoveData StokedSparksurfer = new(
         "Stoked Sparksurfer", Electric,
         175, 101, 0,
-        MoveEffect.ZMove, 0,
+        MoveEffect.ZMoveSpecific, 0,
         false, Single, 1,
         noFlag, StokedSparksurferDesc, 0); //Needs anim
     public static MoveData PulverizingPancake = new(
         "Pulverizing Pancake", Normal,
         210, 101, 0,
-        MoveEffect.ZMove, 0,
+        MoveEffect.ZMoveSpecific, 0,
         true, Single, 1,
         makesContact, PulverizingPancakeDesc, 0); //Needs anim
     public static MoveData ExtremeEvoboost = SelfTargetingMove(
@@ -3439,7 +3439,7 @@ public static class Move
     public static MoveData TenMillionVoltThunderbolt = new(
         "10,000,000 Volt Thunderbolt", Electric,
         195, 101, 0,
-        MoveEffect.ZMove, 0,
+        MoveEffect.ZMoveSpecific, 0,
         false, Single, 1,
         highCrit, TenMillionVoltThunderboltDesc, 0); //Needs anim
     public static MoveData MindBlown = new(
@@ -3480,13 +3480,13 @@ public static class Move
     public static MoveData LetsSnuggleForever = new(
         "Let's Snuggle Forever", Fairy,
         190, 101, 0,
-        MoveEffect.ZMove, 0,
+        MoveEffect.ZMoveSpecific, 0,
         true, Single, 1,
         makesContact, LetsSnuggleForeverDesc, 0); //Needs anim
     public static MoveData SplinteredStormshards = new(
         "Splintered Stormshards", Rock,
         190, 101, 0,
-        MoveEffect.ZMove, 101,
+        MoveEffect.SplinteredStormshards, 101,
         true, Single, 1,
         noFlag, SplinteredStormshardsDesc, 0); //Needs anim
     public static MoveData ClangorousSoulblaze = new(
