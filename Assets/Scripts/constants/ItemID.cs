@@ -123,6 +123,11 @@
     DouseDrive,
     Satchet,
     WhippedDream,
+    //Poké balls
+    PokeBall,
+    GreatBall,
+    UltraBall,
+    MasterBall,
     //Hold-to-transform items
     //Memories
     FightingMemory,

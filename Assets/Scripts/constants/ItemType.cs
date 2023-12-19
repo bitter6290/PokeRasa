@@ -3,6 +3,7 @@
     FieldItem,
     BattleItem,
     Medicine,
+    PokeBall,
     HeldItem,
     Plate,
     HeldFieldItem,

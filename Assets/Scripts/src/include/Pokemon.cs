@@ -79,13 +79,15 @@ public class Pokemon : ICloneable
     public bool transformed;
     public SpeciesID temporarySpecies;
 
-    public int friendship;
+    public byte friendship; //Friendship is implemented at the Gen 7 standard by default
 
     public Type hiddenPowerType;
 
     public bool gainedLevel;
 
     public int id;
+
+    public bool makeShedinja = false;
 
     public bool evolveAfterBattle;
     public SpeciesID destinationSpecies;
@@ -167,6 +169,20 @@ public class Pokemon : ICloneable
         return (int)Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * NatureUtils.NatureEffect(nature, stat));
     }
 
+    public bool AddFriendship(int upTo100, int upTo200, int at200OrUp)
+    {
+        byte oldFriendship = friendship;
+        friendship = (byte)Max(0, Min(255, friendship + (friendship switch
+        {
+            < 100 => upTo100,
+            < 200 => upTo200,
+            _ => at200OrUp
+        })));
+        return friendship != oldFriendship;
+    }
+
+    public bool AddFriendship(int amount) => AddFriendship(amount, amount, amount);
+
     public bool ShouldLevelUp()
     {
         return level < PokemonConst.maxLevel && xp > nextLevelXP;
@@ -191,7 +207,6 @@ public class Pokemon : ICloneable
         switch (method)
         {
             case EvolutionMethod.LevelUp:
-            case EvolutionMethod.LevelUpMakeShedinja:
                 return level >= data;
             case EvolutionMethod.LevelUpWithMove when HasMove((MoveID)data):
             case EvolutionMethod.LevelUpMaleOnly when gender is Gender.Male:
@@ -205,6 +220,9 @@ public class Pokemon : ICloneable
             case EvolutionMethod.LevelUpNight when TimeUtils.timeOfDay is TimeOfDay.Night:
             case EvolutionMethod.LevelUpEvening when TimeUtils.timeOfDay is TimeOfDay.Evening:
                 goto case EvolutionMethod.LevelUp;
+            case EvolutionMethod.LevelUpMakeShedinja:
+                makeShedinja = level >= data;
+                return makeShedinja;
             case EvolutionMethod.Friendship:
                 return friendship >= data;
             case EvolutionMethod.FriendshipDay when TimeUtils.timeOfDay is TimeOfDay.Day:
@@ -220,6 +238,7 @@ public class Pokemon : ICloneable
         int maxHpBefore = hpMax;
         level++;
         HP += hpMax - maxHpBefore;
+        AddFriendship(5, 4, 3);
         CheckEvolution();
     }
     public int Moves
@@ -254,7 +273,7 @@ public class Pokemon : ICloneable
         int IvHP, int IvAttack, int IvDefense, int IvSpAtk, int IvSpDef, int IvSpeed,
         int EvHP, int EvAttack, int EvDefense, int EvSpAtk, int EvSpDef, int EvSpeed,
         Nature thisNature, MoveID Move1, MoveID Move2, MoveID Move3, MoveID Move4,
-        int WhichAbility, int Friendship, ItemID Item, Type HiddenPowerType, bool Exists = true)
+        int WhichAbility, byte Friendship, ItemID Item, Type HiddenPowerType, bool Exists = true)
     {
         species = thisSpecies;
         gender = Gender;

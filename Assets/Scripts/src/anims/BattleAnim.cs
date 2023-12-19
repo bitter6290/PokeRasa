@@ -1,9 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
-using static System.Math;
 using static AnimUtils;
 
 public static class BattleAnim
@@ -43,21 +39,33 @@ public static class BattleAnim
 
     public static IEnumerator ShowPoison(Battle battle, int index)
     {
+        AudioClip poisonSound = Resources.Load<AudioClip>("Sound/Battle SFX/Poison");
+        battle.audioSource0.PlayOneShot(poisonSound);
+        battle.audioSource0.panStereo = index < 3 ? 0.5F : -0.5F;
         yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 160.0F / 255.0F, TypeUtils.typeColor[(int)Type.Poison]);
     }
 
     public static IEnumerator ShowToxicPoison(Battle battle, int index)
     {
+        AudioClip poisonSound = Resources.Load<AudioClip>("Sound/Battle SFX/Poison");
+        battle.audioSource0.PlayOneShot(poisonSound);
+        battle.audioSource0.panStereo = index < 3 ? 0.5F : -0.5F;
         yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 200.0F / 255.0F, TypeUtils.typeColor[(int)Type.Poison]);
     }
 
     public static IEnumerator ShowParalysis(Battle battle, int index)
     {
+        AudioClip paraSound = Resources.Load<AudioClip>("Sound/Battle SFX/Paralysis");
+        battle.audioSource0.PlayOneShot(paraSound);
+        battle.audioSource0.panStereo = index < 3 ? 0.5F : -0.5F;
         yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 160.0F / 255.0F, new Color(1, 1, 0));
     }
 
     public static IEnumerator ShowFreeze(Battle battle, int index)
     {
+        AudioClip freezeSound = Resources.Load<AudioClip>("Sound/Battle SFX/Freeze");
+        battle.audioSource0.PlayOneShot(freezeSound);
+        battle.audioSource0.panStereo = index < 3 ? 0.5F : -0.5F;
         yield return battle.maskManager[index].MaskColor(0.2F, 0.6F, 160.0F / 255.0F, new Color(0, 1, 1));
     }
 
@@ -171,7 +179,16 @@ public static class BattleAnim
         yield return Fade(renderer, alpha, 0.5F);
     }
 
-    public static IEnumerator MegaEvolution(Battle battle, int index)
+    public static IEnumerator BallShake(Battle battle, Transform transform) //0.95
+    {
+        battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/BallShake"));
+        yield return Rotate(transform, -45, 0.15f); //0.15
+        yield return Rotate(transform, 90, 0.3f);  //0.45
+        yield return Rotate(transform, -45, 0.15f); //0.60
+        yield return new WaitForSeconds(0.35f); //0.95
+    }
+
+    public static IEnumerator MegaEvolution(Battle battle, int index) //3.90
     {
         GameObject megaCircle = NewSpriteFromTexture("Sprites/Battle/MegaCircle", battle.spriteTransform[index],
             new Vector2(0.06F, 0.06F), new Vector2(0.0F, 0.0F));
@@ -224,6 +241,7 @@ public static class BattleAnim
     //Move animation sequences
     public static IEnumerator AttackerAnims(Battle battle, int index, MoveID move, int defender)
     {
+        AudioClip cachedClip;
         switch (move)
         {
             case MoveID.Pound:
@@ -238,19 +256,19 @@ public static class BattleAnim
                 yield return new WaitForSeconds(0.5F); //0.80
                 break;
             case MoveID.SwordsDance:
-                AudioClip swordsDanceClangClip = Resources.Load<AudioClip>("Sound/Battle SFX/Clang");
+                cachedClip = Resources.Load<AudioClip>("Sound/Battle SFX/Clang");
                 battle.StartCoroutine(Ellipse(battle.spriteTransform[index], 0.2F, 0.5F, 0.4F, true));
-                battle.audioSource0.PlayOneShot(swordsDanceClangClip);
+                battle.audioSource0.PlayOneShot(cachedClip);
                 battle.StartCoroutine(SwordsDanceSword(battle, index, 0)); //0.00 - 3.40
-                yield return new WaitForSeconds(0.2F);
+                yield return new WaitForSeconds(0.2F); //0.20
                 battle.StartCoroutine(SwordsDanceSword(battle, index, 1)); //0.20 - 3.40
-                yield return new WaitForSeconds(0.2F);
+                yield return new WaitForSeconds(0.2F); //0.40
                 battle.StartCoroutine(SwordsDanceSword(battle, index, 2)); //0.40 - 3.40
-                yield return new WaitForSeconds(0.2F);
+                yield return new WaitForSeconds(0.2F); //0.60
                 battle.StartCoroutine(SwordsDanceSword(battle, index, 3)); //0.60 - 3.40
-                yield return new WaitForSeconds(0.2F);
+                yield return new WaitForSeconds(0.2F); //0.80
                 battle.StartCoroutine(Ellipse(battle.spriteTransform[index], 0.2F, 0.5F, 0.4F, true));
-                battle.audioSource0.PlayOneShot(swordsDanceClangClip);
+                battle.audioSource0.PlayOneShot(cachedClip);
                 yield return SwordsDanceSword(battle, index, 4); //3.40
                 break;
             case MoveID.DoubleSlap:

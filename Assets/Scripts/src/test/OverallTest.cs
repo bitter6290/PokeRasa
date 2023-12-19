@@ -108,5 +108,17 @@ public class OverallTest : MonoBehaviour
             tester.pp2 = 40;
             tester.pp3 = 40;
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            player.AddItem(ItemID.PokeBall, 1);
+            battle.Moves[3] = MoveID.UseItem;
+            battle.itemToUse[3] = ItemID.PokeBall;
+            battle.PokemonOnField[3].done = false;
+            battle.menuManager.menuMode = MenuMode.Main;
+            battle.menuManager.GoToAnnounce();
+            battle.menuManager.SetForTest();
+            battle.menuManager.GetNextPokemon();
+            battle.DoNextMove();
+        }
     }
 }

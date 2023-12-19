@@ -200,6 +200,12 @@ public class MenuManager : MonoBehaviour
         return true;
     }
 
+    public void SetForTest()
+    {
+        battle.menuManager.currentMove = 1;
+        battle.menuManager.currentMon = 2;
+    }
+
     public void CleanForTurnStart()
     {
         MainMenu();

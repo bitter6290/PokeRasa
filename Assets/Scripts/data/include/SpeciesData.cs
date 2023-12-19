@@ -39,7 +39,7 @@ public struct SpeciesData
     public EggGroup eggGroup2;
 
     public int catchRate;
-    public int baseFriendship;
+    public byte baseFriendship;
 
     public string cryLocation;
 

@@ -2,6 +2,10 @@
 
 #define ALL_GET_FULL_EXP // Comment to use pre-gen 6 experience distribution
 #define FRIENDSHIP_RAISES_EXP // Comment to get rid of the boost to XP gain
+#define LOW_LEVEL_CATCH_BONUS // This is an early-game boost in SwSh and SV,
+                              // comment to get rid of it or change the formula
+                              // to customize
+
 // with high friendship
 
 
@@ -25,6 +29,16 @@ public class Battle : MonoBehaviour
     private const int HandleMega = 127;
     private const int NullInt = 1 << 30 - 1;
     private const int ReturnFalse = 63;
+
+    enum BallThrowOutcome
+    {
+        Shake0,
+        Shake1,
+        Shake2,
+        Shake3,
+        Capture,
+        Critical
+    }
 
     public Player player;
 
@@ -226,6 +240,9 @@ public class Battle : MonoBehaviour
     public int[] SwitchTargets = new int[6];
     public int[] Targets = new int[6];
     public int[] MoveNums = new int[6];
+
+    public ItemID[] itemToUse = new ItemID[6];
+    private int[] itemTarget = new int[6];
 
     public Sprite[] playerMonIcons = new Sprite[6];
     public Sprite[] playerMonIcons2 = new Sprite[6]; 
@@ -909,6 +926,7 @@ public class Battle : MonoBehaviour
                 }
                 else if (Moves[i] == MoveID.UseItem)
                 {
+                    Debug.Log("Use item");
                     if (currentPriority < itemPriority)
                     {
                         currentPriority = itemPriority;
@@ -987,6 +1005,107 @@ public class Battle : MonoBehaviour
         return currentMove;
     }
 
+    private IEnumerator UseItem(int itemSlot, int itemTarget)
+    {
+        ItemID item = itemToUse[itemSlot];
+        yield return Announce("Used " + item.Data().itemName + "!");
+        switch (item.Data().type)
+        {
+            case ItemType.PokeBall:
+                yield return UseBall(item);
+                break;
+            default:
+                break;
+        }
+        yield break;
+    }
+
+    public IEnumerator CatchFail(GameObject ballObject, int targetMon)
+    {
+        //Todo: breaking out anim
+        audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/CatchFail"));
+        Destroy(ballObject);
+        PokemonOnField[targetMon].exists = true;
+        yield return new WaitForSeconds(0.5f);
+        audioSource0.PlayOneShot(PokemonOnField[0].PokemonData.SpeciesData.Cry);
+        //Todo: entry anim
+        yield return new WaitForSeconds(1.0f);
+    }
+
+    public IEnumerator UseBall(ItemID ball)
+    {
+        const int noTarget = 63;
+        const int tooManyTargets = 64;
+        player.UseItem(ball);
+        if (!wildBattle)
+        {
+            //Todo: block anim
+            yield return Announce(OpponentName + " blocked the ball!");
+            yield return Announce("Don't be a thief!");
+            yield break;
+        }
+        int targetMon = noTarget;
+        for (int i = 0; i < 3; i++)
+        {
+            if (PokemonOnField[i].exists)
+            {
+                if (targetMon == noTarget) targetMon = i;
+                else targetMon = tooManyTargets;
+            }
+        }
+        if (targetMon == tooManyTargets)
+        {
+            //Todo: miss anim
+            yield return Announce("You missed the Pokémon!");
+            yield return Announce("There are too many targets to aim properly...");
+            yield break;
+        }
+        //Todo: ball throw anim
+        PokemonOnField[targetMon].exists = false;
+        GameObject ballObject = new("Ball");
+        ballObject.transform.parent = spriteTransform[targetMon];
+        ballObject.transform.localPosition = new(0, -0.3f);
+        ballObject.transform.localScale = new(1, 1);
+        SpriteRenderer renderer = ballObject.AddComponent<SpriteRenderer>();
+        renderer.sprite = Resources.Load<Sprite>("Sprites/Battle/baton_pass_ball");
+        yield return new WaitForSeconds(1.0f);
+        switch (TryToCatch(PokemonOnField[targetMon], PokemonOnField[3], ball.BallCatchType()))
+        {
+            case BallThrowOutcome.Shake0:
+                yield return CatchFail(ballObject, targetMon);
+                yield return Announce("Oh no! The Pokémon broke free!");
+                break;
+            case BallThrowOutcome.Shake1:
+                yield return BattleAnim.BallShake(this, ballObject.transform);
+                yield return CatchFail(ballObject, targetMon);
+                yield return Announce("Aww! It appeared to be caught!");
+                break;
+            case BallThrowOutcome.Shake2:
+                yield return BattleAnim.BallShake(this, ballObject.transform);
+                yield return BattleAnim.BallShake(this, ballObject.transform);
+                yield return CatchFail(ballObject, targetMon);
+                yield return Announce("Aargh! Almost had it!");
+                break;
+            case BallThrowOutcome.Shake3:
+                yield return BattleAnim.BallShake(this, ballObject.transform);
+                yield return BattleAnim.BallShake(this, ballObject.transform);
+                yield return BattleAnim.BallShake(this, ballObject.transform);
+                yield return CatchFail(ballObject, targetMon);
+                yield return Announce("Shoot! It was so close, too!");
+                break;
+            case BallThrowOutcome.Capture:
+                yield return BattleAnim.BallShake(this, ballObject.transform);
+                yield return BattleAnim.BallShake(this, ballObject.transform);
+                yield return BattleAnim.BallShake(this, ballObject.transform);
+                //Todo: success anim
+                yield return Announce(PokemonOnField[targetMon].PokemonData.SpeciesData.speciesName + " was caught!");
+                //Todo: name mon
+                player.CatchMon(PokemonOnField[targetMon].PokemonData);
+                StartCoroutine(EndBattle());
+                yield break;
+        }
+    }
+
     private float GetAccuracy(MoveID move, int attacker, int defender)
     {
         if (move.Data().effect == OHKO)
@@ -1050,7 +1169,8 @@ public class Battle : MonoBehaviour
         };
     }
 
-    public int DamageCalc(BattlePokemon attacker, BattlePokemon defender, MoveID move, bool isMultiTarget, bool isCritical, int side, int powerOverride = NullInt)
+    public int DamageCalc(BattlePokemon attacker, BattlePokemon defender, MoveID move,
+        bool isMultiTarget, bool isCritical, int side, int powerOverride = NullInt)
     {
         int roll = 100 - (random.Next() & 15);
         int effectivePower = powerOverride == NullInt ? move.Data().power : powerOverride;
@@ -2399,6 +2519,81 @@ public class Battle : MonoBehaviour
         }
     }
 
+    private BallThrowOutcome TryToCatch(BattlePokemon mon, BattlePokemon playerMon, BallCatchType ball)
+    {
+        if (ball is BallCatchType.Master or BallCatchType.Park) return BallThrowOutcome.Capture;
+        if (ball is BallCatchType.NotBall)
+        {
+            Debug.Log("Tried to use a non-Pokéball item as a Pokéball");
+            return BallThrowOutcome.Shake0;
+        }
+        float chance = (float)(3 * mon.PokemonData.hpMax - 2 * mon.PokemonData.HP) / (3 * mon.PokemonData.hpMax);
+        chance *= ball switch {
+            BallCatchType.Normal => 1,
+            BallCatchType.Master => 1,
+            BallCatchType.Fast => mon.PokemonData.SpeciesData.baseSpeed >= 100 ? 4 : 1,
+            BallCatchType.Level => playerMon.PokemonData.level / mon.PokemonData.level switch
+            {
+                0 => 1,
+                1 => 2,
+                2 => 4,
+                3 => 4,
+                _ => 8
+            },
+            BallCatchType.Lure => 1, //Todo: fishing
+            BallCatchType.Heavy => 1,
+            BallCatchType.Love => (mon.PokemonData.species == playerMon.PokemonData.species &&
+                OppositeGenders(playerMon.index, mon.index)) ? 8 : 1,
+            BallCatchType.Moon => mon.PokemonData.species is SpeciesID.NidoranF or
+                SpeciesID.Nidorina or SpeciesID.Nidoqueen or SpeciesID.NidoranM or
+                SpeciesID.Nidorino or SpeciesID.Nidoking or SpeciesID.Cleffa or
+                SpeciesID.Clefairy or SpeciesID.Clefable or SpeciesID.Igglybuff or
+                SpeciesID.Jigglypuff or SpeciesID.Wigglytuff or SpeciesID.Skitty or
+                SpeciesID.Delcatty or SpeciesID.Munna or SpeciesID.Musharna ? 4 : 1,
+            BallCatchType.Net => (mon.HasType(Type.Water) || mon.HasType(Type.Bug)) ? 3.5f : 1,
+            BallCatchType.Dive => 1, //Todo: water
+            BallCatchType.Nest => mon.PokemonData.level < 30 ?
+                ((41 - mon.PokemonData.level) / 10) : 1,
+            BallCatchType.Repeat => 1, //Todo: check player catch flags
+            BallCatchType.Timer => Min(4, 1 + turnsElapsed * 0.3f),
+            BallCatchType.Dusk => TimeUtils.timeOfDay is TimeOfDay.Night ? 3 : 1, //Todo: caves too
+            BallCatchType.Quick => turnsElapsed is 0 ? 5 : 1,
+            _ => 1,
+        };
+        chance *= mon.PokemonData.status switch
+        {
+            Status.Sleep or Status.Freeze => 2.5F,
+            Status.Poison or Status.ToxicPoison or Status.Burn or Status.Paralysis => 1.5F,
+            _ or Status.None => 1.0F
+        };
+        int catchRate = mon.PokemonData.SpeciesData.catchRate;
+        if (ball is BallCatchType.Heavy) catchRate += mon.PokemonData.SpeciesData.pokedexData.weight switch
+        {
+            < 100000 => -20,
+            < 200000 => 0,
+            < 300000 => 20,
+            _ => 30
+        };
+        chance *= catchRate;
+#if LOW_LEVEL_CATCH_BONUS
+        if (mon.PokemonData.level < 13)
+        {
+            chance *= (36 - 2 * mon.PokemonData.level) / 20F;
+        }
+#endif
+        //Todo: critical capture
+        Debug.Log(chance);
+        int shakeChance = (int)(65536 / Mathf.Pow(255f / chance, 3f / 16f));
+        Debug.Log(shakeChance);
+        Debug.Log(random.Next() & 65535);
+        if ((random.Next() & 65535) > shakeChance) return BallThrowOutcome.Shake0;
+        if ((random.Next() & 65535) > shakeChance) return BallThrowOutcome.Shake1;
+        if ((random.Next() & 65535) > shakeChance) return BallThrowOutcome.Shake2;
+        if ((random.Next() & 65535) > shakeChance) return BallThrowOutcome.Shake3;
+        return BallThrowOutcome.Capture;
+
+    }
+
     private IEnumerator ProcessFainting(bool fromMove = false, int attacker = 0)
     {
         for (int i = 0; i < 6; i++)
@@ -2422,6 +2617,10 @@ public class Battle : MonoBehaviour
                 PokemonOnField[PokemonOnField[index].skyDropTarget].invulnerability = 0;
             }
             yield return HandleXPOnFaint(partyIndex);
+            if (PokemonOnField[index + (index < 3 ? 3 : -3)].PokemonData.level
+                - PokemonOnField[index].PokemonData.level >= 30)
+                PokemonOnField[index].PokemonData.AddFriendship(-5, -5, -10);
+            else PokemonOnField[index].PokemonData.AddFriendship(-1, -1, -1);
             if (OpponentLost)
             {
                 StartCoroutine(EndBattle());
@@ -2708,6 +2907,13 @@ public class Battle : MonoBehaviour
         BattlePokemon mon = PokemonOnField[index];
         mon.goingNext = false;
         mon.beakBlast = false;
+        if (Moves[index] == MoveID.UseItem)
+        {
+            yield return UseItem(index, itemTarget[index]);
+            mon.done = true;
+            DoNextMove();
+            yield break;
+        }
         if (Moves[index] == MoveID.Switch)
         {
             yield return BattleEffect.VoluntarySwitch(this, index, SwitchTargets[index], true, false);

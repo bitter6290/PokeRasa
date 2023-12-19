@@ -1,6 +1,4 @@
-﻿using System;
-using Unity.VisualScripting;
-using static SpeciesID;
+﻿using static SpeciesID;
 using static BerryEffect;
 using static FieldEffect;
 using static HeldEffect;
@@ -957,6 +955,44 @@ public static class Item
         itemName = "Whipped Dream",
         price = 20000,
         graphicsPath = "whipped_dream"
+    };
+
+    //Poké balls
+
+    public static PokeBall PokeBall = new()
+    {
+        itemName = "Poké Ball",
+        price = 200,
+        ballType = BallCatchType.Normal,
+        catchRateModifier = 10,
+        graphicsPath = "poke_ball"
+    };
+
+    public static PokeBall GreatBall = new()
+    {
+        itemName = "Great Ball",
+        price = 600,
+        ballType = BallCatchType.Normal,
+        catchRateModifier = 15,
+        graphicsPath = "great_ball"
+    };
+
+    public static PokeBall UltraBall = new()
+    {
+        itemName = "Ultra Ball",
+        price = 1000,
+        ballType = BallCatchType.Normal,
+        catchRateModifier = 20,
+        graphicsPath = "ultra_ball"
+    };
+
+    public static PokeBall MasterBall = new()
+    {
+        itemName = "Master Ball",
+        price = 1000000,
+        ballType = BallCatchType.Master,
+        catchRateModifier = 1,
+        graphicsPath = "master_ball"
     };
 
     //Mega stones
@@ -2025,6 +2061,11 @@ public static class Item
         DouseDrive,
         Satchet,
         WhippedDream,
+        //Poké balls
+        PokeBall,
+        GreatBall,
+        UltraBall,
+        MasterBall,
         //Hold-to-transform items
             //Memories
         FightingMemory,

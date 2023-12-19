@@ -101,6 +101,24 @@ public class HeldFieldItem : ItemData //subdata length 4
     };
 }
 
+public class PokeBall : ItemData //subdata length 3
+{
+    public BallCatchType ballType;
+    public BallBehavior ballBehavior = BallBehavior.None;
+    public int catchRateModifier; //Multiplied by 10
+    public override int[] ItemSubdata => new int[3]
+    {
+        (int)ballType,
+        (int)ballBehavior,
+        catchRateModifier
+    };
+    public PokeBall()
+    {
+        type = ItemType.PokeBall;
+        flingPower = 0;
+    }
+}
+
 public class Berry : ItemData //subdata length 8
 {
     public HeldEffect heldEffect;
@@ -391,6 +409,36 @@ public static class ItemUtils
                 return (MoveID)item.Data().ItemSubdata[1];
             default:
                 return MoveID.None;
+        }
+    }
+
+    public static BallCatchType BallCatchType(this ItemID item)
+    {
+        switch (item.Data().type)
+        {
+            case ItemType.PokeBall:
+                return (BallCatchType)item.Data().ItemSubdata[0];
+            default: return global::BallCatchType.NotBall;
+        }
+    }
+
+    public static BallBehavior BallBehavior(this ItemID item)
+    {
+        switch (item.Data().type)
+        {
+            case ItemType.PokeBall:
+                return (BallBehavior)item.Data().ItemSubdata[1];
+            default: return global::BallBehavior.None;
+        }
+    }
+
+    public static float CatchRateModifier(this ItemID item)
+    {
+        switch (item.Data().type)
+        {
+            case ItemType.PokeBall:
+                return item.Data().ItemSubdata[2] / 10.0F;
+            default: return 0;
         }
     }
 

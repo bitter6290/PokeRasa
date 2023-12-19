@@ -8,17 +8,20 @@ using Scene = SceneID;
 
 public class Player : LoadedChar
 {
+    public static int maxBoxes = 255;
+
     public bool[] TM = new bool[(int)TMID.Count];
     public bool[] HM = new bool[8];
     public bool[] keyItem = new bool[8];
     public bool[] storyFlags = new bool[(int)Flag.Count];
     public bool[] trainerFlags = new bool[(int)TrainerFlag.Count];
-    public List<Box> boxes = new();
+    public List<Box> boxes = new() { Box.newBox("Box 1")};
+    public int currentBox = 0;
     public int money = 0;
 
     public TODShading todShading;
 
-    public Dictionary<ItemID, int> Bag;
+    public Dictionary<ItemID, int> Bag = new();
     public Dictionary<MapData, bool[,]> neighborCollision;
 
 
@@ -97,17 +100,23 @@ public class Player : LoadedChar
                 keyItem[Item.ItemTable[(int)item].ItemSubdata[0]] = true;
                 break;
             default:
-                if (Bag.ContainsKey(item))
-                {
-                    Bag[item] += amount;
-                }
-                else
-                {
-                    Bag.Add(item, amount);
-                }
+                //yield return Field.Announce("Received" + Item.ItemTable[item].name");
+                AddItem(item, amount);
                 break;
         }
         yield break;
+    }
+
+    public void AddItem(ItemID item, int amount)
+    {
+        if (Bag.ContainsKey(item))
+        {
+            Bag[item] += amount;
+        }
+        else
+        {
+            Bag.Add(item, amount);
+        }
     }
 
     public int NumberOf(ItemID item)
@@ -144,6 +153,55 @@ public class Player : LoadedChar
             return true;
         }
     }
+
+    public bool CatchMon(Pokemon mon)
+    {
+        if (TryAddMon(mon)) return true;
+        else
+        {
+            int firstBox = currentBox;
+            int currentBoxes = boxes.Count;
+            while (currentBox < currentBoxes)
+            {
+                int boxSlot = boxes[currentBox].nextSlot;
+                if (boxSlot == 255)
+                {
+                    currentBox++;
+                    continue;
+                }
+                else
+                {
+                    boxes[currentBox].pokemon[boxSlot] = mon;
+                    return true;
+                }
+            }
+            currentBox = 0;
+            while (currentBox < firstBox)
+            {
+                int boxSlot = boxes[currentBox].nextSlot;
+                if (boxSlot == 255)
+                {
+                    currentBox++;
+                    continue;
+                }
+                else
+                {
+                    boxes[currentBox].pokemon[boxSlot] = mon;
+                    return true;
+                }
+            }
+            if (currentBoxes < maxBoxes)
+            {
+                boxes.Add(Box.newBox("Box " + (currentBoxes + 1)));
+                currentBox = currentBoxes;
+                boxes[currentBoxes].pokemon[0] = mon;
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
     private void SortParty()
     {
@@ -389,6 +447,11 @@ public class Player : LoadedChar
             foreach (Pokemon mon in toEvo)
             {
                 yield return evolutionScene.PrepareScene(mon);
+                if (mon.makeShedinja && NumberOf(ItemID.PokeBall) > 0)
+                {
+                    if (TryAddMon(Pokemon.WildPokemon(SpeciesID.Shedinja, 1)))
+                        UseItem(ItemID.PokeBall);
+                }
                 yield return FadeFromBlack(0.2F);
                 yield return evolutionScene.DoEvolutionScene();
                 yield return FadeToBlack(0.2F);
