@@ -92,7 +92,7 @@ public class BagController : MonoBehaviour
             itemSprite.texture = currentItemID.Data().ItemSprite;
         }
         else itemSprite.enabled = false;
-        //Todo: item desc
+        itemDesc.text = string.Empty; //Todo: item descriptions
     }
 
     private void UpdatePocket()
@@ -154,12 +154,30 @@ public class BagController : MonoBehaviour
         }
     }
 
+    private IEnumerator DoChoiceMenu()
+    {
+        active = false;
+        DataStore<int> result = new();
+        bool goingDown = currentSelection < 4;
+        yield return ChoiceMenu.DoChoiceMenu(p, new() { ("Close", 0), ("Test", 1) }, 0,
+            result, itemDisplays[currentSelection].transform, new(-80, goingDown ? 15 : -15), new(1, goingDown ? 1 : 0));
+        switch (result.Data)
+        {
+            default:
+                active = true;
+                break;
+        }
+    }
+
     private void Update()
     {
         if (!active) return;
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Backspace)) { close = true; p.bagResult = ItemID.None; }
+        else if (Input.GetKeyDown(KeyCode.Return))
         {
             if (currentItemID is ItemID.CloseBag) { close = true; p.bagResult = ItemID.None; }
+            else if (prompt) { close = true; p.bagResult = currentItemID; }
+            else StartCoroutine(DoChoiceMenu());
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {

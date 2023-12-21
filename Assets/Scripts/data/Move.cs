@@ -1413,13 +1413,13 @@ public static class Move
         snatchAffected, NormalizeDebuffs, TailGlowDesc); //Needs anim
     public static MoveData LusterPurge = new(
         "Luster Purge", Type.Psychic,
-        70, 100, 0,
+        95, 100, 0,
         MoveEffect.SpDefDown1, 50,
         false, Single, 5,
         noFlag, LusterPurgeDesc, 140); //Needs anim
     public static MoveData MistBall = new(
         "Mist Ball", Type.Psychic,
-        70, 100, 0,
+        95, 100, 0,
         MoveEffect.SpAtkDown1, 50,
         false, Single, 5,
         bulletMove, MistBallDesc, 140); //Needs anim
