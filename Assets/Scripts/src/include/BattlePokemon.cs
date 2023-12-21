@@ -393,7 +393,7 @@ public class BattlePokemon
         }
     }
 
-    public IEnumerator DoProportionalDamage(float proportion) => DoNonMoveDamage((int)(PokemonData.hpMax * proportion));
+    public IEnumerator DoProportionalDamage(float proportion) => DoNonMoveDamage(Max(1,(int)(PokemonData.hpMax * proportion)));
 
     public int GetPP(int index)
     {

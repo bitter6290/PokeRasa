@@ -636,6 +636,7 @@ public class Player : LoadedChar
         ActivateAll();
         yield return FadeFromBlack(0.2F);
         active = true;
+        locked = false;
     }
 
     public IEnumerator WildBattleWon()
@@ -924,6 +925,9 @@ public class Player : LoadedChar
         Party[0].move2 = MoveID.Growl;
         Party[0].pp2 = 40;
         Party[0].maxPp2 = 40;
+        Party[0].move3 = MoveID.Tackle;
+        Party[0].pp3 = 40;
+        Party[0].maxPp3 = 40;
         AddItem(ItemID.PokeBall, 5);
         AddItem(ItemID.GreatBall, 5);
         AddItem(ItemID.CheriBerry, 5);
