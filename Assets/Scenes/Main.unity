@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 126826195}
   - component: {fileID: 126826194}
+  - component: {fileID: 126826196}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -173,7 +174,9 @@ MonoBehaviour:
   keyItem: 0000000000000000
   storyFlags: 
   trainerFlags: 00
+  currentBox: 0
   money: 0
+  todShading: {fileID: 0}
   triggers: []
   signposts: []
   currentTerrain: 0
@@ -186,6 +189,8 @@ MonoBehaviour:
   mapManager: {fileID: 0}
   announcer: {fileID: 0}
   camera: {fileID: 0}
+  audioSource: {fileID: 126826196}
+  cachedMenuItem: 0
   textSpeed: 25
   Party:
   - species: 0
@@ -201,12 +206,6 @@ MonoBehaviour:
     evSpeed: 0
     totalEv: 0
     whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
     move1: 0
     maxPp1: 0
     pp1: 0
@@ -227,6 +226,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -235,7 +235,9 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    checkEvolution: 0
+    makeShedinja: 0
+    evolveAfterBattle: 0
+    destinationSpecies: 0
   - species: 0
     monName: 
     gender: 0
@@ -249,12 +251,6 @@ MonoBehaviour:
     evSpeed: 0
     totalEv: 0
     whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
     move1: 0
     maxPp1: 0
     pp1: 0
@@ -275,6 +271,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -283,7 +280,9 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    checkEvolution: 0
+    makeShedinja: 0
+    evolveAfterBattle: 0
+    destinationSpecies: 0
   - species: 0
     monName: 
     gender: 0
@@ -297,12 +296,6 @@ MonoBehaviour:
     evSpeed: 0
     totalEv: 0
     whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
     move1: 0
     maxPp1: 0
     pp1: 0
@@ -323,6 +316,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -331,7 +325,9 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    checkEvolution: 0
+    makeShedinja: 0
+    evolveAfterBattle: 0
+    destinationSpecies: 0
   - species: 0
     monName: 
     gender: 0
@@ -345,12 +341,6 @@ MonoBehaviour:
     evSpeed: 0
     totalEv: 0
     whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
     move1: 0
     maxPp1: 0
     pp1: 0
@@ -371,6 +361,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -379,7 +370,9 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    checkEvolution: 0
+    makeShedinja: 0
+    evolveAfterBattle: 0
+    destinationSpecies: 0
   - species: 0
     monName: 
     gender: 0
@@ -393,12 +386,6 @@ MonoBehaviour:
     evSpeed: 0
     totalEv: 0
     whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
     move1: 0
     maxPp1: 0
     pp1: 0
@@ -419,6 +406,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -427,7 +415,9 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    checkEvolution: 0
+    makeShedinja: 0
+    evolveAfterBattle: 0
+    destinationSpecies: 0
   - species: 0
     monName: 
     gender: 0
@@ -441,12 +431,6 @@ MonoBehaviour:
     evSpeed: 0
     totalEv: 0
     whichAbility: 0
-    hpMax: 0
-    attack: 0
-    defense: 0
-    spAtk: 0
-    spDef: 0
-    speed: 0
     move1: 0
     maxPp1: 0
     pp1: 0
@@ -467,6 +451,7 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
+    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -475,7 +460,9 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    checkEvolution: 0
+    makeShedinja: 0
+    evolveAfterBattle: 0
+    destinationSpecies: 0
 --- !u!4 &126826195
 Transform:
   m_ObjectHideFlags: 0
@@ -491,6 +478,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &126826196
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126826193}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1404274620
 GameObject:
   m_ObjectHideFlags: 0

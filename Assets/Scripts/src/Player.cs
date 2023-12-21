@@ -54,6 +54,16 @@ public class Player : LoadedChar
     private GameObject blackScreen;
     private SpriteRenderer blackScreenRenderer;
 
+    public AudioSource audioSource;
+
+    private FieldMenu menu;
+    public MenuItem cachedMenuItem;
+
+    private BagController bag;
+    public ItemID bagResult;
+
+    private bool blackScreenOn;
+
     public override IEnumerator WalkNorth() { yield return playerGraphics.WalkNorth(this, 0.3F); }
     public override IEnumerator WalkSouth() { yield return playerGraphics.WalkSouth(this, 0.3F); }
     public override IEnumerator WalkEast() { yield return playerGraphics.WalkEast(this, 0.3F); }
@@ -73,8 +83,16 @@ public class Player : LoadedChar
 
     public float textSpeed = 25;
 
+    public enum MenuItem
+    {
+        CloseMenu,
+        Bag,
+        Pokemon,
+        Settings
+    }
+
     public Pokemon[] Party = new Pokemon[6];
-    private int monsInParty
+    public int monsInParty
     {
         get
         {
@@ -137,6 +155,9 @@ public class Player : LoadedChar
 
     public void DeactivateAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.Deactivate(); }
     public void ActivateAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.Activate(); }
+
+    public void LockAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.free = false; }
+    public void UnlockAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.free = true; }
 
     public void RemoveAllChars() => loadedChars = new();
 
@@ -540,10 +561,12 @@ public class Player : LoadedChar
         }
     }
 
-    private void FindAnnouncer()
+    private void FindGUI()
     {
         announcer = FindAnyObjectByType<GUIManager>();
         announcer.player = this;
+        menu = FindAnyObjectByType<FieldMenu>();
+        menu.player = this;
     }
 
     private void CaptureCamera()
@@ -608,16 +631,8 @@ public class Player : LoadedChar
         ResetTransformations();
         yield return CheckEvolutions();
         yield return Scene.Map.Load();
-        todShading = TODShading.Initialize(this);
         Debug.Log("Map loaded");
-        camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
-        FindAnnouncer();
-        mapManager = gameObject.AddComponent<MapManager>();
-        RenderMap();
-        CreatePlayerGraphics(CharGraphics.brendanWalk);
-        AlignPlayer();
-        CaptureCamera();
-        UpdateCollision();
+        MapReturn();
         ActivateAll();
         yield return FadeFromBlack(0.2F);
         active = true;
@@ -644,6 +659,7 @@ public class Player : LoadedChar
             blackScreenRenderer.color = new(0, 0, 0, (Time.time - baseTime) / duration);
             yield return null;
         }
+        blackScreenOn = true;
     }
 
     public IEnumerator FadeFromBlack(float duration)
@@ -655,6 +671,48 @@ public class Player : LoadedChar
             yield return null;
         }
         blackScreenRenderer.color = new(0, 0, 0, 0);
+        blackScreenOn = false;
+    }
+
+    public IEnumerator DoMenu()
+    {
+        LockAll();
+        menu.OpenMenu();
+        audioSource.PlayOneShot(SFX.Select);
+        state = PlayerState.Locked;
+        yield return AnimUtils.Slide(menu.transform, new Vector2(-2f, 0f), 0.2f);
+        Vector2 menuOpenPosition = menu.transform.position;
+        bool done = false;
+        while (!done)
+        {
+            yield return menu.DoMenu();
+            switch (cachedMenuItem)
+            {
+                case MenuItem.Bag:
+                    DeactivateAll();
+                    yield return FadeToBlack(0.2f);
+                    yield return Scene.Bag.Load();
+                    bag = FindObjectOfType<BagController>();
+                    yield return FadeFromBlack(0.2f);
+                    yield return bag.DoBag(this, false);
+                    yield return FadeToBlack(0.2f);
+                    yield return Scene.Map.Load();
+                    MapReturn();
+                    menu.transform.position = menuOpenPosition;
+                    menu.OpenMenu(MenuItem.Bag);
+                    yield return FadeFromBlack(0.2f);
+                    ActivateAll();
+                    break;
+                case MenuItem.CloseMenu:
+                default:
+                    done = true;
+                    break;
+            }
+        }
+        yield return AnimUtils.Slide(menu.transform, new Vector2(2f, 0f), 0.2f);
+        state = PlayerState.Free;
+        menu.ClearName();
+        UnlockAll();
     }
 
 
@@ -830,18 +888,35 @@ public class Player : LoadedChar
             mon.transformed = false;
     }
 
-    public IEnumerator InitMapTest()
+    public void Lock()
     {
-        yield return Scene.Map.Load();
-        todShading = TODShading.Initialize(this);
+        locked = true;
+        state = PlayerState.Locked;
+    }
+
+    public void Unlock()
+    {
+        locked = false;
+        state = PlayerState.Free;
+    }
+
+    private void MapReturn()
+    {
+        if (todShading == null) todShading = TODShading.Initialize(this);
         camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
-        FindAnnouncer();
+        FindGUI();
         mapManager = gameObject.AddComponent<MapManager>();
         RenderMap();
         CreatePlayerGraphics(CharGraphics.brendanWalk);
         AlignPlayer();
         CaptureCamera();
         UpdateCollision();
+    }
+
+    public IEnumerator InitMapTest()
+    {
+        yield return Scene.Map.Load();
+        MapReturn();
         Party[0] = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 15);
         Party[0].move1 = MoveID.Toxic;
         Party[0].pp1 = 30;
@@ -849,6 +924,9 @@ public class Player : LoadedChar
         Party[0].move2 = MoveID.Growl;
         Party[0].pp2 = 40;
         Party[0].maxPp2 = 40;
+        AddItem(ItemID.PokeBall, 5);
+        AddItem(ItemID.GreatBall, 5);
+        AddItem(ItemID.CheriBerry, 5);
         active = true;
     }
     // Start is called before the first frame update
@@ -862,7 +940,7 @@ public class Player : LoadedChar
         blackScreen.transform.position = new(0, 0, -20);
         blackScreenRenderer = blackScreen.AddComponent<SpriteRenderer>();
         blackScreenRenderer.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0, 0, 4, 4), new Vector2(0.5F, 0.5F), 4);
-        blackScreenRenderer.color = new(0, 0, 0, 0);
+        blackScreenRenderer.color = new(0, 0, 0, blackScreenOn ? 255 : 0);
         blackScreenRenderer.sortingOrder = 10;
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex((int)Scene.Main))
         {
@@ -888,6 +966,7 @@ public class Player : LoadedChar
                     else if (Input.GetKey(KeyCode.LeftArrow)) TryGoWest();
                     else if (Input.GetKey(KeyCode.RightArrow)) TryGoEast();
                     else if (Input.GetKeyDown(KeyCode.Return)) CheckForInteractables();
+                    else if (Input.GetKeyDown(KeyCode.M)) StartCoroutine(DoMenu());
                     break;
                 case PlayerState.Moving:
                     break;

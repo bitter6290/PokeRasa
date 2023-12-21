@@ -7,6 +7,7 @@ public enum SceneID
     Map,
     Battle,
     Evolution,
+    Bag,
 }
 
 public static class SceneUtils

@@ -232,4 +232,6 @@
     KommoniumZ,
 
     Count,
+
+    CloseBag = 65535,
 }

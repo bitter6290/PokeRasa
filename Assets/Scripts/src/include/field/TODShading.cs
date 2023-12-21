@@ -38,6 +38,7 @@ public class TODShading : MonoBehaviour
     public void Disable()
     {
         spriteObject.SetActive(false);
+        
         active = false;
     }
 
@@ -50,7 +51,6 @@ public class TODShading : MonoBehaviour
     {
         if (!active)
         { sprite.color = new(0, 0, 0, 0); return; }
-        Debug.Log(TimeUtils.timeOfDay);
         sprite.color = TimeUtils.timeOfDay switch
         {
             Morning => morningColor,

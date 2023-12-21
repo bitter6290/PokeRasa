@@ -1065,7 +1065,7 @@ public class Battle : MonoBehaviour
         GameObject ballObject = new("Ball");
         ballObject.transform.parent = spriteTransform[targetMon];
         ballObject.transform.localPosition = new(0, -0.3f);
-        ballObject.transform.localScale = new(1, 1);
+        ballObject.transform.localScale = new(0.5f, 0.5f);
         SpriteRenderer renderer = ballObject.AddComponent<SpriteRenderer>();
         renderer.sprite = Resources.Load<Sprite>("Sprites/Battle/baton_pass_ball");
         yield return new WaitForSeconds(1.0f);

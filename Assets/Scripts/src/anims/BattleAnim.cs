@@ -182,10 +182,10 @@ public static class BattleAnim
     public static IEnumerator BallShake(Battle battle, Transform transform) //0.95
     {
         battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/BallShake"));
-        yield return Rotate(transform, -45, 0.15f); //0.15
-        yield return Rotate(transform, 90, 0.3f);  //0.45
-        yield return Rotate(transform, -45, 0.15f); //0.60
-        yield return new WaitForSeconds(0.35f); //0.95
+        yield return Rotate(transform, -45, 0.1f); //0.1
+        yield return Rotate(transform, 90, 0.2f);  //0.3
+        yield return Rotate(transform, -45, 0.1f); //0.4
+        yield return new WaitForSeconds(0.55f); //0.95
     }
 
     public static IEnumerator MegaEvolution(Battle battle, int index) //3.90

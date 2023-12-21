@@ -37,6 +37,7 @@ namespace Scripts.Test
             TrainerFlag.MayTest.Set(p);
             c.doMove = false;
             c.free = true;
+            p.locked = false;
         }
         public override bool SeeCheck(Player p) => !TrainerFlag.MayTest.Get(p);
         public override void GetMovement(LoadedChar c)

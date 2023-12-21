@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static SFX;
 
 public class MenuManager : MonoBehaviour
 {
@@ -62,9 +63,6 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Sprite megaSprite;
     [SerializeField] private Sprite zSprite;
 
-    private AudioClip SelectMove;
-    private AudioClip MoveCursor;
-
 
     [SerializeField] private Battle battle;
 
@@ -102,7 +100,7 @@ public class MenuManager : MonoBehaviour
     private static Color backColor = new(240F / 255F, 160F / 255F, 160F / 255F);
     private static Color partyColor = new(240F / 255F, 240F / 255F, 240F / 255F);
 
-    private void TrySelectMove(int selectedMove)
+    private void TrySelect(int selectedMove)
     {
         switch (mon.CanUseMove(selectedMove - 1))
         {
@@ -550,8 +548,6 @@ public class MenuManager : MonoBehaviour
 
         GoToAnnounce();
         currentMon = 3;
-        SelectMove = Resources.Load<AudioClip>("Sound/Battle SFX/Select Move");
-        MoveCursor = Resources.Load<AudioClip>("Sound/Battle SFX/Move Cursor");
     }
 
     // Update is called once per frame
@@ -579,7 +575,7 @@ public class MenuManager : MonoBehaviour
                         {
                             megaEvolving = !megaEvolving;
                             battle.megaEvolveOnMove[currentMon] = megaEvolving;
-                            battle.audioSource0.PlayOneShot(SelectMove);
+                            battle.audioSource0.PlayOneShot(Select);
                             battle.audioSource0.panStereo = 0;
                             megaIndicator.GetComponent<SpriteRenderer>().color =
                                 megaEvolving ? megaYesColor : megaNoColor;
@@ -591,7 +587,7 @@ public class MenuManager : MonoBehaviour
                         {
                             usingZMove = !usingZMove;
                             battle.usingZMove[currentMon] = usingZMove;
-                            battle.audioSource0.PlayOneShot(SelectMove);
+                            battle.audioSource0.PlayOneShot(Select);
                             battle.audioSource0.panStereo = 0;
                             megaIndicator.GetComponent<SpriteRenderer>().color =
                                 usingZMove ? zYesColor : zNoColor;
@@ -703,7 +699,7 @@ public class MenuManager : MonoBehaviour
                     }
                     if (Input.GetKeyDown(KeyCode.Return))
                     {
-                        battle.audioSource0.PlayOneShot(SelectMove);
+                        battle.audioSource0.PlayOneShot(Select);
                         battle.audioSource0.panStereo = 0;
                         switch (currentMove)
                         {
@@ -711,7 +707,7 @@ public class MenuManager : MonoBehaviour
                             case 2:
                             case 3:
                             case 4:
-                                TrySelectMove(currentMove);
+                                TrySelect(currentMove);
                                 break;
                             case 0:
                                 currentMove = 1;
@@ -804,7 +800,7 @@ public class MenuManager : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Return))
                     {
                         battle.audioSource0.volume = 0.6F;
-                        battle.audioSource0.PlayOneShot(SelectMove);
+                        battle.audioSource0.PlayOneShot(Select);
                         battle.audioSource0.panStereo = 0;
                         switch (currentMove)
                         {
@@ -1039,7 +1035,7 @@ public class MenuManager : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Return))
                     {
                         battle.audioSource0.volume = 0.6F;
-                        battle.audioSource0.PlayOneShot(SelectMove);
+                        battle.audioSource0.PlayOneShot(Select);
                         battle.audioSource0.panStereo = 0;
                         switch (currentPartyMon)
                         {
@@ -1100,7 +1096,7 @@ public class MenuManager : MonoBehaviour
                             case 0:
                                 MainMenu();
                                 battle.audioSource0.volume = 0.6F;
-                                battle.audioSource0.PlayOneShot(SelectMove);
+                                battle.audioSource0.PlayOneShot(Select);
                                 battle.audioSource0.panStereo = 0;
                                 break;
                             default:

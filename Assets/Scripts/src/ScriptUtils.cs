@@ -43,6 +43,7 @@ public static class ScriptUtils
 
     public static IEnumerator TrainerSeeSingle(Player p, LoadedChar c, TeamData team, List<string> beforeText)
     {
+        p.locked = true;
         p.state = PlayerState.Locked;
         c.free = false;
         switch (c.facing)

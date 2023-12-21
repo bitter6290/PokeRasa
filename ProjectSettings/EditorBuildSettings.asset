@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle.unity
     guid: eba819aa1a6f1413e80bafb6df6e93b2
+  - enabled: 1
+    path: Assets/Scenes/Evolution.unity
+    guid: a83ffcf911f1c43db8f53e52e46c2ea0
+  - enabled: 1
+    path: Assets/Scenes/Bag.unity
+    guid: ce91d7436416e403d8f2d0e5daad05b8
   m_configObjects: {}

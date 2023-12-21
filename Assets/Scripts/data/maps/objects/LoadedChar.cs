@@ -85,6 +85,7 @@ public abstract class LoadedChar : MonoBehaviour
 
     public bool CheckForSight(LoadedChar c)
     {
+        if (!(p.state is PlayerState.Free or PlayerState.Moving)) return false;
         Vector2Int comparisonPos = p.pos - pos;
         switch (facing)
         {

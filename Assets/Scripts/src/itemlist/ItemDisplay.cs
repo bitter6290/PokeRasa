@@ -5,11 +5,11 @@ using TMPro;
 public class ItemDisplay : MonoBehaviour
 {
     [SerializeField]
-    private RawImage itemSprite;
-    [SerializeField]
     private TextMeshProUGUI itemName;
     [SerializeField]
     private TextMeshProUGUI itemNumber;
+    [SerializeField]
+    private TextMeshProUGUI x;
     [SerializeField]
     private RawImage background;
 
@@ -22,23 +22,38 @@ public class ItemDisplay : MonoBehaviour
 
     public bool isCloseBag = false;
 
-    public ItemCachedData cachedData;
+    public ItemID item;
+    public Player p;
 
     public void UpdateDisplay()
     {
-        if (isCloseBag)
+        x.enabled = true;
+        if (item is ItemID.CloseBag)
         {
-            itemSprite.texture = null;
             itemName.text = "Close Bag";
             itemNumber.text = string.Empty;
         }
         else
         {
-            itemSprite.texture = cachedData.itemSprite;
-            itemName.text = cachedData.itemName;
-            itemNumber.text = "x" + cachedData.itemNumber;
+            itemName.text = item.Data().itemName;
+            itemNumber.text = p.Bag[item].ToString();
         }
         background.color = selected ? selectedColor : unselectedColor;
+    }
+
+    public void Nullify()
+    {
+        itemName.text = string.Empty;
+        itemNumber.text = string.Empty;
+        background.color = unselectedColor;
+        x.enabled = false;
+        selected = false;
+    }
+
+    public void UpdateDisplay(ItemID item)
+    {
+        this.item = item;
+        UpdateDisplay();
     }
 
     public void ToggleSelect()
