@@ -16,8 +16,6 @@ public class BagController : MonoBehaviour
         Berry,
         Mail,
         BattleItem,
-        MegaStone,
-        ZCrystal,
         KeyItem
     }
 
@@ -30,8 +28,6 @@ public class BagController : MonoBehaviour
         "Berries",
         "Mail",
         "Battle Items",
-        "Mega Stones",
-        "Z-Crystals",
         "Key Items"
     };
 
@@ -130,6 +126,7 @@ public class BagController : MonoBehaviour
             case ItemType.HeldFieldItem:
             case ItemType.AbstractItem:
             case ItemType.HoldToTransform:
+            case ItemType.MegaStone:
             default:
                 return Pocket.Item;
             case ItemType.BattleItem:
@@ -142,15 +139,12 @@ public class BagController : MonoBehaviour
                 return Pocket.Berry;
             case ItemType.TM:
                 return Pocket.TM;
-            case ItemType.MegaStone:
-                return Pocket.MegaStone;
             case ItemType.KeyItem:
-                return Pocket.KeyItem;
             case ItemType.ZCrystalGeneric:
             case ItemType.ZCrystalSpecific:
             case ItemType.ZCrystalMoveSpecific:
             case ItemType.ZCrystalMultipleSpecies:
-                return Pocket.ZCrystal;
+                return Pocket.KeyItem;
         }
     }
 

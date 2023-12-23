@@ -13,7 +13,7 @@ public class CollisionTile : Tile
             Resources.Load<Texture2D>("Tilesets/Collision"), new Rect(
                 TileConfig.tileSize * 2 * x, TileConfig.tileSize * 2 * y,
                 TileConfig.tileSize * 2, TileConfig.tileSize * 2
-                ), new Vector2(0.5F, 0.5F), TileConfig.tileSize * 2);
+                ), StaticValues.defPivot, TileConfig.tileSize * 2);
         collisionTile.collisionID = id;
         return collisionTile;
     }

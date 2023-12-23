@@ -127,7 +127,7 @@ public static class BattleAnim
         faintMask.isCustomRangeActive = true;
         faintMask.backSortingOrder = -1;
         faintMask.frontSortingOrder = 1;
-        faintMask.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0.0F, 0.0F, 64.0F, 64.0F), new Vector2(0.5F, 0.5F));
+        faintMask.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0.0F, 0.0F, 64.0F, 64.0F), StaticValues.defPivot);
         battle.spriteRenderer[index].maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
         battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Faint"));
         yield return Slide(battle.spriteTransform[index], new Vector3(0.0F, -3.0F, 0.0F), 0.3F); //1.60

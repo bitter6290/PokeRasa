@@ -1065,7 +1065,7 @@ public class Battle : MonoBehaviour
         GameObject ballObject = new("Ball");
         ballObject.transform.parent = spriteTransform[targetMon];
         ballObject.transform.localPosition = new(0, -0.3f);
-        ballObject.transform.localScale = new(0.5f, 0.5f);
+        ballObject.transform.localScale = StaticValues.defPivot;
         SpriteRenderer renderer = ballObject.AddComponent<SpriteRenderer>();
         renderer.sprite = Resources.Load<Sprite>("Sprites/Battle/baton_pass_ball");
         yield return new WaitForSeconds(1.0f);
@@ -6964,12 +6964,12 @@ public class Battle : MonoBehaviour
             playerMonIcons[i] = Sprite.Create(
                 Resources.Load<Texture2D>("Sprites/Pokemon/"
                 + Species.SpeciesTable[(int)PlayerPokemon[i].species].graphicsLocation
-                + "/icon"), new Rect(0.0F, 32.0F, 32.0F, 32.0F), new Vector2(0.5F, 0.5F),
+                + "/icon"), new Rect(0.0F, 32.0F, 32.0F, 32.0F), StaticValues.defPivot,
                 64);
             playerMonIcons2[i] = Sprite.Create(
                 Resources.Load<Texture2D>("Sprites/Pokemon/"
                 + Species.SpeciesTable[(int)PlayerPokemon[i].species].graphicsLocation
-                + "/icon"), new Rect(0.0F, 0.0F, 32.0F, 32.0F), new Vector2(0.5F, 0.5F),
+                + "/icon"), new Rect(0.0F, 0.0F, 32.0F, 32.0F), StaticValues.defPivot,
                 64);
             PlayerPokemon[i].itemChanged = false;
             OpponentPokemon[i].itemChanged = false;

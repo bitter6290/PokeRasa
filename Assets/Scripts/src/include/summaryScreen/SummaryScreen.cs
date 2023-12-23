@@ -147,10 +147,7 @@ public class SummaryScreen : MonoBehaviour
     public void RefreshAll()
     {
 
-        Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + Mon.SpeciesData.graphicsLocation + "/anim_front");
-        if (test) monBox.sprite = Sprite.Create(test, new(0, 64, 64, 64), new(0.5F, 0.5F));
-        else monBox.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Mon.SpeciesData.graphicsLocation + "/front"),
-            new(0, 0, 64, 64), new(0.5F, 0.5F));
+        monBox.sprite = Mon.SpeciesData.FrontSprite1;
 
         monScreenName.text = Mon.monName;
         speciesText.text = Mon.SpeciesData.pokedexData.number.ToString().LeadingZero2() + " / " + Mon.SpeciesData.speciesName;

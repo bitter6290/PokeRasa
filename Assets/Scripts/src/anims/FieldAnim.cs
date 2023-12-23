@@ -13,7 +13,7 @@ public static class FieldAnim
         bubbleObject.transform.localPosition = new Vector3(0, 0.5F, -1);
         SpriteRenderer bubble = bubbleObject.AddComponent<SpriteRenderer>();
         bubble.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Field/exclam"),
-            new Rect(0, 0, 16, 16), new Vector2(0.5F, 0.5F), 16);
+            new Rect(0, 0, 16, 16), StaticValues.defPivot, 16);
         yield return Slide(bubbleObject.transform, new Vector2(0.0F, 0.5F), 0.2F); //0.20
         yield return Fall(bubbleObject.transform, 16.7F, new Vector2(0.0F, 2.5F), 0.3F); //0.50
         yield return new WaitForSeconds(0.5F); //1.00

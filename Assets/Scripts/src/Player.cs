@@ -943,7 +943,7 @@ public class Player : LoadedChar
         blackScreen.transform.localScale = new(1000, 1000, 1000);
         blackScreen.transform.position = new(0, 0, -20);
         blackScreenRenderer = blackScreen.AddComponent<SpriteRenderer>();
-        blackScreenRenderer.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0, 0, 4, 4), new Vector2(0.5F, 0.5F), 4);
+        blackScreenRenderer.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0, 0, 4, 4), StaticValues.defPivot, 4);
         blackScreenRenderer.color = new(0, 0, 0, blackScreenOn ? 255 : 0);
         blackScreenRenderer.sortingOrder = 10;
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex((int)Scene.Main))

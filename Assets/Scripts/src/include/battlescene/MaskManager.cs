@@ -52,7 +52,7 @@ public class MaskManager : MonoBehaviour
         Debug.Log("Starting mask animation");
         anim.runtimeAnimatorController = null;
         maskRenderer.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"),
-            new Rect(0.0F, 0.0F, 96.0F, 96.0F), new Vector2(0.5F, 0.5F));
+            new Rect(0.0F, 0.0F, 96.0F, 96.0F), StaticValues.defPivot);
         maskRenderer.color = color;
         float initTime = Time.time;
         for (int i = 0; i < 10; i++)

@@ -54,7 +54,7 @@ public struct SpeciesData
 
 
     public Sprite BackSprite => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/back"),
-        new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+        new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
 
     public Sprite FrontSprite1
     {
@@ -64,11 +64,11 @@ public struct SpeciesData
             if (test == null)
             {
                 return Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/front"),
-                    new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+                    new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
             }
             else
             {
-                return Sprite.Create(test, new Rect(0.0f, 64.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+                return Sprite.Create(test, new Rect(0.0f, 64.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
             }
         }
     }
@@ -81,17 +81,17 @@ public struct SpeciesData
             if (test == null)
             {
                 return Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/front"),
-                    new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+                    new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
             }
             else
             {
-                return Sprite.Create(test, new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+                return Sprite.Create(test, new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
             }
         }
     }
 
     public Sprite Icon => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
-        new Rect(0.0f, 0.0f, 16.0f, 16.0f), new Vector2(0.5f, 0.5f), 64.0f);
+        new Rect(0.0f, 0.0f, 16.0f, 16.0f), StaticValues.defPivot, 64.0f);
 
     public AudioClip Cry => Resources.Load<AudioClip>("Sound/Cries/" + cryLocation);
 

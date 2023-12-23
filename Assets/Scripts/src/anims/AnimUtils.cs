@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using static System.Math;
+using static StaticValues;
 
 public static class AnimUtils
 {
@@ -13,7 +14,7 @@ public static class AnimUtils
         result.GetComponent<Transform>().position = new Vector3(location.x + parent.position.x, location.y + parent.position.y, 0);
         SpriteRenderer sprite = result.AddComponent(typeof(SpriteRenderer)) as SpriteRenderer;
         Texture2D image = Resources.Load<Texture2D>(path);
-        sprite.sprite = Sprite.Create(image, new Rect(0.0F, 0.0F, image.width, image.height), new Vector2(0.5F, 0.5F));
+        sprite.sprite = Sprite.Create(image, new Rect(0.0F, 0.0F, image.width, image.height), defPivot);
         sprite.sortingOrder = order;
         return result;
     }
@@ -26,7 +27,7 @@ public static class AnimUtils
         result.GetComponent<Transform>().position = new Vector3(location.x + parent.position.x, location.y + parent.position.y, 0);
         SpriteRenderer sprite = result.AddComponent(typeof(SpriteRenderer)) as SpriteRenderer;
         Texture2D image = Resources.Load<Texture2D>(path);
-        sprite.sprite = Sprite.Create(image, rect, new Vector2(0.5F, 0.5F));
+        sprite.sprite = Sprite.Create(image, rect, defPivot);
         sprite.sortingOrder = order;
         return result;
     }

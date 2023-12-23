@@ -7,6 +7,7 @@ using static SFX;
 
 public class MenuManager : MonoBehaviour
 {
+
     [SerializeField] private Image box1;
     [SerializeField] private Image box2;
     [SerializeField] private Image box3;
@@ -69,6 +70,96 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private int currentMon = 3;
     [SerializeField] private int currentMove = 1; //0 means Back
 
+    private Image Box(int i) => i switch
+    {
+        1 => box1,
+        2 => box2,
+        3 => box3,
+        4 => box4,
+        5 => box5,
+        6 => box6,
+        7 => box7,
+        _ => throw new System.Exception("Passed bad argument to MenuManager.Box")
+    };
+
+    private Image PartyBox(int i) => i switch
+    {
+        1 => box1,
+        2 => box3,
+        3 => box2,
+        4 => box4,
+        5 => box5,
+        6 => box6,
+        7 => box7,
+        _ => throw new System.Exception("Passed bad argument to MenuManager.PartyBox")
+    };
+
+    private TextMeshProUGUI Text(int i) => i switch
+    {
+        1 => text1,
+        2 => text2,
+        3 => text3,
+        4 => text4,
+        5 => text5,
+        _ => throw new System.Exception("Passed bad argument to MenuManager.Text")
+    };
+
+    private TextMeshProUGUI PartyText(int i) => i switch
+    {
+        1 => partyText1,
+        2 => partyText3,
+        3 => partyText2,
+        4 => partyText4,
+        5 => partyText5,
+        6 => partyText6,
+        _ => throw new System.Exception("Passed bad argument to MenuManager.PartyText")
+    };
+
+    private SpriteRenderer PartyIcon(int i) => i switch
+    {
+        1 => partyMon1,
+        2 => partyMon3,
+        3 => partyMon2,
+        4 => partyMon4,
+        5 => partyMon5,
+        6 => partyMon6,
+        _ => throw new System.Exception("Passed bad argument to MenuManager.PartyIcon")
+    };
+
+    private TextMeshProUGUI ItemText(int i) => i switch
+    {
+        1 => partyText1,
+        2 => partyText2,
+        3 => partyText3,
+        4 => partyText4,
+        _ => throw new System.Exception("Passed bad argument to MenuManager.ItemText")
+    };
+
+    private SpriteRenderer ItemIcon(int i) => i switch
+    {
+        1 => partyMon1,
+        2 => partyMon2,
+        3 => partyMon3,
+        4 => partyMon4,
+        _ => throw new System.Exception("Passed bad argument to MenuManager.ItemIcon")
+    };
+    public enum MenuMode
+    {
+        Main,
+        Moves,
+        Party,
+        ItemCategories,
+        Items,
+    }
+
+    private enum ItemSubset 
+    {
+        PokeBalls,
+        Medicine,
+        Berries,
+        BattleItems,
+    }
+
     public int currentPartyMon = 1; //0 means Back
 
     private bool canMegaEvolve;
@@ -79,6 +170,10 @@ public class MenuManager : MonoBehaviour
     public MenuMode menuMode;
 
     private BattlePokemon mon;
+
+    private ItemID[] cachedItems;
+    private int cachedItemCount;
+    private int currentItemPosition;
 
     private static Color transparent = new(0, 0, 0, 0);
 
@@ -99,6 +194,23 @@ public class MenuManager : MonoBehaviour
 
     private static Color backColor = new(240F / 255F, 160F / 255F, 160F / 255F);
     private static Color partyColor = new(240F / 255F, 240F / 255F, 240F / 255F);
+
+    private ItemID[] GetItemsBySubset(ItemSubset subset)
+    {
+        List<ItemID> itemIDs = new();
+        foreach (ItemID i in battle.player.Bag.Keys)
+        {
+            if (i.Data().type == subset switch
+            {
+                ItemSubset.PokeBalls => ItemType.PokeBall,
+                ItemSubset.Medicine => ItemType.Medicine,
+                ItemSubset.Berries => ItemType.Berry,
+                ItemSubset.BattleItems => ItemType.BattleItem,
+                _ => null
+            }) itemIDs.Add(i);
+        }
+        return itemIDs.ToArray();
+    }
 
     private void TrySelect(int selectedMove)
     {
@@ -212,27 +324,35 @@ public class MenuManager : MonoBehaviour
         GetNextPokemon();
     }
 
+    private void DisableParty()
+    {
+        box7.enabled = false;
+        for (int i = 1; i <= 6; i++)
+        {
+            PartyText(i).enabled = false;
+            PartyIcon(i).enabled = false;
+        }
+    }
+
     private void MovesMenu()
     {
         menuMode = MenuMode.Moves;
         mon = battle.PokemonOnField[currentMon];
-        box1.color = TypeUtils.typeColor[(int)mon.GetMove(0).Data().type];
-        box2.color = mon.GetMove(1) == MoveID.None
-            ? transparent : TypeUtils.typeColor[(int)mon.GetMove(1).Data().type];
-        box3.color = mon.GetMove(2) == MoveID.None
-            ? transparent : TypeUtils.typeColor[(int)mon.GetMove(2).Data().type];
-        box4.color = mon.GetMove(3) == MoveID.None
-            ? transparent : TypeUtils.typeColor[(int)mon.GetMove(3).Data().type];
-        box5.color = backColor;
 
-        text1.text = mon.GetMove(0).Data().name;
-        text1.color = mon.GetMove(0).Data().type.TextColor();
-        text2.text = mon.GetMove(1).Data().name;
-        text2.color = mon.GetMove(1).Data().type.TextColor();
-        text3.text = mon.GetMove(2).Data().name;
-        text3.color = mon.GetMove(2).Data().type.TextColor();
-        text4.text = mon.GetMove(3).Data().name;
-        text4.color = mon.GetMove(3).Data().type.TextColor();
+        box5.color = backColor;
+        text5.enabled = true;
+        box5.enabled = true;
+        text5.text = "Back";
+
+        for (int i = 0; i < 4; i++)
+        {
+            Box(i + 1).color = mon.GetMove(i) == MoveID.None
+                ? transparent : TypeUtils.typeColor[(int)mon.GetMove(i).Data().type];
+            Box(i + 1).enabled = !(mon.GetMove(i) == MoveID.None);
+            Text(i + 1).text = mon.GetMove(i).Data().name;
+            Text(i + 1).color = mon.GetMove(i).Data().type.TextColor();
+            Text(i + 1).enabled = !(mon.GetMove(i) == MoveID.None);
+        }
 
         pp1.text = LeadingZero(mon.GetPP(0).ToString()) + " / " +
             LeadingZero(mon.GetMaxPP(0).ToString());
@@ -247,26 +367,14 @@ public class MenuManager : MonoBehaviour
             LeadingZero(mon.GetMaxPP(3).ToString());
         pp4.color = mon.GetMove(3).Data().type.TextColor();
 
-        box1.enabled = !(mon.GetMove(0) == MoveID.None);
-        box2.enabled = !(mon.GetMove(1) == MoveID.None);
-        box3.enabled = !(mon.GetMove(2) == MoveID.None);
-        box4.enabled = !(mon.GetMove(3) == MoveID.None);
-        text1.enabled = !(mon.GetMove(0) == MoveID.None);
-        text2.enabled = !(mon.GetMove(1) == MoveID.None);
-        text3.enabled = !(mon.GetMove(2) == MoveID.None);
-        text4.enabled = !(mon.GetMove(3) == MoveID.None);
         pp1.enabled = !(mon.GetMove(0) == MoveID.None);
         pp2.enabled = !(mon.GetMove(1) == MoveID.None);
         pp3.enabled = !(mon.GetMove(2) == MoveID.None);
         pp4.enabled = !(mon.GetMove(3) == MoveID.None);
 
-        text5.enabled = true;
-        box5.enabled = true;
-        text5.text = "Back";
 
         text7.enabled = false;
         box6.enabled = false;
-        box7.enabled = false;
 
         selector1.enabled = currentMove == 1;
         selector2.enabled = currentMove == 2;
@@ -276,19 +384,7 @@ public class MenuManager : MonoBehaviour
         selector6.enabled = false;
         selector7.enabled = false;
 
-        partyText1.enabled = false;
-        partyText2.enabled = false;
-        partyText3.enabled = false;
-        partyText4.enabled = false;
-        partyText5.enabled = false;
-        partyText6.enabled = false;
-
-        partyMon1.enabled = false;
-        partyMon2.enabled = false;
-        partyMon3.enabled = false;
-        partyMon4.enabled = false;
-        partyMon5.enabled = false;
-        partyMon6.enabled = false;
+        DisableParty();
 
         RefreshMegaAndZ();
     }
@@ -312,7 +408,6 @@ public class MenuManager : MonoBehaviour
         box4.enabled = true;
         box5.enabled = false;
         box6.enabled = false;
-        box7.enabled = false;
 
         text1.text = canUseAnyMove ? "Moves" : "Struggle";
         text2.text = "Bag";
@@ -339,19 +434,7 @@ public class MenuManager : MonoBehaviour
         selector6.enabled = false;
         selector7.enabled = false;
 
-        partyText1.enabled = false;
-        partyText2.enabled = false;
-        partyText3.enabled = false;
-        partyText4.enabled = false;
-        partyText5.enabled = false;
-        partyText6.enabled = false;
-
-        partyMon1.enabled = false;
-        partyMon2.enabled = false;
-        partyMon3.enabled = false;
-        partyMon4.enabled = false;
-        partyMon5.enabled = false;
-        partyMon6.enabled = false;
+        DisableParty();
 
         megaIndicator.SetActive(false);
         summaryIndicator.SetActive(false);
@@ -362,29 +445,13 @@ public class MenuManager : MonoBehaviour
     {
         announce.enabled = false;
 
-        box1.enabled = battle.PlayerPokemon[0].exists;
-        box2.enabled = battle.PlayerPokemon[2].exists;
-        box3.enabled = battle.PlayerPokemon[1].exists;
-        box4.enabled = battle.PlayerPokemon[3].exists;
-        box5.enabled = battle.PlayerPokemon[4].exists;
-        box6.enabled = battle.PlayerPokemon[5].exists;
-        box7.enabled = !battle.partyBackButtonInactive;
+        for (int i = 1; i <= 5; i++)
+        {
+            Text(i).enabled = false;
+        }
 
-        box1.color = partyMonColor(0);
-        box2.color = partyMonColor(2);
-        box3.color = partyMonColor(1);
-        box4.color = partyMonColor(3);
-        box5.color = partyMonColor(4);
-        box6.color = partyMonColor(5);
-        box7.color = backColor;
-
-        text1.enabled = false;
-        text2.enabled = false;
-        text3.enabled = false;
-        text4.enabled = false;
-        text5.enabled = false;
         text7.enabled = !battle.partyBackButtonInactive;
-
+        box7.color = backColor;
         text7.text = "Back";
 
         selector1.enabled = currentPartyMon == 1;
@@ -400,39 +467,17 @@ public class MenuManager : MonoBehaviour
         pp3.enabled = false;
         pp4.enabled = false;
 
-        partyText1.enabled = battle.PlayerPokemon[0].exists;
-        partyText2.enabled = battle.PlayerPokemon[2].exists;
-        partyText3.enabled = battle.PlayerPokemon[1].exists;
-        partyText4.enabled = battle.PlayerPokemon[3].exists;
-        partyText5.enabled = battle.PlayerPokemon[4].exists;
-        partyText6.enabled = battle.PlayerPokemon[5].exists;
-
-        partyText1.text = battle.PlayerPokemon[0].monName;
-        partyText2.text = battle.PlayerPokemon[2].monName;
-        partyText3.text = battle.PlayerPokemon[1].monName;
-        partyText4.text = battle.PlayerPokemon[3].monName;
-        partyText5.text = battle.PlayerPokemon[4].monName;
-        partyText6.text = battle.PlayerPokemon[5].monName;
-
-        partyMon1.enabled = battle.PlayerPokemon[0].exists;
-        partyMon2.enabled = battle.PlayerPokemon[2].exists;
-        partyMon3.enabled = battle.PlayerPokemon[1].exists;
-        partyMon4.enabled = battle.PlayerPokemon[3].exists;
-        partyMon5.enabled = battle.PlayerPokemon[4].exists;
-        partyMon6.enabled = battle.PlayerPokemon[5].exists;
-
-        partyMon1.sprite = currentPartyMon == 1 && Time.time % 0.36 > 0.18 ?
-            battle.playerMonIcons2[0] : battle.playerMonIcons[0];
-        partyMon2.sprite = currentPartyMon == 3 && Time.time % 0.36 > 0.18 ?
-            battle.playerMonIcons2[2] : battle.playerMonIcons[2];
-        partyMon3.sprite = currentPartyMon == 2 && Time.time % 0.36 > 0.18 ?
-            battle.playerMonIcons2[1] : battle.playerMonIcons[1];
-        partyMon4.sprite = currentPartyMon == 4 && Time.time % 0.36 > 0.18 ?
-            battle.playerMonIcons2[3] : battle.playerMonIcons[3];
-        partyMon5.sprite = currentPartyMon == 5 && Time.time % 0.36 > 0.18 ?
-            battle.playerMonIcons2[4] : battle.playerMonIcons[4];
-        partyMon6.sprite = currentPartyMon == 6 && Time.time % 0.36 > 0.18 ?
-            battle.playerMonIcons2[5] : battle.playerMonIcons[5];
+        for (int i = 0; i < 6; i++)
+        {
+            Box(i + 1).enabled = battle.PlayerPokemon[i].exists;
+            Box(i + 1).color = partyMonColor(i);
+            PartyText(i + 1).enabled = battle.PlayerPokemon[i].exists;
+            PartyText(i + 1).text = battle.PlayerPokemon[i].monName;
+            PartyIcon(i + 1).enabled = battle.PlayerPokemon[i].exists;
+            PartyIcon(i + 1).sprite = (currentPartyMon == (i + 1)
+                && Time.time % 0.36 > 0.18) ?
+            battle.playerMonIcons2[i] : battle.playerMonIcons[i];
+        }
 
         megaIndicator.SetActive(false);
         summaryIndicator.SetActive(true);
@@ -473,21 +518,21 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    private void DisableBoxes()
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            Box(i).enabled = false;
+            Text(i).enabled = false;
+        }
+        box6.enabled = false;
+    }
+
     public void GoToAnnounce() {
         battle.state = BattleState.Announcement;
         announce.enabled = true;
-        box1.enabled = false;
-        box2.enabled = false;
-        box3.enabled = false;
-        box4.enabled = false;
-        box5.enabled = false;
-        box6.enabled = false;
+        DisableBoxes();
         box7.enabled = false;
-        text1.enabled = false;
-        text2.enabled = false;
-        text3.enabled = false;
-        text4.enabled = false;
-        text5.enabled = false;
         text7.enabled = false;
         selector1.enabled = false;
         selector2.enabled = false;
@@ -500,20 +545,121 @@ public class MenuManager : MonoBehaviour
         pp2.enabled = false;
         pp3.enabled = false;
         pp4.enabled = false;
-        partyText1.enabled = false;
-        partyText2.enabled = false;
-        partyText3.enabled = false;
-        partyText4.enabled = false;
-        partyText5.enabled = false;
-        partyText6.enabled = false;
-        partyMon1.enabled = false;
-        partyMon2.enabled = false;
-        partyMon3.enabled = false;
-        partyMon4.enabled = false;
-        partyMon5.enabled = false;
-        partyMon6.enabled = false;
+        DisableParty();
         megaIndicator.SetActive(false);
         summaryIndicator.SetActive(false);
+    }
+
+    public void ItemCategoryMenu()
+    {
+        menuMode = MenuMode.ItemCategories;
+        announce.enabled = false;
+        box1.enabled = true;
+        box2.enabled = true;
+        box3.enabled = true;
+        box4.enabled = true;
+        box5.enabled = true;
+        box6.enabled = false;
+        box7.enabled = false;
+
+        text1.enabled = true;
+        text2.enabled = true;
+        text3.enabled = true;
+        text4.enabled = true;
+        text5.enabled = true;
+
+        selector1.enabled = true;
+        selector2.enabled = false;
+        selector3.enabled = false;
+        selector4.enabled = false;
+        selector5.enabled = false;
+        selector6.enabled = false;
+        selector7.enabled = false;
+
+        pp1.enabled = false;
+        pp2.enabled = false;
+        pp3.enabled = false;
+        pp4.enabled = false;
+        DisableParty();
+
+        box1.color = moveColor;
+        text1.text = "Medicine";
+        box2.color = runColor;
+        text2.text = "Poké Balls";
+        box3.color = bagColor;
+        text3.text = "Berries";
+        box4.color = switchColor;
+        text4.text = "Battle Items";
+        box5.color = backColor;
+        text5.text = "Back";
+
+        currentMove = 0;
+    }
+
+    private void ItemSubmenu(ItemSubset subset)
+    {
+        menuMode = MenuMode.Items;
+        cachedItems = GetItemsBySubset(subset);
+        cachedItemCount = cachedItems.Length;
+        DisableBoxes();
+        box5.enabled = true;
+        box5.color = backColor;
+        text5.enabled = true;
+        text5.text = "Back";
+        text5.color = Color.black;
+
+        for (int i = 1; i <= 4; i++)
+        {
+            Box(i).color = partyColor;
+        }
+        
+        selector1.enabled = false;
+        selector2.enabled = false;
+        selector3.enabled = false;
+        selector4.enabled = false;
+        selector5.enabled = false;
+        selector6.enabled = false;
+        selector7.enabled = false;
+        pp1.enabled = false;
+        pp2.enabled = false;
+        pp3.enabled = false;
+        pp4.enabled = false;
+        DisableParty();
+        megaIndicator.SetActive(false);
+        summaryIndicator.SetActive(false);
+        currentItemPosition = 0;
+        currentMove = 0;
+        UpdateItemSubmenu();
+    }
+
+    private void UpdateItemSubmenu()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (currentItemPosition + i < cachedItemCount)
+            {
+                Box(i + 1).enabled = true;
+                ItemIcon(i + 1).enabled = true;
+                ItemText(i + 1).enabled = true;
+                ItemText(i + 1).color = Color.black;
+                ItemIcon(i + 1).sprite = Sprite.Create(
+                    cachedItems[currentItemPosition + i].Data().ItemSprite, new(0, 0, 24, 24), StaticValues.defPivot);
+                ItemText(i + 1).text = cachedItems[currentItemPosition + i].Data().itemName;
+            }
+            else
+            {
+                Box(i + 1).enabled = false;
+                ItemIcon(i + 1).enabled = false;
+                ItemText(i + 1).enabled = false;
+            }
+        }
+    }
+
+    private void ChangeSelection(int destination)
+    {
+        currentMove = destination;
+        battle.audioSource0.PlayOneShot(MoveCursor);
+        battle.audioSource0.panStereo = 0;
     }
 
     private IEnumerator AnnounceAndReturn(string announcement)
@@ -601,24 +747,18 @@ public class MenuManager : MonoBehaviour
                         switch (currentMove)
                         {
                             case 1:
-                                currentMove = mon.GetMove(1) == MoveID.None ? 0 : 2;
+                                ChangeSelection(mon.GetMove(1) == MoveID.None ? 0 : 2);
                                 RefreshMegaAndZ();
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
                                 break;
                             case 2:
-                                currentMove = 0;
+                                ChangeSelection(0);
                                 RefreshMegaAndZ();
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
                                 break;
                             case 3:
                                 if (mon.GetMove(3) != MoveID.None)
                                 {
-                                    currentMove = 4;
+                                    ChangeSelection(4);
                                     RefreshMegaAndZ();
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
                                 }
                                 break;
                             default:
@@ -630,22 +770,16 @@ public class MenuManager : MonoBehaviour
                         switch (currentMove)
                         {
                             case 0:
-                                currentMove = mon.GetMove(1) == MoveID.None ? 1 : 2;
+                                ChangeSelection(mon.GetMove(1) == MoveID.None ? 1 : 2);
                                 RefreshMegaAndZ();
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
                                 break;
                             case 2:
-                                currentMove = 1;
+                                ChangeSelection(1);
                                 RefreshMegaAndZ();
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
                                 break;
                             case 4:
-                                currentMove = 3;
+                                ChangeSelection(3);
                                 RefreshMegaAndZ();
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
                                 break;
                             default:
                                 break;
@@ -658,19 +792,15 @@ public class MenuManager : MonoBehaviour
                             case 1:
                                 if (mon.GetMove(2) != MoveID.None)
                                 {
-                                    currentMove = 3;
+                                    ChangeSelection(3);
                                     RefreshMegaAndZ();
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
                                 }
                                 break;
                             case 2:
                                 if (mon.GetMove(3) != MoveID.None)
                                 {
-                                    currentMove = 4;
+                                    ChangeSelection(4);
                                     RefreshMegaAndZ();
-                                    battle.audioSource0.PlayOneShot(MoveCursor);
-                                    battle.audioSource0.panStereo = 0;
                                 }
                                 break;
                             default:
@@ -682,16 +812,12 @@ public class MenuManager : MonoBehaviour
                         switch (currentMove)
                         {
                             case 3:
-                                currentMove = 1;
+                                ChangeSelection(1);
                                 RefreshMegaAndZ();
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
                                 break;
                             case 4:
-                                currentMove = 2;
+                                ChangeSelection(2);
                                 RefreshMegaAndZ();
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
                                 break;
                             default:
                                 break;
@@ -730,14 +856,10 @@ public class MenuManager : MonoBehaviour
                         switch (currentMove)
                         {
                             case 1:
-                                currentMove = 2;
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
+                                ChangeSelection(2);
                                 break;
                             case 3:
-                                currentMove = 4;
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
+                                ChangeSelection(4);
                                 break;
                             default:
                                 break;
@@ -748,14 +870,10 @@ public class MenuManager : MonoBehaviour
                         switch (currentMove)
                         {
                             case 2:
-                                currentMove = 1;
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
+                                ChangeSelection(1);
                                 break;
                             case 4:
-                                currentMove = 3;
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
+                                ChangeSelection(3);
                                 break;
                             default:
                                 break;
@@ -766,14 +884,10 @@ public class MenuManager : MonoBehaviour
                         switch (currentMove)
                         {
                             case 1:
-                                currentMove = 3;
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
+                                ChangeSelection(3);
                                 break;
                             case 2:
-                                currentMove = 4;
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
+                                ChangeSelection(4);
                                 break;
                             default:
                                 break;
@@ -784,14 +898,10 @@ public class MenuManager : MonoBehaviour
                         switch (currentMove)
                         {
                             case 3:
-                                currentMove = 1;
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
+                                ChangeSelection(1);
                                 break;
                             case 4:
-                                currentMove = 2;
-                                battle.audioSource0.PlayOneShot(MoveCursor);
-                                battle.audioSource0.panStereo = 0;
+                                ChangeSelection(2);
                                 break;
                             default:
                                 break;
@@ -835,6 +945,10 @@ public class MenuManager : MonoBehaviour
                                 {
                                     MovesMenu();
                                 }
+                                break;
+                            case 2:
+                                currentMove = 1;
+                                ItemCategoryMenu();
                                 break;
                             case 3:
                                 battle.partyBackButtonInactive = false;
@@ -1114,6 +1228,216 @@ public class MenuManager : MonoBehaviour
                         }
                     }
                     break;
+                case MenuMode.ItemCategories:
+                    selector1.enabled = currentMove == 1;
+                    selector2.enabled = currentMove == 2;
+                    selector3.enabled = currentMove == 3;
+                    selector4.enabled = currentMove == 4;
+                    selector5.enabled = currentMove == 0;
+                    if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 1:
+                                ChangeSelection(2);
+                                break;
+                            case 3:
+                                ChangeSelection(4);
+                                break;
+                            case 2:
+                            case 4:
+                                ChangeSelection(0);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 0:
+                                ChangeSelection(2);
+                                break;
+                            case 2:
+                                ChangeSelection(1);
+                                break;
+                            case 4:
+                                ChangeSelection(3);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 1:
+                                ChangeSelection(3);
+                                break;
+                            case 2:
+                                ChangeSelection(4);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 3:
+                                ChangeSelection(1);
+                                break;
+                            case 4:
+                                ChangeSelection(2);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    if (Input.GetKeyDown(KeyCode.Return))
+                    {
+                        switch (currentMove)
+                        {
+                            case 0:
+                                currentMove = 3;
+                                battle.audioSource0.PlayOneShot(Select);
+                                MainMenu();
+                                break;
+                            case 1:
+                                ItemSubmenu(ItemSubset.Medicine);
+                                battle.audioSource0.PlayOneShot(Select);
+                                break;
+                            case 2:
+                                ItemSubmenu(ItemSubset.PokeBalls);
+                                battle.audioSource0.PlayOneShot(Select);
+                                break;
+                            case 3:
+                                ItemSubmenu(ItemSubset.Berries);
+                                battle.audioSource0.PlayOneShot(Select);
+                                break;
+                            case 4:
+                                ItemSubmenu(ItemSubset.BattleItems);
+                                battle.audioSource0.PlayOneShot(Select);
+                                break;
+                        }
+                    }
+                    break;
+                case MenuMode.Items:
+                    selector1.enabled = currentMove == 1;
+                    selector2.enabled = currentMove == 2;
+                    selector3.enabled = currentMove == 3;
+                    selector4.enabled = currentMove == 4;
+                    selector5.enabled = currentMove == 0;
+
+                    if (Input.GetKeyDown(KeyCode.UpArrow))
+                    {
+                        if (currentMove > 2)
+                        {
+                            battle.audioSource0.PlayOneShot(MoveCursor);
+                            currentMove -= 2;
+                        }
+                        else if (currentItemPosition > 1)
+                        {
+                            battle.audioSource0.PlayOneShot(MoveCursor);
+                            currentItemPosition -= 2;
+                            UpdateItemSubmenu();
+                        }
+                    }
+                    else if (Input.GetKeyDown(KeyCode.DownArrow))
+                    {
+                        if (currentMove < 3)
+                        {
+                            if (currentMove is 1 or 2 && currentItemPosition + currentMove + 2 < cachedItemCount)
+                            {
+                                battle.audioSource0.PlayOneShot(MoveCursor);
+                                currentMove += 2;
+                            }
+                        }
+                        else if (currentItemPosition + 4 < cachedItemCount)
+                        {
+                            battle.audioSource0.PlayOneShot(MoveCursor);
+                            currentItemPosition += 2;
+                            UpdateItemSubmenu();
+                        }
+                    }
+                    else if (Input.GetKeyDown(KeyCode.LeftArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 0:
+                                if (box2.enabled) ChangeSelection(2);
+                                else if (box1.enabled) ChangeSelection(1);
+                                break;
+                            case 2:
+                                ChangeSelection(1);
+                                break;
+                            case 4:
+                                ChangeSelection(3);
+                                break;
+                            default: break;
+                        }
+                    }
+                    else if (Input.GetKeyDown(KeyCode.RightArrow))
+                    {
+                        switch (currentMove)
+                        {
+                            case 1:
+                                if (box2.enabled) ChangeSelection(2);
+                                else ChangeSelection(0);
+                                break;
+                            case 2:
+                                ChangeSelection(0);
+                                break;
+                            case 3:
+                                if (box4.enabled) ChangeSelection(4);
+                                else ChangeSelection(0);
+                                break;
+                            case 4:
+                                ChangeSelection(0);
+                                break;
+                        }
+                    }
+                    else if (Input.GetKeyDown(KeyCode.Return))
+                    {
+                        switch (currentMove)
+                        {
+                            case 0:
+                                battle.audioSource0.PlayOneShot(Select);
+                                ItemCategoryMenu();
+                                break;
+                            default:
+                                ItemID item = cachedItems[currentItemPosition + currentMove - 1];
+                                switch (item.Data().type)
+                                {
+                                    case ItemType.PokeBall:
+                                        battle.Moves[currentMon] = MoveID.UseItem;
+                                        battle.itemToUse[currentMon] = item;
+                                        battle.PokemonOnField[currentMon].choseMove = true;
+                                        if (GetNextPokemon())
+                                        {
+                                            menuMode = MenuMode.Main;
+                                            GoToAnnounce();
+                                            currentMove = 1;
+                                            currentMon = 2;
+                                            GetNextPokemon();
+                                            battle.DoNextMove();
+                                        }
+                                        else
+                                        {
+                                            megaEvolving = false;
+                                            MainMenu();
+                                            currentMove = 1;
+                                        }
+                                        break;
+                                }
+                                break;
+                        }
+                    }
+                    break;
+
             }
         }
     }

@@ -114,7 +114,7 @@ public class OverallTest : MonoBehaviour
             battle.Moves[3] = MoveID.UseItem;
             battle.itemToUse[3] = ItemID.PokeBall;
             battle.PokemonOnField[3].done = false;
-            battle.menuManager.menuMode = MenuMode.Main;
+            battle.menuManager.menuMode = MenuManager.MenuMode.Main;
             battle.menuManager.GoToAnnounce();
             battle.menuManager.SetForTest();
             battle.menuManager.GetNextPokemon();

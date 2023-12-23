@@ -32,34 +32,20 @@ public class SpriteManager : MonoBehaviour
 
     private void updateSpecies()
     {
+        SpeciesData currentSpecies = currentMon.Data();
         if (isBack)
         {
-            Sprite1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation +
-                (TrackedMon.PokemonData.UsesFemaleSprites ? "/backf" : "/back")),
-                new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
+            Sprite1 = currentSpecies.BackSprite;
             hasSecondFrame = false;
         }
         else
         {
-            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation +
-                (TrackedMon.PokemonData.UsesFemaleSprites ? "/anim_frontf" : "/anim_front"));
-            if (test == null)
-            {
-                Sprite1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Species.SpeciesTable[(int)currentMon].graphicsLocation +
-                    (TrackedMon.PokemonData.UsesFemaleSprites ? "/frontf" : "/front")),
-                    new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
-                hasSecondFrame = false;
-            }
-            else
-            {
-                Sprite1 = Sprite.Create(test, new Rect(0.0f, 64.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
-                Sprite2 = Sprite.Create(test, new Rect(0.0f, 0.0f, 64.0f, 64.0f), new Vector2(0.5f, 0.5f), 64.0f);
-                hasSecondFrame = true;
-            }
+            Sprite1 = currentSpecies.FrontSprite1;
+            Sprite2 = currentSpecies.FrontSprite2;
         }
         if (isBack)
         {
-            position.position = new Vector3(position.position.x, basePosition - (3 * Species.SpeciesTable[(int)currentMon].backSpriteHeight / 64.0F), position.position.z);
+            position.position = new Vector3(position.position.x, basePosition - (3 * currentSpecies.backSpriteHeight / 64.0F), position.position.z);
         }
     }
     // Start is called before the first frame update

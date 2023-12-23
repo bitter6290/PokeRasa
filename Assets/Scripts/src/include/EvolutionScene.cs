@@ -141,6 +141,7 @@ public class EvolutionScene : MonoBehaviour
         yield return DoAnimation();
         yield return new WaitForSeconds(0.5F);
         mon.species = destinationSpecies;
+        mon.evolveAfterBattle = false;
         audioSource.PlayOneShot(destinationSpecies.Data().Cry);
         while (audioSource.isPlaying) yield return null;
         yield return Announce("Congratulations! Your " + oldName +
