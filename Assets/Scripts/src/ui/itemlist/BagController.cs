@@ -16,6 +16,7 @@ public class BagController : MonoBehaviour
         Berry,
         Mail,
         BattleItem,
+        ZCrystal,
         KeyItem
     }
 
@@ -28,6 +29,7 @@ public class BagController : MonoBehaviour
         "Berries",
         "Mail",
         "Battle Items",
+        "Z-Crystals",
         "Key Items"
     };
 
@@ -184,11 +186,12 @@ public class BagController : MonoBehaviour
                 return Pocket.Berry;
             case ItemType.TM:
                 return Pocket.TM;
-            case ItemType.KeyItem:
             case ItemType.ZCrystalGeneric:
             case ItemType.ZCrystalSpecific:
             case ItemType.ZCrystalMoveSpecific:
             case ItemType.ZCrystalMultipleSpecies:
+                return Pocket.ZCrystal;
+            case ItemType.KeyItem:
                 return Pocket.KeyItem;
         }
     }
@@ -302,15 +305,19 @@ public class BagController : MonoBehaviour
                 UpdateDisplay();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && !(currentPocket is Pocket.Item))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            currentPocket--;
+            if (currentPocket is Pocket.Item)
+                currentPocket = prompt ? Pocket.ZCrystal : Pocket.KeyItem;
+            else currentPocket--;
             p.audioSource.PlayOneShot(SFX.MoveCursor);
             UpdatePocket();
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && !(currentPocket is Pocket.KeyItem))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            currentPocket++;
+            if (currentPocket == (prompt ? Pocket.ZCrystal : Pocket.KeyItem))
+                currentPocket = Pocket.Item;
+            else currentPocket++;
             p.audioSource.PlayOneShot(SFX.MoveCursor);
             UpdatePocket();
         }

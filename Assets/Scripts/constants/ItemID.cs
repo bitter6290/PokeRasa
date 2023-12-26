@@ -70,6 +70,8 @@
     KeeBerry,
     MarangaBerry,
     HopoBerry,
+    //Medicine
+    Potion,
     //Evolution items
     FireStone,
     WaterStone,

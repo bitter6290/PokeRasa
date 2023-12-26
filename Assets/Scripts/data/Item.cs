@@ -543,6 +543,19 @@ public static class Item
         graphicsPath = "roseli_berry"
     };
 
+    //Medicine
+
+    public static readonly Medicine Potion = new()
+    {
+        itemName = "Potion",
+        price = 200,
+        fieldEffect = FieldEffect.Heal,
+        fieldEffectIntensity = 20,
+        battleEffect = BattleItemEffect.Heal,
+        battleEffectIntensity = 20,
+        graphicsPath = "potion"
+    };
+
     public static readonly FieldItem FireStone = new()
     {
         itemName = "Fire Stone",
@@ -2005,6 +2018,8 @@ public static class Item
         KeeBerry,
         MarangaBerry,
         HopoBerry,
+        //Medicine
+        Potion,
         //Evolution items
         FireStone,
         WaterStone,

@@ -187,13 +187,13 @@ public class Player : LoadedChar
         else return 0;
     }
 
-    public void UseItem(ItemID item, int number = 1)
+    public bool UseItem(ItemID item, int number = 1) //Returns true when the item is exhausted
     {
         int remaining = NumberOf(item);
-        if (remaining is 0) return;
+        if (remaining is 0) return true;
         remaining -= number;
-        if (remaining <= 0) Bag.Remove(item);
-        else Bag[item] = remaining;
+        if (remaining <= 0) { Bag.Remove(item); return true; }
+        else { Bag[item] = remaining; return false; }
     }
 
     public void VerifyBag()
@@ -874,9 +874,12 @@ public class Player : LoadedChar
                                 yield return Scene.Party.Load();
                                 PartyScreen partyScreen = FindObjectOfType<PartyScreen>();
                                 StartCoroutine(FadeFromBlack(0.2f));
-                                yield return partyScreen.DoPartyScreen(this, false, cachedMon, true,
-                                    GaveToHold(cachedMon));
-                                skipLoad = true;
+                                if (bagResult != ItemID.None)
+                                    yield return partyScreen.DoPartyScreen(this, false, cachedMon, true,
+                                        GaveToHold(cachedMon));
+                                else
+                                    yield return partyScreen.DoPartyScreen(this, false, cachedMon);
+                                    skipLoad = true;
                                 break;
                         }
                         
@@ -1112,6 +1115,7 @@ public class Player : LoadedChar
         AddItem(ItemID.GreatBall, 5);
         AddItem(ItemID.CheriBerry, 5);
         AddItem(ItemID.ThunderStone, 1);
+        AddItem(ItemID.Potion, 3);
         active = true;
     }
     // Start is called before the first frame update

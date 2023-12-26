@@ -159,7 +159,8 @@ public class PartyScreen : MonoBehaviour
         DataStore<int> amount = new();
         yield return displays[selectedMon].Heal(p.bagResult.FieldEffectIntensity(), amount);
         yield return AnnounceAndReturn(currentMon.MonName + " was healed by " + amount.Data + " HP.");
-        state = State.Active;
+        if (p.UseItem(p.bagResult)) ReturnWithNothing();
+        else state = State.Active;
     }
 
     private IEnumerator AnnounceAndReturn(string announcement)
@@ -192,7 +193,7 @@ public class PartyScreen : MonoBehaviour
             }
         }
         yield return ChoiceMenu.DoChoiceMenu(p, possibleChoices, 0,
-            result, displays[selectedMon].transform, new(-80, goingDown ? 15 : -15), new(1, goingDown ? 1 : 0));
+            result, displays[selectedMon].transform, new(-40, goingDown ? 15 : -15), new(1, goingDown ? 1 : 0));
         switch (result.Data)
         {
             case CloseMenu:
@@ -208,7 +209,7 @@ public class PartyScreen : MonoBehaviour
                 break;
             case TakeItem:
                 yield return AnnounceAndReturn("Took the " + currentMon.item.Data().itemName + " from " + currentMon.MonName + ".");
-                p.AddItem(currentMon.item);
+                if (!currentMon.item.IsZCrystal()) p.AddItem(currentMon.item);
                 currentMon.item = ItemID.None;
                 state = State.Active;
                 break;
@@ -316,7 +317,7 @@ public class PartyScreen : MonoBehaviour
                                 else
                                 {
                                     currentMon.item = p.bagResult;
-                                    p.UseItem(p.bagResult);
+                                    if (!p.bagResult.IsZCrystal()) p.UseItem(p.bagResult);
                                     StartCoroutine(AnnounceAndReturn("The " +
                                         p.bagResult.Data().itemName +
                                         " was given to " +

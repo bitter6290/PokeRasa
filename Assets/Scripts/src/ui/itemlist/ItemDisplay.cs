@@ -32,11 +32,13 @@ public class ItemDisplay : MonoBehaviour
         {
             itemName.text = "Close Bag";
             itemNumber.text = string.Empty;
+            x.enabled = false;
         }
         else
         {
             itemName.text = item.Data().itemName;
             itemNumber.text = p.Bag[item].ToString();
+            x.enabled = item.Data().type is not ItemType.KeyItem;
         }
         background.color = selected ? selectedColor : unselectedColor;
     }
