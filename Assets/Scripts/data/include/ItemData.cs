@@ -447,6 +447,9 @@ public static class ItemUtils
     public static bool IsZCrystal(this ItemID item) => item.Data().type is
         ItemType.ZCrystalGeneric or ItemType.ZCrystalSpecific or
         ItemType.ZCrystalMultipleSpecies;
+    public static bool CanBeStolen(ItemID item) =>
+        item.Data().type is ItemType.FieldItem or ItemType.BattleItem or ItemType.Medicine
+        or ItemType.AbstractItem;
 
     public static ItemData Data(this ItemID item) => Item.ItemTable[(int)item];
     public static Sprite Sprite(this ItemID item) => UnityEngine.Sprite.Create(

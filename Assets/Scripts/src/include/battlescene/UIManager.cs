@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
             if (battle.PokemonOnField[i].exists)
             {
                 textBoxes[i].enabled = true;
-                textBoxes[i].text = battle.PokemonOnField[i].PokemonData.monName;
+                textBoxes[i].text = battle.PokemonOnField[i].PokemonData.MonName;
                 levelBoxes[i].enabled = true;
                 levelBoxes[i].text = "Lv. " + battle.PokemonOnField[i].PokemonData.level;
                 if (i == 3)

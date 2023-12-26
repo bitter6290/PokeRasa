@@ -65,7 +65,7 @@ public class PartyScreen : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             displays[i].mon = p.Party[i];
-            Debug.Log(displays[i].mon.monName);
+            Debug.Log(displays[i].mon.MonName);
         }
     }
 
@@ -157,7 +157,7 @@ public class PartyScreen : MonoBehaviour
         state = State.Busy;
         DataStore<int> amount = new();
         yield return displays[selectedMon].Heal(p.bagResult.FieldEffectIntensity(), amount);
-        yield return AnnounceAndReturn(currentMon.monName + " was healed by " + amount.Data + " HP.");
+        yield return AnnounceAndReturn(currentMon.MonName + " was healed by " + amount.Data + " HP.");
         state = State.Active;
     }
 
@@ -206,7 +206,7 @@ public class PartyScreen : MonoBehaviour
                 state = State.Active;
                 break;
             case TakeItem:
-                yield return AnnounceAndReturn("Took the " + currentMon.item.Data().itemName + " from " + currentMon.monName + ".");
+                yield return AnnounceAndReturn("Took the " + currentMon.item.Data().itemName + " from " + currentMon.MonName + ".");
                 p.AddItem(currentMon.item);
                 currentMon.item = ItemID.None;
                 break;
@@ -307,7 +307,7 @@ public class PartyScreen : MonoBehaviour
                                 if (currentMon.item != ItemID.None)
                                 {
                                     StartCoroutine(AnnounceAndReturn(
-                                        currentMon.monName +
+                                        currentMon.MonName +
                                         " is already holding an item!"));
                                     return;
                                 }
@@ -318,7 +318,7 @@ public class PartyScreen : MonoBehaviour
                                     StartCoroutine(AnnounceAndReturn("The " +
                                         p.bagResult.Data().itemName +
                                         " was given to " +
-                                        currentMon.monName +
+                                        currentMon.MonName +
                                         " to hold.").DoAtEnd(ReturnWithNothing));
                                 }
                                 break;

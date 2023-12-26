@@ -472,10 +472,10 @@ public class MenuManager : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-            Box(i + 1).enabled = battle.PlayerPokemon[i].exists;
-            Box(i + 1).color = partyMonColor(i);
+            PartyBox(i + 1).enabled = battle.PlayerPokemon[i].exists;
+            PartyBox(i + 1).color = partyMonColor(i);
             PartyText(i + 1).enabled = battle.PlayerPokemon[i].exists;
-            PartyText(i + 1).text = battle.PlayerPokemon[i].monName;
+            PartyText(i + 1).text = battle.PlayerPokemon[i].MonName;
             PartyIcon(i + 1).enabled = battle.PlayerPokemon[i].exists;
             PartyIcon(i + 1).sprite = (currentPartyMon == (i + 1)
                 && Time.time % 0.36 > 0.18) ?
@@ -1165,19 +1165,19 @@ public class MenuManager : MonoBehaviour
                                 if (battle.PlayerPokemon[currentPartyMon - 1].fainted)
                                 {
                                     StartCoroutine(AnnounceAndReturn(
-                                        battle.PlayerPokemon[currentPartyMon - 1].monName
+                                        battle.PlayerPokemon[currentPartyMon - 1].MonName
                                         + " has no energy to battle!"));
                                 }
                                 else if (battle.PlayerPokemon[currentPartyMon - 1].onField)
                                 {
                                     StartCoroutine(AnnounceAndReturn(
-                                        battle.PlayerPokemon[currentPartyMon - 1].monName
+                                        battle.PlayerPokemon[currentPartyMon - 1].MonName
                                         + " is already on the field!"));
                                 }
                                 else if (battle.IsTrapped(currentMon))
                                 {
                                     StartCoroutine(AnnounceAndReturn(
-                                        battle.PokemonOnField[currentMon].PokemonData.monName
+                                        battle.PokemonOnField[currentMon].PokemonData.MonName
                                         + " is trapped and cannot switch!"));
                                 }
                                 else

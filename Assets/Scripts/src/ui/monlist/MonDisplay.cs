@@ -35,7 +35,7 @@ public class MonDisplay : MonoBehaviour
         }
         box.gameObject.SetActive(true);
         monSprite.sprite = mon.SpeciesData.Icon1;
-        monName.text = mon.monName;
+        monName.text = mon.MonName;
         monStatus.sprite = mon.status.ToSprite();
         healthBar.localScale = new((float)mon.HP / mon.hpMax, 1, 1);
         hpMax.text = mon.hpMax.ToString();

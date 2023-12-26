@@ -1,6 +1,6 @@
 ﻿public static class NameTable
 {
-    public static string[] Ability = new string[(int)global::Ability.Count]
+    public static readonly string[] Ability = new string[(int)global::Ability.Count]
     {
     "None",
     "Stench",
@@ -311,7 +311,7 @@
     "Supersweet Syrup",
     };
 
-    public static string[] Stat = new string[9]
+    public static readonly string[] Stat = new string[9]
     {
         "HP",
         "Attack",

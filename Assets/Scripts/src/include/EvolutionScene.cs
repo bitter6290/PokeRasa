@@ -131,7 +131,7 @@ public class EvolutionScene : MonoBehaviour
 
     public IEnumerator DoEvolutionScene()
     {
-        string oldName = mon.monName;
+        string oldName = mon.MonName;
         if (!mon.evolveAfterBattle) yield break;
         yield return Announce("What?");
         //Todo: mon ETF animation

@@ -736,7 +736,7 @@ public class Player : LoadedChar
         blackScreenOn = false;
     }
 
-    public string GaveToHold(int i) => "Gave " + Party[i].monName + " the " +
+    public string GaveToHold(int i) => "Gave " + Party[i].MonName + " the " +
                                     Party[i].item.Data().itemName + " to hold.";
 
     private IEnumerator DoPartyScreenWithPrompt()
@@ -1138,6 +1138,13 @@ public class Player : LoadedChar
             {
                 case PlayerState.Free:
                     AlignPlayer();
+                    foreach ((MapData _, LoadedChar chara) in loadedChars.Values)
+                    {
+                        if (chara.charData.SeeCheck(this))
+                        {
+                            if (chara.CheckForSight(chara)) return;
+                        }
+                    }
                     if (Input.GetKey(KeyCode.UpArrow)) TryGoNorth();
                     else if (Input.GetKey(KeyCode.DownArrow)) TryGoSouth();
                     else if (Input.GetKey(KeyCode.LeftArrow)) TryGoWest();

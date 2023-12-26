@@ -7,7 +7,7 @@ using static Learnset;
 
 public static class Species
 {
-    public static SpeciesData Missingno = new()
+    public static readonly SpeciesData Missingno = new()
     {
         speciesName = "Missingno",
         type1 = Typeless,
@@ -34,7 +34,7 @@ public static class Species
             None,
         }
     };
-    public static SpeciesData Bulbasaur = new()
+    public static readonly SpeciesData Bulbasaur = new()
     {
         speciesName = "Bulbasaur",
         type1 = Grass,
@@ -67,7 +67,7 @@ public static class Species
             Chlorophyll,
         }
     };
-    public static SpeciesData Ivysaur = new()
+    public static readonly SpeciesData Ivysaur = new()
     {
         speciesName = "Ivysaur",
         type1 = Grass,
@@ -100,7 +100,7 @@ public static class Species
             Chlorophyll,
         },
     };
-    public static SpeciesData Venusaur = new()
+    public static readonly SpeciesData Venusaur = new()
     {
         speciesName = "Venusaur",
         type1 = Grass,
@@ -133,7 +133,7 @@ public static class Species
             Chlorophyll,
         },
     };
-    public static SpeciesData Charmander = new()
+    public static readonly SpeciesData Charmander = new()
     {
         speciesName = "Charmander",
         type1 = Fire,
@@ -166,7 +166,7 @@ public static class Species
             SolarPower,
         },
     };
-    public static SpeciesData Charmeleon = new()
+    public static readonly SpeciesData Charmeleon = new()
     {
         speciesName = "Charmeleon",
         type1 = Fire,
@@ -199,7 +199,7 @@ public static class Species
             SolarPower,
         },
     };
-    public static SpeciesData Charizard = new()
+    public static readonly SpeciesData Charizard = new()
     {
         speciesName = "Charizard",
         type1 = Fire,
@@ -232,7 +232,7 @@ public static class Species
             SolarPower,
         },
     };
-    public static SpeciesData Squirtle = new()
+    public static readonly SpeciesData Squirtle = new()
     {
         speciesName = "Squirtle",
         type1 = Water,
@@ -265,7 +265,7 @@ public static class Species
             RainDish,
         },
     };
-    public static SpeciesData Wartortle = new()
+    public static readonly SpeciesData Wartortle = new()
     {
         speciesName = "Wartortle",
         type1 = Water,
@@ -298,7 +298,7 @@ public static class Species
             RainDish,
         },
     };
-    public static SpeciesData Blastoise = new()
+    public static readonly SpeciesData Blastoise = new()
     {
         speciesName = "Blastoise",
         type1 = Water,
@@ -331,7 +331,7 @@ public static class Species
             RainDish,
         },
     };
-    public static SpeciesData Caterpie = new()
+    public static readonly SpeciesData Caterpie = new()
     {
         speciesName = "Caterpie",
         type1 = Bug,
@@ -364,7 +364,7 @@ public static class Species
             RunAway,
         },
     };
-    public static SpeciesData Metapod = new()
+    public static readonly SpeciesData Metapod = new()
     {
         speciesName = "Metapod",
         type1 = Bug,
@@ -397,7 +397,7 @@ public static class Species
             ShedSkin,
         },
     };
-    public static SpeciesData Butterfree = new()
+    public static readonly SpeciesData Butterfree = new()
     {
         speciesName = "Butterfree",
         type1 = Bug,
@@ -430,7 +430,7 @@ public static class Species
             TintedLens,
         },
     };
-    public static SpeciesData Weedle = new()
+    public static readonly SpeciesData Weedle = new()
     {
         speciesName = "Weedle",
         type1 = Bug,
@@ -463,7 +463,7 @@ public static class Species
             RunAway,
         },
     };
-    public static SpeciesData Kakuna = new()
+    public static readonly SpeciesData Kakuna = new()
     {
         speciesName = "Kakuna",
         type1 = Bug,
@@ -496,7 +496,7 @@ public static class Species
             ShedSkin,
         },
     };
-    public static SpeciesData Beedrill = new()
+    public static readonly SpeciesData Beedrill = new()
     {
         speciesName = "Beedrill",
         type1 = Bug,
@@ -529,7 +529,7 @@ public static class Species
             Sniper,
         },
     };
-    public static SpeciesData Pidgey = new()
+    public static readonly SpeciesData Pidgey = new()
     {
         speciesName = "Pidgey",
         type1 = Normal,
@@ -562,7 +562,7 @@ public static class Species
             BigPecks,
         },
     };
-    public static SpeciesData Pidgeotto = new()
+    public static readonly SpeciesData Pidgeotto = new()
     {
         speciesName = "Pidgeotto",
         type1 = Normal,
@@ -595,7 +595,7 @@ public static class Species
             BigPecks,
         },
     };
-    public static SpeciesData Pidgeot = new()
+    public static readonly SpeciesData Pidgeot = new()
     {
         speciesName = "Pidgeot",
         type1 = Normal,
@@ -628,7 +628,7 @@ public static class Species
             BigPecks,
         },
     };
-    public static SpeciesData Rattata = new()
+    public static readonly SpeciesData Rattata = new()
     {
         speciesName = "Rattata",
         type1 = Normal,
@@ -661,7 +661,7 @@ public static class Species
             Hustle,
         },
     };
-    public static SpeciesData Raticate = new()
+    public static readonly SpeciesData Raticate = new()
     {
         speciesName = "Raticate",
         type1 = Normal,
@@ -694,7 +694,7 @@ public static class Species
             Hustle,
         },
     };
-    public static SpeciesData Spearow = new()
+    public static readonly SpeciesData Spearow = new()
     {
         speciesName = "Spearow",
         type1 = Normal,
@@ -726,7 +726,7 @@ public static class Species
             Sniper,
         },
     };
-    public static SpeciesData Fearow = new()
+    public static readonly SpeciesData Fearow = new()
     {
         speciesName = "Fearow",
         type1 = Normal,
@@ -759,7 +759,7 @@ public static class Species
             Sniper,
         },
     };
-    public static SpeciesData Ekans = new()
+    public static readonly SpeciesData Ekans = new()
     {
         speciesName = "Ekans",
         type1 = Poison,
@@ -792,7 +792,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Arbok = new()
+    public static readonly SpeciesData Arbok = new()
     {
         speciesName = "Arbok",
         type1 = Poison,
@@ -825,7 +825,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Pikachu = new()
+    public static readonly SpeciesData Pikachu = new()
     {
         speciesName = "Pikachu",
         type1 = Electric,
@@ -858,7 +858,7 @@ public static class Species
             LightningRod,
         },
     };
-    public static SpeciesData Raichu = new()
+    public static readonly SpeciesData Raichu = new()
     {
         speciesName = "Raichu",
         type1 = Electric,
@@ -891,7 +891,7 @@ public static class Species
             LightningRod,
         },
     };
-    public static SpeciesData Sandshrew = new()
+    public static readonly SpeciesData Sandshrew = new()
     {
         speciesName = "Sandshrew",
         type1 = Ground,
@@ -924,7 +924,7 @@ public static class Species
             SandRush,
         },
     };
-    public static SpeciesData Sandslash = new()
+    public static readonly SpeciesData Sandslash = new()
     {
         speciesName = "Sandslash",
         type1 = Ground,
@@ -957,7 +957,7 @@ public static class Species
             SandRush,
         },
     };
-    public static SpeciesData NidoranF = new()
+    public static readonly SpeciesData NidoranF = new()
     {
         speciesName = "Nidoran",
         type1 = Poison,
@@ -991,7 +991,7 @@ public static class Species
         },
 
     };
-    public static SpeciesData Nidorina = new()
+    public static readonly SpeciesData Nidorina = new()
     {
         speciesName = "Nidorina",
         type1 = Poison,
@@ -1024,7 +1024,7 @@ public static class Species
             Hustle,
         },
     };
-    public static SpeciesData Nidoqueen = new()
+    public static readonly SpeciesData Nidoqueen = new()
     {
         speciesName = "Nidoqueen",
         type1 = Poison,
@@ -1057,7 +1057,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData NidoranM = new()
+    public static readonly SpeciesData NidoranM = new()
     {
         speciesName = "Nidoran",
         type1 = Poison,
@@ -1090,7 +1090,7 @@ public static class Species
             Hustle,
         },
     };
-    public static SpeciesData Nidorino = new()
+    public static readonly SpeciesData Nidorino = new()
     {
         speciesName = "Nidorino",
         type1 = Poison,
@@ -1123,7 +1123,7 @@ public static class Species
             Hustle,
         },
     };
-    public static SpeciesData Nidoking = new()
+    public static readonly SpeciesData Nidoking = new()
     {
         speciesName = "Nidoking",
         type1 = Poison,
@@ -1156,7 +1156,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Clefairy = new()
+    public static readonly SpeciesData Clefairy = new()
     {
         speciesName = "Clefairy",
         type1 = Fairy,
@@ -1189,7 +1189,7 @@ public static class Species
             FriendGuard,
         },
     };
-    public static SpeciesData Clefable = new()
+    public static readonly SpeciesData Clefable = new()
     {
         speciesName = "Clefable",
         type1 = Fairy,
@@ -1222,7 +1222,7 @@ public static class Species
             Unaware,
         },
     };
-    public static SpeciesData Vulpix = new()
+    public static readonly SpeciesData Vulpix = new()
     {
         speciesName = "Vulpix",
         type1 = Fire,
@@ -1255,7 +1255,7 @@ public static class Species
             Drought,
         },
     };
-    public static SpeciesData Ninetales = new()
+    public static readonly SpeciesData Ninetales = new()
     {
         speciesName = "Ninetales",
         type1 = Fire,
@@ -1288,7 +1288,7 @@ public static class Species
             Drought,
         },
     };
-    public static SpeciesData Jigglypuff = new()
+    public static readonly SpeciesData Jigglypuff = new()
     {
         speciesName = "Jigglypuff",
         type1 = Normal,
@@ -1321,7 +1321,7 @@ public static class Species
             FriendGuard,
         },
     };
-    public static SpeciesData Wigglytuff = new()
+    public static readonly SpeciesData Wigglytuff = new()
     {
         speciesName = "Wigglytuff",
         type1 = Normal,
@@ -1354,7 +1354,7 @@ public static class Species
             Frisk,
         },
     };
-    public static SpeciesData Zubat = new()
+    public static readonly SpeciesData Zubat = new()
     {
         speciesName = "Zubat",
         type1 = Poison,
@@ -1387,7 +1387,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Golbat = new()
+    public static readonly SpeciesData Golbat = new()
     {
         speciesName = "Golbat",
         type1 = Poison,
@@ -1420,7 +1420,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Oddish = new()
+    public static readonly SpeciesData Oddish = new()
     {
         speciesName = "Oddish",
         type1 = Grass,
@@ -1453,7 +1453,7 @@ public static class Species
             RunAway,
         },
     };
-    public static SpeciesData Gloom = new()
+    public static readonly SpeciesData Gloom = new()
     {
         speciesName = "Gloom",
         type1 = Grass,
@@ -1486,7 +1486,7 @@ public static class Species
             Stench,
         },
     };
-    public static SpeciesData Vileplume = new()
+    public static readonly SpeciesData Vileplume = new()
     {
         speciesName = "Vileplume",
         type1 = Grass,
@@ -1519,7 +1519,7 @@ public static class Species
             EffectSpore,
         },
     };
-    public static SpeciesData Paras = new()
+    public static readonly SpeciesData Paras = new()
     {
         speciesName = "Paras",
         type1 = Bug,
@@ -1552,7 +1552,7 @@ public static class Species
             Damp,
         },
     };
-    public static SpeciesData Parasect = new()
+    public static readonly SpeciesData Parasect = new()
     {
         speciesName = "Parasect",
         type1 = Bug,
@@ -1585,7 +1585,7 @@ public static class Species
             Damp,
         },
     };
-    public static SpeciesData Venonat = new()
+    public static readonly SpeciesData Venonat = new()
     {
         speciesName = "Venonat",
         type1 = Bug,
@@ -1618,7 +1618,7 @@ public static class Species
             RunAway,
         },
     };
-    public static SpeciesData Venomoth = new()
+    public static readonly SpeciesData Venomoth = new()
     {
         speciesName = "Venomoth",
         type1 = Bug,
@@ -1651,7 +1651,7 @@ public static class Species
             WonderSkin,
         },
     };
-    public static SpeciesData Diglett = new()
+    public static readonly SpeciesData Diglett = new()
     {
         speciesName = "Diglett",
         type1 = Ground,
@@ -1684,7 +1684,7 @@ public static class Species
             SandForce,
         },
     };
-    public static SpeciesData Dugtrio = new()
+    public static readonly SpeciesData Dugtrio = new()
     {
         speciesName = "Dugtrio",
         type1 = Ground,
@@ -1717,7 +1717,7 @@ public static class Species
             SandForce,
         },
     };
-    public static SpeciesData Meowth = new()
+    public static readonly SpeciesData Meowth = new()
     {
         speciesName = "Meowth",
         type1 = Normal,
@@ -1750,7 +1750,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Persian = new()
+    public static readonly SpeciesData Persian = new()
     {
         speciesName = "Persian",
         type1 = Normal,
@@ -1783,7 +1783,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Psyduck = new()
+    public static readonly SpeciesData Psyduck = new()
     {
         speciesName = "Psyduck",
         type1 = Water,
@@ -1816,7 +1816,7 @@ public static class Species
             SwiftSwim,
         },
     };
-    public static SpeciesData Golduck = new()
+    public static readonly SpeciesData Golduck = new()
     {
         speciesName = "Golduck",
         type1 = Water,
@@ -1849,7 +1849,7 @@ public static class Species
             SwiftSwim,
         },
     };
-    public static SpeciesData Mankey = new()
+    public static readonly SpeciesData Mankey = new()
     {
         speciesName = "Mankey",
         type1 = Fighting,
@@ -1882,7 +1882,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData Primeape = new()
+    public static readonly SpeciesData Primeape = new()
     {
         speciesName = "Primeape",
         type1 = Fighting,
@@ -1915,7 +1915,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData Growlithe = new()
+    public static readonly SpeciesData Growlithe = new()
     {
         speciesName = "Growlithe",
         type1 = Fire,
@@ -1948,7 +1948,7 @@ public static class Species
             Justified,
         },
     };
-    public static SpeciesData Arcanine = new()
+    public static readonly SpeciesData Arcanine = new()
     {
         speciesName = "Arcanine",
         type1 = Fire,
@@ -1981,7 +1981,7 @@ public static class Species
             Justified,
         },
     };
-    public static SpeciesData Poliwag = new()
+    public static readonly SpeciesData Poliwag = new()
     {
         speciesName = "Poliwag",
         type1 = Water,
@@ -2014,7 +2014,7 @@ public static class Species
             SwiftSwim,
         },
     };
-    public static SpeciesData Poliwhirl = new()
+    public static readonly SpeciesData Poliwhirl = new()
     {
         speciesName = "Poliwhirl",
         type1 = Water,
@@ -2047,7 +2047,7 @@ public static class Species
             SwiftSwim,
         },
     };
-    public static SpeciesData Poliwrath = new()
+    public static readonly SpeciesData Poliwrath = new()
     {
         speciesName = "Poliwrath",
         type1 = Water,
@@ -2080,7 +2080,7 @@ public static class Species
             SwiftSwim,
         },
     };
-    public static SpeciesData Abra = new()
+    public static readonly SpeciesData Abra = new()
     {
         speciesName = "Abra",
         type1 = Psychic,
@@ -2113,7 +2113,7 @@ public static class Species
             MagicGuard,
         },
     };
-    public static SpeciesData Kadabra = new()
+    public static readonly SpeciesData Kadabra = new()
     {
         speciesName = "Kadabra",
         type1 = Psychic,
@@ -2146,7 +2146,7 @@ public static class Species
             MagicGuard,
         },
     };
-    public static SpeciesData Alakazam = new()
+    public static readonly SpeciesData Alakazam = new()
     {
         speciesName = "Alakazam",
         type1 = Psychic,
@@ -2179,7 +2179,7 @@ public static class Species
             MagicGuard,
         },
     };
-    public static SpeciesData Machop = new()
+    public static readonly SpeciesData Machop = new()
     {
         speciesName = "Machop",
         type1 = Fighting,
@@ -2212,7 +2212,7 @@ public static class Species
             Steadfast,
         },
     };
-    public static SpeciesData Machoke = new()
+    public static readonly SpeciesData Machoke = new()
     {
         speciesName = "Machoke",
         type1 = Fighting,
@@ -2245,7 +2245,7 @@ public static class Species
             Steadfast,
         },
     };
-    public static SpeciesData Machamp = new()
+    public static readonly SpeciesData Machamp = new()
     {
         speciesName = "Machamp",
         type1 = Fighting,
@@ -2278,7 +2278,7 @@ public static class Species
             Steadfast,
         },
     };
-    public static SpeciesData Bellsprout = new()
+    public static readonly SpeciesData Bellsprout = new()
     {
         speciesName = "Bellsprout",
         type1 = Grass,
@@ -2311,7 +2311,7 @@ public static class Species
             Gluttony,
         },
     };
-    public static SpeciesData Weepinbell = new()
+    public static readonly SpeciesData Weepinbell = new()
     {
         speciesName = "Weepinbell",
         type1 = Grass,
@@ -2344,7 +2344,7 @@ public static class Species
             Gluttony,
         },
     };
-    public static SpeciesData Victreebel = new()
+    public static readonly SpeciesData Victreebel = new()
     {
         speciesName = "Victreebel",
         type1 = Grass,
@@ -2377,7 +2377,7 @@ public static class Species
             Gluttony,
         },
     };
-    public static SpeciesData Tentacool = new()
+    public static readonly SpeciesData Tentacool = new()
     {
         speciesName = "Tentacool",
         type1 = Water,
@@ -2410,7 +2410,7 @@ public static class Species
             RainDish,
         },
     };
-    public static SpeciesData Tentacruel = new()
+    public static readonly SpeciesData Tentacruel = new()
     {
         speciesName = "Tentacruel",
         type1 = Water,
@@ -2443,7 +2443,7 @@ public static class Species
             RainDish,
         },
     };
-    public static SpeciesData Geodude = new()
+    public static readonly SpeciesData Geodude = new()
     {
         speciesName = "Geodude",
         type1 = Rock,
@@ -2476,7 +2476,7 @@ public static class Species
             SandVeil,
         },
     };
-    public static SpeciesData Graveler = new()
+    public static readonly SpeciesData Graveler = new()
     {
         speciesName = "Graveler",
         type1 = Rock,
@@ -2509,7 +2509,7 @@ public static class Species
             SandVeil,
         },
     };
-    public static SpeciesData Golem = new()
+    public static readonly SpeciesData Golem = new()
     {
         speciesName = "Golem",
         type1 = Rock,
@@ -2542,7 +2542,7 @@ public static class Species
             SandVeil,
         },
     };
-    public static SpeciesData Ponyta = new()
+    public static readonly SpeciesData Ponyta = new()
     {
         speciesName = "Ponyta",
         type1 = Fire,
@@ -2575,7 +2575,7 @@ public static class Species
             FlameBody,
         },
     };
-    public static SpeciesData Rapidash = new()
+    public static readonly SpeciesData Rapidash = new()
     {
         speciesName = "Rapidash",
         type1 = Fire,
@@ -2608,7 +2608,7 @@ public static class Species
             FlameBody,
         },
     };
-    public static SpeciesData Slowpoke = new()
+    public static readonly SpeciesData Slowpoke = new()
     {
         speciesName = "Slowpoke",
         type1 = Water,
@@ -2641,7 +2641,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Slowbro = new()
+    public static readonly SpeciesData Slowbro = new()
     {
         speciesName = "Slowbro",
         type1 = Water,
@@ -2674,7 +2674,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Magnemite = new()
+    public static readonly SpeciesData Magnemite = new()
     {
         speciesName = "Magnemite",
         type1 = Electric,
@@ -2707,7 +2707,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Magneton = new()
+    public static readonly SpeciesData Magneton = new()
     {
         speciesName = "Magneton",
         type1 = Electric,
@@ -2740,7 +2740,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Farfetchd = new()
+    public static readonly SpeciesData Farfetchd = new()
     {
         speciesName = "Farfetchd",
         type1 = Normal,
@@ -2773,7 +2773,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData Doduo = new()
+    public static readonly SpeciesData Doduo = new()
     {
         speciesName = "Doduo",
         type1 = Normal,
@@ -2806,7 +2806,7 @@ public static class Species
             TangledFeet,
         },
     };
-    public static SpeciesData Dodrio = new()
+    public static readonly SpeciesData Dodrio = new()
     {
         speciesName = "Dodrio",
         type1 = Normal,
@@ -2839,7 +2839,7 @@ public static class Species
             TangledFeet,
         },
     };
-    public static SpeciesData Seel = new()
+    public static readonly SpeciesData Seel = new()
     {
         speciesName = "Seel",
         type1 = Water,
@@ -2872,7 +2872,7 @@ public static class Species
             IceBody,
         },
     };
-    public static SpeciesData Dewgong = new()
+    public static readonly SpeciesData Dewgong = new()
     {
         speciesName = "Dewgong",
         type1 = Water,
@@ -2905,7 +2905,7 @@ public static class Species
             IceBody,
         },
     };
-    public static SpeciesData Grimer = new()
+    public static readonly SpeciesData Grimer = new()
     {
         speciesName = "Grimer",
         type1 = Poison,
@@ -2938,7 +2938,7 @@ public static class Species
             PoisonTouch,
         },
     };
-    public static SpeciesData Muk = new()
+    public static readonly SpeciesData Muk = new()
     {
         speciesName = "Muk",
         type1 = Poison,
@@ -2971,7 +2971,7 @@ public static class Species
             PoisonTouch,
         },
     };
-    public static SpeciesData Shellder = new()
+    public static readonly SpeciesData Shellder = new()
     {
         speciesName = "Shellder",
         type1 = Water,
@@ -3004,7 +3004,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData Cloyster = new()
+    public static readonly SpeciesData Cloyster = new()
     {
         speciesName = "Cloyster",
         type1 = Water,
@@ -3037,7 +3037,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData Gastly = new()
+    public static readonly SpeciesData Gastly = new()
     {
         speciesName = "Gastly",
         type1 = Ghost,
@@ -3070,7 +3070,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Haunter = new()
+    public static readonly SpeciesData Haunter = new()
     {
         speciesName = "Haunter",
         type1 = Ghost,
@@ -3102,7 +3102,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Gengar = new()
+    public static readonly SpeciesData Gengar = new()
     {
         speciesName = "Gengar",
         type1 = Ghost,
@@ -3135,7 +3135,7 @@ public static class Species
             CursedBody,
         },
     };
-    public static SpeciesData Onix = new()
+    public static readonly SpeciesData Onix = new()
     {
         speciesName = "Onix",
         type1 = Rock,
@@ -3168,7 +3168,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Drowzee = new()
+    public static readonly SpeciesData Drowzee = new()
     {
         speciesName = "Drowzee",
         type1 = Psychic,
@@ -3201,7 +3201,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Hypno = new()
+    public static readonly SpeciesData Hypno = new()
     {
         speciesName = "Hypno",
         type1 = Psychic,
@@ -3234,7 +3234,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Krabby = new()
+    public static readonly SpeciesData Krabby = new()
     {
         speciesName = "Krabby",
         type1 = Water,
@@ -3267,7 +3267,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Kingler = new()
+    public static readonly SpeciesData Kingler = new()
     {
         speciesName = "Kingler",
         type1 = Water,
@@ -3300,7 +3300,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Voltorb = new()
+    public static readonly SpeciesData Voltorb = new()
     {
         speciesName = "Voltorb",
         type1 = Electric,
@@ -3333,7 +3333,7 @@ public static class Species
             Aftermath,
         },
     };
-    public static SpeciesData Electrode = new()
+    public static readonly SpeciesData Electrode = new()
     {
         speciesName = "Electrode",
         type1 = Electric,
@@ -3366,7 +3366,7 @@ public static class Species
             Aftermath,
         },
     };
-    public static SpeciesData Exeggcute = new()
+    public static readonly SpeciesData Exeggcute = new()
     {
         speciesName = "Exeggcute",
         type1 = Grass,
@@ -3399,7 +3399,7 @@ public static class Species
             Harvest,
         },
     };
-    public static SpeciesData Exeggutor = new()
+    public static readonly SpeciesData Exeggutor = new()
     {
         speciesName = "Exeggutor",
         type1 = Grass,
@@ -3432,7 +3432,7 @@ public static class Species
             Harvest,
         },
     };
-    public static SpeciesData Cubone = new()
+    public static readonly SpeciesData Cubone = new()
     {
         speciesName = "Cubone",
         type1 = Ground,
@@ -3465,7 +3465,7 @@ public static class Species
             BattleArmor,
         },
     };
-    public static SpeciesData Marowak = new()
+    public static readonly SpeciesData Marowak = new()
     {
         speciesName = "Marowak",
         type1 = Ground,
@@ -3498,7 +3498,7 @@ public static class Species
             BattleArmor,
         },
     };
-    public static SpeciesData Hitmonlee = new()
+    public static readonly SpeciesData Hitmonlee = new()
     {
         speciesName = "Hitmonlee",
         type1 = Fighting,
@@ -3531,7 +3531,7 @@ public static class Species
             Unburden,
         },
     };
-    public static SpeciesData Hitmonchan = new()
+    public static readonly SpeciesData Hitmonchan = new()
     {
         speciesName = "Hitmonchan",
         type1 = Fighting,
@@ -3564,7 +3564,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Lickitung = new()
+    public static readonly SpeciesData Lickitung = new()
     {
         speciesName = "Lickitung",
         type1 = Normal,
@@ -3597,7 +3597,7 @@ public static class Species
             CloudNine,
         },
     };
-    public static SpeciesData Koffing = new()
+    public static readonly SpeciesData Koffing = new()
     {
         speciesName = "Koffing",
         type1 = Poison,
@@ -3630,7 +3630,7 @@ public static class Species
             Stench,
         },
     };
-    public static SpeciesData Weezing = new()
+    public static readonly SpeciesData Weezing = new()
     {
         speciesName = "Weezing",
         type1 = Poison,
@@ -3663,7 +3663,7 @@ public static class Species
             Stench,
         },
     };
-    public static SpeciesData Rhyhorn = new()
+    public static readonly SpeciesData Rhyhorn = new()
     {
         speciesName = "Rhyhorn",
         type1 = Ground,
@@ -3696,7 +3696,7 @@ public static class Species
             Reckless,
         },
     };
-    public static SpeciesData Rhydon = new()
+    public static readonly SpeciesData Rhydon = new()
     {
         speciesName = "Rhydon",
         type1 = Ground,
@@ -3729,7 +3729,7 @@ public static class Species
             Reckless,
         },
     };
-    public static SpeciesData Chansey = new()
+    public static readonly SpeciesData Chansey = new()
     {
         speciesName = "Chansey",
         type1 = Normal,
@@ -3762,7 +3762,7 @@ public static class Species
             Healer,
         },
     };
-    public static SpeciesData Tangela = new()
+    public static readonly SpeciesData Tangela = new()
     {
         speciesName = "Tangela",
         type1 = Grass,
@@ -3795,7 +3795,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Kangaskhan = new()
+    public static readonly SpeciesData Kangaskhan = new()
     {
         speciesName = "Kangaskhan",
         type1 = Normal,
@@ -3828,7 +3828,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Horsea = new()
+    public static readonly SpeciesData Horsea = new()
     {
         speciesName = "Horsea",
         type1 = Water,
@@ -3861,7 +3861,7 @@ public static class Species
             Damp,
         },
     };
-    public static SpeciesData Seadra = new()
+    public static readonly SpeciesData Seadra = new()
     {
         speciesName = "Seadra",
         type1 = Water,
@@ -3894,7 +3894,7 @@ public static class Species
             Damp,
         },
     };
-    public static SpeciesData Goldeen = new()
+    public static readonly SpeciesData Goldeen = new()
     {
         speciesName = "Goldeen",
         type1 = Water,
@@ -3927,7 +3927,7 @@ public static class Species
             LightningRod,
         },
     };
-    public static SpeciesData Seaking = new()
+    public static readonly SpeciesData Seaking = new()
     {
         speciesName = "Seaking",
         type1 = Water,
@@ -3960,7 +3960,7 @@ public static class Species
             LightningRod,
         },
     };
-    public static SpeciesData Staryu = new()
+    public static readonly SpeciesData Staryu = new()
     {
         speciesName = "Staryu",
         type1 = Water,
@@ -3993,7 +3993,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Starmie = new()
+    public static readonly SpeciesData Starmie = new()
     {
         speciesName = "Starmie",
         type1 = Water,
@@ -4026,7 +4026,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData MrMime = new()
+    public static readonly SpeciesData MrMime = new()
     {
         speciesName = "Mr. Mime",
         type1 = Psychic,
@@ -4059,7 +4059,7 @@ public static class Species
             Technician,
         },
     };
-    public static SpeciesData Scyther = new()
+    public static readonly SpeciesData Scyther = new()
     {
         speciesName = "Scyther",
         type1 = Bug,
@@ -4092,7 +4092,7 @@ public static class Species
             Steadfast,
         },
     };
-    public static SpeciesData Jynx = new()
+    public static readonly SpeciesData Jynx = new()
     {
         speciesName = "Jynx",
         type1 = Ice,
@@ -4125,7 +4125,7 @@ public static class Species
             DrySkin,
         },
     };
-    public static SpeciesData Electabuzz = new()
+    public static readonly SpeciesData Electabuzz = new()
     {
         speciesName = "Electabuzz",
         type1 = Electric,
@@ -4158,7 +4158,7 @@ public static class Species
             VitalSpirit,
         },
     };
-    public static SpeciesData Magmar = new()
+    public static readonly SpeciesData Magmar = new()
     {
         speciesName = "Magmar",
         type1 = Fire,
@@ -4191,7 +4191,7 @@ public static class Species
             VitalSpirit,
         },
     };
-    public static SpeciesData Pinsir = new()
+    public static readonly SpeciesData Pinsir = new()
     {
         speciesName = "Pinsir",
         type1 = Bug,
@@ -4224,7 +4224,7 @@ public static class Species
             Moxie,
         },
     };
-    public static SpeciesData Tauros = new()
+    public static readonly SpeciesData Tauros = new()
     {
         speciesName = "Tauros",
         type1 = Normal,
@@ -4257,7 +4257,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Magikarp = new()
+    public static readonly SpeciesData Magikarp = new()
     {
         speciesName = "Magikarp",
         type1 = Water,
@@ -4290,7 +4290,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData Gyarados = new()
+    public static readonly SpeciesData Gyarados = new()
     {
         speciesName = "Gyarados",
         type1 = Water,
@@ -4323,7 +4323,7 @@ public static class Species
             Moxie,
         },
     };
-    public static SpeciesData Lapras = new()
+    public static readonly SpeciesData Lapras = new()
     {
         speciesName = "Lapras",
         type1 = Water,
@@ -4356,7 +4356,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Ditto = new()
+    public static readonly SpeciesData Ditto = new()
     {
         speciesName = "Ditto",
         type1 = Normal,
@@ -4389,7 +4389,7 @@ public static class Species
             Imposter,
         },
     };
-    public static SpeciesData Eevee = new()
+    public static readonly SpeciesData Eevee = new()
     {
         speciesName = "Eevee",
         type1 = Normal,
@@ -4422,7 +4422,7 @@ public static class Species
             Anticipation,
         },
     };
-    public static SpeciesData Vaporeon = new()
+    public static readonly SpeciesData Vaporeon = new()
     {
         speciesName = "Vaporeon",
         type1 = Water,
@@ -4455,7 +4455,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Jolteon = new()
+    public static readonly SpeciesData Jolteon = new()
     {
         speciesName = "Jolteon",
         type1 = Electric,
@@ -4488,7 +4488,7 @@ public static class Species
             QuickFeet,
         },
     };
-    public static SpeciesData Flareon = new()
+    public static readonly SpeciesData Flareon = new()
     {
         speciesName = "Flareon",
         type1 = Fire,
@@ -4521,7 +4521,7 @@ public static class Species
             Guts,
         },
     };
-    public static SpeciesData Porygon = new()
+    public static readonly SpeciesData Porygon = new()
     {
         speciesName = "Porygon",
         type1 = Normal,
@@ -4554,7 +4554,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Omanyte = new()
+    public static readonly SpeciesData Omanyte = new()
     {
         speciesName = "Omanyte",
         type1 = Rock,
@@ -4587,7 +4587,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Omastar = new()
+    public static readonly SpeciesData Omastar = new()
     {
         speciesName = "Omastar",
         type1 = Rock,
@@ -4620,7 +4620,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Kabuto = new()
+    public static readonly SpeciesData Kabuto = new()
     {
         speciesName = "Kabuto",
         type1 = Rock,
@@ -4653,7 +4653,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Kabutops = new()
+    public static readonly SpeciesData Kabutops = new()
     {
         speciesName = "Kabutops",
         type1 = Rock,
@@ -4686,7 +4686,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Aerodactyl = new()
+    public static readonly SpeciesData Aerodactyl = new()
     {
         speciesName = "Aerodactyl",
         type1 = Rock,
@@ -4719,7 +4719,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Snorlax = new()
+    public static readonly SpeciesData Snorlax = new()
     {
         speciesName = "Snorlax",
         type1 = Normal,
@@ -4752,7 +4752,7 @@ public static class Species
             Gluttony,
         },
     };
-    public static SpeciesData Articuno = new()
+    public static readonly SpeciesData Articuno = new()
     {
         speciesName = "Articuno",
         type1 = Ice,
@@ -4785,7 +4785,7 @@ public static class Species
             SnowCloak,
         },
     };
-    public static SpeciesData Zapdos = new()
+    public static readonly SpeciesData Zapdos = new()
     {
         speciesName = "Zapdos",
         type1 = Electric,
@@ -4818,7 +4818,7 @@ public static class Species
             Static,
         },
     };
-    public static SpeciesData Moltres = new()
+    public static readonly SpeciesData Moltres = new()
     {
         speciesName = "Moltres",
         type1 = Fire,
@@ -4851,7 +4851,7 @@ public static class Species
             FlameBody,
         },
     };
-    public static SpeciesData Dratini = new()
+    public static readonly SpeciesData Dratini = new()
     {
         speciesName = "Dratini",
         type1 = Dragon,
@@ -4884,7 +4884,7 @@ public static class Species
             MarvelScale,
         },
     };
-    public static SpeciesData Dragonair = new()
+    public static readonly SpeciesData Dragonair = new()
     {
         speciesName = "Dragonair",
         type1 = Dragon,
@@ -4917,7 +4917,7 @@ public static class Species
             MarvelScale,
         },
     };
-    public static SpeciesData Dragonite = new()
+    public static readonly SpeciesData Dragonite = new()
     {
         speciesName = "Dragonite",
         type1 = Dragon,
@@ -4950,7 +4950,7 @@ public static class Species
             Multiscale,
         },
     };
-    public static SpeciesData Mewtwo = new()
+    public static readonly SpeciesData Mewtwo = new()
     {
         speciesName = "Mewtwo",
         type1 = Psychic,
@@ -4983,7 +4983,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Mew = new()
+    public static readonly SpeciesData Mew = new()
     {
         speciesName = "Mew",
         type1 = Psychic,
@@ -5016,7 +5016,7 @@ public static class Species
             Synchronize,
         },
     };
-    public static SpeciesData Chikorita = new()
+    public static readonly SpeciesData Chikorita = new()
     {
         speciesName = "Chikorita",
         type1 = Grass,
@@ -5049,7 +5049,7 @@ public static class Species
             LeafGuard,
     },
     };
-    public static SpeciesData Bayleef = new()
+    public static readonly SpeciesData Bayleef = new()
     {
         speciesName = "Bayleef",
         type1 = Grass,
@@ -5082,7 +5082,7 @@ public static class Species
             LeafGuard,
         },
     };
-    public static SpeciesData Meganium = new()
+    public static readonly SpeciesData Meganium = new()
     {
         speciesName = "Meganium",
         type1 = Grass,
@@ -5115,7 +5115,7 @@ public static class Species
             LeafGuard,
         },
     };
-    public static SpeciesData Cyndaquil = new()
+    public static readonly SpeciesData Cyndaquil = new()
     {
         speciesName = "Cyndaquil",
         type1 = Fire,
@@ -5148,7 +5148,7 @@ public static class Species
             FlashFire,
         },
     };
-    public static SpeciesData Quilava = new()
+    public static readonly SpeciesData Quilava = new()
     {
         speciesName = "Quilava",
         type1 = Fire,
@@ -5181,7 +5181,7 @@ public static class Species
             FlashFire,
         },
     };
-    public static SpeciesData Typhlosion = new()
+    public static readonly SpeciesData Typhlosion = new()
     {
         speciesName = "Typhlosion",
         type1 = Fire,
@@ -5214,7 +5214,7 @@ public static class Species
             FlashFire,
         },
     };
-    public static SpeciesData Totodile = new()
+    public static readonly SpeciesData Totodile = new()
     {
         speciesName = "Totodile",
         type1 = Water,
@@ -5247,7 +5247,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Croconaw = new()
+    public static readonly SpeciesData Croconaw = new()
     {
         speciesName = "Croconaw",
         type1 = Water,
@@ -5280,7 +5280,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Feraligatr = new()
+    public static readonly SpeciesData Feraligatr = new()
     {
         speciesName = "Feraligatr",
         type1 = Water,
@@ -5313,7 +5313,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Sentret = new()
+    public static readonly SpeciesData Sentret = new()
     {
         speciesName = "Sentret",
         type1 = Normal,
@@ -5346,7 +5346,7 @@ public static class Species
             Frisk,
         },
     };
-    public static SpeciesData Furret = new()
+    public static readonly SpeciesData Furret = new()
     {
         speciesName = "Furret",
         type1 = Normal,
@@ -5379,7 +5379,7 @@ public static class Species
             Frisk,
         },
     };
-    public static SpeciesData Hoothoot = new()
+    public static readonly SpeciesData Hoothoot = new()
     {
         speciesName = "Hoothoot",
         type1 = Normal,
@@ -5412,7 +5412,7 @@ public static class Species
             TintedLens,
         },
     };
-    public static SpeciesData Noctowl = new()
+    public static readonly SpeciesData Noctowl = new()
     {
         speciesName = "Noctowl",
         type1 = Normal,
@@ -5445,7 +5445,7 @@ public static class Species
             TintedLens,
         },
     };
-    public static SpeciesData Ledyba = new()
+    public static readonly SpeciesData Ledyba = new()
     {
         speciesName = "Ledyba",
         type1 = Bug,
@@ -5478,7 +5478,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData Ledian = new()
+    public static readonly SpeciesData Ledian = new()
     {
         speciesName = "Ledian",
         type1 = Bug,
@@ -5511,7 +5511,7 @@ public static class Species
             IronFist,
         },
     };
-    public static SpeciesData Spinarak = new()
+    public static readonly SpeciesData Spinarak = new()
     {
         speciesName = "Spinarak",
         type1 = Bug,
@@ -5544,7 +5544,7 @@ public static class Species
             Sniper,
         },
     };
-    public static SpeciesData Ariados = new()
+    public static readonly SpeciesData Ariados = new()
     {
         speciesName = "Ariados",
         type1 = Bug,
@@ -5577,7 +5577,7 @@ public static class Species
             Sniper,
         },
     };
-    public static SpeciesData Crobat = new()
+    public static readonly SpeciesData Crobat = new()
     {
         speciesName = "Crobat",
         type1 = Poison,
@@ -5610,7 +5610,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Chinchou = new()
+    public static readonly SpeciesData Chinchou = new()
     {
         speciesName = "Chinchou",
         type1 = Water,
@@ -5643,7 +5643,7 @@ public static class Species
             WaterAbsorb,
         },
     };
-    public static SpeciesData Lanturn = new()
+    public static readonly SpeciesData Lanturn = new()
     {
         speciesName = "Lanturn",
         type1 = Water,
@@ -5677,9 +5677,9 @@ public static class Species
         },
     };
 
-    public static SpeciesData Pichu = Pichu(false);
+    public static readonly SpeciesData Pichu = Pichu(false);
 
-    public static SpeciesData Cleffa = new()
+    public static readonly SpeciesData Cleffa = new()
     {
         speciesName = "Cleffa",
         type1 = Fairy,
@@ -5712,7 +5712,7 @@ public static class Species
             FriendGuard,
         },
     };
-    public static SpeciesData Igglybuff = new()
+    public static readonly SpeciesData Igglybuff = new()
     {
         speciesName = "Igglybuff",
         type1 = Normal,
@@ -5745,7 +5745,7 @@ public static class Species
             FriendGuard,
         },
     };
-    public static SpeciesData Togepi = new()
+    public static readonly SpeciesData Togepi = new()
     {
         speciesName = "Togepi",
         type1 = Fairy,
@@ -5778,7 +5778,7 @@ public static class Species
             SuperLuck,
         },
     };
-    public static SpeciesData Togetic = new()
+    public static readonly SpeciesData Togetic = new()
     {
         speciesName = "Togetic",
         type1 = Fairy,
@@ -5811,7 +5811,7 @@ public static class Species
             SuperLuck,
         },
     };
-    public static SpeciesData Natu = new()
+    public static readonly SpeciesData Natu = new()
     {
         speciesName = "Natu",
         type1 = Psychic,
@@ -5844,7 +5844,7 @@ public static class Species
             MagicBounce,
         },
     };
-    public static SpeciesData Xatu = new()
+    public static readonly SpeciesData Xatu = new()
     {
         speciesName = "Xatu",
         type1 = Psychic,
@@ -5877,7 +5877,7 @@ public static class Species
             MagicBounce,
         },
     };
-    public static SpeciesData Mareep = new()
+    public static readonly SpeciesData Mareep = new()
     {
         speciesName = "Mareep",
         type1 = Electric,
@@ -5910,7 +5910,7 @@ public static class Species
             Plus,
         },
     };
-    public static SpeciesData Flaaffy = new()
+    public static readonly SpeciesData Flaaffy = new()
     {
         speciesName = "Flaaffy",
         type1 = Electric,
@@ -5943,7 +5943,7 @@ public static class Species
             Plus,
         },
     };
-    public static SpeciesData Ampharos = new()
+    public static readonly SpeciesData Ampharos = new()
     {
         speciesName = "Ampharos",
         type1 = Electric,
@@ -5976,7 +5976,7 @@ public static class Species
             Plus,
         },
     };
-    public static SpeciesData Bellossom = new()
+    public static readonly SpeciesData Bellossom = new()
     {
         speciesName = "Bellossom",
         type1 = Grass,
@@ -6009,7 +6009,7 @@ public static class Species
             Healer,
         },
     };
-    public static SpeciesData Marill = new()
+    public static readonly SpeciesData Marill = new()
     {
         speciesName = "Marill",
         type1 = Water,
@@ -6042,7 +6042,7 @@ public static class Species
             SapSipper,
         },
     };
-    public static SpeciesData Azumarill = new()
+    public static readonly SpeciesData Azumarill = new()
     {
         speciesName = "Azumarill",
         type1 = Water,
@@ -6075,7 +6075,7 @@ public static class Species
             SapSipper,
         },
     };
-    public static SpeciesData Sudowoodo = new()
+    public static readonly SpeciesData Sudowoodo = new()
     {
         speciesName = "Sudowoodo",
         type1 = Rock,
@@ -6108,7 +6108,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData Politoed = new()
+    public static readonly SpeciesData Politoed = new()
     {
         speciesName = "Politoed",
         type1 = Water,
@@ -6141,7 +6141,7 @@ public static class Species
             Drizzle,
         },
     };
-    public static SpeciesData Hoppip = new()
+    public static readonly SpeciesData Hoppip = new()
     {
         speciesName = "Hoppip",
         type1 = Grass,
@@ -6174,7 +6174,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Skiploom = new()
+    public static readonly SpeciesData Skiploom = new()
     {
         speciesName = "Skiploom",
         type1 = Grass,
@@ -6207,7 +6207,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Jumpluff = new()
+    public static readonly SpeciesData Jumpluff = new()
     {
         speciesName = "Jumpluff",
         type1 = Grass,
@@ -6240,7 +6240,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Aipom = new()
+    public static readonly SpeciesData Aipom = new()
     {
         speciesName = "Aipom",
         type1 = Normal,
@@ -6273,7 +6273,7 @@ public static class Species
             SkillLink,
         },
     };
-    public static SpeciesData Sunkern = new()
+    public static readonly SpeciesData Sunkern = new()
     {
         speciesName = "Sunkern",
         type1 = Grass,
@@ -6306,7 +6306,7 @@ public static class Species
             EarlyBird,
         },
     };
-    public static SpeciesData Sunflora = new()
+    public static readonly SpeciesData Sunflora = new()
     {
         speciesName = "Sunflora",
         type1 = Grass,
@@ -6339,7 +6339,7 @@ public static class Species
             EarlyBird,
         },
     };
-    public static SpeciesData Yanma = new()
+    public static readonly SpeciesData Yanma = new()
     {
         speciesName = "Yanma",
         type1 = Bug,
@@ -6372,7 +6372,7 @@ public static class Species
             Frisk,
         },
     };
-    public static SpeciesData Wooper = new()
+    public static readonly SpeciesData Wooper = new()
     {
         speciesName = "Wooper",
         type1 = Water,
@@ -6405,7 +6405,7 @@ public static class Species
             Unaware,
         },
     };
-    public static SpeciesData Quagsire = new()
+    public static readonly SpeciesData Quagsire = new()
     {
         speciesName = "Quagsire",
         type1 = Water,
@@ -6438,7 +6438,7 @@ public static class Species
             Unaware,
         },
     };
-    public static SpeciesData Espeon = new()
+    public static readonly SpeciesData Espeon = new()
     {
         speciesName = "Espeon",
         type1 = Psychic,
@@ -6471,7 +6471,7 @@ public static class Species
             MagicBounce,
         },
     };
-    public static SpeciesData Umbreon = new()
+    public static readonly SpeciesData Umbreon = new()
     {
         speciesName = "Umbreon",
         type1 = Dark,
@@ -6504,7 +6504,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Murkrow = new()
+    public static readonly SpeciesData Murkrow = new()
     {
         speciesName = "Murkrow",
         type1 = Dark,
@@ -6537,7 +6537,7 @@ public static class Species
             Prankster,
         },
     };
-    public static SpeciesData Slowking = new()
+    public static readonly SpeciesData Slowking = new()
     {
         speciesName = "Slowking",
         type1 = Water,
@@ -6570,7 +6570,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Misdreavus = new()
+    public static readonly SpeciesData Misdreavus = new()
     {
         speciesName = "Misdreavus",
         type1 = Ghost,
@@ -6603,7 +6603,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Unown = new()
+    public static readonly SpeciesData Unown = new()
     {
         speciesName = "Unown",
         type1 = Psychic,
@@ -6636,7 +6636,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Wobbuffet = new()
+    public static readonly SpeciesData Wobbuffet = new()
     {
         speciesName = "Wobbuffet",
         type1 = Psychic,
@@ -6669,7 +6669,7 @@ public static class Species
             Telepathy,
         },
     };
-    public static SpeciesData Girafarig = new()
+    public static readonly SpeciesData Girafarig = new()
     {
         speciesName = "Girafarig",
         type1 = Normal,
@@ -6702,7 +6702,7 @@ public static class Species
             SapSipper,
         },
     };
-    public static SpeciesData Pineco = new()
+    public static readonly SpeciesData Pineco = new()
     {
         speciesName = "Pineco",
         type1 = Bug,
@@ -6735,7 +6735,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData Forretress = new()
+    public static readonly SpeciesData Forretress = new()
     {
         speciesName = "Forretress",
         type1 = Bug,
@@ -6768,7 +6768,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData Dunsparce = new()
+    public static readonly SpeciesData Dunsparce = new()
     {
         speciesName = "Dunsparce",
         type1 = Normal,
@@ -6801,7 +6801,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData Gligar = new()
+    public static readonly SpeciesData Gligar = new()
     {
         speciesName = "Gligar",
         type1 = Ground,
@@ -6834,7 +6834,7 @@ public static class Species
             Immunity,
         },
     };
-    public static SpeciesData Steelix = new()
+    public static readonly SpeciesData Steelix = new()
     {
         speciesName = "Steelix",
         type1 = Steel,
@@ -6867,7 +6867,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Snubbull = new()
+    public static readonly SpeciesData Snubbull = new()
     {
         speciesName = "Snubbull",
         type1 = Fairy,
@@ -6900,7 +6900,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData Granbull = new()
+    public static readonly SpeciesData Granbull = new()
     {
         speciesName = "Granbull",
         type1 = Fairy,
@@ -6933,7 +6933,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData Qwilfish = new()
+    public static readonly SpeciesData Qwilfish = new()
     {
         speciesName = "Qwilfish",
         type1 = Water,
@@ -6966,7 +6966,7 @@ public static class Species
             Intimidate,
         },
     };
-    public static SpeciesData Scizor = new()
+    public static readonly SpeciesData Scizor = new()
     {
         speciesName = "Scizor",
         type1 = Bug,
@@ -6999,7 +6999,7 @@ public static class Species
             LightMetal,
         },
     };
-    public static SpeciesData Shuckle = new()
+    public static readonly SpeciesData Shuckle = new()
     {
         speciesName = "Shuckle",
         type1 = Bug,
@@ -7032,7 +7032,7 @@ public static class Species
             Contrary,
         },
     };
-    public static SpeciesData Heracross = new()
+    public static readonly SpeciesData Heracross = new()
     {
         speciesName = "Heracross",
         type1 = Bug,
@@ -7065,7 +7065,7 @@ public static class Species
             Moxie,
         },
     };
-    public static SpeciesData Sneasel = new()
+    public static readonly SpeciesData Sneasel = new()
     {
         speciesName = "Sneasel",
         type1 = Dark,
@@ -7098,7 +7098,7 @@ public static class Species
             Pickpocket,
         },
     };
-    public static SpeciesData Teddiursa = new()
+    public static readonly SpeciesData Teddiursa = new()
     {
         speciesName = "Teddiursa",
         type1 = Normal,
@@ -7131,7 +7131,7 @@ public static class Species
             HoneyGather,
         },
     };
-    public static SpeciesData Ursaring = new()
+    public static readonly SpeciesData Ursaring = new()
     {
         speciesName = "Ursaring",
         type1 = Normal,
@@ -7164,7 +7164,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Slugma = new()
+    public static readonly SpeciesData Slugma = new()
     {
         speciesName = "Slugma",
         type1 = Fire,
@@ -7197,7 +7197,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Magcargo = new()
+    public static readonly SpeciesData Magcargo = new()
     {
         speciesName = "Magcargo",
         type1 = Fire,
@@ -7230,7 +7230,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Swinub = new()
+    public static readonly SpeciesData Swinub = new()
     {
         speciesName = "Swinub",
         type1 = Ice,
@@ -7263,7 +7263,7 @@ public static class Species
             ThickFat,
         },
     };
-    public static SpeciesData Piloswine = new()
+    public static readonly SpeciesData Piloswine = new()
     {
         speciesName = "Piloswine",
         type1 = Ice,
@@ -7296,7 +7296,7 @@ public static class Species
             ThickFat,
         },
     };
-    public static SpeciesData Corsola = new()
+    public static readonly SpeciesData Corsola = new()
     {
         speciesName = "Corsola",
         type1 = Water,
@@ -7329,7 +7329,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Remoraid = new()
+    public static readonly SpeciesData Remoraid = new()
     {
         speciesName = "Remoraid",
         type1 = Water,
@@ -7362,7 +7362,7 @@ public static class Species
             Moody,
         },
     };
-    public static SpeciesData Octillery = new()
+    public static readonly SpeciesData Octillery = new()
     {
         speciesName = "Octillery",
         type1 = Water,
@@ -7395,7 +7395,7 @@ public static class Species
             Moody,
         },
     };
-    public static SpeciesData Delibird = new()
+    public static readonly SpeciesData Delibird = new()
     {
         speciesName = "Delibird",
         type1 = Ice,
@@ -7428,7 +7428,7 @@ public static class Species
             Insomnia,
         },
     };
-    public static SpeciesData Mantine = new()
+    public static readonly SpeciesData Mantine = new()
     {
         speciesName = "Mantine",
         type1 = Water,
@@ -7461,7 +7461,7 @@ public static class Species
             WaterVeil,
         },
     };
-    public static SpeciesData Skarmory = new()
+    public static readonly SpeciesData Skarmory = new()
     {
         speciesName = "Skarmory",
         type1 = Steel,
@@ -7494,7 +7494,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Houndour = new()
+    public static readonly SpeciesData Houndour = new()
     {
         speciesName = "Houndour",
         type1 = Dark,
@@ -7527,7 +7527,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Houndoom = new()
+    public static readonly SpeciesData Houndoom = new()
     {
         speciesName = "Houndoom",
         type1 = Dark,
@@ -7560,7 +7560,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Kingdra = new()
+    public static readonly SpeciesData Kingdra = new()
     {
         speciesName = "Kingdra",
         type1 = Water,
@@ -7593,7 +7593,7 @@ public static class Species
             Damp,
         },
     };
-    public static SpeciesData Phanpy = new()
+    public static readonly SpeciesData Phanpy = new()
     {
         speciesName = "Phanpy",
         type1 = Ground,
@@ -7626,7 +7626,7 @@ public static class Species
             SandVeil,
         },
     };
-    public static SpeciesData Donphan = new()
+    public static readonly SpeciesData Donphan = new()
     {
         speciesName = "Donphan",
         type1 = Ground,
@@ -7659,7 +7659,7 @@ public static class Species
             SandVeil,
         },
     };
-    public static SpeciesData Porygon2 = new()
+    public static readonly SpeciesData Porygon2 = new()
     {
         speciesName = "Porygon2",
         type1 = Normal,
@@ -7692,7 +7692,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Stantler = new()
+    public static readonly SpeciesData Stantler = new()
     {
         speciesName = "Stantler",
         type1 = Normal,
@@ -7725,7 +7725,7 @@ public static class Species
             SapSipper,
         },
     };
-    public static SpeciesData Smeargle = new()
+    public static readonly SpeciesData Smeargle = new()
     {
         speciesName = "Smeargle",
         type1 = Normal,
@@ -7758,7 +7758,7 @@ public static class Species
             Moody,
         },
     };
-    public static SpeciesData Tyrogue = new()
+    public static readonly SpeciesData Tyrogue = new()
     {
         speciesName = "Tyrogue",
         type1 = Fighting,
@@ -7791,7 +7791,7 @@ public static class Species
             VitalSpirit,
         },
     };
-    public static SpeciesData Hitmontop = new()
+    public static readonly SpeciesData Hitmontop = new()
     {
         speciesName = "Hitmontop",
         type1 = Fighting,
@@ -7824,7 +7824,7 @@ public static class Species
             Steadfast,
         },
     };
-    public static SpeciesData Smoochum = new()
+    public static readonly SpeciesData Smoochum = new()
     {
         speciesName = "Smoochum",
         type1 = Ice,
@@ -7857,7 +7857,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Elekid = new()
+    public static readonly SpeciesData Elekid = new()
     {
         speciesName = "Elekid",
         type1 = Electric,
@@ -7890,7 +7890,7 @@ public static class Species
             VitalSpirit,
         },
     };
-    public static SpeciesData Magby = new()
+    public static readonly SpeciesData Magby = new()
     {
         speciesName = "Magby",
         type1 = Fire,
@@ -7923,7 +7923,7 @@ public static class Species
             VitalSpirit,
         },
     };
-    public static SpeciesData Miltank = new()
+    public static readonly SpeciesData Miltank = new()
     {
         speciesName = "Miltank",
         type1 = Normal,
@@ -7956,7 +7956,7 @@ public static class Species
             SapSipper,
         },
     };
-    public static SpeciesData Blissey = new()
+    public static readonly SpeciesData Blissey = new()
     {
         speciesName = "Blissey",
         type1 = Normal,
@@ -7989,7 +7989,7 @@ public static class Species
             Healer,
         },
     };
-    public static SpeciesData Raikou = new()
+    public static readonly SpeciesData Raikou = new()
     {
         speciesName = "Raikou",
         type1 = Electric,
@@ -8022,7 +8022,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Entei = new()
+    public static readonly SpeciesData Entei = new()
     {
         speciesName = "Entei",
         type1 = Fire,
@@ -8055,7 +8055,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Suicune = new()
+    public static readonly SpeciesData Suicune = new()
     {
         speciesName = "Suicune",
         type1 = Water,
@@ -8088,7 +8088,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Larvitar = new()
+    public static readonly SpeciesData Larvitar = new()
     {
         speciesName = "Larvitar",
         type1 = Rock,
@@ -8121,7 +8121,7 @@ public static class Species
             SandVeil,
         },
     };
-    public static SpeciesData Pupitar = new()
+    public static readonly SpeciesData Pupitar = new()
     {
         speciesName = "Pupitar",
         type1 = Rock,
@@ -8154,7 +8154,7 @@ public static class Species
             ShedSkin,
         },
     };
-    public static SpeciesData Tyranitar = new()
+    public static readonly SpeciesData Tyranitar = new()
     {
         speciesName = "Tyranitar",
         type1 = Rock,
@@ -8187,7 +8187,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Lugia = new()
+    public static readonly SpeciesData Lugia = new()
     {
         speciesName = "Lugia",
         type1 = Psychic,
@@ -8220,7 +8220,7 @@ public static class Species
             Multiscale,
         },
     };
-    public static SpeciesData HoOh = new()
+    public static readonly SpeciesData HoOh = new()
     {
         speciesName = "Ho Oh",
         type1 = Fire,
@@ -8254,7 +8254,7 @@ public static class Species
         },
 
     };
-    public static SpeciesData Celebi = new()
+    public static readonly SpeciesData Celebi = new()
     {
         speciesName = "Celebi",
         type1 = Psychic,
@@ -8288,7 +8288,7 @@ public static class Species
         },
     };
 
-    public static SpeciesData Treecko = new()
+    public static readonly SpeciesData Treecko = new()
     {
         speciesName = "Treecko",
         type1 = Grass,
@@ -8321,7 +8321,7 @@ public static class Species
             Unburden,
         },
     };
-    public static SpeciesData Grovyle = new()
+    public static readonly SpeciesData Grovyle = new()
     {
         speciesName = "Grovyle",
         type1 = Grass,
@@ -8354,7 +8354,7 @@ public static class Species
             Unburden,
         },
     };
-    public static SpeciesData Sceptile = new()
+    public static readonly SpeciesData Sceptile = new()
     {
         speciesName = "Sceptile",
         type1 = Grass,
@@ -8387,7 +8387,7 @@ public static class Species
             Unburden,
         },
     };
-    public static SpeciesData Torchic = new()
+    public static readonly SpeciesData Torchic = new()
     {
         speciesName = "Torchic",
         type1 = Fire,
@@ -8420,7 +8420,7 @@ public static class Species
             SpeedBoost,
         },
     };
-    public static SpeciesData Combusken = new()
+    public static readonly SpeciesData Combusken = new()
     {
         speciesName = "Combusken",
         type1 = Fire,
@@ -8453,7 +8453,7 @@ public static class Species
             SpeedBoost,
         },
     };
-    public static SpeciesData Blaziken = new()
+    public static readonly SpeciesData Blaziken = new()
     {
         speciesName = "Blaziken",
         type1 = Fire,
@@ -8486,7 +8486,7 @@ public static class Species
             SpeedBoost,
         },
     };
-    public static SpeciesData Mudkip = new()
+    public static readonly SpeciesData Mudkip = new()
     {
         speciesName = "Mudkip",
         type1 = Water,
@@ -8519,7 +8519,7 @@ public static class Species
             Damp,
         },
     };
-    public static SpeciesData Marshtomp = new()
+    public static readonly SpeciesData Marshtomp = new()
     {
         speciesName = "Marshtomp",
         type1 = Water,
@@ -8552,7 +8552,7 @@ public static class Species
             Damp,
         },
     };
-    public static SpeciesData Swampert = new()
+    public static readonly SpeciesData Swampert = new()
     {
         speciesName = "Swampert",
         type1 = Water,
@@ -8585,7 +8585,7 @@ public static class Species
             Damp,
         },
     };
-    public static SpeciesData Poochyena = new()
+    public static readonly SpeciesData Poochyena = new()
     {
         speciesName = "Poochyena",
         type1 = Dark,
@@ -8618,7 +8618,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData Mightyena = new()
+    public static readonly SpeciesData Mightyena = new()
     {
         speciesName = "Mightyena",
         type1 = Dark,
@@ -8651,7 +8651,7 @@ public static class Species
             Moxie,
         },
     };
-    public static SpeciesData Zigzagoon = new()
+    public static readonly SpeciesData Zigzagoon = new()
     {
         speciesName = "Zigzagoon",
         type1 = Normal,
@@ -8684,7 +8684,7 @@ public static class Species
             QuickFeet,
         },
     };
-    public static SpeciesData Linoone = new()
+    public static readonly SpeciesData Linoone = new()
     {
         speciesName = "Linoone",
         type1 = Normal,
@@ -8717,7 +8717,7 @@ public static class Species
             QuickFeet,
         },
     };
-    public static SpeciesData Wurmple = new()
+    public static readonly SpeciesData Wurmple = new()
     {
         speciesName = "Wurmple",
         type1 = Bug,
@@ -8750,7 +8750,7 @@ public static class Species
             RunAway,
         },
     };
-    public static SpeciesData Silcoon = new()
+    public static readonly SpeciesData Silcoon = new()
     {
         speciesName = "Silcoon",
         type1 = Bug,
@@ -8783,7 +8783,7 @@ public static class Species
             ShedSkin,
         },
     };
-    public static SpeciesData Beautifly = new()
+    public static readonly SpeciesData Beautifly = new()
     {
         speciesName = "Beautifly",
         type1 = Bug,
@@ -8816,7 +8816,7 @@ public static class Species
             Rivalry,
         },
     };
-    public static SpeciesData Cascoon = new()
+    public static readonly SpeciesData Cascoon = new()
     {
         speciesName = "Cascoon",
         type1 = Bug,
@@ -8849,7 +8849,7 @@ public static class Species
             ShedSkin,
         },
     };
-    public static SpeciesData Dustox = new()
+    public static readonly SpeciesData Dustox = new()
     {
         speciesName = "Dustox",
         type1 = Bug,
@@ -8882,7 +8882,7 @@ public static class Species
             CompoundEyes,
         },
     };
-    public static SpeciesData Lotad = new()
+    public static readonly SpeciesData Lotad = new()
     {
         speciesName = "Lotad",
         type1 = Water,
@@ -8915,7 +8915,7 @@ public static class Species
             OwnTempo,
         },
     };
-    public static SpeciesData Lombre = new()
+    public static readonly SpeciesData Lombre = new()
     {
         speciesName = "Lombre",
         type1 = Water,
@@ -8948,7 +8948,7 @@ public static class Species
             OwnTempo,
         },
     };
-    public static SpeciesData Ludicolo = new()
+    public static readonly SpeciesData Ludicolo = new()
     {
         speciesName = "Ludicolo",
         type1 = Water,
@@ -8981,7 +8981,7 @@ public static class Species
             OwnTempo,
         },
     };
-    public static SpeciesData Seedot = new()
+    public static readonly SpeciesData Seedot = new()
     {
         speciesName = "Seedot",
         type1 = Grass,
@@ -9014,7 +9014,7 @@ public static class Species
             Pickpocket,
         },
     };
-    public static SpeciesData Nuzleaf = new()
+    public static readonly SpeciesData Nuzleaf = new()
     {
         speciesName = "Nuzleaf",
         type1 = Grass,
@@ -9047,7 +9047,7 @@ public static class Species
             Pickpocket,
         },
     };
-    public static SpeciesData Shiftry = new()
+    public static readonly SpeciesData Shiftry = new()
     {
         speciesName = "Shiftry",
         type1 = Grass,
@@ -9080,7 +9080,7 @@ public static class Species
             Pickpocket,
         },
     };
-    public static SpeciesData Taillow = new()
+    public static readonly SpeciesData Taillow = new()
     {
         speciesName = "Taillow",
         type1 = Normal,
@@ -9113,7 +9113,7 @@ public static class Species
             Scrappy,
         },
     };
-    public static SpeciesData Swellow = new()
+    public static readonly SpeciesData Swellow = new()
     {
         speciesName = "Swellow",
         type1 = Normal,
@@ -9146,7 +9146,7 @@ public static class Species
             Scrappy,
         },
     };
-    public static SpeciesData Wingull = new()
+    public static readonly SpeciesData Wingull = new()
     {
         speciesName = "Wingull",
         type1 = Water,
@@ -9179,7 +9179,7 @@ public static class Species
             RainDish,
         },
     };
-    public static SpeciesData Pelipper = new()
+    public static readonly SpeciesData Pelipper = new()
     {
         speciesName = "Pelipper",
         type1 = Water,
@@ -9212,7 +9212,7 @@ public static class Species
             RainDish,
         },
     };
-    public static SpeciesData Ralts = new()
+    public static readonly SpeciesData Ralts = new()
     {
         speciesName = "Ralts",
         type1 = Psychic,
@@ -9245,7 +9245,7 @@ public static class Species
             Telepathy,
         },
     };
-    public static SpeciesData Kirlia = new()
+    public static readonly SpeciesData Kirlia = new()
     {
         speciesName = "Kirlia",
         type1 = Psychic,
@@ -9278,7 +9278,7 @@ public static class Species
             Telepathy,
         },
     };
-    public static SpeciesData Gardevoir = new()
+    public static readonly SpeciesData Gardevoir = new()
     {
         speciesName = "Gardevoir",
         type1 = Psychic,
@@ -9311,7 +9311,7 @@ public static class Species
             Telepathy,
         },
     };
-    public static SpeciesData Surskit = new()
+    public static readonly SpeciesData Surskit = new()
     {
         speciesName = "Surskit",
         type1 = Bug,
@@ -9344,7 +9344,7 @@ public static class Species
             RainDish,
         },
     };
-    public static SpeciesData Masquerain = new()
+    public static readonly SpeciesData Masquerain = new()
     {
         speciesName = "Masquerain",
         type1 = Bug,
@@ -9377,7 +9377,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Shroomish = new()
+    public static readonly SpeciesData Shroomish = new()
     {
         speciesName = "Shroomish",
         type1 = Grass,
@@ -9410,7 +9410,7 @@ public static class Species
             QuickFeet,
         },
     };
-    public static SpeciesData Breloom = new()
+    public static readonly SpeciesData Breloom = new()
     {
         speciesName = "Breloom",
         type1 = Grass,
@@ -9443,7 +9443,7 @@ public static class Species
             Technician,
         },
     };
-    public static SpeciesData Slakoth = new()
+    public static readonly SpeciesData Slakoth = new()
     {
         speciesName = "Slakoth",
         type1 = Normal,
@@ -9476,7 +9476,7 @@ public static class Species
             Truant,
         },
     };
-    public static SpeciesData Vigoroth = new()
+    public static readonly SpeciesData Vigoroth = new()
     {
         speciesName = "Vigoroth",
         type1 = Normal,
@@ -9509,7 +9509,7 @@ public static class Species
             VitalSpirit,
         },
     };
-    public static SpeciesData Slaking = new()
+    public static readonly SpeciesData Slaking = new()
     {
         speciesName = "Slaking",
         type1 = Normal,
@@ -9542,7 +9542,7 @@ public static class Species
             Truant,
         },
     };
-    public static SpeciesData Nincada = new()
+    public static readonly SpeciesData Nincada = new()
     {
         speciesName = "Nincada",
         type1 = Bug,
@@ -9575,7 +9575,7 @@ public static class Species
             RunAway,
         },
     };
-    public static SpeciesData Ninjask = new()
+    public static readonly SpeciesData Ninjask = new()
     {
         speciesName = "Ninjask",
         type1 = Bug,
@@ -9608,7 +9608,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Shedinja = new()
+    public static readonly SpeciesData Shedinja = new()
     {
         speciesName = "Shedinja",
         type1 = Bug,
@@ -9641,7 +9641,7 @@ public static class Species
             WonderGuard,
         },
     };
-    public static SpeciesData Whismur = new()
+    public static readonly SpeciesData Whismur = new()
     {
         speciesName = "Whismur",
         type1 = Normal,
@@ -9674,7 +9674,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData Loudred = new()
+    public static readonly SpeciesData Loudred = new()
     {
         speciesName = "Loudred",
         type1 = Normal,
@@ -9707,7 +9707,7 @@ public static class Species
             Scrappy,
         },
     };
-    public static SpeciesData Exploud = new()
+    public static readonly SpeciesData Exploud = new()
     {
         speciesName = "Exploud",
         type1 = Normal,
@@ -9740,7 +9740,7 @@ public static class Species
             Scrappy,
         },
     };
-    public static SpeciesData Makuhita = new()
+    public static readonly SpeciesData Makuhita = new()
     {
         speciesName = "Makuhita",
         type1 = Fighting,
@@ -9773,7 +9773,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Hariyama = new()
+    public static readonly SpeciesData Hariyama = new()
     {
         speciesName = "Hariyama",
         type1 = Fighting,
@@ -9806,7 +9806,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Azurill = new()
+    public static readonly SpeciesData Azurill = new()
     {
         speciesName = "Azurill",
         type1 = Normal,
@@ -9839,7 +9839,7 @@ public static class Species
             SapSipper,
         },
     };
-    public static SpeciesData Nosepass = new()
+    public static readonly SpeciesData Nosepass = new()
     {
         speciesName = "Nosepass",
         type1 = Rock,
@@ -9872,7 +9872,7 @@ public static class Species
             SandForce,
         },
     };
-    public static SpeciesData Skitty = new()
+    public static readonly SpeciesData Skitty = new()
     {
         speciesName = "Skitty",
         type1 = Normal,
@@ -9905,7 +9905,7 @@ public static class Species
             WonderSkin,
         },
     };
-    public static SpeciesData Delcatty = new()
+    public static readonly SpeciesData Delcatty = new()
     {
         speciesName = "Delcatty",
         type1 = Normal,
@@ -9938,7 +9938,7 @@ public static class Species
             WonderSkin,
         },
     };
-    public static SpeciesData Sableye = new()
+    public static readonly SpeciesData Sableye = new()
     {
         speciesName = "Sableye",
         type1 = Dark,
@@ -9971,7 +9971,7 @@ public static class Species
             Prankster,
         },
     };
-    public static SpeciesData Mawile = new()
+    public static readonly SpeciesData Mawile = new()
     {
         speciesName = "Mawile",
         type1 = Steel,
@@ -10004,7 +10004,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Aron = new()
+    public static readonly SpeciesData Aron = new()
     {
         speciesName = "Aron",
         type1 = Steel,
@@ -10037,7 +10037,7 @@ public static class Species
             HeavyMetal,
         },
     };
-    public static SpeciesData Lairon = new()
+    public static readonly SpeciesData Lairon = new()
     {
         speciesName = "Lairon",
         type1 = Steel,
@@ -10070,7 +10070,7 @@ public static class Species
             HeavyMetal,
         },
     };
-    public static SpeciesData Aggron = new()
+    public static readonly SpeciesData Aggron = new()
     {
         speciesName = "Aggron",
         type1 = Steel,
@@ -10103,7 +10103,7 @@ public static class Species
             HeavyMetal,
         },
     };
-    public static SpeciesData Meditite = new()
+    public static readonly SpeciesData Meditite = new()
     {
         speciesName = "Meditite",
         type1 = Fighting,
@@ -10136,7 +10136,7 @@ public static class Species
             Telepathy,
         },
     };
-    public static SpeciesData Medicham = new()
+    public static readonly SpeciesData Medicham = new()
     {
         speciesName = "Medicham",
         type1 = Fighting,
@@ -10169,7 +10169,7 @@ public static class Species
             Telepathy,
         },
     };
-    public static SpeciesData Electrike = new()
+    public static readonly SpeciesData Electrike = new()
     {
         speciesName = "Electrike",
         type1 = Electric,
@@ -10202,7 +10202,7 @@ public static class Species
             Minus,
         },
     };
-    public static SpeciesData Manectric = new()
+    public static readonly SpeciesData Manectric = new()
     {
         speciesName = "Manectric",
         type1 = Electric,
@@ -10235,7 +10235,7 @@ public static class Species
             Minus,
         },
     };
-    public static SpeciesData Plusle = new()
+    public static readonly SpeciesData Plusle = new()
     {
         speciesName = "Plusle",
         type1 = Electric,
@@ -10268,7 +10268,7 @@ public static class Species
             LightningRod,
         },
     };
-    public static SpeciesData Minun = new()
+    public static readonly SpeciesData Minun = new()
     {
         speciesName = "Minun",
         type1 = Electric,
@@ -10301,7 +10301,7 @@ public static class Species
             VoltAbsorb,
         },
     };
-    public static SpeciesData Volbeat = new()
+    public static readonly SpeciesData Volbeat = new()
     {
         speciesName = "Volbeat",
         type1 = Bug,
@@ -10334,7 +10334,7 @@ public static class Species
             Prankster,
         },
     };
-    public static SpeciesData Illumise = new()
+    public static readonly SpeciesData Illumise = new()
     {
         speciesName = "Illumise",
         type1 = Bug,
@@ -10367,7 +10367,7 @@ public static class Species
             Prankster,
         },
     };
-    public static SpeciesData Roselia = new()
+    public static readonly SpeciesData Roselia = new()
     {
         speciesName = "Roselia",
         type1 = Grass,
@@ -10400,7 +10400,7 @@ public static class Species
             LeafGuard,
         },
     };
-    public static SpeciesData Gulpin = new()
+    public static readonly SpeciesData Gulpin = new()
     {
         speciesName = "Gulpin",
         type1 = Poison,
@@ -10433,7 +10433,7 @@ public static class Species
             Gluttony,
         },
     };
-    public static SpeciesData Swalot = new()
+    public static readonly SpeciesData Swalot = new()
     {
         speciesName = "Swalot",
         type1 = Poison,
@@ -10466,7 +10466,7 @@ public static class Species
             Gluttony,
         },
     };
-    public static SpeciesData Carvanha = new()
+    public static readonly SpeciesData Carvanha = new()
     {
         speciesName = "Carvanha",
         type1 = Water,
@@ -10499,7 +10499,7 @@ public static class Species
             SpeedBoost,
         },
     };
-    public static SpeciesData Sharpedo = new()
+    public static readonly SpeciesData Sharpedo = new()
     {
         speciesName = "Sharpedo",
         type1 = Water,
@@ -10532,7 +10532,7 @@ public static class Species
             SpeedBoost,
         },
     };
-    public static SpeciesData Wailmer = new()
+    public static readonly SpeciesData Wailmer = new()
     {
         speciesName = "Wailmer",
         type1 = Water,
@@ -10565,7 +10565,7 @@ public static class Species
             Pressure,
         },
     };
-    public static SpeciesData Wailord = new()
+    public static readonly SpeciesData Wailord = new()
     {
         speciesName = "Wailord",
         type1 = Water,
@@ -10598,7 +10598,7 @@ public static class Species
             Pressure,
         },
     };
-    public static SpeciesData Numel = new()
+    public static readonly SpeciesData Numel = new()
     {
         speciesName = "Numel",
         type1 = Fire,
@@ -10631,7 +10631,7 @@ public static class Species
             OwnTempo,
         },
     };
-    public static SpeciesData Camerupt = new()
+    public static readonly SpeciesData Camerupt = new()
     {
         speciesName = "Camerupt",
         type1 = Fire,
@@ -10664,7 +10664,7 @@ public static class Species
             AngerPoint,
         },
     };
-    public static SpeciesData Torkoal = new()
+    public static readonly SpeciesData Torkoal = new()
     {
         speciesName = "Torkoal",
         type1 = Fire,
@@ -10697,7 +10697,7 @@ public static class Species
             ShellArmor,
         },
     };
-    public static SpeciesData Spoink = new()
+    public static readonly SpeciesData Spoink = new()
     {
         speciesName = "Spoink",
         type1 = Psychic,
@@ -10730,7 +10730,7 @@ public static class Species
             Gluttony,
         },
     };
-    public static SpeciesData Grumpig = new()
+    public static readonly SpeciesData Grumpig = new()
     {
         speciesName = "Grumpig",
         type1 = Psychic,
@@ -10763,7 +10763,7 @@ public static class Species
             Gluttony,
         },
     };
-    public static SpeciesData Spinda = new()
+    public static readonly SpeciesData Spinda = new()
     {
         speciesName = "Spinda",
         type1 = Normal,
@@ -10796,7 +10796,7 @@ public static class Species
             Contrary,
         },
     };
-    public static SpeciesData Trapinch = new()
+    public static readonly SpeciesData Trapinch = new()
     {
         speciesName = "Trapinch",
         type1 = Ground,
@@ -10829,7 +10829,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Vibrava = new()
+    public static readonly SpeciesData Vibrava = new()
     {
         speciesName = "Vibrava",
         type1 = Ground,
@@ -10862,7 +10862,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Flygon = new()
+    public static readonly SpeciesData Flygon = new()
     {
         speciesName = "Flygon",
         type1 = Ground,
@@ -10895,7 +10895,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Cacnea = new()
+    public static readonly SpeciesData Cacnea = new()
     {
         speciesName = "Cacnea",
         type1 = Grass,
@@ -10928,7 +10928,7 @@ public static class Species
             WaterAbsorb,
         },
     };
-    public static SpeciesData Cacturne = new()
+    public static readonly SpeciesData Cacturne = new()
     {
         speciesName = "Cacturne",
         type1 = Grass,
@@ -10961,7 +10961,7 @@ public static class Species
             WaterAbsorb,
         },
     };
-    public static SpeciesData Swablu = new()
+    public static readonly SpeciesData Swablu = new()
     {
         speciesName = "Swablu",
         type1 = Normal,
@@ -10994,7 +10994,7 @@ public static class Species
             CloudNine,
         },
     };
-    public static SpeciesData Altaria = new()
+    public static readonly SpeciesData Altaria = new()
     {
         speciesName = "Altaria",
         type1 = Dragon,
@@ -11027,7 +11027,7 @@ public static class Species
             CloudNine,
         },
     };
-    public static SpeciesData Zangoose = new()
+    public static readonly SpeciesData Zangoose = new()
     {
         speciesName = "Zangoose",
         type1 = Normal,
@@ -11060,7 +11060,7 @@ public static class Species
             ToxicBoost,
         },
     };
-    public static SpeciesData Seviper = new()
+    public static readonly SpeciesData Seviper = new()
     {
         speciesName = "Seviper",
         type1 = Poison,
@@ -11093,7 +11093,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Lunatone = new()
+    public static readonly SpeciesData Lunatone = new()
     {
         speciesName = "Lunatone",
         type1 = Rock,
@@ -11126,7 +11126,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Solrock = new()
+    public static readonly SpeciesData Solrock = new()
     {
         speciesName = "Solrock",
         type1 = Rock,
@@ -11159,7 +11159,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Barboach = new()
+    public static readonly SpeciesData Barboach = new()
     {
         speciesName = "Barboach",
         type1 = Water,
@@ -11192,7 +11192,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Whiscash = new()
+    public static readonly SpeciesData Whiscash = new()
     {
         speciesName = "Whiscash",
         type1 = Water,
@@ -11225,7 +11225,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Corphish = new()
+    public static readonly SpeciesData Corphish = new()
     {
         speciesName = "Corphish",
         type1 = Water,
@@ -11258,7 +11258,7 @@ public static class Species
             Adaptability,
         },
     };
-    public static SpeciesData Crawdaunt = new()
+    public static readonly SpeciesData Crawdaunt = new()
     {
         speciesName = "Crawdaunt",
         type1 = Water,
@@ -11291,7 +11291,7 @@ public static class Species
             Adaptability,
         },
     };
-    public static SpeciesData Baltoy = new()
+    public static readonly SpeciesData Baltoy = new()
     {
         speciesName = "Baltoy",
         type1 = Ground,
@@ -11324,7 +11324,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Claydol = new()
+    public static readonly SpeciesData Claydol = new()
     {
         speciesName = "Claydol",
         type1 = Ground,
@@ -11357,7 +11357,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Lileep = new()
+    public static readonly SpeciesData Lileep = new()
     {
         speciesName = "Lileep",
         type1 = Rock,
@@ -11390,7 +11390,7 @@ public static class Species
             StormDrain,
         },
     };
-    public static SpeciesData Cradily = new()
+    public static readonly SpeciesData Cradily = new()
     {
         speciesName = "Cradily",
         type1 = Rock,
@@ -11423,7 +11423,7 @@ public static class Species
             StormDrain,
         },
     };
-    public static SpeciesData Anorith = new()
+    public static readonly SpeciesData Anorith = new()
     {
         speciesName = "Anorith",
         type1 = Rock,
@@ -11456,7 +11456,7 @@ public static class Species
             SwiftSwim,
         },
     };
-    public static SpeciesData Armaldo = new()
+    public static readonly SpeciesData Armaldo = new()
     {
         speciesName = "Armaldo",
         type1 = Rock,
@@ -11489,7 +11489,7 @@ public static class Species
             SwiftSwim,
         },
     };
-    public static SpeciesData Feebas = new()
+    public static readonly SpeciesData Feebas = new()
     {
         speciesName = "Feebas",
         type1 = Water,
@@ -11522,7 +11522,7 @@ public static class Species
             Adaptability,
         },
     };
-    public static SpeciesData Milotic = new()
+    public static readonly SpeciesData Milotic = new()
     {
         speciesName = "Milotic",
         type1 = Water,
@@ -11556,10 +11556,10 @@ public static class Species
         },
     };
 
-    public static SpeciesData Castform = Castform(
+    public static readonly SpeciesData Castform = Castform(
         Normal, "castform/normal", 0);
 
-    public static SpeciesData Kecleon = new()
+    public static readonly SpeciesData Kecleon = new()
     {
         speciesName = "Kecleon",
         type1 = Normal,
@@ -11592,7 +11592,7 @@ public static class Species
             Protean,
         },
     };
-    public static SpeciesData Shuppet = new()
+    public static readonly SpeciesData Shuppet = new()
     {
         speciesName = "Shuppet",
         type1 = Ghost,
@@ -11625,7 +11625,7 @@ public static class Species
             CursedBody,
         },
     };
-    public static SpeciesData Banette = new()
+    public static readonly SpeciesData Banette = new()
     {
         speciesName = "Banette",
         type1 = Ghost,
@@ -11658,7 +11658,7 @@ public static class Species
             CursedBody,
         },
     };
-    public static SpeciesData Duskull = new()
+    public static readonly SpeciesData Duskull = new()
     {
         speciesName = "Duskull",
         type1 = Ghost,
@@ -11691,7 +11691,7 @@ public static class Species
             Frisk,
         },
     };
-    public static SpeciesData Dusclops = new()
+    public static readonly SpeciesData Dusclops = new()
     {
         speciesName = "Dusclops",
         type1 = Ghost,
@@ -11724,7 +11724,7 @@ public static class Species
             Frisk,
         },
     };
-    public static SpeciesData Tropius = new()
+    public static readonly SpeciesData Tropius = new()
     {
         speciesName = "Tropius",
         type1 = Grass,
@@ -11757,7 +11757,7 @@ public static class Species
             Harvest,
         },
     };
-    public static SpeciesData Chimecho = new()
+    public static readonly SpeciesData Chimecho = new()
     {
         speciesName = "Chimecho",
         type1 = Psychic,
@@ -11790,7 +11790,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Absol = new()
+    public static readonly SpeciesData Absol = new()
     {
         speciesName = "Absol",
         type1 = Dark,
@@ -11823,7 +11823,7 @@ public static class Species
             Justified,
         },
     };
-    public static SpeciesData Wynaut = new()
+    public static readonly SpeciesData Wynaut = new()
     {
         speciesName = "Wynaut",
         type1 = Psychic,
@@ -11856,7 +11856,7 @@ public static class Species
             Telepathy,
         },
     };
-    public static SpeciesData Snorunt = new()
+    public static readonly SpeciesData Snorunt = new()
     {
         speciesName = "Snorunt",
         type1 = Ice,
@@ -11889,7 +11889,7 @@ public static class Species
             Moody,
         },
     };
-    public static SpeciesData Glalie = new()
+    public static readonly SpeciesData Glalie = new()
     {
         speciesName = "Glalie",
         type1 = Ice,
@@ -11922,7 +11922,7 @@ public static class Species
             Moody,
         },
     };
-    public static SpeciesData Spheal = new()
+    public static readonly SpeciesData Spheal = new()
     {
         speciesName = "Spheal",
         type1 = Ice,
@@ -11955,7 +11955,7 @@ public static class Species
             Oblivious,
         },
     };
-    public static SpeciesData Sealeo = new()
+    public static readonly SpeciesData Sealeo = new()
     {
         speciesName = "Sealeo",
         type1 = Ice,
@@ -11988,7 +11988,7 @@ public static class Species
             Oblivious,
         },
     };
-    public static SpeciesData Walrein = new()
+    public static readonly SpeciesData Walrein = new()
     {
         speciesName = "Walrein",
         type1 = Ice,
@@ -12021,7 +12021,7 @@ public static class Species
             Oblivious,
         },
     };
-    public static SpeciesData Clamperl = new()
+    public static readonly SpeciesData Clamperl = new()
     {
         speciesName = "Clamperl",
         type1 = Water,
@@ -12054,7 +12054,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData Huntail = new()
+    public static readonly SpeciesData Huntail = new()
     {
         speciesName = "Huntail",
         type1 = Water,
@@ -12087,7 +12087,7 @@ public static class Species
             WaterVeil,
         },
     };
-    public static SpeciesData Gorebyss = new()
+    public static readonly SpeciesData Gorebyss = new()
     {
         speciesName = "Gorebyss",
         type1 = Water,
@@ -12120,7 +12120,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Relicanth = new()
+    public static readonly SpeciesData Relicanth = new()
     {
         speciesName = "Relicanth",
         type1 = Water,
@@ -12153,7 +12153,7 @@ public static class Species
             Sturdy,
         },
     };
-    public static SpeciesData Luvdisc = new()
+    public static readonly SpeciesData Luvdisc = new()
     {
         speciesName = "Luvdisc",
         type1 = Water,
@@ -12186,7 +12186,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Bagon = new()
+    public static readonly SpeciesData Bagon = new()
     {
         speciesName = "Bagon",
         type1 = Dragon,
@@ -12219,7 +12219,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Shelgon = new()
+    public static readonly SpeciesData Shelgon = new()
     {
         speciesName = "Shelgon",
         type1 = Dragon,
@@ -12252,7 +12252,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData Salamence = new()
+    public static readonly SpeciesData Salamence = new()
     {
         speciesName = "Salamence",
         type1 = Dragon,
@@ -12285,7 +12285,7 @@ public static class Species
             Moxie,
         },
     };
-    public static SpeciesData Beldum = new()
+    public static readonly SpeciesData Beldum = new()
     {
         speciesName = "Beldum",
         type1 = Steel,
@@ -12318,7 +12318,7 @@ public static class Species
             LightMetal,
         },
     };
-    public static SpeciesData Metang = new()
+    public static readonly SpeciesData Metang = new()
     {
         speciesName = "Metang",
         type1 = Steel,
@@ -12351,7 +12351,7 @@ public static class Species
             LightMetal,
         },
     };
-    public static SpeciesData Metagross = new()
+    public static readonly SpeciesData Metagross = new()
     {
         speciesName = "Metagross",
         type1 = Steel,
@@ -12384,7 +12384,7 @@ public static class Species
             LightMetal,
         },
     };
-    public static SpeciesData Regirock = new()
+    public static readonly SpeciesData Regirock = new()
     {
         speciesName = "Regirock",
         type1 = Rock,
@@ -12417,7 +12417,7 @@ public static class Species
             Sturdy,
         },
     };
-    public static SpeciesData Regice = new()
+    public static readonly SpeciesData Regice = new()
     {
         speciesName = "Regice",
         type1 = Ice,
@@ -12450,7 +12450,7 @@ public static class Species
             IceBody,
         },
     };
-    public static SpeciesData Registeel = new()
+    public static readonly SpeciesData Registeel = new()
     {
         speciesName = "Registeel",
         type1 = Steel,
@@ -12483,7 +12483,7 @@ public static class Species
             LightMetal,
         },
     };
-    public static SpeciesData Latias = new()
+    public static readonly SpeciesData Latias = new()
     {
         speciesName = "Latias",
         type1 = Dragon,
@@ -12516,7 +12516,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Latios = new()
+    public static readonly SpeciesData Latios = new()
     {
         speciesName = "Latios",
         type1 = Dragon,
@@ -12549,7 +12549,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Kyogre = new()
+    public static readonly SpeciesData Kyogre = new()
     {
         speciesName = "Kyogre",
         type1 = Water,
@@ -12582,7 +12582,7 @@ public static class Species
             Drizzle,
         },
     };
-    public static SpeciesData Groudon = new()
+    public static readonly SpeciesData Groudon = new()
     {
         speciesName = "Groudon",
         type1 = Ground,
@@ -12615,7 +12615,7 @@ public static class Species
             Drought,
         },
     };
-    public static SpeciesData Rayquaza = new()
+    public static readonly SpeciesData Rayquaza = new()
     {
         speciesName = "Rayquaza",
         type1 = Dragon,
@@ -12648,7 +12648,7 @@ public static class Species
             AirLock,
         },
     };
-    public static SpeciesData Jirachi = new()
+    public static readonly SpeciesData Jirachi = new()
     {
         speciesName = "Jirachi",
         type1 = Steel,
@@ -12682,7 +12682,7 @@ public static class Species
         },
     };
 
-    public static SpeciesData Deoxys =
+    public static readonly SpeciesData Deoxys =
         Deoxys(
             baseHP: 50,
             baseAttack: 150,
@@ -12697,7 +12697,7 @@ public static class Species
 
     //Gen 4
 
-    public static SpeciesData Turtwig = new()
+    public static readonly SpeciesData Turtwig = new()
     {
         speciesName = "Turtwig",
         type1 = Grass,
@@ -12730,7 +12730,7 @@ public static class Species
             ShellArmor,
         },
     };
-    public static SpeciesData Grotle = new()
+    public static readonly SpeciesData Grotle = new()
     {
         speciesName = "Grotle",
         type1 = Grass,
@@ -12763,7 +12763,7 @@ public static class Species
             ShellArmor,
         },
     };
-    public static SpeciesData Torterra = new()
+    public static readonly SpeciesData Torterra = new()
     {
         speciesName = "Torterra",
         type1 = Grass,
@@ -12796,7 +12796,7 @@ public static class Species
             ShellArmor,
         },
     };
-    public static SpeciesData Chimchar = new()
+    public static readonly SpeciesData Chimchar = new()
     {
         speciesName = "Chimchar",
         type1 = Fire,
@@ -12829,7 +12829,7 @@ public static class Species
             IronFist,
         },
     };
-    public static SpeciesData Monferno = new()
+    public static readonly SpeciesData Monferno = new()
     {
         speciesName = "Monferno",
         type1 = Fire,
@@ -12862,7 +12862,7 @@ public static class Species
             IronFist,
         },
     };
-    public static SpeciesData Infernape = new()
+    public static readonly SpeciesData Infernape = new()
     {
         speciesName = "Infernape",
         type1 = Fire,
@@ -12895,7 +12895,7 @@ public static class Species
             IronFist,
         },
     };
-    public static SpeciesData Piplup = new()
+    public static readonly SpeciesData Piplup = new()
     {
         speciesName = "Piplup",
         type1 = Water,
@@ -12928,7 +12928,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData Prinplup = new()
+    public static readonly SpeciesData Prinplup = new()
     {
         speciesName = "Prinplup",
         type1 = Water,
@@ -12961,7 +12961,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData Empoleon = new()
+    public static readonly SpeciesData Empoleon = new()
     {
         speciesName = "Empoleon",
         type1 = Water,
@@ -12994,7 +12994,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData Starly = new()
+    public static readonly SpeciesData Starly = new()
     {
         speciesName = "Starly",
         type1 = Normal,
@@ -13027,7 +13027,7 @@ public static class Species
             Reckless,
         },
     };
-    public static SpeciesData Staravia = new()
+    public static readonly SpeciesData Staravia = new()
     {
         speciesName = "Staravia",
         type1 = Normal,
@@ -13060,7 +13060,7 @@ public static class Species
             Reckless,
         },
     };
-    public static SpeciesData Staraptor = new()
+    public static readonly SpeciesData Staraptor = new()
     {
         speciesName = "Staraptor",
         type1 = Normal,
@@ -13093,7 +13093,7 @@ public static class Species
             Reckless,
         },
     };
-    public static SpeciesData Bidoof = new()
+    public static readonly SpeciesData Bidoof = new()
     {
         speciesName = "Bidoof",
         type1 = Normal,
@@ -13126,7 +13126,7 @@ public static class Species
             Moody,
         },
     };
-    public static SpeciesData Bibarel = new()
+    public static readonly SpeciesData Bibarel = new()
     {
         speciesName = "Bibarel",
         type1 = Normal,
@@ -13159,7 +13159,7 @@ public static class Species
             Moody,
         },
     };
-    public static SpeciesData Kricketot = new()
+    public static readonly SpeciesData Kricketot = new()
     {
         speciesName = "Kricketot",
         type1 = Bug,
@@ -13192,7 +13192,7 @@ public static class Species
             RunAway,
         },
     };
-    public static SpeciesData Kricketune = new()
+    public static readonly SpeciesData Kricketune = new()
     {
         speciesName = "Kricketune",
         type1 = Bug,
@@ -13225,7 +13225,7 @@ public static class Species
             Technician,
         },
     };
-    public static SpeciesData Shinx = new()
+    public static readonly SpeciesData Shinx = new()
     {
         speciesName = "Shinx",
         type1 = Electric,
@@ -13258,7 +13258,7 @@ public static class Species
             Guts,
         },
     };
-    public static SpeciesData Luxio = new()
+    public static readonly SpeciesData Luxio = new()
     {
         speciesName = "Luxio",
         type1 = Electric,
@@ -13291,7 +13291,7 @@ public static class Species
             Guts,
         },
     };
-    public static SpeciesData Luxray = new()
+    public static readonly SpeciesData Luxray = new()
     {
         speciesName = "Luxray",
         type1 = Electric,
@@ -13324,7 +13324,7 @@ public static class Species
             Guts,
         },
     };
-    public static SpeciesData Budew = new()
+    public static readonly SpeciesData Budew = new()
     {
         speciesName = "Budew",
         type1 = Grass,
@@ -13357,7 +13357,7 @@ public static class Species
             LeafGuard,
         },
     };
-    public static SpeciesData Roserade = new()
+    public static readonly SpeciesData Roserade = new()
     {
         speciesName = "Roserade",
         type1 = Grass,
@@ -13390,7 +13390,7 @@ public static class Species
             Technician,
         },
     };
-    public static SpeciesData Cranidos = new()
+    public static readonly SpeciesData Cranidos = new()
     {
         speciesName = "Cranidos",
         type1 = Rock,
@@ -13423,7 +13423,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Rampardos = new()
+    public static readonly SpeciesData Rampardos = new()
     {
         speciesName = "Rampardos",
         type1 = Rock,
@@ -13456,7 +13456,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Shieldon = new()
+    public static readonly SpeciesData Shieldon = new()
     {
         speciesName = "Shieldon",
         type1 = Rock,
@@ -13489,7 +13489,7 @@ public static class Species
             Soundproof,
         },
     };
-    public static SpeciesData Bastiodon = new()
+    public static readonly SpeciesData Bastiodon = new()
     {
         speciesName = "Bastiodon",
         type1 = Rock,
@@ -13523,12 +13523,12 @@ public static class Species
         },
     };
 
-    public static SpeciesData Burmy = Burmy(
+    public static readonly SpeciesData Burmy = Burmy(
         graphics: "burmy",
         backSpriteHeight: 6,
         evolution: Evolution.Burmy
     );
-    public static SpeciesData Wormadam = Wormadam(
+    public static readonly SpeciesData Wormadam = Wormadam(
         type2: Grass,
         baseHP: 60,
         baseAttack: 59,
@@ -13540,7 +13540,7 @@ public static class Species
         graphics: "wormadam",
         backSpriteHeight: 2
     );
-    public static SpeciesData Mothim = new()
+    public static readonly SpeciesData Mothim = new()
     {
         speciesName = "Mothim",
         type1 = Bug,
@@ -13573,7 +13573,7 @@ public static class Species
             TintedLens,
         },
     };
-    public static SpeciesData Combee = new()
+    public static readonly SpeciesData Combee = new()
     {
         speciesName = "Combee",
         type1 = Bug,
@@ -13606,7 +13606,7 @@ public static class Species
             Hustle,
         },
     };
-    public static SpeciesData Vespiquen = new()
+    public static readonly SpeciesData Vespiquen = new()
     {
         speciesName = "Vespiquen",
         type1 = Bug,
@@ -13639,7 +13639,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Pachirisu = new()
+    public static readonly SpeciesData Pachirisu = new()
     {
         speciesName = "Pachirisu",
         type1 = Electric,
@@ -13672,7 +13672,7 @@ public static class Species
             VoltAbsorb,
         },
     };
-    public static SpeciesData Buizel = new()
+    public static readonly SpeciesData Buizel = new()
     {
         speciesName = "Buizel",
         type1 = Water,
@@ -13705,7 +13705,7 @@ public static class Species
             WaterVeil,
         },
     };
-    public static SpeciesData Floatzel = new()
+    public static readonly SpeciesData Floatzel = new()
     {
         speciesName = "Floatzel",
         type1 = Water,
@@ -13738,7 +13738,7 @@ public static class Species
             WaterVeil,
         },
     };
-    public static SpeciesData Cherubi = new()
+    public static readonly SpeciesData Cherubi = new()
     {
         speciesName = "Cherubi",
         type1 = Grass,
@@ -13771,11 +13771,11 @@ public static class Species
             Chlorophyll,
         },
     };
-    public static SpeciesData Cherrim = Cherrim("cherrim/normal", 9);
-    public static SpeciesData Shellos = Shellos("shellos", 8,
+    public static readonly SpeciesData Cherrim = Cherrim("cherrim/normal", 9);
+    public static readonly SpeciesData Shellos = Shellos("shellos", 8,
         Evolution.Shellos);
-    public static SpeciesData Gastrodon = Gastrodon("gastrodon", 3);
-    public static SpeciesData Ambipom = new()
+    public static readonly SpeciesData Gastrodon = Gastrodon("gastrodon", 3);
+    public static readonly SpeciesData Ambipom = new()
     {
         speciesName = "Ambipom",
         type1 = Normal,
@@ -13808,7 +13808,7 @@ public static class Species
             SkillLink,
     },
     };
-    public static SpeciesData Drifloon = new()
+    public static readonly SpeciesData Drifloon = new()
     {
         speciesName = "Drifloon",
         type1 = Ghost,
@@ -13841,7 +13841,7 @@ public static class Species
             FlareBoost,
         },
     };
-    public static SpeciesData Drifblim = new()
+    public static readonly SpeciesData Drifblim = new()
     {
         speciesName = "Drifblim",
         type1 = Ghost,
@@ -13874,7 +13874,7 @@ public static class Species
             FlareBoost,
         },
     };
-    public static SpeciesData Buneary = new()
+    public static readonly SpeciesData Buneary = new()
     {
         speciesName = "Buneary",
         type1 = Normal,
@@ -13907,7 +13907,7 @@ public static class Species
             Limber,
         },
     };
-    public static SpeciesData Lopunny = new()
+    public static readonly SpeciesData Lopunny = new()
     {
         speciesName = "Lopunny",
         type1 = Normal,
@@ -13940,7 +13940,7 @@ public static class Species
             Limber,
         },
     };
-    public static SpeciesData Mismagius = new()
+    public static readonly SpeciesData Mismagius = new()
     {
         speciesName = "Mismagius",
         type1 = Ghost,
@@ -13973,7 +13973,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Honchkrow = new()
+    public static readonly SpeciesData Honchkrow = new()
     {
         speciesName = "Honchkrow",
         type1 = Dark,
@@ -14006,7 +14006,7 @@ public static class Species
             Moxie,
         },
     };
-    public static SpeciesData Glameow = new()
+    public static readonly SpeciesData Glameow = new()
     {
         speciesName = "Glameow",
         type1 = Normal,
@@ -14039,7 +14039,7 @@ public static class Species
             KeenEye,
         },
     };
-    public static SpeciesData Purugly = new()
+    public static readonly SpeciesData Purugly = new()
     {
         speciesName = "Purugly",
         type1 = Normal,
@@ -14072,7 +14072,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData Chingling = new()
+    public static readonly SpeciesData Chingling = new()
     {
         speciesName = "Chingling",
         type1 = Psychic,
@@ -14105,7 +14105,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Stunky = new()
+    public static readonly SpeciesData Stunky = new()
     {
         speciesName = "Stunky",
         type1 = Poison,
@@ -14138,7 +14138,7 @@ public static class Species
             KeenEye,
         },
     };
-    public static SpeciesData Skuntank = new()
+    public static readonly SpeciesData Skuntank = new()
     {
         speciesName = "Skuntank",
         type1 = Poison,
@@ -14171,7 +14171,7 @@ public static class Species
             KeenEye,
         },
     };
-    public static SpeciesData Bronzor = new()
+    public static readonly SpeciesData Bronzor = new()
     {
         speciesName = "Bronzor",
         type1 = Steel,
@@ -14204,7 +14204,7 @@ public static class Species
             HeavyMetal,
         },
     };
-    public static SpeciesData Bronzong = new()
+    public static readonly SpeciesData Bronzong = new()
     {
         speciesName = "Bronzong",
         type1 = Steel,
@@ -14237,7 +14237,7 @@ public static class Species
             HeavyMetal,
         },
     };
-    public static SpeciesData Bonsly = new()
+    public static readonly SpeciesData Bonsly = new()
     {
         speciesName = "Bonsly",
         type1 = Rock,
@@ -14270,7 +14270,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData MimeJr = new()
+    public static readonly SpeciesData MimeJr = new()
     {
         speciesName = "Mime Jr.",
         type1 = Psychic,
@@ -14303,7 +14303,7 @@ public static class Species
             Technician,
         },
     };
-    public static SpeciesData Happiny = new()
+    public static readonly SpeciesData Happiny = new()
     {
         speciesName = "Happiny",
         type1 = Normal,
@@ -14336,7 +14336,7 @@ public static class Species
             FriendGuard,
         },
     };
-    public static SpeciesData Chatot = new()
+    public static readonly SpeciesData Chatot = new()
     {
         speciesName = "Chatot",
         type1 = Normal,
@@ -14369,7 +14369,7 @@ public static class Species
             BigPecks,
         },
     };
-    public static SpeciesData Spiritomb = new()
+    public static readonly SpeciesData Spiritomb = new()
     {
         speciesName = "Spiritomb",
         type1 = Ghost,
@@ -14402,7 +14402,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Gible = new()
+    public static readonly SpeciesData Gible = new()
     {
         speciesName = "Gible",
         type1 = Dragon,
@@ -14435,7 +14435,7 @@ public static class Species
             RoughSkin,
         },
     };
-    public static SpeciesData Gabite = new()
+    public static readonly SpeciesData Gabite = new()
     {
         speciesName = "Gabite",
         type1 = Dragon,
@@ -14468,7 +14468,7 @@ public static class Species
             RoughSkin,
         },
     };
-    public static SpeciesData Garchomp = new()
+    public static readonly SpeciesData Garchomp = new()
     {
         speciesName = "Garchomp",
         type1 = Dragon,
@@ -14501,7 +14501,7 @@ public static class Species
             RoughSkin,
         },
     };
-    public static SpeciesData Munchlax = new()
+    public static readonly SpeciesData Munchlax = new()
     {
         speciesName = "Munchlax",
         type1 = Normal,
@@ -14534,7 +14534,7 @@ public static class Species
             Gluttony,
         },
     };
-    public static SpeciesData Riolu = new()
+    public static readonly SpeciesData Riolu = new()
     {
         speciesName = "Riolu",
         type1 = Fighting,
@@ -14567,7 +14567,7 @@ public static class Species
             Prankster,
         },
     };
-    public static SpeciesData Lucario = new()
+    public static readonly SpeciesData Lucario = new()
     {
         speciesName = "Lucario",
         type1 = Fighting,
@@ -14600,7 +14600,7 @@ public static class Species
             Justified,
         },
     };
-    public static SpeciesData Hippopotas = new()
+    public static readonly SpeciesData Hippopotas = new()
     {
         speciesName = "Hippopotas",
         type1 = Ground,
@@ -14633,7 +14633,7 @@ public static class Species
             SandForce,
         },
     };
-    public static SpeciesData Hippowdon = new()
+    public static readonly SpeciesData Hippowdon = new()
     {
         speciesName = "Hippowdon",
         type1 = Ground,
@@ -14666,7 +14666,7 @@ public static class Species
             SandForce,
         },
     };
-    public static SpeciesData Skorupi = new()
+    public static readonly SpeciesData Skorupi = new()
     {
         speciesName = "Skorupi",
         type1 = Poison,
@@ -14699,7 +14699,7 @@ public static class Species
             KeenEye,
         },
     };
-    public static SpeciesData Drapion = new()
+    public static readonly SpeciesData Drapion = new()
     {
         speciesName = "Drapion",
         type1 = Poison,
@@ -14732,7 +14732,7 @@ public static class Species
             KeenEye,
         },
     };
-    public static SpeciesData Croagunk = new()
+    public static readonly SpeciesData Croagunk = new()
     {
         speciesName = "Croagunk",
         type1 = Poison,
@@ -14765,7 +14765,7 @@ public static class Species
             PoisonTouch,
         },
     };
-    public static SpeciesData Toxicroak = new()
+    public static readonly SpeciesData Toxicroak = new()
     {
         speciesName = "Toxicroak",
         type1 = Poison,
@@ -14798,7 +14798,7 @@ public static class Species
             PoisonTouch,
         },
     };
-    public static SpeciesData Carnivine = new()
+    public static readonly SpeciesData Carnivine = new()
     {
         speciesName = "Carnivine",
         type1 = Grass,
@@ -14831,7 +14831,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Finneon = new()
+    public static readonly SpeciesData Finneon = new()
     {
         speciesName = "Finneon",
         type1 = Water,
@@ -14864,7 +14864,7 @@ public static class Species
             WaterVeil,
         },
     };
-    public static SpeciesData Lumineon = new()
+    public static readonly SpeciesData Lumineon = new()
     {
         speciesName = "Lumineon",
         type1 = Water,
@@ -14897,7 +14897,7 @@ public static class Species
             WaterVeil,
         },
     };
-    public static SpeciesData Mantyke = new()
+    public static readonly SpeciesData Mantyke = new()
     {
         speciesName = "Mantyke",
         type1 = Water,
@@ -14930,7 +14930,7 @@ public static class Species
             WaterVeil,
         },
     };
-    public static SpeciesData Snover = new()
+    public static readonly SpeciesData Snover = new()
     {
         speciesName = "Snover",
         type1 = Grass,
@@ -14963,7 +14963,7 @@ public static class Species
             Soundproof,
         },
     };
-    public static SpeciesData Abomasnow = new()
+    public static readonly SpeciesData Abomasnow = new()
     {
         speciesName = "Abomasnow",
         type1 = Grass,
@@ -14996,7 +14996,7 @@ public static class Species
             Soundproof,
         },
     };
-    public static SpeciesData Weavile = new()
+    public static readonly SpeciesData Weavile = new()
     {
         speciesName = "Weavile",
         type1 = Dark,
@@ -15029,7 +15029,7 @@ public static class Species
             Pickpocket,
         },
     };
-    public static SpeciesData Magnezone = new()
+    public static readonly SpeciesData Magnezone = new()
     {
         speciesName = "Magnezone",
         type1 = Electric,
@@ -15062,7 +15062,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Lickilicky = new()
+    public static readonly SpeciesData Lickilicky = new()
     {
         speciesName = "Lickilicky",
         type1 = Normal,
@@ -15095,7 +15095,7 @@ public static class Species
             CloudNine,
         },
     };
-    public static SpeciesData Rhyperior = new()
+    public static readonly SpeciesData Rhyperior = new()
     {
         speciesName = "Rhyperior",
         type1 = Ground,
@@ -15128,7 +15128,7 @@ public static class Species
             Reckless,
         },
     };
-    public static SpeciesData Tangrowth = new()
+    public static readonly SpeciesData Tangrowth = new()
     {
         speciesName = "Tangrowth",
         type1 = Grass,
@@ -15161,7 +15161,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Electivire = new()
+    public static readonly SpeciesData Electivire = new()
     {
         speciesName = "Electivire",
         type1 = Electric,
@@ -15194,7 +15194,7 @@ public static class Species
             VitalSpirit,
         },
     };
-    public static SpeciesData Magmortar = new()
+    public static readonly SpeciesData Magmortar = new()
     {
         speciesName = "Magmortar",
         type1 = Fire,
@@ -15227,7 +15227,7 @@ public static class Species
             VitalSpirit,
         },
     };
-    public static SpeciesData Togekiss = new()
+    public static readonly SpeciesData Togekiss = new()
     {
         speciesName = "Togekiss",
         type1 = Fairy,
@@ -15260,7 +15260,7 @@ public static class Species
             SuperLuck,
         },
     };
-    public static SpeciesData Yanmega = new()
+    public static readonly SpeciesData Yanmega = new()
     {
         speciesName = "Yanmega",
         type1 = Bug,
@@ -15293,7 +15293,7 @@ public static class Species
             Frisk,
         },
     };
-    public static SpeciesData Leafeon = new()
+    public static readonly SpeciesData Leafeon = new()
     {
         speciesName = "Leafeon",
         type1 = Grass,
@@ -15326,7 +15326,7 @@ public static class Species
             Chlorophyll,
         },
     };
-    public static SpeciesData Glaceon = new()
+    public static readonly SpeciesData Glaceon = new()
     {
         speciesName = "Glaceon",
         type1 = Ice,
@@ -15359,7 +15359,7 @@ public static class Species
             IceBody,
         },
     };
-    public static SpeciesData Gliscor = new()
+    public static readonly SpeciesData Gliscor = new()
     {
         speciesName = "Gliscor",
         type1 = Ground,
@@ -15392,7 +15392,7 @@ public static class Species
             PoisonHeal,
         },
     };
-    public static SpeciesData Mamoswine = new()
+    public static readonly SpeciesData Mamoswine = new()
     {
         speciesName = "Mamoswine",
         type1 = Ice,
@@ -15425,7 +15425,7 @@ public static class Species
             ThickFat,
         },
     };
-    public static SpeciesData PorygonZ = new()
+    public static readonly SpeciesData PorygonZ = new()
     {
         speciesName = "Porygon-Z",
         type1 = Normal,
@@ -15458,7 +15458,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Gallade = new()
+    public static readonly SpeciesData Gallade = new()
     {
         speciesName = "Gallade",
         type1 = Psychic,
@@ -15491,7 +15491,7 @@ public static class Species
             Justified,
         },
     };
-    public static SpeciesData Probopass = new()
+    public static readonly SpeciesData Probopass = new()
     {
         speciesName = "Probopass",
         type1 = Rock,
@@ -15524,7 +15524,7 @@ public static class Species
             SandForce,
         },
     };
-    public static SpeciesData Dusknoir = new()
+    public static readonly SpeciesData Dusknoir = new()
     {
         speciesName = "Dusknoir",
         type1 = Ghost,
@@ -15557,7 +15557,7 @@ public static class Species
             Frisk,
         },
     };
-    public static SpeciesData Froslass = new()
+    public static readonly SpeciesData Froslass = new()
     {
         speciesName = "Froslass",
         type1 = Ice,
@@ -15590,7 +15590,7 @@ public static class Species
             CursedBody,
         },
     };
-    public static SpeciesData Rotom = new()
+    public static readonly SpeciesData Rotom = new()
     {
         speciesName = "Rotom",
         type1 = Electric,
@@ -15623,7 +15623,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Uxie = new()
+    public static readonly SpeciesData Uxie = new()
     {
         speciesName = "Uxie",
         type1 = Psychic,
@@ -15656,7 +15656,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Mesprit = new()
+    public static readonly SpeciesData Mesprit = new()
     {
         speciesName = "Mesprit",
         type1 = Psychic,
@@ -15689,7 +15689,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Azelf = new()
+    public static readonly SpeciesData Azelf = new()
     {
         speciesName = "Azelf",
         type1 = Psychic,
@@ -15722,19 +15722,19 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Dialga = Dialga(
+    public static readonly SpeciesData Dialga = Dialga(
         baseAttack: 120,
         baseSpDef: 100,
         graphics: "dialga",
         backSpriteHeight: 0
     );
-    public static SpeciesData Palkia = Palkia(
+    public static readonly SpeciesData Palkia = Palkia(
         baseAttack: 120,
         baseSpeed: 100,
         graphics: "palkia",
         backSpriteHeight: 6
     );
-    public static SpeciesData Heatran = new()
+    public static readonly SpeciesData Heatran = new()
     {
         speciesName = "Heatran",
         type1 = Fire,
@@ -15767,7 +15767,7 @@ public static class Species
             FlameBody,
         },
     };
-    public static SpeciesData Regigigas = new()
+    public static readonly SpeciesData Regigigas = new()
     {
         speciesName = "Regigigas",
         type1 = Normal,
@@ -15800,7 +15800,7 @@ public static class Species
             SlowStart,
         },
     };
-    public static SpeciesData Giratina = Giratina(
+    public static readonly SpeciesData Giratina = Giratina(
         baseAttack: 100,
         baseSpAtk: 100,
         baseDefense: 120,
@@ -15808,7 +15808,7 @@ public static class Species
         graphics: "giratina",
         backSpriteHeight: 4
     );
-    public static SpeciesData Cresselia = new()
+    public static readonly SpeciesData Cresselia = new()
     {
         speciesName = "Cresselia",
         type1 = Psychic,
@@ -15841,7 +15841,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Phione = new()
+    public static readonly SpeciesData Phione = new()
     {
         speciesName = "Phione",
         type1 = Water,
@@ -15874,7 +15874,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Manaphy = new()
+    public static readonly SpeciesData Manaphy = new()
     {
         speciesName = "Manaphy",
         type1 = Water,
@@ -15907,7 +15907,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Darkrai = new()
+    public static readonly SpeciesData Darkrai = new()
     {
         speciesName = "Darkrai",
         type1 = Dark,
@@ -15940,7 +15940,7 @@ public static class Species
             BadDreams,
         },
     };
-    public static SpeciesData Shaymin = Shaymin(
+    public static readonly SpeciesData Shaymin = Shaymin(
         type2: Grass,
         baseHP: 100,
         baseAttack: 100,
@@ -15953,9 +15953,9 @@ public static class Species
         graphics: "shaymin",
         backSpriteHeight: 15
     );
-    public static SpeciesData Arceus = Arceus(Normal, "arceus");
+    public static readonly SpeciesData Arceus = Arceus(Normal, "arceus");
 
-    public static SpeciesData Victini = new()
+    public static readonly SpeciesData Victini = new()
     {
         speciesName = "Victini",
         type1 = Psychic,
@@ -15988,7 +15988,7 @@ public static class Species
             VictoryStar,
         },
     };
-    public static SpeciesData Snivy = new()
+    public static readonly SpeciesData Snivy = new()
     {
         speciesName = "Snivy",
         type1 = Grass,
@@ -16021,7 +16021,7 @@ public static class Species
             Contrary,
         },
     };
-    public static SpeciesData Servine = new()
+    public static readonly SpeciesData Servine = new()
     {
         speciesName = "Servine",
         type1 = Grass,
@@ -16054,7 +16054,7 @@ public static class Species
             Contrary,
         },
     };
-    public static SpeciesData Serperior = new()
+    public static readonly SpeciesData Serperior = new()
     {
         speciesName = "Serperior",
         type1 = Grass,
@@ -16087,7 +16087,7 @@ public static class Species
             Contrary,
         },
     };
-    public static SpeciesData Tepig = new()
+    public static readonly SpeciesData Tepig = new()
     {
         speciesName = "Tepig",
         type1 = Fire,
@@ -16120,7 +16120,7 @@ public static class Species
             ThickFat,
         },
     };
-    public static SpeciesData Pignite = new()
+    public static readonly SpeciesData Pignite = new()
     {
         speciesName = "Pignite",
         type1 = Fire,
@@ -16153,7 +16153,7 @@ public static class Species
             ThickFat,
         },
     };
-    public static SpeciesData Emboar = new()
+    public static readonly SpeciesData Emboar = new()
     {
         speciesName = "Emboar",
         type1 = Fire,
@@ -16186,7 +16186,7 @@ public static class Species
             Reckless,
         },
     };
-    public static SpeciesData Oshawott = new()
+    public static readonly SpeciesData Oshawott = new()
     {
         speciesName = "Oshawott",
         type1 = Water,
@@ -16219,7 +16219,7 @@ public static class Species
             ShellArmor,
         },
     };
-    public static SpeciesData Dewott = new()
+    public static readonly SpeciesData Dewott = new()
     {
         speciesName = "Dewott",
         type1 = Water,
@@ -16252,7 +16252,7 @@ public static class Species
             ShellArmor,
         },
     };
-    public static SpeciesData Samurott = new()
+    public static readonly SpeciesData Samurott = new()
     {
         speciesName = "Samurott",
         type1 = Water,
@@ -16285,7 +16285,7 @@ public static class Species
             ShellArmor,
         },
     };
-    public static SpeciesData Patrat = new()
+    public static readonly SpeciesData Patrat = new()
     {
         speciesName = "Patrat",
         type1 = Normal,
@@ -16318,7 +16318,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Watchog = new()
+    public static readonly SpeciesData Watchog = new()
     {
         speciesName = "Watchog",
         type1 = Normal,
@@ -16351,7 +16351,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Lillipup = new()
+    public static readonly SpeciesData Lillipup = new()
     {
         speciesName = "Lillipup",
         type1 = Normal,
@@ -16384,7 +16384,7 @@ public static class Species
             RunAway,
         },
     };
-    public static SpeciesData Herdier = new()
+    public static readonly SpeciesData Herdier = new()
     {
         speciesName = "Herdier",
         type1 = Normal,
@@ -16417,7 +16417,7 @@ public static class Species
             Scrappy,
         },
     };
-    public static SpeciesData Stoutland = new()
+    public static readonly SpeciesData Stoutland = new()
     {
         speciesName = "Stoutland",
         type1 = Normal,
@@ -16450,7 +16450,7 @@ public static class Species
             Scrappy,
         },
     };
-    public static SpeciesData Purrloin = new()
+    public static readonly SpeciesData Purrloin = new()
     {
         speciesName = "Purrloin",
         type1 = Dark,
@@ -16483,7 +16483,7 @@ public static class Species
             Prankster,
         },
     };
-    public static SpeciesData Liepard = new()
+    public static readonly SpeciesData Liepard = new()
     {
         speciesName = "Liepard",
         type1 = Dark,
@@ -16516,7 +16516,7 @@ public static class Species
             Prankster,
         },
     };
-    public static SpeciesData Pansage = new()
+    public static readonly SpeciesData Pansage = new()
     {
         speciesName = "Pansage",
         type1 = Grass,
@@ -16549,7 +16549,7 @@ public static class Species
             Overgrow,
         },
     };
-    public static SpeciesData Simisage = new()
+    public static readonly SpeciesData Simisage = new()
     {
         speciesName = "Simisage",
         type1 = Grass,
@@ -16582,7 +16582,7 @@ public static class Species
             Overgrow,
         },
     };
-    public static SpeciesData Pansear = new()
+    public static readonly SpeciesData Pansear = new()
     {
         speciesName = "Pansear",
         type1 = Fire,
@@ -16615,7 +16615,7 @@ public static class Species
             Blaze,
         },
     };
-    public static SpeciesData Simisear = new()
+    public static readonly SpeciesData Simisear = new()
     {
         speciesName = "Simisear",
         type1 = Fire,
@@ -16648,7 +16648,7 @@ public static class Species
             Blaze,
         },
     };
-    public static SpeciesData Panpour = new()
+    public static readonly SpeciesData Panpour = new()
     {
         speciesName = "Panpour",
         type1 = Water,
@@ -16681,7 +16681,7 @@ public static class Species
             Torrent,
         },
     };
-    public static SpeciesData Simipour = new()
+    public static readonly SpeciesData Simipour = new()
     {
         speciesName = "Simipour",
         type1 = Water,
@@ -16714,7 +16714,7 @@ public static class Species
             Torrent,
         },
     };
-    public static SpeciesData Munna = new()
+    public static readonly SpeciesData Munna = new()
     {
         speciesName = "Munna",
         type1 = Psychic,
@@ -16747,7 +16747,7 @@ public static class Species
             Telepathy,
         },
     };
-    public static SpeciesData Musharna = new()
+    public static readonly SpeciesData Musharna = new()
     {
         speciesName = "Musharna",
         type1 = Psychic,
@@ -16780,7 +16780,7 @@ public static class Species
             Telepathy,
         },
     };
-    public static SpeciesData Pidove = new()
+    public static readonly SpeciesData Pidove = new()
     {
         speciesName = "Pidove",
         type1 = Normal,
@@ -16813,7 +16813,7 @@ public static class Species
             Rivalry,
         },
     };
-    public static SpeciesData Tranquill = new()
+    public static readonly SpeciesData Tranquill = new()
     {
         speciesName = "Tranquill",
         type1 = Normal,
@@ -16846,7 +16846,7 @@ public static class Species
             Rivalry,
         },
     };
-    public static SpeciesData Unfezant = new()
+    public static readonly SpeciesData Unfezant = new()
     {
         speciesName = "Unfezant",
         type1 = Normal,
@@ -16879,7 +16879,7 @@ public static class Species
             Rivalry,
         },
     };
-    public static SpeciesData Blitzle = new()
+    public static readonly SpeciesData Blitzle = new()
     {
         speciesName = "Blitzle",
         type1 = Electric,
@@ -16912,7 +16912,7 @@ public static class Species
             SapSipper,
         },
     };
-    public static SpeciesData Zebstrika = new()
+    public static readonly SpeciesData Zebstrika = new()
     {
         speciesName = "Zebstrika",
         type1 = Electric,
@@ -16945,7 +16945,7 @@ public static class Species
             SapSipper,
         },
     };
-    public static SpeciesData Roggenrola = new()
+    public static readonly SpeciesData Roggenrola = new()
     {
         speciesName = "Roggenrola",
         type1 = Rock,
@@ -16978,7 +16978,7 @@ public static class Species
             SandForce,
         },
     };
-    public static SpeciesData Boldore = new()
+    public static readonly SpeciesData Boldore = new()
     {
         speciesName = "Boldore",
         type1 = Rock,
@@ -17011,7 +17011,7 @@ public static class Species
             SandForce,
         },
     };
-    public static SpeciesData Gigalith = new()
+    public static readonly SpeciesData Gigalith = new()
     {
         speciesName = "Gigalith",
         type1 = Rock,
@@ -17044,7 +17044,7 @@ public static class Species
             SandForce,
         },
     };
-    public static SpeciesData Woobat = new()
+    public static readonly SpeciesData Woobat = new()
     {
         speciesName = "Woobat",
         type1 = Psychic,
@@ -17077,7 +17077,7 @@ public static class Species
             Simple,
         },
     };
-    public static SpeciesData Swoobat = new()
+    public static readonly SpeciesData Swoobat = new()
     {
         speciesName = "Swoobat",
         type1 = Psychic,
@@ -17110,7 +17110,7 @@ public static class Species
             Simple,
         },
     };
-    public static SpeciesData Drilbur = new()
+    public static readonly SpeciesData Drilbur = new()
     {
         speciesName = "Drilbur",
         type1 = Ground,
@@ -17143,7 +17143,7 @@ public static class Species
             MoldBreaker,
         },
     };
-    public static SpeciesData Excadrill = new()
+    public static readonly SpeciesData Excadrill = new()
     {
         speciesName = "Excadrill",
         type1 = Ground,
@@ -17176,7 +17176,7 @@ public static class Species
             MoldBreaker,
         },
     };
-    public static SpeciesData Audino = new()
+    public static readonly SpeciesData Audino = new()
     {
         speciesName = "Audino",
         type1 = Normal,
@@ -17209,7 +17209,7 @@ public static class Species
             Klutz,
         },
     };
-    public static SpeciesData Timburr = new()
+    public static readonly SpeciesData Timburr = new()
     {
         speciesName = "Timburr",
         type1 = Fighting,
@@ -17242,7 +17242,7 @@ public static class Species
             IronFist,
         },
     };
-    public static SpeciesData Gurdurr = new()
+    public static readonly SpeciesData Gurdurr = new()
     {
         speciesName = "Gurdurr",
         type1 = Fighting,
@@ -17275,7 +17275,7 @@ public static class Species
             IronFist,
         },
     };
-    public static SpeciesData Conkeldurr = new()
+    public static readonly SpeciesData Conkeldurr = new()
     {
         speciesName = "Conkeldurr",
         type1 = Fighting,
@@ -17308,7 +17308,7 @@ public static class Species
             IronFist,
         },
     };
-    public static SpeciesData Tympole = new()
+    public static readonly SpeciesData Tympole = new()
     {
         speciesName = "Tympole",
         type1 = Water,
@@ -17341,7 +17341,7 @@ public static class Species
             WaterAbsorb,
         },
     };
-    public static SpeciesData Palpitoad = new()
+    public static readonly SpeciesData Palpitoad = new()
     {
         speciesName = "Palpitoad",
         type1 = Water,
@@ -17374,7 +17374,7 @@ public static class Species
             WaterAbsorb,
         },
     };
-    public static SpeciesData Seismitoad = new()
+    public static readonly SpeciesData Seismitoad = new()
     {
         speciesName = "Seismitoad",
         type1 = Water,
@@ -17407,7 +17407,7 @@ public static class Species
             WaterAbsorb,
         },
     };
-    public static SpeciesData Throh = new()
+    public static readonly SpeciesData Throh = new()
     {
         speciesName = "Throh",
         type1 = Fighting,
@@ -17440,7 +17440,7 @@ public static class Species
             MoldBreaker,
         },
     };
-    public static SpeciesData Sawk = new()
+    public static readonly SpeciesData Sawk = new()
     {
         speciesName = "Sawk",
         type1 = Fighting,
@@ -17473,7 +17473,7 @@ public static class Species
             MoldBreaker,
         },
     };
-    public static SpeciesData Sewaddle = new()
+    public static readonly SpeciesData Sewaddle = new()
     {
         speciesName = "Sewaddle",
         type1 = Bug,
@@ -17506,7 +17506,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData Swadloon = new()
+    public static readonly SpeciesData Swadloon = new()
     {
         speciesName = "Swadloon",
         type1 = Bug,
@@ -17539,7 +17539,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData Leavanny = new()
+    public static readonly SpeciesData Leavanny = new()
     {
         speciesName = "Leavanny",
         type1 = Bug,
@@ -17572,7 +17572,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData Venipede = new()
+    public static readonly SpeciesData Venipede = new()
     {
         speciesName = "Venipede",
         type1 = Bug,
@@ -17605,7 +17605,7 @@ public static class Species
             QuickFeet,
         },
     };
-    public static SpeciesData Whirlipede = new()
+    public static readonly SpeciesData Whirlipede = new()
     {
         speciesName = "Whirlipede",
         type1 = Bug,
@@ -17638,7 +17638,7 @@ public static class Species
             QuickFeet,
         },
     };
-    public static SpeciesData Scolipede = new()
+    public static readonly SpeciesData Scolipede = new()
     {
         speciesName = "Scolipede",
         type1 = Bug,
@@ -17671,7 +17671,7 @@ public static class Species
             QuickFeet,
         },
     };
-    public static SpeciesData Cottonee = new()
+    public static readonly SpeciesData Cottonee = new()
     {
         speciesName = "Cottonee",
         type1 = Grass,
@@ -17704,7 +17704,7 @@ public static class Species
             Chlorophyll,
         },
     };
-    public static SpeciesData Whimsicott = new()
+    public static readonly SpeciesData Whimsicott = new()
     {
         speciesName = "Whimsicott",
         type1 = Grass,
@@ -17737,7 +17737,7 @@ public static class Species
             Chlorophyll,
         },
     };
-    public static SpeciesData Petilil = new()
+    public static readonly SpeciesData Petilil = new()
     {
         speciesName = "Petilil",
         type1 = Grass,
@@ -17770,7 +17770,7 @@ public static class Species
             LeafGuard,
         },
     };
-    public static SpeciesData Lilligant = new()
+    public static readonly SpeciesData Lilligant = new()
     {
         speciesName = "Lilligant",
         type1 = Grass,
@@ -17803,9 +17803,9 @@ public static class Species
             LeafGuard,
         },
     };
-    public static SpeciesData BasculinRed = Basculin(
+    public static readonly SpeciesData BasculinRed = Basculin(
         "basculin", Reckless, Evolution.None);
-    public static SpeciesData Sandile = new()
+    public static readonly SpeciesData Sandile = new()
     {
         speciesName = "Sandile",
         type1 = Ground,
@@ -17838,7 +17838,7 @@ public static class Species
             AngerPoint,
         },
     };
-    public static SpeciesData Krokorok = new()
+    public static readonly SpeciesData Krokorok = new()
     {
         speciesName = "Krokorok",
         type1 = Ground,
@@ -17871,7 +17871,7 @@ public static class Species
             AngerPoint,
         },
     };
-    public static SpeciesData Krookodile = new()
+    public static readonly SpeciesData Krookodile = new()
     {
         speciesName = "Krookodile",
         type1 = Ground,
@@ -17904,7 +17904,7 @@ public static class Species
             AngerPoint,
         },
     };
-    public static SpeciesData Darumaka = new()
+    public static readonly SpeciesData Darumaka = new()
     {
         speciesName = "Darumaka",
         type1 = Fire,
@@ -17937,7 +17937,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Darmanitan = new()
+    public static readonly SpeciesData Darmanitan = new()
     {
         speciesName = "Darmanitan",
         type1 = Fire,
@@ -17970,7 +17970,7 @@ public static class Species
             ZenMode,
         },
     };
-    public static SpeciesData Maractus = new()
+    public static readonly SpeciesData Maractus = new()
     {
         speciesName = "Maractus",
         type1 = Grass,
@@ -18003,7 +18003,7 @@ public static class Species
             StormDrain,
         },
     };
-    public static SpeciesData Dwebble = new()
+    public static readonly SpeciesData Dwebble = new()
     {
         speciesName = "Dwebble",
         type1 = Bug,
@@ -18036,7 +18036,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Crustle = new()
+    public static readonly SpeciesData Crustle = new()
     {
         speciesName = "Crustle",
         type1 = Bug,
@@ -18069,7 +18069,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Scraggy = new()
+    public static readonly SpeciesData Scraggy = new()
     {
         speciesName = "Scraggy",
         type1 = Dark,
@@ -18102,7 +18102,7 @@ public static class Species
             Intimidate,
         },
     };
-    public static SpeciesData Scrafty = new()
+    public static readonly SpeciesData Scrafty = new()
     {
         speciesName = "Scrafty",
         type1 = Dark,
@@ -18135,7 +18135,7 @@ public static class Species
             Intimidate,
         },
     };
-    public static SpeciesData Sigilyph = new()
+    public static readonly SpeciesData Sigilyph = new()
     {
         speciesName = "Sigilyph",
         type1 = Psychic,
@@ -18168,7 +18168,7 @@ public static class Species
             TintedLens,
         },
     };
-    public static SpeciesData Yamask = new()
+    public static readonly SpeciesData Yamask = new()
     {
         speciesName = "Yamask",
         type1 = Ghost,
@@ -18201,7 +18201,7 @@ public static class Species
             Mummy,
         },
     };
-    public static SpeciesData Cofagrigus = new()
+    public static readonly SpeciesData Cofagrigus = new()
     {
         speciesName = "Cofagrigus",
         type1 = Ghost,
@@ -18234,7 +18234,7 @@ public static class Species
             Mummy,
         },
     };
-    public static SpeciesData Tirtouga = new()
+    public static readonly SpeciesData Tirtouga = new()
     {
         speciesName = "Tirtouga",
         type1 = Water,
@@ -18267,7 +18267,7 @@ public static class Species
             SwiftSwim,
         },
     };
-    public static SpeciesData Carracosta = new()
+    public static readonly SpeciesData Carracosta = new()
     {
         speciesName = "Carracosta",
         type1 = Water,
@@ -18300,7 +18300,7 @@ public static class Species
             SwiftSwim,
         },
     };
-    public static SpeciesData Archen = new()
+    public static readonly SpeciesData Archen = new()
     {
         speciesName = "Archen",
         type1 = Rock,
@@ -18333,7 +18333,7 @@ public static class Species
             Defeatist,
         },
     };
-    public static SpeciesData Archeops = new()
+    public static readonly SpeciesData Archeops = new()
     {
         speciesName = "Archeops",
         type1 = Rock,
@@ -18366,7 +18366,7 @@ public static class Species
             Defeatist,
         },
     };
-    public static SpeciesData Trubbish = new()
+    public static readonly SpeciesData Trubbish = new()
     {
         speciesName = "Trubbish",
         type1 = Poison,
@@ -18399,7 +18399,7 @@ public static class Species
             Aftermath,
         },
     };
-    public static SpeciesData Garbodor = new()
+    public static readonly SpeciesData Garbodor = new()
     {
         speciesName = "Garbodor",
         type1 = Poison,
@@ -18432,7 +18432,7 @@ public static class Species
             Aftermath,
         },
     };
-    public static SpeciesData Zorua = new()
+    public static readonly SpeciesData Zorua = new()
     {
         speciesName = "Zorua",
         type1 = Dark,
@@ -18465,7 +18465,7 @@ public static class Species
             Illusion,
         },
     };
-    public static SpeciesData Zoroark = new()
+    public static readonly SpeciesData Zoroark = new()
     {
         speciesName = "Zoroark",
         type1 = Dark,
@@ -18498,7 +18498,7 @@ public static class Species
             Illusion,
         },
     };
-    public static SpeciesData Minccino = new()
+    public static readonly SpeciesData Minccino = new()
     {
         speciesName = "Minccino",
         type1 = Normal,
@@ -18531,7 +18531,7 @@ public static class Species
             SkillLink,
         },
     };
-    public static SpeciesData Cinccino = new()
+    public static readonly SpeciesData Cinccino = new()
     {
         speciesName = "Cinccino",
         type1 = Normal,
@@ -18564,7 +18564,7 @@ public static class Species
             SkillLink,
         },
     };
-    public static SpeciesData Gothita = new()
+    public static readonly SpeciesData Gothita = new()
     {
         speciesName = "Gothita",
         type1 = Psychic,
@@ -18597,7 +18597,7 @@ public static class Species
             ShadowTag,
         },
     };
-    public static SpeciesData Gothorita = new()
+    public static readonly SpeciesData Gothorita = new()
     {
         speciesName = "Gothorita",
         type1 = Psychic,
@@ -18630,7 +18630,7 @@ public static class Species
             ShadowTag,
         },
     };
-    public static SpeciesData Gothitelle = new()
+    public static readonly SpeciesData Gothitelle = new()
     {
         speciesName = "Gothitelle",
         type1 = Psychic,
@@ -18663,7 +18663,7 @@ public static class Species
             ShadowTag,
         },
     };
-    public static SpeciesData Solosis = new()
+    public static readonly SpeciesData Solosis = new()
     {
         speciesName = "Solosis",
         type1 = Psychic,
@@ -18696,7 +18696,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Duosion = new()
+    public static readonly SpeciesData Duosion = new()
     {
         speciesName = "Duosion",
         type1 = Psychic,
@@ -18729,7 +18729,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Reuniclus = new()
+    public static readonly SpeciesData Reuniclus = new()
     {
         speciesName = "Reuniclus",
         type1 = Psychic,
@@ -18762,7 +18762,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Ducklett = new()
+    public static readonly SpeciesData Ducklett = new()
     {
         speciesName = "Ducklett",
         type1 = Water,
@@ -18795,7 +18795,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Swanna = new()
+    public static readonly SpeciesData Swanna = new()
     {
         speciesName = "Swanna",
         type1 = Water,
@@ -18828,7 +18828,7 @@ public static class Species
             Hydration,
         },
     };
-    public static SpeciesData Vanillite = new()
+    public static readonly SpeciesData Vanillite = new()
     {
         speciesName = "Vanillite",
         type1 = Ice,
@@ -18861,7 +18861,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Vanillish = new()
+    public static readonly SpeciesData Vanillish = new()
     {
         speciesName = "Vanillish",
         type1 = Ice,
@@ -18894,7 +18894,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Vanilluxe = new()
+    public static readonly SpeciesData Vanilluxe = new()
     {
         speciesName = "Vanilluxe",
         type1 = Ice,
@@ -18928,10 +18928,10 @@ public static class Species
         },
     };
 
-    public static SpeciesData DeerlingSpring = Deerling("deerling", Evolution.DeerlingSpring);
-    public static SpeciesData SawsbuckSpring = Sawsbuck("sawsbuck");
+    public static readonly SpeciesData DeerlingSpring = Deerling("deerling", Evolution.DeerlingSpring);
+    public static readonly SpeciesData SawsbuckSpring = Sawsbuck("sawsbuck");
 
-    public static SpeciesData Emolga = new()
+    public static readonly SpeciesData Emolga = new()
     {
         speciesName = "Emolga",
         type1 = Electric,
@@ -18964,7 +18964,7 @@ public static class Species
             MotorDrive,
         },
     };
-    public static SpeciesData Karrablast = new()
+    public static readonly SpeciesData Karrablast = new()
     {
         speciesName = "Karrablast",
         type1 = Bug,
@@ -18997,7 +18997,7 @@ public static class Species
             NoGuard,
         },
     };
-    public static SpeciesData Escavalier = new()
+    public static readonly SpeciesData Escavalier = new()
     {
         speciesName = "Escavalier",
         type1 = Bug,
@@ -19030,7 +19030,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData Foongus = new()
+    public static readonly SpeciesData Foongus = new()
     {
         speciesName = "Foongus",
         type1 = Grass,
@@ -19063,7 +19063,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Amoonguss = new()
+    public static readonly SpeciesData Amoonguss = new()
     {
         speciesName = "Amoonguss",
         type1 = Grass,
@@ -19096,7 +19096,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Frillish = new()
+    public static readonly SpeciesData Frillish = new()
     {
         speciesName = "Frillish",
         type1 = Water,
@@ -19129,7 +19129,7 @@ public static class Species
             Damp,
         },
     };
-    public static SpeciesData Jellicent = new()
+    public static readonly SpeciesData Jellicent = new()
     {
         speciesName = "Jellicent",
         type1 = Water,
@@ -19162,7 +19162,7 @@ public static class Species
             Damp,
         },
     };
-    public static SpeciesData Alomomola = new()
+    public static readonly SpeciesData Alomomola = new()
     {
         speciesName = "Alomomola",
         type1 = Water,
@@ -19195,7 +19195,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Joltik = new()
+    public static readonly SpeciesData Joltik = new()
     {
         speciesName = "Joltik",
         type1 = Bug,
@@ -19228,7 +19228,7 @@ public static class Species
             Swarm,
         },
     };
-    public static SpeciesData Galvantula = new()
+    public static readonly SpeciesData Galvantula = new()
     {
         speciesName = "Galvantula",
         type1 = Bug,
@@ -19261,7 +19261,7 @@ public static class Species
             Swarm,
         },
     };
-    public static SpeciesData Ferroseed = new()
+    public static readonly SpeciesData Ferroseed = new()
     {
         speciesName = "Ferroseed",
         type1 = Grass,
@@ -19294,7 +19294,7 @@ public static class Species
             IronBarbs,
         },
     };
-    public static SpeciesData Ferrothorn = new()
+    public static readonly SpeciesData Ferrothorn = new()
     {
         speciesName = "Ferrothorn",
         type1 = Grass,
@@ -19327,7 +19327,7 @@ public static class Species
             Anticipation,
         },
     };
-    public static SpeciesData Klink = new()
+    public static readonly SpeciesData Klink = new()
     {
         speciesName = "Klink",
         type1 = Steel,
@@ -19360,7 +19360,7 @@ public static class Species
             ClearBody,
         },
     };
-    public static SpeciesData Klang = new()
+    public static readonly SpeciesData Klang = new()
     {
         speciesName = "Klang",
         type1 = Steel,
@@ -19393,7 +19393,7 @@ public static class Species
             ClearBody,
         },
     };
-    public static SpeciesData Klinklang = new()
+    public static readonly SpeciesData Klinklang = new()
     {
         speciesName = "Klinklang",
         type1 = Steel,
@@ -19426,7 +19426,7 @@ public static class Species
             ClearBody,
         },
     };
-    public static SpeciesData Tynamo = new()
+    public static readonly SpeciesData Tynamo = new()
     {
         speciesName = "Tynamo",
         type1 = Electric,
@@ -19459,7 +19459,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Eelektrik = new()
+    public static readonly SpeciesData Eelektrik = new()
     {
         speciesName = "Eelektrik",
         type1 = Electric,
@@ -19492,7 +19492,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Eelektross = new()
+    public static readonly SpeciesData Eelektross = new()
     {
         speciesName = "Eelektross",
         type1 = Electric,
@@ -19525,7 +19525,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Elgyem = new()
+    public static readonly SpeciesData Elgyem = new()
     {
         speciesName = "Elgyem",
         type1 = Psychic,
@@ -19558,7 +19558,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Beheeyem = new()
+    public static readonly SpeciesData Beheeyem = new()
     {
         speciesName = "Beheeyem",
         type1 = Psychic,
@@ -19591,7 +19591,7 @@ public static class Species
             Analytic,
         },
     };
-    public static SpeciesData Litwick = new()
+    public static readonly SpeciesData Litwick = new()
     {
         speciesName = "Litwick",
         type1 = Ghost,
@@ -19624,7 +19624,7 @@ public static class Species
             ShadowTag,
         },
     };
-    public static SpeciesData Lampent = new()
+    public static readonly SpeciesData Lampent = new()
     {
         speciesName = "Lampent",
         type1 = Ghost,
@@ -19657,7 +19657,7 @@ public static class Species
             ShadowTag,
         },
     };
-    public static SpeciesData Chandelure = new()
+    public static readonly SpeciesData Chandelure = new()
     {
         speciesName = "Chandelure",
         type1 = Ghost,
@@ -19690,7 +19690,7 @@ public static class Species
             ShadowTag,
         },
     };
-    public static SpeciesData Axew = new()
+    public static readonly SpeciesData Axew = new()
     {
         speciesName = "Axew",
         type1 = Dragon,
@@ -19723,7 +19723,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Fraxure = new()
+    public static readonly SpeciesData Fraxure = new()
     {
         speciesName = "Fraxure",
         type1 = Dragon,
@@ -19756,7 +19756,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Haxorus = new()
+    public static readonly SpeciesData Haxorus = new()
     {
         speciesName = "Haxorus",
         type1 = Dragon,
@@ -19789,7 +19789,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Cubchoo = new()
+    public static readonly SpeciesData Cubchoo = new()
     {
         speciesName = "Cubchoo",
         type1 = Ice,
@@ -19822,7 +19822,7 @@ public static class Species
             Rattled,
         },
     };
-    public static SpeciesData Beartic = new()
+    public static readonly SpeciesData Beartic = new()
     {
         speciesName = "Beartic",
         type1 = Ice,
@@ -19855,7 +19855,7 @@ public static class Species
             SwiftSwim,
         },
     };
-    public static SpeciesData Cryogonal = new()
+    public static readonly SpeciesData Cryogonal = new()
     {
         speciesName = "Cryogonal",
         type1 = Ice,
@@ -19888,7 +19888,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Shelmet = new()
+    public static readonly SpeciesData Shelmet = new()
     {
         speciesName = "Shelmet",
         type1 = Bug,
@@ -19921,7 +19921,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData Accelgor = new()
+    public static readonly SpeciesData Accelgor = new()
     {
         speciesName = "Accelgor",
         type1 = Bug,
@@ -19954,7 +19954,7 @@ public static class Species
             Unburden,
         },
     };
-    public static SpeciesData Stunfisk = new()
+    public static readonly SpeciesData Stunfisk = new()
     {
         speciesName = "Stunfisk",
         type1 = Ground,
@@ -19987,7 +19987,7 @@ public static class Species
             SandVeil,
         },
     };
-    public static SpeciesData Mienfoo = new()
+    public static readonly SpeciesData Mienfoo = new()
     {
         speciesName = "Mienfoo",
         type1 = Fighting,
@@ -20020,7 +20020,7 @@ public static class Species
             Reckless,
         },
     };
-    public static SpeciesData Mienshao = new()
+    public static readonly SpeciesData Mienshao = new()
     {
         speciesName = "Mienshao",
         type1 = Fighting,
@@ -20053,7 +20053,7 @@ public static class Species
             Reckless,
         },
     };
-    public static SpeciesData Druddigon = new()
+    public static readonly SpeciesData Druddigon = new()
     {
         speciesName = "Druddigon",
         type1 = Dragon,
@@ -20086,7 +20086,7 @@ public static class Species
             MoldBreaker,
         },
     };
-    public static SpeciesData Golett = new()
+    public static readonly SpeciesData Golett = new()
     {
         speciesName = "Golett",
         type1 = Ground,
@@ -20119,7 +20119,7 @@ public static class Species
             NoGuard,
         },
     };
-    public static SpeciesData Golurk = new()
+    public static readonly SpeciesData Golurk = new()
     {
         speciesName = "Golurk",
         type1 = Ground,
@@ -20152,7 +20152,7 @@ public static class Species
             NoGuard,
         },
     };
-    public static SpeciesData Pawniard = new()
+    public static readonly SpeciesData Pawniard = new()
     {
         speciesName = "Pawniard",
         type1 = Dark,
@@ -20185,7 +20185,7 @@ public static class Species
             Pressure,
         },
     };
-    public static SpeciesData Bisharp = new()
+    public static readonly SpeciesData Bisharp = new()
     {
         speciesName = "Bisharp",
         type1 = Dark,
@@ -20218,7 +20218,7 @@ public static class Species
             Pressure,
         },
     };
-    public static SpeciesData Bouffalant = new()
+    public static readonly SpeciesData Bouffalant = new()
     {
         speciesName = "Bouffalant",
         type1 = Normal,
@@ -20251,7 +20251,7 @@ public static class Species
             Soundproof,
         },
     };
-    public static SpeciesData Rufflet = new()
+    public static readonly SpeciesData Rufflet = new()
     {
         speciesName = "Rufflet",
         type1 = Normal,
@@ -20284,7 +20284,7 @@ public static class Species
             Hustle,
         },
     };
-    public static SpeciesData Braviary = new()
+    public static readonly SpeciesData Braviary = new()
     {
         speciesName = "Braviary",
         type1 = Normal,
@@ -20317,7 +20317,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData Vullaby = new()
+    public static readonly SpeciesData Vullaby = new()
     {
         speciesName = "Vullaby",
         type1 = Dark,
@@ -20350,7 +20350,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Mandibuzz = new()
+    public static readonly SpeciesData Mandibuzz = new()
     {
         speciesName = "Mandibuzz",
         type1 = Dark,
@@ -20383,7 +20383,7 @@ public static class Species
             WeakArmor,
         },
     };
-    public static SpeciesData Heatmor = new()
+    public static readonly SpeciesData Heatmor = new()
     {
         speciesName = "Heatmor",
         type1 = Fire,
@@ -20416,7 +20416,7 @@ public static class Species
             WhiteSmoke,
         },
     };
-    public static SpeciesData Durant = new()
+    public static readonly SpeciesData Durant = new()
     {
         speciesName = "Durant",
         type1 = Bug,
@@ -20449,7 +20449,7 @@ public static class Species
             Truant,
         },
     };
-    public static SpeciesData Deino = new()
+    public static readonly SpeciesData Deino = new()
     {
         speciesName = "Deino",
         type1 = Dark,
@@ -20482,7 +20482,7 @@ public static class Species
             Hustle,
         },
     };
-    public static SpeciesData Zweilous = new()
+    public static readonly SpeciesData Zweilous = new()
     {
         speciesName = "Zweilous",
         type1 = Dark,
@@ -20515,7 +20515,7 @@ public static class Species
             Hustle,
         },
     };
-    public static SpeciesData Hydreigon = new()
+    public static readonly SpeciesData Hydreigon = new()
     {
         speciesName = "Hydreigon",
         type1 = Dark,
@@ -20548,7 +20548,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Larvesta = new()
+    public static readonly SpeciesData Larvesta = new()
     {
         speciesName = "Larvesta",
         type1 = Bug,
@@ -20581,7 +20581,7 @@ public static class Species
             Swarm,
         },
     };
-    public static SpeciesData Volcarona = new()
+    public static readonly SpeciesData Volcarona = new()
     {
         speciesName = "Volcarona",
         type1 = Bug,
@@ -20614,7 +20614,7 @@ public static class Species
             Swarm,
         },
     };
-    public static SpeciesData Cobalion = new()
+    public static readonly SpeciesData Cobalion = new()
     {
         speciesName = "Cobalion",
         type1 = Steel,
@@ -20647,7 +20647,7 @@ public static class Species
             Justified,
         },
     };
-    public static SpeciesData Terrakion = new()
+    public static readonly SpeciesData Terrakion = new()
     {
         speciesName = "Terrakion",
         type1 = Rock,
@@ -20680,7 +20680,7 @@ public static class Species
             Justified,
         },
     };
-    public static SpeciesData Virizion = new()
+    public static readonly SpeciesData Virizion = new()
     {
         speciesName = "Virizion",
         type1 = Grass,
@@ -20713,7 +20713,7 @@ public static class Species
             Justified,
         },
     };
-    public static SpeciesData TornadusI = new()
+    public static readonly SpeciesData TornadusI = new()
     {
         speciesName = "Tornadus",
         type1 = Flying,
@@ -20746,7 +20746,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData ThundurusI = new()
+    public static readonly SpeciesData ThundurusI = new()
     {
         speciesName = "Thundurus",
         type1 = Electric,
@@ -20779,7 +20779,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData Reshiram = new()
+    public static readonly SpeciesData Reshiram = new()
     {
         speciesName = "Reshiram",
         type1 = Dragon,
@@ -20812,7 +20812,7 @@ public static class Species
             Turboblaze,
         },
     };
-    public static SpeciesData Zekrom = new()
+    public static readonly SpeciesData Zekrom = new()
     {
         speciesName = "Zekrom",
         type1 = Dragon,
@@ -20845,7 +20845,7 @@ public static class Species
             Teravolt,
         },
     };
-    public static SpeciesData LandorusI = new()
+    public static readonly SpeciesData LandorusI = new()
     {
         speciesName = "Landorus",
         type1 = Ground,
@@ -20878,7 +20878,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Kyurem = new()
+    public static readonly SpeciesData Kyurem = new()
     {
         speciesName = "Kyurem",
         type1 = Dragon,
@@ -20911,8 +20911,8 @@ public static class Species
             Pressure,
         },
     };
-    public static SpeciesData KeldeoOriginal = Keldeo("keldeo");
-    public static SpeciesData MeloettaAria = new()
+    public static readonly SpeciesData KeldeoOriginal = Keldeo("keldeo");
+    public static readonly SpeciesData MeloettaAria = new()
     {
         speciesName = "Meloetta",
         type1 = Normal,
@@ -20946,9 +20946,9 @@ public static class Species
         },
     };
 
-    public static SpeciesData GenesectNormal = Genesect("genesect");
+    public static readonly SpeciesData GenesectNormal = Genesect("genesect");
 
-    public static SpeciesData Chespin = new()
+    public static readonly SpeciesData Chespin = new()
     {
         speciesName = "Chespin",
         type1 = Grass,
@@ -20981,7 +20981,7 @@ public static class Species
             Bulletproof,
         },
     };
-    public static SpeciesData Quilladin = new()
+    public static readonly SpeciesData Quilladin = new()
     {
         speciesName = "Quilladin",
         type1 = Grass,
@@ -21014,7 +21014,7 @@ public static class Species
             Bulletproof,
         },
     };
-    public static SpeciesData Chesnaught = new()
+    public static readonly SpeciesData Chesnaught = new()
     {
         speciesName = "Chesnaught",
         type1 = Grass,
@@ -21047,7 +21047,7 @@ public static class Species
             Bulletproof,
         },
     };
-    public static SpeciesData Fennekin = new()
+    public static readonly SpeciesData Fennekin = new()
     {
         speciesName = "Fennekin",
         type1 = Fire,
@@ -21080,7 +21080,7 @@ public static class Species
             Magician,
         },
     };
-    public static SpeciesData Braixen = new()
+    public static readonly SpeciesData Braixen = new()
     {
         speciesName = "Braixen",
         type1 = Fire,
@@ -21113,7 +21113,7 @@ public static class Species
             Magician,
         },
     };
-    public static SpeciesData Delphox = new()
+    public static readonly SpeciesData Delphox = new()
     {
         speciesName = "Delphox",
         type1 = Fire,
@@ -21146,7 +21146,7 @@ public static class Species
             Magician,
         },
     };
-    public static SpeciesData Froakie = new()
+    public static readonly SpeciesData Froakie = new()
     {
         speciesName = "Froakie",
         type1 = Water,
@@ -21179,7 +21179,7 @@ public static class Species
             Protean,
         },
     };
-    public static SpeciesData Frogadier = new()
+    public static readonly SpeciesData Frogadier = new()
     {
         speciesName = "Frogadier",
         type1 = Water,
@@ -21212,7 +21212,7 @@ public static class Species
             Protean,
         },
     };
-    public static SpeciesData Greninja = new()
+    public static readonly SpeciesData Greninja = new()
     {
         speciesName = "Greninja",
         type1 = Water,
@@ -21245,7 +21245,7 @@ public static class Species
             Protean,
         },
     };
-    public static SpeciesData Bunnelby = new()
+    public static readonly SpeciesData Bunnelby = new()
     {
         speciesName = "Bunnelby",
         type1 = Normal,
@@ -21278,7 +21278,7 @@ public static class Species
             HugePower,
         },
     };
-    public static SpeciesData Diggersby = new()
+    public static readonly SpeciesData Diggersby = new()
     {
         speciesName = "Diggersby",
         type1 = Normal,
@@ -21311,7 +21311,7 @@ public static class Species
             HugePower,
         },
     };
-    public static SpeciesData Fletchling = new()
+    public static readonly SpeciesData Fletchling = new()
     {
         speciesName = "Fletchling",
         type1 = Normal,
@@ -21344,7 +21344,7 @@ public static class Species
             GaleWings,
         },
     };
-    public static SpeciesData Fletchinder = new()
+    public static readonly SpeciesData Fletchinder = new()
     {
         speciesName = "Fletchinder",
         type1 = Fire,
@@ -21377,7 +21377,7 @@ public static class Species
             GaleWings,
         },
     };
-    public static SpeciesData Talonflame = new()
+    public static readonly SpeciesData Talonflame = new()
     {
         speciesName = "Talonflame",
         type1 = Fire,
@@ -21411,13 +21411,13 @@ public static class Species
         },
     };
 
-    public static SpeciesData ScatterbugMeadow = Scatterbug(SpeciesID.SpewpaMeadow);
+    public static readonly SpeciesData ScatterbugMeadow = Scatterbug(SpeciesID.SpewpaMeadow);
     
-    public static SpeciesData SpewpaMeadow = Spewpa(SpeciesID.VivillonMeadow);
+    public static readonly SpeciesData SpewpaMeadow = Spewpa(SpeciesID.VivillonMeadow);
 
-    public static SpeciesData VivillonMeadow = Vivillon("meadow");
+    public static readonly SpeciesData VivillonMeadow = Vivillon("meadow");
 
-    public static SpeciesData Litleo = new()
+    public static readonly SpeciesData Litleo = new()
     {
         speciesName = "Litleo",
         type1 = Fire,
@@ -21450,7 +21450,7 @@ public static class Species
             Moxie,
         },
     };
-    public static SpeciesData Pyroar = new()
+    public static readonly SpeciesData Pyroar = new()
     {
         speciesName = "Pyroar",
         type1 = Fire,
@@ -21484,13 +21484,13 @@ public static class Species
         },
     };
 
-    public static SpeciesData FlabebeRed = Flabebe(SpeciesID.FloetteRed, "red");
+    public static readonly SpeciesData FlabebeRed = Flabebe(SpeciesID.FloetteRed, "red");
 
-    public static SpeciesData FloetteRed = Floette(SpeciesID.FlorgesRed, "red");
+    public static readonly SpeciesData FloetteRed = Floette(SpeciesID.FlorgesRed, "red");
 
-    public static SpeciesData FlorgesRed = Florges("red");
+    public static readonly SpeciesData FlorgesRed = Florges("red");
 
-    public static SpeciesData Skiddo = new()
+    public static readonly SpeciesData Skiddo = new()
     {
         speciesName = "Skiddo",
         type1 = Grass,
@@ -21523,7 +21523,7 @@ public static class Species
             GrassPelt,
         },
     };
-    public static SpeciesData Gogoat = new()
+    public static readonly SpeciesData Gogoat = new()
     {
         speciesName = "Gogoat",
         type1 = Grass,
@@ -21556,7 +21556,7 @@ public static class Species
             GrassPelt,
         },
     };
-    public static SpeciesData Pancham = new()
+    public static readonly SpeciesData Pancham = new()
     {
         speciesName = "Pancham",
         type1 = Fighting,
@@ -21589,7 +21589,7 @@ public static class Species
             Scrappy,
         },
     };
-    public static SpeciesData Pangoro = new()
+    public static readonly SpeciesData Pangoro = new()
     {
         speciesName = "Pangoro",
         type1 = Fighting,
@@ -21623,9 +21623,9 @@ public static class Species
         },
     };
 
-    public static SpeciesData FurfrouNatural = Furfrou("natural", true);
+    public static readonly SpeciesData FurfrouNatural = Furfrou("natural", true);
 
-    public static SpeciesData Espurr = new()
+    public static readonly SpeciesData Espurr = new()
     {
         speciesName = "Espurr",
         type1 = Psychic,
@@ -21658,7 +21658,7 @@ public static class Species
             OwnTempo,
         },
     };
-    public static SpeciesData MeowsticM = new()
+    public static readonly SpeciesData MeowsticM = new()
     {
         speciesName = "Meowstic",
         type1 = Psychic,
@@ -21691,7 +21691,7 @@ public static class Species
             Prankster,
         },
     };
-    public static SpeciesData Honedge = new()
+    public static readonly SpeciesData Honedge = new()
     {
         speciesName = "Honedge",
         type1 = Steel,
@@ -21724,7 +21724,7 @@ public static class Species
             NoGuard,
         },
     };
-    public static SpeciesData Doublade = new()
+    public static readonly SpeciesData Doublade = new()
     {
         speciesName = "Doublade",
         type1 = Steel,
@@ -21757,8 +21757,8 @@ public static class Species
             NoGuard,
         },
     };
-    public static SpeciesData AegislashShield = Aegislash(blade: false);
-    public static SpeciesData Spritzee = new()
+    public static readonly SpeciesData AegislashShield = Aegislash(blade: false);
+    public static readonly SpeciesData Spritzee = new()
     {
         speciesName = "Spritzee",
         type1 = Fairy,
@@ -21791,7 +21791,7 @@ public static class Species
             AromaVeil,
         },
     };
-    public static SpeciesData Aromatisse = new()
+    public static readonly SpeciesData Aromatisse = new()
     {
         speciesName = "Aromatisse",
         type1 = Fairy,
@@ -21824,7 +21824,7 @@ public static class Species
             AromaVeil,
         },
     };
-    public static SpeciesData Swirlix = new()
+    public static readonly SpeciesData Swirlix = new()
     {
         speciesName = "Swirlix",
         type1 = Fairy,
@@ -21857,7 +21857,7 @@ public static class Species
             Unburden,
         },
     };
-    public static SpeciesData Slurpuff = new()
+    public static readonly SpeciesData Slurpuff = new()
     {
         speciesName = "Slurpuff",
         type1 = Fairy,
@@ -21890,7 +21890,7 @@ public static class Species
             Unburden,
         },
     };
-    public static SpeciesData Inkay = new()
+    public static readonly SpeciesData Inkay = new()
     {
         speciesName = "Inkay",
         type1 = Dark,
@@ -21923,7 +21923,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Malamar = new()
+    public static readonly SpeciesData Malamar = new()
     {
         speciesName = "Malamar",
         type1 = Dark,
@@ -21956,7 +21956,7 @@ public static class Species
             Infiltrator,
         },
     };
-    public static SpeciesData Binacle = new()
+    public static readonly SpeciesData Binacle = new()
     {
         speciesName = "Binacle",
         type1 = Rock,
@@ -21989,7 +21989,7 @@ public static class Species
             Pickpocket,
         },
     };
-    public static SpeciesData Barbaracle = new()
+    public static readonly SpeciesData Barbaracle = new()
     {
         speciesName = "Barbaracle",
         type1 = Rock,
@@ -22022,7 +22022,7 @@ public static class Species
             Pickpocket,
         },
     };
-    public static SpeciesData Skrelp = new()
+    public static readonly SpeciesData Skrelp = new()
     {
         speciesName = "Skrelp",
         type1 = Poison,
@@ -22055,7 +22055,7 @@ public static class Species
             Adaptability,
         },
     };
-    public static SpeciesData Dragalge = new()
+    public static readonly SpeciesData Dragalge = new()
     {
         speciesName = "Dragalge",
         type1 = Poison,
@@ -22088,7 +22088,7 @@ public static class Species
             Adaptability,
         },
     };
-    public static SpeciesData Clauncher = new()
+    public static readonly SpeciesData Clauncher = new()
     {
         speciesName = "Clauncher",
         type1 = Water,
@@ -22121,7 +22121,7 @@ public static class Species
             MegaLauncher,
         },
     };
-    public static SpeciesData Clawitzer = new()
+    public static readonly SpeciesData Clawitzer = new()
     {
         speciesName = "Clawitzer",
         type1 = Water,
@@ -22154,7 +22154,7 @@ public static class Species
             MegaLauncher,
         },
     };
-    public static SpeciesData Helioptile = new()
+    public static readonly SpeciesData Helioptile = new()
     {
         speciesName = "Helioptile",
         type1 = Electric,
@@ -22187,7 +22187,7 @@ public static class Species
             SolarPower,
         },
     };
-    public static SpeciesData Heliolisk = new()
+    public static readonly SpeciesData Heliolisk = new()
     {
         speciesName = "Heliolisk",
         type1 = Electric,
@@ -22220,7 +22220,7 @@ public static class Species
             SolarPower,
         },
     };
-    public static SpeciesData Tyrunt = new()
+    public static readonly SpeciesData Tyrunt = new()
     {
         speciesName = "Tyrunt",
         type1 = Rock,
@@ -22253,7 +22253,7 @@ public static class Species
             Sturdy,
         },
     };
-    public static SpeciesData Tyrantrum = new()
+    public static readonly SpeciesData Tyrantrum = new()
     {
         speciesName = "Tyrantrum",
         type1 = Rock,
@@ -22286,7 +22286,7 @@ public static class Species
             RockHead,
         },
     };
-    public static SpeciesData Amaura = new()
+    public static readonly SpeciesData Amaura = new()
     {
         speciesName = "Amaura",
         type1 = Rock,
@@ -22319,7 +22319,7 @@ public static class Species
             SnowWarning,
         },
     };
-    public static SpeciesData Aurorus = new()
+    public static readonly SpeciesData Aurorus = new()
     {
         speciesName = "Aurorus",
         type1 = Rock,
@@ -22352,7 +22352,7 @@ public static class Species
             SnowWarning,
         },
     };
-    public static SpeciesData Sylveon = new()
+    public static readonly SpeciesData Sylveon = new()
     {
         speciesName = "Sylveon",
         type1 = Fairy,
@@ -22385,7 +22385,7 @@ public static class Species
             Pixilate,
         },
     };
-    public static SpeciesData Hawlucha = new()
+    public static readonly SpeciesData Hawlucha = new()
     {
         speciesName = "Hawlucha",
         type1 = Fighting,
@@ -22418,7 +22418,7 @@ public static class Species
             MoldBreaker,
         },
     };
-    public static SpeciesData Dedenne = new()
+    public static readonly SpeciesData Dedenne = new()
     {
         speciesName = "Dedenne",
         type1 = Electric,
@@ -22451,7 +22451,7 @@ public static class Species
             Plus,
         },
     };
-    public static SpeciesData Carbink = new()
+    public static readonly SpeciesData Carbink = new()
     {
         speciesName = "Carbink",
         type1 = Rock,
@@ -22484,7 +22484,7 @@ public static class Species
             Sturdy,
         },
     };
-    public static SpeciesData Goomy = new()
+    public static readonly SpeciesData Goomy = new()
     {
         speciesName = "Goomy",
         type1 = Dragon,
@@ -22517,7 +22517,7 @@ public static class Species
             Gooey,
         },
     };
-    public static SpeciesData Sliggoo = new()
+    public static readonly SpeciesData Sliggoo = new()
     {
         speciesName = "Sliggoo",
         type1 = Dragon,
@@ -22550,7 +22550,7 @@ public static class Species
             Gooey,
         },
     };
-    public static SpeciesData Goodra = new()
+    public static readonly SpeciesData Goodra = new()
     {
         speciesName = "Goodra",
         type1 = Dragon,
@@ -22583,7 +22583,7 @@ public static class Species
             Gooey,
         },
     };
-    public static SpeciesData Klefki = new()
+    public static readonly SpeciesData Klefki = new()
     {
         speciesName = "Klefki",
         type1 = Steel,
@@ -22616,7 +22616,7 @@ public static class Species
             Magician,
         },
     };
-    public static SpeciesData Phantump = new()
+    public static readonly SpeciesData Phantump = new()
     {
         speciesName = "Phantump",
         type1 = Ghost,
@@ -22649,7 +22649,7 @@ public static class Species
             Harvest,
         },
     };
-    public static SpeciesData Trevenant = new()
+    public static readonly SpeciesData Trevenant = new()
     {
         speciesName = "Trevenant",
         type1 = Ghost,
@@ -22683,7 +22683,7 @@ public static class Species
         },
     };
 
-    public static SpeciesData PumpkabooAverage = Pumpkaboo(
+    public static readonly SpeciesData PumpkabooAverage = Pumpkaboo(
         baseHP: 49,
         baseSpeed: 51,
         nextEvo: SpeciesID.GourgeistAverage,
@@ -22691,7 +22691,7 @@ public static class Species
         backSpriteHeight: 13
     );
 
-    public static SpeciesData GourgeistAverage = Gourgeist(
+    public static readonly SpeciesData GourgeistAverage = Gourgeist(
         baseHP: 65,
         baseAttack: 90,
         baseSpeed: 84,
@@ -22699,7 +22699,7 @@ public static class Species
         backSpriteHeight: 3
     );
 
-    public static SpeciesData Bergmite = new()
+    public static readonly SpeciesData Bergmite = new()
     {
         speciesName = "Bergmite",
         type1 = Ice,
@@ -22732,7 +22732,7 @@ public static class Species
             Sturdy,
         },
     };
-    public static SpeciesData Avalugg = new()
+    public static readonly SpeciesData Avalugg = new()
     {
         speciesName = "Avalugg",
         type1 = Ice,
@@ -22765,7 +22765,7 @@ public static class Species
             Sturdy,
         },
     };
-    public static SpeciesData Noibat = new()
+    public static readonly SpeciesData Noibat = new()
     {
         speciesName = "Noibat",
         type1 = Flying,
@@ -22798,7 +22798,7 @@ public static class Species
             Telepathy,
         },
     };
-    public static SpeciesData Noivern = new()
+    public static readonly SpeciesData Noivern = new()
     {
         speciesName = "Noivern",
         type1 = Flying,
@@ -22832,11 +22832,11 @@ public static class Species
         },
     };
 
-    public static SpeciesData AegislashBlade = Aegislash(blade: true);
+    public static readonly SpeciesData AegislashBlade = Aegislash(blade: true);
 
-    public static SpeciesData XerneasInactive = Xerneas("xerneas");
+    public static readonly SpeciesData XerneasInactive = Xerneas("xerneas");
 
-    public static SpeciesData Yveltal = new()
+    public static readonly SpeciesData Yveltal = new()
     {
             speciesName = "Yveltal",
             type1 = Dark,
@@ -22870,7 +22870,7 @@ public static class Species
         },
     };
 
-    public static SpeciesData Zygarde50 = new()
+    public static readonly SpeciesData Zygarde50 = new()
     {
         speciesName = "Zygarde",
         type1 = Dragon,
@@ -22904,7 +22904,7 @@ public static class Species
         }
     };
 
-    public static SpeciesData Diancie = new()
+    public static readonly SpeciesData Diancie = new()
     {
         speciesName = "Diancie",
         type1 = Rock,
@@ -22937,7 +22937,7 @@ public static class Species
             ClearBody,
         },
     };
-    public static SpeciesData Hoopa = new()
+    public static readonly SpeciesData Hoopa = new()
     {
         speciesName = "Hoopa",
         type1 = Psychic,
@@ -22970,7 +22970,7 @@ public static class Species
             Magician,
         },
     };
-    public static SpeciesData Volcanion = new()
+    public static readonly SpeciesData Volcanion = new()
     {
         speciesName = "Volcanion",
         type1 = Fire,
@@ -23006,7 +23006,7 @@ public static class Species
 
     //Gen 7
 
-    public static SpeciesData Rowlet = new()
+    public static readonly SpeciesData Rowlet = new()
     {
         speciesName = "Rowlet",
         type1 = Grass,
@@ -23039,7 +23039,7 @@ public static class Species
             LongReach,
         },
     };
-    public static SpeciesData Dartrix = new()
+    public static readonly SpeciesData Dartrix = new()
     {
         speciesName = "Dartrix",
         type1 = Grass,
@@ -23072,7 +23072,7 @@ public static class Species
             LongReach,
         },
     };
-    public static SpeciesData Decidueye = new()
+    public static readonly SpeciesData Decidueye = new()
     {
         speciesName = "Decidueye",
         type1 = Grass,
@@ -23105,7 +23105,7 @@ public static class Species
             LongReach,
         },
     };
-    public static SpeciesData Litten = new()
+    public static readonly SpeciesData Litten = new()
     {
         speciesName = "Litten",
         type1 = Fire,
@@ -23138,7 +23138,7 @@ public static class Species
             Intimidate,
         },
     };
-    public static SpeciesData Torracat = new()
+    public static readonly SpeciesData Torracat = new()
     {
         speciesName = "Torracat",
         type1 = Fire,
@@ -23171,7 +23171,7 @@ public static class Species
             Intimidate,
         },
     };
-    public static SpeciesData Incineroar = new()
+    public static readonly SpeciesData Incineroar = new()
     {
         speciesName = "Incineroar",
         type1 = Fire,
@@ -23204,7 +23204,7 @@ public static class Species
             Intimidate,
         },
     };
-    public static SpeciesData Popplio = new()
+    public static readonly SpeciesData Popplio = new()
     {
         speciesName = "Popplio",
         type1 = Water,
@@ -23237,7 +23237,7 @@ public static class Species
             LiquidVoice,
         },
     };
-    public static SpeciesData Brionne = new()
+    public static readonly SpeciesData Brionne = new()
     {
         speciesName = "Brionne",
         type1 = Water,
@@ -23270,7 +23270,7 @@ public static class Species
             LiquidVoice,
         },
     };
-    public static SpeciesData Primarina = new()
+    public static readonly SpeciesData Primarina = new()
     {
         speciesName = "Primarina",
         type1 = Water,
@@ -23303,7 +23303,7 @@ public static class Species
             LiquidVoice,
         },
     };
-    public static SpeciesData Pikipek = new()
+    public static readonly SpeciesData Pikipek = new()
     {
         speciesName = "Pikipek",
         type1 = Normal,
@@ -23336,7 +23336,7 @@ public static class Species
             Pickup,
         },
     };
-    public static SpeciesData Trumbeak = new()
+    public static readonly SpeciesData Trumbeak = new()
     {
         speciesName = "Trumbeak",
         type1 = Normal,
@@ -23369,7 +23369,7 @@ public static class Species
             Pickup,
         },
     };
-    public static SpeciesData Toucannon = new()
+    public static readonly SpeciesData Toucannon = new()
     {
         speciesName = "Toucannon",
         type1 = Normal,
@@ -23402,7 +23402,7 @@ public static class Species
             SheerForce,
         },
     };
-    public static SpeciesData Yungoos = new()
+    public static readonly SpeciesData Yungoos = new()
     {
         speciesName = "Yungoos",
         type1 = Normal,
@@ -23435,7 +23435,7 @@ public static class Species
             Adaptability,
         },
     };
-    public static SpeciesData Gumshoos = new()
+    public static readonly SpeciesData Gumshoos = new()
     {
         speciesName = "Gumshoos",
         type1 = Normal,
@@ -23468,7 +23468,7 @@ public static class Species
             Adaptability,
         },
     };
-    public static SpeciesData Grubbin = new()
+    public static readonly SpeciesData Grubbin = new()
     {
         speciesName = "Grubbin",
         type1 = Bug,
@@ -23501,7 +23501,7 @@ public static class Species
             Swarm,
         },
     };
-    public static SpeciesData Charjabug = new()
+    public static readonly SpeciesData Charjabug = new()
     {
         speciesName = "Charjabug",
         type1 = Bug,
@@ -23534,7 +23534,7 @@ public static class Species
             Battery,
         },
     };
-    public static SpeciesData Vikavolt = new()
+    public static readonly SpeciesData Vikavolt = new()
     {
         speciesName = "Vikavolt",
         type1 = Bug,
@@ -23567,7 +23567,7 @@ public static class Species
             Levitate,
         },
     };
-    public static SpeciesData Crabrawler = new()
+    public static readonly SpeciesData Crabrawler = new()
     {
         speciesName = "Crabrawler",
         type1 = Fighting,
@@ -23600,7 +23600,7 @@ public static class Species
             AngerPoint,
         },
     };
-    public static SpeciesData Crabominable = new()
+    public static readonly SpeciesData Crabominable = new()
     {
         speciesName = "Crabominable",
         type1 = Fighting,
@@ -23633,8 +23633,8 @@ public static class Species
             AngerPoint,
         },
     };
-    public static SpeciesData OricorioBaile = Oricorio(Fire, "baile");
-    public static SpeciesData Cutiefly = new()
+    public static readonly SpeciesData OricorioBaile = Oricorio(Fire, "baile");
+    public static readonly SpeciesData Cutiefly = new()
     {
         speciesName = "Cutiefly",
         type1 = Bug,
@@ -23667,7 +23667,7 @@ public static class Species
             SweetVeil,
         },
     };
-    public static SpeciesData Ribombee = new()
+    public static readonly SpeciesData Ribombee = new()
     {
         speciesName = "Ribombee",
         type1 = Bug,
@@ -23700,9 +23700,9 @@ public static class Species
             SweetVeil,
         },
     };
-    public static SpeciesData RockruffNormal = Rockruff(
+    public static readonly SpeciesData RockruffNormal = Rockruff(
         new[] { KeenEye, VitalSpirit, Steadfast }, Evolution.RockruffNormal);
-    public static SpeciesData Lycanroc = new()
+    public static readonly SpeciesData Lycanroc = new()
     {
         speciesName = "Lycanroc",
         type1 = Rock,
@@ -23735,7 +23735,7 @@ public static class Species
             Steadfast,
             },
     };
-    public static SpeciesData Wishiwashi = new()
+    public static readonly SpeciesData Wishiwashi = new()
     {
         speciesName = "Wishiwashi",
         type1 = Water,
@@ -23768,7 +23768,7 @@ public static class Species
             Schooling,
         },
     };
-    public static SpeciesData Mareanie = new()
+    public static readonly SpeciesData Mareanie = new()
     {
         speciesName = "Mareanie",
         type1 = Poison,
@@ -23801,7 +23801,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Toxapex = new()
+    public static readonly SpeciesData Toxapex = new()
     {
         speciesName = "Toxapex",
         type1 = Poison,
@@ -23834,7 +23834,7 @@ public static class Species
             Regenerator,
         },
     };
-    public static SpeciesData Mudbray = new()
+    public static readonly SpeciesData Mudbray = new()
     {
         speciesName = "Mudbray",
         type1 = Ground,
@@ -23867,7 +23867,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Mudsdale = new()
+    public static readonly SpeciesData Mudsdale = new()
     {
         speciesName = "Mudsdale",
         type1 = Ground,
@@ -23900,7 +23900,7 @@ public static class Species
             InnerFocus,
         },
     };
-    public static SpeciesData Dewpider = new()
+    public static readonly SpeciesData Dewpider = new()
     {
         speciesName = "Dewpider",
         type1 = Water,
@@ -23933,7 +23933,7 @@ public static class Species
             WaterAbsorb,
         },
     };
-    public static SpeciesData Araquanid = new()
+    public static readonly SpeciesData Araquanid = new()
     {
         speciesName = "Araquanid",
         type1 = Water,
@@ -23966,7 +23966,7 @@ public static class Species
             WaterAbsorb,
         },
     };
-    public static SpeciesData Fomantis = new()
+    public static readonly SpeciesData Fomantis = new()
     {
         speciesName = "Fomantis",
         type1 = Grass,
@@ -23999,7 +23999,7 @@ public static class Species
             Contrary,
         },
     };
-    public static SpeciesData Lurantis = new()
+    public static readonly SpeciesData Lurantis = new()
     {
         speciesName = "Lurantis",
         type1 = Grass,
@@ -24032,7 +24032,7 @@ public static class Species
             Contrary,
         },
     };
-    public static SpeciesData Morelull = new()
+    public static readonly SpeciesData Morelull = new()
     {
         speciesName = "Morelull",
         type1 = Grass,
@@ -24065,7 +24065,7 @@ public static class Species
             RainDish,
         },
     };
-    public static SpeciesData Shiinotic = new()
+    public static readonly SpeciesData Shiinotic = new()
     {
         speciesName = "Shiinotic",
         type1 = Grass,
@@ -24098,7 +24098,7 @@ public static class Species
             RainDish,
         },
     };
-    public static SpeciesData Salandit = new()
+    public static readonly SpeciesData Salandit = new()
     {
         speciesName = "Salandit",
         type1 = Poison,
@@ -24131,7 +24131,7 @@ public static class Species
             Oblivious,
         },
     };
-    public static SpeciesData Salazzle = new()
+    public static readonly SpeciesData Salazzle = new()
     {
         speciesName = "Salazzle",
         type1 = Poison,
@@ -24164,7 +24164,7 @@ public static class Species
             Oblivious,
         },
     };
-    public static SpeciesData Stufful = new()
+    public static readonly SpeciesData Stufful = new()
     {
         speciesName = "Stufful",
         type1 = Normal,
@@ -24197,7 +24197,7 @@ public static class Species
             CuteCharm,
         },
     };
-    public static SpeciesData Bewear = new()
+    public static readonly SpeciesData Bewear = new()
     {
         speciesName = "Bewear",
         type1 = Normal,
@@ -24230,7 +24230,7 @@ public static class Species
             Unnerve,
         },
     };
-    public static SpeciesData Bounsweet = new()
+    public static readonly SpeciesData Bounsweet = new()
     {
         speciesName = "Bounsweet",
         type1 = Grass,
@@ -24263,7 +24263,7 @@ public static class Species
             SweetVeil,
         },
     };
-    public static SpeciesData Steenee = new()
+    public static readonly SpeciesData Steenee = new()
     {
         speciesName = "Steenee",
         type1 = Grass,
@@ -24296,7 +24296,7 @@ public static class Species
             SweetVeil,
         },
     };
-    public static SpeciesData Tsareena = new()
+    public static readonly SpeciesData Tsareena = new()
     {
         speciesName = "Tsareena",
         type1 = Grass,
@@ -24329,7 +24329,7 @@ public static class Species
             SweetVeil,
         },
     };
-    public static SpeciesData Comfey = new()
+    public static readonly SpeciesData Comfey = new()
     {
         speciesName = "Comfey",
         type1 = Fairy,
@@ -24362,7 +24362,7 @@ public static class Species
             NaturalCure,
         },
     };
-    public static SpeciesData Oranguru = new()
+    public static readonly SpeciesData Oranguru = new()
     {
         speciesName = "Oranguru",
         type1 = Normal,
@@ -24395,7 +24395,7 @@ public static class Species
             Symbiosis,
         },
     };
-    public static SpeciesData Passimian = new()
+    public static readonly SpeciesData Passimian = new()
     {
         speciesName = "Passimian",
         type1 = Fighting,
@@ -24428,7 +24428,7 @@ public static class Species
             Defiant,
         },
     };
-    public static SpeciesData Wimpod = new()
+    public static readonly SpeciesData Wimpod = new()
     {
         speciesName = "Wimpod",
         type1 = Bug,
@@ -24461,7 +24461,7 @@ public static class Species
             WimpOut,
         },
     };
-    public static SpeciesData Golisopod = new()
+    public static readonly SpeciesData Golisopod = new()
     {
         speciesName = "Golisopod",
         type1 = Bug,
@@ -24494,7 +24494,7 @@ public static class Species
             EmergencyExit,
         },
     };
-    public static SpeciesData Sandygast = new()
+    public static readonly SpeciesData Sandygast = new()
     {
         speciesName = "Sandygast",
         type1 = Ghost,
@@ -24527,7 +24527,7 @@ public static class Species
             SandVeil,
         },
     };
-    public static SpeciesData Palossand = new()
+    public static readonly SpeciesData Palossand = new()
     {
         speciesName = "Palossand",
         type1 = Ghost,
@@ -24560,7 +24560,7 @@ public static class Species
             SandVeil,
         },
     };
-    public static SpeciesData Pyukumuku = new()
+    public static readonly SpeciesData Pyukumuku = new()
     {
         speciesName = "Pyukumuku",
         type1 = Water,
@@ -24593,7 +24593,7 @@ public static class Species
             Unaware,
         },
     };
-    public static SpeciesData TypeNull = new ()
+    public static readonly SpeciesData TypeNull = new ()
 	{
 		speciesName = "Type: Null",
 		type1 = Normal,
@@ -24626,9 +24626,9 @@ public static class Species
 			BattleArmor,
 		},
 	};
-    public static SpeciesData SilvallyNormal = Silvally(Normal, "normal");
-    public static SpeciesData MiniorRedMeteor = Minior(false);
-    public static SpeciesData Komala = new()
+    public static readonly SpeciesData SilvallyNormal = Silvally(Normal, "normal");
+    public static readonly SpeciesData MiniorRedMeteor = Minior(false);
+    public static readonly SpeciesData Komala = new()
     {
         speciesName = "Komala",
         type1 = Normal,
@@ -24661,7 +24661,7 @@ public static class Species
             Comatose,
         },
     };
-    public static SpeciesData Turtonator = new()
+    public static readonly SpeciesData Turtonator = new()
     {
         speciesName = "Turtonator",
         type1 = Fire,
@@ -24694,7 +24694,7 @@ public static class Species
             ShellArmor,
         },
     };
-    public static SpeciesData Togedemaru = new()
+    public static readonly SpeciesData Togedemaru = new()
     {
         speciesName = "Togedemaru",
         type1 = Electric,
@@ -24727,8 +24727,8 @@ public static class Species
             Sturdy,
         },
     };
-    public static SpeciesData MimikyuBase = Mimikyu(false);
-    public static SpeciesData Bruxish = new()
+    public static readonly SpeciesData MimikyuBase = Mimikyu(false);
+    public static readonly SpeciesData Bruxish = new()
     {
         speciesName = "Bruxish",
         type1 = Water,
@@ -24761,7 +24761,7 @@ public static class Species
             WonderSkin,
         },
     };
-    public static SpeciesData Drampa = new()
+    public static readonly SpeciesData Drampa = new()
     {
         speciesName = "Drampa",
         type1 = Normal,
@@ -24794,7 +24794,7 @@ public static class Species
             CloudNine,
         },
     };
-    public static SpeciesData Dhelmise = new()
+    public static readonly SpeciesData Dhelmise = new()
     {
         speciesName = "Dhelmise",
         type1 = Ghost,
@@ -24827,7 +24827,7 @@ public static class Species
             Steelworker,
         },
     };
-    public static SpeciesData JangmoO = new ()
+    public static readonly SpeciesData JangmoO = new ()
 	{
 		speciesName = "Jangmo-O",
 		type1 = Dragon,
@@ -24860,7 +24860,7 @@ public static class Species
 			Overcoat,
 		},
 	};
-    public static SpeciesData HakamoO = new()
+    public static readonly SpeciesData HakamoO = new()
     {
         speciesName = "Hakamo-O",
         type1 = Dragon,
@@ -24893,7 +24893,7 @@ public static class Species
             Overcoat,
         },
     };
-    public static SpeciesData KommoO = new()
+    public static readonly SpeciesData KommoO = new()
     {
         speciesName = "Kommo-O",
         type1 = Dragon,
@@ -24926,7 +24926,7 @@ public static class Species
                 Overcoat,
         },
     };
-    public static SpeciesData TapuKoko = new()
+    public static readonly SpeciesData TapuKoko = new()
     {
         speciesName = "Tapu Koko",
         type1 = Electric,
@@ -24959,7 +24959,7 @@ public static class Species
                 Telepathy,
         },
     };
-    public static SpeciesData TapuLele = new()
+    public static readonly SpeciesData TapuLele = new()
     {
         speciesName = "Tapu Lele",
         type1 = Psychic,
@@ -24992,7 +24992,7 @@ public static class Species
                 Telepathy,
         },
     };
-    public static SpeciesData TapuBulu = new()
+    public static readonly SpeciesData TapuBulu = new()
     {
         speciesName = "Tapu Bulu",
         type1 = Grass,
@@ -25025,7 +25025,7 @@ public static class Species
                 Telepathy,
         },
     };
-    public static SpeciesData TapuFini = new()
+    public static readonly SpeciesData TapuFini = new()
     {
         speciesName = "Tapu Fini",
         type1 = Water,
@@ -25058,7 +25058,7 @@ public static class Species
                 Telepathy,
         },
     };
-    public static SpeciesData Cosmog = new()
+    public static readonly SpeciesData Cosmog = new()
     {
         speciesName = "Cosmog",
         type1 = Psychic,
@@ -25091,7 +25091,7 @@ public static class Species
                 Unaware,
         },
     };
-    public static SpeciesData Cosmoem = new()
+    public static readonly SpeciesData Cosmoem = new()
     {
         speciesName = "Cosmoem",
         type1 = Psychic,
@@ -25124,7 +25124,7 @@ public static class Species
                 Sturdy,
         },
     };
-    public static SpeciesData Solgaleo = new()
+    public static readonly SpeciesData Solgaleo = new()
     {
         speciesName = "Solgaleo",
         type1 = Psychic,
@@ -25157,7 +25157,7 @@ public static class Species
                 FullMetalBody,
         },
     };
-    public static SpeciesData Lunala = new()
+    public static readonly SpeciesData Lunala = new()
     {
         speciesName = "Lunala",
         type1 = Psychic,
@@ -25190,7 +25190,7 @@ public static class Species
                 ShadowShield,
         },
     };
-    public static SpeciesData Nihilego = new()
+    public static readonly SpeciesData Nihilego = new()
     {
         speciesName = "Nihilego",
         type1 = Rock,
@@ -25223,7 +25223,7 @@ public static class Species
                 BeastBoost,
         },
     };
-    public static SpeciesData Buzzwole = new()
+    public static readonly SpeciesData Buzzwole = new()
     {
         speciesName = "Buzzwole",
         type1 = Bug,
@@ -25256,7 +25256,7 @@ public static class Species
                 BeastBoost,
         },
     };
-    public static SpeciesData Pheromosa = new()
+    public static readonly SpeciesData Pheromosa = new()
     {
         speciesName = "Pheromosa",
         type1 = Bug,
@@ -25289,7 +25289,7 @@ public static class Species
                 BeastBoost,
         },
     };
-    public static SpeciesData Xurkitree = new()
+    public static readonly SpeciesData Xurkitree = new()
     {
         speciesName = "Xurkitree",
         type1 = Electric,
@@ -25322,7 +25322,7 @@ public static class Species
                 BeastBoost,
         },
     };
-    public static SpeciesData Celesteela = new()
+    public static readonly SpeciesData Celesteela = new()
     {
         speciesName = "Celesteela",
         type1 = Steel,
@@ -25355,7 +25355,7 @@ public static class Species
                 BeastBoost,
         },
     };
-    public static SpeciesData Kartana = new()
+    public static readonly SpeciesData Kartana = new()
     {
         speciesName = "Kartana",
         type1 = Grass,
@@ -25388,7 +25388,7 @@ public static class Species
                 BeastBoost,
         },
     };
-    public static SpeciesData Guzzlord = new()
+    public static readonly SpeciesData Guzzlord = new()
     {
         speciesName = "Guzzlord",
         type1 = Dark,
@@ -25421,7 +25421,7 @@ public static class Species
                 BeastBoost,
         },
     };
-    public static SpeciesData Necrozma = new()
+    public static readonly SpeciesData Necrozma = new()
     {
         speciesName = "Necrozma",
         type1 = Psychic,
@@ -25454,8 +25454,8 @@ public static class Species
                 PrismArmor,
         },
     };
-    public static SpeciesData MagearnaBase = Magearna(false);
-    public static SpeciesData Marshadow = new()
+    public static readonly SpeciesData MagearnaBase = Magearna(false);
+    public static readonly SpeciesData Marshadow = new()
     {
         speciesName = "Marshadow",
         type1 = Fighting,
@@ -25488,7 +25488,7 @@ public static class Species
             Technician,
         },
     };
-    public static SpeciesData Poipole = new()
+    public static readonly SpeciesData Poipole = new()
     {
         speciesName = "Poipole",
         type1 = Poison,
@@ -25521,7 +25521,7 @@ public static class Species
             BeastBoost,
         },
     };
-    public static SpeciesData Naganadel = new()
+    public static readonly SpeciesData Naganadel = new()
     {
         speciesName = "Naganadel",
         type1 = Poison,
@@ -25554,7 +25554,7 @@ public static class Species
             BeastBoost,
         },
     };
-    public static SpeciesData Stakataka = new()
+    public static readonly SpeciesData Stakataka = new()
     {
         speciesName = "Stakataka",
         type1 = Rock,
@@ -25587,7 +25587,7 @@ public static class Species
             BeastBoost,
         },
     };
-    public static SpeciesData Blacephalon = new()
+    public static readonly SpeciesData Blacephalon = new()
     {
         speciesName = "Blacephalon",
         type1 = Fire,
@@ -25620,7 +25620,7 @@ public static class Species
             BeastBoost,
         },
     };
-    public static SpeciesData Zeraora = new()
+    public static readonly SpeciesData Zeraora = new()
     {
         speciesName = "Zeraora",
         type1 = Electric,
@@ -25653,7 +25653,7 @@ public static class Species
             VoltAbsorb,
         },
     };
-    public static SpeciesData Meltan = new()
+    public static readonly SpeciesData Meltan = new()
     {
         speciesName = "Meltan",
         type1 = Steel,
@@ -25686,7 +25686,7 @@ public static class Species
             MagnetPull,
         },
     };
-    public static SpeciesData Melmetal = new()
+    public static readonly SpeciesData Melmetal = new()
     {
         speciesName = "Melmetal",
         type1 = Steel,
@@ -25724,7 +25724,7 @@ public static class Species
 
     //Regional forms
     //Alola
-    public static SpeciesData RattataAlola = new ()
+    public static readonly SpeciesData RattataAlola = new ()
 	{
 		speciesName = "Rattata",
 		type1 = Dark,
@@ -25757,7 +25757,7 @@ public static class Species
 			ThickFat,
 		},
 	};
-public static SpeciesData RaticateAlola = new()
+public static readonly SpeciesData RaticateAlola = new()
 {
     speciesName = "Raticate",
     type1 = Dark,
@@ -25790,7 +25790,7 @@ public static SpeciesData RaticateAlola = new()
             ThickFat,
     },
 };
-public static SpeciesData RaichuAlola = new()
+public static readonly SpeciesData RaichuAlola = new()
 {
     speciesName = "Raichu",
     type1 = Electric,
@@ -25823,7 +25823,7 @@ public static SpeciesData RaichuAlola = new()
             SurgeSurfer,
     },
 };
-public static SpeciesData SandshrewAlola = new()
+public static readonly SpeciesData SandshrewAlola = new()
 {
     speciesName = "Sandshrew",
     type1 = Ice,
@@ -25856,7 +25856,7 @@ public static SpeciesData SandshrewAlola = new()
             SlushRush,
     },
 };
-public static SpeciesData SandslashAlola = new()
+public static readonly SpeciesData SandslashAlola = new()
 {
     speciesName = "Sandslash",
     type1 = Ice,
@@ -25889,7 +25889,7 @@ public static SpeciesData SandslashAlola = new()
             SlushRush,
     },
 };
-public static SpeciesData VulpixAlola = new()
+public static readonly SpeciesData VulpixAlola = new()
 {
     speciesName = "Vulpix",
     type1 = Ice,
@@ -25922,7 +25922,7 @@ public static SpeciesData VulpixAlola = new()
             SnowWarning,
     },
 };
-public static SpeciesData NinetalesAlola = new()
+public static readonly SpeciesData NinetalesAlola = new()
 {
     speciesName = "Ninetales",
     type1 = Ice,
@@ -25955,7 +25955,7 @@ public static SpeciesData NinetalesAlola = new()
             SnowWarning,
     },
 };
-public static SpeciesData DiglettAlola = new()
+public static readonly SpeciesData DiglettAlola = new()
 {
     speciesName = "Diglett",
     type1 = Ground,
@@ -25988,7 +25988,7 @@ public static SpeciesData DiglettAlola = new()
             SandForce,
     },
 };
-public static SpeciesData DugtrioAlola = new()
+public static readonly SpeciesData DugtrioAlola = new()
 {
     speciesName = "Dugtrio",
     type1 = Ground,
@@ -26021,7 +26021,7 @@ public static SpeciesData DugtrioAlola = new()
             SandForce,
     },
 };
-public static SpeciesData MeowthAlola = new()
+public static readonly SpeciesData MeowthAlola = new()
 {
     speciesName = "Meowth",
     type1 = Dark,
@@ -26054,7 +26054,7 @@ public static SpeciesData MeowthAlola = new()
             Rattled,
     },
 };
-public static SpeciesData PersianAlola = new()
+public static readonly SpeciesData PersianAlola = new()
 {
     speciesName = "Persian",
     type1 = Dark,
@@ -26087,7 +26087,7 @@ public static SpeciesData PersianAlola = new()
             Rattled,
     },
 };
-public static SpeciesData GeodudeAlola = new()
+public static readonly SpeciesData GeodudeAlola = new()
 {
     speciesName = "Geodude",
     type1 = Rock,
@@ -26120,7 +26120,7 @@ public static SpeciesData GeodudeAlola = new()
             Galvanize,
     },
 };
-public static SpeciesData GravelerAlola = new()
+public static readonly SpeciesData GravelerAlola = new()
 {
     speciesName = "Graveler",
     type1 = Rock,
@@ -26153,7 +26153,7 @@ public static SpeciesData GravelerAlola = new()
             Galvanize,
     },
 };
-public static SpeciesData GolemAlola = new()
+public static readonly SpeciesData GolemAlola = new()
 {
     speciesName = "Golem",
     type1 = Rock,
@@ -26186,7 +26186,7 @@ public static SpeciesData GolemAlola = new()
             Galvanize,
     },
 };
-public static SpeciesData GrimerAlola = new()
+public static readonly SpeciesData GrimerAlola = new()
 {
     speciesName = "Grimer",
     type1 = Poison,
@@ -26219,7 +26219,7 @@ public static SpeciesData GrimerAlola = new()
             PowerOfAlchemy,
     },
 };
-public static SpeciesData MukAlola = new()
+public static readonly SpeciesData MukAlola = new()
 {
     speciesName = "Muk",
     type1 = Poison,
@@ -26252,7 +26252,7 @@ public static SpeciesData MukAlola = new()
             PowerOfAlchemy,
     },
 };
-public static SpeciesData ExeggutorAlola = new()
+public static readonly SpeciesData ExeggutorAlola = new()
 {
     speciesName = "Exeggutor",
     type1 = Grass,
@@ -26285,7 +26285,7 @@ public static SpeciesData ExeggutorAlola = new()
             Harvest,
     },
 };
-public static SpeciesData MarowakAlola = new()
+public static readonly SpeciesData MarowakAlola = new()
 {
     speciesName = "Marowak",
     type1 = Fire,
@@ -26321,7 +26321,7 @@ public static SpeciesData MarowakAlola = new()
 
 //Megas
 
-public static SpeciesData VenusaurMega = Mega(
+public static readonly SpeciesData VenusaurMega = Mega(
             baseSpecies: Venusaur,
             baseAttack: 100,
             baseDefense: 123,
@@ -26333,7 +26333,7 @@ public static SpeciesData VenusaurMega = Mega(
             ability: ThickFat
         );
 
-    public static SpeciesData CharizardMegaX = Mega(
+    public static readonly SpeciesData CharizardMegaX = Mega(
         baseSpecies: Charizard,
         name: "Mega Charizard X",
         type2: Dragon,
@@ -26349,7 +26349,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: ToughClaws
     );
 
-    public static SpeciesData CharizardMegaY = Mega(
+    public static readonly SpeciesData CharizardMegaY = Mega(
         baseSpecies: Charizard,
         name: "Mega Charizard Y",
         baseAttack: 104,
@@ -26364,7 +26364,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Drought
     );
 
-    public static SpeciesData BlastoiseMega = Mega(
+    public static readonly SpeciesData BlastoiseMega = Mega(
         baseSpecies: Blastoise,
         baseAttack: 103,
         baseDefense: 120,
@@ -26376,7 +26376,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: MegaLauncher
     );
 
-    public static SpeciesData BeedrillMega = Mega(
+    public static readonly SpeciesData BeedrillMega = Mega(
         baseSpecies: Beedrill,
         baseAttack: 150,
         baseDefense: 40,
@@ -26388,7 +26388,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Adaptability
     );
 
-    public static SpeciesData PidgeotMega = Mega(
+    public static readonly SpeciesData PidgeotMega = Mega(
         baseSpecies: Pidgeot,
         baseAttack: 80,
         baseDefense: 80,
@@ -26400,7 +26400,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: NoGuard
     );
 
-    public static SpeciesData AlakazamMega = Mega(
+    public static readonly SpeciesData AlakazamMega = Mega(
         baseSpecies: Alakazam,
         baseAttack: 50,
         baseDefense: 65,
@@ -26412,7 +26412,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Trace
     );
 
-    public static SpeciesData SlowbroMega = Mega(
+    public static readonly SpeciesData SlowbroMega = Mega(
         baseSpecies: Slowbro,
         baseAttack: 75,
         baseDefense: 180,
@@ -26424,7 +26424,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: ShellArmor
     );
 
-    public static SpeciesData GengarMega = Mega(
+    public static readonly SpeciesData GengarMega = Mega(
         baseSpecies: Gengar,
         baseAttack: 65,
         baseDefense: 80,
@@ -26436,7 +26436,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: ShadowTag
     );
 
-    public static SpeciesData KangaskhanMega = Mega(
+    public static readonly SpeciesData KangaskhanMega = Mega(
         baseSpecies: Kangaskhan,
         baseAttack: 125,
         baseDefense: 100,
@@ -26448,7 +26448,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: ParentalBond
     );
 
-    public static SpeciesData PinsirMega = Mega(
+    public static readonly SpeciesData PinsirMega = Mega(
         baseSpecies: Pinsir,
         type2: Flying,
         baseAttack: 155,
@@ -26461,7 +26461,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Aerilate
     );
 
-    public static SpeciesData GyaradosMega = Mega(
+    public static readonly SpeciesData GyaradosMega = Mega(
         baseSpecies: Gyarados,
         type2: Dark,
         baseAttack: 155,
@@ -26474,7 +26474,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: MoldBreaker
     );
 
-    public static SpeciesData AerodactylMega = Mega(
+    public static readonly SpeciesData AerodactylMega = Mega(
         baseSpecies: Aerodactyl,
         baseAttack: 135,
         baseDefense: 85,
@@ -26486,7 +26486,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: ToughClaws
     );
 
-    public static SpeciesData MewtwoMegaX = Mega(
+    public static readonly SpeciesData MewtwoMegaX = Mega(
         baseSpecies: Mewtwo,
         name: "Mega Mewtwo X",
         type2: Fighting,
@@ -26502,7 +26502,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Steadfast
      );
 
-    public static SpeciesData MewtwoMegaY = Mega(
+    public static readonly SpeciesData MewtwoMegaY = Mega(
         baseSpecies: Mewtwo,
         name: "Mega Mewtwo Y",
         baseAttack: 150,
@@ -26517,7 +26517,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Insomnia
     );
 
-    public static SpeciesData AmpharosMega = Mega(
+    public static readonly SpeciesData AmpharosMega = Mega(
         baseSpecies: Ampharos,
         type2: Dragon,
         baseAttack: 95,
@@ -26530,7 +26530,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: MoldBreaker
     );
 
-    public static SpeciesData SteelixMega = Mega(
+    public static readonly SpeciesData SteelixMega = Mega(
         baseSpecies: Steelix,
         baseAttack: 125,
         baseDefense: 230,
@@ -26542,7 +26542,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: SandForce
     );
 
-    public static SpeciesData ScizorMega = Mega(
+    public static readonly SpeciesData ScizorMega = Mega(
         baseSpecies: Scizor,
         baseAttack: 150,
         baseDefense: 140,
@@ -26554,7 +26554,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Technician
     );
 
-    public static SpeciesData HeracrossMega = Mega(
+    public static readonly SpeciesData HeracrossMega = Mega(
         baseSpecies: Heracross,
         baseAttack: 185,
         baseDefense: 115,
@@ -26566,7 +26566,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: SkillLink
     );
 
-    public static SpeciesData HoundoomMega = Mega(
+    public static readonly SpeciesData HoundoomMega = Mega(
         baseSpecies: Houndoom,
         baseAttack: 90,
         baseDefense: 90,
@@ -26578,7 +26578,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: SolarPower
     );
 
-    public static SpeciesData TyranitarMega = Mega(
+    public static readonly SpeciesData TyranitarMega = Mega(
         baseSpecies: Tyranitar,
         baseAttack: 164,
         baseDefense: 150,
@@ -26590,7 +26590,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: SandStream
     );
 
-    public static SpeciesData SceptileMega = Mega(
+    public static readonly SpeciesData SceptileMega = Mega(
         baseSpecies: Sceptile,
         type2: Dragon,
         baseAttack: 110,
@@ -26603,7 +26603,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: LightningRod
     );
 
-    public static SpeciesData BlazikenMega = Mega(
+    public static readonly SpeciesData BlazikenMega = Mega(
         baseSpecies: Blaziken,
         baseAttack: 160,
         baseDefense: 80,
@@ -26615,7 +26615,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: SpeedBoost
     );
 
-    public static SpeciesData SwampertMega = Mega(
+    public static readonly SpeciesData SwampertMega = Mega(
         baseSpecies: Swampert,
         baseAttack: 150,
         baseDefense: 110,
@@ -26627,7 +26627,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: SwiftSwim
     );
 
-    public static SpeciesData GardevoirMega = Mega(
+    public static readonly SpeciesData GardevoirMega = Mega(
         baseSpecies: Gardevoir,
         baseAttack: 85,
         baseDefense: 65,
@@ -26639,7 +26639,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Pixilate
     );
 
-    public static SpeciesData SableyeMega = Mega(
+    public static readonly SpeciesData SableyeMega = Mega(
         baseSpecies: Sableye,
         baseAttack: 85,
         baseDefense: 125,
@@ -26651,7 +26651,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: MagicBounce
     );
 
-    public static SpeciesData MawileMega = Mega(
+    public static readonly SpeciesData MawileMega = Mega(
         baseSpecies: Mawile,
         baseAttack: 105,
         baseDefense: 125,
@@ -26663,7 +26663,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: HugePower
     );
 
-    public static SpeciesData AggronMega = Mega(
+    public static readonly SpeciesData AggronMega = Mega(
         baseSpecies: Aggron,
         type2: Steel,
         baseAttack: 140,
@@ -26676,7 +26676,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Filter
     );
 
-    public static SpeciesData MedichamMega = Mega(
+    public static readonly SpeciesData MedichamMega = Mega(
         baseSpecies: Medicham,
         baseAttack: 100,
         baseDefense: 85,
@@ -26688,7 +26688,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: PurePower
     );
 
-    public static SpeciesData ManectricMega = Mega(
+    public static readonly SpeciesData ManectricMega = Mega(
         baseSpecies: Manectric,
         baseAttack: 75,
         baseDefense: 80,
@@ -26700,7 +26700,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Intimidate
     );
 
-    public static SpeciesData SharpedoMega = Mega(
+    public static readonly SpeciesData SharpedoMega = Mega(
         baseSpecies: Sharpedo,
         baseAttack: 140,
         baseDefense: 70,
@@ -26712,7 +26712,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: StrongJaw
     );
 
-    public static SpeciesData CameruptMega = Mega(
+    public static readonly SpeciesData CameruptMega = Mega(
         baseSpecies: Camerupt,
         baseAttack: 120,
         baseDefense: 100,
@@ -26724,7 +26724,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: SheerForce
     );
 
-    public static SpeciesData AltariaMega = Mega(
+    public static readonly SpeciesData AltariaMega = Mega(
         baseSpecies: Altaria,
         type2: Fairy,
         baseAttack: 110,
@@ -26737,7 +26737,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Pixilate
     );
 
-    public static SpeciesData BanetteMega = Mega(
+    public static readonly SpeciesData BanetteMega = Mega(
         baseSpecies: Banette,
         baseAttack: 165,
         baseDefense: 75,
@@ -26749,7 +26749,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Prankster
     );
 
-    public static SpeciesData AbsolMega = Mega(
+    public static readonly SpeciesData AbsolMega = Mega(
         baseSpecies: Absol,
         baseAttack: 150,
         baseDefense: 60,
@@ -26761,7 +26761,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: MagicBounce
     );
 
-    public static SpeciesData GlalieMega = Mega(
+    public static readonly SpeciesData GlalieMega = Mega(
         baseSpecies: Glalie,
         baseAttack: 120,
         baseDefense: 80,
@@ -26773,7 +26773,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Refrigerate
     );
 
-    public static SpeciesData SalamenceMega = Mega(
+    public static readonly SpeciesData SalamenceMega = Mega(
         baseSpecies: Salamence,
         baseAttack: 145,
         baseDefense: 130,
@@ -26785,7 +26785,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Aerilate
     );
 
-    public static SpeciesData MetagrossMega = Mega(
+    public static readonly SpeciesData MetagrossMega = Mega(
         baseSpecies: Metagross,
         baseAttack: 145,
         baseDefense: 150,
@@ -26797,7 +26797,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: ToughClaws
     );
 
-    public static SpeciesData LatiasMega = Mega(
+    public static readonly SpeciesData LatiasMega = Mega(
         baseSpecies: Latias,
         baseAttack: 100,
         baseDefense: 120,
@@ -26809,7 +26809,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Levitate
     );
 
-    public static SpeciesData LatiosMega = Mega(
+    public static readonly SpeciesData LatiosMega = Mega(
         baseSpecies: Latios,
         baseAttack: 130,
         baseDefense: 100,
@@ -26821,7 +26821,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Levitate
     );
 
-    public static SpeciesData RayquazaMega = Mega(
+    public static readonly SpeciesData RayquazaMega = Mega(
         baseSpecies: Rayquaza,
         baseAttack: 180,
         baseDefense: 100,
@@ -26833,7 +26833,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: DeltaStream
     );
 
-    public static SpeciesData LopunnyMega = Mega(
+    public static readonly SpeciesData LopunnyMega = Mega(
         baseSpecies: Lopunny,
         type2: Fighting,
         baseAttack: 136,
@@ -26846,7 +26846,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Scrappy
     );
 
-    public static SpeciesData GarchompMega = Mega(
+    public static readonly SpeciesData GarchompMega = Mega(
         baseSpecies: Garchomp,
         baseAttack: 170,
         baseDefense: 115,
@@ -26858,7 +26858,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: SandForce
     );
 
-    public static SpeciesData LucarioMega = Mega(
+    public static readonly SpeciesData LucarioMega = Mega(
         baseSpecies: Lucario,
         baseAttack: 145,
         baseDefense: 88,
@@ -26870,7 +26870,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Adaptability
     );
 
-    public static SpeciesData AbomasnowMega = Mega(
+    public static readonly SpeciesData AbomasnowMega = Mega(
         baseSpecies: Abomasnow,
         baseAttack: 132,
         baseDefense: 105,
@@ -26882,7 +26882,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: SnowWarning
     );
 
-    public static SpeciesData GalladeMega = Mega(
+    public static readonly SpeciesData GalladeMega = Mega(
         baseSpecies: Gallade,
         baseAttack: 165,
         baseDefense: 95,
@@ -26894,7 +26894,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: InnerFocus
     );
 
-    public static SpeciesData AudinoMega = Mega(
+    public static readonly SpeciesData AudinoMega = Mega(
         baseSpecies: Audino,
         type2: Fairy,
         baseAttack: 60,
@@ -26907,7 +26907,7 @@ public static SpeciesData VenusaurMega = Mega(
         ability: Healer
     );
 
-    public static SpeciesData DiancieMega = Mega(
+    public static readonly SpeciesData DiancieMega = Mega(
         baseSpecies: Diancie,
         baseAttack: 160,
         baseDefense: 110,
@@ -26921,22 +26921,22 @@ public static SpeciesData VenusaurMega = Mega(
 
     //Other forms
 
-    public static SpeciesData PikachuCosplay = PikachuCosplay("cosplay");
-    public static SpeciesData PikachuRockStar = PikachuCosplay("rock_star");
-    public static SpeciesData PikachuBelle = PikachuCosplay("belle");
-    public static SpeciesData PikachuPopStar = PikachuCosplay("pop_star");
-    public static SpeciesData PikachuPhD = PikachuCosplay("ph_d");
-    public static SpeciesData PikachuLibre = PikachuCosplay("libre");
-    public static SpeciesData PikachuOriginal = PikachuCap("original");
-    public static SpeciesData PikachuHoenn = PikachuCap("hoenn");
-    public static SpeciesData PikachuSinnoh = PikachuCap("sinnoh");
-    public static SpeciesData PikachuUnova = PikachuCap("unova");
-    public static SpeciesData PikachuKalos = PikachuCap("kalos");
-    public static SpeciesData PikachuAlolaCap = PikachuCap("alola");
-    public static SpeciesData PikachuPartnerCap = PikachuCap("partner");
-    public static SpeciesData PikachuWorld = PikachuCap("world");
+    public static readonly SpeciesData PikachuCosplay = PikachuCosplay("cosplay");
+    public static readonly SpeciesData PikachuRockStar = PikachuCosplay("rock_star");
+    public static readonly SpeciesData PikachuBelle = PikachuCosplay("belle");
+    public static readonly SpeciesData PikachuPopStar = PikachuCosplay("pop_star");
+    public static readonly SpeciesData PikachuPhD = PikachuCosplay("ph_d");
+    public static readonly SpeciesData PikachuLibre = PikachuCosplay("libre");
+    public static readonly SpeciesData PikachuOriginal = PikachuCap("original");
+    public static readonly SpeciesData PikachuHoenn = PikachuCap("hoenn");
+    public static readonly SpeciesData PikachuSinnoh = PikachuCap("sinnoh");
+    public static readonly SpeciesData PikachuUnova = PikachuCap("unova");
+    public static readonly SpeciesData PikachuKalos = PikachuCap("kalos");
+    public static readonly SpeciesData PikachuAlolaCap = PikachuCap("alola");
+    public static readonly SpeciesData PikachuPartnerCap = PikachuCap("partner");
+    public static readonly SpeciesData PikachuWorld = PikachuCap("world");
 
-    public static SpeciesData PikachuPartner = new()
+    public static readonly SpeciesData PikachuPartner = new()
     {
         speciesName = "Pikachu",
         type1 = Electric,
@@ -26970,7 +26970,7 @@ public static SpeciesData VenusaurMega = Mega(
         },
     };
 
-    public static SpeciesData EeveePartner = new()
+    public static readonly SpeciesData EeveePartner = new()
     {
         speciesName = "Eevee",
         type1 = Normal,
@@ -27004,75 +27004,75 @@ public static SpeciesData VenusaurMega = Mega(
         },
     };
 
-    public static SpeciesData PichuSpikyEared = Pichu(true);
+    public static readonly SpeciesData PichuSpikyEared = Pichu(true);
 
-    public static SpeciesData Unown_B
+    public static readonly SpeciesData Unown_B
         = Unown("unown/b", 9);
-    public static SpeciesData Unown_C
+    public static readonly SpeciesData Unown_C
         = Unown("unown/c", 6);
-    public static SpeciesData Unown_D
+    public static readonly SpeciesData Unown_D
         = Unown("unown/d", 8);
-    public static SpeciesData Unown_E
+    public static readonly SpeciesData Unown_E
         = Unown("unown/e", 10);
-    public static SpeciesData Unown_F
+    public static readonly SpeciesData Unown_F
         = Unown("unown/f", 10);
-    public static SpeciesData Unown_G
+    public static readonly SpeciesData Unown_G
         = Unown("unown/g", 5);
-    public static SpeciesData Unown_H
+    public static readonly SpeciesData Unown_H
         = Unown("unown/h", 8);
-    public static SpeciesData Unown_I
+    public static readonly SpeciesData Unown_I
         = Unown("unown/i", 7);
-    public static SpeciesData Unown_J
+    public static readonly SpeciesData Unown_J
         = Unown("unown/j", 9);
-    public static SpeciesData Unown_K
+    public static readonly SpeciesData Unown_K
         = Unown("unown/k", 7);
-    public static SpeciesData Unown_L
+    public static readonly SpeciesData Unown_L
         = Unown("unown/l", 10);
-    public static SpeciesData Unown_M
+    public static readonly SpeciesData Unown_M
         = Unown("unown/m", 13);
-    public static SpeciesData Unown_N
+    public static readonly SpeciesData Unown_N
         = Unown("unown/n", 13);
-    public static SpeciesData Unown_O
+    public static readonly SpeciesData Unown_O
         = Unown("unown/o", 8);
-    public static SpeciesData Unown_P
+    public static readonly SpeciesData Unown_P
         = Unown("unown/p", 10);
-    public static SpeciesData Unown_Q
+    public static readonly SpeciesData Unown_Q
         = Unown("unown/q", 15);
-    public static SpeciesData Unown_R
+    public static readonly SpeciesData Unown_R
         = Unown("unown/r", 12);
-    public static SpeciesData Unown_S
+    public static readonly SpeciesData Unown_S
         = Unown("unown/s", 4);
-    public static SpeciesData Unown_T
+    public static readonly SpeciesData Unown_T
         = Unown("unown/t", 13);
-    public static SpeciesData Unown_U
+    public static readonly SpeciesData Unown_U
         = Unown("unown/u", 13);
-    public static SpeciesData Unown_V
+    public static readonly SpeciesData Unown_V
         = Unown("unown/v", 11);
-    public static SpeciesData Unown_W
+    public static readonly SpeciesData Unown_W
         = Unown("unown/w", 13);
-    public static SpeciesData Unown_X
+    public static readonly SpeciesData Unown_X
         = Unown("unown/x", 15);
-    public static SpeciesData Unown_Y
+    public static readonly SpeciesData Unown_Y
         = Unown("unown/y", 10);
-    public static SpeciesData Unown_Z
+    public static readonly SpeciesData Unown_Z
         = Unown("unown/z", 10);
-    public static SpeciesData UnownQuestion
+    public static readonly SpeciesData UnownQuestion
         = Unown("unown/question_mark", 6);
-    public static SpeciesData UnownExclamation
+    public static readonly SpeciesData UnownExclamation
         = Unown("unown/exclamation_mark", 6);
 
     //Castform forms
 
-    public static SpeciesData CastformSunny =
+    public static readonly SpeciesData CastformSunny =
         Castform(Fire, "castform/sunny", 0);
-    public static SpeciesData CastformRainy =
+    public static readonly SpeciesData CastformRainy =
         Castform(Water, "castform/rainy", 0);
-    public static SpeciesData CastformSnowy =
+    public static readonly SpeciesData CastformSnowy =
         Castform(Ice, "castform/snowy", 0);
 
     //Primals
 
-    public static SpeciesData KyogrePrimal = new()
+    public static readonly SpeciesData KyogrePrimal = new()
     {
         speciesName = "Kyogre",
         type1 = Water,
@@ -27106,7 +27106,7 @@ public static SpeciesData VenusaurMega = Mega(
         },
     };
 
-    public static SpeciesData GroudonPrimal = new()
+    public static readonly SpeciesData GroudonPrimal = new()
         {
             speciesName = "Groudon",
             type1 = Ground,
@@ -27142,7 +27142,7 @@ public static SpeciesData VenusaurMega = Mega(
 
     //Deoxys forms
 
-    public static SpeciesData DeoxysAttack =
+    public static readonly SpeciesData DeoxysAttack =
         Deoxys(
             baseHP: 50,
             baseAttack: 180,
@@ -27155,7 +27155,7 @@ public static SpeciesData VenusaurMega = Mega(
             backSpriteHeight: 1
         );
 
-    public static SpeciesData DeoxysDefense =
+    public static readonly SpeciesData DeoxysDefense =
         Deoxys(
             baseHP: 50,
             baseAttack: 70,
@@ -27168,7 +27168,7 @@ public static SpeciesData VenusaurMega = Mega(
             backSpriteHeight: 8
         );
 
-    public static SpeciesData DeoxysSpeed =
+    public static readonly SpeciesData DeoxysSpeed =
         Deoxys(
             baseHP: 50,
             baseAttack: 95,
@@ -27183,11 +27183,11 @@ public static SpeciesData VenusaurMega = Mega(
 
     // Burmy forms
 
-    public static SpeciesData BurmySand =
+    public static readonly SpeciesData BurmySand =
         Burmy("burmy/sandy_cloak", 7, Evolution.BurmySand);
-    public static SpeciesData BurmyTrash =
+    public static readonly SpeciesData BurmyTrash =
         Burmy("burmy/trash_cloak", 0, Evolution.BurmyTrash);
-    public static SpeciesData WormadamSand = Wormadam(
+    public static readonly SpeciesData WormadamSand = Wormadam(
         type2: Ground,
         baseHP: 60,
         baseAttack: 79,
@@ -27199,7 +27199,7 @@ public static SpeciesData VenusaurMega = Mega(
         graphics: "wormadam/sandy_cloak",
         backSpriteHeight: 2
     );
-    public static SpeciesData WormadamTrash = Wormadam(
+    public static readonly SpeciesData WormadamTrash = Wormadam(
         type2: Steel,
         baseHP: 60,
         baseAttack: 69,
@@ -27212,50 +27212,50 @@ public static SpeciesData VenusaurMega = Mega(
         backSpriteHeight: 2
     );
 
-    public static SpeciesData CherrimSunshine = Cherrim("cherrim/sunshine", 6);
+    public static readonly SpeciesData CherrimSunshine = Cherrim("cherrim/sunshine", 6);
 
-    public static SpeciesData ShellosEast = Shellos("shellos/east_sea", 8, Evolution.ShellosEast);
-    public static SpeciesData GastrodonEast = Gastrodon("gastrodon/east_sea", 3);
+    public static readonly SpeciesData ShellosEast = Shellos("shellos/east_sea", 8, Evolution.ShellosEast);
+    public static readonly SpeciesData GastrodonEast = Gastrodon("gastrodon/east_sea", 3);
 
-    public static SpeciesData RotomHeat = RotomForm(Fire, "rotom/heat", 12);
-    public static SpeciesData RotomWash = RotomForm(Water, "rotom/wash", 11);
-    public static SpeciesData RotomFrost = RotomForm(Ice, "rotom/frost", 7);
-    public static SpeciesData RotomFan = RotomForm(Flying, "rotom/fan", 8);
-    public static SpeciesData RotomMow = RotomForm(Grass, "rotom/mow", 10);
+    public static readonly SpeciesData RotomHeat = RotomForm(Fire, "rotom/heat", 12);
+    public static readonly SpeciesData RotomWash = RotomForm(Water, "rotom/wash", 11);
+    public static readonly SpeciesData RotomFrost = RotomForm(Ice, "rotom/frost", 7);
+    public static readonly SpeciesData RotomFan = RotomForm(Flying, "rotom/fan", 8);
+    public static readonly SpeciesData RotomMow = RotomForm(Grass, "rotom/mow", 10);
 
-    public static SpeciesData ArceusFire = Arceus(Fire, "arceus/fire");
-    public static SpeciesData ArceusWater = Arceus(Water, "arceus/water");
-    public static SpeciesData ArceusGrass = Arceus(Grass, "arceus/grass");
-    public static SpeciesData ArceusElectric = Arceus(Electric, "arceus/electric");
-    public static SpeciesData ArceusIce = Arceus(Ice, "arceus/ice");
-    public static SpeciesData ArceusGround = Arceus(Ground, "arceus/ground");
-    public static SpeciesData ArceusFighting = Arceus(Fighting, "arceus/fighting");
-    public static SpeciesData ArceusFlying = Arceus(Flying, "arceus.flying");
-    public static SpeciesData ArceusRock = Arceus(Rock, "arceus/rock");
-    public static SpeciesData ArceusPoison = Arceus(Poison, "arceus/poison");
-    public static SpeciesData ArceusBug = Arceus(Bug, "arceus/bug");
-    public static SpeciesData ArceusPsychic = Arceus(Psychic, "arceus/psychic");
-    public static SpeciesData ArceusGhost = Arceus(Ghost, "arceus/ghost");
-    public static SpeciesData ArceusDragon = Arceus(Dragon, "arceus/dragon");
-    public static SpeciesData ArceusDark = Arceus(Dark, "arceus/dark");
-    public static SpeciesData ArceusSteel = Arceus(Steel, "arceus/steel");
-    public static SpeciesData ArceusFairy = Arceus(Fairy, "arceus/fairy");
+    public static readonly SpeciesData ArceusFire = Arceus(Fire, "arceus/fire");
+    public static readonly SpeciesData ArceusWater = Arceus(Water, "arceus/water");
+    public static readonly SpeciesData ArceusGrass = Arceus(Grass, "arceus/grass");
+    public static readonly SpeciesData ArceusElectric = Arceus(Electric, "arceus/electric");
+    public static readonly SpeciesData ArceusIce = Arceus(Ice, "arceus/ice");
+    public static readonly SpeciesData ArceusGround = Arceus(Ground, "arceus/ground");
+    public static readonly SpeciesData ArceusFighting = Arceus(Fighting, "arceus/fighting");
+    public static readonly SpeciesData ArceusFlying = Arceus(Flying, "arceus.flying");
+    public static readonly SpeciesData ArceusRock = Arceus(Rock, "arceus/rock");
+    public static readonly SpeciesData ArceusPoison = Arceus(Poison, "arceus/poison");
+    public static readonly SpeciesData ArceusBug = Arceus(Bug, "arceus/bug");
+    public static readonly SpeciesData ArceusPsychic = Arceus(Psychic, "arceus/psychic");
+    public static readonly SpeciesData ArceusGhost = Arceus(Ghost, "arceus/ghost");
+    public static readonly SpeciesData ArceusDragon = Arceus(Dragon, "arceus/dragon");
+    public static readonly SpeciesData ArceusDark = Arceus(Dark, "arceus/dark");
+    public static readonly SpeciesData ArceusSteel = Arceus(Steel, "arceus/steel");
+    public static readonly SpeciesData ArceusFairy = Arceus(Fairy, "arceus/fairy");
 
-    public static SpeciesData DialgaOrigin = Dialga(
+    public static readonly SpeciesData DialgaOrigin = Dialga(
         baseAttack: 100,
         baseSpDef: 120,
         graphics: "dialga/origin",
         backSpriteHeight: 0
     );
 
-    public static SpeciesData PalkiaOrigin = Palkia(
+    public static readonly SpeciesData PalkiaOrigin = Palkia(
         baseAttack: 100,
         baseSpeed: 120,
         graphics: "palkia/origin",
         backSpriteHeight: 3
     );
 
-    public static SpeciesData GiratinaOrigin = Giratina(
+    public static readonly SpeciesData GiratinaOrigin = Giratina(
         baseAttack: 120,
         baseSpAtk: 120,
         baseDefense: 100,
@@ -27264,7 +27264,7 @@ public static SpeciesData VenusaurMega = Mega(
         backSpriteHeight: 4
     );
 
-    public static SpeciesData ShayminSky = Shaymin(
+    public static readonly SpeciesData ShayminSky = Shaymin(
         type2: Flying,
         baseHP: 100,
         baseAttack: 103,
@@ -27278,10 +27278,10 @@ public static SpeciesData VenusaurMega = Mega(
         backSpriteHeight: 2
         );
 
-    public static SpeciesData BasculinBlue = Basculin(
+    public static readonly SpeciesData BasculinBlue = Basculin(
     "basculin/blue_striped", RockHead, Evolution.None);
 
-    public static SpeciesData DarmanitanZen = new()
+    public static readonly SpeciesData DarmanitanZen = new()
     {
         speciesName = "Darmanitan",
         type1 = Fire,
@@ -27315,15 +27315,15 @@ public static SpeciesData VenusaurMega = Mega(
         },
     };
 
-    public static SpeciesData DeerlingSummer = Deerling("deerling/summer", Evolution.DeerlingSummer);
-    public static SpeciesData DeerlingAutumn = Deerling("deerling/autumn", Evolution.DeerlingAutumn);
-    public static SpeciesData DeerlingWinter = Deerling("deerling/winter", Evolution.DeerlingWinter);
+    public static readonly SpeciesData DeerlingSummer = Deerling("deerling/summer", Evolution.DeerlingSummer);
+    public static readonly SpeciesData DeerlingAutumn = Deerling("deerling/autumn", Evolution.DeerlingAutumn);
+    public static readonly SpeciesData DeerlingWinter = Deerling("deerling/winter", Evolution.DeerlingWinter);
 
-    public static SpeciesData SawsbuckSummer = Sawsbuck("sawsbuck/summer");
-    public static SpeciesData SawsbuckAutumn = Sawsbuck("sawsbuck/autumn");
-    public static SpeciesData SawsbuckWinter = Sawsbuck("sawsbuck/winter");
+    public static readonly SpeciesData SawsbuckSummer = Sawsbuck("sawsbuck/summer");
+    public static readonly SpeciesData SawsbuckAutumn = Sawsbuck("sawsbuck/autumn");
+    public static readonly SpeciesData SawsbuckWinter = Sawsbuck("sawsbuck/winter");
 
-    public static SpeciesData TornadusT = new()
+    public static readonly SpeciesData TornadusT = new()
     {
         speciesName = "Tornadus",
         type1 = Flying,
@@ -27356,7 +27356,7 @@ public static SpeciesData VenusaurMega = Mega(
             Regenerator,
         },
     };
-    public static SpeciesData ThundurusT = new()
+    public static readonly SpeciesData ThundurusT = new()
     {
         speciesName = "Thundurus",
         type1 = Electric,
@@ -27390,7 +27390,7 @@ public static SpeciesData VenusaurMega = Mega(
         },
     };
 
-    public static SpeciesData LandorusT = new()
+    public static readonly SpeciesData LandorusT = new()
     {
         speciesName = "Landorus",
         type1 = Ground,
@@ -27424,7 +27424,7 @@ public static SpeciesData VenusaurMega = Mega(
         },
     };
 
-    public static SpeciesData KyuremWhite = new()
+    public static readonly SpeciesData KyuremWhite = new()
     {
         speciesName = "Kyurem",
         type1 = Dragon,
@@ -27458,7 +27458,7 @@ public static SpeciesData VenusaurMega = Mega(
         },
     };
 
-    public static SpeciesData KyuremBlack = new()
+    public static readonly SpeciesData KyuremBlack = new()
     {
         speciesName = "Kyurem",
         type1 = Dragon,
@@ -27492,8 +27492,8 @@ public static SpeciesData VenusaurMega = Mega(
         },
     };
 
-    public static SpeciesData KeldeoResolute = Keldeo("keldeo/resolute");
-    public static SpeciesData MeloettaPirouette = new()
+    public static readonly SpeciesData KeldeoResolute = Keldeo("keldeo/resolute");
+    public static readonly SpeciesData MeloettaPirouette = new()
     {
         speciesName = "Meloetta",
         type1 = Normal,
@@ -27527,100 +27527,100 @@ public static SpeciesData VenusaurMega = Mega(
         },
     };
 
-    public static SpeciesData GenesectDouse = Genesect("genesect/douse");
-    public static SpeciesData GenesectShock = Genesect("genesect/shock");
-    public static SpeciesData GenesectBurn = Genesect("genesect/burn");
-    public static SpeciesData GenesectChill = Genesect("genesect/chill");
+    public static readonly SpeciesData GenesectDouse = Genesect("genesect/douse");
+    public static readonly SpeciesData GenesectShock = Genesect("genesect/shock");
+    public static readonly SpeciesData GenesectBurn = Genesect("genesect/burn");
+    public static readonly SpeciesData GenesectChill = Genesect("genesect/chill");
 
-    public static SpeciesData GreninjaBB = OverwriteAbility(Greninja, BattleBond);
+    public static readonly SpeciesData GreninjaBB = OverwriteAbility(Greninja, BattleBond);
 
-    public static SpeciesData ScatterbugPolar = Scatterbug(SpeciesID.SpewpaPolar);
-    public static SpeciesData ScatterbugTundra = Scatterbug(SpeciesID.SpewpaTundra);
-    public static SpeciesData ScatterbugContinental = Scatterbug(SpeciesID.SpewpaContinental);
-    public static SpeciesData ScatterbugGarden = Scatterbug(SpeciesID.SpewpaGarden);
-    public static SpeciesData ScatterbugElegant = Scatterbug(SpeciesID.SpewpaElegant);
-    public static SpeciesData ScatterbugIcySnow = Scatterbug(SpeciesID.SpewpaIcySnow);
-    public static SpeciesData ScatterbugModern = Scatterbug(SpeciesID.SpewpaModern);
-    public static SpeciesData ScatterbugMarine = Scatterbug(SpeciesID.SpewpaMarine);
-    public static SpeciesData ScatterbugArchipelago = Scatterbug(SpeciesID.SpewpaArchipelago);
-    public static SpeciesData ScatterbugHighPlains = Scatterbug(SpeciesID.SpewpaHighPlains);
-    public static SpeciesData ScatterbugSandstorm = Scatterbug(SpeciesID.SpewpaSandstorm);
-    public static SpeciesData ScatterbugRiver = Scatterbug(SpeciesID.SpewpaRiver);
-    public static SpeciesData ScatterbugMonsoon = Scatterbug(SpeciesID.SpewpaMonsoon);
-    public static SpeciesData ScatterbugSavanna = Scatterbug(SpeciesID.SpewpaSavanna);
-    public static SpeciesData ScatterbugSun = Scatterbug(SpeciesID.SpewpaSun);
-    public static SpeciesData ScatterbugOcean = Scatterbug(SpeciesID.SpewpaOcean);
-    public static SpeciesData ScatterbugJungle = Scatterbug(SpeciesID.SpewpaJungle);
-    public static SpeciesData ScatterbugFancy = Scatterbug(SpeciesID.SpewpaFancy);
-    public static SpeciesData ScatterbugPokeBall = Scatterbug(SpeciesID.SpewpaPokeBall);
+    public static readonly SpeciesData ScatterbugPolar = Scatterbug(SpeciesID.SpewpaPolar);
+    public static readonly SpeciesData ScatterbugTundra = Scatterbug(SpeciesID.SpewpaTundra);
+    public static readonly SpeciesData ScatterbugContinental = Scatterbug(SpeciesID.SpewpaContinental);
+    public static readonly SpeciesData ScatterbugGarden = Scatterbug(SpeciesID.SpewpaGarden);
+    public static readonly SpeciesData ScatterbugElegant = Scatterbug(SpeciesID.SpewpaElegant);
+    public static readonly SpeciesData ScatterbugIcySnow = Scatterbug(SpeciesID.SpewpaIcySnow);
+    public static readonly SpeciesData ScatterbugModern = Scatterbug(SpeciesID.SpewpaModern);
+    public static readonly SpeciesData ScatterbugMarine = Scatterbug(SpeciesID.SpewpaMarine);
+    public static readonly SpeciesData ScatterbugArchipelago = Scatterbug(SpeciesID.SpewpaArchipelago);
+    public static readonly SpeciesData ScatterbugHighPlains = Scatterbug(SpeciesID.SpewpaHighPlains);
+    public static readonly SpeciesData ScatterbugSandstorm = Scatterbug(SpeciesID.SpewpaSandstorm);
+    public static readonly SpeciesData ScatterbugRiver = Scatterbug(SpeciesID.SpewpaRiver);
+    public static readonly SpeciesData ScatterbugMonsoon = Scatterbug(SpeciesID.SpewpaMonsoon);
+    public static readonly SpeciesData ScatterbugSavanna = Scatterbug(SpeciesID.SpewpaSavanna);
+    public static readonly SpeciesData ScatterbugSun = Scatterbug(SpeciesID.SpewpaSun);
+    public static readonly SpeciesData ScatterbugOcean = Scatterbug(SpeciesID.SpewpaOcean);
+    public static readonly SpeciesData ScatterbugJungle = Scatterbug(SpeciesID.SpewpaJungle);
+    public static readonly SpeciesData ScatterbugFancy = Scatterbug(SpeciesID.SpewpaFancy);
+    public static readonly SpeciesData ScatterbugPokeBall = Scatterbug(SpeciesID.SpewpaPokeBall);
 
-    public static SpeciesData SpewpaPolar = Spewpa(SpeciesID.VivillonPolar);
-    public static SpeciesData SpewpaTundra = Spewpa(SpeciesID.VivillonTundra);
-    public static SpeciesData SpewpaContinental = Spewpa(SpeciesID.VivillonContinental);
-    public static SpeciesData SpewpaGarden = Spewpa(SpeciesID.VivillonGarden);
-    public static SpeciesData SpewpaElegant = Spewpa(SpeciesID.VivillonElegant);
-    public static SpeciesData SpewpaIcySnow = Spewpa(SpeciesID.VivillonIcySnow);
-    public static SpeciesData SpewpaModern = Spewpa(SpeciesID.VivillonModern);
-    public static SpeciesData SpewpaMarine = Spewpa(SpeciesID.VivillonMarine);
-    public static SpeciesData SpewpaArchipelago = Spewpa(SpeciesID.VivillonArchipelago);
-    public static SpeciesData SpewpaHighPlains = Spewpa(SpeciesID.VivillonHighPlains);
-    public static SpeciesData SpewpaSandstorm = Spewpa(SpeciesID.VivillonSandstorm);
-    public static SpeciesData SpewpaRiver = Spewpa(SpeciesID.VivillonRiver);
-    public static SpeciesData SpewpaMonsoon = Spewpa(SpeciesID.VivillonMonsoon);
-    public static SpeciesData SpewpaSavanna = Spewpa(SpeciesID.VivillonSavanna);
-    public static SpeciesData SpewpaSun = Spewpa(SpeciesID.VivillonSun);
-    public static SpeciesData SpewpaOcean = Spewpa(SpeciesID.VivillonOcean);
-    public static SpeciesData SpewpaJungle = Spewpa(SpeciesID.VivillonJungle);
-    public static SpeciesData SpewpaFancy = Spewpa(SpeciesID.VivillonFancy);
-    public static SpeciesData SpewpaPokeBall = Spewpa(SpeciesID.VivillonPokeBall);
+    public static readonly SpeciesData SpewpaPolar = Spewpa(SpeciesID.VivillonPolar);
+    public static readonly SpeciesData SpewpaTundra = Spewpa(SpeciesID.VivillonTundra);
+    public static readonly SpeciesData SpewpaContinental = Spewpa(SpeciesID.VivillonContinental);
+    public static readonly SpeciesData SpewpaGarden = Spewpa(SpeciesID.VivillonGarden);
+    public static readonly SpeciesData SpewpaElegant = Spewpa(SpeciesID.VivillonElegant);
+    public static readonly SpeciesData SpewpaIcySnow = Spewpa(SpeciesID.VivillonIcySnow);
+    public static readonly SpeciesData SpewpaModern = Spewpa(SpeciesID.VivillonModern);
+    public static readonly SpeciesData SpewpaMarine = Spewpa(SpeciesID.VivillonMarine);
+    public static readonly SpeciesData SpewpaArchipelago = Spewpa(SpeciesID.VivillonArchipelago);
+    public static readonly SpeciesData SpewpaHighPlains = Spewpa(SpeciesID.VivillonHighPlains);
+    public static readonly SpeciesData SpewpaSandstorm = Spewpa(SpeciesID.VivillonSandstorm);
+    public static readonly SpeciesData SpewpaRiver = Spewpa(SpeciesID.VivillonRiver);
+    public static readonly SpeciesData SpewpaMonsoon = Spewpa(SpeciesID.VivillonMonsoon);
+    public static readonly SpeciesData SpewpaSavanna = Spewpa(SpeciesID.VivillonSavanna);
+    public static readonly SpeciesData SpewpaSun = Spewpa(SpeciesID.VivillonSun);
+    public static readonly SpeciesData SpewpaOcean = Spewpa(SpeciesID.VivillonOcean);
+    public static readonly SpeciesData SpewpaJungle = Spewpa(SpeciesID.VivillonJungle);
+    public static readonly SpeciesData SpewpaFancy = Spewpa(SpeciesID.VivillonFancy);
+    public static readonly SpeciesData SpewpaPokeBall = Spewpa(SpeciesID.VivillonPokeBall);
 
-    public static SpeciesData VivillonPolar = Vivillon("polar");
-    public static SpeciesData VivillonTundra = Vivillon("tundra");
-    public static SpeciesData VivillonContinental = Vivillon("continental");
-    public static SpeciesData VivillonGarden = Vivillon("garden");
-    public static SpeciesData VivillonElegant = Vivillon("elegant");
-    public static SpeciesData VivillonIcySnow = Vivillon("icy_snow");
-    public static SpeciesData VivillonModern = Vivillon("modern");
-    public static SpeciesData VivillonMarine = Vivillon("marine");
-    public static SpeciesData VivillonArchipelago = Vivillon("archipelago");
-    public static SpeciesData VivillonHighPlains = Vivillon("high_plains");
-    public static SpeciesData VivillonSandstorm = Vivillon("sandstorm");
-    public static SpeciesData VivillonRiver = Vivillon("river");
-    public static SpeciesData VivillonMonsoon = Vivillon("monsoon");
-    public static SpeciesData VivillonSavanna = Vivillon("savanna");
-    public static SpeciesData VivillonSun = Vivillon("sun");
-    public static SpeciesData VivillonOcean = Vivillon("ocean");
-    public static SpeciesData VivillonJungle = Vivillon("jungle");
-    public static SpeciesData VivillonFancy = Vivillon("fancy");
-    public static SpeciesData VivillonPokeBall = Vivillon("poke_ball");
+    public static readonly SpeciesData VivillonPolar = Vivillon("polar");
+    public static readonly SpeciesData VivillonTundra = Vivillon("tundra");
+    public static readonly SpeciesData VivillonContinental = Vivillon("continental");
+    public static readonly SpeciesData VivillonGarden = Vivillon("garden");
+    public static readonly SpeciesData VivillonElegant = Vivillon("elegant");
+    public static readonly SpeciesData VivillonIcySnow = Vivillon("icy_snow");
+    public static readonly SpeciesData VivillonModern = Vivillon("modern");
+    public static readonly SpeciesData VivillonMarine = Vivillon("marine");
+    public static readonly SpeciesData VivillonArchipelago = Vivillon("archipelago");
+    public static readonly SpeciesData VivillonHighPlains = Vivillon("high_plains");
+    public static readonly SpeciesData VivillonSandstorm = Vivillon("sandstorm");
+    public static readonly SpeciesData VivillonRiver = Vivillon("river");
+    public static readonly SpeciesData VivillonMonsoon = Vivillon("monsoon");
+    public static readonly SpeciesData VivillonSavanna = Vivillon("savanna");
+    public static readonly SpeciesData VivillonSun = Vivillon("sun");
+    public static readonly SpeciesData VivillonOcean = Vivillon("ocean");
+    public static readonly SpeciesData VivillonJungle = Vivillon("jungle");
+    public static readonly SpeciesData VivillonFancy = Vivillon("fancy");
+    public static readonly SpeciesData VivillonPokeBall = Vivillon("poke_ball");
 
-    public static SpeciesData FlabebeYellow = Flabebe(SpeciesID.FloetteYellow, "yellow");
-    public static SpeciesData FlabebeOrange = Flabebe(SpeciesID.FloetteOrange, "orange");
-    public static SpeciesData FlabebeBlue = Flabebe(SpeciesID.FloetteBlue, "blue");
-    public static SpeciesData FlabebeWhite = Flabebe(SpeciesID.FloetteWhite, "white");
+    public static readonly SpeciesData FlabebeYellow = Flabebe(SpeciesID.FloetteYellow, "yellow");
+    public static readonly SpeciesData FlabebeOrange = Flabebe(SpeciesID.FloetteOrange, "orange");
+    public static readonly SpeciesData FlabebeBlue = Flabebe(SpeciesID.FloetteBlue, "blue");
+    public static readonly SpeciesData FlabebeWhite = Flabebe(SpeciesID.FloetteWhite, "white");
 
-    public static SpeciesData FloetteYellow = Floette(SpeciesID.FlorgesYellow, "yellow");
-    public static SpeciesData FloetteOrange = Floette(SpeciesID.FlorgesOrange, "orange");
-    public static SpeciesData FloetteBlue = Floette(SpeciesID.FlorgesBlue, "blue");
-    public static SpeciesData FloetteWhite = Floette(SpeciesID.FlorgesWhite, "white");
-    public static SpeciesData FloetteEternal = Floette(SpeciesID.Missingno, "eternal", eternal: true);
+    public static readonly SpeciesData FloetteYellow = Floette(SpeciesID.FlorgesYellow, "yellow");
+    public static readonly SpeciesData FloetteOrange = Floette(SpeciesID.FlorgesOrange, "orange");
+    public static readonly SpeciesData FloetteBlue = Floette(SpeciesID.FlorgesBlue, "blue");
+    public static readonly SpeciesData FloetteWhite = Floette(SpeciesID.FlorgesWhite, "white");
+    public static readonly SpeciesData FloetteEternal = Floette(SpeciesID.Missingno, "eternal", eternal: true);
 
-    public static SpeciesData FlorgesYellow = Florges("yellow");
-    public static SpeciesData FlorgesOrange = Florges("orange");
-    public static SpeciesData FlorgesBlue = Florges("blue");
-    public static SpeciesData FlorgesWhite = Florges("white");
+    public static readonly SpeciesData FlorgesYellow = Florges("yellow");
+    public static readonly SpeciesData FlorgesOrange = Florges("orange");
+    public static readonly SpeciesData FlorgesBlue = Florges("blue");
+    public static readonly SpeciesData FlorgesWhite = Florges("white");
 
-    public static SpeciesData FurfrouHeart = Furfrou("heart_trim");
-    public static SpeciesData FurfrouStar = Furfrou("star_trim");
-    public static SpeciesData FurfrouDiamond = Furfrou("diamond_trim");
-    public static SpeciesData FurfrouDebutante = Furfrou("debutante_trim");
-    public static SpeciesData FurfrouMatron = Furfrou("matron_trim");
-    public static SpeciesData FurfrouDandy = Furfrou("dandy_trim");
-    public static SpeciesData FurfrouLaReine = Furfrou("la_reine_trim");
-    public static SpeciesData FurfrouKabuki = Furfrou("kabuki_trim");
-    public static SpeciesData FurfrouPharaoh = Furfrou("pharaoh_trim");
+    public static readonly SpeciesData FurfrouHeart = Furfrou("heart_trim");
+    public static readonly SpeciesData FurfrouStar = Furfrou("star_trim");
+    public static readonly SpeciesData FurfrouDiamond = Furfrou("diamond_trim");
+    public static readonly SpeciesData FurfrouDebutante = Furfrou("debutante_trim");
+    public static readonly SpeciesData FurfrouMatron = Furfrou("matron_trim");
+    public static readonly SpeciesData FurfrouDandy = Furfrou("dandy_trim");
+    public static readonly SpeciesData FurfrouLaReine = Furfrou("la_reine_trim");
+    public static readonly SpeciesData FurfrouKabuki = Furfrou("kabuki_trim");
+    public static readonly SpeciesData FurfrouPharaoh = Furfrou("pharaoh_trim");
 
-    public static SpeciesData MeowsticF = new ()
+    public static readonly SpeciesData MeowsticF = new ()
 	{
 		speciesName = "Meowstic",
 		type1 = Psychic,
@@ -27654,7 +27654,7 @@ public static SpeciesData VenusaurMega = Mega(
 		},
 	};
 
-    public static SpeciesData PumpkabooSmall = Pumpkaboo(
+    public static readonly SpeciesData PumpkabooSmall = Pumpkaboo(
         baseHP: 44,
         baseSpeed: 56,
         nextEvo: SpeciesID.GourgeistSmall,
@@ -27662,7 +27662,7 @@ public static SpeciesData VenusaurMega = Mega(
         backSpriteHeight: 14
     );
 
-    public static SpeciesData PumpkabooLarge = Pumpkaboo(
+    public static readonly SpeciesData PumpkabooLarge = Pumpkaboo(
         baseHP: 54,
         baseSpeed: 46,
         nextEvo: SpeciesID.GourgeistLarge,
@@ -27670,7 +27670,7 @@ public static SpeciesData VenusaurMega = Mega(
         backSpriteHeight: 13
     );
 
-    public static SpeciesData PumpkabooSuper = Pumpkaboo(
+    public static readonly SpeciesData PumpkabooSuper = Pumpkaboo(
         baseHP: 59,
         baseSpeed: 41,
         nextEvo: SpeciesID.GourgeistSuper,
@@ -27678,7 +27678,7 @@ public static SpeciesData VenusaurMega = Mega(
         backSpriteHeight: 12
     );
 
-    public static SpeciesData GourgeistSmall = Gourgeist(
+    public static readonly SpeciesData GourgeistSmall = Gourgeist(
         baseHP: 55,
         baseAttack: 85,
         baseSpeed: 99,
@@ -27686,7 +27686,7 @@ public static SpeciesData VenusaurMega = Mega(
         backSpriteHeight: 4
     );
 
-    public static SpeciesData GourgeistLarge = Gourgeist(
+    public static readonly SpeciesData GourgeistLarge = Gourgeist(
         baseHP: 75,
         baseAttack: 95,
         baseSpeed: 69,
@@ -27694,7 +27694,7 @@ public static SpeciesData VenusaurMega = Mega(
         backSpriteHeight: 2
     );
 
-    public static SpeciesData GourgeistSuper = Gourgeist(
+    public static readonly SpeciesData GourgeistSuper = Gourgeist(
         baseHP: 85,
         baseAttack: 100,
         baseSpeed: 54,
@@ -27702,9 +27702,9 @@ public static SpeciesData VenusaurMega = Mega(
         backSpriteHeight: 1
     );
 
-    public static SpeciesData XerneasActive = Xerneas("xerneas/active");
+    public static readonly SpeciesData XerneasActive = Xerneas("xerneas/active");
      
-    public static SpeciesData Zygarde10 = new()
+    public static readonly SpeciesData Zygarde10 = new()
     {
         speciesName = "Zygarde",
         type1 = Dragon,
@@ -27737,9 +27737,9 @@ public static SpeciesData VenusaurMega = Mega(
             AuraBreak
         }
     };
-    public static SpeciesData Zygarde10PC = OverwriteAbility(Zygarde10, PowerConstruct);
-    public static SpeciesData Zygarde50PC = OverwriteAbility(Zygarde50, PowerConstruct);
-    public static SpeciesData ZygardeComplete = new()
+    public static readonly SpeciesData Zygarde10PC = OverwriteAbility(Zygarde10, PowerConstruct);
+    public static readonly SpeciesData Zygarde50PC = OverwriteAbility(Zygarde50, PowerConstruct);
+    public static readonly SpeciesData ZygardeComplete = new()
 	{
 		speciesName = "Zygarde",
 		type1 = Dragon,
@@ -27773,7 +27773,7 @@ public static SpeciesData VenusaurMega = Mega(
 		},
 	};
 
-    public static SpeciesData HoopaUnbound = new()
+    public static readonly SpeciesData HoopaUnbound = new()
 	{
 		speciesName = "Hoopa",
 		type1 = Psychic,
@@ -27807,14 +27807,14 @@ public static SpeciesData VenusaurMega = Mega(
 		},
 	};
 
-    public static SpeciesData OricorioPomPom = Oricorio(Electric, "pom_pom");
-    public static SpeciesData OricorioPau = Oricorio(Psychic, "pau");
-    public static SpeciesData OricorioSensu = Oricorio(Ghost, "sensu");
+    public static readonly SpeciesData OricorioPomPom = Oricorio(Electric, "pom_pom");
+    public static readonly SpeciesData OricorioPau = Oricorio(Psychic, "pau");
+    public static readonly SpeciesData OricorioSensu = Oricorio(Ghost, "sensu");
 
-    public static SpeciesData RockruffOwnTempo = Rockruff(
+    public static readonly SpeciesData RockruffOwnTempo = Rockruff(
         new[] { OwnTempo, OwnTempo, OwnTempo }, Evolution.RockruffOwnTempo);
 
-    public static SpeciesData LycanrocMidnight = new ()
+    public static readonly SpeciesData LycanrocMidnight = new ()
 	{
 		speciesName = "Lycanroc",
 		type1 = Rock,
@@ -27847,7 +27847,7 @@ public static SpeciesData VenusaurMega = Mega(
 			NoGuard,
 		},
 	};
-    public static SpeciesData LycanrocDusk = new()
+    public static readonly SpeciesData LycanrocDusk = new()
     {
         speciesName = "Lycanroc",
         type1 = Rock,
@@ -27880,7 +27880,7 @@ public static SpeciesData VenusaurMega = Mega(
             ToughClaws,
         },
     };
-    public static SpeciesData WishiwashiSchool = new ()
+    public static readonly SpeciesData WishiwashiSchool = new ()
 	{
 		speciesName = "Wishiwashi",
 		type1 = Water,
@@ -27914,43 +27914,43 @@ public static SpeciesData VenusaurMega = Mega(
 		},
 	};
 
-    public static SpeciesData SilvallyFighting = Silvally(Fighting, "fighting");
-    public static SpeciesData SilvallyFlying = Silvally(Flying, "flying");
-    public static SpeciesData SilvallyPoison = Silvally(Poison, "poison");
-    public static SpeciesData SilvallyGround = Silvally(Ground, "ground");
-    public static SpeciesData SilvallyRock = Silvally(Rock, "rock");
-    public static SpeciesData SilvallyBug = Silvally(Bug, "bug");
-    public static SpeciesData SilvallyGhost = Silvally(Ghost, "ghost");
-    public static SpeciesData SilvallySteel = Silvally(Steel, "steel");
-    public static SpeciesData SilvallyFire = Silvally(Fire, "fire");
-    public static SpeciesData SilvallyWater = Silvally(Water, "water");
-    public static SpeciesData SilvallyGrass = Silvally(Grass, "grass");
-    public static SpeciesData SilvallyElectric = Silvally(Electric, "electric");
-    public static SpeciesData SilvallyPsychic = Silvally(Psychic, "psychic");
-    public static SpeciesData SilvallyIce = Silvally(Ice, "ice");
-    public static SpeciesData SilvallyDragon = Silvally(Dragon, "dragon");
-    public static SpeciesData SilvallyDark = Silvally(Dark, "dark");
-    public static SpeciesData SilvallyFairy = Silvally(Fairy, "fairy");
+    public static readonly SpeciesData SilvallyFighting = Silvally(Fighting, "fighting");
+    public static readonly SpeciesData SilvallyFlying = Silvally(Flying, "flying");
+    public static readonly SpeciesData SilvallyPoison = Silvally(Poison, "poison");
+    public static readonly SpeciesData SilvallyGround = Silvally(Ground, "ground");
+    public static readonly SpeciesData SilvallyRock = Silvally(Rock, "rock");
+    public static readonly SpeciesData SilvallyBug = Silvally(Bug, "bug");
+    public static readonly SpeciesData SilvallyGhost = Silvally(Ghost, "ghost");
+    public static readonly SpeciesData SilvallySteel = Silvally(Steel, "steel");
+    public static readonly SpeciesData SilvallyFire = Silvally(Fire, "fire");
+    public static readonly SpeciesData SilvallyWater = Silvally(Water, "water");
+    public static readonly SpeciesData SilvallyGrass = Silvally(Grass, "grass");
+    public static readonly SpeciesData SilvallyElectric = Silvally(Electric, "electric");
+    public static readonly SpeciesData SilvallyPsychic = Silvally(Psychic, "psychic");
+    public static readonly SpeciesData SilvallyIce = Silvally(Ice, "ice");
+    public static readonly SpeciesData SilvallyDragon = Silvally(Dragon, "dragon");
+    public static readonly SpeciesData SilvallyDark = Silvally(Dark, "dark");
+    public static readonly SpeciesData SilvallyFairy = Silvally(Fairy, "fairy");
 
-    public static SpeciesData MiniorOrangeMeteor = Minior(false);
-    public static SpeciesData MiniorYellowMeteor = Minior(false);
-    public static SpeciesData MiniorGreenMeteor = Minior(false);
-    public static SpeciesData MiniorBlueMeteor = Minior(false);
-    public static SpeciesData MiniorIndigoMeteor = Minior(false);
-    public static SpeciesData MiniorVioletMeteor = Minior(false);
-    public static SpeciesData MiniorRedCore = Minior(true, "red");
-    public static SpeciesData MiniorOrangeCore = Minior(true, "orange");
-    public static SpeciesData MiniorYellowCore = Minior(true, "yellow");
-    public static SpeciesData MiniorGreenCore = Minior(true, "green");
-    public static SpeciesData MiniorBlueCore = Minior(true, "blue");
-    public static SpeciesData MiniorIndigoCore = Minior(true, "indigo");
-    public static SpeciesData MiniorVioletCore = Minior(true, "violet");
+    public static readonly SpeciesData MiniorOrangeMeteor = Minior(false);
+    public static readonly SpeciesData MiniorYellowMeteor = Minior(false);
+    public static readonly SpeciesData MiniorGreenMeteor = Minior(false);
+    public static readonly SpeciesData MiniorBlueMeteor = Minior(false);
+    public static readonly SpeciesData MiniorIndigoMeteor = Minior(false);
+    public static readonly SpeciesData MiniorVioletMeteor = Minior(false);
+    public static readonly SpeciesData MiniorRedCore = Minior(true, "red");
+    public static readonly SpeciesData MiniorOrangeCore = Minior(true, "orange");
+    public static readonly SpeciesData MiniorYellowCore = Minior(true, "yellow");
+    public static readonly SpeciesData MiniorGreenCore = Minior(true, "green");
+    public static readonly SpeciesData MiniorBlueCore = Minior(true, "blue");
+    public static readonly SpeciesData MiniorIndigoCore = Minior(true, "indigo");
+    public static readonly SpeciesData MiniorVioletCore = Minior(true, "violet");
 
-    public static SpeciesData MimikyuBusted = Mimikyu(true);
+    public static readonly SpeciesData MimikyuBusted = Mimikyu(true);
 
-    public static SpeciesData MagearnaOriginal = Magearna(true);
+    public static readonly SpeciesData MagearnaOriginal = Magearna(true);
 
-    public static SpeciesData NecrozmaDuskMane = new()
+    public static readonly SpeciesData NecrozmaDuskMane = new()
     {
         speciesName = "Necrozma",
         type1 = Psychic,
@@ -27983,7 +27983,7 @@ public static SpeciesData VenusaurMega = Mega(
             PrismArmor,
         },
     };
-    public static SpeciesData NecrozmaDawnWings = new()
+    public static readonly SpeciesData NecrozmaDawnWings = new()
     {
         speciesName = "Necrozma",
         type1 = Psychic,
@@ -28016,7 +28016,7 @@ public static SpeciesData VenusaurMega = Mega(
             PrismArmor,
         },
     };
-    public static SpeciesData NecrozmaUltra = new ()
+    public static readonly SpeciesData NecrozmaUltra = new ()
 	{
 		speciesName = "Necrozma",
 		type1 = Psychic,
@@ -28050,7 +28050,7 @@ public static SpeciesData VenusaurMega = Mega(
 		},
 	};
 
-public static SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count] { //Todo: Change TempCount to Count
+public static readonly SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count] { //Todo: Change TempCount to Count
         //Gen 1
         Missingno,
         Bulbasaur,

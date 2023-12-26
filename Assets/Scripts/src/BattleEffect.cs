@@ -620,7 +620,7 @@ public static class BattleEffect
             }
             battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index, battle);
             yield return battle.Announce(battle.OpponentName + " sent out "
-                + battle.OpponentPokemon[partyIndex].monName + "!");
+                + battle.OpponentPokemon[partyIndex].MonName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
                 battle.OpponentPokemon[partyIndex], index, false, battle);
             battle.PokemonOnField[index].partyIndex = partyIndex;
@@ -641,7 +641,7 @@ public static class BattleEffect
             }
             battle.LeaveFieldCleanup(index);
             battle.PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index, battle);
-            yield return battle.Announce("Go! " + battle.PlayerPokemon[partyIndex].monName + "!");
+            yield return battle.Announce("Go! " + battle.PlayerPokemon[partyIndex].MonName + "!");
             battle.PokemonOnField[index] = new BattlePokemon(
                             battle.PlayerPokemon[partyIndex], index, true, battle);
             battle.PokemonOnField[index].partyIndex = partyIndex;
@@ -710,7 +710,7 @@ public static class BattleEffect
                         partyIndex = partyIndex
                     };
                     battle.HandleFacing(index);
-                    yield return battle.Announce(battle.PokemonOnField[index].PokemonData.monName
+                    yield return battle.Announce(battle.PokemonOnField[index].PokemonData.MonName
                         + " was dragged out!");
                 }
                 break;
@@ -1211,20 +1211,20 @@ public static class BattleEffect
         switch (mon.status)
         {
             case Status.Burn:
-                yield return battle.Announce(mon.monName + " was cured of its burn!");
+                yield return battle.Announce(mon.MonName + " was cured of its burn!");
                 goto default;
             case Status.Paralysis:
-                yield return battle.Announce(mon.monName + " was cured of its paralysis!");
+                yield return battle.Announce(mon.MonName + " was cured of its paralysis!");
                 goto default;
             case Status.Sleep:
-                yield return battle.Announce(mon.monName + " woke up!");
+                yield return battle.Announce(mon.MonName + " woke up!");
                 goto default;
             case Status.Poison:
             case Status.ToxicPoison:
-                yield return battle.Announce(mon.monName + " was cured of its poisoning!");
+                yield return battle.Announce(mon.MonName + " was cured of its poisoning!");
                 goto default;
             case Status.Freeze:
-                yield return battle.Announce(mon.monName + " thawed out!");
+                yield return battle.Announce(mon.MonName + " thawed out!");
                 goto default;
             default:
                 mon.status = Status.None;
@@ -1264,7 +1264,7 @@ public static class BattleEffect
     public static IEnumerator Thief(Battle battle, int attacker, int defender)
     {
         if (battle.PokemonOnField[attacker].PokemonData.item == ItemID.None
-            && Item.CanBeStolen(battle.PokemonOnField[defender].PokemonData.item)
+            && ItemUtils.CanBeStolen(battle.PokemonOnField[defender].PokemonData.item)
             && !battle.HasAbility(defender, Ability.StickyHold))
         {
             battle.PokemonOnField[attacker].PokemonData.newItem = battle.PokemonOnField[defender].PokemonData.item;
@@ -1291,8 +1291,8 @@ public static class BattleEffect
             yield break;
         }
         if (battle.PokemonOnField[attacker].PokemonData.item == ItemID.None
-        && Item.CanBeStolen(battle.PokemonOnField[defender].Item)
-        && Item.CanBeStolen(battle.PokemonOnField[attacker].Item)
+        && ItemUtils.CanBeStolen(battle.PokemonOnField[defender].Item)
+        && ItemUtils.CanBeStolen(battle.PokemonOnField[attacker].Item)
         && !battle.HasAbility(defender, Ability.StickyHold))
         {
             ItemID attackerItem = battle.PokemonOnField[attacker].Item;
@@ -1333,7 +1333,7 @@ public static class BattleEffect
     }
     public static IEnumerator KnockOff(Battle battle, int attacker, int defender)
     {
-        if (Item.CanBeStolen(battle.PokemonOnField[defender].PokemonData.item)
+        if (ItemUtils.CanBeStolen(battle.PokemonOnField[defender].PokemonData.item)
             && !battle.HasAbility(defender, Ability.StickyHold))
         {
             yield return battle.Announce(battle.MonNameWithPrefix(attacker, true)

@@ -251,11 +251,11 @@ public class Battle : MonoBehaviour
     {
         return wildBattle && index < 3
             ? (capitalized ? "The wild " : "the wild ")
-                + PokemonOnField[index].PokemonData.monName
+                + PokemonOnField[index].PokemonData.MonName
             : index < 3
                 ? (capitalized ? "The foe's " : "the foe's ")
-                            + PokemonOnField[index].PokemonData.monName
-                : PokemonOnField[index].PokemonData.monName;
+                            + PokemonOnField[index].PokemonData.MonName
+                : PokemonOnField[index].PokemonData.MonName;
     }
 
     public bool OppositeGenders(int indexA, int indexB)
@@ -1275,7 +1275,7 @@ public class Battle : MonoBehaviour
             case FusionFlare when lastMoveUsed.Data().effect == FusionBolt:
                 effectivePower <<= 1;
                 break;
-            case KnockOff when Item.CanBeStolen(defender.Item):
+            case KnockOff when ItemUtils.CanBeStolen(defender.Item):
                 effectivePower += effectivePower << 1;
                 break;
             case NaturalGift:
@@ -1821,7 +1821,7 @@ public class Battle : MonoBehaviour
     public IEnumerator GainExp(int partyIndex, int amount)
     {
         Pokemon mon = PlayerPokemon[partyIndex];
-        yield return Announce(mon.monName + " gained "
+        yield return Announce(mon.MonName + " gained "
             + amount + " Exp. points!");
         if (mon.onField && battleType == BattleType.Single)
         {
@@ -1833,7 +1833,7 @@ public class Battle : MonoBehaviour
             while (XP.LevelToXP(mon.level, mon.SpeciesData.xpClass) < mon.xp && mon.level < PokemonConst.maxLevel)
             {
                 mon.LevelUp();
-                yield return Announce(mon.monName + " grew to level " + mon.level + "!");
+                yield return Announce(mon.MonName + " grew to level " + mon.level + "!");
             }
         }
     }
@@ -2996,7 +2996,7 @@ public class Battle : MonoBehaviour
         if (goAhead && mon.powdered && GetEffectiveType(Moves[index],index) is Type.Fire)
         {
             UsePP(index);
-            yield return Announce(mon.PokemonData.monName + " used " + GetMove(index).name + "!");
+            yield return Announce(mon.PokemonData.MonName + " used " + GetMove(index).name + "!");
             if (!HasAbility(index, MagicGuard)) yield return mon.DoProportionalDamage(0.25F);
             yield return Announce("When the flame touched the powder, it exploded!");
         }
@@ -3562,7 +3562,7 @@ public class Battle : MonoBehaviour
             Moves[index] = MoveID.PollenPuffHeal;
         }
 
-        yield return Announce(user.PokemonData.monName + " used " + GetMove(index).name + "!");
+        yield return Announce(user.PokemonData.MonName + " used " + GetMove(index).name + "!");
         lastMoveUsed = Moves[index];
 
         if (GetMove(index).effect == NaturePower)
@@ -4236,12 +4236,12 @@ public class Battle : MonoBehaviour
                     }
                     if (PokemonOnField[i].isMissed)
                     {
-                        yield return Announce(PokemonOnField[i].PokemonData.monName + BattleText.AvoidedAttack);
+                        yield return Announce(PokemonOnField[i].PokemonData.MonName + BattleText.AvoidedAttack);
                         targetsAnyone = true;
                     }
                     if (PokemonOnField[i].wasProtected)
                     {
-                        yield return Announce(PokemonOnField[i].PokemonData.monName + " protected itself!");
+                        yield return Announce(PokemonOnField[i].PokemonData.MonName + " protected itself!");
                         didAnyoneProtect = true;
                         if (MakesContact(index, Moves[index]))
                         {
@@ -4397,12 +4397,12 @@ public class Battle : MonoBehaviour
                         }
                         if (target.isMissed)
                         {
-                            yield return Announce(target.PokemonData.monName + BattleText.AvoidedAttack);
+                            yield return Announce(target.PokemonData.MonName + BattleText.AvoidedAttack);
                             targetsAnyone = true;
                         }
                         if (target.wasProtected)
                         {
-                            yield return Announce(target.PokemonData.monName + " protected itself!");
+                            yield return Announce(target.PokemonData.MonName + " protected itself!");
                             if (MakesContact(index, Moves[index]))
                             {
                                 yield return DoProtectEffect(i, index);
@@ -4516,7 +4516,7 @@ public class Battle : MonoBehaviour
                         }
                         if (target.wasProtected)
                         {
-                            yield return Announce(target.PokemonData.monName + " protected itself!");
+                            yield return Announce(target.PokemonData.MonName + " protected itself!");
                             if (MakesContact(index, Moves[index]))
                             {
                                 yield return DoProtectEffect(i, index);
@@ -4839,7 +4839,7 @@ public class Battle : MonoBehaviour
         if (effectiveness > 1)
         {
 
-            yield return Announce(isMultiTarget ? BattleText.SuperEffectiveOn + PokemonOnField[index].PokemonData.monName + "!"
+            yield return Announce(isMultiTarget ? BattleText.SuperEffectiveOn + PokemonOnField[index].PokemonData.MonName + "!"
                 : BattleText.SuperEffective);
         }
         else if (effectiveness == 0)
@@ -4848,7 +4848,7 @@ public class Battle : MonoBehaviour
         }
         else if (effectiveness < 1)
         {
-            yield return Announce(isMultiTarget ? BattleText.NotVeryEffectiveOn + PokemonOnField[index].PokemonData.monName + "..."
+            yield return Announce(isMultiTarget ? BattleText.NotVeryEffectiveOn + PokemonOnField[index].PokemonData.MonName + "..."
                 : BattleText.NotVeryEffective);
         }
     }
@@ -6900,7 +6900,7 @@ public class Battle : MonoBehaviour
     }
 
     public IEnumerator AbilityPopupStart(int index) =>
-        ScriptUtils.Wait(0.2F).Join(abilityControllers[index].Summon(PokemonOnField[index].PokemonData.monName,
+        ScriptUtils.Wait(0.2F).Join(abilityControllers[index].Summon(PokemonOnField[index].PokemonData.MonName,
             NameTable.Ability[(int)PokemonOnField[index].ability]).Join(ScriptUtils.Wait(0.3F)));
 
     public IEnumerator AbilityPopupEnd(int index) => abilityControllers[index].Dismiss();
@@ -6989,7 +6989,7 @@ public class Battle : MonoBehaviour
             if (wildBattle)
             {
                 PokemonOnField[0] = new BattlePokemon(OpponentPokemon[0], 0, false, this);
-                yield return Announce("A wild " + PokemonOnField[0].PokemonData.monName + " appeared!");
+                yield return Announce("A wild " + PokemonOnField[0].PokemonData.MonName + " appeared!");
             }
             else
                 yield return BringToField(OpponentPokemon[0], 0, 0, false);
@@ -7013,11 +7013,11 @@ public class Battle : MonoBehaviour
             switch (player)
             {
                 case false:
-                    yield return Announce(OpponentName + " sent out " + pokemonData.monName + "!");
+                    yield return Announce(OpponentName + " sent out " + pokemonData.MonName + "!");
                     PokemonOnField[index] = new BattlePokemon(pokemonData, index, false, this);
                     break;
                 case true:
-                    yield return Announce("Go! " + pokemonData.monName + "!");
+                    yield return Announce("Go! " + pokemonData.MonName + "!");
                     PokemonOnField[index] = new BattlePokemon(pokemonData, index, true, this);
                     break;
             }

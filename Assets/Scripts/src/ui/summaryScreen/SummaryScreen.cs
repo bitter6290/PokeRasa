@@ -144,7 +144,7 @@ public class SummaryScreen : MonoBehaviour
 
         monBox.sprite = Mon.SpeciesData.FrontSprite1;
 
-        monScreenName.text = Mon.monName;
+        monScreenName.text = Mon.MonName;
         speciesText.text = Mon.SpeciesData.pokedexData.number.ToString().LeadingZero2() + " / " + Mon.SpeciesData.speciesName;
 
         type1Box.color = Mon.SpeciesData.type1.Color();
@@ -207,7 +207,7 @@ public class SummaryScreen : MonoBehaviour
         }
 
 
-        moveScreenName.text = Mon.monName;
+        moveScreenName.text = Mon.MonName;
         monIcon0 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Mon.SpeciesData.graphicsLocation + "/icon"),
             new(0, 32, 32, 32), new(0.5F, 0.5F));
         monIcon1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Mon.SpeciesData.graphicsLocation + "/icon"),

@@ -1,11 +1,9 @@
-﻿using Unity.VisualScripting;
-using UnityEngine;
-using static PokedexDesc;
+﻿using static PokedexDesc;
 using static SpeciesData;
 
 public static class Pokedex
 {
-    public static PokedexData Bulbasaur = new()
+    public static readonly PokedexData Bulbasaur = new()
     {
         number = 1,
         name = "Bulbasaur",
@@ -15,7 +13,7 @@ public static class Pokedex
         entry = BulbasaurDesc,
         forms = SingleSpecies(Species.Bulbasaur),
     };
-    public static PokedexData Ivysaur = new()
+    public static readonly PokedexData Ivysaur = new()
     {
         number = 2,
         name = "Ivysaur",
@@ -25,7 +23,7 @@ public static class Pokedex
         entry = IvysaurDesc,
         forms = SingleSpecies(Species.Ivysaur),
     };
-    public static PokedexData Venusaur = new()
+    public static readonly PokedexData Venusaur = new()
     {
         number = 3,
         name = "Venusaur",
@@ -39,7 +37,7 @@ public static class Pokedex
             Species.VenusaurMega
         }
     };
-    public static PokedexData Charmander = new()
+    public static readonly PokedexData Charmander = new()
     {
         number = 4,
         name = "Charmander",
@@ -49,7 +47,7 @@ public static class Pokedex
         entry = CharmanderDesc,
         forms = SingleSpecies(Species.Charmander),
     };
-    public static PokedexData Charmeleon = new()
+    public static readonly PokedexData Charmeleon = new()
     {
         number = 5,
         name = "Charmeleon",
@@ -59,7 +57,7 @@ public static class Pokedex
         entry = CharmeleonDesc,
         forms = SingleSpecies(Species.Charmeleon),
     };
-    public static PokedexData Charizard = new()
+    public static readonly PokedexData Charizard = new()
     {
         number = 6,
         name = "Charizard",
@@ -74,7 +72,7 @@ public static class Pokedex
             Species.CharizardMegaY
         }
     };
-    public static PokedexData Squirtle = new()
+    public static readonly PokedexData Squirtle = new()
     {
         number = 7,
         name = "Squirtle",
@@ -84,7 +82,7 @@ public static class Pokedex
         entry = SquirtleDesc,
         forms = SingleSpecies(Species.Squirtle),
     };
-    public static PokedexData Wartortle = new()
+    public static readonly PokedexData Wartortle = new()
     {
         number = 8,
         name = "Wartortle",
@@ -94,7 +92,7 @@ public static class Pokedex
         entry = WartortleDesc,
         forms = SingleSpecies(Species.Wartortle),
     };
-    public static PokedexData Blastoise = new()
+    public static readonly PokedexData Blastoise = new()
     {
         number = 9,
         name = "Blastoise",
@@ -108,7 +106,7 @@ public static class Pokedex
             Species.BlastoiseMega
         }
     };
-    public static PokedexData Caterpie = new()
+    public static readonly PokedexData Caterpie = new()
     {
         number = 10,
         name = "Caterpie",
@@ -118,7 +116,7 @@ public static class Pokedex
         entry = CaterpieDesc,
         forms = SingleSpecies(Species.Caterpie),
     };
-    public static PokedexData Metapod = new()
+    public static readonly PokedexData Metapod = new()
     {
         number = 11,
         name = "Metapod",
@@ -128,7 +126,7 @@ public static class Pokedex
         entry = MetapodDesc,
         forms = SingleSpecies(Species.Metapod),
     };
-    public static PokedexData Butterfree = new()
+    public static readonly PokedexData Butterfree = new()
     {
         number = 12,
         name = "Butterfree",
@@ -138,7 +136,7 @@ public static class Pokedex
         entry = ButterfreeDesc,
         forms = SingleSpecies(Species.Butterfree),
     };
-    public static PokedexData Weedle = new()
+    public static readonly PokedexData Weedle = new()
     {
         number = 13,
         name = "Weedle",
@@ -148,7 +146,7 @@ public static class Pokedex
         entry = WeedleDesc,
         forms = SingleSpecies(Species.Weedle),
     };
-    public static PokedexData Kakuna = new()
+    public static readonly PokedexData Kakuna = new()
     {
         number = 14,
         name = "Kakuna",
@@ -158,7 +156,7 @@ public static class Pokedex
         entry = KakunaDesc,
         forms = SingleSpecies(Species.Kakuna),
     };
-    public static PokedexData Beedrill = new()
+    public static readonly PokedexData Beedrill = new()
     {
         number = 15,
         name = "Beedrill",
@@ -172,7 +170,7 @@ public static class Pokedex
             Species.BeedrillMega
         }
     };
-    public static PokedexData Pidgey = new()
+    public static readonly PokedexData Pidgey = new()
     {
         number = 16,
         name = "Pidgey",
@@ -182,7 +180,7 @@ public static class Pokedex
         entry = PidgeyDesc,
         forms = SingleSpecies(Species.Pidgey),
     };
-    public static PokedexData Pidgeotto = new()
+    public static readonly PokedexData Pidgeotto = new()
     {
         number = 17,
         name = "Pidgeotto",
@@ -192,7 +190,7 @@ public static class Pokedex
         entry = PidgeottoDesc,
         forms = SingleSpecies(Species.Pidgeotto),
     };
-    public static PokedexData Pidgeot = new()
+    public static readonly PokedexData Pidgeot = new()
     {
         number = 18,
         name = "Pidgeot",
@@ -206,7 +204,7 @@ public static class Pokedex
             Species.PidgeotMega
         }
     };
-    public static PokedexData Rattata = new()
+    public static readonly PokedexData Rattata = new()
     {
         number = 19,
         name = "Rattata",
@@ -220,7 +218,7 @@ public static class Pokedex
             Species.RattataAlola
         }
     };
-    public static PokedexData Raticate = new()
+    public static readonly PokedexData Raticate = new()
     {
         number = 20,
         name = "Raticate",
@@ -234,7 +232,7 @@ public static class Pokedex
             Species.RaticateAlola
         }
     };
-    public static PokedexData Spearow = new()
+    public static readonly PokedexData Spearow = new()
     {
         number = 21,
         name = "Spearow",
@@ -244,7 +242,7 @@ public static class Pokedex
         entry = SpearowDesc,
         forms = SingleSpecies(Species.Spearow),
     };
-    public static PokedexData Fearow = new()
+    public static readonly PokedexData Fearow = new()
     {
         number = 22,
         name = "Fearow",
@@ -254,7 +252,7 @@ public static class Pokedex
         entry = FearowDesc,
         forms = SingleSpecies(Species.Fearow),
     };
-    public static PokedexData Ekans = new()
+    public static readonly PokedexData Ekans = new()
     {
         number = 23,
         name = "Ekans",
@@ -264,7 +262,7 @@ public static class Pokedex
         entry = EkansDesc,
         forms = SingleSpecies(Species.Ekans),
     };
-    public static PokedexData Arbok = new()
+    public static readonly PokedexData Arbok = new()
     {
         number = 24,
         name = "Arbok",
@@ -274,7 +272,7 @@ public static class Pokedex
         entry = ArbokDesc,
         forms = SingleSpecies(Species.Arbok),
     };
-    public static PokedexData Pikachu = new()
+    public static readonly PokedexData Pikachu = new()
     {
         number = 25,
         name = "Pikachu",
@@ -302,7 +300,7 @@ public static class Pokedex
             Species.PikachuPartner
         }
     };
-    public static PokedexData Raichu = new()
+    public static readonly PokedexData Raichu = new()
     {
         number = 26,
         name = "Raichu",
@@ -316,7 +314,7 @@ public static class Pokedex
             Species.RaichuAlola
         }
     };
-    public static PokedexData Sandshrew = new()
+    public static readonly PokedexData Sandshrew = new()
     {
         number = 27,
         name = "Sandshrew",
@@ -330,7 +328,7 @@ public static class Pokedex
             Species.SandshrewAlola
         }
     };
-    public static PokedexData Sandslash = new()
+    public static readonly PokedexData Sandslash = new()
     {
         number = 28,
         name = "Sandslash",
@@ -344,7 +342,7 @@ public static class Pokedex
             Species.SandslashAlola
         }
     };
-    public static PokedexData NidoranF = new ()
+    public static readonly PokedexData NidoranF = new ()
 	{
 		number = 29,
 		name = "Nidoran",
@@ -355,7 +353,7 @@ public static class Pokedex
         forms = SingleSpecies(Species.NidoranF),
 
     };
-    public static PokedexData Nidorina = new()
+    public static readonly PokedexData Nidorina = new()
     {
         number = 30,
         name = "Nidorina",
@@ -365,7 +363,7 @@ public static class Pokedex
         entry = NidorinaDesc,
         forms = SingleSpecies(Species.Nidorina),
     };
-    public static PokedexData Nidoqueen = new()
+    public static readonly PokedexData Nidoqueen = new()
     {
         number = 31,
         name = "Nidoqueen",
@@ -375,7 +373,7 @@ public static class Pokedex
         entry = NidoqueenDesc,
         forms = SingleSpecies(Species.Nidoqueen),
     };
-    public static PokedexData NidoranM = new()
+    public static readonly PokedexData NidoranM = new()
     {
         number = 32,
         name = "Nidoran",
@@ -385,7 +383,7 @@ public static class Pokedex
         entry = NidoranMDesc,
         forms = SingleSpecies(Species.NidoranM),
     };
-    public static PokedexData Nidorino = new()
+    public static readonly PokedexData Nidorino = new()
     {
         number = 33,
         name = "Nidorino",
@@ -395,7 +393,7 @@ public static class Pokedex
         entry = NidorinoDesc,
         forms = SingleSpecies(Species.Nidorino),
     };
-    public static PokedexData Nidoking = new()
+    public static readonly PokedexData Nidoking = new()
     {
         number = 34,
         name = "Nidoking",
@@ -405,7 +403,7 @@ public static class Pokedex
         entry = NidokingDesc,
         forms = SingleSpecies(Species.Nidoking),
     };
-    public static PokedexData Clefairy = new()
+    public static readonly PokedexData Clefairy = new()
     {
         number = 35,
         name = "Clefairy",
@@ -415,7 +413,7 @@ public static class Pokedex
         entry = ClefairyDesc,
         forms = SingleSpecies(Species.Clefairy),
     };
-    public static PokedexData Clefable = new()
+    public static readonly PokedexData Clefable = new()
     {
         number = 36,
         name = "Clefable",
@@ -425,7 +423,7 @@ public static class Pokedex
         entry = ClefableDesc,
         forms = SingleSpecies(Species.Clefable),
     };
-    public static PokedexData Vulpix = new()
+    public static readonly PokedexData Vulpix = new()
     {
         number = 37,
         name = "Vulpix",
@@ -439,7 +437,7 @@ public static class Pokedex
             Species.VulpixAlola
         }
     };
-    public static PokedexData Ninetales = new()
+    public static readonly PokedexData Ninetales = new()
     {
         number = 38,
         name = "Ninetales",
@@ -453,7 +451,7 @@ public static class Pokedex
             Species.NinetalesAlola
         }
     };
-    public static PokedexData Jigglypuff = new()
+    public static readonly PokedexData Jigglypuff = new()
     {
         number = 39,
         name = "Jigglypuff",
@@ -463,7 +461,7 @@ public static class Pokedex
         entry = JigglypuffDesc,
         forms = SingleSpecies(Species.Jigglypuff),
     };
-    public static PokedexData Wigglytuff = new()
+    public static readonly PokedexData Wigglytuff = new()
     {
         number = 40,
         name = "Wigglytuff",
@@ -473,7 +471,7 @@ public static class Pokedex
         entry = WigglytuffDesc,
         forms = SingleSpecies(Species.Wigglytuff),
     };
-    public static PokedexData Zubat = new()
+    public static readonly PokedexData Zubat = new()
     {
         number = 41,
         name = "Zubat",
@@ -483,7 +481,7 @@ public static class Pokedex
         entry = ZubatDesc,
         forms = SingleSpecies(Species.Zubat),
     };
-    public static PokedexData Golbat = new()
+    public static readonly PokedexData Golbat = new()
     {
         number = 42,
         name = "Golbat",
@@ -493,7 +491,7 @@ public static class Pokedex
         entry = GolbatDesc,
         forms = SingleSpecies(Species.Golbat),
     };
-    public static PokedexData Oddish = new()
+    public static readonly PokedexData Oddish = new()
     {
         number = 43,
         name = "Oddish",
@@ -503,7 +501,7 @@ public static class Pokedex
         entry = OddishDesc,
         forms = SingleSpecies(Species.Oddish),
     };
-    public static PokedexData Gloom = new()
+    public static readonly PokedexData Gloom = new()
     {
         number = 44,
         name = "Gloom",
@@ -513,7 +511,7 @@ public static class Pokedex
         entry = GloomDesc,
         forms = SingleSpecies(Species.Gloom),
     };
-    public static PokedexData Vileplume = new()
+    public static readonly PokedexData Vileplume = new()
     {
         number = 45,
         name = "Vileplume",
@@ -523,7 +521,7 @@ public static class Pokedex
         entry = VileplumeDesc,
         forms = SingleSpecies(Species.Vileplume),
     };
-    public static PokedexData Paras = new()
+    public static readonly PokedexData Paras = new()
     {
         number = 46,
         name = "Paras",
@@ -533,7 +531,7 @@ public static class Pokedex
         entry = ParasDesc,
         forms = SingleSpecies(Species.Paras),
     };
-    public static PokedexData Parasect = new()
+    public static readonly PokedexData Parasect = new()
     {
         number = 47,
         name = "Parasect",
@@ -543,7 +541,7 @@ public static class Pokedex
         entry = ParasectDesc,
         forms = SingleSpecies(Species.Parasect),
     };
-    public static PokedexData Venonat = new()
+    public static readonly PokedexData Venonat = new()
     {
         number = 48,
         name = "Venonat",
@@ -553,7 +551,7 @@ public static class Pokedex
         entry = VenonatDesc,
         forms = SingleSpecies(Species.Venonat),
     };
-    public static PokedexData Venomoth = new()
+    public static readonly PokedexData Venomoth = new()
     {
         number = 49,
         name = "Venomoth",
@@ -563,7 +561,7 @@ public static class Pokedex
         entry = VenomothDesc,
         forms = SingleSpecies(Species.Venomoth),
     };
-    public static PokedexData Diglett = new()
+    public static readonly PokedexData Diglett = new()
     {
         number = 50,
         name = "Diglett",
@@ -577,7 +575,7 @@ public static class Pokedex
             Species.DiglettAlola
         }
     };
-    public static PokedexData Dugtrio = new()
+    public static readonly PokedexData Dugtrio = new()
     {
         number = 51,
         name = "Dugtrio",
@@ -591,7 +589,7 @@ public static class Pokedex
             Species.DugtrioAlola
         }
     };
-    public static PokedexData Meowth = new()
+    public static readonly PokedexData Meowth = new()
     {
         number = 52,
         name = "Meowth",
@@ -605,7 +603,7 @@ public static class Pokedex
             Species.MeowthAlola
         }
     };
-    public static PokedexData Persian = new()
+    public static readonly PokedexData Persian = new()
     {
         number = 53,
         name = "Persian",
@@ -619,7 +617,7 @@ public static class Pokedex
             Species.PersianAlola
         }
     };
-    public static PokedexData Psyduck = new()
+    public static readonly PokedexData Psyduck = new()
     {
         number = 54,
         name = "Psyduck",
@@ -629,7 +627,7 @@ public static class Pokedex
         entry = PsyduckDesc,
         forms = SingleSpecies(Species.Psyduck),
     };
-    public static PokedexData Golduck = new()
+    public static readonly PokedexData Golduck = new()
     {
         number = 55,
         name = "Golduck",
@@ -639,7 +637,7 @@ public static class Pokedex
         entry = GolduckDesc,
         forms = SingleSpecies(Species.Golduck),
     };
-    public static PokedexData Mankey = new()
+    public static readonly PokedexData Mankey = new()
     {
         number = 56,
         name = "Mankey",
@@ -649,7 +647,7 @@ public static class Pokedex
         entry = MankeyDesc,
         forms = SingleSpecies(Species.Mankey),
     };
-    public static PokedexData Primeape = new()
+    public static readonly PokedexData Primeape = new()
     {
         number = 57,
         name = "Primeape",
@@ -659,7 +657,7 @@ public static class Pokedex
         entry = PrimeapeDesc,
         forms = SingleSpecies(Species.Primeape),
     };
-    public static PokedexData Growlithe = new()
+    public static readonly PokedexData Growlithe = new()
     {
         number = 58,
         name = "Growlithe",
@@ -669,7 +667,7 @@ public static class Pokedex
         entry = GrowlitheDesc,
         forms = SingleSpecies(Species.Growlithe),
     };
-    public static PokedexData Arcanine = new()
+    public static readonly PokedexData Arcanine = new()
     {
         number = 59,
         name = "Arcanine",
@@ -679,7 +677,7 @@ public static class Pokedex
         entry = ArcanineDesc,
         forms = SingleSpecies(Species.Arcanine),
     };
-    public static PokedexData Poliwag = new()
+    public static readonly PokedexData Poliwag = new()
     {
         number = 60,
         name = "Poliwag",
@@ -689,7 +687,7 @@ public static class Pokedex
         entry = PoliwagDesc,
         forms = SingleSpecies(Species.Poliwag),
     };
-    public static PokedexData Poliwhirl = new()
+    public static readonly PokedexData Poliwhirl = new()
     {
         number = 61,
         name = "Poliwhirl",
@@ -699,7 +697,7 @@ public static class Pokedex
         entry = PoliwhirlDesc,
         forms = SingleSpecies(Species.Poliwhirl),
     };
-    public static PokedexData Poliwrath = new()
+    public static readonly PokedexData Poliwrath = new()
     {
         number = 62,
         name = "Poliwrath",
@@ -709,7 +707,7 @@ public static class Pokedex
         entry = PoliwrathDesc,
         forms = SingleSpecies(Species.Poliwrath),
     };
-    public static PokedexData Abra = new()
+    public static readonly PokedexData Abra = new()
     {
         number = 63,
         name = "Abra",
@@ -719,7 +717,7 @@ public static class Pokedex
         entry = AbraDesc,
         forms = SingleSpecies(Species.Abra),
     };
-    public static PokedexData Kadabra = new()
+    public static readonly PokedexData Kadabra = new()
     {
         number = 64,
         name = "Kadabra",
@@ -729,7 +727,7 @@ public static class Pokedex
         entry = KadabraDesc,
         forms = SingleSpecies(Species.Kadabra),
     };
-    public static PokedexData Alakazam = new()
+    public static readonly PokedexData Alakazam = new()
     {
         number = 65,
         name = "Alakazam",
@@ -743,7 +741,7 @@ public static class Pokedex
             Species.AlakazamMega
         }
     };
-    public static PokedexData Machop = new()
+    public static readonly PokedexData Machop = new()
     {
         number = 66,
         name = "Machop",
@@ -753,7 +751,7 @@ public static class Pokedex
         entry = MachopDesc,
         forms = SingleSpecies(Species.Machop),
     };
-    public static PokedexData Machoke = new()
+    public static readonly PokedexData Machoke = new()
     {
         number = 67,
         name = "Machoke",
@@ -763,7 +761,7 @@ public static class Pokedex
         entry = MachokeDesc,
         forms = SingleSpecies(Species.Machoke),
     };
-    public static PokedexData Machamp = new()
+    public static readonly PokedexData Machamp = new()
     {
         number = 68,
         name = "Machamp",
@@ -773,7 +771,7 @@ public static class Pokedex
         entry = MachampDesc,
         forms = SingleSpecies(Species.Machamp),
     };
-    public static PokedexData Bellsprout = new()
+    public static readonly PokedexData Bellsprout = new()
     {
         number = 69,
         name = "Bellsprout",
@@ -783,7 +781,7 @@ public static class Pokedex
         entry = BellsproutDesc,
         forms = SingleSpecies(Species.Bellsprout),
     };
-    public static PokedexData Weepinbell = new()
+    public static readonly PokedexData Weepinbell = new()
     {
         number = 70,
         name = "Weepinbell",
@@ -793,7 +791,7 @@ public static class Pokedex
         entry = WeepinbellDesc,
         forms = SingleSpecies(Species.Weepinbell),
     };
-    public static PokedexData Victreebel = new()
+    public static readonly PokedexData Victreebel = new()
     {
         number = 71,
         name = "Victreebel",
@@ -803,7 +801,7 @@ public static class Pokedex
         entry = VictreebelDesc,
         forms = SingleSpecies(Species.Victreebel),
     };
-    public static PokedexData Tentacool = new()
+    public static readonly PokedexData Tentacool = new()
     {
         number = 72,
         name = "Tentacool",
@@ -813,7 +811,7 @@ public static class Pokedex
         entry = TentacoolDesc,
         forms = SingleSpecies(Species.Tentacool),
     };
-    public static PokedexData Tentacruel = new()
+    public static readonly PokedexData Tentacruel = new()
     {
         number = 73,
         name = "Tentacruel",
@@ -823,7 +821,7 @@ public static class Pokedex
         entry = TentacruelDesc,
         forms = SingleSpecies(Species.Tentacruel),
     };
-    public static PokedexData Geodude = new()
+    public static readonly PokedexData Geodude = new()
     {
         number = 74,
         name = "Geodude",
@@ -837,7 +835,7 @@ public static class Pokedex
             Species.GeodudeAlola
         }
     };
-    public static PokedexData Graveler = new()
+    public static readonly PokedexData Graveler = new()
     {
         number = 75,
         name = "Graveler",
@@ -851,7 +849,7 @@ public static class Pokedex
             Species.GravelerAlola
         }
     };
-    public static PokedexData Golem = new()
+    public static readonly PokedexData Golem = new()
     {
         number = 76,
         name = "Golem",
@@ -865,7 +863,7 @@ public static class Pokedex
             Species.GolemAlola
         }
     };
-    public static PokedexData Ponyta = new()
+    public static readonly PokedexData Ponyta = new()
     {
         number = 77,
         name = "Ponyta",
@@ -875,7 +873,7 @@ public static class Pokedex
         entry = PonytaDesc,
         forms = SingleSpecies(Species.Ponyta),
     };
-    public static PokedexData Rapidash = new()
+    public static readonly PokedexData Rapidash = new()
     {
         number = 78,
         name = "Rapidash",
@@ -885,7 +883,7 @@ public static class Pokedex
         entry = RapidashDesc,
         forms = SingleSpecies(Species.Rapidash),
     };
-    public static PokedexData Slowpoke = new()
+    public static readonly PokedexData Slowpoke = new()
     {
         number = 79,
         name = "Slowpoke",
@@ -895,7 +893,7 @@ public static class Pokedex
         entry = SlowpokeDesc,
         forms = SingleSpecies(Species.Slowpoke),
     };
-    public static PokedexData Slowbro = new()
+    public static readonly PokedexData Slowbro = new()
     {
         number = 80,
         name = "Slowbro",
@@ -909,7 +907,7 @@ public static class Pokedex
             Species.SlowbroMega
         }
     };
-    public static PokedexData Magnemite = new()
+    public static readonly PokedexData Magnemite = new()
     {
         number = 81,
         name = "Magnemite",
@@ -919,7 +917,7 @@ public static class Pokedex
         entry = MagnemiteDesc,
         forms = SingleSpecies(Species.Magnemite),
     };
-    public static PokedexData Magneton = new()
+    public static readonly PokedexData Magneton = new()
     {
         number = 82,
         name = "Magneton",
@@ -929,7 +927,7 @@ public static class Pokedex
         entry = MagnetonDesc,
         forms = SingleSpecies(Species.Magneton),
     };
-    public static PokedexData Farfetchd = new()
+    public static readonly PokedexData Farfetchd = new()
     {
         number = 83,
         name = "Farfetchd",
@@ -939,7 +937,7 @@ public static class Pokedex
         entry = FarfetchdDesc,
         forms = SingleSpecies(Species.Farfetchd),
     };
-    public static PokedexData Doduo = new()
+    public static readonly PokedexData Doduo = new()
     {
         number = 84,
         name = "Doduo",
@@ -949,7 +947,7 @@ public static class Pokedex
         entry = DoduoDesc,
         forms = SingleSpecies(Species.Doduo),
     };
-    public static PokedexData Dodrio = new()
+    public static readonly PokedexData Dodrio = new()
     {
         number = 85,
         name = "Dodrio",
@@ -959,7 +957,7 @@ public static class Pokedex
         entry = DodrioDesc,
         forms = SingleSpecies(Species.Dodrio),
     };
-    public static PokedexData Seel = new()
+    public static readonly PokedexData Seel = new()
     {
         number = 86,
         name = "Seel",
@@ -969,7 +967,7 @@ public static class Pokedex
         entry = SeelDesc,
         forms = SingleSpecies(Species.Seel),
     };
-    public static PokedexData Dewgong = new()
+    public static readonly PokedexData Dewgong = new()
     {
         number = 87,
         name = "Dewgong",
@@ -979,7 +977,7 @@ public static class Pokedex
         entry = DewgongDesc,
         forms = SingleSpecies(Species.Dewgong),
     };
-    public static PokedexData Grimer = new()
+    public static readonly PokedexData Grimer = new()
     {
         number = 88,
         name = "Grimer",
@@ -993,7 +991,7 @@ public static class Pokedex
             Species.GrimerAlola
         }
     };
-    public static PokedexData Muk = new()
+    public static readonly PokedexData Muk = new()
     {
         number = 89,
         name = "Muk",
@@ -1007,7 +1005,7 @@ public static class Pokedex
             Species.MukAlola
         }
     };
-    public static PokedexData Shellder = new()
+    public static readonly PokedexData Shellder = new()
     {
         number = 90,
         name = "Shellder",
@@ -1017,7 +1015,7 @@ public static class Pokedex
         entry = ShellderDesc,
         forms = SingleSpecies(Species.Shellder),
     };
-    public static PokedexData Cloyster = new()
+    public static readonly PokedexData Cloyster = new()
     {
         number = 91,
         name = "Cloyster",
@@ -1027,7 +1025,7 @@ public static class Pokedex
         entry = CloysterDesc,
         forms = SingleSpecies(Species.Cloyster),
     };
-    public static PokedexData Gastly = new()
+    public static readonly PokedexData Gastly = new()
     {
         number = 92,
         name = "Gastly",
@@ -1037,7 +1035,7 @@ public static class Pokedex
         entry = GastlyDesc,
         forms = SingleSpecies(Species.Gastly),
     };
-    public static PokedexData Haunter = new()
+    public static readonly PokedexData Haunter = new()
     {
         number = 93,
         name = "Haunter",
@@ -1047,7 +1045,7 @@ public static class Pokedex
         entry = HaunterDesc,
         forms = SingleSpecies(Species.Haunter),
     };
-    public static PokedexData Gengar = new()
+    public static readonly PokedexData Gengar = new()
     {
         number = 94,
         name = "Gengar",
@@ -1061,7 +1059,7 @@ public static class Pokedex
             Species.GengarMega
         }
     };
-    public static PokedexData Onix = new()
+    public static readonly PokedexData Onix = new()
     {
         number = 95,
         name = "Onix",
@@ -1071,7 +1069,7 @@ public static class Pokedex
         entry = OnixDesc,
         forms = SingleSpecies(Species.Onix),
     };
-    public static PokedexData Drowzee = new()
+    public static readonly PokedexData Drowzee = new()
     {
         number = 96,
         name = "Drowzee",
@@ -1081,7 +1079,7 @@ public static class Pokedex
         entry = DrowzeeDesc,
         forms = SingleSpecies(Species.Drowzee),
     };
-    public static PokedexData Hypno = new()
+    public static readonly PokedexData Hypno = new()
     {
         number = 97,
         name = "Hypno",
@@ -1091,7 +1089,7 @@ public static class Pokedex
         entry = HypnoDesc,
         forms = SingleSpecies(Species.Hypno),
     };
-    public static PokedexData Krabby = new()
+    public static readonly PokedexData Krabby = new()
     {
         number = 98,
         name = "Krabby",
@@ -1101,7 +1099,7 @@ public static class Pokedex
         entry = KrabbyDesc,
         forms = SingleSpecies(Species.Krabby),
     };
-    public static PokedexData Kingler = new()
+    public static readonly PokedexData Kingler = new()
     {
         number = 99,
         name = "Kingler",
@@ -1111,7 +1109,7 @@ public static class Pokedex
         entry = KinglerDesc,
         forms = SingleSpecies(Species.Kingler),
     };
-    public static PokedexData Voltorb = new()
+    public static readonly PokedexData Voltorb = new()
     {
         number = 100,
         name = "Voltorb",
@@ -1121,7 +1119,7 @@ public static class Pokedex
         entry = VoltorbDesc,
         forms = SingleSpecies(Species.Voltorb),
     };
-    public static PokedexData Electrode = new()
+    public static readonly PokedexData Electrode = new()
     {
         number = 101,
         name = "Electrode",
@@ -1131,7 +1129,7 @@ public static class Pokedex
         entry = ElectrodeDesc,
         forms = SingleSpecies(Species.Electrode),
     };
-    public static PokedexData Exeggcute = new()
+    public static readonly PokedexData Exeggcute = new()
     {
         number = 102,
         name = "Exeggcute",
@@ -1141,7 +1139,7 @@ public static class Pokedex
         entry = ExeggcuteDesc,
         forms = SingleSpecies(Species.Exeggcute),
     };
-    public static PokedexData Exeggutor = new()
+    public static readonly PokedexData Exeggutor = new()
     {
         number = 103,
         name = "Exeggutor",
@@ -1155,7 +1153,7 @@ public static class Pokedex
             Species.ExeggutorAlola
         }
     };
-    public static PokedexData Cubone = new()
+    public static readonly PokedexData Cubone = new()
     {
         number = 104,
         name = "Cubone",
@@ -1165,7 +1163,7 @@ public static class Pokedex
         entry = CuboneDesc,
         forms = SingleSpecies(Species.Cubone),
     };
-    public static PokedexData Marowak = new()
+    public static readonly PokedexData Marowak = new()
     {
         number = 105,
         name = "Marowak",
@@ -1179,7 +1177,7 @@ public static class Pokedex
             Species.MarowakAlola
         }
     };
-    public static PokedexData Hitmonlee = new()
+    public static readonly PokedexData Hitmonlee = new()
     {
         number = 106,
         name = "Hitmonlee",
@@ -1189,7 +1187,7 @@ public static class Pokedex
         entry = HitmonleeDesc,
         forms = SingleSpecies(Species.Hitmonlee),
     };
-    public static PokedexData Hitmonchan = new()
+    public static readonly PokedexData Hitmonchan = new()
     {
         number = 107,
         name = "Hitmonchan",
@@ -1199,7 +1197,7 @@ public static class Pokedex
         entry = HitmonchanDesc,
         forms = SingleSpecies(Species.Hitmonchan),
     };
-    public static PokedexData Lickitung = new()
+    public static readonly PokedexData Lickitung = new()
     {
         number = 108,
         name = "Lickitung",
@@ -1209,7 +1207,7 @@ public static class Pokedex
         entry = LickitungDesc,
         forms = SingleSpecies(Species.Lickitung),
     };
-    public static PokedexData Koffing = new()
+    public static readonly PokedexData Koffing = new()
     {
         number = 109,
         name = "Koffing",
@@ -1219,7 +1217,7 @@ public static class Pokedex
         entry = KoffingDesc,
         forms = SingleSpecies(Species.Koffing),
     };
-    public static PokedexData Weezing = new()
+    public static readonly PokedexData Weezing = new()
     {
         number = 110,
         name = "Weezing",
@@ -1229,7 +1227,7 @@ public static class Pokedex
         entry = WeezingDesc,
         forms = SingleSpecies(Species.Weezing),
     };
-    public static PokedexData Rhyhorn = new()
+    public static readonly PokedexData Rhyhorn = new()
     {
         number = 111,
         name = "Rhyhorn",
@@ -1239,7 +1237,7 @@ public static class Pokedex
         entry = RhyhornDesc,
         forms = SingleSpecies(Species.Rhyhorn),
     };
-    public static PokedexData Rhydon = new()
+    public static readonly PokedexData Rhydon = new()
     {
         number = 112,
         name = "Rhydon",
@@ -1249,7 +1247,7 @@ public static class Pokedex
         entry = RhydonDesc,
         forms = SingleSpecies(Species.Rhydon),
     };
-    public static PokedexData Chansey = new()
+    public static readonly PokedexData Chansey = new()
     {
         number = 113,
         name = "Chansey",
@@ -1259,7 +1257,7 @@ public static class Pokedex
         entry = ChanseyDesc,
         forms = SingleSpecies(Species.Chansey),
     };
-    public static PokedexData Tangela = new()
+    public static readonly PokedexData Tangela = new()
     {
         number = 114,
         name = "Tangela",
@@ -1269,7 +1267,7 @@ public static class Pokedex
         entry = TangelaDesc,
         forms = SingleSpecies(Species.Tangela),
     };
-    public static PokedexData Kangaskhan = new()
+    public static readonly PokedexData Kangaskhan = new()
     {
         number = 115,
         name = "Kangaskhan",
@@ -1283,7 +1281,7 @@ public static class Pokedex
             Species.KangaskhanMega
         }
     };
-    public static PokedexData Horsea = new()
+    public static readonly PokedexData Horsea = new()
     {
         number = 116,
         name = "Horsea",
@@ -1293,7 +1291,7 @@ public static class Pokedex
         entry = HorseaDesc,
         forms = SingleSpecies(Species.Horsea),
     };
-    public static PokedexData Seadra = new()
+    public static readonly PokedexData Seadra = new()
     {
         number = 117,
         name = "Seadra",
@@ -1303,7 +1301,7 @@ public static class Pokedex
         entry = SeadraDesc,
         forms = SingleSpecies(Species.Seadra),
     };
-    public static PokedexData Goldeen = new()
+    public static readonly PokedexData Goldeen = new()
     {
         number = 118,
         name = "Goldeen",
@@ -1313,7 +1311,7 @@ public static class Pokedex
         entry = GoldeenDesc,
         forms = SingleSpecies(Species.Goldeen),
     };
-    public static PokedexData Seaking = new()
+    public static readonly PokedexData Seaking = new()
     {
         number = 119,
         name = "Seaking",
@@ -1323,7 +1321,7 @@ public static class Pokedex
         entry = SeakingDesc,
         forms = SingleSpecies(Species.Seaking),
     };
-    public static PokedexData Staryu = new()
+    public static readonly PokedexData Staryu = new()
     {
         number = 120,
         name = "Staryu",
@@ -1333,7 +1331,7 @@ public static class Pokedex
         entry = StaryuDesc,
         forms = SingleSpecies(Species.Staryu),
     };
-    public static PokedexData Starmie = new()
+    public static readonly PokedexData Starmie = new()
     {
         number = 121,
         name = "Starmie",
@@ -1343,7 +1341,7 @@ public static class Pokedex
         entry = StarmieDesc,
         forms = SingleSpecies(Species.Starmie),
     };
-    public static PokedexData MrMime = new()
+    public static readonly PokedexData MrMime = new()
     {
         number = 122,
         name = "Mr. Mime",
@@ -1353,7 +1351,7 @@ public static class Pokedex
         entry = MrMimeDesc,
         forms = SingleSpecies(Species.MrMime),
     };
-    public static PokedexData Scyther = new()
+    public static readonly PokedexData Scyther = new()
     {
         number = 123,
         name = "Scyther",
@@ -1363,7 +1361,7 @@ public static class Pokedex
         entry = ScytherDesc,
         forms = SingleSpecies(Species.Scyther),
     };
-    public static PokedexData Jynx = new()
+    public static readonly PokedexData Jynx = new()
     {
         number = 124,
         name = "Jynx",
@@ -1373,7 +1371,7 @@ public static class Pokedex
         entry = JynxDesc,
         forms = SingleSpecies(Species.Jynx),
     };
-    public static PokedexData Electabuzz = new()
+    public static readonly PokedexData Electabuzz = new()
     {
         number = 125,
         name = "Electabuzz",
@@ -1383,7 +1381,7 @@ public static class Pokedex
         entry = ElectabuzzDesc,
         forms = SingleSpecies(Species.Electabuzz),
     };
-    public static PokedexData Magmar = new()
+    public static readonly PokedexData Magmar = new()
     {
         number = 126,
         name = "Magmar",
@@ -1393,7 +1391,7 @@ public static class Pokedex
         entry = MagmarDesc,
         forms = SingleSpecies(Species.Magmar),
     };
-    public static PokedexData Pinsir = new()
+    public static readonly PokedexData Pinsir = new()
     {
         number = 127,
         name = "Pinsir",
@@ -1407,7 +1405,7 @@ public static class Pokedex
             Species.PinsirMega
         }
     };
-    public static PokedexData Tauros = new()
+    public static readonly PokedexData Tauros = new()
     {
         number = 128,
         name = "Tauros",
@@ -1417,7 +1415,7 @@ public static class Pokedex
         entry = TaurosDesc,
         forms = SingleSpecies(Species.Tauros),
     };
-    public static PokedexData Magikarp = new()
+    public static readonly PokedexData Magikarp = new()
     {
         number = 129,
         name = "Magikarp",
@@ -1427,7 +1425,7 @@ public static class Pokedex
         entry = MagikarpDesc,
         forms = SingleSpecies(Species.Magikarp),
     };
-    public static PokedexData Gyarados = new()
+    public static readonly PokedexData Gyarados = new()
     {
         number = 130,
         name = "Gyarados",
@@ -1441,7 +1439,7 @@ public static class Pokedex
             Species.GyaradosMega
         }
     };
-    public static PokedexData Lapras = new()
+    public static readonly PokedexData Lapras = new()
     {
         number = 131,
         name = "Lapras",
@@ -1451,7 +1449,7 @@ public static class Pokedex
         entry = LaprasDesc,
         forms = SingleSpecies(Species.Lapras),
     };
-    public static PokedexData Ditto = new()
+    public static readonly PokedexData Ditto = new()
     {
         number = 132,
         name = "Ditto",
@@ -1461,7 +1459,7 @@ public static class Pokedex
         entry = DittoDesc,
         forms = SingleSpecies(Species.Ditto),
     };
-    public static PokedexData Eevee = new()
+    public static readonly PokedexData Eevee = new()
     {
         number = 133,
         name = "Eevee",
@@ -1475,7 +1473,7 @@ public static class Pokedex
             Species.EeveePartner
         }
     };
-    public static PokedexData Vaporeon = new()
+    public static readonly PokedexData Vaporeon = new()
     {
         number = 134,
         name = "Vaporeon",
@@ -1485,7 +1483,7 @@ public static class Pokedex
         entry = VaporeonDesc,
         forms = SingleSpecies(Species.Vaporeon),
     };
-    public static PokedexData Jolteon = new()
+    public static readonly PokedexData Jolteon = new()
     {
         number = 135,
         name = "Jolteon",
@@ -1495,7 +1493,7 @@ public static class Pokedex
         entry = JolteonDesc,
         forms = SingleSpecies(Species.Jolteon),
     };
-    public static PokedexData Flareon = new()
+    public static readonly PokedexData Flareon = new()
     {
         number = 136,
         name = "Flareon",
@@ -1505,7 +1503,7 @@ public static class Pokedex
         entry = FlareonDesc,
         forms = SingleSpecies(Species.Flareon),
     };
-    public static PokedexData Porygon = new()
+    public static readonly PokedexData Porygon = new()
     {
         number = 137,
         name = "Porygon",
@@ -1515,7 +1513,7 @@ public static class Pokedex
         entry = PorygonDesc,
         forms = SingleSpecies(Species.Porygon),
     };
-    public static PokedexData Omanyte = new()
+    public static readonly PokedexData Omanyte = new()
     {
         number = 138,
         name = "Omanyte",
@@ -1525,7 +1523,7 @@ public static class Pokedex
         entry = OmanyteDesc,
         forms = SingleSpecies(Species.Omanyte),
     };
-    public static PokedexData Omastar = new()
+    public static readonly PokedexData Omastar = new()
     {
         number = 139,
         name = "Omastar",
@@ -1535,7 +1533,7 @@ public static class Pokedex
         entry = OmastarDesc,
         forms = SingleSpecies(Species.Omastar),
     };
-    public static PokedexData Kabuto = new()
+    public static readonly PokedexData Kabuto = new()
     {
         number = 140,
         name = "Kabuto",
@@ -1545,7 +1543,7 @@ public static class Pokedex
         entry = KabutoDesc,
         forms = SingleSpecies(Species.Kabuto),
     };
-    public static PokedexData Kabutops = new()
+    public static readonly PokedexData Kabutops = new()
     {
         number = 141,
         name = "Kabutops",
@@ -1555,7 +1553,7 @@ public static class Pokedex
         entry = KabutopsDesc,
         forms = SingleSpecies(Species.Kabutops),
     };
-    public static PokedexData Aerodactyl = new()
+    public static readonly PokedexData Aerodactyl = new()
     {
         number = 142,
         name = "Aerodactyl",
@@ -1569,7 +1567,7 @@ public static class Pokedex
             Species.AerodactylMega
         }
     };
-    public static PokedexData Snorlax = new()
+    public static readonly PokedexData Snorlax = new()
     {
         number = 143,
         name = "Snorlax",
@@ -1579,7 +1577,7 @@ public static class Pokedex
         entry = SnorlaxDesc,
         forms = SingleSpecies(Species.Snorlax),
     };
-    public static PokedexData Articuno = new()
+    public static readonly PokedexData Articuno = new()
     {
         number = 144,
         name = "Articuno",
@@ -1589,7 +1587,7 @@ public static class Pokedex
         entry = ArticunoDesc,
         forms = SingleSpecies(Species.Articuno),
     };
-    public static PokedexData Zapdos = new()
+    public static readonly PokedexData Zapdos = new()
     {
         number = 145,
         name = "Zapdos",
@@ -1599,7 +1597,7 @@ public static class Pokedex
         entry = ZapdosDesc,
         forms = SingleSpecies(Species.Zapdos),
     };
-    public static PokedexData Moltres = new()
+    public static readonly PokedexData Moltres = new()
     {
         number = 146,
         name = "Moltres",
@@ -1609,7 +1607,7 @@ public static class Pokedex
         entry = MoltresDesc,
         forms = SingleSpecies(Species.Moltres),
     };
-    public static PokedexData Dratini = new()
+    public static readonly PokedexData Dratini = new()
     {
         number = 147,
         name = "Dratini",
@@ -1619,7 +1617,7 @@ public static class Pokedex
         entry = DratiniDesc,
         forms = SingleSpecies(Species.Dratini),
     };
-    public static PokedexData Dragonair = new()
+    public static readonly PokedexData Dragonair = new()
     {
         number = 148,
         name = "Dragonair",
@@ -1629,7 +1627,7 @@ public static class Pokedex
         entry = DragonairDesc,
         forms = SingleSpecies(Species.Dragonair),
     };
-    public static PokedexData Dragonite = new()
+    public static readonly PokedexData Dragonite = new()
     {
         number = 149,
         name = "Dragonite",
@@ -1639,7 +1637,7 @@ public static class Pokedex
         entry = DragoniteDesc,
         forms = SingleSpecies(Species.Dragonite),
     };
-    public static PokedexData Mewtwo = new()
+    public static readonly PokedexData Mewtwo = new()
     {
         number = 150,
         name = "Mewtwo",
@@ -1654,7 +1652,7 @@ public static class Pokedex
             Species.MewtwoMegaY
         }
     };
-    public static PokedexData Mew = new()
+    public static readonly PokedexData Mew = new()
     {
         number = 151,
         name = "Mew",
@@ -1664,7 +1662,7 @@ public static class Pokedex
         entry = MewDesc,
         forms = SingleSpecies(Species.Mew),
     };
-    public static PokedexData Chikorita = new()
+    public static readonly PokedexData Chikorita = new()
     {
         number = 152,
         name = "Chikorita",
@@ -1674,7 +1672,7 @@ public static class Pokedex
         entry = ChikoritaDesc,
         forms = SingleSpecies(Species.Chikorita),
     };
-    public static PokedexData Bayleef = new()
+    public static readonly PokedexData Bayleef = new()
     {
         number = 153,
         name = "Bayleef",
@@ -1684,7 +1682,7 @@ public static class Pokedex
         entry = BayleefDesc,
         forms = SingleSpecies(Species.Bayleef),
     };
-    public static PokedexData Meganium = new()
+    public static readonly PokedexData Meganium = new()
     {
         number = 154,
         name = "Meganium",
@@ -1694,7 +1692,7 @@ public static class Pokedex
         entry = MeganiumDesc,
         forms = SingleSpecies(Species.Meganium),
     };
-    public static PokedexData Cyndaquil = new()
+    public static readonly PokedexData Cyndaquil = new()
     {
         number = 155,
         name = "Cyndaquil",
@@ -1704,7 +1702,7 @@ public static class Pokedex
         entry = CyndaquilDesc,
         forms = SingleSpecies(Species.Cyndaquil),
     };
-    public static PokedexData Quilava = new()
+    public static readonly PokedexData Quilava = new()
     {
         number = 156,
         name = "Quilava",
@@ -1714,7 +1712,7 @@ public static class Pokedex
         entry = QuilavaDesc,
         forms = SingleSpecies(Species.Quilava),
     };
-    public static PokedexData Typhlosion = new()
+    public static readonly PokedexData Typhlosion = new()
     {
         number = 157,
         name = "Typhlosion",
@@ -1724,7 +1722,7 @@ public static class Pokedex
         entry = TyphlosionDesc,
         forms = SingleSpecies(Species.Typhlosion),
     };
-    public static PokedexData Totodile = new()
+    public static readonly PokedexData Totodile = new()
     {
         number = 158,
         name = "Totodile",
@@ -1734,7 +1732,7 @@ public static class Pokedex
         entry = TotodileDesc,
         forms = SingleSpecies(Species.Totodile),
     };
-    public static PokedexData Croconaw = new()
+    public static readonly PokedexData Croconaw = new()
     {
         number = 159,
         name = "Croconaw",
@@ -1744,7 +1742,7 @@ public static class Pokedex
         entry = CroconawDesc,
         forms = SingleSpecies(Species.Croconaw),
     };
-    public static PokedexData Feraligatr = new()
+    public static readonly PokedexData Feraligatr = new()
     {
         number = 160,
         name = "Feraligatr",
@@ -1754,7 +1752,7 @@ public static class Pokedex
         entry = FeraligatrDesc,
         forms = SingleSpecies(Species.Feraligatr),
     };
-    public static PokedexData Sentret = new()
+    public static readonly PokedexData Sentret = new()
     {
         number = 161,
         name = "Sentret",
@@ -1764,7 +1762,7 @@ public static class Pokedex
         entry = SentretDesc,
         forms = SingleSpecies(Species.Sentret),
     };
-    public static PokedexData Furret = new()
+    public static readonly PokedexData Furret = new()
     {
         number = 162,
         name = "Furret",
@@ -1774,7 +1772,7 @@ public static class Pokedex
         entry = FurretDesc,
         forms = SingleSpecies(Species.Furret),
     };
-    public static PokedexData Hoothoot = new()
+    public static readonly PokedexData Hoothoot = new()
     {
         number = 163,
         name = "Hoothoot",
@@ -1784,7 +1782,7 @@ public static class Pokedex
         entry = HoothootDesc,
         forms = SingleSpecies(Species.Hoothoot),
     };
-    public static PokedexData Noctowl = new()
+    public static readonly PokedexData Noctowl = new()
     {
         number = 164,
         name = "Noctowl",
@@ -1794,7 +1792,7 @@ public static class Pokedex
         entry = NoctowlDesc,
         forms = SingleSpecies(Species.Noctowl),
     };
-    public static PokedexData Ledyba = new()
+    public static readonly PokedexData Ledyba = new()
     {
         number = 165,
         name = "Ledyba",
@@ -1804,7 +1802,7 @@ public static class Pokedex
         entry = LedybaDesc,
         forms = SingleSpecies(Species.Ledyba),
     };
-    public static PokedexData Ledian = new()
+    public static readonly PokedexData Ledian = new()
     {
         number = 166,
         name = "Ledian",
@@ -1814,7 +1812,7 @@ public static class Pokedex
         entry = LedianDesc,
         forms = SingleSpecies(Species.Ledian),
     };
-    public static PokedexData Spinarak = new()
+    public static readonly PokedexData Spinarak = new()
     {
         number = 167,
         name = "Spinarak",
@@ -1824,7 +1822,7 @@ public static class Pokedex
         entry = SpinarakDesc,
         forms = SingleSpecies(Species.Spinarak),
     };
-    public static PokedexData Ariados = new()
+    public static readonly PokedexData Ariados = new()
     {
         number = 168,
         name = "Ariados",
@@ -1834,7 +1832,7 @@ public static class Pokedex
         entry = AriadosDesc,
         forms = SingleSpecies(Species.Ariados),
     };
-    public static PokedexData Crobat = new()
+    public static readonly PokedexData Crobat = new()
     {
         number = 169,
         name = "Crobat",
@@ -1844,7 +1842,7 @@ public static class Pokedex
         entry = CrobatDesc,
         forms = SingleSpecies(Species.Crobat),
     };
-    public static PokedexData Chinchou = new()
+    public static readonly PokedexData Chinchou = new()
     {
         number = 170,
         name = "Chinchou",
@@ -1854,7 +1852,7 @@ public static class Pokedex
         entry = ChinchouDesc,
         forms = SingleSpecies(Species.Chinchou),
     };
-    public static PokedexData Lanturn = new()
+    public static readonly PokedexData Lanturn = new()
     {
         number = 171,
         name = "Lanturn",
@@ -1864,7 +1862,7 @@ public static class Pokedex
         entry = LanturnDesc,
         forms = SingleSpecies(Species.Lanturn),
     };
-    public static PokedexData Pichu = new()
+    public static readonly PokedexData Pichu = new()
     {
         number = 172,
         name = "Pichu",
@@ -1878,7 +1876,7 @@ public static class Pokedex
             Species.PichuSpikyEared
         }
     };
-    public static PokedexData Cleffa = new()
+    public static readonly PokedexData Cleffa = new()
     {
         number = 173,
         name = "Cleffa",
@@ -1888,7 +1886,7 @@ public static class Pokedex
         entry = CleffaDesc,
         forms = SingleSpecies(Species.Cleffa),
     };
-    public static PokedexData Igglybuff = new()
+    public static readonly PokedexData Igglybuff = new()
     {
         number = 174,
         name = "Igglybuff",
@@ -1898,7 +1896,7 @@ public static class Pokedex
         entry = IgglybuffDesc,
         forms = SingleSpecies(Species.Igglybuff),
     };
-    public static PokedexData Togepi = new()
+    public static readonly PokedexData Togepi = new()
     {
         number = 175,
         name = "Togepi",
@@ -1908,7 +1906,7 @@ public static class Pokedex
         entry = TogepiDesc,
         forms = SingleSpecies(Species.Togepi),
     };
-    public static PokedexData Togetic = new()
+    public static readonly PokedexData Togetic = new()
     {
         number = 176,
         name = "Togetic",
@@ -1918,7 +1916,7 @@ public static class Pokedex
         entry = TogeticDesc,
         forms = SingleSpecies(Species.Togetic),
     };
-    public static PokedexData Natu = new()
+    public static readonly PokedexData Natu = new()
     {
         number = 177,
         name = "Natu",
@@ -1928,7 +1926,7 @@ public static class Pokedex
         entry = NatuDesc,
         forms = SingleSpecies(Species.Natu),
     };
-    public static PokedexData Xatu = new()
+    public static readonly PokedexData Xatu = new()
     {
         number = 178,
         name = "Xatu",
@@ -1938,7 +1936,7 @@ public static class Pokedex
         entry = XatuDesc,
         forms = SingleSpecies(Species.Xatu),
     };
-    public static PokedexData Mareep = new()
+    public static readonly PokedexData Mareep = new()
     {
         number = 179,
         name = "Mareep",
@@ -1948,7 +1946,7 @@ public static class Pokedex
         entry = MareepDesc,
         forms = SingleSpecies(Species.Mareep),
     };
-    public static PokedexData Flaaffy = new()
+    public static readonly PokedexData Flaaffy = new()
     {
         number = 180,
         name = "Flaaffy",
@@ -1958,7 +1956,7 @@ public static class Pokedex
         entry = FlaaffyDesc,
         forms = SingleSpecies(Species.Flaaffy),
     };
-    public static PokedexData Ampharos = new()
+    public static readonly PokedexData Ampharos = new()
     {
         number = 181,
         name = "Ampharos",
@@ -1972,7 +1970,7 @@ public static class Pokedex
             Species.AmpharosMega
         }
     };
-    public static PokedexData Bellossom = new()
+    public static readonly PokedexData Bellossom = new()
     {
         number = 182,
         name = "Bellossom",
@@ -1982,7 +1980,7 @@ public static class Pokedex
         entry = BellossomDesc,
         forms = SingleSpecies(Species.Bellossom),
     };
-    public static PokedexData Marill = new()
+    public static readonly PokedexData Marill = new()
     {
         number = 183,
         name = "Marill",
@@ -1992,7 +1990,7 @@ public static class Pokedex
         entry = MarillDesc,
         forms = SingleSpecies(Species.Marill),
     };
-    public static PokedexData Azumarill = new()
+    public static readonly PokedexData Azumarill = new()
     {
         number = 184,
         name = "Azumarill",
@@ -2002,7 +2000,7 @@ public static class Pokedex
         entry = AzumarillDesc,
         forms = SingleSpecies(Species.Azumarill),
     };
-    public static PokedexData Sudowoodo = new()
+    public static readonly PokedexData Sudowoodo = new()
     {
         number = 185,
         name = "Sudowoodo",
@@ -2012,7 +2010,7 @@ public static class Pokedex
         entry = SudowoodoDesc,
         forms = SingleSpecies(Species.Sudowoodo),
     };
-    public static PokedexData Politoed = new()
+    public static readonly PokedexData Politoed = new()
     {
         number = 186,
         name = "Politoed",
@@ -2022,7 +2020,7 @@ public static class Pokedex
         entry = PolitoedDesc,
         forms = SingleSpecies(Species.Politoed),
     };
-    public static PokedexData Hoppip = new()
+    public static readonly PokedexData Hoppip = new()
     {
         number = 187,
         name = "Hoppip",
@@ -2032,7 +2030,7 @@ public static class Pokedex
         entry = HoppipDesc,
         forms = SingleSpecies(Species.Hoppip),
     };
-    public static PokedexData Skiploom = new()
+    public static readonly PokedexData Skiploom = new()
     {
         number = 188,
         name = "Skiploom",
@@ -2042,7 +2040,7 @@ public static class Pokedex
         entry = SkiploomDesc,
         forms = SingleSpecies(Species.Skiploom),
     };
-    public static PokedexData Jumpluff = new()
+    public static readonly PokedexData Jumpluff = new()
     {
         number = 189,
         name = "Jumpluff",
@@ -2052,7 +2050,7 @@ public static class Pokedex
         entry = JumpluffDesc,
         forms = SingleSpecies(Species.Jumpluff),
     };
-    public static PokedexData Aipom = new()
+    public static readonly PokedexData Aipom = new()
     {
         number = 190,
         name = "Aipom",
@@ -2062,7 +2060,7 @@ public static class Pokedex
         entry = AipomDesc,
         forms = SingleSpecies(Species.Aipom),
     };
-    public static PokedexData Sunkern = new()
+    public static readonly PokedexData Sunkern = new()
     {
         number = 191,
         name = "Sunkern",
@@ -2072,7 +2070,7 @@ public static class Pokedex
         entry = SunkernDesc,
         forms = SingleSpecies(Species.Sunkern),
     };
-    public static PokedexData Sunflora = new()
+    public static readonly PokedexData Sunflora = new()
     {
         number = 192,
         name = "Sunflora",
@@ -2082,7 +2080,7 @@ public static class Pokedex
         entry = SunfloraDesc,
         forms = SingleSpecies(Species.Sunflora),
     };
-    public static PokedexData Yanma = new()
+    public static readonly PokedexData Yanma = new()
     {
         number = 193,
         name = "Yanma",
@@ -2092,7 +2090,7 @@ public static class Pokedex
         entry = YanmaDesc,
         forms = SingleSpecies(Species.Yanma),
     };
-    public static PokedexData Wooper = new()
+    public static readonly PokedexData Wooper = new()
     {
         number = 194,
         name = "Wooper",
@@ -2102,7 +2100,7 @@ public static class Pokedex
         entry = WooperDesc,
         forms = SingleSpecies(Species.Wooper),
     };
-    public static PokedexData Quagsire = new()
+    public static readonly PokedexData Quagsire = new()
     {
         number = 195,
         name = "Quagsire",
@@ -2112,7 +2110,7 @@ public static class Pokedex
         entry = QuagsireDesc,
         forms = SingleSpecies(Species.Quagsire),
     };
-    public static PokedexData Espeon = new()
+    public static readonly PokedexData Espeon = new()
     {
         number = 196,
         name = "Espeon",
@@ -2122,7 +2120,7 @@ public static class Pokedex
         entry = EspeonDesc,
         forms = SingleSpecies(Species.Espeon),
     };
-    public static PokedexData Umbreon = new()
+    public static readonly PokedexData Umbreon = new()
     {
         number = 197,
         name = "Umbreon",
@@ -2132,7 +2130,7 @@ public static class Pokedex
         entry = UmbreonDesc,
         forms = SingleSpecies(Species.Umbreon),
     };
-    public static PokedexData Murkrow = new()
+    public static readonly PokedexData Murkrow = new()
     {
         number = 198,
         name = "Murkrow",
@@ -2142,7 +2140,7 @@ public static class Pokedex
         entry = MurkrowDesc,
         forms = SingleSpecies(Species.Murkrow),
     };
-    public static PokedexData Slowking = new()
+    public static readonly PokedexData Slowking = new()
     {
         number = 199,
         name = "Slowking",
@@ -2152,7 +2150,7 @@ public static class Pokedex
         entry = SlowkingDesc,
         forms = SingleSpecies(Species.Slowking),
     };
-    public static PokedexData Misdreavus = new()
+    public static readonly PokedexData Misdreavus = new()
     {
         number = 200,
         name = "Misdreavus",
@@ -2162,7 +2160,7 @@ public static class Pokedex
         entry = MisdreavusDesc,
         forms = SingleSpecies(Species.Misdreavus),
     };
-    public static PokedexData Unown = new()
+    public static readonly PokedexData Unown = new()
     {
         number = 201,
         name = "Unown",
@@ -2200,7 +2198,7 @@ public static class Pokedex
             Species.Unown_Z,
         }
     };
-    public static PokedexData Wobbuffet = new()
+    public static readonly PokedexData Wobbuffet = new()
     {
         number = 202,
         name = "Wobbuffet",
@@ -2210,7 +2208,7 @@ public static class Pokedex
         entry = WobbuffetDesc,
         forms = SingleSpecies(Species.Wobbuffet),
     };
-    public static PokedexData Girafarig = new()
+    public static readonly PokedexData Girafarig = new()
     {
         number = 203,
         name = "Girafarig",
@@ -2220,7 +2218,7 @@ public static class Pokedex
         entry = GirafarigDesc,
         forms = SingleSpecies(Species.Girafarig),
     };
-    public static PokedexData Pineco = new()
+    public static readonly PokedexData Pineco = new()
     {
         number = 204,
         name = "Pineco",
@@ -2230,7 +2228,7 @@ public static class Pokedex
         entry = PinecoDesc,
         forms = SingleSpecies(Species.Pineco),
     };
-    public static PokedexData Forretress = new()
+    public static readonly PokedexData Forretress = new()
     {
         number = 205,
         name = "Forretress",
@@ -2240,7 +2238,7 @@ public static class Pokedex
         entry = ForretressDesc,
         forms = SingleSpecies(Species.Forretress),
     };
-    public static PokedexData Dunsparce = new()
+    public static readonly PokedexData Dunsparce = new()
     {
         number = 206,
         name = "Dunsparce",
@@ -2250,7 +2248,7 @@ public static class Pokedex
         entry = DunsparceDesc,
         forms = SingleSpecies(Species.Dunsparce),
     };
-    public static PokedexData Gligar = new()
+    public static readonly PokedexData Gligar = new()
     {
         number = 207,
         name = "Gligar",
@@ -2260,7 +2258,7 @@ public static class Pokedex
         entry = GligarDesc,
         forms = SingleSpecies(Species.Gligar),
     };
-    public static PokedexData Steelix = new()
+    public static readonly PokedexData Steelix = new()
     {
         number = 208,
         name = "Steelix",
@@ -2274,7 +2272,7 @@ public static class Pokedex
             Species.SteelixMega
         }
     };
-    public static PokedexData Snubbull = new()
+    public static readonly PokedexData Snubbull = new()
     {
         number = 209,
         name = "Snubbull",
@@ -2284,7 +2282,7 @@ public static class Pokedex
         entry = SnubbullDesc,
         forms = SingleSpecies(Species.Snubbull),
     };
-    public static PokedexData Granbull = new()
+    public static readonly PokedexData Granbull = new()
     {
         number = 210,
         name = "Granbull",
@@ -2294,7 +2292,7 @@ public static class Pokedex
         entry = GranbullDesc,
         forms = SingleSpecies(Species.Granbull),
     };
-    public static PokedexData Qwilfish = new()
+    public static readonly PokedexData Qwilfish = new()
     {
         number = 211,
         name = "Qwilfish",
@@ -2304,7 +2302,7 @@ public static class Pokedex
         entry = QwilfishDesc,
         forms = SingleSpecies(Species.Qwilfish),
     };
-    public static PokedexData Scizor = new()
+    public static readonly PokedexData Scizor = new()
     {
         number = 212,
         name = "Scizor",
@@ -2318,7 +2316,7 @@ public static class Pokedex
             Species.ScizorMega
         }
     };
-    public static PokedexData Shuckle = new()
+    public static readonly PokedexData Shuckle = new()
     {
         number = 213,
         name = "Shuckle",
@@ -2328,7 +2326,7 @@ public static class Pokedex
         entry = ShuckleDesc,
         forms = SingleSpecies(Species.Shuckle),
     };
-    public static PokedexData Heracross = new()
+    public static readonly PokedexData Heracross = new()
     {
         number = 214,
         name = "Heracross",
@@ -2342,7 +2340,7 @@ public static class Pokedex
             Species.HeracrossMega
         }
     };
-    public static PokedexData Sneasel = new()
+    public static readonly PokedexData Sneasel = new()
     {
         number = 215,
         name = "Sneasel",
@@ -2352,7 +2350,7 @@ public static class Pokedex
         entry = SneaselDesc,
         forms = SingleSpecies(Species.Sneasel),
     };
-    public static PokedexData Teddiursa = new()
+    public static readonly PokedexData Teddiursa = new()
     {
         number = 216,
         name = "Teddiursa",
@@ -2362,7 +2360,7 @@ public static class Pokedex
         entry = TeddiursaDesc,
         forms = SingleSpecies(Species.Teddiursa),
     };
-    public static PokedexData Ursaring = new()
+    public static readonly PokedexData Ursaring = new()
     {
         number = 217,
         name = "Ursaring",
@@ -2372,7 +2370,7 @@ public static class Pokedex
         entry = UrsaringDesc,
         forms = SingleSpecies(Species.Ursaring),
     };
-    public static PokedexData Slugma = new()
+    public static readonly PokedexData Slugma = new()
     {
         number = 218,
         name = "Slugma",
@@ -2382,7 +2380,7 @@ public static class Pokedex
         entry = SlugmaDesc,
         forms = SingleSpecies(Species.Slugma),
     };
-    public static PokedexData Magcargo = new()
+    public static readonly PokedexData Magcargo = new()
     {
         number = 219,
         name = "Magcargo",
@@ -2392,7 +2390,7 @@ public static class Pokedex
         entry = MagcargoDesc,
         forms = SingleSpecies(Species.Magcargo),
     };
-    public static PokedexData Swinub = new()
+    public static readonly PokedexData Swinub = new()
     {
         number = 220,
         name = "Swinub",
@@ -2402,7 +2400,7 @@ public static class Pokedex
         entry = SwinubDesc,
         forms = SingleSpecies(Species.Swinub),
     };
-    public static PokedexData Piloswine = new()
+    public static readonly PokedexData Piloswine = new()
     {
         number = 221,
         name = "Piloswine",
@@ -2412,7 +2410,7 @@ public static class Pokedex
         entry = PiloswineDesc,
         forms = SingleSpecies(Species.Piloswine),
     };
-    public static PokedexData Corsola = new()
+    public static readonly PokedexData Corsola = new()
     {
         number = 222,
         name = "Corsola",
@@ -2422,7 +2420,7 @@ public static class Pokedex
         entry = CorsolaDesc,
         forms = SingleSpecies(Species.Corsola),
     };
-    public static PokedexData Remoraid = new()
+    public static readonly PokedexData Remoraid = new()
     {
         number = 223,
         name = "Remoraid",
@@ -2432,7 +2430,7 @@ public static class Pokedex
         entry = RemoraidDesc,
         forms = SingleSpecies(Species.Remoraid),
     };
-    public static PokedexData Octillery = new()
+    public static readonly PokedexData Octillery = new()
     {
         number = 224,
         name = "Octillery",
@@ -2442,7 +2440,7 @@ public static class Pokedex
         entry = OctilleryDesc,
         forms = SingleSpecies(Species.Octillery),
     };
-    public static PokedexData Delibird = new()
+    public static readonly PokedexData Delibird = new()
     {
         number = 225,
         name = "Delibird",
@@ -2452,7 +2450,7 @@ public static class Pokedex
         entry = DelibirdDesc,
         forms = SingleSpecies(Species.Delibird),
     };
-    public static PokedexData Mantine = new()
+    public static readonly PokedexData Mantine = new()
     {
         number = 226,
         name = "Mantine",
@@ -2462,7 +2460,7 @@ public static class Pokedex
         entry = MantineDesc,
         forms = SingleSpecies(Species.Mantine),
     };
-    public static PokedexData Skarmory = new()
+    public static readonly PokedexData Skarmory = new()
     {
         number = 227,
         name = "Skarmory",
@@ -2472,7 +2470,7 @@ public static class Pokedex
         entry = SkarmoryDesc,
         forms = SingleSpecies(Species.Skarmory),
     };
-    public static PokedexData Houndour = new()
+    public static readonly PokedexData Houndour = new()
     {
         number = 228,
         name = "Houndour",
@@ -2482,7 +2480,7 @@ public static class Pokedex
         entry = HoundourDesc,
         forms = SingleSpecies(Species.Houndour),
     };
-    public static PokedexData Houndoom = new()
+    public static readonly PokedexData Houndoom = new()
     {
         number = 229,
         name = "Houndoom",
@@ -2496,7 +2494,7 @@ public static class Pokedex
             Species.HoundoomMega
         }
     };
-    public static PokedexData Kingdra = new()
+    public static readonly PokedexData Kingdra = new()
     {
         number = 230,
         name = "Kingdra",
@@ -2506,7 +2504,7 @@ public static class Pokedex
         entry = KingdraDesc,
         forms = SingleSpecies(Species.Kingdra),
     };
-    public static PokedexData Phanpy = new()
+    public static readonly PokedexData Phanpy = new()
     {
         number = 231,
         name = "Phanpy",
@@ -2516,7 +2514,7 @@ public static class Pokedex
         entry = PhanpyDesc,
         forms = SingleSpecies(Species.Phanpy),
     };
-    public static PokedexData Donphan = new()
+    public static readonly PokedexData Donphan = new()
     {
         number = 232,
         name = "Donphan",
@@ -2526,7 +2524,7 @@ public static class Pokedex
         entry = DonphanDesc,
         forms = SingleSpecies(Species.Donphan),
     };
-    public static PokedexData Porygon2 = new()
+    public static readonly PokedexData Porygon2 = new()
     {
         number = 233,
         name = "Porygon2",
@@ -2536,7 +2534,7 @@ public static class Pokedex
         entry = Porygon2Desc,
         forms = SingleSpecies(Species.Porygon2),
     };
-    public static PokedexData Stantler = new()
+    public static readonly PokedexData Stantler = new()
     {
         number = 234,
         name = "Stantler",
@@ -2546,7 +2544,7 @@ public static class Pokedex
         entry = StantlerDesc,
         forms = SingleSpecies(Species.Stantler),
     };
-    public static PokedexData Smeargle = new()
+    public static readonly PokedexData Smeargle = new()
     {
         number = 235,
         name = "Smeargle",
@@ -2556,7 +2554,7 @@ public static class Pokedex
         entry = SmeargleDesc,
         forms = SingleSpecies(Species.Smeargle),
     };
-    public static PokedexData Tyrogue = new()
+    public static readonly PokedexData Tyrogue = new()
     {
         number = 236,
         name = "Tyrogue",
@@ -2566,7 +2564,7 @@ public static class Pokedex
         entry = TyrogueDesc,
         forms = SingleSpecies(Species.Tyrogue),
     };
-    public static PokedexData Hitmontop = new()
+    public static readonly PokedexData Hitmontop = new()
     {
         number = 237,
         name = "Hitmontop",
@@ -2576,7 +2574,7 @@ public static class Pokedex
         entry = HitmontopDesc,
         forms = SingleSpecies(Species.Hitmontop),
     };
-    public static PokedexData Smoochum = new()
+    public static readonly PokedexData Smoochum = new()
     {
         number = 238,
         name = "Smoochum",
@@ -2586,7 +2584,7 @@ public static class Pokedex
         entry = SmoochumDesc,
         forms = SingleSpecies(Species.Smoochum),
     };
-    public static PokedexData Elekid = new()
+    public static readonly PokedexData Elekid = new()
     {
         number = 239,
         name = "Elekid",
@@ -2596,7 +2594,7 @@ public static class Pokedex
         entry = ElekidDesc,
         forms = SingleSpecies(Species.Elekid),
     };
-    public static PokedexData Magby = new()
+    public static readonly PokedexData Magby = new()
     {
         number = 240,
         name = "Magby",
@@ -2606,7 +2604,7 @@ public static class Pokedex
         entry = MagbyDesc,
         forms = SingleSpecies(Species.Magby),
     };
-    public static PokedexData Miltank = new()
+    public static readonly PokedexData Miltank = new()
     {
         number = 241,
         name = "Miltank",
@@ -2616,7 +2614,7 @@ public static class Pokedex
         entry = MiltankDesc,
         forms = SingleSpecies(Species.Miltank),
     };
-    public static PokedexData Blissey = new()
+    public static readonly PokedexData Blissey = new()
     {
         number = 242,
         name = "Blissey",
@@ -2626,7 +2624,7 @@ public static class Pokedex
         entry = BlisseyDesc,
         forms = SingleSpecies(Species.Blissey),
     };
-    public static PokedexData Raikou = new()
+    public static readonly PokedexData Raikou = new()
     {
         number = 243,
         name = "Raikou",
@@ -2636,7 +2634,7 @@ public static class Pokedex
         entry = RaikouDesc,
         forms = SingleSpecies(Species.Raikou),
     };
-    public static PokedexData Entei = new()
+    public static readonly PokedexData Entei = new()
     {
         number = 244,
         name = "Entei",
@@ -2646,7 +2644,7 @@ public static class Pokedex
         entry = EnteiDesc,
         forms = SingleSpecies(Species.Entei),
     };
-    public static PokedexData Suicune = new()
+    public static readonly PokedexData Suicune = new()
     {
         number = 245,
         name = "Suicune",
@@ -2656,7 +2654,7 @@ public static class Pokedex
         entry = SuicuneDesc,
         forms = SingleSpecies(Species.Suicune),
     };
-    public static PokedexData Larvitar = new()
+    public static readonly PokedexData Larvitar = new()
     {
         number = 246,
         name = "Larvitar",
@@ -2666,7 +2664,7 @@ public static class Pokedex
         entry = LarvitarDesc,
         forms = SingleSpecies(Species.Larvitar),
     };
-    public static PokedexData Pupitar = new()
+    public static readonly PokedexData Pupitar = new()
     {
         number = 247,
         name = "Pupitar",
@@ -2676,7 +2674,7 @@ public static class Pokedex
         entry = PupitarDesc,
         forms = SingleSpecies(Species.Pupitar),
     };
-    public static PokedexData Tyranitar = new()
+    public static readonly PokedexData Tyranitar = new()
     {
         number = 248,
         name = "Tyranitar",
@@ -2690,7 +2688,7 @@ public static class Pokedex
             Species.TyranitarMega
         }
     };
-    public static PokedexData Lugia = new()
+    public static readonly PokedexData Lugia = new()
     {
         number = 249,
         name = "Lugia",
@@ -2700,7 +2698,7 @@ public static class Pokedex
         entry = LugiaDesc,
         forms = SingleSpecies(Species.Lugia),
     };
-    public static PokedexData HoOh = new()
+    public static readonly PokedexData HoOh = new()
     {
         number = 250,
         name = "Ho Oh",
@@ -2710,7 +2708,7 @@ public static class Pokedex
         entry = HoOhDesc,
         forms = SingleSpecies(Species.HoOh),
     };
-    public static PokedexData Celebi = new()
+    public static readonly PokedexData Celebi = new()
     {
         number = 251,
         name = "Celebi",
@@ -2720,7 +2718,7 @@ public static class Pokedex
         entry = CelebiDesc,
         forms = SingleSpecies(Species.Celebi),
     };
-    public static PokedexData Treecko = new()
+    public static readonly PokedexData Treecko = new()
     {
         number = 252,
         name = "Treecko",
@@ -2730,7 +2728,7 @@ public static class Pokedex
         entry = TreeckoDesc,
         forms = SingleSpecies(Species.Treecko),
     };
-    public static PokedexData Grovyle = new()
+    public static readonly PokedexData Grovyle = new()
     {
         number = 253,
         name = "Grovyle",
@@ -2740,7 +2738,7 @@ public static class Pokedex
         entry = GrovyleDesc,
         forms = SingleSpecies(Species.Grovyle),
     };
-    public static PokedexData Sceptile = new()
+    public static readonly PokedexData Sceptile = new()
     {
         number = 254,
         name = "Sceptile",
@@ -2754,7 +2752,7 @@ public static class Pokedex
             Species.SceptileMega
         }
     };
-    public static PokedexData Torchic = new()
+    public static readonly PokedexData Torchic = new()
     {
         number = 255,
         name = "Torchic",
@@ -2764,7 +2762,7 @@ public static class Pokedex
         entry = TorchicDesc,
         forms = SingleSpecies(Species.Torchic),
     };
-    public static PokedexData Combusken = new()
+    public static readonly PokedexData Combusken = new()
     {
         number = 256,
         name = "Combusken",
@@ -2774,7 +2772,7 @@ public static class Pokedex
         entry = CombuskenDesc,
         forms = SingleSpecies(Species.Combusken),
     };
-    public static PokedexData Blaziken = new()
+    public static readonly PokedexData Blaziken = new()
     {
         number = 257,
         name = "Blaziken",
@@ -2788,7 +2786,7 @@ public static class Pokedex
             Species.BlazikenMega
         }
     };
-    public static PokedexData Mudkip = new()
+    public static readonly PokedexData Mudkip = new()
     {
         number = 258,
         name = "Mudkip",
@@ -2798,7 +2796,7 @@ public static class Pokedex
         entry = MudkipDesc,
         forms = SingleSpecies(Species.Mudkip),
     };
-    public static PokedexData Marshtomp = new()
+    public static readonly PokedexData Marshtomp = new()
     {
         number = 259,
         name = "Marshtomp",
@@ -2808,7 +2806,7 @@ public static class Pokedex
         entry = MarshtompDesc,
         forms = SingleSpecies(Species.Marshtomp),
     };
-    public static PokedexData Swampert = new()
+    public static readonly PokedexData Swampert = new()
     {
         number = 260,
         name = "Swampert",
@@ -2822,7 +2820,7 @@ public static class Pokedex
             Species.SwampertMega
         }
     };
-    public static PokedexData Poochyena = new()
+    public static readonly PokedexData Poochyena = new()
     {
         number = 261,
         name = "Poochyena",
@@ -2832,7 +2830,7 @@ public static class Pokedex
         entry = PoochyenaDesc,
         forms = SingleSpecies(Species.Poochyena),
     };
-    public static PokedexData Mightyena = new()
+    public static readonly PokedexData Mightyena = new()
     {
         number = 262,
         name = "Mightyena",
@@ -2842,7 +2840,7 @@ public static class Pokedex
         entry = MightyenaDesc,
         forms = SingleSpecies(Species.Mightyena),
     };
-    public static PokedexData Zigzagoon = new()
+    public static readonly PokedexData Zigzagoon = new()
     {
         number = 263,
         name = "Zigzagoon",
@@ -2852,7 +2850,7 @@ public static class Pokedex
         entry = ZigzagoonDesc,
         forms = SingleSpecies(Species.Zigzagoon),
     };
-    public static PokedexData Linoone = new()
+    public static readonly PokedexData Linoone = new()
     {
         number = 264,
         name = "Linoone",
@@ -2862,7 +2860,7 @@ public static class Pokedex
         entry = LinooneDesc,
         forms = SingleSpecies(Species.Linoone),
     };
-    public static PokedexData Wurmple = new()
+    public static readonly PokedexData Wurmple = new()
     {
         number = 265,
         name = "Wurmple",
@@ -2872,7 +2870,7 @@ public static class Pokedex
         entry = WurmpleDesc,
         forms = SingleSpecies(Species.Wurmple),
     };
-    public static PokedexData Silcoon = new()
+    public static readonly PokedexData Silcoon = new()
     {
         number = 266,
         name = "Silcoon",
@@ -2882,7 +2880,7 @@ public static class Pokedex
         entry = SilcoonDesc,
         forms = SingleSpecies(Species.Silcoon),
     };
-    public static PokedexData Beautifly = new()
+    public static readonly PokedexData Beautifly = new()
     {
         number = 267,
         name = "Beautifly",
@@ -2892,7 +2890,7 @@ public static class Pokedex
         entry = BeautiflyDesc,
         forms = SingleSpecies(Species.Beautifly),
     };
-    public static PokedexData Cascoon = new()
+    public static readonly PokedexData Cascoon = new()
     {
         number = 268,
         name = "Cascoon",
@@ -2902,7 +2900,7 @@ public static class Pokedex
         entry = CascoonDesc,
         forms = SingleSpecies(Species.Cascoon),
     };
-    public static PokedexData Dustox = new()
+    public static readonly PokedexData Dustox = new()
     {
         number = 269,
         name = "Dustox",
@@ -2912,7 +2910,7 @@ public static class Pokedex
         entry = DustoxDesc,
         forms = SingleSpecies(Species.Dustox),
     };
-    public static PokedexData Lotad = new()
+    public static readonly PokedexData Lotad = new()
     {
         number = 270,
         name = "Lotad",
@@ -2922,7 +2920,7 @@ public static class Pokedex
         entry = LotadDesc,
         forms = SingleSpecies(Species.Lotad),
     };
-    public static PokedexData Lombre = new()
+    public static readonly PokedexData Lombre = new()
     {
         number = 271,
         name = "Lombre",
@@ -2932,7 +2930,7 @@ public static class Pokedex
         entry = LombreDesc,
         forms = SingleSpecies(Species.Lombre),
     };
-    public static PokedexData Ludicolo = new()
+    public static readonly PokedexData Ludicolo = new()
     {
         number = 272,
         name = "Ludicolo",
@@ -2942,7 +2940,7 @@ public static class Pokedex
         entry = LudicoloDesc,
         forms = SingleSpecies(Species.Ludicolo),
     };
-    public static PokedexData Seedot = new()
+    public static readonly PokedexData Seedot = new()
     {
         number = 273,
         name = "Seedot",
@@ -2952,7 +2950,7 @@ public static class Pokedex
         entry = SeedotDesc,
         forms = SingleSpecies(Species.Seedot),
     };
-    public static PokedexData Nuzleaf = new()
+    public static readonly PokedexData Nuzleaf = new()
     {
         number = 274,
         name = "Nuzleaf",
@@ -2962,7 +2960,7 @@ public static class Pokedex
         entry = NuzleafDesc,
         forms = SingleSpecies(Species.Nuzleaf),
     };
-    public static PokedexData Shiftry = new()
+    public static readonly PokedexData Shiftry = new()
     {
         number = 275,
         name = "Shiftry",
@@ -2972,7 +2970,7 @@ public static class Pokedex
         entry = ShiftryDesc,
         forms = SingleSpecies(Species.Shiftry),
     };
-    public static PokedexData Taillow = new()
+    public static readonly PokedexData Taillow = new()
     {
         number = 276,
         name = "Taillow",
@@ -2982,7 +2980,7 @@ public static class Pokedex
         entry = TaillowDesc,
         forms = SingleSpecies(Species.Taillow),
     };
-    public static PokedexData Swellow = new()
+    public static readonly PokedexData Swellow = new()
     {
         number = 277,
         name = "Swellow",
@@ -2992,7 +2990,7 @@ public static class Pokedex
         entry = SwellowDesc,
         forms = SingleSpecies(Species.Swellow),
     };
-    public static PokedexData Wingull = new()
+    public static readonly PokedexData Wingull = new()
     {
         number = 278,
         name = "Wingull",
@@ -3002,7 +3000,7 @@ public static class Pokedex
         entry = WingullDesc,
         forms = SingleSpecies(Species.Wingull),
     };
-    public static PokedexData Pelipper = new()
+    public static readonly PokedexData Pelipper = new()
     {
         number = 279,
         name = "Pelipper",
@@ -3012,7 +3010,7 @@ public static class Pokedex
         entry = PelipperDesc,
         forms = SingleSpecies(Species.Pelipper),
     };
-    public static PokedexData Ralts = new()
+    public static readonly PokedexData Ralts = new()
     {
         number = 280,
         name = "Ralts",
@@ -3022,7 +3020,7 @@ public static class Pokedex
         entry = RaltsDesc,
         forms = SingleSpecies(Species.Ralts),
     };
-    public static PokedexData Kirlia = new()
+    public static readonly PokedexData Kirlia = new()
     {
         number = 281,
         name = "Kirlia",
@@ -3032,7 +3030,7 @@ public static class Pokedex
         entry = KirliaDesc,
         forms = SingleSpecies(Species.Kirlia),
     };
-    public static PokedexData Gardevoir = new()
+    public static readonly PokedexData Gardevoir = new()
     {
         number = 282,
         name = "Gardevoir",
@@ -3046,7 +3044,7 @@ public static class Pokedex
             Species.GardevoirMega
         }
     };
-    public static PokedexData Surskit = new()
+    public static readonly PokedexData Surskit = new()
     {
         number = 283,
         name = "Surskit",
@@ -3056,7 +3054,7 @@ public static class Pokedex
         entry = SurskitDesc,
         forms = SingleSpecies(Species.Surskit),
     };
-    public static PokedexData Masquerain = new()
+    public static readonly PokedexData Masquerain = new()
     {
         number = 284,
         name = "Masquerain",
@@ -3066,7 +3064,7 @@ public static class Pokedex
         entry = MasquerainDesc,
         forms = SingleSpecies(Species.Masquerain),
     };
-    public static PokedexData Shroomish = new()
+    public static readonly PokedexData Shroomish = new()
     {
         number = 285,
         name = "Shroomish",
@@ -3076,7 +3074,7 @@ public static class Pokedex
         entry = ShroomishDesc,
         forms = SingleSpecies(Species.Shroomish),
     };
-    public static PokedexData Breloom = new()
+    public static readonly PokedexData Breloom = new()
     {
         number = 286,
         name = "Breloom",
@@ -3086,7 +3084,7 @@ public static class Pokedex
         entry = BreloomDesc,
         forms = SingleSpecies(Species.Breloom),
     };
-    public static PokedexData Slakoth = new()
+    public static readonly PokedexData Slakoth = new()
     {
         number = 287,
         name = "Slakoth",
@@ -3096,7 +3094,7 @@ public static class Pokedex
         entry = SlakothDesc,
         forms = SingleSpecies(Species.Slakoth),
     };
-    public static PokedexData Vigoroth = new()
+    public static readonly PokedexData Vigoroth = new()
     {
         number = 288,
         name = "Vigoroth",
@@ -3106,7 +3104,7 @@ public static class Pokedex
         entry = VigorothDesc,
         forms = SingleSpecies(Species.Vigoroth),
     };
-    public static PokedexData Slaking = new()
+    public static readonly PokedexData Slaking = new()
     {
         number = 289,
         name = "Slaking",
@@ -3116,7 +3114,7 @@ public static class Pokedex
         entry = SlakingDesc,
         forms = SingleSpecies(Species.Slaking),
     };
-    public static PokedexData Nincada = new()
+    public static readonly PokedexData Nincada = new()
     {
         number = 290,
         name = "Nincada",
@@ -3126,7 +3124,7 @@ public static class Pokedex
         entry = NincadaDesc,
         forms = SingleSpecies(Species.Nincada),
     };
-    public static PokedexData Ninjask = new()
+    public static readonly PokedexData Ninjask = new()
     {
         number = 291,
         name = "Ninjask",
@@ -3136,7 +3134,7 @@ public static class Pokedex
         entry = NinjaskDesc,
         forms = SingleSpecies(Species.Ninjask),
     };
-    public static PokedexData Shedinja = new()
+    public static readonly PokedexData Shedinja = new()
     {
         number = 292,
         name = "Shedinja",
@@ -3146,7 +3144,7 @@ public static class Pokedex
         entry = ShedinjaDesc,
         forms = SingleSpecies(Species.Shedinja),
     };
-    public static PokedexData Whismur = new()
+    public static readonly PokedexData Whismur = new()
     {
         number = 293,
         name = "Whismur",
@@ -3156,7 +3154,7 @@ public static class Pokedex
         entry = WhismurDesc,
         forms = SingleSpecies(Species.Whismur),
     };
-    public static PokedexData Loudred = new()
+    public static readonly PokedexData Loudred = new()
     {
         number = 294,
         name = "Loudred",
@@ -3166,7 +3164,7 @@ public static class Pokedex
         entry = LoudredDesc,
         forms = SingleSpecies(Species.Loudred),
     };
-    public static PokedexData Exploud = new()
+    public static readonly PokedexData Exploud = new()
     {
         number = 295,
         name = "Exploud",
@@ -3176,7 +3174,7 @@ public static class Pokedex
         entry = ExploudDesc,
         forms = SingleSpecies(Species.Exploud),
     };
-    public static PokedexData Makuhita = new()
+    public static readonly PokedexData Makuhita = new()
     {
         number = 296,
         name = "Makuhita",
@@ -3186,7 +3184,7 @@ public static class Pokedex
         entry = MakuhitaDesc,
         forms = SingleSpecies(Species.Makuhita),
     };
-    public static PokedexData Hariyama = new()
+    public static readonly PokedexData Hariyama = new()
     {
         number = 297,
         name = "Hariyama",
@@ -3196,7 +3194,7 @@ public static class Pokedex
         entry = HariyamaDesc,
         forms = SingleSpecies(Species.Hariyama),
     };
-    public static PokedexData Azurill = new()
+    public static readonly PokedexData Azurill = new()
     {
         number = 298,
         name = "Azurill",
@@ -3206,7 +3204,7 @@ public static class Pokedex
         entry = AzurillDesc,
         forms = SingleSpecies(Species.Azurill),
     };
-    public static PokedexData Nosepass = new()
+    public static readonly PokedexData Nosepass = new()
     {
         number = 299,
         name = "Nosepass",
@@ -3216,7 +3214,7 @@ public static class Pokedex
         entry = NosepassDesc,
         forms = SingleSpecies(Species.Nosepass),
     };
-    public static PokedexData Skitty = new()
+    public static readonly PokedexData Skitty = new()
     {
         number = 300,
         name = "Skitty",
@@ -3226,7 +3224,7 @@ public static class Pokedex
         entry = SkittyDesc,
         forms = SingleSpecies(Species.Skitty),
     };
-    public static PokedexData Delcatty = new()
+    public static readonly PokedexData Delcatty = new()
     {
         number = 301,
         name = "Delcatty",
@@ -3236,7 +3234,7 @@ public static class Pokedex
         entry = DelcattyDesc,
         forms = SingleSpecies(Species.Delcatty),
     };
-    public static PokedexData Sableye = new()
+    public static readonly PokedexData Sableye = new()
     {
         number = 302,
         name = "Sableye",
@@ -3250,7 +3248,7 @@ public static class Pokedex
             Species.SableyeMega
         }
     };
-    public static PokedexData Mawile = new()
+    public static readonly PokedexData Mawile = new()
     {
         number = 303,
         name = "Mawile",
@@ -3264,7 +3262,7 @@ public static class Pokedex
         Species.MawileMega
     }
     };
-    public static PokedexData Aron = new()
+    public static readonly PokedexData Aron = new()
     {
         number = 304,
         name = "Aron",
@@ -3274,7 +3272,7 @@ public static class Pokedex
         entry = AronDesc,
         forms = SingleSpecies(Species.Aron),
     };
-    public static PokedexData Lairon = new()
+    public static readonly PokedexData Lairon = new()
     {
         number = 305,
         name = "Lairon",
@@ -3284,7 +3282,7 @@ public static class Pokedex
         entry = LaironDesc,
         forms = SingleSpecies(Species.Lairon),
     };
-    public static PokedexData Aggron = new()
+    public static readonly PokedexData Aggron = new()
     {
         number = 306,
         name = "Aggron",
@@ -3298,7 +3296,7 @@ public static class Pokedex
             Species.AggronMega
         }
     };
-    public static PokedexData Meditite = new()
+    public static readonly PokedexData Meditite = new()
     {
         number = 307,
         name = "Meditite",
@@ -3308,7 +3306,7 @@ public static class Pokedex
         entry = MedititeDesc,
         forms = SingleSpecies(Species.Meditite),
     };
-    public static PokedexData Medicham = new()
+    public static readonly PokedexData Medicham = new()
     {
         number = 308,
         name = "Medicham",
@@ -3322,7 +3320,7 @@ public static class Pokedex
             Species.MedichamMega
         }
     };
-    public static PokedexData Electrike = new()
+    public static readonly PokedexData Electrike = new()
     {
         number = 309,
         name = "Electrike",
@@ -3332,7 +3330,7 @@ public static class Pokedex
         entry = ElectrikeDesc,
         forms = SingleSpecies(Species.Electrike),
     };
-    public static PokedexData Manectric = new()
+    public static readonly PokedexData Manectric = new()
     {
         number = 310,
         name = "Manectric",
@@ -3346,7 +3344,7 @@ public static class Pokedex
             Species.ManectricMega
         }
     };
-    public static PokedexData Plusle = new()
+    public static readonly PokedexData Plusle = new()
     {
         number = 311,
         name = "Plusle",
@@ -3356,7 +3354,7 @@ public static class Pokedex
         entry = PlusleDesc,
         forms = SingleSpecies(Species.Plusle),
     };
-    public static PokedexData Minun = new()
+    public static readonly PokedexData Minun = new()
     {
         number = 312,
         name = "Minun",
@@ -3366,7 +3364,7 @@ public static class Pokedex
         entry = MinunDesc,
         forms = SingleSpecies(Species.Minun),
     };
-    public static PokedexData Volbeat = new()
+    public static readonly PokedexData Volbeat = new()
     {
         number = 313,
         name = "Volbeat",
@@ -3376,7 +3374,7 @@ public static class Pokedex
         entry = VolbeatDesc,
         forms = SingleSpecies(Species.Volbeat),
     };
-    public static PokedexData Illumise = new()
+    public static readonly PokedexData Illumise = new()
     {
         number = 314,
         name = "Illumise",
@@ -3386,7 +3384,7 @@ public static class Pokedex
         entry = IllumiseDesc,
         forms = SingleSpecies(Species.Illumise),
     };
-    public static PokedexData Roselia = new()
+    public static readonly PokedexData Roselia = new()
     {
         number = 315,
         name = "Roselia",
@@ -3396,7 +3394,7 @@ public static class Pokedex
         entry = RoseliaDesc,
         forms = SingleSpecies(Species.Roselia),
     };
-    public static PokedexData Gulpin = new()
+    public static readonly PokedexData Gulpin = new()
     {
         number = 316,
         name = "Gulpin",
@@ -3406,7 +3404,7 @@ public static class Pokedex
         entry = GulpinDesc,
         forms = SingleSpecies(Species.Gulpin),
     };
-    public static PokedexData Swalot = new()
+    public static readonly PokedexData Swalot = new()
     {
         number = 317,
         name = "Swalot",
@@ -3416,7 +3414,7 @@ public static class Pokedex
         entry = SwalotDesc,
         forms = SingleSpecies(Species.Swalot),
     };
-    public static PokedexData Carvanha = new()
+    public static readonly PokedexData Carvanha = new()
     {
         number = 318,
         name = "Carvanha",
@@ -3426,7 +3424,7 @@ public static class Pokedex
         entry = CarvanhaDesc,
         forms = SingleSpecies(Species.Carvanha),
     };
-    public static PokedexData Sharpedo = new()
+    public static readonly PokedexData Sharpedo = new()
     {
         number = 319,
         name = "Sharpedo",
@@ -3440,7 +3438,7 @@ public static class Pokedex
             Species.SharpedoMega
         }
     };
-    public static PokedexData Wailmer = new()
+    public static readonly PokedexData Wailmer = new()
     {
         number = 320,
         name = "Wailmer",
@@ -3450,7 +3448,7 @@ public static class Pokedex
         entry = WailmerDesc,
         forms = SingleSpecies(Species.Wailmer),
     };
-    public static PokedexData Wailord = new()
+    public static readonly PokedexData Wailord = new()
     {
         number = 321,
         name = "Wailord",
@@ -3460,7 +3458,7 @@ public static class Pokedex
         entry = WailordDesc,
         forms = SingleSpecies(Species.Wailord),
     };
-    public static PokedexData Numel = new()
+    public static readonly PokedexData Numel = new()
     {
         number = 322,
         name = "Numel",
@@ -3470,7 +3468,7 @@ public static class Pokedex
         entry = NumelDesc,
         forms = SingleSpecies(Species.Numel),
     };
-    public static PokedexData Camerupt = new()
+    public static readonly PokedexData Camerupt = new()
     {
         number = 323,
         name = "Camerupt",
@@ -3484,7 +3482,7 @@ public static class Pokedex
             Species.CameruptMega
         }
     };
-    public static PokedexData Torkoal = new()
+    public static readonly PokedexData Torkoal = new()
     {
         number = 324,
         name = "Torkoal",
@@ -3494,7 +3492,7 @@ public static class Pokedex
         entry = TorkoalDesc,
         forms = SingleSpecies(Species.Torkoal),
     };
-    public static PokedexData Spoink = new()
+    public static readonly PokedexData Spoink = new()
     {
         number = 325,
         name = "Spoink",
@@ -3504,7 +3502,7 @@ public static class Pokedex
         entry = SpoinkDesc,
         forms = SingleSpecies(Species.Spoink),
     };
-    public static PokedexData Grumpig = new()
+    public static readonly PokedexData Grumpig = new()
     {
         number = 326,
         name = "Grumpig",
@@ -3514,7 +3512,7 @@ public static class Pokedex
         entry = GrumpigDesc,
         forms = SingleSpecies(Species.Grumpig),
     };
-    public static PokedexData Spinda = new()
+    public static readonly PokedexData Spinda = new()
     {
         number = 327,
         name = "Spinda",
@@ -3524,7 +3522,7 @@ public static class Pokedex
         entry = SpindaDesc,
         forms = SingleSpecies(Species.Spinda),
     };
-    public static PokedexData Trapinch = new()
+    public static readonly PokedexData Trapinch = new()
     {
         number = 328,
         name = "Trapinch",
@@ -3534,7 +3532,7 @@ public static class Pokedex
         entry = TrapinchDesc,
         forms = SingleSpecies(Species.Trapinch),
     };
-    public static PokedexData Vibrava = new()
+    public static readonly PokedexData Vibrava = new()
     {
         number = 329,
         name = "Vibrava",
@@ -3544,7 +3542,7 @@ public static class Pokedex
         entry = VibravaDesc,
         forms = SingleSpecies(Species.Vibrava),
     };
-    public static PokedexData Flygon = new()
+    public static readonly PokedexData Flygon = new()
     {
         number = 330,
         name = "Flygon",
@@ -3554,7 +3552,7 @@ public static class Pokedex
         entry = FlygonDesc,
         forms = SingleSpecies(Species.Flygon),
     };
-    public static PokedexData Cacnea = new()
+    public static readonly PokedexData Cacnea = new()
     {
         number = 331,
         name = "Cacnea",
@@ -3564,7 +3562,7 @@ public static class Pokedex
         entry = CacneaDesc,
         forms = SingleSpecies(Species.Cacnea),
     };
-    public static PokedexData Cacturne = new()
+    public static readonly PokedexData Cacturne = new()
     {
         number = 332,
         name = "Cacturne",
@@ -3574,7 +3572,7 @@ public static class Pokedex
         entry = CacturneDesc,
         forms = SingleSpecies(Species.Cacturne),
     };
-    public static PokedexData Swablu = new()
+    public static readonly PokedexData Swablu = new()
     {
         number = 333,
         name = "Swablu",
@@ -3584,7 +3582,7 @@ public static class Pokedex
         entry = SwabluDesc,
         forms = SingleSpecies(Species.Swablu),
     };
-    public static PokedexData Altaria = new()
+    public static readonly PokedexData Altaria = new()
     {
         number = 334,
         name = "Altaria",
@@ -3598,7 +3596,7 @@ public static class Pokedex
             Species.AltariaMega
         }
     };
-    public static PokedexData Zangoose = new()
+    public static readonly PokedexData Zangoose = new()
     {
         number = 335,
         name = "Zangoose",
@@ -3608,7 +3606,7 @@ public static class Pokedex
         entry = ZangooseDesc,
         forms = SingleSpecies(Species.Zangoose),
     };
-    public static PokedexData Seviper = new()
+    public static readonly PokedexData Seviper = new()
     {
         number = 336,
         name = "Seviper",
@@ -3618,7 +3616,7 @@ public static class Pokedex
         entry = SeviperDesc,
         forms = SingleSpecies(Species.Seviper),
     };
-    public static PokedexData Lunatone = new()
+    public static readonly PokedexData Lunatone = new()
     {
         number = 337,
         name = "Lunatone",
@@ -3628,7 +3626,7 @@ public static class Pokedex
         entry = LunatoneDesc,
         forms = SingleSpecies(Species.Lunatone),
     };
-    public static PokedexData Solrock = new()
+    public static readonly PokedexData Solrock = new()
     {
         number = 338,
         name = "Solrock",
@@ -3638,7 +3636,7 @@ public static class Pokedex
         entry = SolrockDesc,
         forms = SingleSpecies(Species.Solrock),
     };
-    public static PokedexData Barboach = new()
+    public static readonly PokedexData Barboach = new()
     {
         number = 339,
         name = "Barboach",
@@ -3648,7 +3646,7 @@ public static class Pokedex
         entry = BarboachDesc,
         forms = SingleSpecies(Species.Barboach),
     };
-    public static PokedexData Whiscash = new()
+    public static readonly PokedexData Whiscash = new()
     {
         number = 340,
         name = "Whiscash",
@@ -3658,7 +3656,7 @@ public static class Pokedex
         entry = WhiscashDesc,
         forms = SingleSpecies(Species.Whiscash),
     };
-    public static PokedexData Corphish = new()
+    public static readonly PokedexData Corphish = new()
     {
         number = 341,
         name = "Corphish",
@@ -3668,7 +3666,7 @@ public static class Pokedex
         entry = CorphishDesc,
         forms = SingleSpecies(Species.Corphish),
     };
-    public static PokedexData Crawdaunt = new()
+    public static readonly PokedexData Crawdaunt = new()
     {
         number = 342,
         name = "Crawdaunt",
@@ -3678,7 +3676,7 @@ public static class Pokedex
         entry = CrawdauntDesc,
         forms = SingleSpecies(Species.Crawdaunt),
     };
-    public static PokedexData Baltoy = new()
+    public static readonly PokedexData Baltoy = new()
     {
         number = 343,
         name = "Baltoy",
@@ -3688,7 +3686,7 @@ public static class Pokedex
         entry = BaltoyDesc,
         forms = SingleSpecies(Species.Baltoy),
     };
-    public static PokedexData Claydol = new()
+    public static readonly PokedexData Claydol = new()
     {
         number = 344,
         name = "Claydol",
@@ -3698,7 +3696,7 @@ public static class Pokedex
         entry = ClaydolDesc,
         forms = SingleSpecies(Species.Claydol),
     };
-    public static PokedexData Lileep = new()
+    public static readonly PokedexData Lileep = new()
     {
         number = 345,
         name = "Lileep",
@@ -3708,7 +3706,7 @@ public static class Pokedex
         entry = LileepDesc,
         forms = SingleSpecies(Species.Lileep),
     };
-    public static PokedexData Cradily = new()
+    public static readonly PokedexData Cradily = new()
     {
         number = 346,
         name = "Cradily",
@@ -3718,7 +3716,7 @@ public static class Pokedex
         entry = CradilyDesc,
         forms = SingleSpecies(Species.Cradily),
     };
-    public static PokedexData Anorith = new()
+    public static readonly PokedexData Anorith = new()
     {
         number = 347,
         name = "Anorith",
@@ -3728,7 +3726,7 @@ public static class Pokedex
         entry = AnorithDesc,
         forms = SingleSpecies(Species.Anorith),
     };
-    public static PokedexData Armaldo = new()
+    public static readonly PokedexData Armaldo = new()
     {
         number = 348,
         name = "Armaldo",
@@ -3738,7 +3736,7 @@ public static class Pokedex
         entry = ArmaldoDesc,
         forms = SingleSpecies(Species.Armaldo),
     };
-    public static PokedexData Feebas = new()
+    public static readonly PokedexData Feebas = new()
     {
         number = 349,
         name = "Feebas",
@@ -3748,7 +3746,7 @@ public static class Pokedex
         entry = FeebasDesc,
         forms = SingleSpecies(Species.Feebas),
     };
-    public static PokedexData Milotic = new()
+    public static readonly PokedexData Milotic = new()
     {
         number = 350,
         name = "Milotic",
@@ -3758,7 +3756,7 @@ public static class Pokedex
         entry = MiloticDesc,
         forms = SingleSpecies(Species.Milotic),
     };
-    public static PokedexData Castform = new()
+    public static readonly PokedexData Castform = new()
     {
         number = 351,
         name = "Castform",
@@ -3774,7 +3772,7 @@ public static class Pokedex
             Species.CastformSnowy
         }
     };
-    public static PokedexData Kecleon = new()
+    public static readonly PokedexData Kecleon = new()
     {
         number = 352,
         name = "Kecleon",
@@ -3784,7 +3782,7 @@ public static class Pokedex
         entry = KecleonDesc,
         forms = SingleSpecies(Species.Kecleon),
     };
-    public static PokedexData Shuppet = new()
+    public static readonly PokedexData Shuppet = new()
     {
         number = 353,
         name = "Shuppet",
@@ -3794,7 +3792,7 @@ public static class Pokedex
         entry = ShuppetDesc,
         forms = SingleSpecies(Species.Shuppet),
     };
-    public static PokedexData Banette = new()
+    public static readonly PokedexData Banette = new()
     {
         number = 354,
         name = "Banette",
@@ -3808,7 +3806,7 @@ public static class Pokedex
             Species.BanetteMega
         }
     };
-    public static PokedexData Duskull = new()
+    public static readonly PokedexData Duskull = new()
     {
         number = 355,
         name = "Duskull",
@@ -3818,7 +3816,7 @@ public static class Pokedex
         entry = DuskullDesc,
         forms = SingleSpecies(Species.Duskull),
     };
-    public static PokedexData Dusclops = new()
+    public static readonly PokedexData Dusclops = new()
     {
         number = 356,
         name = "Dusclops",
@@ -3828,7 +3826,7 @@ public static class Pokedex
         entry = DusclopsDesc,
         forms = SingleSpecies(Species.Dusclops),
     };
-    public static PokedexData Tropius = new()
+    public static readonly PokedexData Tropius = new()
     {
         number = 357,
         name = "Tropius",
@@ -3838,7 +3836,7 @@ public static class Pokedex
         entry = TropiusDesc,
         forms = SingleSpecies(Species.Tropius),
     };
-    public static PokedexData Chimecho = new()
+    public static readonly PokedexData Chimecho = new()
     {
         number = 358,
         name = "Chimecho",
@@ -3848,7 +3846,7 @@ public static class Pokedex
         entry = ChimechoDesc,
         forms = SingleSpecies(Species.Chimecho),
     };
-    public static PokedexData Absol = new()
+    public static readonly PokedexData Absol = new()
     {
         number = 359,
         name = "Absol",
@@ -3862,7 +3860,7 @@ public static class Pokedex
             Species.AbsolMega
         }
     };
-    public static PokedexData Wynaut = new()
+    public static readonly PokedexData Wynaut = new()
     {
         number = 360,
         name = "Wynaut",
@@ -3872,7 +3870,7 @@ public static class Pokedex
         entry = WynautDesc,
         forms = SingleSpecies(Species.Wynaut),
     };
-    public static PokedexData Snorunt = new()
+    public static readonly PokedexData Snorunt = new()
     {
         number = 361,
         name = "Snorunt",
@@ -3882,7 +3880,7 @@ public static class Pokedex
         entry = SnoruntDesc,
         forms = SingleSpecies(Species.Snorunt),
     };
-    public static PokedexData Glalie = new()
+    public static readonly PokedexData Glalie = new()
     {
         number = 362,
         name = "Glalie",
@@ -3896,7 +3894,7 @@ public static class Pokedex
             Species.GlalieMega
         }
     };
-    public static PokedexData Spheal = new()
+    public static readonly PokedexData Spheal = new()
     {
         number = 363,
         name = "Spheal",
@@ -3906,7 +3904,7 @@ public static class Pokedex
         entry = SphealDesc,
         forms = SingleSpecies(Species.Spheal),
     };
-    public static PokedexData Sealeo = new()
+    public static readonly PokedexData Sealeo = new()
     {
         number = 364,
         name = "Sealeo",
@@ -3916,7 +3914,7 @@ public static class Pokedex
         entry = SealeoDesc,
         forms = SingleSpecies(Species.Sealeo),
     };
-    public static PokedexData Walrein = new()
+    public static readonly PokedexData Walrein = new()
     {
         number = 365,
         name = "Walrein",
@@ -3926,7 +3924,7 @@ public static class Pokedex
         entry = WalreinDesc,
         forms = SingleSpecies(Species.Walrein),
     };
-    public static PokedexData Clamperl = new()
+    public static readonly PokedexData Clamperl = new()
     {
         number = 366,
         name = "Clamperl",
@@ -3936,7 +3934,7 @@ public static class Pokedex
         entry = ClamperlDesc,
         forms = SingleSpecies(Species.Clamperl),
     };
-    public static PokedexData Huntail = new()
+    public static readonly PokedexData Huntail = new()
     {
         number = 367,
         name = "Huntail",
@@ -3946,7 +3944,7 @@ public static class Pokedex
         entry = HuntailDesc,
         forms = SingleSpecies(Species.Huntail),
     };
-    public static PokedexData Gorebyss = new()
+    public static readonly PokedexData Gorebyss = new()
     {
         number = 368,
         name = "Gorebyss",
@@ -3956,7 +3954,7 @@ public static class Pokedex
         entry = GorebyssDesc,
         forms = SingleSpecies(Species.Gorebyss),
     };
-    public static PokedexData Relicanth = new()
+    public static readonly PokedexData Relicanth = new()
     {
         number = 369,
         name = "Relicanth",
@@ -3966,7 +3964,7 @@ public static class Pokedex
         entry = RelicanthDesc,
         forms = SingleSpecies(Species.Relicanth),
     };
-    public static PokedexData Luvdisc = new()
+    public static readonly PokedexData Luvdisc = new()
     {
         number = 370,
         name = "Luvdisc",
@@ -3976,7 +3974,7 @@ public static class Pokedex
         entry = LuvdiscDesc,
         forms = SingleSpecies(Species.Luvdisc),
     };
-    public static PokedexData Bagon = new()
+    public static readonly PokedexData Bagon = new()
     {
         number = 371,
         name = "Bagon",
@@ -3986,7 +3984,7 @@ public static class Pokedex
         entry = BagonDesc,
         forms = SingleSpecies(Species.Bagon),
     };
-    public static PokedexData Shelgon = new()
+    public static readonly PokedexData Shelgon = new()
     {
         number = 372,
         name = "Shelgon",
@@ -3996,7 +3994,7 @@ public static class Pokedex
         entry = ShelgonDesc,
         forms = SingleSpecies(Species.Shelgon),
     };
-    public static PokedexData Salamence = new()
+    public static readonly PokedexData Salamence = new()
     {
         number = 373,
         name = "Salamence",
@@ -4010,7 +4008,7 @@ public static class Pokedex
             Species.SalamenceMega
         }
     };
-    public static PokedexData Beldum = new()
+    public static readonly PokedexData Beldum = new()
     {
         number = 374,
         name = "Beldum",
@@ -4020,7 +4018,7 @@ public static class Pokedex
         entry = BeldumDesc,
         forms = SingleSpecies(Species.Beldum),
     };
-    public static PokedexData Metang = new()
+    public static readonly PokedexData Metang = new()
     {
         number = 375,
         name = "Metang",
@@ -4030,7 +4028,7 @@ public static class Pokedex
         entry = MetangDesc,
         forms = SingleSpecies(Species.Metang),
     };
-    public static PokedexData Metagross = new()
+    public static readonly PokedexData Metagross = new()
     {
         number = 376,
         name = "Metagross",
@@ -4044,7 +4042,7 @@ public static class Pokedex
             Species.MetagrossMega
         }
     };
-    public static PokedexData Regirock = new()
+    public static readonly PokedexData Regirock = new()
     {
         number = 377,
         name = "Regirock",
@@ -4054,7 +4052,7 @@ public static class Pokedex
         entry = RegirockDesc,
         forms = SingleSpecies(Species.Regirock),
     };
-    public static PokedexData Regice = new()
+    public static readonly PokedexData Regice = new()
     {
         number = 378,
         name = "Regice",
@@ -4064,7 +4062,7 @@ public static class Pokedex
         entry = RegiceDesc,
         forms = SingleSpecies(Species.Regice),
     };
-    public static PokedexData Registeel = new()
+    public static readonly PokedexData Registeel = new()
     {
         number = 379,
         name = "Registeel",
@@ -4074,7 +4072,7 @@ public static class Pokedex
         entry = RegisteelDesc,
         forms = SingleSpecies(Species.Registeel),
     };
-    public static PokedexData Latias = new()
+    public static readonly PokedexData Latias = new()
     {
         number = 380,
         name = "Latias",
@@ -4088,7 +4086,7 @@ public static class Pokedex
             Species.LatiasMega
         }
     };
-    public static PokedexData Latios = new()
+    public static readonly PokedexData Latios = new()
     {
         number = 381,
         name = "Latios",
@@ -4102,7 +4100,7 @@ public static class Pokedex
             Species.LatiosMega
         }
     };
-    public static PokedexData Kyogre = new()
+    public static readonly PokedexData Kyogre = new()
     {
         number = 382,
         name = "Kyogre",
@@ -4112,7 +4110,7 @@ public static class Pokedex
         entry = KyogreDesc,
         forms = SingleSpecies(Species.Kyogre),
     };
-    public static PokedexData Groudon = new()
+    public static readonly PokedexData Groudon = new()
     {
         number = 383,
         name = "Groudon",
@@ -4122,7 +4120,7 @@ public static class Pokedex
         entry = GroudonDesc,
         forms = SingleSpecies(Species.Groudon),
     };
-    public static PokedexData Rayquaza = new()
+    public static readonly PokedexData Rayquaza = new()
     {
         number = 384,
         name = "Rayquaza",
@@ -4136,7 +4134,7 @@ public static class Pokedex
             Species.RayquazaMega
         }
     };
-    public static PokedexData Jirachi = new()
+    public static readonly PokedexData Jirachi = new()
     {
         number = 385,
         name = "Jirachi",
@@ -4146,7 +4144,7 @@ public static class Pokedex
         entry = JirachiDesc,
         forms = SingleSpecies(Species.Jirachi),
     };
-    public static PokedexData Deoxys = new()
+    public static readonly PokedexData Deoxys = new()
     {
         number = 386,
         name = "Deoxys",
@@ -4164,7 +4162,7 @@ public static class Pokedex
     };
 
     //Gen 4
-    public static PokedexData Turtwig = new()
+    public static readonly PokedexData Turtwig = new()
     {
         number = 387,
         name = "Turtwig",
@@ -4174,7 +4172,7 @@ public static class Pokedex
         entry = TurtwigDesc,
         forms = SingleSpecies(Species.Turtwig),
     };
-    public static PokedexData Grotle = new()
+    public static readonly PokedexData Grotle = new()
     {
         number = 388,
         name = "Grotle",
@@ -4184,7 +4182,7 @@ public static class Pokedex
         entry = GrotleDesc,
         forms = SingleSpecies(Species.Grotle),
     };
-    public static PokedexData Torterra = new()
+    public static readonly PokedexData Torterra = new()
     {
         number = 389,
         name = "Torterra",
@@ -4194,7 +4192,7 @@ public static class Pokedex
         entry = TorterraDesc,
         forms = SingleSpecies(Species.Torterra),
     };
-    public static PokedexData Chimchar = new()
+    public static readonly PokedexData Chimchar = new()
     {
         number = 390,
         name = "Chimchar",
@@ -4204,7 +4202,7 @@ public static class Pokedex
         entry = ChimcharDesc,
         forms = SingleSpecies(Species.Chimchar),
     };
-    public static PokedexData Monferno = new()
+    public static readonly PokedexData Monferno = new()
     {
         number = 391,
         name = "Monferno",
@@ -4214,7 +4212,7 @@ public static class Pokedex
         entry = MonfernoDesc,
         forms = SingleSpecies(Species.Monferno),
     };
-    public static PokedexData Infernape = new()
+    public static readonly PokedexData Infernape = new()
     {
         number = 392,
         name = "Infernape",
@@ -4224,7 +4222,7 @@ public static class Pokedex
         entry = InfernapeDesc,
         forms = SingleSpecies(Species.Infernape),
     };
-    public static PokedexData Piplup = new()
+    public static readonly PokedexData Piplup = new()
     {
         number = 393,
         name = "Piplup",
@@ -4234,7 +4232,7 @@ public static class Pokedex
         entry = PiplupDesc,
         forms = SingleSpecies(Species.Piplup),
     };
-    public static PokedexData Prinplup = new()
+    public static readonly PokedexData Prinplup = new()
     {
         number = 394,
         name = "Prinplup",
@@ -4244,7 +4242,7 @@ public static class Pokedex
         entry = PrinplupDesc,
         forms = SingleSpecies(Species.Prinplup),
     };
-    public static PokedexData Empoleon = new()
+    public static readonly PokedexData Empoleon = new()
     {
         number = 395,
         name = "Empoleon",
@@ -4254,7 +4252,7 @@ public static class Pokedex
         entry = EmpoleonDesc,
         forms = SingleSpecies(Species.Empoleon),
     };
-    public static PokedexData Starly = new()
+    public static readonly PokedexData Starly = new()
     {
         number = 396,
         name = "Starly",
@@ -4264,7 +4262,7 @@ public static class Pokedex
         entry = StarlyDesc,
         forms = SingleSpecies(Species.Starly),
     };
-    public static PokedexData Staravia = new()
+    public static readonly PokedexData Staravia = new()
     {
         number = 397,
         name = "Staravia",
@@ -4274,7 +4272,7 @@ public static class Pokedex
         entry = StaraviaDesc,
         forms = SingleSpecies(Species.Staravia),
     };
-    public static PokedexData Staraptor = new()
+    public static readonly PokedexData Staraptor = new()
     {
         number = 398,
         name = "Staraptor",
@@ -4284,7 +4282,7 @@ public static class Pokedex
         entry = StaraptorDesc,
         forms = SingleSpecies(Species.Staraptor),
     };
-    public static PokedexData Bidoof = new()
+    public static readonly PokedexData Bidoof = new()
     {
         number = 399,
         name = "Bidoof",
@@ -4294,7 +4292,7 @@ public static class Pokedex
         entry = BidoofDesc,
         forms = SingleSpecies(Species.Bidoof),
     };
-    public static PokedexData Bibarel = new()
+    public static readonly PokedexData Bibarel = new()
     {
         number = 400,
         name = "Bibarel",
@@ -4304,7 +4302,7 @@ public static class Pokedex
         entry = BibarelDesc,
         forms = SingleSpecies(Species.Bibarel),
     };
-    public static PokedexData Kricketot = new()
+    public static readonly PokedexData Kricketot = new()
     {
         number = 401,
         name = "Kricketot",
@@ -4314,7 +4312,7 @@ public static class Pokedex
         entry = KricketotDesc,
         forms = SingleSpecies(Species.Kricketot),
     };
-    public static PokedexData Kricketune = new()
+    public static readonly PokedexData Kricketune = new()
     {
         number = 402,
         name = "Kricketune",
@@ -4324,7 +4322,7 @@ public static class Pokedex
         entry = KricketuneDesc,
         forms = SingleSpecies(Species.Kricketune),
     };
-    public static PokedexData Shinx = new()
+    public static readonly PokedexData Shinx = new()
     {
         number = 403,
         name = "Shinx",
@@ -4334,7 +4332,7 @@ public static class Pokedex
         entry = ShinxDesc,
         forms = SingleSpecies(Species.Shinx),
     };
-    public static PokedexData Luxio = new()
+    public static readonly PokedexData Luxio = new()
     {
         number = 404,
         name = "Luxio",
@@ -4344,7 +4342,7 @@ public static class Pokedex
         entry = LuxioDesc,
         forms = SingleSpecies(Species.Luxio),
     };
-    public static PokedexData Luxray = new()
+    public static readonly PokedexData Luxray = new()
     {
         number = 405,
         name = "Luxray",
@@ -4354,7 +4352,7 @@ public static class Pokedex
         entry = LuxrayDesc,
         forms = SingleSpecies(Species.Luxray),
     };
-    public static PokedexData Budew = new()
+    public static readonly PokedexData Budew = new()
     {
         number = 406,
         name = "Budew",
@@ -4364,7 +4362,7 @@ public static class Pokedex
         entry = BudewDesc,
         forms = SingleSpecies(Species.Budew),
     };
-    public static PokedexData Roserade = new()
+    public static readonly PokedexData Roserade = new()
     {
         number = 407,
         name = "Roserade",
@@ -4374,7 +4372,7 @@ public static class Pokedex
         entry = RoseradeDesc,
         forms = SingleSpecies(Species.Roserade),
     };
-    public static PokedexData Cranidos = new()
+    public static readonly PokedexData Cranidos = new()
     {
         number = 408,
         name = "Cranidos",
@@ -4384,7 +4382,7 @@ public static class Pokedex
         entry = CranidosDesc,
         forms = SingleSpecies(Species.Cranidos),
     };
-    public static PokedexData Rampardos = new()
+    public static readonly PokedexData Rampardos = new()
     {
         number = 409,
         name = "Rampardos",
@@ -4394,7 +4392,7 @@ public static class Pokedex
         entry = RampardosDesc,
         forms = SingleSpecies(Species.Rampardos),
     };
-    public static PokedexData Shieldon = new()
+    public static readonly PokedexData Shieldon = new()
     {
         number = 410,
         name = "Shieldon",
@@ -4404,7 +4402,7 @@ public static class Pokedex
         entry = ShieldonDesc,
         forms = SingleSpecies(Species.Shieldon),
     };
-    public static PokedexData Bastiodon = new()
+    public static readonly PokedexData Bastiodon = new()
     {
         number = 411,
         name = "Bastiodon",
@@ -4414,7 +4412,7 @@ public static class Pokedex
         entry = BastiodonDesc,
         forms = SingleSpecies(Species.Bastiodon),
     };
-    public static PokedexData Burmy = new()
+    public static readonly PokedexData Burmy = new()
     {
         number = 412,
         name = "Burmy",
@@ -4429,7 +4427,7 @@ public static class Pokedex
             Species.BurmyTrash
         }
     };
-    public static PokedexData Wormadam = new()
+    public static readonly PokedexData Wormadam = new()
     {
         number = 413,
         name = "Wormadam",
@@ -4444,7 +4442,7 @@ public static class Pokedex
             Species.WormadamTrash
         }
     };
-    public static PokedexData Mothim = new()
+    public static readonly PokedexData Mothim = new()
     {
         number = 414,
         name = "Mothim",
@@ -4454,7 +4452,7 @@ public static class Pokedex
         entry = MothimDesc,
         forms = SingleSpecies(Species.Mothim),
     };
-    public static PokedexData Combee = new()
+    public static readonly PokedexData Combee = new()
     {
         number = 415,
         name = "Combee",
@@ -4464,7 +4462,7 @@ public static class Pokedex
         entry = CombeeDesc,
         forms = SingleSpecies(Species.Combee),
     };
-    public static PokedexData Vespiquen = new()
+    public static readonly PokedexData Vespiquen = new()
     {
         number = 416,
         name = "Vespiquen",
@@ -4474,7 +4472,7 @@ public static class Pokedex
         entry = VespiquenDesc,
         forms = SingleSpecies(Species.Vespiquen),
     };
-    public static PokedexData Pachirisu = new()
+    public static readonly PokedexData Pachirisu = new()
     {
         number = 417,
         name = "Pachirisu",
@@ -4484,7 +4482,7 @@ public static class Pokedex
         entry = PachirisuDesc,
         forms = SingleSpecies(Species.Pachirisu),
     };
-    public static PokedexData Buizel = new()
+    public static readonly PokedexData Buizel = new()
     {
         number = 418,
         name = "Buizel",
@@ -4494,7 +4492,7 @@ public static class Pokedex
         entry = BuizelDesc,
         forms = SingleSpecies(Species.Buizel),
     };
-    public static PokedexData Floatzel = new()
+    public static readonly PokedexData Floatzel = new()
     {
         number = 419,
         name = "Floatzel",
@@ -4504,7 +4502,7 @@ public static class Pokedex
         entry = FloatzelDesc,
         forms = SingleSpecies(Species.Floatzel),
     };
-    public static PokedexData Cherubi = new()
+    public static readonly PokedexData Cherubi = new()
     {
         number = 420,
         name = "Cherubi",
@@ -4514,7 +4512,7 @@ public static class Pokedex
         entry = CherubiDesc,
         forms = SingleSpecies(Species.Cherubi),
     };
-    public static PokedexData Cherrim = new()
+    public static readonly PokedexData Cherrim = new()
     {
         number = 421,
         name = "Cherrim",
@@ -4528,7 +4526,7 @@ public static class Pokedex
             Species.CherrimSunshine
         }
     };
-    public static PokedexData Shellos = new()
+    public static readonly PokedexData Shellos = new()
     {
         number = 422,
         name = "Shellos",
@@ -4542,7 +4540,7 @@ public static class Pokedex
             Species.ShellosEast
         }
     };
-    public static PokedexData Gastrodon = new()
+    public static readonly PokedexData Gastrodon = new()
     {
         number = 423,
         name = "Gastrodon",
@@ -4556,7 +4554,7 @@ public static class Pokedex
             Species.GastrodonEast
         }
     };
-    public static PokedexData Ambipom = new()
+    public static readonly PokedexData Ambipom = new()
     {
         number = 424,
         name = "Ambipom",
@@ -4566,7 +4564,7 @@ public static class Pokedex
         entry = AmbipomDesc,
         forms = SingleSpecies(Species.Ambipom),
     };
-    public static PokedexData Drifloon = new()
+    public static readonly PokedexData Drifloon = new()
     {
         number = 425,
         name = "Drifloon",
@@ -4576,7 +4574,7 @@ public static class Pokedex
         entry = DrifloonDesc,
         forms = SingleSpecies(Species.Drifloon),
     };
-    public static PokedexData Drifblim = new()
+    public static readonly PokedexData Drifblim = new()
     {
         number = 426,
         name = "Drifblim",
@@ -4586,7 +4584,7 @@ public static class Pokedex
         entry = DrifblimDesc,
         forms = SingleSpecies(Species.Drifblim),
     };
-    public static PokedexData Buneary = new()
+    public static readonly PokedexData Buneary = new()
     {
         number = 427,
         name = "Buneary",
@@ -4596,7 +4594,7 @@ public static class Pokedex
         entry = BunearyDesc,
         forms = SingleSpecies(Species.Buneary),
     };
-    public static PokedexData Lopunny = new()
+    public static readonly PokedexData Lopunny = new()
     {
         number = 428,
         name = "Lopunny",
@@ -4610,7 +4608,7 @@ public static class Pokedex
             Species.LopunnyMega
         }
     };
-    public static PokedexData Mismagius = new()
+    public static readonly PokedexData Mismagius = new()
     {
         number = 429,
         name = "Mismagius",
@@ -4620,7 +4618,7 @@ public static class Pokedex
         entry = MismagiusDesc,
         forms = SingleSpecies(Species.Mismagius),
     };
-    public static PokedexData Honchkrow = new()
+    public static readonly PokedexData Honchkrow = new()
     {
         number = 430,
         name = "Honchkrow",
@@ -4630,7 +4628,7 @@ public static class Pokedex
         entry = HonchkrowDesc,
         forms = SingleSpecies(Species.Honchkrow),
     };
-    public static PokedexData Glameow = new()
+    public static readonly PokedexData Glameow = new()
     {
         number = 431,
         name = "Glameow",
@@ -4640,7 +4638,7 @@ public static class Pokedex
         entry = GlameowDesc,
         forms = SingleSpecies(Species.Glameow),
     };
-    public static PokedexData Purugly = new()
+    public static readonly PokedexData Purugly = new()
     {
         number = 432,
         name = "Purugly",
@@ -4650,7 +4648,7 @@ public static class Pokedex
         entry = PuruglyDesc,
         forms = SingleSpecies(Species.Purugly),
     };
-    public static PokedexData Chingling = new()
+    public static readonly PokedexData Chingling = new()
     {
         number = 433,
         name = "Chingling",
@@ -4660,7 +4658,7 @@ public static class Pokedex
         entry = ChinglingDesc,
         forms = SingleSpecies(Species.Chingling),
     };
-    public static PokedexData Stunky = new()
+    public static readonly PokedexData Stunky = new()
     {
         number = 434,
         name = "Stunky",
@@ -4670,7 +4668,7 @@ public static class Pokedex
         entry = StunkyDesc,
         forms = SingleSpecies(Species.Stunky),
     };
-    public static PokedexData Skuntank = new()
+    public static readonly PokedexData Skuntank = new()
     {
         number = 435,
         name = "Skuntank",
@@ -4680,7 +4678,7 @@ public static class Pokedex
         entry = SkuntankDesc,
         forms = SingleSpecies(Species.Skuntank),
     };
-    public static PokedexData Bronzor = new()
+    public static readonly PokedexData Bronzor = new()
     {
         number = 436,
         name = "Bronzor",
@@ -4690,7 +4688,7 @@ public static class Pokedex
         entry = BronzorDesc,
         forms = SingleSpecies(Species.Bronzor),
     };
-    public static PokedexData Bronzong = new()
+    public static readonly PokedexData Bronzong = new()
     {
         number = 437,
         name = "Bronzong",
@@ -4700,7 +4698,7 @@ public static class Pokedex
         entry = BronzongDesc,
         forms = SingleSpecies(Species.Bronzong),
     };
-    public static PokedexData Bonsly = new()
+    public static readonly PokedexData Bonsly = new()
     {
         number = 438,
         name = "Bonsly",
@@ -4710,7 +4708,7 @@ public static class Pokedex
         entry = BonslyDesc,
         forms = SingleSpecies(Species.Bonsly),
     };
-    public static PokedexData MimeJr = new ()
+    public static readonly PokedexData MimeJr = new ()
 	{
 		number = 439,
 		name = "Mime Jr",
@@ -4721,7 +4719,7 @@ public static class Pokedex
         forms = SingleSpecies(Species.MimeJr),
 
     };
-    public static PokedexData Happiny = new()
+    public static readonly PokedexData Happiny = new()
     {
         number = 440,
         name = "Happiny",
@@ -4731,7 +4729,7 @@ public static class Pokedex
         entry = HappinyDesc,
         forms = SingleSpecies(Species.Happiny),
     };
-    public static PokedexData Chatot = new()
+    public static readonly PokedexData Chatot = new()
     {
         number = 441,
         name = "Chatot",
@@ -4741,7 +4739,7 @@ public static class Pokedex
         entry = ChatotDesc,
         forms = SingleSpecies(Species.Chatot),
     };
-    public static PokedexData Spiritomb = new()
+    public static readonly PokedexData Spiritomb = new()
     {
         number = 442,
         name = "Spiritomb",
@@ -4751,7 +4749,7 @@ public static class Pokedex
         entry = SpiritombDesc,
         forms = SingleSpecies(Species.Spiritomb),
     };
-    public static PokedexData Gible = new()
+    public static readonly PokedexData Gible = new()
     {
         number = 443,
         name = "Gible",
@@ -4761,7 +4759,7 @@ public static class Pokedex
         entry = GibleDesc,
         forms = SingleSpecies(Species.Gible),
     };
-    public static PokedexData Gabite = new()
+    public static readonly PokedexData Gabite = new()
     {
         number = 444,
         name = "Gabite",
@@ -4771,7 +4769,7 @@ public static class Pokedex
         entry = GabiteDesc,
         forms = SingleSpecies(Species.Gabite),
     };
-    public static PokedexData Garchomp = new()
+    public static readonly PokedexData Garchomp = new()
     {
         number = 445,
         name = "Garchomp",
@@ -4785,7 +4783,7 @@ public static class Pokedex
             Species.GarchompMega
         }
     };
-    public static PokedexData Munchlax = new()
+    public static readonly PokedexData Munchlax = new()
     {
         number = 446,
         name = "Munchlax",
@@ -4795,7 +4793,7 @@ public static class Pokedex
         entry = MunchlaxDesc,
         forms = SingleSpecies(Species.Munchlax),
     };
-    public static PokedexData Riolu = new()
+    public static readonly PokedexData Riolu = new()
     {
         number = 447,
         name = "Riolu",
@@ -4805,7 +4803,7 @@ public static class Pokedex
         entry = RioluDesc,
         forms = SingleSpecies(Species.Riolu),
     };
-    public static PokedexData Lucario = new()
+    public static readonly PokedexData Lucario = new()
     {
         number = 448,
         name = "Lucario",
@@ -4819,7 +4817,7 @@ public static class Pokedex
             Species.LucarioMega
         }
     };
-    public static PokedexData Hippopotas = new()
+    public static readonly PokedexData Hippopotas = new()
     {
         number = 449,
         name = "Hippopotas",
@@ -4829,7 +4827,7 @@ public static class Pokedex
         entry = HippopotasDesc,
         forms = SingleSpecies(Species.Hippopotas),
     };
-    public static PokedexData Hippowdon = new()
+    public static readonly PokedexData Hippowdon = new()
     {
         number = 450,
         name = "Hippowdon",
@@ -4839,7 +4837,7 @@ public static class Pokedex
         entry = HippowdonDesc,
         forms = SingleSpecies(Species.Hippowdon),
     };
-    public static PokedexData Skorupi = new()
+    public static readonly PokedexData Skorupi = new()
     {
         number = 451,
         name = "Skorupi",
@@ -4849,7 +4847,7 @@ public static class Pokedex
         entry = SkorupiDesc,
         forms = SingleSpecies(Species.Skorupi),
     };
-    public static PokedexData Drapion = new()
+    public static readonly PokedexData Drapion = new()
     {
         number = 452,
         name = "Drapion",
@@ -4859,7 +4857,7 @@ public static class Pokedex
         entry = DrapionDesc,
         forms = SingleSpecies(Species.Drapion),
     };
-    public static PokedexData Croagunk = new()
+    public static readonly PokedexData Croagunk = new()
     {
         number = 453,
         name = "Croagunk",
@@ -4869,7 +4867,7 @@ public static class Pokedex
         entry = CroagunkDesc,
         forms = SingleSpecies(Species.Croagunk),
     };
-    public static PokedexData Toxicroak = new()
+    public static readonly PokedexData Toxicroak = new()
     {
         number = 454,
         name = "Toxicroak",
@@ -4879,7 +4877,7 @@ public static class Pokedex
         entry = ToxicroakDesc,
         forms = SingleSpecies(Species.Toxicroak),
     };
-    public static PokedexData Carnivine = new()
+    public static readonly PokedexData Carnivine = new()
     {
         number = 455,
         name = "Carnivine",
@@ -4889,7 +4887,7 @@ public static class Pokedex
         entry = CarnivineDesc,
         forms = SingleSpecies(Species.Carnivine),
     };
-    public static PokedexData Finneon = new()
+    public static readonly PokedexData Finneon = new()
     {
         number = 456,
         name = "Finneon",
@@ -4899,7 +4897,7 @@ public static class Pokedex
         entry = FinneonDesc,
         forms = SingleSpecies(Species.Finneon),
     };
-    public static PokedexData Lumineon = new()
+    public static readonly PokedexData Lumineon = new()
     {
         number = 457,
         name = "Lumineon",
@@ -4909,7 +4907,7 @@ public static class Pokedex
         entry = LumineonDesc,
         forms = SingleSpecies(Species.Lumineon),
     };
-    public static PokedexData Mantyke = new()
+    public static readonly PokedexData Mantyke = new()
     {
         number = 458,
         name = "Mantyke",
@@ -4919,7 +4917,7 @@ public static class Pokedex
         entry = MantykeDesc,
         forms = SingleSpecies(Species.Mantyke),
     };
-    public static PokedexData Snover = new()
+    public static readonly PokedexData Snover = new()
     {
         number = 459,
         name = "Snover",
@@ -4929,7 +4927,7 @@ public static class Pokedex
         entry = SnoverDesc,
         forms = SingleSpecies(Species.Snover),
     };
-    public static PokedexData Abomasnow = new()
+    public static readonly PokedexData Abomasnow = new()
     {
         number = 460,
         name = "Abomasnow",
@@ -4943,7 +4941,7 @@ public static class Pokedex
             Species.AbomasnowMega
         }
     };
-    public static PokedexData Weavile = new()
+    public static readonly PokedexData Weavile = new()
     {
         number = 461,
         name = "Weavile",
@@ -4953,7 +4951,7 @@ public static class Pokedex
         entry = WeavileDesc,
         forms = SingleSpecies(Species.Weavile),
     };
-    public static PokedexData Magnezone = new()
+    public static readonly PokedexData Magnezone = new()
     {
         number = 462,
         name = "Magnezone",
@@ -4963,7 +4961,7 @@ public static class Pokedex
         entry = MagnezoneDesc,
         forms = SingleSpecies(Species.Magnezone),
     };
-    public static PokedexData Lickilicky = new()
+    public static readonly PokedexData Lickilicky = new()
     {
         number = 463,
         name = "Lickilicky",
@@ -4973,7 +4971,7 @@ public static class Pokedex
         entry = LickilickyDesc,
         forms = SingleSpecies(Species.Lickilicky),
     };
-    public static PokedexData Rhyperior = new()
+    public static readonly PokedexData Rhyperior = new()
     {
         number = 464,
         name = "Rhyperior",
@@ -4983,7 +4981,7 @@ public static class Pokedex
         entry = RhyperiorDesc,
         forms = SingleSpecies(Species.Rhyperior),
     };
-    public static PokedexData Tangrowth = new()
+    public static readonly PokedexData Tangrowth = new()
     {
         number = 465,
         name = "Tangrowth",
@@ -4993,7 +4991,7 @@ public static class Pokedex
         entry = TangrowthDesc,
         forms = SingleSpecies(Species.Tangrowth),
     };
-    public static PokedexData Electivire = new()
+    public static readonly PokedexData Electivire = new()
     {
         number = 466,
         name = "Electivire",
@@ -5003,7 +5001,7 @@ public static class Pokedex
         entry = ElectivireDesc,
         forms = SingleSpecies(Species.Electivire),
     };
-    public static PokedexData Magmortar = new()
+    public static readonly PokedexData Magmortar = new()
     {
         number = 467,
         name = "Magmortar",
@@ -5013,7 +5011,7 @@ public static class Pokedex
         entry = MagmortarDesc,
         forms = SingleSpecies(Species.Magmortar),
     };
-    public static PokedexData Togekiss = new()
+    public static readonly PokedexData Togekiss = new()
     {
         number = 468,
         name = "Togekiss",
@@ -5023,7 +5021,7 @@ public static class Pokedex
         entry = TogekissDesc,
         forms = SingleSpecies(Species.Togekiss),
     };
-    public static PokedexData Yanmega = new()
+    public static readonly PokedexData Yanmega = new()
     {
         number = 469,
         name = "Yanmega",
@@ -5033,7 +5031,7 @@ public static class Pokedex
         entry = YanmegaDesc,
         forms = SingleSpecies(Species.Yanmega),
     };
-    public static PokedexData Leafeon = new()
+    public static readonly PokedexData Leafeon = new()
     {
         number = 470,
         name = "Leafeon",
@@ -5043,7 +5041,7 @@ public static class Pokedex
         entry = LeafeonDesc,
         forms = SingleSpecies(Species.Leafeon),
     };
-    public static PokedexData Glaceon = new()
+    public static readonly PokedexData Glaceon = new()
     {
         number = 471,
         name = "Glaceon",
@@ -5053,7 +5051,7 @@ public static class Pokedex
         entry = GlaceonDesc,
         forms = SingleSpecies(Species.Glaceon),
     };
-    public static PokedexData Gliscor = new()
+    public static readonly PokedexData Gliscor = new()
     {
         number = 472,
         name = "Gliscor",
@@ -5063,7 +5061,7 @@ public static class Pokedex
         entry = GliscorDesc,
         forms = SingleSpecies(Species.Gliscor),
     };
-    public static PokedexData Mamoswine = new()
+    public static readonly PokedexData Mamoswine = new()
     {
         number = 473,
         name = "Mamoswine",
@@ -5073,7 +5071,7 @@ public static class Pokedex
         entry = MamoswineDesc,
         forms = SingleSpecies(Species.Mamoswine),
     };
-    public static PokedexData PorygonZ = new()
+    public static readonly PokedexData PorygonZ = new()
     {
         number = 474,
         name = "Porygon Z",
@@ -5083,7 +5081,7 @@ public static class Pokedex
         entry = PorygonZDesc,
         forms = SingleSpecies(Species.PorygonZ),
     };
-    public static PokedexData Gallade = new()
+    public static readonly PokedexData Gallade = new()
     {
         number = 475,
         name = "Gallade",
@@ -5097,7 +5095,7 @@ public static class Pokedex
             Species.GalladeMega
         }
     };
-    public static PokedexData Probopass = new()
+    public static readonly PokedexData Probopass = new()
     {
         number = 476,
         name = "Probopass",
@@ -5107,7 +5105,7 @@ public static class Pokedex
         entry = ProbopassDesc,
         forms = SingleSpecies(Species.Probopass),
     };
-    public static PokedexData Dusknoir = new()
+    public static readonly PokedexData Dusknoir = new()
     {
         number = 477,
         name = "Dusknoir",
@@ -5117,7 +5115,7 @@ public static class Pokedex
         entry = DusknoirDesc,
         forms = SingleSpecies(Species.Dusknoir),
     };
-    public static PokedexData Froslass = new()
+    public static readonly PokedexData Froslass = new()
     {
         number = 478,
         name = "Froslass",
@@ -5127,7 +5125,7 @@ public static class Pokedex
         entry = FroslassDesc,
         forms = SingleSpecies(Species.Froslass),
     };
-    public static PokedexData Rotom = new()
+    public static readonly PokedexData Rotom = new()
     {
         number = 479,
         name = "Rotom",
@@ -5145,7 +5143,7 @@ public static class Pokedex
             Species.RotomMow
         }
     };
-    public static PokedexData Uxie = new()
+    public static readonly PokedexData Uxie = new()
     {
         number = 480,
         name = "Uxie",
@@ -5155,7 +5153,7 @@ public static class Pokedex
         entry = UxieDesc,
         forms = SingleSpecies(Species.Uxie),
     };
-    public static PokedexData Mesprit = new()
+    public static readonly PokedexData Mesprit = new()
     {
         number = 481,
         name = "Mesprit",
@@ -5165,7 +5163,7 @@ public static class Pokedex
         entry = MespritDesc,
         forms = SingleSpecies(Species.Mesprit),
     };
-    public static PokedexData Azelf = new()
+    public static readonly PokedexData Azelf = new()
     {
         number = 482,
         name = "Azelf",
@@ -5175,7 +5173,7 @@ public static class Pokedex
         entry = AzelfDesc,
         forms = SingleSpecies(Species.Azelf),
     };
-    public static PokedexData Dialga = new()
+    public static readonly PokedexData Dialga = new()
     {
         number = 483,
         name = "Dialga",
@@ -5189,7 +5187,7 @@ public static class Pokedex
             Species.DialgaOrigin
         }
     };
-    public static PokedexData Palkia = new()
+    public static readonly PokedexData Palkia = new()
     {
         number = 484,
         name = "Palkia",
@@ -5203,7 +5201,7 @@ public static class Pokedex
             Species.PalkiaOrigin
         }
     };
-    public static PokedexData Heatran = new()
+    public static readonly PokedexData Heatran = new()
     {
         number = 485,
         name = "Heatran",
@@ -5213,7 +5211,7 @@ public static class Pokedex
         entry = HeatranDesc,
         forms = SingleSpecies(Species.Heatran),
     };
-    public static PokedexData Regigigas = new()
+    public static readonly PokedexData Regigigas = new()
     {
         number = 486,
         name = "Regigigas",
@@ -5223,7 +5221,7 @@ public static class Pokedex
         entry = RegigigasDesc,
         forms = SingleSpecies(Species.Regigigas),
     };
-    public static PokedexData Giratina = new()
+    public static readonly PokedexData Giratina = new()
     {
         number = 487,
         name = "Giratina",
@@ -5237,7 +5235,7 @@ public static class Pokedex
             Species.GiratinaOrigin
         }
     };
-    public static PokedexData Cresselia = new()
+    public static readonly PokedexData Cresselia = new()
     {
         number = 488,
         name = "Cresselia",
@@ -5247,7 +5245,7 @@ public static class Pokedex
         entry = CresseliaDesc,
         forms = SingleSpecies(Species.Cresselia),
     };
-    public static PokedexData Phione = new()
+    public static readonly PokedexData Phione = new()
     {
         number = 489,
         name = "Phione",
@@ -5257,7 +5255,7 @@ public static class Pokedex
         entry = PhioneDesc,
         forms = SingleSpecies(Species.Phione),
     };
-    public static PokedexData Manaphy = new()
+    public static readonly PokedexData Manaphy = new()
     {
         number = 490,
         name = "Manaphy",
@@ -5267,7 +5265,7 @@ public static class Pokedex
         entry = ManaphyDesc,
         forms = SingleSpecies(Species.Manaphy),
     };
-    public static PokedexData Darkrai = new()
+    public static readonly PokedexData Darkrai = new()
     {
         number = 491,
         name = "Darkrai",
@@ -5277,7 +5275,7 @@ public static class Pokedex
         entry = DarkraiDesc,
         forms = SingleSpecies(Species.Darkrai),
     };
-    public static PokedexData Shaymin = new()
+    public static readonly PokedexData Shaymin = new()
     {
         number = 492,
         name = "Shaymin",
@@ -5287,7 +5285,7 @@ public static class Pokedex
         entry = ShayminDesc,
         forms = SingleSpecies(Species.Shaymin),
     };
-    public static PokedexData Arceus = new()
+    public static readonly PokedexData Arceus = new()
     {
         number = 493,
         name = "Arceus",
@@ -5297,7 +5295,7 @@ public static class Pokedex
         entry = ArceusDesc,
         forms = SingleSpecies(Species.Arceus),
     };
-    public static PokedexData Victini = new()
+    public static readonly PokedexData Victini = new()
     {
         number = 494,
         name = "Victini",
@@ -5307,7 +5305,7 @@ public static class Pokedex
         entry = VictiniDesc,
         forms = SingleSpecies(Species.Victini),
     };
-    public static PokedexData Snivy = new()
+    public static readonly PokedexData Snivy = new()
     {
         number = 495,
         name = "Snivy",
@@ -5317,7 +5315,7 @@ public static class Pokedex
         entry = SnivyDesc,
         forms = SingleSpecies(Species.Snivy),
     };
-    public static PokedexData Servine = new()
+    public static readonly PokedexData Servine = new()
     {
         number = 496,
         name = "Servine",
@@ -5327,7 +5325,7 @@ public static class Pokedex
         entry = ServineDesc,
         forms = SingleSpecies(Species.Servine),
     };
-    public static PokedexData Serperior = new()
+    public static readonly PokedexData Serperior = new()
     {
         number = 497,
         name = "Serperior",
@@ -5337,7 +5335,7 @@ public static class Pokedex
         entry = SerperiorDesc,
         forms = SingleSpecies(Species.Serperior),
     };
-    public static PokedexData Tepig = new()
+    public static readonly PokedexData Tepig = new()
     {
         number = 498,
         name = "Tepig",
@@ -5347,7 +5345,7 @@ public static class Pokedex
         entry = TepigDesc,
         forms = SingleSpecies(Species.Tepig),
     };
-    public static PokedexData Pignite = new()
+    public static readonly PokedexData Pignite = new()
     {
         number = 499,
         name = "Pignite",
@@ -5357,7 +5355,7 @@ public static class Pokedex
         entry = PigniteDesc,
         forms = SingleSpecies(Species.Pignite),
     };
-    public static PokedexData Emboar = new()
+    public static readonly PokedexData Emboar = new()
     {
         number = 500,
         name = "Emboar",
@@ -5367,7 +5365,7 @@ public static class Pokedex
         entry = EmboarDesc,
         forms = SingleSpecies(Species.Emboar),
     };
-    public static PokedexData Oshawott = new()
+    public static readonly PokedexData Oshawott = new()
     {
         number = 501,
         name = "Oshawott",
@@ -5377,7 +5375,7 @@ public static class Pokedex
         entry = OshawottDesc,
         forms = SingleSpecies(Species.Oshawott),
     };
-    public static PokedexData Dewott = new()
+    public static readonly PokedexData Dewott = new()
     {
         number = 502,
         name = "Dewott",
@@ -5387,7 +5385,7 @@ public static class Pokedex
         entry = DewottDesc,
         forms = SingleSpecies(Species.Dewott),
     };
-    public static PokedexData Samurott = new()
+    public static readonly PokedexData Samurott = new()
     {
         number = 503,
         name = "Samurott",
@@ -5397,7 +5395,7 @@ public static class Pokedex
         entry = SamurottDesc,
         forms = SingleSpecies(Species.Samurott),
     };
-    public static PokedexData Patrat = new()
+    public static readonly PokedexData Patrat = new()
     {
         number = 504,
         name = "Patrat",
@@ -5407,7 +5405,7 @@ public static class Pokedex
         entry = PatratDesc,
         forms = SingleSpecies(Species.Patrat),
     };
-    public static PokedexData Watchog = new()
+    public static readonly PokedexData Watchog = new()
     {
         number = 505,
         name = "Watchog",
@@ -5417,7 +5415,7 @@ public static class Pokedex
         entry = WatchogDesc,
         forms = SingleSpecies(Species.Watchog),
     };
-    public static PokedexData Lillipup = new()
+    public static readonly PokedexData Lillipup = new()
     {
         number = 506,
         name = "Lillipup",
@@ -5427,7 +5425,7 @@ public static class Pokedex
         entry = LillipupDesc,
         forms = SingleSpecies(Species.Lillipup),
     };
-    public static PokedexData Herdier = new()
+    public static readonly PokedexData Herdier = new()
     {
         number = 507,
         name = "Herdier",
@@ -5437,7 +5435,7 @@ public static class Pokedex
         entry = HerdierDesc,
         forms = SingleSpecies(Species.Herdier),
     };
-    public static PokedexData Stoutland = new()
+    public static readonly PokedexData Stoutland = new()
     {
         number = 508,
         name = "Stoutland",
@@ -5447,7 +5445,7 @@ public static class Pokedex
         entry = StoutlandDesc,
         forms = SingleSpecies(Species.Stoutland),
     };
-    public static PokedexData Purrloin = new()
+    public static readonly PokedexData Purrloin = new()
     {
         number = 509,
         name = "Purrloin",
@@ -5457,7 +5455,7 @@ public static class Pokedex
         entry = PurrloinDesc,
         forms = SingleSpecies(Species.Purrloin),
     };
-    public static PokedexData Liepard = new()
+    public static readonly PokedexData Liepard = new()
     {
         number = 510,
         name = "Liepard",
@@ -5467,7 +5465,7 @@ public static class Pokedex
         entry = LiepardDesc,
         forms = SingleSpecies(Species.Liepard),
     };
-    public static PokedexData Pansage = new()
+    public static readonly PokedexData Pansage = new()
     {
         number = 511,
         name = "Pansage",
@@ -5477,7 +5475,7 @@ public static class Pokedex
         entry = PansageDesc,
         forms = SingleSpecies(Species.Pansage),
     };
-    public static PokedexData Simisage = new()
+    public static readonly PokedexData Simisage = new()
     {
         number = 512,
         name = "Simisage",
@@ -5487,7 +5485,7 @@ public static class Pokedex
         entry = SimisageDesc,
         forms = SingleSpecies(Species.Simisage),
     };
-    public static PokedexData Pansear = new()
+    public static readonly PokedexData Pansear = new()
     {
         number = 513,
         name = "Pansear",
@@ -5497,7 +5495,7 @@ public static class Pokedex
         entry = PansearDesc,
         forms = SingleSpecies(Species.Pansear),
     };
-    public static PokedexData Simisear = new()
+    public static readonly PokedexData Simisear = new()
     {
         number = 514,
         name = "Simisear",
@@ -5507,7 +5505,7 @@ public static class Pokedex
         entry = SimisearDesc,
         forms = SingleSpecies(Species.Simisear),
     };
-    public static PokedexData Panpour = new()
+    public static readonly PokedexData Panpour = new()
     {
         number = 515,
         name = "Panpour",
@@ -5517,7 +5515,7 @@ public static class Pokedex
         entry = PanpourDesc,
         forms = SingleSpecies(Species.Panpour),
     };
-    public static PokedexData Simipour = new()
+    public static readonly PokedexData Simipour = new()
     {
         number = 516,
         name = "Simipour",
@@ -5527,7 +5525,7 @@ public static class Pokedex
         entry = SimipourDesc,
         forms = SingleSpecies(Species.Simipour),
     };
-    public static PokedexData Munna = new()
+    public static readonly PokedexData Munna = new()
     {
         number = 517,
         name = "Munna",
@@ -5537,7 +5535,7 @@ public static class Pokedex
         entry = MunnaDesc,
         forms = SingleSpecies(Species.Munna),
     };
-    public static PokedexData Musharna = new()
+    public static readonly PokedexData Musharna = new()
     {
         number = 518,
         name = "Musharna",
@@ -5547,7 +5545,7 @@ public static class Pokedex
         entry = MusharnaDesc,
         forms = SingleSpecies(Species.Musharna),
     };
-    public static PokedexData Pidove = new()
+    public static readonly PokedexData Pidove = new()
     {
         number = 519,
         name = "Pidove",
@@ -5557,7 +5555,7 @@ public static class Pokedex
         entry = PidoveDesc,
         forms = SingleSpecies(Species.Pidove),
     };
-    public static PokedexData Tranquill = new()
+    public static readonly PokedexData Tranquill = new()
     {
         number = 520,
         name = "Tranquill",
@@ -5567,7 +5565,7 @@ public static class Pokedex
         entry = TranquillDesc,
         forms = SingleSpecies(Species.Tranquill),
     };
-    public static PokedexData Unfezant = new()
+    public static readonly PokedexData Unfezant = new()
     {
         number = 521,
         name = "Unfezant",
@@ -5577,7 +5575,7 @@ public static class Pokedex
         entry = UnfezantDesc,
         forms = SingleSpecies(Species.Unfezant),
     };
-    public static PokedexData Blitzle = new()
+    public static readonly PokedexData Blitzle = new()
     {
         number = 522,
         name = "Blitzle",
@@ -5587,7 +5585,7 @@ public static class Pokedex
         entry = BlitzleDesc,
         forms = SingleSpecies(Species.Blitzle),
     };
-    public static PokedexData Zebstrika = new()
+    public static readonly PokedexData Zebstrika = new()
     {
         number = 523,
         name = "Zebstrika",
@@ -5597,7 +5595,7 @@ public static class Pokedex
         entry = ZebstrikaDesc,
         forms = SingleSpecies(Species.Zebstrika),
     };
-    public static PokedexData Roggenrola = new()
+    public static readonly PokedexData Roggenrola = new()
     {
         number = 524,
         name = "Roggenrola",
@@ -5607,7 +5605,7 @@ public static class Pokedex
         entry = RoggenrolaDesc,
         forms = SingleSpecies(Species.Roggenrola),
     };
-    public static PokedexData Boldore = new()
+    public static readonly PokedexData Boldore = new()
     {
         number = 525,
         name = "Boldore",
@@ -5617,7 +5615,7 @@ public static class Pokedex
         entry = BoldoreDesc,
         forms = SingleSpecies(Species.Boldore),
     };
-    public static PokedexData Gigalith = new()
+    public static readonly PokedexData Gigalith = new()
     {
         number = 526,
         name = "Gigalith",
@@ -5627,7 +5625,7 @@ public static class Pokedex
         entry = GigalithDesc,
         forms = SingleSpecies(Species.Gigalith),
     };
-    public static PokedexData Woobat = new()
+    public static readonly PokedexData Woobat = new()
     {
         number = 527,
         name = "Woobat",
@@ -5637,7 +5635,7 @@ public static class Pokedex
         entry = WoobatDesc,
         forms = SingleSpecies(Species.Woobat),
     };
-    public static PokedexData Swoobat = new()
+    public static readonly PokedexData Swoobat = new()
     {
         number = 528,
         name = "Swoobat",
@@ -5647,7 +5645,7 @@ public static class Pokedex
         entry = SwoobatDesc,
         forms = SingleSpecies(Species.Swoobat),
     };
-    public static PokedexData Drilbur = new()
+    public static readonly PokedexData Drilbur = new()
     {
         number = 529,
         name = "Drilbur",
@@ -5657,7 +5655,7 @@ public static class Pokedex
         entry = DrilburDesc,
         forms = SingleSpecies(Species.Drilbur),
     };
-    public static PokedexData Excadrill = new()
+    public static readonly PokedexData Excadrill = new()
     {
         number = 530,
         name = "Excadrill",
@@ -5667,7 +5665,7 @@ public static class Pokedex
         entry = ExcadrillDesc,
         forms = SingleSpecies(Species.Excadrill),
     };
-    public static PokedexData Audino = new()
+    public static readonly PokedexData Audino = new()
     {
         number = 531,
         name = "Audino",
@@ -5681,7 +5679,7 @@ public static class Pokedex
             Species.AudinoMega
         }
     };
-    public static PokedexData Timburr = new()
+    public static readonly PokedexData Timburr = new()
     {
         number = 532,
         name = "Timburr",
@@ -5691,7 +5689,7 @@ public static class Pokedex
         entry = TimburrDesc,
         forms = SingleSpecies(Species.Timburr),
     };
-    public static PokedexData Gurdurr = new()
+    public static readonly PokedexData Gurdurr = new()
     {
         number = 533,
         name = "Gurdurr",
@@ -5701,7 +5699,7 @@ public static class Pokedex
         entry = GurdurrDesc,
         forms = SingleSpecies(Species.Gurdurr),
     };
-    public static PokedexData Conkeldurr = new()
+    public static readonly PokedexData Conkeldurr = new()
     {
         number = 534,
         name = "Conkeldurr",
@@ -5711,7 +5709,7 @@ public static class Pokedex
         entry = ConkeldurrDesc,
         forms = SingleSpecies(Species.Conkeldurr),
     };
-    public static PokedexData Tympole = new()
+    public static readonly PokedexData Tympole = new()
     {
         number = 535,
         name = "Tympole",
@@ -5721,7 +5719,7 @@ public static class Pokedex
         entry = TympoleDesc,
         forms = SingleSpecies(Species.Tympole),
     };
-    public static PokedexData Palpitoad = new()
+    public static readonly PokedexData Palpitoad = new()
     {
         number = 536,
         name = "Palpitoad",
@@ -5731,7 +5729,7 @@ public static class Pokedex
         entry = PalpitoadDesc,
         forms = SingleSpecies(Species.Palpitoad),
     };
-    public static PokedexData Seismitoad = new()
+    public static readonly PokedexData Seismitoad = new()
     {
         number = 537,
         name = "Seismitoad",
@@ -5741,7 +5739,7 @@ public static class Pokedex
         entry = SeismitoadDesc,
         forms = SingleSpecies(Species.Seismitoad),
     };
-    public static PokedexData Throh = new()
+    public static readonly PokedexData Throh = new()
     {
         number = 538,
         name = "Throh",
@@ -5751,7 +5749,7 @@ public static class Pokedex
         entry = ThrohDesc,
         forms = SingleSpecies(Species.Throh),
     };
-    public static PokedexData Sawk = new()
+    public static readonly PokedexData Sawk = new()
     {
         number = 539,
         name = "Sawk",
@@ -5761,7 +5759,7 @@ public static class Pokedex
         entry = SawkDesc,
         forms = SingleSpecies(Species.Sawk),
     };
-    public static PokedexData Sewaddle = new()
+    public static readonly PokedexData Sewaddle = new()
     {
         number = 540,
         name = "Sewaddle",
@@ -5771,7 +5769,7 @@ public static class Pokedex
         entry = SewaddleDesc,
         forms = SingleSpecies(Species.Sewaddle),
     };
-    public static PokedexData Swadloon = new()
+    public static readonly PokedexData Swadloon = new()
     {
         number = 541,
         name = "Swadloon",
@@ -5781,7 +5779,7 @@ public static class Pokedex
         entry = SwadloonDesc,
         forms = SingleSpecies(Species.Swadloon),
     };
-    public static PokedexData Leavanny = new()
+    public static readonly PokedexData Leavanny = new()
     {
         number = 542,
         name = "Leavanny",
@@ -5791,7 +5789,7 @@ public static class Pokedex
         entry = LeavannyDesc,
         forms = SingleSpecies(Species.Leavanny),
     };
-    public static PokedexData Venipede = new()
+    public static readonly PokedexData Venipede = new()
     {
         number = 543,
         name = "Venipede",
@@ -5801,7 +5799,7 @@ public static class Pokedex
         entry = VenipedeDesc,
         forms = SingleSpecies(Species.Venipede),
     };
-    public static PokedexData Whirlipede = new()
+    public static readonly PokedexData Whirlipede = new()
     {
         number = 544,
         name = "Whirlipede",
@@ -5811,7 +5809,7 @@ public static class Pokedex
         entry = WhirlipedeDesc,
         forms = SingleSpecies(Species.Whirlipede),
     };
-    public static PokedexData Scolipede = new()
+    public static readonly PokedexData Scolipede = new()
     {
         number = 545,
         name = "Scolipede",
@@ -5821,7 +5819,7 @@ public static class Pokedex
         entry = ScolipedeDesc,
         forms = SingleSpecies(Species.Scolipede),
     };
-    public static PokedexData Cottonee = new()
+    public static readonly PokedexData Cottonee = new()
     {
         number = 546,
         name = "Cottonee",
@@ -5831,7 +5829,7 @@ public static class Pokedex
         entry = CottoneeDesc,
         forms = SingleSpecies(Species.Cottonee),
     };
-    public static PokedexData Whimsicott = new()
+    public static readonly PokedexData Whimsicott = new()
     {
         number = 547,
         name = "Whimsicott",
@@ -5841,7 +5839,7 @@ public static class Pokedex
         entry = WhimsicottDesc,
         forms = SingleSpecies(Species.Whimsicott),
     };
-    public static PokedexData Petilil = new()
+    public static readonly PokedexData Petilil = new()
     {
         number = 548,
         name = "Petilil",
@@ -5851,7 +5849,7 @@ public static class Pokedex
         entry = PetililDesc,
         forms = SingleSpecies(Species.Petilil),
     };
-    public static PokedexData Lilligant = new()
+    public static readonly PokedexData Lilligant = new()
     {
         number = 549,
         name = "Lilligant",
@@ -5861,7 +5859,7 @@ public static class Pokedex
         entry = LilligantDesc,
         forms = SingleSpecies(Species.Lilligant),
     };
-    public static PokedexData Basculin = new()
+    public static readonly PokedexData Basculin = new()
     {
         number = 550,
         name = "Basculin",
@@ -5871,7 +5869,7 @@ public static class Pokedex
         entry = BasculinDesc,
         forms = SingleSpecies(Species.BasculinRed),
     };
-    public static PokedexData Sandile = new()
+    public static readonly PokedexData Sandile = new()
     {
         number = 551,
         name = "Sandile",
@@ -5881,7 +5879,7 @@ public static class Pokedex
         entry = SandileDesc,
         forms = SingleSpecies(Species.Sandile),
     };
-    public static PokedexData Krokorok = new()
+    public static readonly PokedexData Krokorok = new()
     {
         number = 552,
         name = "Krokorok",
@@ -5891,7 +5889,7 @@ public static class Pokedex
         entry = KrokorokDesc,
         forms = SingleSpecies(Species.Krokorok),
     };
-    public static PokedexData Krookodile = new()
+    public static readonly PokedexData Krookodile = new()
     {
         number = 553,
         name = "Krookodile",
@@ -5901,7 +5899,7 @@ public static class Pokedex
         entry = KrookodileDesc,
         forms = SingleSpecies(Species.Krookodile),
     };
-    public static PokedexData Darumaka = new()
+    public static readonly PokedexData Darumaka = new()
     {
         number = 554,
         name = "Darumaka",
@@ -5911,7 +5909,7 @@ public static class Pokedex
         entry = DarumakaDesc,
         forms = SingleSpecies(Species.Darumaka),
     };
-    public static PokedexData Darmanitan = new()
+    public static readonly PokedexData Darmanitan = new()
     {
         number = 555,
         name = "Darmanitan",
@@ -5921,7 +5919,7 @@ public static class Pokedex
         entry = DarmanitanDesc,
         forms = SingleSpecies(Species.Darmanitan),
     };
-    public static PokedexData Maractus = new()
+    public static readonly PokedexData Maractus = new()
     {
         number = 556,
         name = "Maractus",
@@ -5931,7 +5929,7 @@ public static class Pokedex
         entry = MaractusDesc,
         forms = SingleSpecies(Species.Maractus),
     };
-    public static PokedexData Dwebble = new()
+    public static readonly PokedexData Dwebble = new()
     {
         number = 557,
         name = "Dwebble",
@@ -5941,7 +5939,7 @@ public static class Pokedex
         entry = DwebbleDesc,
         forms = SingleSpecies(Species.Dwebble),
     };
-    public static PokedexData Crustle = new()
+    public static readonly PokedexData Crustle = new()
     {
         number = 558,
         name = "Crustle",
@@ -5951,7 +5949,7 @@ public static class Pokedex
         entry = CrustleDesc,
         forms = SingleSpecies(Species.Crustle),
     };
-    public static PokedexData Scraggy = new()
+    public static readonly PokedexData Scraggy = new()
     {
         number = 559,
         name = "Scraggy",
@@ -5961,7 +5959,7 @@ public static class Pokedex
         entry = ScraggyDesc,
         forms = SingleSpecies(Species.Scraggy),
     };
-    public static PokedexData Scrafty = new()
+    public static readonly PokedexData Scrafty = new()
     {
         number = 560,
         name = "Scrafty",
@@ -5971,7 +5969,7 @@ public static class Pokedex
         entry = ScraftyDesc,
         forms = SingleSpecies(Species.Scrafty),
     };
-    public static PokedexData Sigilyph = new()
+    public static readonly PokedexData Sigilyph = new()
     {
         number = 561,
         name = "Sigilyph",
@@ -5981,7 +5979,7 @@ public static class Pokedex
         entry = SigilyphDesc,
         forms = SingleSpecies(Species.Sigilyph),
     };
-    public static PokedexData Yamask = new()
+    public static readonly PokedexData Yamask = new()
     {
         number = 562,
         name = "Yamask",
@@ -5991,7 +5989,7 @@ public static class Pokedex
         entry = YamaskDesc,
         forms = SingleSpecies(Species.Yamask),
     };
-    public static PokedexData Cofagrigus = new()
+    public static readonly PokedexData Cofagrigus = new()
     {
         number = 563,
         name = "Cofagrigus",
@@ -6001,7 +5999,7 @@ public static class Pokedex
         entry = CofagrigusDesc,
         forms = SingleSpecies(Species.Cofagrigus),
     };
-    public static PokedexData Tirtouga = new()
+    public static readonly PokedexData Tirtouga = new()
     {
         number = 564,
         name = "Tirtouga",
@@ -6011,7 +6009,7 @@ public static class Pokedex
         entry = TirtougaDesc,
         forms = SingleSpecies(Species.Tirtouga),
     };
-    public static PokedexData Carracosta = new()
+    public static readonly PokedexData Carracosta = new()
     {
         number = 565,
         name = "Carracosta",
@@ -6021,7 +6019,7 @@ public static class Pokedex
         entry = CarracostaDesc,
         forms = SingleSpecies(Species.Carracosta),
     };
-    public static PokedexData Archen = new()
+    public static readonly PokedexData Archen = new()
     {
         number = 566,
         name = "Archen",
@@ -6031,7 +6029,7 @@ public static class Pokedex
         entry = ArchenDesc,
         forms = SingleSpecies(Species.Archen),
     };
-    public static PokedexData Archeops = new()
+    public static readonly PokedexData Archeops = new()
     {
         number = 567,
         name = "Archeops",
@@ -6041,7 +6039,7 @@ public static class Pokedex
         entry = ArcheopsDesc,
         forms = SingleSpecies(Species.Archeops),
     };
-    public static PokedexData Trubbish = new()
+    public static readonly PokedexData Trubbish = new()
     {
         number = 568,
         name = "Trubbish",
@@ -6051,7 +6049,7 @@ public static class Pokedex
         entry = TrubbishDesc,
         forms = SingleSpecies(Species.Trubbish),
     };
-    public static PokedexData Garbodor = new()
+    public static readonly PokedexData Garbodor = new()
     {
         number = 569,
         name = "Garbodor",
@@ -6061,7 +6059,7 @@ public static class Pokedex
         entry = GarbodorDesc,
         forms = SingleSpecies(Species.Garbodor),
     };
-    public static PokedexData Zorua = new()
+    public static readonly PokedexData Zorua = new()
     {
         number = 570,
         name = "Zorua",
@@ -6071,7 +6069,7 @@ public static class Pokedex
         entry = ZoruaDesc,
         forms = SingleSpecies(Species.Zorua),
     };
-    public static PokedexData Zoroark = new()
+    public static readonly PokedexData Zoroark = new()
     {
         number = 571,
         name = "Zoroark",
@@ -6081,7 +6079,7 @@ public static class Pokedex
         entry = ZoroarkDesc,
         forms = SingleSpecies(Species.Zoroark),
     };
-    public static PokedexData Minccino = new()
+    public static readonly PokedexData Minccino = new()
     {
         number = 572,
         name = "Minccino",
@@ -6091,7 +6089,7 @@ public static class Pokedex
         entry = MinccinoDesc,
         forms = SingleSpecies(Species.Minccino),
     };
-    public static PokedexData Cinccino = new()
+    public static readonly PokedexData Cinccino = new()
     {
         number = 573,
         name = "Cinccino",
@@ -6101,7 +6099,7 @@ public static class Pokedex
         entry = CinccinoDesc,
         forms = SingleSpecies(Species.Cinccino),
     };
-    public static PokedexData Gothita = new()
+    public static readonly PokedexData Gothita = new()
     {
         number = 574,
         name = "Gothita",
@@ -6111,7 +6109,7 @@ public static class Pokedex
         entry = GothitaDesc,
         forms = SingleSpecies(Species.Gothita),
     };
-    public static PokedexData Gothorita = new()
+    public static readonly PokedexData Gothorita = new()
     {
         number = 575,
         name = "Gothorita",
@@ -6121,7 +6119,7 @@ public static class Pokedex
         entry = GothoritaDesc,
         forms = SingleSpecies(Species.Gothorita),
     };
-    public static PokedexData Gothitelle = new()
+    public static readonly PokedexData Gothitelle = new()
     {
         number = 576,
         name = "Gothitelle",
@@ -6131,7 +6129,7 @@ public static class Pokedex
         entry = GothitelleDesc,
         forms = SingleSpecies(Species.Gothitelle),
     };
-    public static PokedexData Solosis = new()
+    public static readonly PokedexData Solosis = new()
     {
         number = 577,
         name = "Solosis",
@@ -6141,7 +6139,7 @@ public static class Pokedex
         entry = SolosisDesc,
         forms = SingleSpecies(Species.Solosis),
     };
-    public static PokedexData Duosion = new()
+    public static readonly PokedexData Duosion = new()
     {
         number = 578,
         name = "Duosion",
@@ -6151,7 +6149,7 @@ public static class Pokedex
         entry = DuosionDesc,
         forms = SingleSpecies(Species.Duosion),
     };
-    public static PokedexData Reuniclus = new()
+    public static readonly PokedexData Reuniclus = new()
     {
         number = 579,
         name = "Reuniclus",
@@ -6161,7 +6159,7 @@ public static class Pokedex
         entry = ReuniclusDesc,
         forms = SingleSpecies(Species.Reuniclus),
     };
-    public static PokedexData Ducklett = new()
+    public static readonly PokedexData Ducklett = new()
     {
         number = 580,
         name = "Ducklett",
@@ -6171,7 +6169,7 @@ public static class Pokedex
         entry = DucklettDesc,
         forms = SingleSpecies(Species.Ducklett),
     };
-    public static PokedexData Swanna = new()
+    public static readonly PokedexData Swanna = new()
     {
         number = 581,
         name = "Swanna",
@@ -6181,7 +6179,7 @@ public static class Pokedex
         entry = SwannaDesc,
         forms = SingleSpecies(Species.Swanna),
     };
-    public static PokedexData Vanillite = new()
+    public static readonly PokedexData Vanillite = new()
     {
         number = 582,
         name = "Vanillite",
@@ -6191,7 +6189,7 @@ public static class Pokedex
         entry = VanilliteDesc,
         forms = SingleSpecies(Species.Vanillite),
     };
-    public static PokedexData Vanillish = new()
+    public static readonly PokedexData Vanillish = new()
     {
         number = 583,
         name = "Vanillish",
@@ -6201,7 +6199,7 @@ public static class Pokedex
         entry = VanillishDesc,
         forms = SingleSpecies(Species.Vanillish),
     };
-    public static PokedexData Vanilluxe = new()
+    public static readonly PokedexData Vanilluxe = new()
     {
         number = 584,
         name = "Vanilluxe",
@@ -6211,7 +6209,7 @@ public static class Pokedex
         entry = VanilluxeDesc,
         forms = SingleSpecies(Species.Vanilluxe),
     };
-    public static PokedexData Deerling = new()
+    public static readonly PokedexData Deerling = new()
     {
         number = 585,
         name = "Deerling",
@@ -6227,7 +6225,7 @@ public static class Pokedex
             Species.DeerlingWinter
         }
     };
-    public static PokedexData Sawsbuck = new()
+    public static readonly PokedexData Sawsbuck = new()
     {
         number = 586,
         name = "Sawsbuck",
@@ -6243,7 +6241,7 @@ public static class Pokedex
             Species.SawsbuckWinter
         }
     };
-    public static PokedexData Emolga = new()
+    public static readonly PokedexData Emolga = new()
     {
         number = 587,
         name = "Emolga",
@@ -6253,7 +6251,7 @@ public static class Pokedex
         entry = EmolgaDesc,
         forms = SingleSpecies(Species.Emolga),
     };
-    public static PokedexData Karrablast = new()
+    public static readonly PokedexData Karrablast = new()
     {
         number = 588,
         name = "Karrablast",
@@ -6263,7 +6261,7 @@ public static class Pokedex
         entry = KarrablastDesc,
         forms = SingleSpecies(Species.Karrablast),
     };
-    public static PokedexData Escavalier = new()
+    public static readonly PokedexData Escavalier = new()
     {
         number = 589,
         name = "Escavalier",
@@ -6273,7 +6271,7 @@ public static class Pokedex
         entry = EscavalierDesc,
         forms = SingleSpecies(Species.Escavalier),
     };
-    public static PokedexData Foongus = new()
+    public static readonly PokedexData Foongus = new()
     {
         number = 590,
         name = "Foongus",
@@ -6283,7 +6281,7 @@ public static class Pokedex
         entry = FoongusDesc,
         forms = SingleSpecies(Species.Foongus),
     };
-    public static PokedexData Amoonguss = new()
+    public static readonly PokedexData Amoonguss = new()
     {
         number = 591,
         name = "Amoonguss",
@@ -6293,7 +6291,7 @@ public static class Pokedex
         entry = AmoongussDesc,
         forms = SingleSpecies(Species.Amoonguss),
     };
-    public static PokedexData Frillish = new()
+    public static readonly PokedexData Frillish = new()
     {
         number = 592,
         name = "Frillish",
@@ -6303,7 +6301,7 @@ public static class Pokedex
         entry = FrillishDesc,
         forms = SingleSpecies(Species.Frillish),
     };
-    public static PokedexData Jellicent = new()
+    public static readonly PokedexData Jellicent = new()
     {
         number = 593,
         name = "Jellicent",
@@ -6313,7 +6311,7 @@ public static class Pokedex
         entry = JellicentDesc,
         forms = SingleSpecies(Species.Jellicent),
     };
-    public static PokedexData Alomomola = new()
+    public static readonly PokedexData Alomomola = new()
     {
         number = 594,
         name = "Alomomola",
@@ -6323,7 +6321,7 @@ public static class Pokedex
         entry = AlomomolaDesc,
         forms = SingleSpecies(Species.Alomomola),
     };
-    public static PokedexData Joltik = new()
+    public static readonly PokedexData Joltik = new()
     {
         number = 595,
         name = "Joltik",
@@ -6333,7 +6331,7 @@ public static class Pokedex
         entry = JoltikDesc,
         forms = SingleSpecies(Species.Joltik),
     };
-    public static PokedexData Galvantula = new()
+    public static readonly PokedexData Galvantula = new()
     {
         number = 596,
         name = "Galvantula",
@@ -6343,7 +6341,7 @@ public static class Pokedex
         entry = GalvantulaDesc,
         forms = SingleSpecies(Species.Galvantula),
     };
-    public static PokedexData Ferroseed = new()
+    public static readonly PokedexData Ferroseed = new()
     {
         number = 597,
         name = "Ferroseed",
@@ -6353,7 +6351,7 @@ public static class Pokedex
         entry = FerroseedDesc,
         forms = SingleSpecies(Species.Ferroseed),
     };
-    public static PokedexData Ferrothorn = new()
+    public static readonly PokedexData Ferrothorn = new()
     {
         number = 598,
         name = "Ferrothorn",
@@ -6363,7 +6361,7 @@ public static class Pokedex
         entry = FerrothornDesc,
         forms = SingleSpecies(Species.Ferrothorn),
     };
-    public static PokedexData Klink = new()
+    public static readonly PokedexData Klink = new()
     {
         number = 599,
         name = "Klink",
@@ -6373,7 +6371,7 @@ public static class Pokedex
         entry = KlinkDesc,
         forms = SingleSpecies(Species.Klink),
     };
-    public static PokedexData Klang = new()
+    public static readonly PokedexData Klang = new()
     {
         number = 600,
         name = "Klang",
@@ -6383,7 +6381,7 @@ public static class Pokedex
         entry = KlangDesc,
         forms = SingleSpecies(Species.Klang),
     };
-    public static PokedexData Klinklang = new()
+    public static readonly PokedexData Klinklang = new()
     {
         number = 601,
         name = "Klinklang",
@@ -6393,7 +6391,7 @@ public static class Pokedex
         entry = KlinklangDesc,
         forms = SingleSpecies(Species.Klinklang),
     };
-    public static PokedexData Tynamo = new()
+    public static readonly PokedexData Tynamo = new()
     {
         number = 602,
         name = "Tynamo",
@@ -6403,7 +6401,7 @@ public static class Pokedex
         entry = TynamoDesc,
         forms = SingleSpecies(Species.Tynamo),
     };
-    public static PokedexData Eelektrik = new()
+    public static readonly PokedexData Eelektrik = new()
     {
         number = 603,
         name = "Eelektrik",
@@ -6413,7 +6411,7 @@ public static class Pokedex
         entry = EelektrikDesc,
         forms = SingleSpecies(Species.Eelektrik),
     };
-    public static PokedexData Eelektross = new()
+    public static readonly PokedexData Eelektross = new()
     {
         number = 604,
         name = "Eelektross",
@@ -6423,7 +6421,7 @@ public static class Pokedex
         entry = EelektrossDesc,
         forms = SingleSpecies(Species.Eelektross),
     };
-    public static PokedexData Elgyem = new()
+    public static readonly PokedexData Elgyem = new()
     {
         number = 605,
         name = "Elgyem",
@@ -6433,7 +6431,7 @@ public static class Pokedex
         entry = ElgyemDesc,
         forms = SingleSpecies(Species.Elgyem),
     };
-    public static PokedexData Beheeyem = new()
+    public static readonly PokedexData Beheeyem = new()
     {
         number = 606,
         name = "Beheeyem",
@@ -6443,7 +6441,7 @@ public static class Pokedex
         entry = BeheeyemDesc,
         forms = SingleSpecies(Species.Beheeyem),
     };
-    public static PokedexData Litwick = new()
+    public static readonly PokedexData Litwick = new()
     {
         number = 607,
         name = "Litwick",
@@ -6453,7 +6451,7 @@ public static class Pokedex
         entry = LitwickDesc,
         forms = SingleSpecies(Species.Litwick),
     };
-    public static PokedexData Lampent = new()
+    public static readonly PokedexData Lampent = new()
     {
         number = 608,
         name = "Lampent",
@@ -6463,7 +6461,7 @@ public static class Pokedex
         entry = LampentDesc,
         forms = SingleSpecies(Species.Lampent),
     };
-    public static PokedexData Chandelure = new()
+    public static readonly PokedexData Chandelure = new()
     {
         number = 609,
         name = "Chandelure",
@@ -6473,7 +6471,7 @@ public static class Pokedex
         entry = ChandelureDesc,
         forms = SingleSpecies(Species.Chandelure),
     };
-    public static PokedexData Axew = new()
+    public static readonly PokedexData Axew = new()
     {
         number = 610,
         name = "Axew",
@@ -6483,7 +6481,7 @@ public static class Pokedex
         entry = AxewDesc,
         forms = SingleSpecies(Species.Axew),
     };
-    public static PokedexData Fraxure = new()
+    public static readonly PokedexData Fraxure = new()
     {
         number = 611,
         name = "Fraxure",
@@ -6493,7 +6491,7 @@ public static class Pokedex
         entry = FraxureDesc,
         forms = SingleSpecies(Species.Fraxure),
     };
-    public static PokedexData Haxorus = new()
+    public static readonly PokedexData Haxorus = new()
     {
         number = 612,
         name = "Haxorus",
@@ -6503,7 +6501,7 @@ public static class Pokedex
         entry = HaxorusDesc,
         forms = SingleSpecies(Species.Haxorus),
     };
-    public static PokedexData Cubchoo = new()
+    public static readonly PokedexData Cubchoo = new()
     {
         number = 613,
         name = "Cubchoo",
@@ -6513,7 +6511,7 @@ public static class Pokedex
         entry = CubchooDesc,
         forms = SingleSpecies(Species.Cubchoo),
     };
-    public static PokedexData Beartic = new()
+    public static readonly PokedexData Beartic = new()
     {
         number = 614,
         name = "Beartic",
@@ -6523,7 +6521,7 @@ public static class Pokedex
         entry = BearticDesc,
         forms = SingleSpecies(Species.Beartic),
     };
-    public static PokedexData Cryogonal = new()
+    public static readonly PokedexData Cryogonal = new()
     {
         number = 615,
         name = "Cryogonal",
@@ -6533,7 +6531,7 @@ public static class Pokedex
         entry = CryogonalDesc,
         forms = SingleSpecies(Species.Cryogonal),
     };
-    public static PokedexData Shelmet = new()
+    public static readonly PokedexData Shelmet = new()
     {
         number = 616,
         name = "Shelmet",
@@ -6543,7 +6541,7 @@ public static class Pokedex
         entry = ShelmetDesc,
         forms = SingleSpecies(Species.Shelmet),
     };
-    public static PokedexData Accelgor = new()
+    public static readonly PokedexData Accelgor = new()
     {
         number = 617,
         name = "Accelgor",
@@ -6553,7 +6551,7 @@ public static class Pokedex
         entry = AccelgorDesc,
         forms = SingleSpecies(Species.Accelgor),
     };
-    public static PokedexData Stunfisk = new()
+    public static readonly PokedexData Stunfisk = new()
     {
         number = 618,
         name = "Stunfisk",
@@ -6563,7 +6561,7 @@ public static class Pokedex
         entry = StunfiskDesc,
         forms = SingleSpecies(Species.Stunfisk),
     };
-    public static PokedexData Mienfoo = new()
+    public static readonly PokedexData Mienfoo = new()
     {
         number = 619,
         name = "Mienfoo",
@@ -6573,7 +6571,7 @@ public static class Pokedex
         entry = MienfooDesc,
         forms = SingleSpecies(Species.Mienfoo),
     };
-    public static PokedexData Mienshao = new()
+    public static readonly PokedexData Mienshao = new()
     {
         number = 620,
         name = "Mienshao",
@@ -6583,7 +6581,7 @@ public static class Pokedex
         entry = MienshaoDesc,
         forms = SingleSpecies(Species.Mienshao),
     };
-    public static PokedexData Druddigon = new()
+    public static readonly PokedexData Druddigon = new()
     {
         number = 621,
         name = "Druddigon",
@@ -6593,7 +6591,7 @@ public static class Pokedex
         entry = DruddigonDesc,
         forms = SingleSpecies(Species.Druddigon),
     };
-    public static PokedexData Golett = new()
+    public static readonly PokedexData Golett = new()
     {
         number = 622,
         name = "Golett",
@@ -6603,7 +6601,7 @@ public static class Pokedex
         entry = GolettDesc,
         forms = SingleSpecies(Species.Golett),
     };
-    public static PokedexData Golurk = new()
+    public static readonly PokedexData Golurk = new()
     {
         number = 623,
         name = "Golurk",
@@ -6613,7 +6611,7 @@ public static class Pokedex
         entry = GolurkDesc,
         forms = SingleSpecies(Species.Golurk),
     };
-    public static PokedexData Pawniard = new()
+    public static readonly PokedexData Pawniard = new()
     {
         number = 624,
         name = "Pawniard",
@@ -6623,7 +6621,7 @@ public static class Pokedex
         entry = PawniardDesc,
         forms = SingleSpecies(Species.Pawniard),
     };
-    public static PokedexData Bisharp = new()
+    public static readonly PokedexData Bisharp = new()
     {
         number = 625,
         name = "Bisharp",
@@ -6633,7 +6631,7 @@ public static class Pokedex
         entry = BisharpDesc,
         forms = SingleSpecies(Species.Bisharp),
     };
-    public static PokedexData Bouffalant = new()
+    public static readonly PokedexData Bouffalant = new()
     {
         number = 626,
         name = "Bouffalant",
@@ -6643,7 +6641,7 @@ public static class Pokedex
         entry = BouffalantDesc,
         forms = SingleSpecies(Species.Bouffalant),
     };
-    public static PokedexData Rufflet = new()
+    public static readonly PokedexData Rufflet = new()
     {
         number = 627,
         name = "Rufflet",
@@ -6653,7 +6651,7 @@ public static class Pokedex
         entry = RuffletDesc,
         forms = SingleSpecies(Species.Rufflet),
     };
-    public static PokedexData Braviary = new()
+    public static readonly PokedexData Braviary = new()
     {
         number = 628,
         name = "Braviary",
@@ -6663,7 +6661,7 @@ public static class Pokedex
         entry = BraviaryDesc,
         forms = SingleSpecies(Species.Braviary),
     };
-    public static PokedexData Vullaby = new()
+    public static readonly PokedexData Vullaby = new()
     {
         number = 629,
         name = "Vullaby",
@@ -6673,7 +6671,7 @@ public static class Pokedex
         entry = VullabyDesc,
         forms = SingleSpecies(Species.Vullaby),
     };
-    public static PokedexData Mandibuzz = new()
+    public static readonly PokedexData Mandibuzz = new()
     {
         number = 630,
         name = "Mandibuzz",
@@ -6683,7 +6681,7 @@ public static class Pokedex
         entry = MandibuzzDesc,
         forms = SingleSpecies(Species.Mandibuzz),
     };
-    public static PokedexData Heatmor = new()
+    public static readonly PokedexData Heatmor = new()
     {
         number = 631,
         name = "Heatmor",
@@ -6693,7 +6691,7 @@ public static class Pokedex
         entry = HeatmorDesc,
         forms = SingleSpecies(Species.Heatmor),
     };
-    public static PokedexData Durant = new()
+    public static readonly PokedexData Durant = new()
     {
         number = 632,
         name = "Durant",
@@ -6703,7 +6701,7 @@ public static class Pokedex
         entry = DurantDesc,
         forms = SingleSpecies(Species.Durant),
     };
-    public static PokedexData Deino = new()
+    public static readonly PokedexData Deino = new()
     {
         number = 633,
         name = "Deino",
@@ -6713,7 +6711,7 @@ public static class Pokedex
         entry = DeinoDesc,
         forms = SingleSpecies(Species.Deino),
     };
-    public static PokedexData Zweilous = new()
+    public static readonly PokedexData Zweilous = new()
     {
         number = 634,
         name = "Zweilous",
@@ -6723,7 +6721,7 @@ public static class Pokedex
         entry = ZweilousDesc,
         forms = SingleSpecies(Species.Zweilous),
     };
-    public static PokedexData Hydreigon = new()
+    public static readonly PokedexData Hydreigon = new()
     {
         number = 635,
         name = "Hydreigon",
@@ -6733,7 +6731,7 @@ public static class Pokedex
         entry = HydreigonDesc,
         forms = SingleSpecies(Species.Hydreigon),
     };
-    public static PokedexData Larvesta = new()
+    public static readonly PokedexData Larvesta = new()
     {
         number = 636,
         name = "Larvesta",
@@ -6743,7 +6741,7 @@ public static class Pokedex
         entry = LarvestaDesc,
         forms = SingleSpecies(Species.Larvesta),
     };
-    public static PokedexData Volcarona = new()
+    public static readonly PokedexData Volcarona = new()
     {
         number = 637,
         name = "Volcarona",
@@ -6753,7 +6751,7 @@ public static class Pokedex
         entry = VolcaronaDesc,
         forms = SingleSpecies(Species.Volcarona),
     };
-    public static PokedexData Cobalion = new()
+    public static readonly PokedexData Cobalion = new()
     {
         number = 638,
         name = "Cobalion",
@@ -6763,7 +6761,7 @@ public static class Pokedex
         entry = CobalionDesc,
         forms = SingleSpecies(Species.Cobalion),
     };
-    public static PokedexData Terrakion = new()
+    public static readonly PokedexData Terrakion = new()
     {
         number = 639,
         name = "Terrakion",
@@ -6773,7 +6771,7 @@ public static class Pokedex
         entry = TerrakionDesc,
         forms = SingleSpecies(Species.Terrakion),
     };
-    public static PokedexData Virizion = new()
+    public static readonly PokedexData Virizion = new()
     {
         number = 640,
         name = "Virizion",
@@ -6783,7 +6781,7 @@ public static class Pokedex
         entry = VirizionDesc,
         forms = SingleSpecies(Species.Virizion),
     };
-    public static PokedexData Tornadus = new()
+    public static readonly PokedexData Tornadus = new()
     {
         number = 641,
         name = "Tornadus",
@@ -6797,7 +6795,7 @@ public static class Pokedex
             Species.TornadusT
         }
     };
-    public static PokedexData Thundurus = new()
+    public static readonly PokedexData Thundurus = new()
     {
         number = 642,
         name = "Thundurus",
@@ -6811,7 +6809,7 @@ public static class Pokedex
             Species.ThundurusT
         }
     };
-    public static PokedexData Reshiram = new()
+    public static readonly PokedexData Reshiram = new()
     {
         number = 643,
         name = "Reshiram",
@@ -6821,7 +6819,7 @@ public static class Pokedex
         entry = ReshiramDesc,
         forms = SingleSpecies(Species.Reshiram),
     };
-    public static PokedexData Zekrom = new()
+    public static readonly PokedexData Zekrom = new()
     {
         number = 644,
         name = "Zekrom",
@@ -6831,7 +6829,7 @@ public static class Pokedex
         entry = ZekromDesc,
         forms = SingleSpecies(Species.Zekrom),
     };
-    public static PokedexData Landorus = new()
+    public static readonly PokedexData Landorus = new()
     {
         number = 645,
         name = "Landorus",
@@ -6845,7 +6843,7 @@ public static class Pokedex
             Species.LandorusT
         }
     };
-    public static PokedexData Kyurem = new()
+    public static readonly PokedexData Kyurem = new()
     {
         number = 646,
         name = "Kyurem",
@@ -6860,7 +6858,7 @@ public static class Pokedex
             Species.KyuremBlack
         }
     };
-    public static PokedexData Keldeo = new()
+    public static readonly PokedexData Keldeo = new()
     {
         number = 647,
         name = "Keldeo",
@@ -6874,7 +6872,7 @@ public static class Pokedex
             Species.KeldeoResolute
         }
     };
-    public static PokedexData Meloetta = new()
+    public static readonly PokedexData Meloetta = new()
     {
         number = 648,
         name = "Meloetta",
@@ -6888,7 +6886,7 @@ public static class Pokedex
             Species.MeloettaPirouette
         }
     };
-    public static PokedexData Genesect = new()
+    public static readonly PokedexData Genesect = new()
     {
         number = 649,
         name = "Genesect",
@@ -6905,7 +6903,7 @@ public static class Pokedex
             Species.GenesectChill
         }
     };
-    public static PokedexData Chespin = new()
+    public static readonly PokedexData Chespin = new()
     {
         number = 650,
         name = "Chespin",
@@ -6915,7 +6913,7 @@ public static class Pokedex
         entry = ChespinDesc,
         forms = SingleSpecies(Species.Chespin),
     };
-    public static PokedexData Quilladin = new()
+    public static readonly PokedexData Quilladin = new()
     {
         number = 651,
         name = "Quilladin",
@@ -6925,7 +6923,7 @@ public static class Pokedex
         entry = QuilladinDesc,
         forms = SingleSpecies(Species.Quilladin),
     };
-    public static PokedexData Chesnaught = new()
+    public static readonly PokedexData Chesnaught = new()
     {
         number = 652,
         name = "Chesnaught",
@@ -6935,7 +6933,7 @@ public static class Pokedex
         entry = ChesnaughtDesc,
         forms = SingleSpecies(Species.Chesnaught),
     };
-    public static PokedexData Fennekin = new()
+    public static readonly PokedexData Fennekin = new()
     {
         number = 653,
         name = "Fennekin",
@@ -6945,7 +6943,7 @@ public static class Pokedex
         entry = FennekinDesc,
         forms = SingleSpecies(Species.Fennekin),
     };
-    public static PokedexData Braixen = new()
+    public static readonly PokedexData Braixen = new()
     {
         number = 654,
         name = "Braixen",
@@ -6955,7 +6953,7 @@ public static class Pokedex
         entry = BraixenDesc,
         forms = SingleSpecies(Species.Braixen),
     };
-    public static PokedexData Delphox = new()
+    public static readonly PokedexData Delphox = new()
     {
         number = 655,
         name = "Delphox",
@@ -6965,7 +6963,7 @@ public static class Pokedex
         entry = DelphoxDesc,
         forms = SingleSpecies(Species.Delphox),
     };
-    public static PokedexData Froakie = new()
+    public static readonly PokedexData Froakie = new()
     {
         number = 656,
         name = "Froakie",
@@ -6975,7 +6973,7 @@ public static class Pokedex
         entry = FroakieDesc,
         forms = SingleSpecies(Species.Froakie),
     };
-    public static PokedexData Frogadier = new()
+    public static readonly PokedexData Frogadier = new()
     {
         number = 657,
         name = "Frogadier",
@@ -6985,7 +6983,7 @@ public static class Pokedex
         entry = FrogadierDesc,
         forms = SingleSpecies(Species.Frogadier),
     };
-    public static PokedexData Greninja = new()
+    public static readonly PokedexData Greninja = new()
     {
         number = 658,
         name = "Greninja",
@@ -6995,7 +6993,7 @@ public static class Pokedex
         entry = GreninjaDesc,
         forms = SingleSpecies(Species.Greninja),
     };
-    public static PokedexData Bunnelby = new()
+    public static readonly PokedexData Bunnelby = new()
     {
         number = 659,
         name = "Bunnelby",
@@ -7005,7 +7003,7 @@ public static class Pokedex
         entry = BunnelbyDesc,
         forms = SingleSpecies(Species.Bunnelby),
     };
-    public static PokedexData Diggersby = new()
+    public static readonly PokedexData Diggersby = new()
     {
         number = 660,
         name = "Diggersby",
@@ -7015,7 +7013,7 @@ public static class Pokedex
         entry = DiggersbyDesc,
         forms = SingleSpecies(Species.Diggersby),
     };
-    public static PokedexData Fletchling = new()
+    public static readonly PokedexData Fletchling = new()
     {
         number = 661,
         name = "Fletchling",
@@ -7025,7 +7023,7 @@ public static class Pokedex
         entry = FletchlingDesc,
         forms = SingleSpecies(Species.Fletchling),
     };
-    public static PokedexData Fletchinder = new()
+    public static readonly PokedexData Fletchinder = new()
     {
         number = 662,
         name = "Fletchinder",
@@ -7035,7 +7033,7 @@ public static class Pokedex
         entry = FletchinderDesc,
         forms = SingleSpecies(Species.Fletchinder),
     };
-    public static PokedexData Talonflame = new()
+    public static readonly PokedexData Talonflame = new()
     {
         number = 663,
         name = "Talonflame",
@@ -7045,7 +7043,7 @@ public static class Pokedex
         entry = TalonflameDesc,
         forms = SingleSpecies(Species.Talonflame),
     };
-    public static PokedexData Scatterbug = new()
+    public static readonly PokedexData Scatterbug = new()
     {
         number = 664,
         name = "Scatterbug",
@@ -7055,7 +7053,7 @@ public static class Pokedex
         entry = ScatterbugDesc,
         forms = SingleSpecies(Species.ScatterbugMeadow),
     };
-    public static PokedexData Spewpa = new()
+    public static readonly PokedexData Spewpa = new()
     {
         number = 665,
         name = "Spewpa",
@@ -7065,7 +7063,7 @@ public static class Pokedex
         entry = SpewpaDesc,
         forms = SingleSpecies(Species.SpewpaMeadow),
     };
-    public static PokedexData Vivillon = new()
+    public static readonly PokedexData Vivillon = new()
     {
         number = 666,
         name = "Vivillon",
@@ -7097,7 +7095,7 @@ public static class Pokedex
             Species.VivillonTundra,
         }
     };
-    public static PokedexData Litleo = new()
+    public static readonly PokedexData Litleo = new()
     {
         number = 667,
         name = "Litleo",
@@ -7107,7 +7105,7 @@ public static class Pokedex
         entry = LitleoDesc,
         forms = SingleSpecies(Species.Litleo),
     };
-    public static PokedexData Pyroar = new()
+    public static readonly PokedexData Pyroar = new()
     {
         number = 668,
         name = "Pyroar",
@@ -7117,7 +7115,7 @@ public static class Pokedex
         entry = PyroarDesc,
         forms = SingleSpecies(Species.Pyroar),
     };
-    public static PokedexData Flabebe = new()
+    public static readonly PokedexData Flabebe = new()
     {
         number = 669,
         name = "Flabebe",
@@ -7134,7 +7132,7 @@ public static class Pokedex
             Species.FlabebeWhite
         }
     };
-    public static PokedexData Floette = new()
+    public static readonly PokedexData Floette = new()
     {
         number = 670,
         name = "Floette",
@@ -7152,7 +7150,7 @@ public static class Pokedex
             Species.FloetteEternal
         }
     };
-    public static PokedexData Florges = new()
+    public static readonly PokedexData Florges = new()
     {
         number = 671,
         name = "Florges",
@@ -7169,7 +7167,7 @@ public static class Pokedex
             Species.FlorgesWhite
         }
     };
-    public static PokedexData Skiddo = new()
+    public static readonly PokedexData Skiddo = new()
     {
         number = 672,
         name = "Skiddo",
@@ -7179,7 +7177,7 @@ public static class Pokedex
         entry = SkiddoDesc,
         forms = SingleSpecies(Species.Skiddo),
     };
-    public static PokedexData Gogoat = new()
+    public static readonly PokedexData Gogoat = new()
     {
         number = 673,
         name = "Gogoat",
@@ -7189,7 +7187,7 @@ public static class Pokedex
         entry = GogoatDesc,
         forms = SingleSpecies(Species.Gogoat),
     };
-    public static PokedexData Pancham = new()
+    public static readonly PokedexData Pancham = new()
     {
         number = 674,
         name = "Pancham",
@@ -7199,7 +7197,7 @@ public static class Pokedex
         entry = PanchamDesc,
         forms = SingleSpecies(Species.Pancham),
     };
-    public static PokedexData Pangoro = new()
+    public static readonly PokedexData Pangoro = new()
     {
         number = 675,
         name = "Pangoro",
@@ -7209,7 +7207,7 @@ public static class Pokedex
         entry = PangoroDesc,
         forms = SingleSpecies(Species.Pangoro),
     };
-    public static PokedexData Furfrou = new()
+    public static readonly PokedexData Furfrou = new()
     {
         number = 676,
         name = "Furfrou",
@@ -7231,7 +7229,7 @@ public static class Pokedex
             Species.FurfrouPharaoh
         }
     };
-    public static PokedexData Espurr = new()
+    public static readonly PokedexData Espurr = new()
     {
         number = 677,
         name = "Espurr",
@@ -7241,7 +7239,7 @@ public static class Pokedex
         entry = EspurrDesc,
         forms = SingleSpecies(Species.Espurr),
     };
-    public static PokedexData Meowstic = new()
+    public static readonly PokedexData Meowstic = new()
     {
         number = 678,
         name = "Meowstic",
@@ -7255,7 +7253,7 @@ public static class Pokedex
             Species.MeowsticF
         },
     };
-    public static PokedexData Honedge = new()
+    public static readonly PokedexData Honedge = new()
     {
         number = 679,
         name = "Honedge",
@@ -7265,7 +7263,7 @@ public static class Pokedex
         entry = HonedgeDesc,
         forms = SingleSpecies(Species.Honedge),
     };
-    public static PokedexData Doublade = new()
+    public static readonly PokedexData Doublade = new()
     {
         number = 680,
         name = "Doublade",
@@ -7275,7 +7273,7 @@ public static class Pokedex
         entry = DoubladeDesc,
         forms = SingleSpecies(Species.Doublade),
     };
-    public static PokedexData Aegislash = new()
+    public static readonly PokedexData Aegislash = new()
     {
         number = 681,
         name = "Aegislash",
@@ -7289,7 +7287,7 @@ public static class Pokedex
             Species.AegislashBlade
         },
     };
-    public static PokedexData Spritzee = new()
+    public static readonly PokedexData Spritzee = new()
     {
         number = 682,
         name = "Spritzee",
@@ -7299,7 +7297,7 @@ public static class Pokedex
         entry = SpritzeeDesc,
         forms = SingleSpecies(Species.Spritzee),
     };
-    public static PokedexData Aromatisse = new()
+    public static readonly PokedexData Aromatisse = new()
     {
         number = 683,
         name = "Aromatisse",
@@ -7309,7 +7307,7 @@ public static class Pokedex
         entry = AromatisseDesc,
         forms = SingleSpecies(Species.Aromatisse),
     };
-    public static PokedexData Swirlix = new()
+    public static readonly PokedexData Swirlix = new()
     {
         number = 684,
         name = "Swirlix",
@@ -7319,7 +7317,7 @@ public static class Pokedex
         entry = SwirlixDesc,
         forms = SingleSpecies(Species.Swirlix),
     };
-    public static PokedexData Slurpuff = new()
+    public static readonly PokedexData Slurpuff = new()
     {
         number = 685,
         name = "Slurpuff",
@@ -7329,7 +7327,7 @@ public static class Pokedex
         entry = SlurpuffDesc,
         forms = SingleSpecies(Species.Slurpuff),
     };
-    public static PokedexData Inkay = new()
+    public static readonly PokedexData Inkay = new()
     {
         number = 686,
         name = "Inkay",
@@ -7339,7 +7337,7 @@ public static class Pokedex
         entry = InkayDesc,
         forms = SingleSpecies(Species.Inkay),
     };
-    public static PokedexData Malamar = new()
+    public static readonly PokedexData Malamar = new()
     {
         number = 687,
         name = "Malamar",
@@ -7349,7 +7347,7 @@ public static class Pokedex
         entry = MalamarDesc,
         forms = SingleSpecies(Species.Malamar),
     };
-    public static PokedexData Binacle = new()
+    public static readonly PokedexData Binacle = new()
     {
         number = 688,
         name = "Binacle",
@@ -7359,7 +7357,7 @@ public static class Pokedex
         entry = BinacleDesc,
         forms = SingleSpecies(Species.Binacle),
     };
-    public static PokedexData Barbaracle = new()
+    public static readonly PokedexData Barbaracle = new()
     {
         number = 689,
         name = "Barbaracle",
@@ -7369,7 +7367,7 @@ public static class Pokedex
         entry = BarbaracleDesc,
         forms = SingleSpecies(Species.Barbaracle),
     };
-    public static PokedexData Skrelp = new()
+    public static readonly PokedexData Skrelp = new()
     {
         number = 690,
         name = "Skrelp",
@@ -7379,7 +7377,7 @@ public static class Pokedex
         entry = SkrelpDesc,
         forms = SingleSpecies(Species.Skrelp),
     };
-    public static PokedexData Dragalge = new()
+    public static readonly PokedexData Dragalge = new()
     {
         number = 691,
         name = "Dragalge",
@@ -7389,7 +7387,7 @@ public static class Pokedex
         entry = DragalgeDesc,
         forms = SingleSpecies(Species.Dragalge),
     };
-    public static PokedexData Clauncher = new()
+    public static readonly PokedexData Clauncher = new()
     {
         number = 692,
         name = "Clauncher",
@@ -7399,7 +7397,7 @@ public static class Pokedex
         entry = ClauncherDesc,
         forms = SingleSpecies(Species.Clauncher),
     };
-    public static PokedexData Clawitzer = new()
+    public static readonly PokedexData Clawitzer = new()
     {
         number = 693,
         name = "Clawitzer",
@@ -7409,7 +7407,7 @@ public static class Pokedex
         entry = ClawitzerDesc,
         forms = SingleSpecies(Species.Clawitzer),
     };
-    public static PokedexData Helioptile = new()
+    public static readonly PokedexData Helioptile = new()
     {
         number = 694,
         name = "Helioptile",
@@ -7419,7 +7417,7 @@ public static class Pokedex
         entry = HelioptileDesc,
         forms = SingleSpecies(Species.Helioptile),
     };
-    public static PokedexData Heliolisk = new()
+    public static readonly PokedexData Heliolisk = new()
     {
         number = 695,
         name = "Heliolisk",
@@ -7429,7 +7427,7 @@ public static class Pokedex
         entry = HelioliskDesc,
         forms = SingleSpecies(Species.Heliolisk),
     };
-    public static PokedexData Tyrunt = new()
+    public static readonly PokedexData Tyrunt = new()
     {
         number = 696,
         name = "Tyrunt",
@@ -7439,7 +7437,7 @@ public static class Pokedex
         entry = TyruntDesc,
         forms = SingleSpecies(Species.Tyrunt),
     };
-    public static PokedexData Tyrantrum = new()
+    public static readonly PokedexData Tyrantrum = new()
     {
         number = 697,
         name = "Tyrantrum",
@@ -7449,7 +7447,7 @@ public static class Pokedex
         entry = TyrantrumDesc,
         forms = SingleSpecies(Species.Tyrantrum),
     };
-    public static PokedexData Amaura = new()
+    public static readonly PokedexData Amaura = new()
     {
         number = 698,
         name = "Amaura",
@@ -7459,7 +7457,7 @@ public static class Pokedex
         entry = AmauraDesc,
         forms = SingleSpecies(Species.Amaura),
     };
-    public static PokedexData Aurorus = new()
+    public static readonly PokedexData Aurorus = new()
     {
         number = 699,
         name = "Aurorus",
@@ -7469,7 +7467,7 @@ public static class Pokedex
         entry = AurorusDesc,
         forms = SingleSpecies(Species.Aurorus),
     };
-    public static PokedexData Sylveon = new()
+    public static readonly PokedexData Sylveon = new()
     {
         number = 700,
         name = "Sylveon",
@@ -7479,7 +7477,7 @@ public static class Pokedex
         entry = SylveonDesc,
         forms = SingleSpecies(Species.Sylveon),
     };
-    public static PokedexData Hawlucha = new()
+    public static readonly PokedexData Hawlucha = new()
     {
         number = 701,
         name = "Hawlucha",
@@ -7489,7 +7487,7 @@ public static class Pokedex
         entry = HawluchaDesc,
         forms = SingleSpecies(Species.Hawlucha),
     };
-    public static PokedexData Dedenne = new()
+    public static readonly PokedexData Dedenne = new()
     {
         number = 702,
         name = "Dedenne",
@@ -7499,7 +7497,7 @@ public static class Pokedex
         entry = DedenneDesc,
         forms = SingleSpecies(Species.Dedenne),
     };
-    public static PokedexData Carbink = new()
+    public static readonly PokedexData Carbink = new()
     {
         number = 703,
         name = "Carbink",
@@ -7509,7 +7507,7 @@ public static class Pokedex
         entry = CarbinkDesc,
         forms = SingleSpecies(Species.Carbink),
     };
-    public static PokedexData Goomy = new()
+    public static readonly PokedexData Goomy = new()
     {
         number = 704,
         name = "Goomy",
@@ -7519,7 +7517,7 @@ public static class Pokedex
         entry = GoomyDesc,
         forms = SingleSpecies(Species.Goomy),
     };
-    public static PokedexData Sliggoo = new()
+    public static readonly PokedexData Sliggoo = new()
     {
         number = 705,
         name = "Sliggoo",
@@ -7529,7 +7527,7 @@ public static class Pokedex
         entry = SliggooDesc,
         forms = SingleSpecies(Species.Sliggoo),
     };
-    public static PokedexData Goodra = new()
+    public static readonly PokedexData Goodra = new()
     {
         number = 706,
         name = "Goodra",
@@ -7539,7 +7537,7 @@ public static class Pokedex
         entry = GoodraDesc,
         forms = SingleSpecies(Species.Goodra),
     };
-    public static PokedexData Klefki = new()
+    public static readonly PokedexData Klefki = new()
     {
         number = 707,
         name = "Klefki",
@@ -7549,7 +7547,7 @@ public static class Pokedex
         entry = KlefkiDesc,
         forms = SingleSpecies(Species.Klefki),
     };
-    public static PokedexData Phantump = new()
+    public static readonly PokedexData Phantump = new()
     {
         number = 708,
         name = "Phantump",
@@ -7559,7 +7557,7 @@ public static class Pokedex
         entry = PhantumpDesc,
         forms = SingleSpecies(Species.Phantump),
     };
-    public static PokedexData Trevenant = new()
+    public static readonly PokedexData Trevenant = new()
     {
         number = 709,
         name = "Trevenant",
@@ -7569,7 +7567,7 @@ public static class Pokedex
         entry = TrevenantDesc,
         forms = SingleSpecies(Species.Trevenant),
     };
-    public static PokedexData Pumpkaboo = new()
+    public static readonly PokedexData Pumpkaboo = new()
     {
         number = 710,
         name = "Pumpkaboo",
@@ -7585,7 +7583,7 @@ public static class Pokedex
             Species.PumpkabooSuper
         }
     };
-    public static PokedexData Gourgeist = new()
+    public static readonly PokedexData Gourgeist = new()
     {
         number = 711,
         name = "Gourgeist",
@@ -7601,7 +7599,7 @@ public static class Pokedex
             Species.GourgeistSuper
         }
     };
-    public static PokedexData Bergmite = new()
+    public static readonly PokedexData Bergmite = new()
     {
         number = 712,
         name = "Bergmite",
@@ -7611,7 +7609,7 @@ public static class Pokedex
         entry = BergmiteDesc,
         forms = SingleSpecies(Species.Bergmite),
     };
-    public static PokedexData Avalugg = new()
+    public static readonly PokedexData Avalugg = new()
     {
         number = 713,
         name = "Avalugg",
@@ -7621,7 +7619,7 @@ public static class Pokedex
         entry = AvaluggDesc,
         forms = SingleSpecies(Species.Avalugg),
     };
-    public static PokedexData Noibat = new()
+    public static readonly PokedexData Noibat = new()
     {
         number = 714,
         name = "Noibat",
@@ -7631,7 +7629,7 @@ public static class Pokedex
         entry = NoibatDesc,
         forms = SingleSpecies(Species.Noibat),
     };
-    public static PokedexData Noivern = new()
+    public static readonly PokedexData Noivern = new()
     {
         number = 715,
         name = "Noivern",
@@ -7641,7 +7639,7 @@ public static class Pokedex
         entry = NoivernDesc,
         forms = SingleSpecies(Species.Noivern),
     };
-    public static PokedexData Xerneas = new()
+    public static readonly PokedexData Xerneas = new()
     {
         number = 716,
         name = "Xerneas",
@@ -7655,7 +7653,7 @@ public static class Pokedex
             Species.XerneasActive
         },
     };
-    public static PokedexData Yveltal = new()
+    public static readonly PokedexData Yveltal = new()
     {
         number = 717,
         name = "Yveltal",
@@ -7665,7 +7663,7 @@ public static class Pokedex
         entry = YveltalDesc,
         forms = SingleSpecies(Species.Yveltal),
     };
-    public static PokedexData Zygarde = new()
+    public static readonly PokedexData Zygarde = new()
     {
         number = 718,
         name = "Zygarde",
@@ -7680,7 +7678,7 @@ public static class Pokedex
             Species.ZygardeComplete
         }
     };
-    public static PokedexData Diancie = new()
+    public static readonly PokedexData Diancie = new()
     {
         number = 719,
         name = "Diancie",
@@ -7694,7 +7692,7 @@ public static class Pokedex
             Species.DiancieMega
         }
     };
-    public static PokedexData Hoopa = new()
+    public static readonly PokedexData Hoopa = new()
     {
         number = 720,
         name = "Hoopa",
@@ -7708,7 +7706,7 @@ public static class Pokedex
             Species.HoopaUnbound
         }
     };
-    public static PokedexData Volcanion = new()
+    public static readonly PokedexData Volcanion = new()
     {
         number = 721,
         name = "Volcanion",
@@ -7718,7 +7716,7 @@ public static class Pokedex
         entry = VolcanionDesc,
         forms = SingleSpecies(Species.Volcanion),
     };
-    public static PokedexData Rowlet = new()
+    public static readonly PokedexData Rowlet = new()
     {
         number = 722,
         name = "Rowlet",
@@ -7728,7 +7726,7 @@ public static class Pokedex
         entry = RowletDesc,
         forms = SingleSpecies(Species.Rowlet),
     };
-    public static PokedexData Dartrix = new()
+    public static readonly PokedexData Dartrix = new()
     {
         number = 723,
         name = "Dartrix",
@@ -7738,7 +7736,7 @@ public static class Pokedex
         entry = DartrixDesc,
         forms = SingleSpecies(Species.Dartrix),
     };
-    public static PokedexData Decidueye = new()
+    public static readonly PokedexData Decidueye = new()
     {
         number = 724,
         name = "Decidueye",
@@ -7748,7 +7746,7 @@ public static class Pokedex
         entry = DecidueyeDesc,
         forms = SingleSpecies(Species.Decidueye),
     };
-    public static PokedexData Litten = new()
+    public static readonly PokedexData Litten = new()
     {
         number = 725,
         name = "Litten",
@@ -7758,7 +7756,7 @@ public static class Pokedex
         entry = LittenDesc,
         forms = SingleSpecies(Species.Litten),
     };
-    public static PokedexData Torracat = new()
+    public static readonly PokedexData Torracat = new()
     {
         number = 726,
         name = "Torracat",
@@ -7768,7 +7766,7 @@ public static class Pokedex
         entry = TorracatDesc,
         forms = SingleSpecies(Species.Torracat),
     };
-    public static PokedexData Incineroar = new()
+    public static readonly PokedexData Incineroar = new()
     {
         number = 727,
         name = "Incineroar",
@@ -7778,7 +7776,7 @@ public static class Pokedex
         entry = IncineroarDesc,
         forms = SingleSpecies(Species.Incineroar),
     };
-    public static PokedexData Popplio = new()
+    public static readonly PokedexData Popplio = new()
     {
         number = 728,
         name = "Popplio",
@@ -7788,7 +7786,7 @@ public static class Pokedex
         entry = PopplioDesc,
         forms = SingleSpecies(Species.Popplio),
     };
-    public static PokedexData Brionne = new()
+    public static readonly PokedexData Brionne = new()
     {
         number = 729,
         name = "Brionne",
@@ -7798,7 +7796,7 @@ public static class Pokedex
         entry = BrionneDesc,
         forms = SingleSpecies(Species.Brionne),
     };
-    public static PokedexData Primarina = new()
+    public static readonly PokedexData Primarina = new()
     {
         number = 730,
         name = "Primarina",
@@ -7808,7 +7806,7 @@ public static class Pokedex
         entry = PrimarinaDesc,
         forms = SingleSpecies(Species.Primarina),
     };
-    public static PokedexData Pikipek = new()
+    public static readonly PokedexData Pikipek = new()
     {
         number = 731,
         name = "Pikipek",
@@ -7818,7 +7816,7 @@ public static class Pokedex
         entry = PikipekDesc,
         forms = SingleSpecies(Species.Pikipek),
     };
-    public static PokedexData Trumbeak = new()
+    public static readonly PokedexData Trumbeak = new()
     {
         number = 732,
         name = "Trumbeak",
@@ -7828,7 +7826,7 @@ public static class Pokedex
         entry = TrumbeakDesc,
         forms = SingleSpecies(Species.Trumbeak),
     };
-    public static PokedexData Toucannon = new()
+    public static readonly PokedexData Toucannon = new()
     {
         number = 733,
         name = "Toucannon",
@@ -7838,7 +7836,7 @@ public static class Pokedex
         entry = ToucannonDesc,
         forms = SingleSpecies(Species.Toucannon),
     };
-    public static PokedexData Yungoos = new()
+    public static readonly PokedexData Yungoos = new()
     {
         number = 734,
         name = "Yungoos",
@@ -7848,7 +7846,7 @@ public static class Pokedex
         entry = YungoosDesc,
         forms = SingleSpecies(Species.Yungoos),
     };
-    public static PokedexData Gumshoos = new()
+    public static readonly PokedexData Gumshoos = new()
     {
         number = 735,
         name = "Gumshoos",
@@ -7858,7 +7856,7 @@ public static class Pokedex
         entry = GumshoosDesc,
         forms = SingleSpecies(Species.Gumshoos),
     };
-    public static PokedexData Grubbin = new()
+    public static readonly PokedexData Grubbin = new()
     {
         number = 736,
         name = "Grubbin",
@@ -7868,7 +7866,7 @@ public static class Pokedex
         entry = GrubbinDesc,
         forms = SingleSpecies(Species.Grubbin),
     };
-    public static PokedexData Charjabug = new()
+    public static readonly PokedexData Charjabug = new()
     {
         number = 737,
         name = "Charjabug",
@@ -7878,7 +7876,7 @@ public static class Pokedex
         entry = CharjabugDesc,
         forms = SingleSpecies(Species.Charjabug),
     };
-    public static PokedexData Vikavolt = new()
+    public static readonly PokedexData Vikavolt = new()
     {
         number = 738,
         name = "Vikavolt",
@@ -7888,7 +7886,7 @@ public static class Pokedex
         entry = VikavoltDesc,
         forms = SingleSpecies(Species.Vikavolt),
     };
-    public static PokedexData Crabrawler = new()
+    public static readonly PokedexData Crabrawler = new()
     {
         number = 739,
         name = "Crabrawler",
@@ -7898,7 +7896,7 @@ public static class Pokedex
         entry = CrabrawlerDesc,
         forms = SingleSpecies(Species.Crabrawler),
     };
-    public static PokedexData Crabominable = new()
+    public static readonly PokedexData Crabominable = new()
     {
         number = 740,
         name = "Crabominable",
@@ -7908,7 +7906,7 @@ public static class Pokedex
         entry = CrabominableDesc,
         forms = SingleSpecies(Species.Crabominable),
     };
-    public static PokedexData Oricorio = new()
+    public static readonly PokedexData Oricorio = new()
     {
         number = 741,
         name = "Oricorio",
@@ -7924,7 +7922,7 @@ public static class Pokedex
             Species.OricorioSensu
         },
     };
-    public static PokedexData Cutiefly = new()
+    public static readonly PokedexData Cutiefly = new()
     {
         number = 742,
         name = "Cutiefly",
@@ -7934,7 +7932,7 @@ public static class Pokedex
         entry = CutieflyDesc,
         forms = SingleSpecies(Species.Cutiefly),
     };
-    public static PokedexData Ribombee = new()
+    public static readonly PokedexData Ribombee = new()
     {
         number = 743,
         name = "Ribombee",
@@ -7944,7 +7942,7 @@ public static class Pokedex
         entry = RibombeeDesc,
         forms = SingleSpecies(Species.Ribombee),
     };
-    public static PokedexData Rockruff = new()
+    public static readonly PokedexData Rockruff = new()
     {
         number = 744,
         name = "Rockruff",
@@ -7954,7 +7952,7 @@ public static class Pokedex
         entry = RockruffDesc,
         forms = SingleSpecies(Species.RockruffNormal),
     };
-    public static PokedexData Lycanroc = new()
+    public static readonly PokedexData Lycanroc = new()
     {
         number = 745,
         name = "Lycanroc",
@@ -7969,7 +7967,7 @@ public static class Pokedex
             Species.LycanrocDusk
         },
     };
-    public static PokedexData Wishiwashi = new()
+    public static readonly PokedexData Wishiwashi = new()
     {
         number = 746,
         name = "Wishiwashi",
@@ -7983,7 +7981,7 @@ public static class Pokedex
             Species.WishiwashiSchool
         }
     };
-    public static PokedexData Mareanie = new()
+    public static readonly PokedexData Mareanie = new()
     {
         number = 747,
         name = "Mareanie",
@@ -7993,7 +7991,7 @@ public static class Pokedex
         entry = MareanieDesc,
         forms = SingleSpecies(Species.Mareanie),
     };
-    public static PokedexData Toxapex = new()
+    public static readonly PokedexData Toxapex = new()
     {
         number = 748,
         name = "Toxapex",
@@ -8003,7 +8001,7 @@ public static class Pokedex
         entry = ToxapexDesc,
         forms = SingleSpecies(Species.Toxapex),
     };
-    public static PokedexData Mudbray = new()
+    public static readonly PokedexData Mudbray = new()
     {
         number = 749,
         name = "Mudbray",
@@ -8013,7 +8011,7 @@ public static class Pokedex
         entry = MudbrayDesc,
         forms = SingleSpecies(Species.Mudbray),
     };
-    public static PokedexData Mudsdale = new()
+    public static readonly PokedexData Mudsdale = new()
     {
         number = 750,
         name = "Mudsdale",
@@ -8023,7 +8021,7 @@ public static class Pokedex
         entry = MudsdaleDesc,
         forms = SingleSpecies(Species.Mudsdale),
     };
-    public static PokedexData Dewpider = new()
+    public static readonly PokedexData Dewpider = new()
     {
         number = 751,
         name = "Dewpider",
@@ -8033,7 +8031,7 @@ public static class Pokedex
         entry = DewpiderDesc,
         forms = SingleSpecies(Species.Dewpider),
     };
-    public static PokedexData Araquanid = new()
+    public static readonly PokedexData Araquanid = new()
     {
         number = 752,
         name = "Araquanid",
@@ -8043,7 +8041,7 @@ public static class Pokedex
         entry = AraquanidDesc,
         forms = SingleSpecies(Species.Araquanid),
     };
-    public static PokedexData Fomantis = new()
+    public static readonly PokedexData Fomantis = new()
     {
         number = 753,
         name = "Fomantis",
@@ -8053,7 +8051,7 @@ public static class Pokedex
         entry = FomantisDesc,
         forms = SingleSpecies(Species.Fomantis),
     };
-    public static PokedexData Lurantis = new()
+    public static readonly PokedexData Lurantis = new()
     {
         number = 754,
         name = "Lurantis",
@@ -8063,7 +8061,7 @@ public static class Pokedex
         entry = LurantisDesc,
         forms = SingleSpecies(Species.Lurantis),
     };
-    public static PokedexData Morelull = new()
+    public static readonly PokedexData Morelull = new()
     {
         number = 755,
         name = "Morelull",
@@ -8073,7 +8071,7 @@ public static class Pokedex
         entry = MorelullDesc,
         forms = SingleSpecies(Species.Morelull),
     };
-    public static PokedexData Shiinotic = new()
+    public static readonly PokedexData Shiinotic = new()
     {
         number = 756,
         name = "Shiinotic",
@@ -8083,7 +8081,7 @@ public static class Pokedex
         entry = ShiinoticDesc,
         forms = SingleSpecies(Species.Shiinotic),
     };
-    public static PokedexData Salandit = new()
+    public static readonly PokedexData Salandit = new()
     {
         number = 757,
         name = "Salandit",
@@ -8093,7 +8091,7 @@ public static class Pokedex
         entry = SalanditDesc,
         forms = SingleSpecies(Species.Salandit),
     };
-    public static PokedexData Salazzle = new()
+    public static readonly PokedexData Salazzle = new()
     {
         number = 758,
         name = "Salazzle",
@@ -8103,7 +8101,7 @@ public static class Pokedex
         entry = SalazzleDesc,
         forms = SingleSpecies(Species.Salazzle),
     };
-    public static PokedexData Stufful = new()
+    public static readonly PokedexData Stufful = new()
     {
         number = 759,
         name = "Stufful",
@@ -8113,7 +8111,7 @@ public static class Pokedex
         entry = StuffulDesc,
         forms = SingleSpecies(Species.Stufful),
     };
-    public static PokedexData Bewear = new()
+    public static readonly PokedexData Bewear = new()
     {
         number = 760,
         name = "Bewear",
@@ -8123,7 +8121,7 @@ public static class Pokedex
         entry = BewearDesc,
         forms = SingleSpecies(Species.Bewear),
     };
-    public static PokedexData Bounsweet = new()
+    public static readonly PokedexData Bounsweet = new()
     {
         number = 761,
         name = "Bounsweet",
@@ -8133,7 +8131,7 @@ public static class Pokedex
         entry = BounsweetDesc,
         forms = SingleSpecies(Species.Bounsweet),
     };
-    public static PokedexData Steenee = new()
+    public static readonly PokedexData Steenee = new()
     {
         number = 762,
         name = "Steenee",
@@ -8143,7 +8141,7 @@ public static class Pokedex
         entry = SteeneeDesc,
         forms = SingleSpecies(Species.Steenee),
     };
-    public static PokedexData Tsareena = new()
+    public static readonly PokedexData Tsareena = new()
     {
         number = 763,
         name = "Tsareena",
@@ -8153,7 +8151,7 @@ public static class Pokedex
         entry = TsareenaDesc,
         forms = SingleSpecies(Species.Tsareena),
     };
-    public static PokedexData Comfey = new()
+    public static readonly PokedexData Comfey = new()
     {
         number = 764,
         name = "Comfey",
@@ -8163,7 +8161,7 @@ public static class Pokedex
         entry = ComfeyDesc,
         forms = SingleSpecies(Species.Comfey),
     };
-    public static PokedexData Oranguru = new()
+    public static readonly PokedexData Oranguru = new()
     {
         number = 765,
         name = "Oranguru",
@@ -8173,7 +8171,7 @@ public static class Pokedex
         entry = OranguruDesc,
         forms = SingleSpecies(Species.Oranguru),
     };
-    public static PokedexData Passimian = new()
+    public static readonly PokedexData Passimian = new()
     {
         number = 766,
         name = "Passimian",
@@ -8183,7 +8181,7 @@ public static class Pokedex
         entry = PassimianDesc,
         forms = SingleSpecies(Species.Passimian),
     };
-    public static PokedexData Wimpod = new()
+    public static readonly PokedexData Wimpod = new()
     {
         number = 767,
         name = "Wimpod",
@@ -8193,7 +8191,7 @@ public static class Pokedex
         entry = WimpodDesc,
         forms = SingleSpecies(Species.Wimpod),
     };
-    public static PokedexData Golisopod = new()
+    public static readonly PokedexData Golisopod = new()
     {
         number = 768,
         name = "Golisopod",
@@ -8203,7 +8201,7 @@ public static class Pokedex
         entry = GolisopodDesc,
         forms = SingleSpecies(Species.Golisopod),
     };
-    public static PokedexData Sandygast = new()
+    public static readonly PokedexData Sandygast = new()
     {
         number = 769,
         name = "Sandygast",
@@ -8213,7 +8211,7 @@ public static class Pokedex
         entry = SandygastDesc,
         forms = SingleSpecies(Species.Sandygast),
     };
-    public static PokedexData Palossand = new()
+    public static readonly PokedexData Palossand = new()
     {
         number = 770,
         name = "Palossand",
@@ -8223,7 +8221,7 @@ public static class Pokedex
         entry = PalossandDesc,
         forms = SingleSpecies(Species.Palossand),
     };
-    public static PokedexData Pyukumuku = new()
+    public static readonly PokedexData Pyukumuku = new()
     {
         number = 771,
         name = "Pyukumuku",
@@ -8233,7 +8231,7 @@ public static class Pokedex
         entry = PyukumukuDesc,
         forms = SingleSpecies(Species.Pyukumuku),
     };
-    public static PokedexData TypeNull = new ()
+    public static readonly PokedexData TypeNull = new ()
 	{
 		number = 772,
 		name = "Type: Null",
@@ -8244,7 +8242,7 @@ public static class Pokedex
         forms = SingleSpecies(Species.TypeNull),
 
     };
-    public static PokedexData Silvally = new()
+    public static readonly PokedexData Silvally = new()
     {
         number = 773,
         name = "Silvally",
@@ -8274,7 +8272,7 @@ public static class Pokedex
             Species.SilvallyFairy
         },
     };
-    public static PokedexData Minior = new()
+    public static readonly PokedexData Minior = new()
     {
         number = 774,
         name = "Minior",
@@ -8294,7 +8292,7 @@ public static class Pokedex
             Species.MiniorRedMeteor
         },
     };
-    public static PokedexData Komala = new()
+    public static readonly PokedexData Komala = new()
     {
         number = 775,
         name = "Komala",
@@ -8304,7 +8302,7 @@ public static class Pokedex
         entry = KomalaDesc,
         forms = SingleSpecies(Species.Komala),
     };
-    public static PokedexData Turtonator = new()
+    public static readonly PokedexData Turtonator = new()
     {
         number = 776,
         name = "Turtonator",
@@ -8314,7 +8312,7 @@ public static class Pokedex
         entry = TurtonatorDesc,
         forms = SingleSpecies(Species.Turtonator),
     };
-    public static PokedexData Togedemaru = new()
+    public static readonly PokedexData Togedemaru = new()
     {
         number = 777,
         name = "Togedemaru",
@@ -8324,7 +8322,7 @@ public static class Pokedex
         entry = TogedemaruDesc,
         forms = SingleSpecies(Species.Togedemaru),
     };
-    public static PokedexData Mimikyu = new()
+    public static readonly PokedexData Mimikyu = new()
     {
         number = 778,
         name = "Mimikyu",
@@ -8338,7 +8336,7 @@ public static class Pokedex
             Species.MimikyuBusted
         }
     };
-    public static PokedexData Bruxish = new()
+    public static readonly PokedexData Bruxish = new()
     {
         number = 779,
         name = "Bruxish",
@@ -8348,7 +8346,7 @@ public static class Pokedex
         entry = BruxishDesc,
         forms = SingleSpecies(Species.Bruxish),
     };
-    public static PokedexData Drampa = new()
+    public static readonly PokedexData Drampa = new()
     {
         number = 780,
         name = "Drampa",
@@ -8358,7 +8356,7 @@ public static class Pokedex
         entry = DrampaDesc,
         forms = SingleSpecies(Species.Drampa),
     };
-    public static PokedexData Dhelmise = new()
+    public static readonly PokedexData Dhelmise = new()
     {
         number = 781,
         name = "Dhelmise",
@@ -8368,7 +8366,7 @@ public static class Pokedex
         entry = DhelmiseDesc,
         forms = SingleSpecies(Species.Dhelmise),
     };
-    public static PokedexData JangmoO = new()
+    public static readonly PokedexData JangmoO = new()
     {
         number = 782,
         name = "Jangmo O",
@@ -8378,7 +8376,7 @@ public static class Pokedex
         entry = JangmoODesc,
         forms = SingleSpecies(Species.JangmoO),
     };
-    public static PokedexData HakamoO = new()
+    public static readonly PokedexData HakamoO = new()
     {
         number = 783,
         name = "Hakamo O",
@@ -8388,7 +8386,7 @@ public static class Pokedex
         entry = HakamoODesc,
         forms = SingleSpecies(Species.HakamoO),
     };
-    public static PokedexData KommoO = new()
+    public static readonly PokedexData KommoO = new()
     {
         number = 784,
         name = "Kommo O",
@@ -8398,7 +8396,7 @@ public static class Pokedex
         entry = KommoODesc,
         forms = SingleSpecies(Species.KommoO),
     };
-    public static PokedexData TapuKoko = new()
+    public static readonly PokedexData TapuKoko = new()
     {
         number = 785,
         name = "Tapu Koko",
@@ -8408,7 +8406,7 @@ public static class Pokedex
         entry = TapuKokoDesc,
         forms = SingleSpecies(Species.TapuKoko),
     };
-    public static PokedexData TapuLele = new()
+    public static readonly PokedexData TapuLele = new()
     {
         number = 786,
         name = "Tapu Lele",
@@ -8418,7 +8416,7 @@ public static class Pokedex
         entry = TapuLeleDesc,
         forms = SingleSpecies(Species.TapuLele),
     };
-    public static PokedexData TapuBulu = new()
+    public static readonly PokedexData TapuBulu = new()
     {
         number = 787,
         name = "Tapu Bulu",
@@ -8428,7 +8426,7 @@ public static class Pokedex
         entry = TapuBuluDesc,
         forms = SingleSpecies(Species.TapuBulu),
     };
-    public static PokedexData TapuFini = new()
+    public static readonly PokedexData TapuFini = new()
     {
         number = 788,
         name = "Tapu Fini",
@@ -8438,7 +8436,7 @@ public static class Pokedex
         entry = TapuFiniDesc,
         forms = SingleSpecies(Species.TapuFini),
     };
-    public static PokedexData Cosmog = new()
+    public static readonly PokedexData Cosmog = new()
     {
         number = 789,
         name = "Cosmog",
@@ -8448,7 +8446,7 @@ public static class Pokedex
         entry = CosmogDesc,
         forms = SingleSpecies(Species.Cosmog),
     };
-    public static PokedexData Cosmoem = new()
+    public static readonly PokedexData Cosmoem = new()
     {
         number = 790,
         name = "Cosmoem",
@@ -8458,7 +8456,7 @@ public static class Pokedex
         entry = CosmoemDesc,
         forms = SingleSpecies(Species.Cosmoem),
     };
-    public static PokedexData Solgaleo = new()
+    public static readonly PokedexData Solgaleo = new()
     {
         number = 791,
         name = "Solgaleo",
@@ -8468,7 +8466,7 @@ public static class Pokedex
         entry = SolgaleoDesc,
         forms = SingleSpecies(Species.Solgaleo),
     };
-    public static PokedexData Lunala = new()
+    public static readonly PokedexData Lunala = new()
     {
         number = 792,
         name = "Lunala",
@@ -8478,7 +8476,7 @@ public static class Pokedex
         entry = LunalaDesc,
         forms = SingleSpecies(Species.Lunala),
     };
-    public static PokedexData Nihilego = new()
+    public static readonly PokedexData Nihilego = new()
     {
         number = 793,
         name = "Nihilego",
@@ -8488,7 +8486,7 @@ public static class Pokedex
         entry = NihilegoDesc,
         forms = SingleSpecies(Species.Nihilego),
     };
-    public static PokedexData Buzzwole = new()
+    public static readonly PokedexData Buzzwole = new()
     {
         number = 794,
         name = "Buzzwole",
@@ -8498,7 +8496,7 @@ public static class Pokedex
         entry = BuzzwoleDesc,
         forms = SingleSpecies(Species.Buzzwole),
     };
-    public static PokedexData Pheromosa = new()
+    public static readonly PokedexData Pheromosa = new()
     {
         number = 795,
         name = "Pheromosa",
@@ -8508,7 +8506,7 @@ public static class Pokedex
         entry = PheromosaDesc,
         forms = SingleSpecies(Species.Pheromosa),
     };
-    public static PokedexData Xurkitree = new()
+    public static readonly PokedexData Xurkitree = new()
     {
         number = 796,
         name = "Xurkitree",
@@ -8518,7 +8516,7 @@ public static class Pokedex
         entry = XurkitreeDesc,
         forms = SingleSpecies(Species.Xurkitree),
     };
-    public static PokedexData Celesteela = new()
+    public static readonly PokedexData Celesteela = new()
     {
         number = 797,
         name = "Celesteela",
@@ -8528,7 +8526,7 @@ public static class Pokedex
         entry = CelesteelaDesc,
         forms = SingleSpecies(Species.Celesteela),
     };
-    public static PokedexData Kartana = new()
+    public static readonly PokedexData Kartana = new()
     {
         number = 798,
         name = "Kartana",
@@ -8538,7 +8536,7 @@ public static class Pokedex
         entry = KartanaDesc,
         forms = SingleSpecies(Species.Kartana),
     };
-    public static PokedexData Guzzlord = new()
+    public static readonly PokedexData Guzzlord = new()
     {
         number = 799,
         name = "Guzzlord",
@@ -8548,7 +8546,7 @@ public static class Pokedex
         entry = GuzzlordDesc,
         forms = SingleSpecies(Species.Guzzlord),
     };
-    public static PokedexData Necrozma = new()
+    public static readonly PokedexData Necrozma = new()
     {
         number = 800,
         name = "Necrozma",
@@ -8564,7 +8562,7 @@ public static class Pokedex
             Species.NecrozmaUltra
         }
     };
-    public static PokedexData Magearna = new()
+    public static readonly PokedexData Magearna = new()
     {
         number = 801,
         name = "Magearna",
@@ -8578,7 +8576,7 @@ public static class Pokedex
             Species.MagearnaOriginal
         },
     };
-    public static PokedexData Marshadow = new()
+    public static readonly PokedexData Marshadow = new()
     {
         number = 802,
         name = "Marshadow",
@@ -8588,7 +8586,7 @@ public static class Pokedex
         entry = MarshadowDesc,
         forms = SingleSpecies(Species.Marshadow),
     };
-    public static PokedexData Poipole = new()
+    public static readonly PokedexData Poipole = new()
     {
         number = 803,
         name = "Poipole",
@@ -8598,7 +8596,7 @@ public static class Pokedex
         entry = PoipoleDesc,
         forms = SingleSpecies(Species.Poipole),
     };
-    public static PokedexData Naganadel = new()
+    public static readonly PokedexData Naganadel = new()
     {
         number = 804,
         name = "Naganadel",
@@ -8608,7 +8606,7 @@ public static class Pokedex
         entry = NaganadelDesc,
         forms = SingleSpecies(Species.Naganadel),
     };
-    public static PokedexData Stakataka = new()
+    public static readonly PokedexData Stakataka = new()
     {
         number = 805,
         name = "Stakataka",
@@ -8618,7 +8616,7 @@ public static class Pokedex
         entry = StakatakaDesc,
         forms = SingleSpecies(Species.Stakataka),
     };
-    public static PokedexData Blacephalon = new()
+    public static readonly PokedexData Blacephalon = new()
     {
         number = 806,
         name = "Blacephalon",
@@ -8628,7 +8626,7 @@ public static class Pokedex
         entry = BlacephalonDesc,
         forms = SingleSpecies(Species.Blacephalon),
     };
-    public static PokedexData Zeraora = new()
+    public static readonly PokedexData Zeraora = new()
     {
         number = 807,
         name = "Zeraora",
@@ -8638,7 +8636,7 @@ public static class Pokedex
         entry = ZeraoraDesc,
         forms = SingleSpecies(Species.Zeraora),
     };
-    public static PokedexData Meltan = new()
+    public static readonly PokedexData Meltan = new()
     {
         number = 808,
         name = "Meltan",
@@ -8648,7 +8646,7 @@ public static class Pokedex
         entry = MeltanDesc,
         forms = SingleSpecies(Species.Meltan),
     };
-    public static PokedexData Melmetal = new()
+    public static readonly PokedexData Melmetal = new()
     {
         number = 809,
         name = "Melmetal",

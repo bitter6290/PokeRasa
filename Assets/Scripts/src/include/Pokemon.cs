@@ -8,7 +8,9 @@ public class Pokemon : ICloneable
     public SpeciesID species;
 
 
-    public string monName;
+    public string name = string.Empty;
+    public string MonName => name == string.Empty ? SpeciesData.speciesName : name;
+
     public Gender gender;
 
     public int xp;
@@ -277,8 +279,6 @@ public class Pokemon : ICloneable
     {
         species = thisSpecies;
         gender = Gender;
-
-        monName = SpeciesData.speciesName;
 
         level = Level;
 

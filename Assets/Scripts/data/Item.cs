@@ -6,16 +6,13 @@ using static HeldEffect;
 
 public static class Item
 {
-    public static bool CanBeStolen(ItemID item) =>
-        ItemTable[(int)item].type is ItemType.FieldItem or ItemType.BattleItem or ItemType.Medicine;
-
-    public static AbstractItem None = new()
+    public static readonly AbstractItem None = new()
     {
         itemName = "Error 901",
         price = 100,
     };
 
-    public static Berry CheriBerry = new()
+    public static readonly Berry CheriBerry = new()
     {
         itemName = "Cheri Berry",
         price = 1000,
@@ -23,7 +20,7 @@ public static class Item
         graphicsPath = "cheri_berry"
     };
 
-    public static Berry ChestoBerry = new()
+    public static readonly Berry ChestoBerry = new()
     {
         itemName = "Chesto Berry",
         price = 1000,
@@ -31,7 +28,7 @@ public static class Item
         graphicsPath = "chesto_berry"
     };
 
-    public static Berry PechaBerry = new()
+    public static readonly Berry PechaBerry = new()
     {
         itemName = "Pecha Berry",
         price = 1000,
@@ -39,7 +36,7 @@ public static class Item
         graphicsPath = "pecha_berry"
     };
 
-    public static Berry RawstBerry = new()
+    public static readonly Berry RawstBerry = new()
     {
         itemName = "Rawst Berry",
         price = 1000,
@@ -47,7 +44,7 @@ public static class Item
         graphicsPath = "rawst_berry"
     };
 
-    public static Berry AspearBerry = new()
+    public static readonly Berry AspearBerry = new()
     {
         itemName = "Aspear Berry",
         price = 1000,
@@ -55,7 +52,7 @@ public static class Item
         graphicsPath = "aspear_berry"
     };
 
-    public static Berry PersimBerry = new()
+    public static readonly Berry PersimBerry = new()
     {
         itemName = "Persim Berry",
         price = 1000,
@@ -63,7 +60,7 @@ public static class Item
         graphicsPath = "persim_berry"
     };
 
-    public static Berry LumBerry = new()
+    public static readonly Berry LumBerry = new()
     {
         itemName = "Lum Berry",
         price = 2000,
@@ -71,7 +68,7 @@ public static class Item
         graphicsPath = "lum_berry"
     };
 
-    public static Berry OranBerry = new()
+    public static readonly Berry OranBerry = new()
     {
         itemName = "Oran Berry",
         price = 500,
@@ -79,7 +76,7 @@ public static class Item
         graphicsPath = "oran_berry"
     };
 
-    public static Berry SitrusBerry = new()
+    public static readonly Berry SitrusBerry = new()
     {
         itemName = "Sitrus Berry",
         price = 1500,
@@ -87,7 +84,7 @@ public static class Item
         graphicsPath = "sitrus_berry"
     };
 
-    public static Berry FigyBerry = new()
+    public static readonly Berry FigyBerry = new()
     {
         itemName = "Figy Berry",
         price = 2500,
@@ -95,7 +92,7 @@ public static class Item
         graphicsPath = "figy_berry"
     };
 
-    public static Berry WikiBerry = new()
+    public static readonly Berry WikiBerry = new()
     {
         itemName = "Wiki Berry",
         price = 2500,
@@ -103,7 +100,7 @@ public static class Item
         graphicsPath = "wiki_berry"
     };
 
-    public static Berry MagoBerry = new()
+    public static readonly Berry MagoBerry = new()
     {
         itemName = "Mago Berry",
         price = 2500,
@@ -111,7 +108,7 @@ public static class Item
         graphicsPath = "mago_berry"
     };
 
-    public static Berry AguavBerry = new()
+    public static readonly Berry AguavBerry = new()
     {
         itemName = "Aguav Berry",
         price = 2500,
@@ -119,7 +116,7 @@ public static class Item
         graphicsPath = "aguav_berry"
     };
 
-    public static Berry IapapaBerry = new()
+    public static readonly Berry IapapaBerry = new()
     {
         itemName = "Iapapa Berry",
         price = 2500,
@@ -127,7 +124,7 @@ public static class Item
         graphicsPath = "iapapa_berry"
     };
 
-    public static Berry EnigmaBerry = new()
+    public static readonly Berry EnigmaBerry = new()
     {
         itemName = "Enigma Berry",
         price = 3000,
@@ -135,7 +132,7 @@ public static class Item
         graphicsPath = "enigma_berry"
     };
 
-    public static Berry LeppaBerry = new()
+    public static readonly Berry LeppaBerry = new()
     {
         itemName = "Leppa Berry",
         price = 2000,
@@ -143,42 +140,42 @@ public static class Item
         graphicsPath = "leppa_berry"
     };
 
-    public static Berry RazzBerry = new()
+    public static readonly Berry RazzBerry = new()
     {
         itemName = "Razz Berry",
         price = 1000,
         graphicsPath = "razz_berry"
     };
 
-    public static Berry BlukBerry = new()
+    public static readonly Berry BlukBerry = new()
     {
         itemName = "Bluk Berry",
         price = 1000,
         graphicsPath = "bluk_berry"
     };
 
-    public static Berry NanabBerry = new()
+    public static readonly Berry NanabBerry = new()
     {
         itemName = "Nanab Berry",
         price = 1000,
         graphicsPath = "nanab_berry"
     };
 
-    public static Berry WepearBerry = new()
+    public static readonly Berry WepearBerry = new()
     {
         itemName = "Wepear Berry",
         price = 1000,
         graphicsPath = "wepear_berry"
     };
 
-    public static Berry PinapBerry = new()
+    public static readonly Berry PinapBerry = new()
     {
         itemName = "Pinap Berry",
         price = 1000,
         graphicsPath = "pinap_berry"
     };
 
-    public static Berry PomegBerry = new()
+    public static readonly Berry PomegBerry = new()
     {
         itemName = "Pomeg Berry",
         price = 5000,
@@ -186,7 +183,7 @@ public static class Item
         graphicsPath = "pomeg_berry"
     };
 
-    public static Berry KelpsyBerry = new()
+    public static readonly Berry KelpsyBerry = new()
     {
         itemName = "Kelpsy Berry",
         price = 5000,
@@ -194,7 +191,7 @@ public static class Item
         graphicsPath = "kelpsy_berry"
     };
 
-    public static Berry QualotBerry = new()
+    public static readonly Berry QualotBerry = new()
     {
         itemName = "Qualot Berry",
         price = 5000,
@@ -202,7 +199,7 @@ public static class Item
         graphicsPath = "qualot_berry"
     };
 
-    public static Berry HondewBerry = new()
+    public static readonly Berry HondewBerry = new()
     {
         itemName = "Hondew Berry",
         price = 5000,
@@ -210,7 +207,7 @@ public static class Item
         graphicsPath = "hondew_berry"
     };
 
-    public static Berry GrepaBerry = new()
+    public static readonly Berry GrepaBerry = new()
     {
         itemName = "Grepa Berry",
         price = 5000,
@@ -218,7 +215,7 @@ public static class Item
         graphicsPath = "grepa_berry"
     };
 
-    public static Berry TamatoBerry = new()
+    public static readonly Berry TamatoBerry = new()
     {
         itemName = "Tamato Berry",
         price = 5000,
@@ -226,70 +223,70 @@ public static class Item
         graphicsPath = "tamato_berry"
     };
 
-    public static Berry CornnBerry = new()
+    public static readonly Berry CornnBerry = new()
     {
         itemName = "Cornn Berry",
         price = 1000,
         graphicsPath = "cornn_Berry"
     };
 
-    public static Berry MagostBerry = new()
+    public static readonly Berry MagostBerry = new()
     {
         itemName = "Magost Berry",
         price = 1000,
         graphicsPath = "magost_berry"
     };
 
-    public static Berry RabutaBerry = new()
+    public static readonly Berry RabutaBerry = new()
     {
         itemName = "Rabuta Berry",
         price = 1000,
         graphicsPath = "rabuta_berry"
     };
 
-    public static Berry NomelBerry = new()
+    public static readonly Berry NomelBerry = new()
     {
         itemName = "Nomel Berry",
         price = 1000,
         graphicsPath = "nomel_berry",
     };
 
-    public static Berry SpelonBerry = new()
+    public static readonly Berry SpelonBerry = new()
     {
         itemName = "Spelon Berry",
         price = 1000,
         graphicsPath = "spelon_berry"
     };
 
-    public static Berry PamtreBerry = new()
+    public static readonly Berry PamtreBerry = new()
     {
         itemName = "Pamtre Berry",
         price = 1000,
         graphicsPath = "pamtre_berry"
     };
 
-    public static Berry WatmelBerry = new()
+    public static readonly Berry WatmelBerry = new()
     {
         itemName = "Watmel Berry",
         price = 1000,
         graphicsPath = "watmel_berry"
     };
 
-    public static Berry DurinBerry = new()
+    public static readonly Berry DurinBerry = new()
     {
         itemName = "Durin Berry",
         price = 1000,
         graphicsPath = "durin_berry"
     };
 
-    public static Berry BelueBerry = new()
+    public static readonly Berry BelueBerry = new()
     {
         itemName = "Belue Berry",
         price = 1000,
         graphicsPath = "belue_berry"
     };
 
-    public static Berry OccaBerry = new()
+    public static readonly Berry OccaBerry = new()
     {
         itemName = "Occa Berry",
         price = 2500,
@@ -297,7 +294,7 @@ public static class Item
         graphicsPath = "occa_berry"
     };
 
-    public static Berry PasshoBerry = new()
+    public static readonly Berry PasshoBerry = new()
     {
         itemName = "Passho Berry",
         price = 2500,
@@ -305,7 +302,7 @@ public static class Item
         graphicsPath = "passho_berry"
     };
 
-    public static Berry WacanBerry = new()
+    public static readonly Berry WacanBerry = new()
     {
         itemName = "Wacan Berry",
         price = 2500,
@@ -313,7 +310,7 @@ public static class Item
         graphicsPath = "wacan_berry"
     };
 
-    public static Berry RindoBerry = new()
+    public static readonly Berry RindoBerry = new()
     {
         itemName = "Rindo Berry",
         price = 2500,
@@ -321,7 +318,7 @@ public static class Item
         graphicsPath = "rindo_berry"
     };
 
-    public static Berry YacheBerry = new()
+    public static readonly Berry YacheBerry = new()
     {
         itemName = "Yache Berry",
         price = 2500,
@@ -329,7 +326,7 @@ public static class Item
         graphicsPath = "yache_berry"
     };
 
-    public static Berry ChopleBerry = new()
+    public static readonly Berry ChopleBerry = new()
     {
         itemName = "Chople Berry",
         price = 2500,
@@ -337,7 +334,7 @@ public static class Item
         graphicsPath = "chople_berry"
     };
 
-    public static Berry KebiaBerry = new()
+    public static readonly Berry KebiaBerry = new()
     {
         itemName = "Kebia Berry",
         price = 2500,
@@ -345,7 +342,7 @@ public static class Item
         graphicsPath = "kebia_berry"
     };
 
-    public static Berry ShucaBerry = new()
+    public static readonly Berry ShucaBerry = new()
     {
         itemName = "Shuca Berry",
         price = 2500,
@@ -353,7 +350,7 @@ public static class Item
         graphicsPath = "shuca_berry"
     };
 
-    public static Berry CobaBerry = new()
+    public static readonly Berry CobaBerry = new()
     {
         itemName = "Coba Berry",
         price = 2500,
@@ -361,7 +358,7 @@ public static class Item
         graphicsPath = "coba_berry"
     };
 
-    public static Berry PayapaBerry = new()
+    public static readonly Berry PayapaBerry = new()
     {
         itemName = "Payapa Berry",
         price = 2500,
@@ -369,7 +366,7 @@ public static class Item
         graphicsPath = "payapa_berry"
     };
 
-    public static Berry TangaBerry = new()
+    public static readonly Berry TangaBerry = new()
     {
         itemName = "Tanga Berry",
         price = 2500,
@@ -377,7 +374,7 @@ public static class Item
         graphicsPath = "tanga_berry"
     };
 
-    public static Berry ChartiBerry = new()
+    public static readonly Berry ChartiBerry = new()
     {
         itemName = "Charti Berry",
         price = 2500,
@@ -385,7 +382,7 @@ public static class Item
         graphicsPath = "charti_berry"
     };
 
-    public static Berry KasibBerry = new()
+    public static readonly Berry KasibBerry = new()
     {
         itemName = "Kasib Berry",
         price = 2500,
@@ -393,7 +390,7 @@ public static class Item
         graphicsPath = "kasib_berry"
     };
 
-    public static Berry HabanBerry = new()
+    public static readonly Berry HabanBerry = new()
     {
         itemName = "Haban Berry",
         price = 2500,
@@ -401,7 +398,7 @@ public static class Item
         graphicsPath = "haban_berry"
     };
 
-    public static Berry ColburBerry = new()
+    public static readonly Berry ColburBerry = new()
     {
         itemName = "Colbur Berry",
         price = 2500,
@@ -409,7 +406,7 @@ public static class Item
         graphicsPath = "colbur_berry"
     };
 
-    public static Berry BabiriBerry = new()
+    public static readonly Berry BabiriBerry = new()
     {
         itemName = "Babiri Berry",
         price = 2500,
@@ -418,7 +415,7 @@ public static class Item
     };
 
 
-    public static Berry ChilanBerry = new()
+    public static readonly Berry ChilanBerry = new()
     {
         itemName = "Chilan Berry",
         price = 2500,
@@ -426,7 +423,7 @@ public static class Item
         graphicsPath = "chilan_bery"
     };
 
-    public static Berry LiechiBerry = new()
+    public static readonly Berry LiechiBerry = new()
     {
         itemName = "Liechi Berry",
         price = 5000,
@@ -434,7 +431,7 @@ public static class Item
         graphicsPath = "liechi_berry"
     };
 
-    public static Berry GanlonBerry = new()
+    public static readonly Berry GanlonBerry = new()
     {
         itemName = "Ganlon Berry",
         price = 5000,
@@ -442,7 +439,7 @@ public static class Item
         graphicsPath = "ganlon_berry"
     };
 
-    public static Berry SalacBerry = new()
+    public static readonly Berry SalacBerry = new()
     {
         itemName = "Salac Berry",
         price = 5000,
@@ -450,7 +447,7 @@ public static class Item
         graphicsPath = "salac_berry"
     };
 
-    public static Berry PetayaBerry = new()
+    public static readonly Berry PetayaBerry = new()
     {
         itemName = "Petaya Berry",
         price = 5000,
@@ -458,7 +455,7 @@ public static class Item
         graphicsPath = "petaya_berry"
     };
 
-    public static Berry ApicotBerry = new()
+    public static readonly Berry ApicotBerry = new()
     {
         itemName = "Apicot Berry",
         price = 5000,
@@ -466,7 +463,7 @@ public static class Item
         graphicsPath = "apicot_berry"
     };
 
-    public static Berry LansatBerry = new()
+    public static readonly Berry LansatBerry = new()
     {
         itemName = "Lansat Berry",
         price = 5000,
@@ -474,7 +471,7 @@ public static class Item
         graphicsPath = "lansat_berry"
     };
 
-    public static Berry StarfBerry = new()
+    public static readonly Berry StarfBerry = new()
     {
         itemName = "Starf Berry",
         price = 5000,
@@ -482,7 +479,7 @@ public static class Item
         graphicsPath = "starf_berry"
     };
 
-    public static Berry KeeBerry = new()
+    public static readonly Berry KeeBerry = new()
     {
         itemName = "Kee Berry",
         price = 2500,
@@ -490,7 +487,7 @@ public static class Item
         graphicsPath = "kee_berry"
     };
 
-    public static Berry MarangaBerry = new()
+    public static readonly Berry MarangaBerry = new()
     {
         itemName = "Maranga Berry",
         price = 2500,
@@ -498,7 +495,7 @@ public static class Item
         graphicsPath = "maranga_berry"
     };
 
-    public static Berry MicleBerry = new()
+    public static readonly Berry MicleBerry = new()
     {
         itemName = "Micle Berry",
         price = 3000,
@@ -506,7 +503,7 @@ public static class Item
         graphicsPath = "micle_berry"
     };
 
-    public static Berry CustapBerry = new()
+    public static readonly Berry CustapBerry = new()
     {
         itemName = "Custap Berry",
         price = 3000,
@@ -514,7 +511,7 @@ public static class Item
         graphicsPath = "custap_berry"
     };
 
-    public static Berry JabocaBerry = new()
+    public static readonly Berry JabocaBerry = new()
     {
         itemName = "Jaboca Berry",
         price = 4000,
@@ -522,7 +519,7 @@ public static class Item
         graphicsPath = "jaboca_berry"
     };
 
-    public static Berry RowapBerry = new()
+    public static readonly Berry RowapBerry = new()
     {
         itemName = "Rowap Berry",
         price = 4000,
@@ -530,7 +527,7 @@ public static class Item
         graphicsPath = "rowap_berry"
     };
 
-    public static Berry HopoBerry = new()
+    public static readonly Berry HopoBerry = new()
     {
         itemName = "Hopo Berry",
         price = 3000,
@@ -538,7 +535,7 @@ public static class Item
         graphicsPath = "hopo_berry"
     };
 
-    public static Berry RoseliBerry = new()
+    public static readonly Berry RoseliBerry = new()
     {
         itemName = "Roseli Berry",
         price = 2500,
@@ -546,7 +543,7 @@ public static class Item
         graphicsPath = "roseli_berry"
     };
 
-    public static FieldItem FireStone = new()
+    public static readonly FieldItem FireStone = new()
     {
         itemName = "Fire Stone",
         price = 10000,
@@ -554,7 +551,7 @@ public static class Item
         graphicsPath = "fire_stone",
     };
 
-    public static FieldItem WaterStone = new()
+    public static readonly FieldItem WaterStone = new()
     {
         itemName = "Water Stone",
         price = 10000,
@@ -562,7 +559,7 @@ public static class Item
         graphicsPath = "water_stone",
     };
 
-    public static FieldItem ThunderStone = new()
+    public static readonly FieldItem ThunderStone = new()
     {
         itemName = "Thunder Stone",
         price = 10000,
@@ -570,7 +567,7 @@ public static class Item
         graphicsPath = "thunder_stone",
     };
 
-    public static FieldItem LeafStone = new()
+    public static readonly FieldItem LeafStone = new()
     {
         itemName = "Leaf Stone",
         price = 10000,
@@ -578,7 +575,7 @@ public static class Item
         graphicsPath = "leaf_stone",
     };
 
-    public static FieldItem MoonStone = new()
+    public static readonly FieldItem MoonStone = new()
     {
         itemName = "Moon Stone",
         price = 10000,
@@ -586,7 +583,7 @@ public static class Item
         graphicsPath = "moon_stone",
     };
 
-    public static FieldItem SunStone = new()
+    public static readonly FieldItem SunStone = new()
     {
         itemName = "Sun Stone",
         price = 10000,
@@ -594,7 +591,7 @@ public static class Item
         graphicsPath = "sun_stone",
     };
 
-    public static FieldItem ShinyStone = new()
+    public static readonly FieldItem ShinyStone = new()
     {
         itemName = "Shiny Stone",
         price = 10000,
@@ -602,7 +599,7 @@ public static class Item
         graphicsPath = "shiny_stone",
     };
 
-    public static FieldItem DuskStone = new()
+    public static readonly FieldItem DuskStone = new()
     {
         itemName = "Dusk Stone",
         price = 10000,
@@ -610,7 +607,7 @@ public static class Item
         graphicsPath = "dusk_stone",
     };
 
-    public static FieldItem DawnStone = new()
+    public static readonly FieldItem DawnStone = new()
     {
         itemName = "Dawn Stone",
         price = 10000,
@@ -618,7 +615,7 @@ public static class Item
         graphicsPath = "dawn_stone",
     };
 
-    public static FieldItem IceStone = new()
+    public static readonly FieldItem IceStone = new()
     {
         itemName = "Ice Stone",
         price = 10000,
@@ -628,7 +625,7 @@ public static class Item
 
     //Held items
 
-    public static HeldItem KingsRock = new()
+    public static readonly HeldItem KingsRock = new()
     {
         itemName = "King's Rock",
         price = 15000,
@@ -637,7 +634,7 @@ public static class Item
         flingEffect = MoveEffect.Flinch,
     };
 
-    public static HeldItem MetalCoat = new()
+    public static readonly HeldItem MetalCoat = new()
     {
         itemName = "Metal Coat",
         price = 15000,
@@ -645,7 +642,7 @@ public static class Item
         graphicsPath = "metal_coat",
     };
 
-    public static HeldItem DeepSeaTooth = new()
+    public static readonly HeldItem DeepSeaTooth = new()
     {
         itemName = "Deep Sea Tooth",
         price = 20000,
@@ -654,7 +651,7 @@ public static class Item
         flingPower = 90,
     };
 
-    public static HeldItem DeepSeaScale = new()
+    public static readonly HeldItem DeepSeaScale = new()
     {
         itemName = "Deep Sea Scale",
         price = 20000,
@@ -662,7 +659,7 @@ public static class Item
         graphicsPath = "deep_sea_scale"
     };
 
-    public static HeldItem RazorClaw = new()
+    public static readonly HeldItem RazorClaw = new()
     {
         itemName = "Razor Claw",
         price = 10000,
@@ -670,7 +667,7 @@ public static class Item
         graphicsPath = "razor_claw"
     };
 
-    public static HeldItem RazorFang = new()
+    public static readonly HeldItem RazorFang = new()
     {
         itemName = "Razor Fang",
         price = 10000,
@@ -678,7 +675,7 @@ public static class Item
         graphicsPath = "razor_fang"
     };
 
-    public static HeldItem UtilityUmbrella = new()
+    public static readonly HeldItem UtilityUmbrella = new()
     {
         itemName = "Utility Umbrella",
         price = 10000,
@@ -688,7 +685,7 @@ public static class Item
 
     //Plates
 
-    public static PlateItem BlankPlate = new()
+    public static readonly PlateItem BlankPlate = new()
     {
         itemName = "Blank Plate",
         price = 0,
@@ -697,7 +694,7 @@ public static class Item
         graphicsPath = "blank_plate"
     };
 
-    public static PlateItem FlamePlate = new()
+    public static readonly PlateItem FlamePlate = new()
     {
         itemName = "Flame Plate",
         price = 0,
@@ -706,7 +703,7 @@ public static class Item
         graphicsPath = "flame_plate"
     };
 
-    public static PlateItem SplashPlate = new()
+    public static readonly PlateItem SplashPlate = new()
     {
         itemName = "Splash Plate",
         price = 0,
@@ -715,7 +712,7 @@ public static class Item
         graphicsPath = "water_plate"
     };
 
-    public static PlateItem MeadowPlate = new()
+    public static readonly PlateItem MeadowPlate = new()
     {
         itemName = "Meadow Plate",
         price = 0,
@@ -724,7 +721,7 @@ public static class Item
         graphicsPath = "meadow_plate"
     };
 
-    public static PlateItem ZapPlate = new()
+    public static readonly PlateItem ZapPlate = new()
     {
         itemName = "Zap Plate",
         price = 0,
@@ -733,7 +730,7 @@ public static class Item
         graphicsPath = "zap_plate"
     };
 
-    public static PlateItem IciclePlate = new()
+    public static readonly PlateItem IciclePlate = new()
     {
         itemName = "Icicle Plate",
         price = 0,
@@ -742,7 +739,7 @@ public static class Item
         graphicsPath = "icicle_plate"
     };
 
-    public static PlateItem EarthPlate = new()
+    public static readonly PlateItem EarthPlate = new()
     {
         itemName = "Earth Plate",
         price = 0,
@@ -751,7 +748,7 @@ public static class Item
         graphicsPath = "earth_plate"
     };
 
-    public static PlateItem StonePlate = new()
+    public static readonly PlateItem StonePlate = new()
     {
         itemName = "Stone Plate",
         price = 0,
@@ -760,7 +757,7 @@ public static class Item
         graphicsPath = "stone_plate"
     };
 
-    public static PlateItem SkyPlate = new()
+    public static readonly PlateItem SkyPlate = new()
     {
         itemName = "Sky Plate",
         price = 0,
@@ -769,7 +766,7 @@ public static class Item
         graphicsPath = "sky_plate"
     };
 
-    public static PlateItem FistPlate = new()
+    public static readonly PlateItem FistPlate = new()
     {
         itemName = "Fist Plate",
         price = 0,
@@ -778,7 +775,7 @@ public static class Item
         graphicsPath = "fist_plate"
     };
 
-    public static PlateItem InsectPlate = new()
+    public static readonly PlateItem InsectPlate = new()
     {
         itemName = "Insect Plate",
         price = 0,
@@ -787,7 +784,7 @@ public static class Item
         graphicsPath = "insect_plate"
     };
 
-    public static PlateItem MindPlate = new()
+    public static readonly PlateItem MindPlate = new()
     {
         itemName = "Mind Plate",
         price = 0,
@@ -796,7 +793,7 @@ public static class Item
         graphicsPath = "mind_plate"
     };
 
-    public static PlateItem SpookyPlate = new()
+    public static readonly PlateItem SpookyPlate = new()
     {
         itemName = "Spooky Plate",
         price = 0,
@@ -805,7 +802,7 @@ public static class Item
         graphicsPath = "spooky_plate"
     };
 
-    public static PlateItem ToxicPlate = new()
+    public static readonly PlateItem ToxicPlate = new()
     {
         itemName = "Toxic Plate",
         price = 0,
@@ -814,7 +811,7 @@ public static class Item
         graphicsPath = "toxic_plate"
     };
 
-    public static PlateItem DracoPlate = new()
+    public static readonly PlateItem DracoPlate = new()
     {
         itemName = "Draco Plate",
         price = 0,
@@ -823,7 +820,7 @@ public static class Item
         graphicsPath = "draco_plate"
     };
 
-    public static PlateItem DreadPlate = new()
+    public static readonly PlateItem DreadPlate = new()
     {
         itemName = "Dread Plate",
         price = 0,
@@ -832,7 +829,7 @@ public static class Item
         graphicsPath = "dread_plate"
     };
 
-    public static PlateItem IronPlate = new()
+    public static readonly PlateItem IronPlate = new()
     {
         itemName = "Iron Plate",
         price = 0,
@@ -841,7 +838,7 @@ public static class Item
         graphicsPath = "iron_plate"
     };
 
-    public static PlateItem PixiePlate = new()
+    public static readonly PlateItem PixiePlate = new()
     {
         itemName = "Pixie Plate",
         price = 0,
@@ -852,105 +849,105 @@ public static class Item
 
     //Abstract items - only used for evolutions/specific item checks
 
-    public static AbstractItem DragonScale = new()
+    public static readonly AbstractItem DragonScale = new()
     {
         itemName = "Dragon Scale",
         price = 10000,
         graphicsPath = "dragon_scale",
     };
 
-    public static AbstractItem PrismScale = new()
+    public static readonly AbstractItem PrismScale = new()
     {
         itemName = "Prism Scale",
         price = 10000,
         graphicsPath = "prism_scale"
     };
 
-    public static AbstractItem UpGrade = new()
+    public static readonly AbstractItem UpGrade = new()
     {
         itemName = "Up-Grade",
         price = 10000,
         graphicsPath = "upgrade",
     };
 
-    public static AbstractItem ReaperCloth = new()
+    public static readonly AbstractItem ReaperCloth = new()
     {
         itemName = "Reaper Cloth",
         price = 10000,
         graphicsPath = "reaper_cloth"
     };
 
-    public static AbstractItem Protector = new()
+    public static readonly AbstractItem Protector = new()
     {
         itemName = "Protector",
         price = 10000,
         graphicsPath = "protector"
     };
 
-    public static AbstractItem Electrizer = new()
+    public static readonly AbstractItem Electrizer = new()
     {
         itemName = "Electrizer",
         price = 10000,
         graphicsPath = "electrizer"
     };
 
-    public static AbstractItem Magmarizer = new()
+    public static readonly AbstractItem Magmarizer = new()
     {
         itemName = "Magmarizer",
         price = 10000,
         graphicsPath = "magmarizer"
     };
 
-    public static AbstractItem DubiousDisk = new()
+    public static readonly AbstractItem DubiousDisk = new()
     {
         itemName = "Dubious Disk",
         price = 10000,
         graphicsPath = "dubious_disk"
     };
 
-    public static AbstractItem OvalStone = new()
+    public static readonly AbstractItem OvalStone = new()
     {
         itemName = "Oval Stone",
         price = 10000,
         graphicsPath = "oval_stone"
     };
 
-    public static AbstractItem ShockDrive = new()
+    public static readonly AbstractItem ShockDrive = new()
     {
         itemName = "Shock Drive",
         price = 100000,
         graphicsPath = "shock_drive"
     };
 
-    public static AbstractItem BurnDrive = new()
+    public static readonly AbstractItem BurnDrive = new()
     {
         itemName = "Burn Drive",
         price = 100000,
         graphicsPath = "burn_drive"
     };
 
-    public static AbstractItem ChillDrive = new()
+    public static readonly AbstractItem ChillDrive = new()
     {
         itemName = "Chill Drive",
         price = 100000,
         graphicsPath = "chill_drive"
     };
 
-    public static AbstractItem DouseDrive = new()
+    public static readonly AbstractItem DouseDrive = new()
     {
         itemName = "Douse Drive",
         price = 100000,
         graphicsPath = "douse_drive"
     };
 
-    public static AbstractItem Satchet = new()
+    public static readonly AbstractItem Satchet = new()
     {
         itemName = "Satchet",
         price = 20000,
         graphicsPath = "satchet"
     };
 
-    public static AbstractItem WhippedDream = new()
+    public static readonly AbstractItem WhippedDream = new()
     {
         itemName = "Whipped Dream",
         price = 20000,
@@ -959,7 +956,7 @@ public static class Item
 
     //Poké balls
 
-    public static PokeBall PokeBall = new()
+    public static readonly PokeBall PokeBall = new()
     {
         itemName = "Poké Ball",
         price = 200,
@@ -968,7 +965,7 @@ public static class Item
         graphicsPath = "poke_ball"
     };
 
-    public static PokeBall GreatBall = new()
+    public static readonly PokeBall GreatBall = new()
     {
         itemName = "Great Ball",
         price = 600,
@@ -977,7 +974,7 @@ public static class Item
         graphicsPath = "great_ball"
     };
 
-    public static PokeBall UltraBall = new()
+    public static readonly PokeBall UltraBall = new()
     {
         itemName = "Ultra Ball",
         price = 1000,
@@ -986,7 +983,7 @@ public static class Item
         graphicsPath = "ultra_ball"
     };
 
-    public static PokeBall MasterBall = new()
+    public static readonly PokeBall MasterBall = new()
     {
         itemName = "Master Ball",
         price = 1000000,
@@ -997,7 +994,7 @@ public static class Item
 
     //Mega stones
 
-    public static MegaStone Venusaurite = new()
+    public static readonly MegaStone Venusaurite = new()
     {
         itemName = "Venusaurite",
         price = 40000,
@@ -1006,7 +1003,7 @@ public static class Item
         graphicsPath = "venusaurite",
     };
 
-    public static MegaStone CharizarditeX = new()
+    public static readonly MegaStone CharizarditeX = new()
     {
         itemName = "Charizardite X",
         price = 40000,
@@ -1015,7 +1012,7 @@ public static class Item
         graphicsPath = "charizardite_x",
     };
 
-    public static MegaStone CharizarditeY = new()
+    public static readonly MegaStone CharizarditeY = new()
     {
         itemName = "Charizardite Y",
         price = 40000,
@@ -1024,7 +1021,7 @@ public static class Item
         graphicsPath = "charizardite_y",
     };
 
-    public static MegaStone Blastoisinite = new()
+    public static readonly MegaStone Blastoisinite = new()
     {
         itemName = "Blastoisinite",
         price = 40000,
@@ -1033,7 +1030,7 @@ public static class Item
         graphicsPath = "blastoisinite",
     };
 
-    public static MegaStone Beedrillite = new()
+    public static readonly MegaStone Beedrillite = new()
     {
         itemName = "Beedrillite",
         price = 40000,
@@ -1042,7 +1039,7 @@ public static class Item
         graphicsPath = "beedrillite",
     };
 
-    public static MegaStone Pidgeotite = new()
+    public static readonly MegaStone Pidgeotite = new()
     {
         itemName = "Pidgeotite",
         price = 40000,
@@ -1051,7 +1048,7 @@ public static class Item
         graphicsPath = "pidgeotite"
     };
 
-    public static MegaStone Alakazite = new()
+    public static readonly MegaStone Alakazite = new()
     {
         itemName = "Alakazite",
         price = 40000,
@@ -1060,7 +1057,7 @@ public static class Item
         graphicsPath = "alakazite",
     };
 
-    public static MegaStone Slowbronite = new()
+    public static readonly MegaStone Slowbronite = new()
     {
         itemName = "Slowbronite",
         price = 40000,
@@ -1069,7 +1066,7 @@ public static class Item
         graphicsPath = "slowbronite",
     };
 
-    public static MegaStone Gengarite = new()
+    public static readonly MegaStone Gengarite = new()
     {
         itemName = "Gengarite",
         price = 40000,
@@ -1078,7 +1075,7 @@ public static class Item
         graphicsPath = "gengarite",
     };
 
-    public static MegaStone Kangaskhanite = new()
+    public static readonly MegaStone Kangaskhanite = new()
     {
         itemName = "Kangaskhanite",
         price = 40000,
@@ -1087,7 +1084,7 @@ public static class Item
         graphicsPath = "kangaskhanite",
     };
 
-    public static MegaStone Pinsirite = new()
+    public static readonly MegaStone Pinsirite = new()
     {
         itemName = "Pinsirite",
         price = 40000,
@@ -1096,7 +1093,7 @@ public static class Item
         graphicsPath = "pinsirite",
     };
 
-    public static MegaStone Gyaradosite = new()
+    public static readonly MegaStone Gyaradosite = new()
     {
         itemName = "Gyaradosite",
         price = 40000,
@@ -1105,7 +1102,7 @@ public static class Item
         graphicsPath = "gyaradosite"
     };
 
-    public static MegaStone Aerodactylite = new()
+    public static readonly MegaStone Aerodactylite = new()
     {
         itemName = "Aerodactylite",
         price = 40000,
@@ -1114,7 +1111,7 @@ public static class Item
         graphicsPath = "aerodactylite",
     };
 
-    public static MegaStone MewtwoniteX = new()
+    public static readonly MegaStone MewtwoniteX = new()
     {
         itemName = "Mewtwonite X",
         price = 40000,
@@ -1123,7 +1120,7 @@ public static class Item
         graphicsPath = "mewtwonite_x"
     };
 
-    public static MegaStone MewtwoniteY = new()
+    public static readonly MegaStone MewtwoniteY = new()
     {
         itemName = "Mewtwonite Y",
         price = 40000,
@@ -1132,7 +1129,7 @@ public static class Item
         graphicsPath = "mewtwonite_y"
     };
 
-    public static MegaStone Ampharosite = new()
+    public static readonly MegaStone Ampharosite = new()
     {
         itemName = "Ampharosite",
         price = 40000,
@@ -1141,7 +1138,7 @@ public static class Item
         graphicsPath = "ampharosite",
     };
 
-    public static MegaStone Steelixite = new()
+    public static readonly MegaStone Steelixite = new()
     {
         itemName = "Steelixite",
         price = 40000,
@@ -1150,7 +1147,7 @@ public static class Item
         graphicsPath = "steelixite",
     };
 
-    public static MegaStone Scizorite = new()
+    public static readonly MegaStone Scizorite = new()
     {
         itemName = "Scizorite",
         price = 40000,
@@ -1159,7 +1156,7 @@ public static class Item
         graphicsPath = "scizorite",
     };
 
-    public static MegaStone Heracronite = new()
+    public static readonly MegaStone Heracronite = new()
     {
         itemName = "Heracronite",
         price = 40000,
@@ -1168,7 +1165,7 @@ public static class Item
         graphicsPath = "heracronite",
     };
 
-    public static MegaStone Houndoominite = new()
+    public static readonly MegaStone Houndoominite = new()
     {
         itemName = "Houndoominite",
         price = 40000,
@@ -1177,7 +1174,7 @@ public static class Item
         graphicsPath = "houndoominite",
     };
 
-    public static MegaStone Tyranitarite = new()
+    public static readonly MegaStone Tyranitarite = new()
     {
         itemName = "Tyranitarite",
         price = 40000,
@@ -1186,7 +1183,7 @@ public static class Item
         graphicsPath = "tyranitarite",
     };
 
-    public static MegaStone Sceptilite = new()
+    public static readonly MegaStone Sceptilite = new()
     {
         itemName = "Sceptilite",
         price = 40000,
@@ -1195,7 +1192,7 @@ public static class Item
         graphicsPath = "sceptilite"
     };
 
-    public static MegaStone Blazikenite = new()
+    public static readonly MegaStone Blazikenite = new()
     {
         itemName = "Blazikenite",
         price = 40000,
@@ -1204,7 +1201,7 @@ public static class Item
         graphicsPath = "blazikenite"
     };
 
-    public static MegaStone Swampertite = new()
+    public static readonly MegaStone Swampertite = new()
     {
         itemName = "Swampertite",
         price = 40000,
@@ -1213,7 +1210,7 @@ public static class Item
         graphicsPath = "swampertite"
     };
 
-    public static MegaStone Gardevoirite = new()
+    public static readonly MegaStone Gardevoirite = new()
     {
         itemName = "Gardevoirite",
         price = 40000,
@@ -1222,7 +1219,7 @@ public static class Item
         graphicsPath = "gardevoirite"
     };
 
-    public static MegaStone Sablenite = new()
+    public static readonly MegaStone Sablenite = new()
     {
         itemName = "Sablenite",
         price = 40000,
@@ -1231,7 +1228,7 @@ public static class Item
         graphicsPath = "sablenite"
     };
 
-    public static MegaStone Mawilite = new()
+    public static readonly MegaStone Mawilite = new()
     {
         itemName = "Mawilite",
         price = 40000,
@@ -1240,7 +1237,7 @@ public static class Item
         graphicsPath = "mawilite"
     };
 
-    public static MegaStone Aggronite = new()
+    public static readonly MegaStone Aggronite = new()
     {
         itemName = "Aggronite",
         price = 40000,
@@ -1249,7 +1246,7 @@ public static class Item
         graphicsPath = "aggron"
     };
 
-    public static MegaStone Medichamite = new()
+    public static readonly MegaStone Medichamite = new()
     {
         itemName = "Medichamite",
         price = 40000,
@@ -1258,7 +1255,7 @@ public static class Item
         graphicsPath = "medichamite"
     };
 
-    public static MegaStone Manectrite = new()
+    public static readonly MegaStone Manectrite = new()
     {
         itemName = "Manectite",
         price = 40000,
@@ -1267,7 +1264,7 @@ public static class Item
         graphicsPath = "manectite"
     };
 
-    public static MegaStone Sharpedonite = new()
+    public static readonly MegaStone Sharpedonite = new()
     {
         itemName = "Sharpedonite",
         price = 40000,
@@ -1276,7 +1273,7 @@ public static class Item
         graphicsPath = "sharpedonite"
     };
 
-    public static MegaStone Cameruptite = new()
+    public static readonly MegaStone Cameruptite = new()
     {
         itemName = "Cameruptite",
         price = 40000,
@@ -1285,7 +1282,7 @@ public static class Item
         graphicsPath = "cameruptite"
     };
 
-    public static MegaStone Altarianite = new()
+    public static readonly MegaStone Altarianite = new()
     {
         itemName = "Altarianite",
         price = 40000,
@@ -1294,7 +1291,7 @@ public static class Item
         graphicsPath = "altarianite"
     };
 
-    public static MegaStone Banettite = new()
+    public static readonly MegaStone Banettite = new()
     {
         itemName = "Banettite",
         price = 40000,
@@ -1303,7 +1300,7 @@ public static class Item
         graphicsPath = "banettite"
     };
 
-    public static MegaStone Absolite = new()
+    public static readonly MegaStone Absolite = new()
     {
         itemName = "Absolite",
         price = 40000,
@@ -1312,7 +1309,7 @@ public static class Item
         graphicsPath = "absolite"
     };
 
-    public static MegaStone Glalitite = new()
+    public static readonly MegaStone Glalitite = new()
     {
         itemName = "Glalitite",
         price = 40000,
@@ -1321,7 +1318,7 @@ public static class Item
         graphicsPath = "glalitite"
     };
 
-    public static MegaStone Salamencite = new()
+    public static readonly MegaStone Salamencite = new()
     {
         itemName = "Salamencite",
         price = 40000,
@@ -1330,7 +1327,7 @@ public static class Item
         graphicsPath = "salamencite"
     };
 
-    public static MegaStone Metagrossite = new()
+    public static readonly MegaStone Metagrossite = new()
     {
         itemName = "Metagrossite",
         price = 40000,
@@ -1339,7 +1336,7 @@ public static class Item
         graphicsPath = "metagrossite"
     };
 
-    public static MegaStone Latiasite = new()
+    public static readonly MegaStone Latiasite = new()
     {
         itemName = "Latiasite",
         price = 40000,
@@ -1348,7 +1345,7 @@ public static class Item
         graphicsPath = "latiasite"
     };
 
-    public static MegaStone Latiosite = new()
+    public static readonly MegaStone Latiosite = new()
     {
         itemName = "Latiosite",
         price = 40000,
@@ -1357,7 +1354,7 @@ public static class Item
         graphicsPath = "latiosite"
     };
 
-    public static MegaStone Lopunnite = new()
+    public static readonly MegaStone Lopunnite = new()
     {
         itemName = "Lopunnite",
         price = 40000,
@@ -1366,7 +1363,7 @@ public static class Item
         graphicsPath = "lopunnite"
     };
 
-    public static MegaStone Garchompite = new()
+    public static readonly MegaStone Garchompite = new()
     {
         itemName = "Garchompite",
         price = 40000,
@@ -1375,7 +1372,7 @@ public static class Item
         graphicsPath = "garchompite"
     };
 
-    public static MegaStone Lucarionite = new()
+    public static readonly MegaStone Lucarionite = new()
     {
         itemName = "Lucarionite",
         price = 40000,
@@ -1384,7 +1381,7 @@ public static class Item
         graphicsPath = "lucarionite"
     };
 
-    public static MegaStone Abomasite = new()
+    public static readonly MegaStone Abomasite = new()
     {
         itemName = "Abomasite",
         price = 40000,
@@ -1393,7 +1390,7 @@ public static class Item
         graphicsPath = "abomasite"
     };
 
-    public static MegaStone Galladite = new()
+    public static readonly MegaStone Galladite = new()
     {
         itemName = "Galladite",
         price = 40000,
@@ -1402,7 +1399,7 @@ public static class Item
         graphicsPath = "galladite"
     };
 
-    public static MegaStone Audinite = new()
+    public static readonly MegaStone Audinite = new()
     {
         itemName = "Audinite",
         price = 40000,
@@ -1411,7 +1408,7 @@ public static class Item
         graphicsPath = "audinite"
     };
 
-    public static MegaStone Diancite = new()
+    public static readonly MegaStone Diancite = new()
     {
         itemName = "Diancite",
         price = 40000,
@@ -1420,7 +1417,7 @@ public static class Item
         graphicsPath = "diancite"
     };
 
-    public static ZCrystalGeneric NormaliumZ = new()
+    public static readonly ZCrystalGeneric NormaliumZ = new()
     {
         itemName = "Normalium Z",
         price = 100000,
@@ -1430,7 +1427,7 @@ public static class Item
         graphicsPath = "normalium_z"
     };
 
-    public static ZCrystalGeneric FightiniumZ = new()
+    public static readonly ZCrystalGeneric FightiniumZ = new()
     {
         itemName = "Fightinium Z",
         price = 100000,
@@ -1440,7 +1437,7 @@ public static class Item
         graphicsPath = "fightinium_z"
     };
 
-    public static ZCrystalGeneric FlyiniumZ = new()
+    public static readonly ZCrystalGeneric FlyiniumZ = new()
     {
         itemName = "Flyinium Z",
         price = 100000,
@@ -1450,7 +1447,7 @@ public static class Item
         graphicsPath = "flyinium_z"
     };
 
-    public static ZCrystalGeneric PoisoniumZ = new()
+    public static readonly ZCrystalGeneric PoisoniumZ = new()
     {
         itemName = "Poisonium Z",
         price = 100000,
@@ -1460,7 +1457,7 @@ public static class Item
         graphicsPath = "poisonium_z"
     };
 
-    public static ZCrystalGeneric GroundiumZ = new()
+    public static readonly ZCrystalGeneric GroundiumZ = new()
     {
         itemName = "Groundium Z",
         price = 100000,
@@ -1470,7 +1467,7 @@ public static class Item
         graphicsPath = "groundium_z"
     };
 
-    public static ZCrystalGeneric RockiumZ = new()
+    public static readonly ZCrystalGeneric RockiumZ = new()
     {
         itemName = "Rockium Z",
         price = 100000,
@@ -1480,7 +1477,7 @@ public static class Item
         graphicsPath = "rockium_z"
     };
 
-    public static ZCrystalGeneric BuginiumZ = new()
+    public static readonly ZCrystalGeneric BuginiumZ = new()
     {
         itemName = "Buginium Z",
         price = 100000,
@@ -1489,7 +1486,7 @@ public static class Item
         zMoveSpecial = MoveID.SavageSpinOutSpecial,
         graphicsPath = "buginium_z"
     };
-    public static ZCrystalGeneric GhostiumZ = new()
+    public static readonly ZCrystalGeneric GhostiumZ = new()
     {
         itemName = "Ghostium Z",
         price = 100000,
@@ -1498,7 +1495,7 @@ public static class Item
         zMoveSpecial = MoveID.NeverEndingNightmareSpecial,
         graphicsPath = "ghostium_z"
     };
-    public static ZCrystalGeneric SteeliumZ = new()
+    public static readonly ZCrystalGeneric SteeliumZ = new()
     {
         itemName = "Steelium Z",
         price = 100000,
@@ -1507,7 +1504,7 @@ public static class Item
         zMoveSpecial = MoveID.CorkscrewCrashSpecial,
         graphicsPath = "steelium_z"
     };
-    public static ZCrystalGeneric FiriumZ = new()
+    public static readonly ZCrystalGeneric FiriumZ = new()
     {
         itemName = "Firium Z",
         price = 100000,
@@ -1516,7 +1513,7 @@ public static class Item
         zMoveSpecial = MoveID.InfernoOverdriveSpecial,
         graphicsPath = "firium_z"
     };
-    public static ZCrystalGeneric WateriumZ = new()
+    public static readonly ZCrystalGeneric WateriumZ = new()
     {
         itemName = "Waterium Z",
         price = 100000,
@@ -1525,7 +1522,7 @@ public static class Item
         zMoveSpecial = MoveID.HydroVortexSpecial,
         graphicsPath = "waterium_z"
     };
-    public static ZCrystalGeneric GrassiumZ = new()
+    public static readonly ZCrystalGeneric GrassiumZ = new()
     {
         itemName = "Grassium Z",
         price = 100000,
@@ -1534,7 +1531,7 @@ public static class Item
         zMoveSpecial = MoveID.BloomDoomSpecial,
         graphicsPath = "grassium_z"
     };
-    public static ZCrystalGeneric ElectriumZ = new()
+    public static readonly ZCrystalGeneric ElectriumZ = new()
     {
         itemName = "Electrium Z",
         price = 100000,
@@ -1543,7 +1540,7 @@ public static class Item
         zMoveSpecial = MoveID.GigavoltHavocSpecial,
         graphicsPath = "electrium_z"
     };
-    public static ZCrystalGeneric PsychiumZ = new()
+    public static readonly ZCrystalGeneric PsychiumZ = new()
     {
         itemName = "Psychium Z",
         price = 100000,
@@ -1552,7 +1549,7 @@ public static class Item
         zMoveSpecial = MoveID.ShatteredPsycheSpecial,
         graphicsPath = "psychium_z"
     };
-    public static ZCrystalGeneric IciumZ = new()
+    public static readonly ZCrystalGeneric IciumZ = new()
     {
         itemName = "Icium Z",
         price = 100000,
@@ -1561,7 +1558,7 @@ public static class Item
         zMoveSpecial = MoveID.SubzeroSlammerSpecial,
         graphicsPath = "icium_z"
     };
-    public static ZCrystalGeneric DragoniumZ = new()
+    public static readonly ZCrystalGeneric DragoniumZ = new()
     {
         itemName = "Dragonium Z",
         price = 100000,
@@ -1570,7 +1567,7 @@ public static class Item
         zMoveSpecial = MoveID.DevastatingDrakeSpecial,
         graphicsPath = "dragonium_z"
     };
-    public static ZCrystalGeneric DarkiniumZ = new()
+    public static readonly ZCrystalGeneric DarkiniumZ = new()
     {
         itemName = "Darkinium Z",
         price = 100000,
@@ -1579,7 +1576,7 @@ public static class Item
         zMoveSpecial = MoveID.BlackHoleEclipseSpecial,
         graphicsPath = "darkinium_z"
     };
-    public static ZCrystalGeneric FairiumZ = new()
+    public static readonly ZCrystalGeneric FairiumZ = new()
     {
         itemName = "Fairium Z",
         price = 100000,
@@ -1589,7 +1586,7 @@ public static class Item
         graphicsPath = "fairium_z"
     };
 
-    public static ZCrystalMultipleSpecies PikaniumZ = new()
+    public static readonly ZCrystalMultipleSpecies PikaniumZ = new()
     {
         itemName = "Pikanium Z",
         price = 200000,
@@ -1616,7 +1613,7 @@ public static class Item
         zMove = MoveID.Catastropika,
         graphicsPath = "pikanium_z"
     };
-    public static ZCrystalSpecific DecidiumZ = new()
+    public static readonly ZCrystalSpecific DecidiumZ = new()
     {
         itemName = "Decidium Z",
         price = 200000,
@@ -1625,7 +1622,7 @@ public static class Item
         zMove = MoveID.SinisterArrowRaid,
         graphicsPath = "decidium_z"
     };
-    public static ZCrystalSpecific InciniumZ = new()
+    public static readonly ZCrystalSpecific InciniumZ = new()
     {
         itemName = "Incinium Z",
         price = 200000,
@@ -1634,7 +1631,7 @@ public static class Item
         zMove = MoveID.MaliciousMoonsault,
         graphicsPath = "incinium_z"
     };
-    public static ZCrystalSpecific PrimariumZ = new()
+    public static readonly ZCrystalSpecific PrimariumZ = new()
     {
         itemName = "Primarium Z",
         price = 200000,
@@ -1643,7 +1640,7 @@ public static class Item
         zMove = MoveID.OceanicOperetta,
         graphicsPath = "primarium_z"
     };
-    public static ZCrystalMultipleSpecies TapuniumZ = new()
+    public static readonly ZCrystalMultipleSpecies TapuniumZ = new()
     {
         itemName = "Tapunium Z",
         price = 200000,
@@ -1658,7 +1655,7 @@ public static class Item
         },
         graphicsPath = "tapunium_z"
     };
-    public static ZCrystalSpecific MarshadiumZ = new()
+    public static readonly ZCrystalSpecific MarshadiumZ = new()
     {
         itemName = "Marshadium Z",
         price = 200000,
@@ -1667,7 +1664,7 @@ public static class Item
         zMove = MoveID.SoulStealingSevenStarStrike,
         graphicsPath = "marshadium_z"
     };
-    public static ZCrystalSpecific AloraichiumZ = new()
+    public static readonly ZCrystalSpecific AloraichiumZ = new()
     {
         itemName = "Aloraichium Z",
         price = 200000,
@@ -1676,7 +1673,7 @@ public static class Item
         zMove = MoveID.StokedSparksurfer,
         graphicsPath = "aloraichium_z"
     };
-    public static ZCrystalSpecific SnorliumZ = new()
+    public static readonly ZCrystalSpecific SnorliumZ = new()
     {
         itemName = "Snorlium Z",
         price = 200000,
@@ -1685,7 +1682,7 @@ public static class Item
         zMove = MoveID.PulverizingPancake,
         graphicsPath = "snorlium_z"
     };
-    public static ZCrystalMultipleSpecies EeviumZ = new()
+    public static readonly ZCrystalMultipleSpecies EeviumZ = new()
     {
         itemName = "Eevium Z",
         price = 200000,
@@ -1698,7 +1695,7 @@ public static class Item
         zMove = MoveID.ExtremeEvoboost,
         graphicsPath = "eevium_z"
     };
-    public static ZCrystalSpecific MewniumZ = new()
+    public static readonly ZCrystalSpecific MewniumZ = new()
     {
         itemName = "Mewnium Z",
         price = 200000,
@@ -1707,7 +1704,7 @@ public static class Item
         zMove = MoveID.GenesisSupernova,
         graphicsPath = "mewnium_z"
     };
-    public static ZCrystalMultipleSpecies PikashuniumZ = new()
+    public static readonly ZCrystalMultipleSpecies PikashuniumZ = new()
     {
         itemName = "Pikashunium Z",
         price = 200000,
@@ -1726,7 +1723,7 @@ public static class Item
         },
         graphicsPath = "pikashunium_z"
     };
-    public static ZCrystalSpecific UltranecrozmiumZ = new()
+    public static readonly ZCrystalSpecific UltranecrozmiumZ = new()
     {
         itemName = "Ultranecrozmium Z",
         price = 200000,
@@ -1735,7 +1732,7 @@ public static class Item
         zMove = MoveID.LightThatBurnsTheSky,
         graphicsPath = "ultranecrozmium_z"
     };
-    public static ZCrystalMultipleSpecies SolganiumZ = new()
+    public static readonly ZCrystalMultipleSpecies SolganiumZ = new()
     {
         itemName = "Solganium Z",
         price = 200000,
@@ -1748,7 +1745,7 @@ public static class Item
         },
         graphicsPath = "solganium_z"
     };
-    public static ZCrystalMultipleSpecies LunaliumZ = new()
+    public static readonly ZCrystalMultipleSpecies LunaliumZ = new()
     {
         itemName = "Lunalium Z",
         price = 200000,
@@ -1761,7 +1758,7 @@ public static class Item
         },
         graphicsPath = "lunalium_z"
     };
-    public static ZCrystalMultipleSpecies MimikiumZ = new()
+    public static readonly ZCrystalMultipleSpecies MimikiumZ = new()
     {
         itemName = "Mimikium Z",
         price = 200000,
@@ -1774,7 +1771,7 @@ public static class Item
         zMove = MoveID.LetsSnuggleForever,
         graphicsPath = "mimikium_z"
     };
-    public static ZCrystalMultipleSpecies LycaniumZ = new()
+    public static readonly ZCrystalMultipleSpecies LycaniumZ = new()
     {
         itemName = "Lycanium Z",
         price = 200000,
@@ -1788,7 +1785,7 @@ public static class Item
         zMove = MoveID.SplinteredStormshards,
         graphicsPath = "lycanium_z"
     };
-    public static ZCrystalSpecific KommoniumZ = new()
+    public static readonly ZCrystalSpecific KommoniumZ = new()
     {
         itemName = "Kommonium Z",
         price = 200000,
@@ -1798,7 +1795,7 @@ public static class Item
         graphicsPath = "kommonium_z"
     };
 
-    public static HoldToTransform FightingMemory = new()
+    public static readonly HoldToTransform FightingMemory = new()
     {
         itemName = "Fighting Memory",
         price = 100000,
@@ -1806,7 +1803,7 @@ public static class Item
         transformedSpecies = SilvallyFighting,
         graphicsPath = "fighting_memory"
     };
-    public static HoldToTransform FlyingMemory = new()
+    public static readonly HoldToTransform FlyingMemory = new()
     {
         itemName = "Flying Memory",
         price = 100000,
@@ -1814,7 +1811,7 @@ public static class Item
         transformedSpecies = SilvallyFlying,
         graphicsPath = "flying_memory"
     };
-    public static HoldToTransform PoisonMemory = new()
+    public static readonly HoldToTransform PoisonMemory = new()
     {
         itemName = "Poison Memory",
         price = 100000,
@@ -1822,7 +1819,7 @@ public static class Item
         transformedSpecies = SilvallyPoison,
         graphicsPath = "poison_memory"
     };
-    public static HoldToTransform GroundMemory = new()
+    public static readonly HoldToTransform GroundMemory = new()
     {
         itemName = "Ground Memory",
         price = 100000,
@@ -1830,7 +1827,7 @@ public static class Item
         transformedSpecies = SilvallyGround,
         graphicsPath = "ground_memory"
     };
-    public static HoldToTransform RockMemory = new()
+    public static readonly HoldToTransform RockMemory = new()
     {
         itemName = "Rock Memory",
         price = 100000,
@@ -1838,7 +1835,7 @@ public static class Item
         transformedSpecies = SilvallyRock,
         graphicsPath = "rock_memory"
     };
-    public static HoldToTransform BugMemory = new()
+    public static readonly HoldToTransform BugMemory = new()
     {
         itemName = "Bug Memory",
         price = 100000,
@@ -1846,7 +1843,7 @@ public static class Item
         transformedSpecies = SilvallyBug,
         graphicsPath = "bug_memory"
     };
-    public static HoldToTransform GhostMemory = new()
+    public static readonly HoldToTransform GhostMemory = new()
     {
         itemName = "Ghost Memory",
         price = 100000,
@@ -1854,7 +1851,7 @@ public static class Item
         transformedSpecies = SilvallyGhost,
         graphicsPath = "ghost_memory"
     };
-    public static HoldToTransform SteelMemory = new()
+    public static readonly HoldToTransform SteelMemory = new()
     {
         itemName = "Steel Memory",
         price = 100000,
@@ -1862,7 +1859,7 @@ public static class Item
         transformedSpecies = SilvallySteel,
         graphicsPath = "steel_memory"
     };
-    public static HoldToTransform FireMemory = new()
+    public static readonly HoldToTransform FireMemory = new()
     {
         itemName = "Fire Memory",
         price = 100000,
@@ -1870,7 +1867,7 @@ public static class Item
         transformedSpecies = SilvallyFire,
         graphicsPath = "fire_memory"
     };
-    public static HoldToTransform WaterMemory = new()
+    public static readonly HoldToTransform WaterMemory = new()
     {
         itemName = "Water Memory",
         price = 100000,
@@ -1878,7 +1875,7 @@ public static class Item
         transformedSpecies = SilvallyWater,
         graphicsPath = "water_memory"
     };
-    public static HoldToTransform GrassMemory = new()
+    public static readonly HoldToTransform GrassMemory = new()
     {
         itemName = "Grass Memory",
         price = 100000,
@@ -1886,7 +1883,7 @@ public static class Item
         transformedSpecies = SilvallyGrass,
         graphicsPath = "grass_memory"
     };
-    public static HoldToTransform ElectricMemory = new()
+    public static readonly HoldToTransform ElectricMemory = new()
     {
         itemName = "Electric Memory",
         price = 100000,
@@ -1894,7 +1891,7 @@ public static class Item
         transformedSpecies = SilvallyElectric,
         graphicsPath = "electric_memory"
     };
-    public static HoldToTransform PsychicMemory = new()
+    public static readonly HoldToTransform PsychicMemory = new()
     {
         itemName = "Psychic Memory",
         price = 100000,
@@ -1902,7 +1899,7 @@ public static class Item
         transformedSpecies = SilvallyPsychic,
         graphicsPath = "psychic_memory"
     };
-    public static HoldToTransform IceMemory = new()
+    public static readonly HoldToTransform IceMemory = new()
     {
         itemName = "Ice Memory",
         price = 100000,
@@ -1910,7 +1907,7 @@ public static class Item
         transformedSpecies = SilvallyIce,
         graphicsPath = "ice_memory"
     };
-    public static HoldToTransform DragonMemory = new()
+    public static readonly HoldToTransform DragonMemory = new()
     {
         itemName = "Dragon Memory",
         price = 100000,
@@ -1918,7 +1915,7 @@ public static class Item
         transformedSpecies = SilvallyDragon,
         graphicsPath = "dragon_memory"
     };
-    public static HoldToTransform DarkMemory = new()
+    public static readonly HoldToTransform DarkMemory = new()
     {
         itemName = "Dark Memory",
         price = 100000,
@@ -1926,7 +1923,7 @@ public static class Item
         transformedSpecies = SilvallyDark,
         graphicsPath = "dark_memory"
     };
-    public static HoldToTransform FairyMemory = new()
+    public static readonly HoldToTransform FairyMemory = new()
     {
         itemName = "Fairy Memory",
         price = 100000,
@@ -1936,7 +1933,7 @@ public static class Item
     };
 
 
-    public static ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
+    public static readonly ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
     {
         None,
         //Berries
