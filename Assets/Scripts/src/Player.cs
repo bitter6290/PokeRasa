@@ -837,12 +837,17 @@ public class Player : LoadedChar
                     cachedScreenData = new PartyScreenCachedData();
                     yield return FadeToBlack(0.2f);
                     bool donepartyScreen = false;
+                    bool skipLoad = false;
                     while (!donepartyScreen)
                     {
-                        yield return Scene.Party.Load();
-                        partyScreen = FindObjectOfType<PartyScreen>();
-                        StartCoroutine(FadeFromBlack(0.2f));
-                        yield return partyScreen.DoPartyScreen(this, false);
+                        if (!skipLoad)
+                        {
+                            yield return Scene.Party.Load();
+                            partyScreen = FindObjectOfType<PartyScreen>();
+                            StartCoroutine(FadeFromBlack(0.2f));
+                            yield return partyScreen.DoPartyScreen(this, false);
+                        }
+                        else skipLoad = false;
                         switch (partyScreenOutcome)
                         {
                             default:
@@ -868,8 +873,10 @@ public class Player : LoadedChar
                                 yield return FadeToBlack(0.2f);
                                 yield return Scene.Party.Load();
                                 PartyScreen partyScreen = FindObjectOfType<PartyScreen>();
+                                StartCoroutine(FadeFromBlack(0.2f));
                                 yield return partyScreen.DoPartyScreen(this, false, cachedMon, true,
                                     GaveToHold(cachedMon));
+                                skipLoad = true;
                                 break;
                         }
                         
