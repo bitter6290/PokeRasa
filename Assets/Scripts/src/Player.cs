@@ -743,7 +743,7 @@ public class Player : LoadedChar
     {
         yield return Scene.Party.Load();
         partyScreen = FindObjectOfType<PartyScreen>();
-        yield return FadeFromBlack(0.2f);
+        StartCoroutine(FadeFromBlack(0.2f));
         yield return partyScreen.DoPartyScreen(this, true);
     }
 
@@ -770,7 +770,7 @@ public class Player : LoadedChar
                     {
                         yield return Scene.Bag.Load();
                         bag = FindObjectOfType<BagController>();
-                        yield return FadeFromBlack(0.2f);
+                        StartCoroutine(FadeFromBlack(0.2f));
                         yield return bag.DoBag(this, false, (BagCachedData)cachedScreenData);
                         switch (bagOutcome)
                         {
@@ -795,7 +795,7 @@ public class Player : LoadedChar
                                     case FieldEffect.Evolution:
                                         yield return Scene.Party.Load();
                                         partyScreen = FindObjectOfType<PartyScreen>();
-                                        yield return FadeFromBlack(0.2f);
+                                        StartCoroutine(FadeFromBlack(0.2f));
                                         yield return partyScreen.DoPartyScreen(this, true);
                                         if (partyScreenOutcome == PartyScreenOutcome.Evo)
                                         {
@@ -841,7 +841,7 @@ public class Player : LoadedChar
                     {
                         yield return Scene.Party.Load();
                         partyScreen = FindObjectOfType<PartyScreen>();
-                        yield return FadeFromBlack(0.2f);
+                        StartCoroutine(FadeFromBlack(0.2f));
                         yield return partyScreen.DoPartyScreen(this, false);
                         switch (partyScreenOutcome)
                         {
@@ -860,6 +860,7 @@ public class Player : LoadedChar
                                 yield return FadeToBlack(0.2f);
                                 yield return Scene.Bag.Load();
                                 BagController bagController = FindObjectOfType<BagController>();
+                                StartCoroutine(FadeFromBlack(0.2f));
                                 yield return bagController.DoBag(this, true);
                                 int cachedMon = ((PartyScreenCachedData)cachedScreenData).currentMon;
                                 Party[cachedMon].item = bagResult;
@@ -1111,14 +1112,17 @@ public class Player : LoadedChar
     {
         p = this;
         random = new();
-        blackScreen = new("BlackScreen");
-        blackScreen.transform.parent = transform;
-        blackScreen.transform.localScale = new(1000, 1000, 1000);
-        blackScreen.transform.position = new(0, 0, -20);
-        blackScreenRenderer = blackScreen.AddComponent<SpriteRenderer>();
-        blackScreenRenderer.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0, 0, 4, 4), StaticValues.defPivot, 4);
-        blackScreenRenderer.color = new(0, 0, 0, blackScreenOn ? 255 : 0);
-        blackScreenRenderer.sortingOrder = 10;
+        if (blackScreen == null)
+        {
+            blackScreen = new("BlackScreen");
+            blackScreen.transform.parent = transform;
+            blackScreen.transform.localScale = new(1000, 1000, 1000);
+            blackScreen.transform.position = new(0, 0, -9);
+            blackScreenRenderer = blackScreen.AddComponent<SpriteRenderer>();
+            blackScreenRenderer.sprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Box"), new Rect(0, 0, 4, 4), StaticValues.defPivot, 4);
+            blackScreenRenderer.color = new(0, 0, 0, blackScreenOn ? 255 : 0);
+            blackScreenRenderer.sortingOrder = 10;
+        }
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex((int)Scene.Main))
         {
             StartCoroutine(InitMapTest());

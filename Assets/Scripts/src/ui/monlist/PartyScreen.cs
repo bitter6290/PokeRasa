@@ -121,7 +121,8 @@ public class PartyScreen : MonoBehaviour
     {
         Init(player);
         itemPrompt = prompt;
-        if (prompt && player.bagResult.FieldEffect() is FieldEffect.Evolution) CheckEvoEligibility();
+        if (prompt && player.bagResult.FieldEffect() is FieldEffect.Evolution &&
+            player.bagOutcome == BagOutcome.Use) CheckEvoEligibility();
         selectedMon = firstSelection;
         UpdateDisplays();
         if (doAnnouncement) yield return AnnounceAndReturn(announcement);
@@ -209,6 +210,7 @@ public class PartyScreen : MonoBehaviour
                 yield return AnnounceAndReturn("Took the " + currentMon.item.Data().itemName + " from " + currentMon.MonName + ".");
                 p.AddItem(currentMon.item);
                 currentMon.item = ItemID.None;
+                state = State.Active;
                 break;
             case GiveItem:
                 CacheAndReturn(PartyScreenOutcome.GiveItem);

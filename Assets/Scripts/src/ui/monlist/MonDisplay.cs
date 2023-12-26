@@ -51,7 +51,7 @@ public class MonDisplay : MonoBehaviour
 
     public void ShowEligibilityText()
     {
-        eligibilityText.enabled = true;
+        eligibilityText.gameObject.SetActive(true);
         eligibilityText.text = ineligible ? "ø" : "!";
         eligibilityText.color = ineligible ? new(1, 0, 0) : new(0.2f, 1, 0.05f);
     }
