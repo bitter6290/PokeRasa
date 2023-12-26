@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bag.unity
     guid: ce91d7436416e403d8f2d0e5daad05b8
+  - enabled: 1
+    path: Assets/Scenes/Party.unity
+    guid: 689bc36f9a9214d71ab1db176402d92d
   m_configObjects: {}

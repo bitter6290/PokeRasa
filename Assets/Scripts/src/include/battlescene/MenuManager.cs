@@ -339,6 +339,9 @@ public class MenuManager : MonoBehaviour
         menuMode = MenuMode.Moves;
         mon = battle.PokemonOnField[currentMon];
 
+        currentMove = mon.lastMoveSlot;
+        if (currentMove == 0) currentMove = 1;
+
         box5.color = backColor;
         text5.enabled = true;
         box5.enabled = true;

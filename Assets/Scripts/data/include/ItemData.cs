@@ -309,6 +309,8 @@ public static class ItemUtils
                 return (FieldEffect)Item.ItemTable[(int)item].ItemSubdata[2];
             case ItemType.Berry:
                 return (FieldEffect)Item.ItemTable[(int)item].ItemSubdata[4];
+            case ItemType.TM:
+                return global::FieldEffect.TM;
             default:
                 return global::FieldEffect.None;
         }
@@ -441,6 +443,10 @@ public static class ItemUtils
             default: return 0;
         }
     }
+
+    public static bool IsZCrystal(this ItemID item) => item.Data().type is
+        ItemType.ZCrystalGeneric or ItemType.ZCrystalSpecific or
+        ItemType.ZCrystalMultipleSpecies;
 
     public static ItemData Data(this ItemID item) => Item.ItemTable[(int)item];
     public static Sprite Sprite(this ItemID item) => UnityEngine.Sprite.Create(

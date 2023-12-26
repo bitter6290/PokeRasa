@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using static MenuManager;
+using static StatusSprite;
 
 public class SummaryScreen : MonoBehaviour
 {
@@ -77,12 +78,6 @@ public class SummaryScreen : MonoBehaviour
     public Color mediumHealth;
     public Color highHealth;
 
-    public Sprite burn;
-    public Sprite paralysis;
-    public Sprite sleep;
-    public Sprite poison;
-    public Sprite freeze;
-
     public TextMeshProUGUI attack;
     public TextMeshProUGUI defense;
     public TextMeshProUGUI spAtk;
@@ -122,12 +117,12 @@ public class SummaryScreen : MonoBehaviour
     public static IEnumerator CloseScreen(SummaryScreen screen)
     {
         Battle battle = null;
-        if (screen.battle) battle = screen.battle;
+        if (screen.battle != null) battle = screen.battle;
         Player player = screen.player;
-        yield return player.FadeToBlack(0.1F);
+        yield return player.FadeToBlack(0.3F);
         Destroy(screen.gameObject);
         yield return new WaitForSeconds(0.5F);
-        if (battle) battle.menuOpen = false;
+        if (battle != null) battle.menuOpen = false;
         yield return player.FadeFromBlack(0.3F);
     }
 
@@ -139,7 +134,7 @@ public class SummaryScreen : MonoBehaviour
         screenScript.player = player;
         screenScript.battle = battle;
         screenScript.index = mon;
-        if (battle) battle.menuOpen = true;
+        if (battle != null) battle.menuOpen = true;
         yield return new WaitForSeconds(0.5F);
         yield return player.FadeFromBlack(0.3F);
     }

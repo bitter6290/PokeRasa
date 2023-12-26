@@ -44,7 +44,7 @@ public static class ScriptUtils
     public static IEnumerator TrainerSeeSingle(Player p, LoadedChar c, TeamData team, List<string> beforeText)
     {
         p.locked = true;
-        p.state = PlayerState.Locked;
+        if (p.state != PlayerState.Moving) p.state = PlayerState.Locked;
         c.free = false;
         switch (c.facing)
         {
@@ -54,7 +54,7 @@ public static class ScriptUtils
             case Direction.E: p.StartCoroutine(p.playerGraphics.FaceWest(p, 0.05F)); break;
         }
         yield return FieldAnim.ExclamBubble(c.charObject);
-        int distance = System.Math.Abs((p.pos.x - c.pos.x) + (p.pos.y - c.pos.y));
+        int distance = System.Math.Abs(p.pos.x - c.pos.x + p.pos.y - c.pos.y);
         for (int i = 1; i < distance; i++) yield return c.WalkInDirection();
         yield return p.DoAnnouncements(beforeText);
         p.StartCoroutine(p.StartSingleTrainerBattle(c, team));
@@ -73,6 +73,14 @@ public static class ScriptUtils
         yield return second;
     }
 
+    public static IEnumerator Repeat(this IEnumerator ienum, byte times) //byte = failsafe: only accept positive numbers, and should never go above 255
+    {
+        for (int i = 0; i < times; i++)
+        {
+            yield return ienum;
+        }
+    }
+
     public static void HealAll(Player p)
     {
         foreach (Pokemon i in p.Party)
@@ -82,6 +90,20 @@ public static class ScriptUtils
                 i.fainted = false;
                 i.status = Status.None;
                 i.HP = i.hpMax;
+            }
+        }
+    }
+
+    public static void RestoreAllPP(Player p)
+    {
+        foreach (Pokemon i in p.Party)
+        {
+            if (i.exists)
+            {
+                i.pp1 = i.maxPp1;
+                i.pp2 = i.maxPp2;
+                i.pp3 = i.maxPp3;
+                i.pp4 = i.maxPp4;
             }
         }
     }

@@ -156,7 +156,6 @@ public abstract class LoadedChar : MonoBehaviour
 
     public void CheckTileBehavior(Vector2Int pos)
     {
-        Debug.Log(p.mapManager.level1.GetTile(new Vector3Int(2 * pos.x, 2 * pos.y + 1, 0)).name);
         if (p.mapManager.level1.GetTile(new Vector3Int(2 * pos.x, 2 * pos.y + 1, 0)) is IBehaviourObject)
         {
             Debug.Log("Behavior start");

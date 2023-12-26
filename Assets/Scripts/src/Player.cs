@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using Scene = SceneID;
+using BagOutcome = BagController.BagOutcome;
+using PartyScreenOutcome = PartyScreen.PartyScreenOutcome;
 
 public class Player : LoadedChar
 {
@@ -61,6 +63,13 @@ public class Player : LoadedChar
 
     private BagController bag;
     public ItemID bagResult;
+    public BagOutcome bagOutcome;
+
+    private PartyScreen partyScreen;
+    public int partyScreenResult;
+    public PartyScreenOutcome partyScreenOutcome;
+
+    public CachedScreenData cachedScreenData;
 
     private bool blackScreenOn;
 
@@ -80,6 +89,40 @@ public class Player : LoadedChar
     public override IEnumerator RunSouth() => throw new NotImplementedException();
     public override IEnumerator RunEast() => throw new NotImplementedException();
     public override IEnumerator RunWest() => throw new NotImplementedException();
+
+    public enum Screen
+    {
+        Map,
+        Bag,
+        Pokemon,
+    }
+
+    public class CachedScreenData
+    {
+        public Screen type;
+    }
+
+    public class BagCachedData : CachedScreenData
+    {
+        public BagController.Pocket pocket;
+        public int position;
+        public int selection;
+        public BagCachedData()
+        {
+            type = Screen.Bag;
+        }
+    }
+
+    public class PartyScreenCachedData : CachedScreenData
+    {
+        public int currentMon;
+        public PartyScreenCachedData()
+        {
+            type = Screen.Pokemon;
+        }
+    }
+
+    public static CachedScreenData MapCachedData = new() { type = Screen.Map };
 
     public float textSpeed = 25;
 
@@ -125,7 +168,7 @@ public class Player : LoadedChar
         yield break;
     }
 
-    public void AddItem(ItemID item, int amount)
+    public void AddItem(ItemID item, int amount = 1)
     {
         if (Bag.ContainsKey(item))
         {
@@ -151,6 +194,12 @@ public class Player : LoadedChar
         remaining -= number;
         if (remaining <= 0) Bag.Remove(item);
         else Bag[item] = remaining;
+    }
+
+    public void VerifyBag()
+    {
+        foreach (ItemID key in Bag.Keys)
+            if (Bag[key] < 1) Bag.Remove(key);
     }
 
     public void DeactivateAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.Deactivate(); }
@@ -222,18 +271,12 @@ public class Player : LoadedChar
         return false;
     }
 
-
-
-    private void SortParty()
+    public void SortParty()
     {
         int currentPos = 0;
         for (int i = 0; i < 6; i++)
         {
-            if (Party[i].exists)
-            {
-                Party[currentPos] = Party[i];
-                currentPos++;
-            }
+            if (Party[i].exists) Party[currentPos++] = Party[i];
         }
         for (int i = currentPos; i < 6; i++)
         {
@@ -480,6 +523,22 @@ public class Player : LoadedChar
         }
     }
 
+    private IEnumerator DoSingleEvolution(Pokemon mon, CachedScreenData cachedScreenData)
+    {
+        yield return FadeToBlack(0.2F);
+        yield return Scene.Evolution.Load();
+        EvolutionScene evolutionScene = FindAnyObjectByType<EvolutionScene>();
+        yield return evolutionScene.PrepareScene(mon);
+        if (mon.makeShedinja && NumberOf(ItemID.PokeBall) > 0)
+        {
+            if (TryAddMon(Pokemon.WildPokemon(SpeciesID.Shedinja, 1)))
+                UseItem(ItemID.PokeBall);
+        }
+        yield return FadeFromBlack(0.2F);
+        yield return evolutionScene.DoEvolutionScene();
+        yield return FadeToBlack(0.2F);
+    }
+
     public Vector2Int GetMapOffset(Connection connection)
     {
         return connection.direction switch
@@ -569,11 +628,13 @@ public class Player : LoadedChar
         menu.player = this;
     }
 
-    private void CaptureCamera()
-    {
-        camera.transform.parent = playerGraphics.playerObject.transform;
-        camera.transform.localPosition = new Vector3(0, 0, -100);
-    }
+    public void CaptureCamera() => camera.transform.parent = playerGraphics.playerObject.transform;
+
+    public void DonateCamera(LoadedChar chara) => camera.transform.parent = chara.gameObject.transform;
+
+    public void FreeCamera() => camera.transform.parent = null;
+
+    public void CenterCamera() => camera.transform.localPosition = new Vector3(0, 0, -100);
 
     public IEnumerator StartSingleTrainerBattle(LoadedChar opponentChar, TeamData opponentTeam)
     {
@@ -675,6 +736,17 @@ public class Player : LoadedChar
         blackScreenOn = false;
     }
 
+    public string GaveToHold(int i) => "Gave " + Party[i].monName + " the " +
+                                    Party[i].item.Data().itemName + " to hold.";
+
+    private IEnumerator DoPartyScreenWithPrompt()
+    {
+        yield return Scene.Party.Load();
+        partyScreen = FindObjectOfType<PartyScreen>();
+        yield return FadeFromBlack(0.2f);
+        yield return partyScreen.DoPartyScreen(this, true);
+    }
+
     public IEnumerator DoMenu()
     {
         LockAll();
@@ -691,18 +763,116 @@ public class Player : LoadedChar
             {
                 case MenuItem.Bag:
                     DeactivateAll();
+                    cachedScreenData = new BagCachedData();
                     yield return FadeToBlack(0.2f);
-                    yield return Scene.Bag.Load();
-                    bag = FindObjectOfType<BagController>();
-                    yield return FadeFromBlack(0.2f);
-                    yield return bag.DoBag(this, false);
+                    bool doneBag = false;
+                    while (!doneBag)
+                    {
+                        yield return Scene.Bag.Load();
+                        bag = FindObjectOfType<BagController>();
+                        yield return FadeFromBlack(0.2f);
+                        yield return bag.DoBag(this, false, (BagCachedData)cachedScreenData);
+                        switch (bagOutcome)
+                        {
+                            case BagOutcome.None:
+                                yield return FadeToBlack(0.2f);
+                                yield return Scene.Map.Load();
+                                MapReturn();
+                                menu.transform.position = menuOpenPosition;
+                                menu.OpenMenu(MenuItem.Bag);
+                                yield return FadeFromBlack(0.2f);
+                                ActivateAll();
+                                doneBag = true;
+                                break;
+                            case BagOutcome.Use:
+                                yield return FadeToBlack(0.2f);
+                                switch (bagResult.FieldEffect())
+                                {
+                                    default: //Going to party menu
+                                        yield return DoPartyScreenWithPrompt();
+                                        yield return FadeToBlack(0.2f);
+                                        break;
+                                    case FieldEffect.Evolution:
+                                        yield return Scene.Party.Load();
+                                        partyScreen = FindObjectOfType<PartyScreen>();
+                                        yield return FadeFromBlack(0.2f);
+                                        yield return partyScreen.DoPartyScreen(this, true);
+                                        if (partyScreenOutcome == PartyScreenOutcome.Evo)
+                                        {
+                                            Pokemon mon = Party[partyScreenResult];
+                                            foreach (EvolutionData evo in mon.SpeciesData.evolution)
+                                            {
+                                                if (evo.Method is EvolutionMethod.EvolutionItem &&
+                                                    evo.Data == (int)bagResult)
+                                                {
+                                                    mon.evolveAfterBattle = true;
+                                                    mon.destinationSpecies = evo.Destination;
+                                                    break;
+                                                }
+                                            }
+                                            if (mon.evolveAfterBattle)
+                                            {
+                                                UseItem(bagResult);
+                                                yield return DoSingleEvolution(mon, null);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            yield return FadeToBlack(0.2f);
+                                        }
+                                        break;
+                                }
+                                break;
+                            case BagOutcome.Give:
+                                yield return FadeToBlack(0.2f);
+                                yield return DoPartyScreenWithPrompt();
+                                yield return FadeToBlack(0.2f);
+                                break;
+
+                        }
+                    }
+                    break;
+                case MenuItem.Pokemon:
+                    DeactivateAll();
+                    cachedScreenData = new PartyScreenCachedData();
                     yield return FadeToBlack(0.2f);
-                    yield return Scene.Map.Load();
-                    MapReturn();
-                    menu.transform.position = menuOpenPosition;
-                    menu.OpenMenu(MenuItem.Bag);
-                    yield return FadeFromBlack(0.2f);
-                    ActivateAll();
+                    bool donepartyScreen = false;
+                    while (!donepartyScreen)
+                    {
+                        yield return Scene.Party.Load();
+                        partyScreen = FindObjectOfType<PartyScreen>();
+                        yield return FadeFromBlack(0.2f);
+                        yield return partyScreen.DoPartyScreen(this, false);
+                        switch (partyScreenOutcome)
+                        {
+                            default:
+                            case PartyScreenOutcome.None:
+                                yield return FadeToBlack(0.2f);
+                                yield return Scene.Map.Load();
+                                MapReturn();
+                                menu.transform.position = menuOpenPosition;
+                                menu.OpenMenu(MenuItem.Pokemon);
+                                yield return FadeFromBlack(0.2f);
+                                ActivateAll();
+                                donepartyScreen = true;
+                                break;
+                            case PartyScreenOutcome.GiveItem:
+                                yield return FadeToBlack(0.2f);
+                                yield return Scene.Bag.Load();
+                                BagController bagController = FindObjectOfType<BagController>();
+                                yield return bagController.DoBag(this, true);
+                                int cachedMon = ((PartyScreenCachedData)cachedScreenData).currentMon;
+                                Party[cachedMon].item = bagResult;
+                                if (!bagResult.IsZCrystal()) UseItem(bagResult);
+                                yield return FadeToBlack(0.2f);
+                                yield return Scene.Party.Load();
+                                PartyScreen partyScreen = FindObjectOfType<PartyScreen>();
+                                yield return partyScreen.DoPartyScreen(this, false, cachedMon, true,
+                                    GaveToHold(cachedMon));
+                                break;
+                        }
+                        
+                    }
                     break;
                 case MenuItem.CloseMenu:
                 default:
@@ -911,6 +1081,7 @@ public class Player : LoadedChar
         CreatePlayerGraphics(CharGraphics.brendanWalk);
         AlignPlayer();
         CaptureCamera();
+        CenterCamera();
         UpdateCollision();
     }
 
@@ -928,9 +1099,11 @@ public class Player : LoadedChar
         Party[0].move3 = MoveID.Tackle;
         Party[0].pp3 = 40;
         Party[0].maxPp3 = 40;
+        Party[1] = Pokemon.WildPokemon(SpeciesID.Pikachu, 5);
         AddItem(ItemID.PokeBall, 5);
         AddItem(ItemID.GreatBall, 5);
         AddItem(ItemID.CheriBerry, 5);
+        AddItem(ItemID.ThunderStone, 1);
         active = true;
     }
     // Start is called before the first frame update

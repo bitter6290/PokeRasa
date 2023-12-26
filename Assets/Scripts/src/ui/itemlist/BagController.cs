@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class BagController : MonoBehaviour
 {
 
-    private enum Pocket
+    public enum Pocket
     {
         Item,
         Medicine,
@@ -29,6 +29,33 @@ public class BagController : MonoBehaviour
         "Mail",
         "Battle Items",
         "Key Items"
+    };
+
+    public enum BagOutcome
+    {
+        None,
+        Use,
+        Give
+    }
+
+    private const int CloseMenu = 128;
+    private const int GiveItem = 256;
+    private const int UseItem = 512;
+    private const int TrashItem = 1024;
+
+    private struct MenuChoice
+    {
+        public int choiceID;
+        public string name;
+        public MenuChoice(int ChoiceID, string Name) { choiceID = ChoiceID; name = Name; }
+    }
+
+    private static MenuChoice[] menuChoices = new MenuChoice[]
+    {
+        new(CloseMenu, "Close"),
+        new(GiveItem, "Give"),
+        new(UseItem, "Use"),
+        new(TrashItem, "Trash")
     };
 
     public RawImage itemSprite;
@@ -53,7 +80,7 @@ public class BagController : MonoBehaviour
 
     private bool prompt;
 
-    private bool close;
+    private bool done;
 
     private ItemID currentItemID => items[currentPosition + currentSelection];
 
@@ -94,6 +121,7 @@ public class BagController : MonoBehaviour
     private void UpdatePocket()
     {
         GetItems(currentPocket);
+        currentSelection = 0;
         pocketName.text = PocketNames[(int)currentPocket];
         UpdateDisplay();
     }
@@ -108,13 +136,30 @@ public class BagController : MonoBehaviour
         currentSelection = 0;
         UpdatePocket();
         active = true;
-        while (!close)
+        while (!done)
         {
             yield return null;
         }
         active = false;
     }
 
+    public IEnumerator DoBag(Player player, bool prompt, Player.BagCachedData callback)
+    {
+        p = player;
+        callback ??= new() { pocket = Pocket.Item, position = 0, selection = 0 };
+        foreach (ItemDisplay i in itemDisplays) i.p = p;
+        this.prompt = prompt;
+        currentPocket = callback.pocket;
+        currentPosition = callback.position;
+        currentSelection = callback.selection;
+        UpdatePocket();
+        active = true;
+        while (!done)
+        {
+            yield return null;
+        }
+        active = false;
+    }
 
     private Pocket GetPocket(ItemID item)
     {
@@ -148,29 +193,81 @@ public class BagController : MonoBehaviour
         }
     }
 
+    private bool GetsChoice(ItemID item, int choice)
+    {
+        switch (choice)
+        {
+            case CloseMenu: return true;
+            case UseItem:
+                return item.FieldEffect() is not FieldEffect.None;
+            case GiveItem:
+                return item.Data().type is not ItemType.KeyItem;
+            case TrashItem:
+                return false; //Todo
+            default:
+                throw new System.Exception("Passed bad choice argument to BagController.GetsChoice");
+        }
+    }
+
     private IEnumerator DoChoiceMenu()
     {
         active = false;
         DataStore<int> result = new();
+        List<(string, int)> choices = new();
+        foreach (MenuChoice choice in menuChoices)
+        {
+            if (GetsChoice(currentItemID, choice.choiceID))
+            {
+                choices.Add((choice.name, choice.choiceID));
+            }
+        }
         bool goingDown = currentSelection < 4;
-        yield return ChoiceMenu.DoChoiceMenu(p, new() { ("Close", 0), ("Test", 1) }, 0,
+        yield return ChoiceMenu.DoChoiceMenu(p, choices, 0,
             result, itemDisplays[currentSelection].transform, new(-80, goingDown ? 15 : -15), new(1, goingDown ? 1 : 0));
         switch (result.Data)
         {
+            case CloseMenu:
             default:
                 active = true;
                 break;
+            case GiveItem:
+                CacheAndReturn(BagOutcome.Give);
+                break;
+            case UseItem:
+                CacheAndReturn(BagOutcome.Use);
+                break;
         }
+    }
+
+    private void CloseDoNothing()
+    {
+        p.audioSource.PlayOneShot(SFX.Select);
+        done = true;
+        p.bagResult = ItemID.None;
+        p.bagOutcome = BagOutcome.None;
+    }
+
+    private void CacheAndReturn(BagOutcome outcome)
+    {
+        p.bagResult = currentItemID;
+        p.bagOutcome = outcome;
+        p.cachedScreenData = new Player.BagCachedData()
+        {
+            pocket = currentPocket,
+            position = currentPosition,
+            selection = currentSelection
+        };
+        done = true;
     }
 
     private void Update()
     {
         if (!active) return;
-        if (Input.GetKeyDown(KeyCode.Backspace)) { close = true; p.bagResult = ItemID.None; }
+        if (Input.GetKeyDown(KeyCode.Backspace)) CloseDoNothing();
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (currentItemID is ItemID.CloseBag) { close = true; p.bagResult = ItemID.None; }
-            else if (prompt) { close = true; p.bagResult = currentItemID; }
+            if (currentItemID is ItemID.CloseBag) CloseDoNothing();
+            else if (prompt) { done = true; p.bagResult = currentItemID; }
             else StartCoroutine(DoChoiceMenu());
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))

@@ -90,8 +90,10 @@ public struct SpeciesData
         }
     }
 
-    public Sprite Icon => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
-        new Rect(0.0f, 0.0f, 16.0f, 16.0f), StaticValues.defPivot, 64.0f);
+    public Sprite Icon1 => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
+        new Rect(0.0f, 32.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
+    public Sprite Icon2 => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
+        new Rect(0.0f, 0.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
 
     public AudioClip Cry => Resources.Load<AudioClip>("Sound/Cries/" + cryLocation);
 

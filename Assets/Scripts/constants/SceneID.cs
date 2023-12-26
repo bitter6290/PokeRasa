@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum SceneID
+public enum SceneID //Make sure this matches the list in Build Settings!
 {
     Main,
     Map,
     Battle,
     Evolution,
     Bag,
+    Party,
 }
 
 public static class SceneUtils
