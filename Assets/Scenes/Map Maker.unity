@@ -467,7 +467,7 @@ MonoBehaviour:
   collisionMap: {fileID: 1671551014}
   wildDataMap: {fileID: 459109006}
   projectData:
-    nextMapID: 7
+    nextMapID: 8
     freeMapIDs: 
 --- !u!4 &1579713094
 Transform:

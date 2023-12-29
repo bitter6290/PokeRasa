@@ -9,7 +9,7 @@
     {
         get
         {
-            for(int i = 0; i < 30; i++)
+            for (int i = 0; i < 30; i++)
             {
                 if (!pokemon[i].exists) return i;
             }

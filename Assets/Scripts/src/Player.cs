@@ -13,11 +13,9 @@ public class Player : LoadedChar
     public static int maxBoxes = 255;
 
     public bool[] TM = new bool[(int)TMID.Count];
-    public bool[] HM = new bool[8];
-    public bool[] keyItem = new bool[8];
     public bool[] storyFlags = new bool[(int)Flag.Count];
     public bool[] trainerFlags = new bool[(int)TrainerFlag.Count];
-    public List<Box> boxes = new() { Box.newBox("Box 1")};
+    public List<Box> boxes = new() { Box.newBox("Box 1") };
     public int currentBox = 0;
     public int money = 0;
 
@@ -29,6 +27,7 @@ public class Player : LoadedChar
 
     public List<TileTrigger> triggers;
     public List<TileTrigger> signposts;
+    public List<WarpTrigger> warps;
 
     public BattleTerrain currentTerrain;
     //public MapID currentMap;
@@ -158,7 +157,7 @@ public class Player : LoadedChar
                 break;
             case ItemType.KeyItem:
                 //yield return Field.Announce("Received" + Item.ItemTable[item].name");
-                keyItem[Item.ItemTable[(int)item].ItemSubdata[0]] = true;
+                storyFlags[Item.ItemTable[(int)item].ItemSubdata[0]] = true;
                 break;
             default:
                 //yield return Field.Announce("Received" + Item.ItemTable[item].name");
@@ -208,7 +207,7 @@ public class Player : LoadedChar
     public void LockAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.free = false; }
     public void UnlockAll() { foreach ((MapData _, LoadedChar i) in loadedChars.Values) i.free = true; }
 
-    public void RemoveAllChars() => loadedChars = new();
+    public void RemoveAllChars() { DeactivateAll(); loadedChars = new(); }
 
     public bool TryAddMon(Pokemon mon)
     {
@@ -295,7 +294,7 @@ public class Player : LoadedChar
     public void ResetData()
     {
         TM = new bool[(int)TMID.Count];
-        HM = new bool[(int)Flag.Count];
+        storyFlags = new bool[(int)Flag.Count];
     }
 
     public void RenderMap()
@@ -345,6 +344,12 @@ public class Player : LoadedChar
     {
         signposts = new();
         foreach (TileTrigger i in currentMap.signposts) signposts.Add(i);
+    }
+
+    public void RefreshWarps()
+    {
+        warps = new();
+        foreach (WarpTrigger i in currentMap.warps) warps.Add(i);
     }
 
     public void RefreshChars()
@@ -424,6 +429,7 @@ public class Player : LoadedChar
     {
         RefreshTriggers();
         RefreshSignposts();
+        RefreshWarps();
         RefreshChars();
     }
 
@@ -503,7 +509,7 @@ public class Player : LoadedChar
         bool doEvo = false;
         foreach (Pokemon mon in Party) if (mon.evolveAfterBattle)
             { toEvo.Add(mon); doEvo = true; }
-        if(doEvo)
+        if (doEvo)
         {
             yield return FadeToBlack(0.2F);
             yield return Scene.Evolution.Load();
@@ -716,7 +722,7 @@ public class Player : LoadedChar
     {
         float baseTime = Time.time;
         float endTime = baseTime + duration;
-        while(Time.time < endTime)
+        while (Time.time < endTime)
         {
             blackScreenRenderer.color = new(0, 0, 0, (Time.time - baseTime) / duration);
             yield return null;
@@ -745,6 +751,35 @@ public class Player : LoadedChar
         partyScreen = FindObjectOfType<PartyScreen>();
         StartCoroutine(FadeFromBlack(0.2f));
         yield return partyScreen.DoPartyScreen(this, true);
+    }
+
+    private IEnumerator DoWarp(WarpTrigger warp)
+    {
+        state = PlayerState.Locked;
+        TileBase targetTile = mapManager.level1.GetTile(new(2 * warp.pos.x, 2 * warp.pos.y));
+        if (targetTile is IDoor)
+        {
+            yield return TriggeredTileAnim.DoDoorAnim(this, warp.pos, (IDoor)targetTile, 0.3f);
+        }
+        StartCoroutine(WalkInDirection());
+        yield return FadeToBlack(0.3f);
+        currentMap = warp.destination;
+        pos = warp.destinationPos;
+        SwitchMap();
+        AlignPlayer();
+        bool isDoor = false;
+        TileBase newTile = mapManager.level1.GetTile(new(2 * pos.x, 2 * pos.y));
+        if (newTile is IDoor) isDoor = true;
+        if (isDoor)
+        {
+            StartCoroutine(TriggeredTileAnim.DoBackwardsDoorAnim(pos, (IDoor)newTile, 0.3F));
+        }
+        yield return FadeFromBlack(0.3f);
+        if (isDoor)
+        {
+            StartCoroutine(GoSouth());
+        }
+        state = PlayerState.Free;
     }
 
     public IEnumerator DoMenu()
@@ -879,10 +914,10 @@ public class Player : LoadedChar
                                         GaveToHold(cachedMon));
                                 else
                                     yield return partyScreen.DoPartyScreen(this, false, cachedMon);
-                                    skipLoad = true;
+                                skipLoad = true;
                                 break;
                         }
-                        
+
                     }
                     break;
                 case MenuItem.CloseMenu:
@@ -897,6 +932,54 @@ public class Player : LoadedChar
         UnlockAll();
     }
 
+    public bool CheckWarps(Direction dir)
+    {
+        foreach (WarpTrigger warp in warps)
+        {
+            Debug.Log(warp);
+            switch (warp.triggerType)
+            {
+                case WarpTrigger.TriggerType.WalkOn:
+                    if (pos + dir.Vector() == warp.pos)
+                    {
+                        StartCoroutine(DoWarp(warp));
+                        return true;
+                    }
+                    break;
+                case WarpTrigger.TriggerType.WalkNorthFrom:
+                    if (pos == warp.pos && dir is Direction.N)
+                    {
+                        StartCoroutine(DoWarp(warp));
+                        return true;
+                    }
+                    break;
+                case WarpTrigger.TriggerType.WalkEastFrom:
+                    if (pos == warp.pos && dir is Direction.E)
+                    {
+                        StartCoroutine(DoWarp(warp));
+                        return true;
+                    }
+                    break;
+                case WarpTrigger.TriggerType.WalkWestFrom:
+                    if (pos == warp.pos && dir is Direction.W)
+                    {
+                        StartCoroutine(DoWarp(warp));
+                        return true;
+                    }
+                    break;
+                case WarpTrigger.TriggerType.WalkSouthFrom:
+                    if (pos == warp.pos && dir is Direction.S)
+                    {
+                        StartCoroutine(DoWarp(warp));
+                        return true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        return false;
+    }
 
 
     public void CheckGrassEncounter()
@@ -914,6 +997,7 @@ public class Player : LoadedChar
     {
         if (facing != Direction.S)
             StartCoroutine(playerGraphics.FaceSouth(this, 0.1F));
+        else if (CheckWarps(Direction.S)) return;
         else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x, pos.y - 1);
@@ -930,6 +1014,7 @@ public class Player : LoadedChar
     {
         if (facing != Direction.N)
             StartCoroutine(playerGraphics.FaceNorth(this, 0.1F));
+        else if (CheckWarps(Direction.N)) return;
         else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x, pos.y + 1);
@@ -946,6 +1031,7 @@ public class Player : LoadedChar
     {
         if (facing != Direction.W)
             StartCoroutine(playerGraphics.FaceWest(this, 0.1F));
+        else if (CheckWarps(Direction.W)) return;
         else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x - 1, pos.y);
@@ -962,6 +1048,7 @@ public class Player : LoadedChar
     {
         if (facing != Direction.E)
             StartCoroutine(playerGraphics.FaceEast(this, 0.1F));
+        else if (CheckWarps(Direction.E)) return;
         else if (CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
             TryChangeMap(pos.x + 1, pos.y);

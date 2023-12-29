@@ -15967,7 +15967,7 @@ public static class Species
         baseSpDef = 100,
         baseSpeed = 100,
         evYield = 3 * HP,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
         learnset = EmptyLearnset, //Not done
@@ -16066,7 +16066,7 @@ public static class Species
         baseSpDef = 95,
         baseSpeed = 113,
         evYield = 3 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 238,
         learnset = EmptyLearnset, //Not done
@@ -16165,7 +16165,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 65,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 238,
         learnset = EmptyLearnset, //Not done
@@ -16264,7 +16264,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 70,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 238,
         learnset = EmptyLearnset, //Not done
@@ -16330,7 +16330,7 @@ public static class Species
         baseSpDef = 69,
         baseSpeed = 77,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 147,
         learnset = EmptyLearnset, //Not done
@@ -16429,7 +16429,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 80,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 225,
         learnset = EmptyLearnset, //Not done
@@ -16495,7 +16495,7 @@ public static class Species
         baseSpDef = 50,
         baseSpeed = 106,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 156,
         learnset = EmptyLearnset, //Not done
@@ -16561,7 +16561,7 @@ public static class Species
         baseSpDef = 63,
         baseSpeed = 101,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 174,
         learnset = EmptyLearnset, //Not done
@@ -16627,7 +16627,7 @@ public static class Species
         baseSpDef = 63,
         baseSpeed = 101,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 174,
         learnset = EmptyLearnset, //Not done
@@ -16693,7 +16693,7 @@ public static class Species
         baseSpDef = 63,
         baseSpeed = 101,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 174,
         learnset = EmptyLearnset, //Not done
@@ -16759,7 +16759,7 @@ public static class Species
         baseSpDef = 95,
         baseSpeed = 29,
         evYield = 2 * HP,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 170,
         learnset = EmptyLearnset, //Not done
@@ -16858,7 +16858,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 93,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 220,
         learnset = EmptyLearnset, //Not done
@@ -16924,7 +16924,7 @@ public static class Species
         baseSpDef = 63,
         baseSpeed = 116,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 174,
         learnset = EmptyLearnset, //Not done
@@ -17023,7 +17023,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 25,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 232,
         learnset = EmptyLearnset, //Not done
@@ -17089,7 +17089,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 114,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 149,
         learnset = EmptyLearnset, //Not done
@@ -17155,7 +17155,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 88,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 178,
         learnset = EmptyLearnset, //Not done
@@ -17188,7 +17188,7 @@ public static class Species
         baseSpDef = 86,
         baseSpeed = 50,
         evYield = 2 * HP,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 390,
         learnset = EmptyLearnset, //Not done
@@ -17287,7 +17287,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 45,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 227,
         learnset = EmptyLearnset, //Not done
@@ -17386,7 +17386,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 74,
         evYield = 3 * HP,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 229,
         learnset = EmptyLearnset, //Not done
@@ -17419,7 +17419,7 @@ public static class Species
         baseSpDef = 85,
         baseSpeed = 45,
         evYield = 2 * HP,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 163,
         learnset = EmptyLearnset, //Not done
@@ -17452,7 +17452,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 85,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 163,
         learnset = EmptyLearnset, //Not done
@@ -17551,7 +17551,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 92,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 225,
         learnset = EmptyLearnset, //Not done
@@ -17650,7 +17650,7 @@ public static class Species
         baseSpDef = 69,
         baseSpeed = 112,
         evYield = 3 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 218,
         learnset = EmptyLearnset, //Not done
@@ -17716,7 +17716,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 116,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 168,
         learnset = EmptyLearnset, //Not done
@@ -17782,7 +17782,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 90,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 168,
         learnset = EmptyLearnset, //Not done
@@ -17883,7 +17883,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 92,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 234,
         learnset = EmptyLearnset, //Not done
@@ -17949,7 +17949,7 @@ public static class Species
         baseSpDef = 55,
         baseSpeed = 95,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 168,
         learnset = EmptyLearnset, //Not done
@@ -17982,7 +17982,7 @@ public static class Species
         baseSpDef = 67,
         baseSpeed = 60,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 161,
         learnset = EmptyLearnset, //Not done
@@ -18048,7 +18048,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 45,
         evYield = 2 * Defense,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 170,
         learnset = EmptyLearnset, //Not done
@@ -18114,7 +18114,7 @@ public static class Species
         baseSpDef = 115,
         baseSpeed = 58,
         evYield = Defense + SpDef,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 171,
         learnset = EmptyLearnset, //Not done
@@ -18147,7 +18147,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 97,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 172,
         learnset = EmptyLearnset, //Not done
@@ -18213,7 +18213,7 @@ public static class Species
         baseSpDef = 105,
         baseSpeed = 30,
         evYield = 2 * Defense,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 169,
         learnset = EmptyLearnset, //Not done
@@ -18279,7 +18279,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 32,
         evYield = 2 * Defense,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 173,
         learnset = EmptyLearnset, //Not done
@@ -18345,7 +18345,7 @@ public static class Species
         baseSpDef = 65,
         baseSpeed = 110,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 177,
         learnset = EmptyLearnset, //Not done
@@ -18411,7 +18411,7 @@ public static class Species
         baseSpDef = 82,
         baseSpeed = 75,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 166,
         learnset = EmptyLearnset, //Not done
@@ -18477,7 +18477,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 105,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 179,
         learnset = EmptyLearnset, //Not done
@@ -18543,7 +18543,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 115,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 165,
         learnset = EmptyLearnset, //Not done
@@ -18642,7 +18642,7 @@ public static class Species
         baseSpDef = 110,
         baseSpeed = 65,
         evYield = 3 * SpDef,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 221,
         learnset = EmptyLearnset, //Not done
@@ -18741,7 +18741,7 @@ public static class Species
         baseSpDef = 85,
         baseSpeed = 30,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 221,
         learnset = EmptyLearnset, //Not done
@@ -18807,7 +18807,7 @@ public static class Species
         baseSpDef = 63,
         baseSpeed = 98,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 166,
         learnset = EmptyLearnset, //Not done
@@ -18906,7 +18906,7 @@ public static class Species
         baseSpDef = 95,
         baseSpeed = 79,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 241,
         learnset = EmptyLearnset, //Not done
@@ -18943,7 +18943,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 103,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 150,
         learnset = EmptyLearnset, //Not done
@@ -19009,7 +19009,7 @@ public static class Species
         baseSpDef = 105,
         baseSpeed = 20,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 173,
         learnset = EmptyLearnset, //Not done
@@ -19075,7 +19075,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 30,
         evYield = 2 * HP,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 162,
         learnset = EmptyLearnset, //Not done
@@ -19141,7 +19141,7 @@ public static class Species
         baseSpDef = 105,
         baseSpeed = 60,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 168,
         learnset = EmptyLearnset, //Not done
@@ -19174,7 +19174,7 @@ public static class Species
         baseSpDef = 45,
         baseSpeed = 65,
         evYield = 2 * HP,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Fast,
         xpYield = 165,
         learnset = EmptyLearnset, //Not done
@@ -19240,7 +19240,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 108,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 165,
         learnset = EmptyLearnset, //Not done
@@ -19306,7 +19306,7 @@ public static class Species
         baseSpDef = 116,
         baseSpeed = 20,
         evYield = 2 * Defense,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 171,
         learnset = EmptyLearnset, //Not done
@@ -19405,7 +19405,7 @@ public static class Species
         baseSpDef = 85,
         baseSpeed = 90,
         evYield = 3 * Defense,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 234,
         learnset = EmptyLearnset, //Not done
@@ -19504,7 +19504,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 50,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 232,
         learnset = EmptyLearnset, //Not done
@@ -19570,7 +19570,7 @@ public static class Species
         baseSpDef = 95,
         baseSpeed = 40,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 170,
         learnset = EmptyLearnset, //Not done
@@ -19669,7 +19669,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 80,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 234,
         learnset = EmptyLearnset, //Not done
@@ -19768,7 +19768,7 @@ public static class Species
         baseSpDef = 70,
         baseSpeed = 97,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 243,
         learnset = EmptyLearnset, //Not done
@@ -19834,7 +19834,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 50,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 177,
         learnset = EmptyLearnset, //Not done
@@ -19867,7 +19867,7 @@ public static class Species
         baseSpDef = 135,
         baseSpeed = 105,
         evYield = 2 * SpDef,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 180,
         learnset = EmptyLearnset, //Not done
@@ -19933,7 +19933,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 145,
         evYield = 2 * Speed,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 173,
         learnset = EmptyLearnset, //Not done
@@ -19966,7 +19966,7 @@ public static class Species
         baseSpDef = 99,
         baseSpeed = 32,
         evYield = 2 * HP,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 165,
         learnset = EmptyLearnset, //Not done
@@ -20032,7 +20032,7 @@ public static class Species
         baseSpDef = 60,
         baseSpeed = 105,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 179,
         learnset = EmptyLearnset, //Not done
@@ -20065,7 +20065,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 48,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 170,
         learnset = EmptyLearnset, //Not done
@@ -20131,7 +20131,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 55,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 169,
         learnset = EmptyLearnset, //Not done
@@ -20230,7 +20230,7 @@ public static class Species
         baseSpDef = 95,
         baseSpeed = 55,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 172,
         learnset = EmptyLearnset, //Not done
@@ -20296,7 +20296,7 @@ public static class Species
         baseSpDef = 75,
         baseSpeed = 80,
         evYield = 2 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 179,
         learnset = EmptyLearnset, //Not done
@@ -20362,7 +20362,7 @@ public static class Species
         baseSpDef = 95,
         baseSpeed = 80,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 179,
         learnset = EmptyLearnset, //Not done
@@ -20395,7 +20395,7 @@ public static class Species
         baseSpDef = 66,
         baseSpeed = 65,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 169,
         learnset = EmptyLearnset, //Not done
@@ -20428,7 +20428,7 @@ public static class Species
         baseSpDef = 48,
         baseSpeed = 109,
         evYield = 2 * Defense,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumFast,
         xpYield = 169,
         learnset = EmptyLearnset, //Not done
@@ -20527,7 +20527,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 98,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
         learnset = EmptyLearnset, //Not done
@@ -20593,7 +20593,7 @@ public static class Species
         baseSpDef = 105,
         baseSpeed = 100,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 248,
         learnset = EmptyLearnset, //Not done
@@ -20626,7 +20626,7 @@ public static class Species
         baseSpDef = 72,
         baseSpeed = 108,
         evYield = 3 * Defense,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
         learnset = EmptyLearnset, //Not done
@@ -20659,7 +20659,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 108,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
         learnset = EmptyLearnset, //Not done
@@ -20692,7 +20692,7 @@ public static class Species
         baseSpDef = 129,
         baseSpeed = 108,
         evYield = 3 * SpDef,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
         learnset = EmptyLearnset, //Not done
@@ -20725,7 +20725,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 111,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
         learnset = EmptyLearnset, //Not done
@@ -20758,7 +20758,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 111,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
         learnset = EmptyLearnset, //Not done
@@ -20791,7 +20791,7 @@ public static class Species
         baseSpDef = 120,
         baseSpeed = 90,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 306,
         learnset = EmptyLearnset, //Not done
@@ -20824,7 +20824,7 @@ public static class Species
         baseSpDef = 100,
         baseSpeed = 90,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 306,
         learnset = EmptyLearnset, //Not done
@@ -20857,7 +20857,7 @@ public static class Species
         baseSpDef = 80,
         baseSpeed = 101,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
         learnset = EmptyLearnset, //Not done
@@ -20890,7 +20890,7 @@ public static class Species
         baseSpDef = 90,
         baseSpeed = 95,
         evYield = HP + Attack + SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 297,
         learnset = EmptyLearnset, //Not done
@@ -20924,7 +20924,7 @@ public static class Species
         baseSpDef = 128,
         baseSpeed = 90,
         evYield = Speed + SpAtk + SpDef,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
         learnset = EmptyLearnset, //Not done
@@ -21412,7 +21412,7 @@ public static class Species
     };
 
     public static readonly SpeciesData ScatterbugMeadow = Scatterbug(SpeciesID.SpewpaMeadow);
-    
+
     public static readonly SpeciesData SpewpaMeadow = Spewpa(SpeciesID.VivillonMeadow);
 
     public static readonly SpeciesData VivillonMeadow = Vivillon("meadow");
@@ -22838,31 +22838,31 @@ public static class Species
 
     public static readonly SpeciesData Yveltal = new()
     {
-            speciesName = "Yveltal",
-            type1 = Dark,
-            type2 = Flying,
-            baseHP = 126,
-            baseAttack = 131,
-            baseDefense = 95,
-            baseSpAtk = 131,
-            baseSpDef = 98,
-            baseSpeed = 99,
-            evYield = 3 * HP,
-            evolution = Evolution.None,
-            xpClass = Slow,
-            xpYield = 306,
-            learnset = EmptyLearnset, //Not done
-            malePercent = Genderless,
-            eggGroup1 = EggGroup.Undiscovered,
-            eggGroup2 = EggGroup.Undiscovered,
-            eggCycles = 120,
-            catchRate = 45,
-            baseFriendship = 0,
-            cryLocation = "yveltal", //Verify
-            graphicsLocation = "yveltal", //Verify
-            backSpriteHeight = 10,
-            pokedexData = Pokedex.Yveltal,
-            abilities = new Ability[3]
+        speciesName = "Yveltal",
+        type1 = Dark,
+        type2 = Flying,
+        baseHP = 126,
+        baseAttack = 131,
+        baseDefense = 95,
+        baseSpAtk = 131,
+        baseSpDef = 98,
+        baseSpeed = 99,
+        evYield = 3 * HP,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 306,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 45,
+        baseFriendship = 0,
+        cryLocation = "yveltal", //Verify
+        graphicsLocation = "yveltal", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Yveltal,
+        abilities = new Ability[3]
         {
                 DarkAura,
                 DarkAura,
@@ -24593,39 +24593,39 @@ public static class Species
             Unaware,
         },
     };
-    public static readonly SpeciesData TypeNull = new ()
-	{
-		speciesName = "Type: Null",
-		type1 = Normal,
-		type2 = Normal,
-		baseHP = 95,
-		baseAttack = 95,
-		baseDefense = 95,
-		baseSpAtk = 95,
-		baseSpDef = 95,
-		baseSpeed = 59,
-		evYield = 2 * HP,
-		evolution = Evolution.TypeNull,
-		xpClass = Slow,
-		xpYield = 107,
-		learnset = EmptyLearnset, //Not done
-		malePercent = Genderless,
-		eggGroup1 = EggGroup.Undiscovered,
-		eggGroup2 = EggGroup.Undiscovered,
-		eggCycles = 120,
-		catchRate = 3,
-		baseFriendship = 0,
-		cryLocation = "type_null", //Verify
-		graphicsLocation = "type_null", //Verify
-		backSpriteHeight = 1,
-		pokedexData = Pokedex.TypeNull,
-		abilities = new Ability[3]
-		{
-			BattleArmor,
-			BattleArmor,
-			BattleArmor,
-		},
-	};
+    public static readonly SpeciesData TypeNull = new()
+    {
+        speciesName = "Type: Null",
+        type1 = Normal,
+        type2 = Normal,
+        baseHP = 95,
+        baseAttack = 95,
+        baseDefense = 95,
+        baseSpAtk = 95,
+        baseSpDef = 95,
+        baseSpeed = 59,
+        evYield = 2 * HP,
+        evolution = Evolution.TypeNull,
+        xpClass = Slow,
+        xpYield = 107,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "type_null", //Verify
+        graphicsLocation = "type_null", //Verify
+        backSpriteHeight = 1,
+        pokedexData = Pokedex.TypeNull,
+        abilities = new Ability[3]
+        {
+            BattleArmor,
+            BattleArmor,
+            BattleArmor,
+        },
+    };
     public static readonly SpeciesData SilvallyNormal = Silvally(Normal, "normal");
     public static readonly SpeciesData MiniorRedMeteor = Minior(false);
     public static readonly SpeciesData Komala = new()
@@ -24827,39 +24827,39 @@ public static class Species
             Steelworker,
         },
     };
-    public static readonly SpeciesData JangmoO = new ()
-	{
-		speciesName = "Jangmo-O",
-		type1 = Dragon,
-		type2 = Dragon,
-		baseHP = 45,
-		baseAttack = 55,
-		baseDefense = 65,
-		baseSpAtk = 45,
-		baseSpDef = 45,
-		baseSpeed = 45,
-		evYield = Defense,
-		evolution = Evolution.JangmoO,
-		xpClass = Slow,
-		xpYield = 60,
-		learnset = EmptyLearnset, //Not done
-		malePercent = 50,
-		eggGroup1 = EggGroup.Dragon,
-		eggGroup2 = EggGroup.Dragon,
-		eggCycles = 40,
-		catchRate = 45,
-		baseFriendship = 70,
-		cryLocation = "jangmo_o", //Verify
-		graphicsLocation = "jangmo_o", //Verify
-		backSpriteHeight = 7,
-		pokedexData = Pokedex.JangmoO,
-		abilities = new Ability[3]
-		{
-			Bulletproof,
-			Soundproof,
-			Overcoat,
-		},
-	};
+    public static readonly SpeciesData JangmoO = new()
+    {
+        speciesName = "Jangmo-O",
+        type1 = Dragon,
+        type2 = Dragon,
+        baseHP = 45,
+        baseAttack = 55,
+        baseDefense = 65,
+        baseSpAtk = 45,
+        baseSpDef = 45,
+        baseSpeed = 45,
+        evYield = Defense,
+        evolution = Evolution.JangmoO,
+        xpClass = Slow,
+        xpYield = 60,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Dragon,
+        eggGroup2 = EggGroup.Dragon,
+        eggCycles = 40,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "jangmo_o", //Verify
+        graphicsLocation = "jangmo_o", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.JangmoO,
+        abilities = new Ability[3]
+        {
+            Bulletproof,
+            Soundproof,
+            Overcoat,
+        },
+    };
     public static readonly SpeciesData HakamoO = new()
     {
         speciesName = "Hakamo-O",
@@ -25724,614 +25724,614 @@ public static class Species
 
     //Regional forms
     //Alola
-    public static readonly SpeciesData RattataAlola = new ()
-	{
-		speciesName = "Rattata",
-		type1 = Dark,
-		type2 = Normal,
-		baseHP = 30,
-		baseAttack = 56,
-		baseDefense = 35,
-		baseSpAtk = 25,
-		baseSpDef = 35,
-		baseSpeed = 72,
-		evYield = Speed,
-		evolution = Evolution.RattataAlola,
-		xpClass = MediumFast,
-		xpYield = 51,
-		learnset = EmptyLearnset, //Not done
-		malePercent = 50,
-		eggGroup1 = EggGroup.Field,
-		eggGroup2 = EggGroup.Field,
-		eggCycles = 15,
-		catchRate = 255,
-		baseFriendship = 70,
-		cryLocation = "rattata", //Verify
-		graphicsLocation = "rattata/alolan", //Verify
-		backSpriteHeight = 7,
-		pokedexData = Pokedex.Rattata,
-		abilities = new Ability[3]
-		{
-			Gluttony,
-			Hustle,
-			ThickFat,
-		},
-	};
-public static readonly SpeciesData RaticateAlola = new()
-{
-    speciesName = "Raticate",
-    type1 = Dark,
-    type2 = Normal,
-    baseHP = 75,
-    baseAttack = 71,
-    baseDefense = 70,
-    baseSpAtk = 40,
-    baseSpDef = 80,
-    baseSpeed = 77,
-    evYield = 2 * Speed,
-    evolution = Evolution.None,
-    xpClass = MediumFast,
-    xpYield = 145,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Field,
-    eggGroup2 = EggGroup.Field,
-    eggCycles = 15,
-    catchRate = 127,
-    baseFriendship = 70,
-    cryLocation = "raticate", //Verify
-    graphicsLocation = "raticate/alolan", //Verify
-    backSpriteHeight = 8,
-    pokedexData = Pokedex.Raticate,
-    abilities = new Ability[3]
+    public static readonly SpeciesData RattataAlola = new()
     {
+        speciesName = "Rattata",
+        type1 = Dark,
+        type2 = Normal,
+        baseHP = 30,
+        baseAttack = 56,
+        baseDefense = 35,
+        baseSpAtk = 25,
+        baseSpDef = 35,
+        baseSpeed = 72,
+        evYield = Speed,
+        evolution = Evolution.RattataAlola,
+        xpClass = MediumFast,
+        xpYield = 51,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "rattata", //Verify
+        graphicsLocation = "rattata/alolan", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Rattata,
+        abilities = new Ability[3]
+        {
             Gluttony,
             Hustle,
             ThickFat,
-    },
-};
-public static readonly SpeciesData RaichuAlola = new()
-{
-    speciesName = "Raichu",
-    type1 = Electric,
-    type2 = Psychic,
-    baseHP = 60,
-    baseAttack = 85,
-    baseDefense = 50,
-    baseSpAtk = 95,
-    baseSpDef = 85,
-    baseSpeed = 110,
-    evYield = 3 * Speed,
-    evolution = Evolution.None,
-    xpClass = MediumFast,
-    xpYield = 218,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Field,
-    eggGroup2 = EggGroup.Fairy,
-    eggCycles = 10,
-    catchRate = 75,
-    baseFriendship = 70,
-    cryLocation = "raichu", //Verify
-    graphicsLocation = "raichu/alolan", //Verify
-    backSpriteHeight = 6,
-    pokedexData = Pokedex.Raichu,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData RaticateAlola = new()
     {
-            SurgeSurfer,
-            SurgeSurfer,
-            SurgeSurfer,
-    },
-};
-public static readonly SpeciesData SandshrewAlola = new()
-{
-    speciesName = "Sandshrew",
-    type1 = Ice,
-    type2 = Steel,
-    baseHP = 50,
-    baseAttack = 75,
-    baseDefense = 90,
-    baseSpAtk = 10,
-    baseSpDef = 35,
-    baseSpeed = 40,
-    evYield = Defense,
-    evolution = Evolution.SandshrewAlola,
-    xpClass = MediumFast,
-    xpYield = 60,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Field,
-    eggGroup2 = EggGroup.Field,
-    eggCycles = 20,
-    catchRate = 255,
-    baseFriendship = 70,
-    cryLocation = "sandshrew", //Verify
-    graphicsLocation = "sandshrew/alolan", //Verify
-    backSpriteHeight = 13,
-    pokedexData = Pokedex.Sandshrew,
-    abilities = new Ability[3]
+        speciesName = "Raticate",
+        type1 = Dark,
+        type2 = Normal,
+        baseHP = 75,
+        baseAttack = 71,
+        baseDefense = 70,
+        baseSpAtk = 40,
+        baseSpDef = 80,
+        baseSpeed = 77,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 145,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 127,
+        baseFriendship = 70,
+        cryLocation = "raticate", //Verify
+        graphicsLocation = "raticate/alolan", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Raticate,
+        abilities = new Ability[3]
+        {
+            Gluttony,
+            Hustle,
+            ThickFat,
+        },
+    };
+    public static readonly SpeciesData RaichuAlola = new()
     {
+        speciesName = "Raichu",
+        type1 = Electric,
+        type2 = Psychic,
+        baseHP = 60,
+        baseAttack = 85,
+        baseDefense = 50,
+        baseSpAtk = 95,
+        baseSpDef = 85,
+        baseSpeed = 110,
+        evYield = 3 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 218,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 10,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "raichu", //Verify
+        graphicsLocation = "raichu/alolan", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Raichu,
+        abilities = new Ability[3]
+        {
+            SurgeSurfer,
+            SurgeSurfer,
+            SurgeSurfer,
+        },
+    };
+    public static readonly SpeciesData SandshrewAlola = new()
+    {
+        speciesName = "Sandshrew",
+        type1 = Ice,
+        type2 = Steel,
+        baseHP = 50,
+        baseAttack = 75,
+        baseDefense = 90,
+        baseSpAtk = 10,
+        baseSpDef = 35,
+        baseSpeed = 40,
+        evYield = Defense,
+        evolution = Evolution.SandshrewAlola,
+        xpClass = MediumFast,
+        xpYield = 60,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "sandshrew", //Verify
+        graphicsLocation = "sandshrew/alolan", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Sandshrew,
+        abilities = new Ability[3]
+        {
             SnowCloak,
             SnowCloak,
             SlushRush,
-    },
-};
-public static readonly SpeciesData SandslashAlola = new()
-{
-    speciesName = "Sandslash",
-    type1 = Ice,
-    type2 = Steel,
-    baseHP = 75,
-    baseAttack = 100,
-    baseDefense = 120,
-    baseSpAtk = 25,
-    baseSpDef = 65,
-    baseSpeed = 65,
-    evYield = 2 * Defense,
-    evolution = Evolution.None,
-    xpClass = MediumFast,
-    xpYield = 158,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Field,
-    eggGroup2 = EggGroup.Field,
-    eggCycles = 20,
-    catchRate = 90,
-    baseFriendship = 70,
-    cryLocation = "sandslash", //Verify
-    graphicsLocation = "sandslash/alolan", //Verify
-    backSpriteHeight = 6,
-    pokedexData = Pokedex.Sandslash,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData SandslashAlola = new()
     {
+        speciesName = "Sandslash",
+        type1 = Ice,
+        type2 = Steel,
+        baseHP = 75,
+        baseAttack = 100,
+        baseDefense = 120,
+        baseSpAtk = 25,
+        baseSpDef = 65,
+        baseSpeed = 65,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 158,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 90,
+        baseFriendship = 70,
+        cryLocation = "sandslash", //Verify
+        graphicsLocation = "sandslash/alolan", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Sandslash,
+        abilities = new Ability[3]
+        {
             SnowCloak,
             SnowCloak,
             SlushRush,
-    },
-};
-public static readonly SpeciesData VulpixAlola = new()
-{
-    speciesName = "Vulpix",
-    type1 = Ice,
-    type2 = Ice,
-    baseHP = 38,
-    baseAttack = 41,
-    baseDefense = 40,
-    baseSpAtk = 50,
-    baseSpDef = 65,
-    baseSpeed = 65,
-    evYield = Speed,
-    evolution = Evolution.VulpixAlola,
-    xpClass = MediumFast,
-    xpYield = 60,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 25,
-    eggGroup1 = EggGroup.Field,
-    eggGroup2 = EggGroup.Field,
-    eggCycles = 20,
-    catchRate = 190,
-    baseFriendship = 70,
-    cryLocation = "vulpix", //Verify
-    graphicsLocation = "vulpix/alolan", //Verify
-    backSpriteHeight = 5,
-    pokedexData = Pokedex.Vulpix,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData VulpixAlola = new()
     {
+        speciesName = "Vulpix",
+        type1 = Ice,
+        type2 = Ice,
+        baseHP = 38,
+        baseAttack = 41,
+        baseDefense = 40,
+        baseSpAtk = 50,
+        baseSpDef = 65,
+        baseSpeed = 65,
+        evYield = Speed,
+        evolution = Evolution.VulpixAlola,
+        xpClass = MediumFast,
+        xpYield = 60,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 25,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "vulpix", //Verify
+        graphicsLocation = "vulpix/alolan", //Verify
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Vulpix,
+        abilities = new Ability[3]
+        {
             SnowCloak,
             SnowCloak,
             SnowWarning,
-    },
-};
-public static readonly SpeciesData NinetalesAlola = new()
-{
-    speciesName = "Ninetales",
-    type1 = Ice,
-    type2 = Fairy,
-    baseHP = 73,
-    baseAttack = 67,
-    baseDefense = 75,
-    baseSpAtk = 81,
-    baseSpDef = 100,
-    baseSpeed = 109,
-    evYield = Speed + SpDef,
-    evolution = Evolution.None,
-    xpClass = MediumFast,
-    xpYield = 177,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 25,
-    eggGroup1 = EggGroup.Field,
-    eggGroup2 = EggGroup.Field,
-    eggCycles = 20,
-    catchRate = 75,
-    baseFriendship = 70,
-    cryLocation = "ninetales", //Verify
-    graphicsLocation = "ninetales/alolan", //Verify
-    backSpriteHeight = 5,
-    pokedexData = Pokedex.Ninetales,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData NinetalesAlola = new()
     {
+        speciesName = "Ninetales",
+        type1 = Ice,
+        type2 = Fairy,
+        baseHP = 73,
+        baseAttack = 67,
+        baseDefense = 75,
+        baseSpAtk = 81,
+        baseSpDef = 100,
+        baseSpeed = 109,
+        evYield = Speed + SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 177,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 25,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "ninetales", //Verify
+        graphicsLocation = "ninetales/alolan", //Verify
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Ninetales,
+        abilities = new Ability[3]
+        {
             SnowCloak,
             SnowCloak,
             SnowWarning,
-    },
-};
-public static readonly SpeciesData DiglettAlola = new()
-{
-    speciesName = "Diglett",
-    type1 = Ground,
-    type2 = Steel,
-    baseHP = 10,
-    baseAttack = 55,
-    baseDefense = 30,
-    baseSpAtk = 35,
-    baseSpDef = 45,
-    baseSpeed = 90,
-    evYield = Speed,
-    evolution = Evolution.DiglettAlola,
-    xpClass = MediumFast,
-    xpYield = 53,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Field,
-    eggGroup2 = EggGroup.Field,
-    eggCycles = 20,
-    catchRate = 255,
-    baseFriendship = 70,
-    cryLocation = "diglett", //Verify
-    graphicsLocation = "diglett/alolan", //Verify
-    backSpriteHeight = 14,
-    pokedexData = Pokedex.Diglett,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData DiglettAlola = new()
     {
+        speciesName = "Diglett",
+        type1 = Ground,
+        type2 = Steel,
+        baseHP = 10,
+        baseAttack = 55,
+        baseDefense = 30,
+        baseSpAtk = 35,
+        baseSpDef = 45,
+        baseSpeed = 90,
+        evYield = Speed,
+        evolution = Evolution.DiglettAlola,
+        xpClass = MediumFast,
+        xpYield = 53,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "diglett", //Verify
+        graphicsLocation = "diglett/alolan", //Verify
+        backSpriteHeight = 14,
+        pokedexData = Pokedex.Diglett,
+        abilities = new Ability[3]
+        {
             SandVeil,
             TanglingHair,
             SandForce,
-    },
-};
-public static readonly SpeciesData DugtrioAlola = new()
-{
-    speciesName = "Dugtrio",
-    type1 = Ground,
-    type2 = Steel,
-    baseHP = 35,
-    baseAttack = 100,
-    baseDefense = 60,
-    baseSpAtk = 50,
-    baseSpDef = 70,
-    baseSpeed = 110,
-    evYield = 2 * Speed,
-    evolution = Evolution.None,
-    xpClass = MediumFast,
-    xpYield = 149,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Field,
-    eggGroup2 = EggGroup.Field,
-    eggCycles = 20,
-    catchRate = 50,
-    baseFriendship = 70,
-    cryLocation = "dugtrio", //Verify
-    graphicsLocation = "dugtrio/alolan", //Verify
-    backSpriteHeight = 17,
-    pokedexData = Pokedex.Dugtrio,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData DugtrioAlola = new()
     {
+        speciesName = "Dugtrio",
+        type1 = Ground,
+        type2 = Steel,
+        baseHP = 35,
+        baseAttack = 100,
+        baseDefense = 60,
+        baseSpAtk = 50,
+        baseSpDef = 70,
+        baseSpeed = 110,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 149,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 50,
+        baseFriendship = 70,
+        cryLocation = "dugtrio", //Verify
+        graphicsLocation = "dugtrio/alolan", //Verify
+        backSpriteHeight = 17,
+        pokedexData = Pokedex.Dugtrio,
+        abilities = new Ability[3]
+        {
             SandVeil,
             TanglingHair,
             SandForce,
-    },
-};
-public static readonly SpeciesData MeowthAlola = new()
-{
-    speciesName = "Meowth",
-    type1 = Dark,
-    type2 = Dark,
-    baseHP = 40,
-    baseAttack = 35,
-    baseDefense = 35,
-    baseSpAtk = 50,
-    baseSpDef = 40,
-    baseSpeed = 90,
-    evYield = Speed,
-    evolution = Evolution.MeowthAlola,
-    xpClass = MediumFast,
-    xpYield = 58,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Field,
-    eggGroup2 = EggGroup.Field,
-    eggCycles = 20,
-    catchRate = 255,
-    baseFriendship = 70,
-    cryLocation = "meowth", //Verify
-    graphicsLocation = "meowth/alolan", //Verify
-    backSpriteHeight = 7,
-    pokedexData = Pokedex.Meowth,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData MeowthAlola = new()
     {
+        speciesName = "Meowth",
+        type1 = Dark,
+        type2 = Dark,
+        baseHP = 40,
+        baseAttack = 35,
+        baseDefense = 35,
+        baseSpAtk = 50,
+        baseSpDef = 40,
+        baseSpeed = 90,
+        evYield = Speed,
+        evolution = Evolution.MeowthAlola,
+        xpClass = MediumFast,
+        xpYield = 58,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "meowth", //Verify
+        graphicsLocation = "meowth/alolan", //Verify
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Meowth,
+        abilities = new Ability[3]
+        {
             Pickup,
             Technician,
             Rattled,
-    },
-};
-public static readonly SpeciesData PersianAlola = new()
-{
-    speciesName = "Persian",
-    type1 = Dark,
-    type2 = Dark,
-    baseHP = 65,
-    baseAttack = 60,
-    baseDefense = 60,
-    baseSpAtk = 75,
-    baseSpDef = 65,
-    baseSpeed = 115,
-    evYield = 2 * Speed,
-    evolution = Evolution.None,
-    xpClass = MediumFast,
-    xpYield = 154,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Field,
-    eggGroup2 = EggGroup.Field,
-    eggCycles = 20,
-    catchRate = 90,
-    baseFriendship = 70,
-    cryLocation = "persian", //Verify
-    graphicsLocation = "persian/alolan", //Verify
-    backSpriteHeight = 8,
-    pokedexData = Pokedex.Persian,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData PersianAlola = new()
     {
+        speciesName = "Persian",
+        type1 = Dark,
+        type2 = Dark,
+        baseHP = 65,
+        baseAttack = 60,
+        baseDefense = 60,
+        baseSpAtk = 75,
+        baseSpDef = 65,
+        baseSpeed = 115,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 154,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 90,
+        baseFriendship = 70,
+        cryLocation = "persian", //Verify
+        graphicsLocation = "persian/alolan", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Persian,
+        abilities = new Ability[3]
+        {
             FurCoat,
             Technician,
             Rattled,
-    },
-};
-public static readonly SpeciesData GeodudeAlola = new()
-{
-    speciesName = "Geodude",
-    type1 = Rock,
-    type2 = Electric,
-    baseHP = 40,
-    baseAttack = 80,
-    baseDefense = 100,
-    baseSpAtk = 30,
-    baseSpDef = 30,
-    baseSpeed = 20,
-    evYield = Defense,
-    evolution = Evolution.GeodudeAlola,
-    xpClass = MediumSlow,
-    xpYield = 60,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Mineral,
-    eggGroup2 = EggGroup.Mineral,
-    eggCycles = 15,
-    catchRate = 255,
-    baseFriendship = 70,
-    cryLocation = "geodude", //Verify
-    graphicsLocation = "geodude/alolan", //Verify
-    backSpriteHeight = 13,
-    pokedexData = Pokedex.Geodude,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData GeodudeAlola = new()
     {
+        speciesName = "Geodude",
+        type1 = Rock,
+        type2 = Electric,
+        baseHP = 40,
+        baseAttack = 80,
+        baseDefense = 100,
+        baseSpAtk = 30,
+        baseSpDef = 30,
+        baseSpeed = 20,
+        evYield = Defense,
+        evolution = Evolution.GeodudeAlola,
+        xpClass = MediumSlow,
+        xpYield = 60,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 15,
+        catchRate = 255,
+        baseFriendship = 70,
+        cryLocation = "geodude", //Verify
+        graphicsLocation = "geodude/alolan", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Geodude,
+        abilities = new Ability[3]
+        {
             MagnetPull,
             Sturdy,
             Galvanize,
-    },
-};
-public static readonly SpeciesData GravelerAlola = new()
-{
-    speciesName = "Graveler",
-    type1 = Rock,
-    type2 = Electric,
-    baseHP = 55,
-    baseAttack = 95,
-    baseDefense = 115,
-    baseSpAtk = 45,
-    baseSpDef = 45,
-    baseSpeed = 35,
-    evYield = 2 * Defense,
-    evolution = Evolution.GravelerAlola,
-    xpClass = MediumSlow,
-    xpYield = 137,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Mineral,
-    eggGroup2 = EggGroup.Mineral,
-    eggCycles = 15,
-    catchRate = 120,
-    baseFriendship = 70,
-    cryLocation = "graveler", //Verify
-    graphicsLocation = "graveler/alolan", //Verify
-    backSpriteHeight = 10,
-    pokedexData = Pokedex.Graveler,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData GravelerAlola = new()
     {
+        speciesName = "Graveler",
+        type1 = Rock,
+        type2 = Electric,
+        baseHP = 55,
+        baseAttack = 95,
+        baseDefense = 115,
+        baseSpAtk = 45,
+        baseSpDef = 45,
+        baseSpeed = 35,
+        evYield = 2 * Defense,
+        evolution = Evolution.GravelerAlola,
+        xpClass = MediumSlow,
+        xpYield = 137,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 15,
+        catchRate = 120,
+        baseFriendship = 70,
+        cryLocation = "graveler", //Verify
+        graphicsLocation = "graveler/alolan", //Verify
+        backSpriteHeight = 10,
+        pokedexData = Pokedex.Graveler,
+        abilities = new Ability[3]
+        {
             MagnetPull,
             Sturdy,
             Galvanize,
-    },
-};
-public static readonly SpeciesData GolemAlola = new()
-{
-    speciesName = "Golem",
-    type1 = Rock,
-    type2 = Electric,
-    baseHP = 80,
-    baseAttack = 120,
-    baseDefense = 130,
-    baseSpAtk = 55,
-    baseSpDef = 65,
-    baseSpeed = 45,
-    evYield = 3 * Defense,
-    evolution = Evolution.None,
-    xpClass = MediumSlow,
-    xpYield = 223,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Mineral,
-    eggGroup2 = EggGroup.Mineral,
-    eggCycles = 15,
-    catchRate = 45,
-    baseFriendship = 70,
-    cryLocation = "golem", //Verify
-    graphicsLocation = "golem/alolan", //Verify
-    backSpriteHeight = 13,
-    pokedexData = Pokedex.Golem,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData GolemAlola = new()
     {
+        speciesName = "Golem",
+        type1 = Rock,
+        type2 = Electric,
+        baseHP = 80,
+        baseAttack = 120,
+        baseDefense = 130,
+        baseSpAtk = 55,
+        baseSpDef = 65,
+        baseSpeed = 45,
+        evYield = 3 * Defense,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 223,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Mineral,
+        eggCycles = 15,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "golem", //Verify
+        graphicsLocation = "golem/alolan", //Verify
+        backSpriteHeight = 13,
+        pokedexData = Pokedex.Golem,
+        abilities = new Ability[3]
+        {
             MagnetPull,
             Sturdy,
             Galvanize,
-    },
-};
-public static readonly SpeciesData GrimerAlola = new()
-{
-    speciesName = "Grimer",
-    type1 = Poison,
-    type2 = Dark,
-    baseHP = 80,
-    baseAttack = 80,
-    baseDefense = 50,
-    baseSpAtk = 40,
-    baseSpDef = 50,
-    baseSpeed = 25,
-    evYield = HP,
-    evolution = Evolution.GrimerAlola,
-    xpClass = MediumFast,
-    xpYield = 65,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Amorphous,
-    eggGroup2 = EggGroup.Amorphous,
-    eggCycles = 20,
-    catchRate = 190,
-    baseFriendship = 70,
-    cryLocation = "grimer", //Verify
-    graphicsLocation = "grimer/alolan", //Verify
-    backSpriteHeight = 14,
-    pokedexData = Pokedex.Grimer,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData GrimerAlola = new()
     {
+        speciesName = "Grimer",
+        type1 = Poison,
+        type2 = Dark,
+        baseHP = 80,
+        baseAttack = 80,
+        baseDefense = 50,
+        baseSpAtk = 40,
+        baseSpDef = 50,
+        baseSpeed = 25,
+        evYield = HP,
+        evolution = Evolution.GrimerAlola,
+        xpClass = MediumFast,
+        xpYield = 65,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 190,
+        baseFriendship = 70,
+        cryLocation = "grimer", //Verify
+        graphicsLocation = "grimer/alolan", //Verify
+        backSpriteHeight = 14,
+        pokedexData = Pokedex.Grimer,
+        abilities = new Ability[3]
+        {
             PoisonTouch,
             Gluttony,
             PowerOfAlchemy,
-    },
-};
-public static readonly SpeciesData MukAlola = new()
-{
-    speciesName = "Muk",
-    type1 = Poison,
-    type2 = Dark,
-    baseHP = 105,
-    baseAttack = 105,
-    baseDefense = 75,
-    baseSpAtk = 65,
-    baseSpDef = 100,
-    baseSpeed = 50,
-    evYield = HP + Attack,
-    evolution = Evolution.None,
-    xpClass = MediumFast,
-    xpYield = 175,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Amorphous,
-    eggGroup2 = EggGroup.Amorphous,
-    eggCycles = 20,
-    catchRate = 75,
-    baseFriendship = 70,
-    cryLocation = "muk", //Verify
-    graphicsLocation = "muk/alolan", //Verify
-    backSpriteHeight = 6,
-    pokedexData = Pokedex.Muk,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData MukAlola = new()
     {
+        speciesName = "Muk",
+        type1 = Poison,
+        type2 = Dark,
+        baseHP = 105,
+        baseAttack = 105,
+        baseDefense = 75,
+        baseSpAtk = 65,
+        baseSpDef = 100,
+        baseSpeed = 50,
+        evYield = HP + Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 175,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Amorphous,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "muk", //Verify
+        graphicsLocation = "muk/alolan", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Muk,
+        abilities = new Ability[3]
+        {
             PoisonTouch,
             Gluttony,
             PowerOfAlchemy,
-    },
-};
-public static readonly SpeciesData ExeggutorAlola = new()
-{
-    speciesName = "Exeggutor",
-    type1 = Grass,
-    type2 = Dragon,
-    baseHP = 95,
-    baseAttack = 105,
-    baseDefense = 85,
-    baseSpAtk = 125,
-    baseSpDef = 75,
-    baseSpeed = 45,
-    evYield = 2 * SpAtk,
-    evolution = Evolution.None,
-    xpClass = Slow,
-    xpYield = 186,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Grass,
-    eggGroup2 = EggGroup.Grass,
-    eggCycles = 20,
-    catchRate = 45,
-    baseFriendship = 70,
-    cryLocation = "exeggutor", //Verify
-    graphicsLocation = "exeggutor/alolan", //Verify
-    backSpriteHeight = 4,
-    pokedexData = Pokedex.Exeggutor,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData ExeggutorAlola = new()
     {
+        speciesName = "Exeggutor",
+        type1 = Grass,
+        type2 = Dragon,
+        baseHP = 95,
+        baseAttack = 105,
+        baseDefense = 85,
+        baseSpAtk = 125,
+        baseSpDef = 75,
+        baseSpeed = 45,
+        evYield = 2 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 186,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Grass,
+        eggGroup2 = EggGroup.Grass,
+        eggCycles = 20,
+        catchRate = 45,
+        baseFriendship = 70,
+        cryLocation = "exeggutor", //Verify
+        graphicsLocation = "exeggutor/alolan", //Verify
+        backSpriteHeight = 4,
+        pokedexData = Pokedex.Exeggutor,
+        abilities = new Ability[3]
+        {
             Frisk,
             Frisk,
             Harvest,
-    },
-};
-public static readonly SpeciesData MarowakAlola = new()
-{
-    speciesName = "Marowak",
-    type1 = Fire,
-    type2 = Ghost,
-    baseHP = 60,
-    baseAttack = 80,
-    baseDefense = 110,
-    baseSpAtk = 50,
-    baseSpDef = 80,
-    baseSpeed = 45,
-    evYield = 2 * Defense,
-    evolution = Evolution.None,
-    xpClass = MediumFast,
-    xpYield = 149,
-    learnset = EmptyLearnset, //Not done
-    malePercent = 50,
-    eggGroup1 = EggGroup.Monster,
-    eggGroup2 = EggGroup.Monster,
-    eggCycles = 20,
-    catchRate = 75,
-    baseFriendship = 70,
-    cryLocation = "marowak", //Verify
-    graphicsLocation = "marowak/alolan", //Verify
-    backSpriteHeight = 6,
-    pokedexData = Pokedex.Marowak,
-    abilities = new Ability[3]
+        },
+    };
+    public static readonly SpeciesData MarowakAlola = new()
     {
+        speciesName = "Marowak",
+        type1 = Fire,
+        type2 = Ghost,
+        baseHP = 60,
+        baseAttack = 80,
+        baseDefense = 110,
+        baseSpAtk = 50,
+        baseSpDef = 80,
+        baseSpeed = 45,
+        evYield = 2 * Defense,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 149,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Monster,
+        eggGroup2 = EggGroup.Monster,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "marowak", //Verify
+        graphicsLocation = "marowak/alolan", //Verify
+        backSpriteHeight = 6,
+        pokedexData = Pokedex.Marowak,
+        abilities = new Ability[3]
+        {
             CursedBody,
             LightningRod,
             RockHead,
-    },
-};
+        },
+    };
 
-//Megas
+    //Megas
 
-public static readonly SpeciesData VenusaurMega = Mega(
-            baseSpecies: Venusaur,
-            baseAttack: 100,
-            baseDefense: 123,
-            baseSpAtk: 122,
-            baseSpDef: 120,
-            baseSpeed: 80,
-            backSpriteHeight: 8,
-            pokedexData: Pokedex.Venusaur, //Not done
-            ability: ThickFat
-        );
+    public static readonly SpeciesData VenusaurMega = Mega(
+                baseSpecies: Venusaur,
+                baseAttack: 100,
+                baseDefense: 123,
+                baseSpAtk: 122,
+                baseSpDef: 120,
+                baseSpeed: 80,
+                backSpriteHeight: 8,
+                pokedexData: Pokedex.Venusaur, //Not done
+                ability: ThickFat
+            );
 
     public static readonly SpeciesData CharizardMegaX = Mega(
         baseSpecies: Charizard,
@@ -27107,38 +27107,38 @@ public static readonly SpeciesData VenusaurMega = Mega(
     };
 
     public static readonly SpeciesData GroudonPrimal = new()
-        {
-            speciesName = "Groudon",
-            type1 = Ground,
-            type2 = Fire,
-            baseHP = 100,
-            baseAttack = 180,
-            baseDefense = 160,
-            baseSpAtk = 150,
-            baseSpDef = 90,
-            baseSpeed = 90,
-            evYield = 3 * Attack,
-            evolution = Evolution.None,
-            xpClass = Slow,
-            xpYield = 302,
-            learnset = EmptyLearnset, //Not done
-            malePercent = Genderless,
-            eggGroup1 = EggGroup.Undiscovered,
-            eggGroup2 = EggGroup.Undiscovered,
-            eggCycles = 120,
-            catchRate = 3,
-            baseFriendship = 0,
-            cryLocation = "primal_groudon", //Verify
-            graphicsLocation = "groudon/primal", //Verify
-            backSpriteHeight = 8,
-            pokedexData = Pokedex.Groudon,
-            abilities = new Ability[3]
+    {
+        speciesName = "Groudon",
+        type1 = Ground,
+        type2 = Fire,
+        baseHP = 100,
+        baseAttack = 180,
+        baseDefense = 160,
+        baseSpAtk = 150,
+        baseSpDef = 90,
+        baseSpeed = 90,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 302,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "primal_groudon", //Verify
+        graphicsLocation = "groudon/primal", //Verify
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Groudon,
+        abilities = new Ability[3]
             {
                 DesolateLand,
                 DesolateLand,
                 DesolateLand
             },
-        };
+    };
 
     //Deoxys forms
 
@@ -27293,7 +27293,7 @@ public static readonly SpeciesData VenusaurMega = Mega(
         baseSpDef = 105,
         baseSpeed = 55,
         evYield = 2 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = MediumSlow,
         xpYield = 189,
         learnset = EmptyLearnset, //Not done
@@ -27335,7 +27335,7 @@ public static readonly SpeciesData VenusaurMega = Mega(
         baseSpDef = 90,
         baseSpeed = 121,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
         learnset = EmptyLearnset, //Not done
@@ -27368,7 +27368,7 @@ public static readonly SpeciesData VenusaurMega = Mega(
         baseSpDef = 80,
         baseSpeed = 101,
         evYield = 3 * SpAtk,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 261,
         learnset = EmptyLearnset, //Not done
@@ -27402,7 +27402,7 @@ public static readonly SpeciesData VenusaurMega = Mega(
         baseSpDef = 80,
         baseSpeed = 91,
         evYield = 3 * Attack,
-        evolution = Evolution.None, 
+        evolution = Evolution.None,
         xpClass = Slow,
         xpYield = 270,
         learnset = EmptyLearnset, //Not done
@@ -27620,39 +27620,39 @@ public static readonly SpeciesData VenusaurMega = Mega(
     public static readonly SpeciesData FurfrouKabuki = Furfrou("kabuki_trim");
     public static readonly SpeciesData FurfrouPharaoh = Furfrou("pharaoh_trim");
 
-    public static readonly SpeciesData MeowsticF = new ()
-	{
-		speciesName = "Meowstic",
-		type1 = Psychic,
-		type2 = Psychic,
-		baseHP = 74,
-		baseAttack = 48,
-		baseDefense = 76,
-		baseSpAtk = 83,
-		baseSpDef = 81,
-		baseSpeed = 104,
-		evYield = 2 * Speed,
-		evolution = Evolution.None,
-		xpClass = MediumFast,
-		xpYield = 163,
-		learnset = EmptyLearnset, //Not done
-		malePercent = 0,
-		eggGroup1 = EggGroup.Field,
-		eggGroup2 = EggGroup.Field,
-		eggCycles = 20,
-		catchRate = 75,
-		baseFriendship = 70,
-		cryLocation = "meowstic", //Verify
+    public static readonly SpeciesData MeowsticF = new()
+    {
+        speciesName = "Meowstic",
+        type1 = Psychic,
+        type2 = Psychic,
+        baseHP = 74,
+        baseAttack = 48,
+        baseDefense = 76,
+        baseSpAtk = 83,
+        baseSpDef = 81,
+        baseSpeed = 104,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 163,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 20,
+        catchRate = 75,
+        baseFriendship = 70,
+        cryLocation = "meowstic", //Verify
         graphicsLocation = "meowstic/female", //Verify
         backSpriteHeight = 9,
-		pokedexData = Pokedex.Meowstic,
-		abilities = new Ability[3]
-		{
-			KeenEye,
-			Infiltrator,
-			Competitive,
-		},
-	};
+        pokedexData = Pokedex.Meowstic,
+        abilities = new Ability[3]
+        {
+            KeenEye,
+            Infiltrator,
+            Competitive,
+        },
+    };
 
     public static readonly SpeciesData PumpkabooSmall = Pumpkaboo(
         baseHP: 44,
@@ -27703,7 +27703,7 @@ public static readonly SpeciesData VenusaurMega = Mega(
     );
 
     public static readonly SpeciesData XerneasActive = Xerneas("xerneas/active");
-     
+
     public static readonly SpeciesData Zygarde10 = new()
     {
         speciesName = "Zygarde",
@@ -27740,72 +27740,72 @@ public static readonly SpeciesData VenusaurMega = Mega(
     public static readonly SpeciesData Zygarde10PC = OverwriteAbility(Zygarde10, PowerConstruct);
     public static readonly SpeciesData Zygarde50PC = OverwriteAbility(Zygarde50, PowerConstruct);
     public static readonly SpeciesData ZygardeComplete = new()
-	{
-		speciesName = "Zygarde",
-		type1 = Dragon,
-		type2 = Ground,
-		baseHP = 216,
-		baseAttack = 100,
-		baseDefense = 121,
-		baseSpAtk = 91,
-		baseSpDef = 95,
-		baseSpeed = 85,
-		evYield = 3 * HP,
-		evolution = Evolution.None,
-		xpClass = Slow,
-		xpYield = 319,
-		learnset = EmptyLearnset, //Not done
-		malePercent = Genderless,
-		eggGroup1 = EggGroup.Undiscovered,
-		eggGroup2 = EggGroup.Undiscovered,
-		eggCycles = 120,
-		catchRate = 3,
-		baseFriendship = 0,
-		cryLocation = "zygarde_complete", //Verify
-		graphicsLocation = "zygarde/complete", //Verify
-		backSpriteHeight = 0,
-		pokedexData = Pokedex.Zygarde,
-		abilities = new Ability[3]
-		{
-			PowerConstruct,
-			PowerConstruct,
-			PowerConstruct,
-		},
-	};
+    {
+        speciesName = "Zygarde",
+        type1 = Dragon,
+        type2 = Ground,
+        baseHP = 216,
+        baseAttack = 100,
+        baseDefense = 121,
+        baseSpAtk = 91,
+        baseSpDef = 95,
+        baseSpeed = 85,
+        evYield = 3 * HP,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 319,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 0,
+        cryLocation = "zygarde_complete", //Verify
+        graphicsLocation = "zygarde/complete", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Zygarde,
+        abilities = new Ability[3]
+        {
+            PowerConstruct,
+            PowerConstruct,
+            PowerConstruct,
+        },
+    };
 
     public static readonly SpeciesData HoopaUnbound = new()
-	{
-		speciesName = "Hoopa",
-		type1 = Psychic,
-		type2 = Dark,
-		baseHP = 80,
-		baseAttack = 160,
-		baseDefense = 60,
-		baseSpAtk = 170,
-		baseSpDef = 130,
-		baseSpeed = 80,
-		evYield = 3 * SpAtk,
-		evolution = Evolution.None,
-		xpClass = Slow,
-		xpYield = 270,
-		learnset = EmptyLearnset, //Not done
-		malePercent = Genderless,
-		eggGroup1 = EggGroup.Undiscovered,
-		eggGroup2 = EggGroup.Undiscovered,
-		eggCycles = 120,
-		catchRate = 3,
-		baseFriendship = 100,
-		cryLocation = "hoopa unbound", //Verify
-		graphicsLocation = "hoopa unbound", //Verify
-		backSpriteHeight = 0,
-		pokedexData = Pokedex.Hoopa,
-		abilities = new Ability[3]
-		{
-			Magician,
-			Magician,
-			Magician,
-		},
-	};
+    {
+        speciesName = "Hoopa",
+        type1 = Psychic,
+        type2 = Dark,
+        baseHP = 80,
+        baseAttack = 160,
+        baseDefense = 60,
+        baseSpAtk = 170,
+        baseSpDef = 130,
+        baseSpeed = 80,
+        evYield = 3 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 270,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        baseFriendship = 100,
+        cryLocation = "hoopa unbound", //Verify
+        graphicsLocation = "hoopa unbound", //Verify
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Hoopa,
+        abilities = new Ability[3]
+        {
+            Magician,
+            Magician,
+            Magician,
+        },
+    };
 
     public static readonly SpeciesData OricorioPomPom = Oricorio(Electric, "pom_pom");
     public static readonly SpeciesData OricorioPau = Oricorio(Psychic, "pau");
@@ -27814,39 +27814,39 @@ public static readonly SpeciesData VenusaurMega = Mega(
     public static readonly SpeciesData RockruffOwnTempo = Rockruff(
         new[] { OwnTempo, OwnTempo, OwnTempo }, Evolution.RockruffOwnTempo);
 
-    public static readonly SpeciesData LycanrocMidnight = new ()
-	{
-		speciesName = "Lycanroc",
-		type1 = Rock,
-		type2 = Rock,
-		baseHP = 85,
-		baseAttack = 115,
-		baseDefense = 75,
-		baseSpAtk = 55,
-		baseSpDef = 75,
-		baseSpeed = 82,
-		evYield = 2 * Attack,
-		evolution = Evolution.None,
-		xpClass = MediumFast,
-		xpYield = 170,
-		learnset = EmptyLearnset, //Not done
-		malePercent = 50,
-		eggGroup1 = EggGroup.Field,
-		eggGroup2 = EggGroup.Field,
-		eggCycles = 15,
-		catchRate = 90,
-		baseFriendship = 70,
-		cryLocation = "lycanroc_midnight",
-		graphicsLocation = "lycanroc/midnight",
-		backSpriteHeight = 7,
-		pokedexData = Pokedex.Lycanroc,
-		abilities = new Ability[3]
-		{
-			KeenEye,
-			VitalSpirit,
-			NoGuard,
-		},
-	};
+    public static readonly SpeciesData LycanrocMidnight = new()
+    {
+        speciesName = "Lycanroc",
+        type1 = Rock,
+        type2 = Rock,
+        baseHP = 85,
+        baseAttack = 115,
+        baseDefense = 75,
+        baseSpAtk = 55,
+        baseSpDef = 75,
+        baseSpeed = 82,
+        evYield = 2 * Attack,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 170,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Field,
+        eggCycles = 15,
+        catchRate = 90,
+        baseFriendship = 70,
+        cryLocation = "lycanroc_midnight",
+        graphicsLocation = "lycanroc/midnight",
+        backSpriteHeight = 7,
+        pokedexData = Pokedex.Lycanroc,
+        abilities = new Ability[3]
+        {
+            KeenEye,
+            VitalSpirit,
+            NoGuard,
+        },
+    };
     public static readonly SpeciesData LycanrocDusk = new()
     {
         speciesName = "Lycanroc",
@@ -27880,39 +27880,39 @@ public static readonly SpeciesData VenusaurMega = Mega(
             ToughClaws,
         },
     };
-    public static readonly SpeciesData WishiwashiSchool = new ()
-	{
-		speciesName = "Wishiwashi",
-		type1 = Water,
-		type2 = Water,
-		baseHP = 45,
-		baseAttack = 140,
-		baseDefense = 130,
-		baseSpAtk = 140,
-		baseSpDef = 135,
-		baseSpeed = 30,
-		evYield = HP,
-		evolution = Evolution.None,
-		xpClass = Fast,
-		xpYield = 61,
-		learnset = EmptyLearnset, //Not done
-		malePercent = 50,
-		eggGroup1 = EggGroup.Water2,
-		eggGroup2 = EggGroup.Water2,
-		eggCycles = 15,
-		catchRate = 60,
-		baseFriendship = 70,
-		cryLocation = "wishiwashi_school",
-		graphicsLocation = "wishiwashi/school",
-		backSpriteHeight = 5,
-		pokedexData = Pokedex.Wishiwashi,
-		abilities = new Ability[3]
-		{
-			Schooling,
-			Schooling,
-			Schooling,
-		},
-	};
+    public static readonly SpeciesData WishiwashiSchool = new()
+    {
+        speciesName = "Wishiwashi",
+        type1 = Water,
+        type2 = Water,
+        baseHP = 45,
+        baseAttack = 140,
+        baseDefense = 130,
+        baseSpAtk = 140,
+        baseSpDef = 135,
+        baseSpeed = 30,
+        evYield = HP,
+        evolution = Evolution.None,
+        xpClass = Fast,
+        xpYield = 61,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water2,
+        eggGroup2 = EggGroup.Water2,
+        eggCycles = 15,
+        catchRate = 60,
+        baseFriendship = 70,
+        cryLocation = "wishiwashi_school",
+        graphicsLocation = "wishiwashi/school",
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Wishiwashi,
+        abilities = new Ability[3]
+        {
+            Schooling,
+            Schooling,
+            Schooling,
+        },
+    };
 
     public static readonly SpeciesData SilvallyFighting = Silvally(Fighting, "fighting");
     public static readonly SpeciesData SilvallyFlying = Silvally(Flying, "flying");
@@ -28016,41 +28016,41 @@ public static readonly SpeciesData VenusaurMega = Mega(
             PrismArmor,
         },
     };
-    public static readonly SpeciesData NecrozmaUltra = new ()
-	{
-		speciesName = "Necrozma",
-		type1 = Psychic,
-		type2 = Dragon,
-		baseHP = 97,
-		baseAttack = 167,
-		baseDefense = 97,
-		baseSpAtk = 167,
-		baseSpDef = 97,
-		baseSpeed = 129,
-		evYield = Attack + Speed + SpAtk,
-		evolution = Evolution.None,
-		xpClass = Slow,
-		xpYield = 339,
-		learnset = EmptyLearnset, //Not done
-		malePercent = Genderless,
-		eggGroup1 = EggGroup.Undiscovered,
-		eggGroup2 = EggGroup.Undiscovered,
-		eggCycles = 120,
-		catchRate = 255,
-		baseFriendship = 0,
-		cryLocation = "necrozma_ultra", //Verify
-		graphicsLocation = "necrozma/ultra", //Verify
-		backSpriteHeight = 3,
-		pokedexData = Pokedex.Necrozma,
-		abilities = new Ability[3]
-		{
-			Neuroforce,
-			Neuroforce,
-			Neuroforce,
-		},
-	};
+    public static readonly SpeciesData NecrozmaUltra = new()
+    {
+        speciesName = "Necrozma",
+        type1 = Psychic,
+        type2 = Dragon,
+        baseHP = 97,
+        baseAttack = 167,
+        baseDefense = 97,
+        baseSpAtk = 167,
+        baseSpDef = 97,
+        baseSpeed = 129,
+        evYield = Attack + Speed + SpAtk,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 339,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 255,
+        baseFriendship = 0,
+        cryLocation = "necrozma_ultra", //Verify
+        graphicsLocation = "necrozma/ultra", //Verify
+        backSpriteHeight = 3,
+        pokedexData = Pokedex.Necrozma,
+        abilities = new Ability[3]
+        {
+            Neuroforce,
+            Neuroforce,
+            Neuroforce,
+        },
+    };
 
-public static readonly SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count] { //Todo: Change TempCount to Count
+    public static readonly SpeciesData[] SpeciesTable = new SpeciesData[(int)SpeciesID.Count] { //Todo: Change TempCount to Count
         //Gen 1
         Missingno,
         Bulbasaur,

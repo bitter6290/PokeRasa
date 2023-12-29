@@ -1946,7 +1946,7 @@ public static class Move
         makesContact, 175, AquaTailDesc); //Needs anim
     public static readonly MoveData SeedBomb = SingleTargetNoAddedEffect(
         "Seed Bomb", Grass, 80, 100, 0, true, 15,
-        bulletMove,160, SeedBombDesc); //Needs anim
+        bulletMove, 160, SeedBombDesc); //Needs anim
     public static readonly MoveData AirSlash = new(
         "Air Slash", Flying,
         75, 95, 0,
@@ -2491,7 +2491,7 @@ public static class Move
         70, 100, 0,
         MoveEffect.Retaliate, 0,
         true, Single, 5,
-        makesContact, RetaliateDesc,140); //Needs anim
+        makesContact, RetaliateDesc, 140); //Needs anim
     public static readonly MoveData FinalGambit = new(
         "Final Gambit", Fighting,
         1, 100, 0,

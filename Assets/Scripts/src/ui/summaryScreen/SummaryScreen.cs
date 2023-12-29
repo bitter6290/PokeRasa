@@ -112,7 +112,7 @@ public class SummaryScreen : MonoBehaviour
     private ScreenState state = ScreenState.MoveScreen;
     private bool moving = false;
 
-    const int screenWidth = 1250;
+    private const int screenWidth = 1250;
 
     public static IEnumerator CloseScreen(SummaryScreen screen)
     {
@@ -164,7 +164,7 @@ public class SummaryScreen : MonoBehaviour
             type2Box.enabled = false;
             type2.enabled = false;
         }
-        
+
 
         levelText.text = "Lv. " + Mon.level;
         xpSlider.localScale = new(Mon.levelProgress, 1, 1);

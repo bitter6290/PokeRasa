@@ -1,5 +1,4 @@
-﻿using System;
-namespace Scripts.Standard
+﻿namespace Scripts.Standard
 {
     public class NoMapscripts : MapScripts
     {

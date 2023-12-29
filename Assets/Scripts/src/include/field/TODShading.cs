@@ -38,7 +38,6 @@ public class TODShading : MonoBehaviour
     public void Disable()
     {
         spriteObject.SetActive(false);
-        
         active = false;
     }
 

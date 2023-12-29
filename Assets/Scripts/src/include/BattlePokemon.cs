@@ -393,7 +393,7 @@ public class BattlePokemon
         }
     }
 
-    public IEnumerator DoProportionalDamage(float proportion) => DoNonMoveDamage(Max(1,(int)(PokemonData.hpMax * proportion)));
+    public IEnumerator DoProportionalDamage(float proportion) => DoNonMoveDamage(Max(1, (int)(PokemonData.hpMax * proportion)));
 
     public int GetPP(int index)
     {
@@ -463,7 +463,8 @@ public class BattlePokemon
 
     public int BaseAttack
     {
-        get {
+        get
+        {
             if (overrideAttacks) return attackOverride;
             else if (PowerTrickActive) return BaseDefenseRaw;
             else return BaseAttackRaw;

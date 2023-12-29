@@ -1,5 +1,4 @@
-﻿using System;
-public enum BallCatchType
+﻿public enum BallCatchType
 {
     Normal,
     Master,

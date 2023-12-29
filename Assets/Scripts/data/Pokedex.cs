@@ -342,14 +342,14 @@ public static class Pokedex
             Species.SandslashAlola
         }
     };
-    public static readonly PokedexData NidoranF = new ()
-	{
-		number = 29,
-		name = "Nidoran",
-		category = "Poison Pin",
-		height = 40,
-		weight = 7000,
-		entry = NidoranFDesc,
+    public static readonly PokedexData NidoranF = new()
+    {
+        number = 29,
+        name = "Nidoran",
+        category = "Poison Pin",
+        height = 40,
+        weight = 7000,
+        entry = NidoranFDesc,
         forms = SingleSpecies(Species.NidoranF),
 
     };
@@ -2539,7 +2539,7 @@ public static class Pokedex
         number = 234,
         name = "Stantler",
         category = "Big Horn",
-        height = 140, 
+        height = 140,
         weight = 71200,
         entry = StantlerDesc,
         forms = SingleSpecies(Species.Stantler),
@@ -4708,14 +4708,14 @@ public static class Pokedex
         entry = BonslyDesc,
         forms = SingleSpecies(Species.Bonsly),
     };
-    public static readonly PokedexData MimeJr = new ()
-	{
-		number = 439,
-		name = "Mime Jr",
-		category = "Mime",
-		height = 60,
-		weight = 13000,
-		entry = MimeJrDesc,
+    public static readonly PokedexData MimeJr = new()
+    {
+        number = 439,
+        name = "Mime Jr",
+        category = "Mime",
+        height = 60,
+        weight = 13000,
+        entry = MimeJrDesc,
         forms = SingleSpecies(Species.MimeJr),
 
     };
@@ -8231,14 +8231,14 @@ public static class Pokedex
         entry = PyukumukuDesc,
         forms = SingleSpecies(Species.Pyukumuku),
     };
-    public static readonly PokedexData TypeNull = new ()
-	{
-		number = 772,
-		name = "Type: Null",
-		category = "Synthetic",
-		height = 190,
-		weight = 120500,
-		entry = TypeNullDesc,
+    public static readonly PokedexData TypeNull = new()
+    {
+        number = 772,
+        name = "Type: Null",
+        category = "Synthetic",
+        height = 190,
+        weight = 120500,
+        entry = TypeNullDesc,
         forms = SingleSpecies(Species.TypeNull),
 
     };

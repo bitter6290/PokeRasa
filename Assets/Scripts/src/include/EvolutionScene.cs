@@ -113,7 +113,7 @@ public class EvolutionScene : MonoBehaviour
     public IEnumerator DoGrowShrinks()
     {
         yield return AnimUtils.Grow(monTransform, 0.4F, 0.3f);
-        foreach(float dur in animDurations)
+        foreach (float dur in animDurations)
         {
             yield return GrowShrink(dur);
             SwitchSprites();

@@ -1,7 +1,19 @@
 ﻿using System;
 public enum Flag
 {
+    //Key items
+    Key_Pokedex,
+    Key_RunningShoes,
+    //HM flags
+    HM_Cut,
+    HM_RockSmash,
+    HM_Surf,
+
     Count,
+
+    KeyItemStart = Key_Pokedex,
+    HMStart = HM_Cut,
+
 }
 
 public static class FlagUtils

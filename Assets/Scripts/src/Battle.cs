@@ -3,8 +3,8 @@
 #define ALL_GET_FULL_EXP // Comment to use pre-gen 6 experience distribution
 #define FRIENDSHIP_RAISES_EXP // Comment to get rid of the boost to XP gain
 #define LOW_LEVEL_CATCH_BONUS // This is an early-game boost in SwSh and SV,
-                              // comment to get rid of it or change the formula
-                              // to customize
+//                               comment to get rid of it or change the formula
+//                               to customize
 
 // with high friendship
 
@@ -30,7 +30,7 @@ public class Battle : MonoBehaviour
     private const int NullInt = 1 << 30 - 1;
     private const int ReturnFalse = 63;
 
-    enum BallThrowOutcome
+    private enum BallThrowOutcome
     {
         Shake0,
         Shake1,
@@ -211,7 +211,7 @@ public class Battle : MonoBehaviour
         Pledge userPledge = PledgeFromMove(Moves[index]);
         for (int i = index / 3 * 3; i < index / 3 * 3 + 3; i++)
         {
-            if(i != index && !PokemonOnField[i].done &&
+            if (i != index && !PokemonOnField[i].done &&
                 PledgeFromMove(Moves[i]) is not Pledge.None
                 && PledgeFromMove(Moves[i]) != userPledge)
             {
@@ -245,7 +245,7 @@ public class Battle : MonoBehaviour
     private int[] itemTarget = new int[6];
 
     public Sprite[] playerMonIcons = new Sprite[6];
-    public Sprite[] playerMonIcons2 = new Sprite[6]; 
+    public Sprite[] playerMonIcons2 = new Sprite[6];
 
     public string MonNameWithPrefix(int index, bool capitalized)
     {
@@ -358,7 +358,8 @@ public class Battle : MonoBehaviour
 
     private List<int> PriorityForRedirection
     {
-        get {
+        get
+        {
             List<(int index, int speed, int turnsWithAbility)> list = new();
             int added = 0;
             for (int i = 0; i < 6; i++)
@@ -721,7 +722,7 @@ public class Battle : MonoBehaviour
                     ItemType.ZCrystalMoveSpecific:
                 effectiveType = EffectiveItem(index).PlateType(); break;
             case TechnoBlast:
-                effectiveType =  EffectiveItem(index) switch
+                effectiveType = EffectiveItem(index) switch
                 {
                     ShockDrive => Type.Electric,
                     BurnDrive => Type.Fire,
@@ -788,7 +789,7 @@ public class Battle : MonoBehaviour
         {
             GrassPelt when EffectiveTerrain(index) == Terrain.Grassy => 1.5F,
             _ => 1,
-        });;
+        }); ;
         return defense;
     }
 
@@ -863,7 +864,8 @@ public class Battle : MonoBehaviour
         switch (EffectiveAbility(index))
         {
             case GaleWings when PokemonOnField[index].AtFullHealth &&
-                    GetEffectiveType(Moves[index], index) == Type.Flying: priority++;
+                    GetEffectiveType(Moves[index], index) == Type.Flying:
+                priority++;
                 break;
             case Prankster when GetMove(index).power == 0: priority++; break;
             case Triage when Moves[index].TriageAffected(): priority += 3; break;
@@ -1570,7 +1572,7 @@ public class Battle : MonoBehaviour
             return false;
         }
         else if (battleType == BattleType.Double)
-        { 
+        {
             if ((targetData & Target.Spread) == 0)
             {
                 CheckForRedirection(attacker);
@@ -1915,7 +1917,7 @@ public class Battle : MonoBehaviour
                 }
             }
         }
-        foreach(int i in PriorityForRedirection)
+        foreach (int i in PriorityForRedirection)
         {
             if (!Target.CanTarget(index, i, Moves[index]))
             {
@@ -2114,7 +2116,8 @@ public class Battle : MonoBehaviour
                                     target.PokemonData.getSpecies is SpeciesID.GengarMega or
                                     SpeciesID.Diglett or SpeciesID.Dugtrio
                                     //or SpeciesID.Sandygast or SpeciesID.Palossand
-                                    : continue;
+                                    :
+                                continue;
                             case TriAttack:
                                 if (target.PokemonData.status != Status.None) continue;
                                 goto default;
@@ -2256,7 +2259,7 @@ public class Battle : MonoBehaviour
 
     private IEnumerator HandleAbilityEffects()
     {
-        while(abilityEffects.Count > 0)
+        while (abilityEffects.Count > 0)
         {
             (int source, int target, Ability ability) = abilityEffects.Dequeue();
             if (PokemonOnField[target].PokemonData.fainted) continue;
@@ -2528,7 +2531,8 @@ public class Battle : MonoBehaviour
             return BallThrowOutcome.Shake0;
         }
         float chance = (float)(3 * mon.PokemonData.hpMax - 2 * mon.PokemonData.HP) / (3 * mon.PokemonData.hpMax);
-        chance *= ball switch {
+        chance *= ball switch
+        {
             BallCatchType.Normal => 1,
             BallCatchType.Master => 1,
             BallCatchType.Fast => mon.PokemonData.SpeciesData.baseSpeed >= 100 ? 4 : 1,
@@ -2632,12 +2636,13 @@ public class Battle : MonoBehaviour
                 yield return AbilityEffectsForAttackerOnFaint(attacker);
                 moveCausedFainting = true;
             }
-;        }
+;
+        }
     }
 
     private IEnumerator AbilityEffectsOnFaint(int index)
     {
-        switch(PokemonOnField[index].ability)
+        switch (PokemonOnField[index].ability)
         {
             default: yield break;
         }
@@ -2993,7 +2998,7 @@ public class Battle : MonoBehaviour
                 goAhead = false;
             }
         }
-        if (goAhead && mon.powdered && GetEffectiveType(Moves[index],index) is Type.Fire)
+        if (goAhead && mon.powdered && GetEffectiveType(Moves[index], index) is Type.Fire)
         {
             UsePP(index);
             yield return Announce(mon.PokemonData.MonName + " used " + GetMove(index).name + "!");
@@ -3883,9 +3888,9 @@ public class Battle : MonoBehaviour
                 if (PokemonOnField[user.lastDamageDoer].exists
                     && PokemonOnField[user.lastDamageDoer].done
                     && PokemonOnField[index].damageTaken > 0)
-                    {
-                        PokemonOnField[user.lastDamageDoer].isTarget = true;
-                    }
+                {
+                    PokemonOnField[user.lastDamageDoer].isTarget = true;
+                }
                 break;
             case Thrash:
                 PokemonOnField[GetRandomOpponentMon(index > 2)].isTarget = true;
@@ -4932,7 +4937,7 @@ public class Battle : MonoBehaviour
                 break;
             case Poison:
             case Twineedle:
-                yield return BattleEffect.GetPoison(this, index, attacker:attacker);
+                yield return BattleEffect.GetPoison(this, index, attacker: attacker);
                 break;
             case Toxic:
                 yield return BattleEffect.GetBadPoison(this, index);
@@ -4942,7 +4947,7 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.GetFreeze(this, index);
                 break;
             case Sleep:
-                yield return BattleEffect.FallAsleep(this, index, attacker:attacker);
+                yield return BattleEffect.FallAsleep(this, index, attacker: attacker);
                 break;
             case Confuse:
                 yield return BattleEffect.Confuse(this, index);
@@ -5013,7 +5018,7 @@ public class Battle : MonoBehaviour
                 yield return BattleEffect.StartTrapping(this, attacker, index);
                 break;
             case ToxicThread:
-                yield return BattleEffect.GetPoison(this, index, false, attacker:attacker);
+                yield return BattleEffect.GetPoison(this, index, false, attacker: attacker);
                 goto case SpeedDown1;
             case HealBlock:
                 yield return Announce(MonNameWithPrefix(index, true)
@@ -5516,7 +5521,8 @@ public class Battle : MonoBehaviour
                     Sides[GetSide(index)].matBlock = false;
                     Sides[GetSide(index)].craftyShield = false;
                 }
-                if (GetMove(index).effect is HyperspaceFury) {
+                if (GetMove(index).effect is HyperspaceFury)
+                {
                     index = attacker;
                     goto case DefenseDown1;
                 }
@@ -7033,7 +7039,7 @@ public class Battle : MonoBehaviour
     public IEnumerator DoEntryAbilitiesAtStartOfTurn()
     {
         Debug.Log("Entry abilities");
-        while(true)
+        while (true)
         {
             List<int> speedTieList = new();
             int speed = int.MinValue;
@@ -7041,7 +7047,7 @@ public class Battle : MonoBehaviour
             {
                 if (doAbilityEffect[i])
                 {
-                    if(GetSpeed(i) > speed)
+                    if (GetSpeed(i) > speed)
                     {
                         Debug.Log("Replace " + i);
                         speedTieList = new() { i };

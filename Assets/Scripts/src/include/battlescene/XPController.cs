@@ -13,7 +13,7 @@ public class XPController : MonoBehaviour
     public void AlignBar()
     {
         if (battle.PokemonOnField[3].exists)
-            gameObject.transform.localScale = new(Mathf.Min(2,2 * battle.PokemonOnField[3].PokemonData.levelProgress), 0.0625F, 1);
+            gameObject.transform.localScale = new(Mathf.Min(2, 2 * battle.PokemonOnField[3].PokemonData.levelProgress), 0.0625F, 1);
     }
 
     public IEnumerator GainXP(int XP)

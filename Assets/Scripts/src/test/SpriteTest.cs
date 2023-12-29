@@ -8,13 +8,7 @@ public class SpriteTest : MonoBehaviour
     public int index;
     public SpeciesID species;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (Input.GetKeyDown(KeyCode.RightCommand))
         {

@@ -152,7 +152,7 @@ public class MenuManager : MonoBehaviour
         Items,
     }
 
-    private enum ItemSubset 
+    private enum ItemSubset
     {
         PokeBalls,
         Medicine,
@@ -217,7 +217,7 @@ public class MenuManager : MonoBehaviour
         switch (mon.CanUseMove(selectedMove - 1))
         {
             case MoveSelectOutcome.LowPP:
-                StartCoroutine(AnnounceAndReturn(
+                _ = StartCoroutine(AnnounceAndReturn(
                     battle.PokemonOnField[currentMon].GetMove(selectedMove - 1).Data().name
                     + BattleText.NoPP));
                 break;
@@ -321,7 +321,7 @@ public class MenuManager : MonoBehaviour
         MainMenu();
         currentMove = 1;
         currentMon = 2;
-        GetNextPokemon();
+        _ = GetNextPokemon();
     }
 
     private void DisableParty()
@@ -531,7 +531,8 @@ public class MenuManager : MonoBehaviour
         box6.enabled = false;
     }
 
-    public void GoToAnnounce() {
+    public void GoToAnnounce()
+    {
         battle.state = BattleState.Announcement;
         announce.enabled = true;
         DisableBoxes();
@@ -615,7 +616,7 @@ public class MenuManager : MonoBehaviour
         {
             Box(i).color = partyColor;
         }
-        
+
         selector1.enabled = false;
         selector2.enabled = false;
         selector3.enabled = false;
@@ -841,6 +842,8 @@ public class MenuManager : MonoBehaviour
                             case 0:
                                 currentMove = 1;
                                 MainMenu();
+                                break;
+                            default:
                                 break;
                         }
                     }
@@ -1224,7 +1227,7 @@ public class MenuManager : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.S))
                     {
                         Debug.Log("S");
-                        if (currentMon > 0 && currentMon <= 6)
+                        if (currentMon is > 0 and <= 6)
                         {
                             battle.audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Select Move"));
                             battle.StartCoroutine(SummaryScreen.Create(battle.player, currentPartyMon - 1, battle));
@@ -1440,7 +1443,8 @@ public class MenuManager : MonoBehaviour
                         }
                     }
                     break;
-
+                default:
+                    break;
             }
         }
     }

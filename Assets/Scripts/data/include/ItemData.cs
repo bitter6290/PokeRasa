@@ -248,8 +248,8 @@ public class ZCrystalMultipleSpecies : ItemData //subdata length 2, plus extra l
 
 public class KeyItem : ItemData //subdata length 1
 {
-    public int KeyItemID;
-    public override int[] ItemSubdata => new int[1] { KeyItemID };
+    public Flag flag;
+    public override int[] ItemSubdata => new int[1] { (int)flag };
     public KeyItem()
     {
         type = ItemType.KeyItem;
@@ -355,7 +355,7 @@ public static class ItemUtils
 
     public static Type PlateType(this ItemID item)
     {
-        switch(item.Data().type)
+        switch (item.Data().type)
         {
             case ItemType.Plate:
                 return (Type)item.Data().ItemSubdata[2];
@@ -377,7 +377,7 @@ public static class ItemUtils
 
     public static SpeciesID ZMoveUser(this ItemID item)
     {
-        switch(item.Data().type)
+        switch (item.Data().type)
         {
             case ItemType.ZCrystalSpecific:
                 return (SpeciesID)item.Data().ItemSubdata[0];

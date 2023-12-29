@@ -11,7 +11,7 @@ public class MusicController : MonoBehaviour
     private AudioClip WildContinue;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         WildStart = Resources.Load<AudioClip>("Sound/Music/B2 Wild Intro");
         WildContinue = Resources.Load<AudioClip>("Sound/Music/B2 Wild Repeated");
@@ -19,7 +19,7 @@ public class MusicController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (!source.isPlaying)
         {

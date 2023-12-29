@@ -3,10 +3,10 @@ using UnityEngine;
 public static class CharGraphics
 {
 
-    static Sprite SpriteFromTexture16x32(string path, int x)
+    private static Sprite SpriteFromTexture16x32(string path, int x)
         => Sprite.Create(Resources.Load<Texture2D>("Sprites/Characters/" + path),
         new Rect(16 * x, 0, 16, 32), new Vector2(0.5F, 0.25F), 16);
-    static Sprite SpriteFromTexture16x32(Texture2D texture, int x)
+    private static Sprite SpriteFromTexture16x32(Texture2D texture, int x)
         => Sprite.Create(texture, new Rect(16 * x, 0, 16, 32), new Vector2(0.5F, 0.25F), 16);
     public static HumanoidGraphics HumanoidFromStandardImage(string path) => new()
     {

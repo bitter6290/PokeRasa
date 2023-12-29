@@ -22,8 +22,8 @@ public class PartyScreen : MonoBehaviour
 
     private bool done;
 
-    private static Color exitSelected = new(1, 110f/255f, 110f/255f);
-    private static Color exitUnselected = new(1, 220f/255f, 220f/255f);
+    private static Color exitSelected = new(1, 110f / 255f, 110f / 255f);
+    private static Color exitUnselected = new(1, 220f / 255f, 220f / 255f);
 
     private const int exitNumber = 255;
 
@@ -274,7 +274,8 @@ public class PartyScreen : MonoBehaviour
                     }
                     else if (itemPrompt)
                     {
-                        switch (p.bagOutcome) {
+                        switch (p.bagOutcome)
+                        {
                             case BagOutcome.Use:
                                 if (displays[selectedMon].ineligible) return;
                                 switch (p.bagResult.FieldEffect())
@@ -325,7 +326,7 @@ public class PartyScreen : MonoBehaviour
                                         " to hold.").DoAtEnd(ReturnWithNothing));
                                 }
                                 break;
-                    }
+                        }
                     }
                     else
                     {
