@@ -52,4 +52,4 @@ MonoBehaviour:
     encounterPercent: 0
   - wildMons: []
     encounterPercent: 0
-  mapScripts: {fileID: 0}
+  mapScripts: {fileID: 11400000, guid: 1d32d9536ee0f457b866b2732ad8cc24, type: 2}

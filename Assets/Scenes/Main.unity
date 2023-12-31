@@ -170,8 +170,6 @@ MonoBehaviour:
   charObject: {fileID: 0}
   charRenderer: {fileID: 0}
   TM: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  HM: 0000000000000000
-  keyItem: 0000000000000000
   storyFlags: 
   trainerFlags: 00
   currentBox: 0
@@ -179,6 +177,7 @@ MonoBehaviour:
   todShading: {fileID: 0}
   triggers: []
   signposts: []
+  warps: []
   currentTerrain: 0
   lastMap: {fileID: 0}
   state: 0
@@ -192,10 +191,13 @@ MonoBehaviour:
   audioSource: {fileID: 126826196}
   cachedMenuItem: 0
   bagResult: 0
+  bagOutcome: 0
+  partyScreenResult: 0
+  partyScreenOutcome: 0
   textSpeed: 25
   Party:
   - species: 0
-    monName: 
+    name: 
     gender: 0
     xp: 0
     level: 0
@@ -240,7 +242,7 @@ MonoBehaviour:
     evolveAfterBattle: 0
     destinationSpecies: 0
   - species: 0
-    monName: 
+    name: 
     gender: 0
     xp: 0
     level: 0
@@ -285,7 +287,7 @@ MonoBehaviour:
     evolveAfterBattle: 0
     destinationSpecies: 0
   - species: 0
-    monName: 
+    name: 
     gender: 0
     xp: 0
     level: 0
@@ -330,7 +332,7 @@ MonoBehaviour:
     evolveAfterBattle: 0
     destinationSpecies: 0
   - species: 0
-    monName: 
+    name: 
     gender: 0
     xp: 0
     level: 0
@@ -375,7 +377,7 @@ MonoBehaviour:
     evolveAfterBattle: 0
     destinationSpecies: 0
   - species: 0
-    monName: 
+    name: 
     gender: 0
     xp: 0
     level: 0
@@ -420,7 +422,7 @@ MonoBehaviour:
     evolveAfterBattle: 0
     destinationSpecies: 0
   - species: 0
-    monName: 
+    name: 
     gender: 0
     xp: 0
     level: 0

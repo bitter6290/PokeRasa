@@ -71,6 +71,7 @@ public class Pokemon : ICloneable
     public bool itemChanged;
     public ItemID newItem;
 
+    [NonSerialized]
     public bool canBelch;
 
     public ItemID CurrentItem => itemChanged ? newItem : item;
@@ -89,9 +90,12 @@ public class Pokemon : ICloneable
 
     public int id;
 
+    [NonSerialized]
     public bool makeShedinja = false;
 
+    [NonSerialized]
     public bool evolveAfterBattle;
+    [NonSerialized]
     public SpeciesID destinationSpecies;
 
     public bool UsesFemaleSprites => SpeciesData.genderDifferences && gender == Gender.Female;
