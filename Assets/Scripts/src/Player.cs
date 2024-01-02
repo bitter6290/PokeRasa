@@ -10,7 +10,7 @@ using PartyScreenOutcome = PartyScreen.PartyScreenOutcome;
 
 public class Player : LoadedChar
 {
-    public static int maxBoxes = 255;
+    public const int maxBoxes = 255;
 
     public bool[] TM = new bool[(int)TMID.Count];
     public bool[] storyFlags = new bool[(int)Flag.Count];
@@ -507,7 +507,7 @@ public class Player : LoadedChar
         Debug.Log("Checking evolutions");
         List<Pokemon> toEvo = new();
         bool doEvo = false;
-        foreach (Pokemon mon in Party) if (mon.evolveAfterBattle)
+        foreach (Pokemon mon in Party) if (mon.shouldEvolve)
             { toEvo.Add(mon); doEvo = true; }
         if (doEvo)
         {
@@ -840,12 +840,12 @@ public class Player : LoadedChar
                                                 if (evo.Method is EvolutionMethod.EvolutionItem &&
                                                     evo.Data == (int)bagResult)
                                                 {
-                                                    mon.evolveAfterBattle = true;
+                                                    mon.shouldEvolve = true;
                                                     mon.destinationSpecies = evo.Destination;
                                                     break;
                                                 }
                                             }
-                                            if (mon.evolveAfterBattle)
+                                            if (mon.shouldEvolve)
                                             {
                                                 UseItem(bagResult);
                                                 yield return DoSingleEvolution(mon, null);

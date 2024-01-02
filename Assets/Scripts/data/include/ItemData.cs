@@ -43,7 +43,7 @@ public class FieldItem : ItemData //subdata length 2
 
 public class BattleItem : ItemData //subdata length 2
 {
-    public BattleItemEffect battleEffect;
+    public BattleEffect battleEffect;
     public int battleEffectIntensity;
     public override int[] ItemSubdata => new int[2]
         {
@@ -123,7 +123,7 @@ public class Berry : ItemData //subdata length 8
 {
     public HeldEffect heldEffect;
     public int heldEffectIntensity;
-    public BattleItemEffect battleEffect;
+    public BattleEffect battleEffect;
     public int battleEffectIntensity;
     public FieldEffect fieldEffect;
     public int fieldEffectIntensity;
@@ -151,7 +151,7 @@ public class Medicine : ItemData //subdata length 4
 {
     public FieldEffect fieldEffect;
     public int fieldEffectIntensity;
-    public BattleItemEffect battleEffect;
+    public BattleEffect battleEffect;
     public int battleEffectIntensity;
     public override int[] ItemSubdata => new int[4]
         {
@@ -276,172 +276,153 @@ public static class ItemUtils
 {
     public static HeldEffect HeldEffect(this ItemID item)
     {
-        switch (Item.ItemTable[(int)item].type)
+        return item.Data().type switch
         {
-            case ItemType.HeldItem:
-            case ItemType.HeldFieldItem:
-            case ItemType.Berry:
-                return (HeldEffect)Item.ItemTable[(int)item].ItemSubdata[0];
-            default:
-                return global::HeldEffect.None;
-        }
+            ItemType.HeldItem or ItemType.HeldFieldItem or ItemType.Berry => (HeldEffect)item.Subdata(0),
+            _ => global::HeldEffect.None,
+        };
     }
     public static int HeldEffectIntensity(this ItemID item)
     {
-        switch (Item.ItemTable[(int)item].type)
+        return item.Data().type switch
         {
-            case ItemType.HeldItem:
-            case ItemType.HeldFieldItem:
-            case ItemType.Berry:
-                return Item.ItemTable[(int)item].ItemSubdata[1];
-            default:
-                return 0;
-        }
+            ItemType.HeldItem or ItemType.HeldFieldItem or ItemType.Berry => item.Subdata(1),
+            _ => 0,
+        };
     }
     public static FieldEffect FieldEffect(this ItemID item)
     {
-        switch (Item.ItemTable[(int)item].type)
+        return item.Data().type switch
         {
-            case ItemType.FieldItem:
-            case ItemType.Medicine:
-                return (FieldEffect)Item.ItemTable[(int)item].ItemSubdata[0];
-            case ItemType.HeldFieldItem:
-                return (FieldEffect)Item.ItemTable[(int)item].ItemSubdata[2];
-            case ItemType.Berry:
-                return (FieldEffect)Item.ItemTable[(int)item].ItemSubdata[4];
-            case ItemType.TM:
-                return global::FieldEffect.TM;
-            default:
-                return global::FieldEffect.None;
-        }
+            ItemType.FieldItem or ItemType.Medicine => (FieldEffect)item.Subdata(0),
+            ItemType.HeldFieldItem => (FieldEffect)item.Subdata(2),
+            ItemType.Berry => (FieldEffect)item.Subdata(4),
+            ItemType.TM => global::FieldEffect.TM,
+            _ => global::FieldEffect.None,
+        };
     }
     public static int FieldEffectIntensity(this ItemID item)
     {
-        switch (Item.ItemTable[(int)item].type)
+        return item.Data().type switch
         {
-            case ItemType.FieldItem:
-            case ItemType.Medicine:
-                return Item.ItemTable[(int)item].ItemSubdata[1];
-            case ItemType.HeldFieldItem:
-                return Item.ItemTable[(int)item].ItemSubdata[3];
-            case ItemType.Berry:
-                return Item.ItemTable[(int)item].ItemSubdata[5];
-            default:
-                return 0;
-        }
+            ItemType.FieldItem or ItemType.Medicine => item.Subdata(1),
+            ItemType.HeldFieldItem => item.Subdata(3),
+            ItemType.Berry => item.Subdata(5),
+            _ => 0,
+        };
+    }
+
+    public static BattleEffect BattleEffect(this ItemID item)
+    {
+        return item.Data().type switch
+        {
+            ItemType.BattleItem => (BattleEffect)item.Subdata(0),
+            ItemType.Medicine or ItemType.Berry => (BattleEffect)item.Subdata(2),
+            _ => 0,
+        };
+    }
+
+    public static int BattleEffectIntensity(this ItemID item)
+    {
+        return item.Data().type switch
+        {
+            ItemType.BattleItem => item.Subdata(1),
+            ItemType.Medicine or ItemType.Berry => item.Subdata(3),
+            _ => 0,
+        };
     }
 
     public static BerryEffect BerryEffect(this ItemID item)
     {
-        switch (Item.ItemTable[(int)item].type)
+        return item.Data().type switch
         {
-            case ItemType.Berry:
-                return (BerryEffect)Item.ItemTable[(int)item].ItemSubdata[6];
-            default:
-                return global::BerryEffect.None;
-        }
+            ItemType.Berry => (BerryEffect)item.Subdata(6),
+            _ => global::BerryEffect.None,
+        };
     }
 
     public static SpeciesID MegaStoneUser(this ItemID item)
     {
-        switch (Item.ItemTable[(int)item].type)
+        return item.Data().type switch
         {
-            case ItemType.MegaStone:
-                return (SpeciesID)Item.ItemTable[(int)item].ItemSubdata[0];
-            default:
-                return SpeciesID.Missingno;
-        }
+            ItemType.MegaStone => (SpeciesID)item.Data().ItemSubdata[0],
+            _ => SpeciesID.Missingno,
+        };
     }
 
     public static Type PlateType(this ItemID item)
     {
-        switch (item.Data().type)
+        return item.Data().type switch
         {
-            case ItemType.Plate:
-                return (Type)item.Data().ItemSubdata[2];
-            default:
-                return Type.Typeless;
-        }
+            ItemType.Plate => (Type)item.Subdata(2),
+            _ => Type.Typeless,
+        };
     }
 
     public static Type ZMoveType(this ItemID item)
     {
-        switch (item.Data().type)
+        return item.Data().type switch
         {
-            case ItemType.ZCrystalGeneric:
-                return (Type)item.Data().ItemSubdata[0];
-            default:
-                return Type.Typeless;
-        }
+            ItemType.ZCrystalGeneric => (Type)item.Data().ItemSubdata[0],
+            _ => Type.Typeless,
+        };
     }
 
     public static SpeciesID ZMoveUser(this ItemID item)
     {
-        switch (item.Data().type)
+        return item.Data().type switch
         {
-            case ItemType.ZCrystalSpecific:
-                return (SpeciesID)item.Data().ItemSubdata[0];
-            default:
-                return SpeciesID.Missingno;
-        }
+            ItemType.ZCrystalSpecific => (SpeciesID)item.Data().ItemSubdata[0],
+            _ => SpeciesID.Missingno,
+        };
     }
 
     public static MoveID ZMoveBase(this ItemID item)
     {
-        switch (item.Data().type)
+        return item.Data().type switch
         {
-            case ItemType.ZCrystalSpecific:
-                return (MoveID)item.Data().ItemSubdata[1];
-            case ItemType.ZCrystalMultipleSpecies:
-                return (MoveID)item.Data().ItemSubdata[0];
-            default:
-                return MoveID.None;
-        }
+            ItemType.ZCrystalSpecific => (MoveID)item.Subdata(1),
+            ItemType.ZCrystalMultipleSpecies => (MoveID)item.Subdata(0),
+            _ => MoveID.None,
+        };
     }
 
     public static MoveID ZMoveResult(this ItemID item, bool physical)
     {
-        switch (item.Data().type)
+        return item.Data().type switch
         {
-            case ItemType.ZCrystalGeneric:
-                return (MoveID)item.Data().ItemSubdata[physical ? 1 : 2];
-            case ItemType.ZCrystalSpecific:
-                return (MoveID)item.Data().ItemSubdata[2];
-            case ItemType.ZCrystalMultipleSpecies:
-                return (MoveID)item.Data().ItemSubdata[1];
-            default:
-                return MoveID.None;
-        }
+            ItemType.ZCrystalGeneric => (MoveID)item.Data().ItemSubdata[physical ? 1 : 2],
+            ItemType.ZCrystalSpecific => (MoveID)item.Subdata(2),
+            ItemType.ZCrystalMultipleSpecies => (MoveID)item.Subdata(1),
+            _ => MoveID.None,
+        };
     }
 
     public static BallCatchType BallCatchType(this ItemID item)
     {
-        switch (item.Data().type)
+        return item.Data().type switch
         {
-            case ItemType.PokeBall:
-                return (BallCatchType)item.Data().ItemSubdata[0];
-            default: return global::BallCatchType.NotBall;
-        }
+            ItemType.PokeBall => (BallCatchType)item.Subdata(0),
+            _ => global::BallCatchType.NotBall,
+        };
     }
 
     public static BallBehavior BallBehavior(this ItemID item)
     {
-        switch (item.Data().type)
+        return item.Data().type switch
         {
-            case ItemType.PokeBall:
-                return (BallBehavior)item.Data().ItemSubdata[1];
-            default: return global::BallBehavior.None;
-        }
+            ItemType.PokeBall => (BallBehavior)item.Subdata(1),
+            _ => global::BallBehavior.None,
+        };
     }
 
     public static float CatchRateModifier(this ItemID item)
     {
-        switch (item.Data().type)
+        return item.Data().type switch
         {
-            case ItemType.PokeBall:
-                return item.Data().ItemSubdata[2] / 10.0F;
-            default: return 0;
-        }
+            ItemType.PokeBall => item.Subdata(2) / 10.0F,
+            _ => 0,
+        };
     }
 
     public static bool IsZCrystal(this ItemID item) => item.Data().type is
@@ -452,6 +433,7 @@ public static class ItemUtils
         or ItemType.AbstractItem;
 
     public static ItemData Data(this ItemID item) => Item.ItemTable[(int)item];
+    public static int Subdata(this ItemID item, int subdata) => Item.ItemTable[(int)item].ItemSubdata[subdata];
     public static Sprite Sprite(this ItemID item) => UnityEngine.Sprite.Create(
         Resources.Load<Texture2D>("Sprites/Items/" + item.Data().graphicsPath),
         new(0F, 0F, 24F, 24F), StaticValues.defPivot);

@@ -358,6 +358,20 @@ public static class AnimUtils
         sprite.localEulerAngles = new Vector3(0, 0, initialAngle + degrees);
     }
 
+    public static IEnumerator RotateY(Transform sprite, float degrees, float duration)
+    {
+        float baseTime = Time.time;
+        float endTime = baseTime + duration;
+        float initialAngle = sprite.localEulerAngles.y;
+        while (Time.time < endTime)
+        {
+            sprite.localEulerAngles = new Vector3(
+                0, initialAngle + degrees * (Time.time - baseTime) / duration, 0);
+            yield return null;
+        }
+        sprite.localEulerAngles = new Vector3(0, initialAngle + degrees, 0);
+    }
+
     public static IEnumerator DoublePower(Transform sprite, Vector2 translation, float powerX, float powerY, float duration)
     {
         float baseTime = Time.time;

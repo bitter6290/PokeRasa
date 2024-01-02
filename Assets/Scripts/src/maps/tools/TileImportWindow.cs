@@ -20,6 +20,8 @@ public class TileImportWindow : EditorWindow
                 if (!tileset.Tiles.Contains(tile)) tileset.Tiles.Add(tile);
             }
             Close();
+            EditorUtility.SetDirty(tileset);
+            AssetDatabase.SaveAssets();
         }
 
     }

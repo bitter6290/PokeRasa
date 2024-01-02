@@ -132,7 +132,7 @@ public class EvolutionScene : MonoBehaviour
     public IEnumerator DoEvolutionScene()
     {
         string oldName = mon.MonName;
-        if (!mon.evolveAfterBattle) yield break;
+        if (!mon.shouldEvolve) yield break;
         yield return Announce("What?");
         //Todo: mon ETF animation
         audioSource.PlayOneShot(originalSpecies.Data().Cry);
@@ -143,7 +143,7 @@ public class EvolutionScene : MonoBehaviour
         int hpMaxBefore = mon.hpMax;
         mon.species = destinationSpecies;
         mon.HP += mon.hpMax - hpMaxBefore;
-        mon.evolveAfterBattle = false;
+        mon.shouldEvolve = false;
         audioSource.PlayOneShot(destinationSpecies.Data().Cry);
         while (audioSource.isPlaying) yield return null;
         yield return Announce("Congratulations! Your " + oldName +

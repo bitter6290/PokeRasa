@@ -70,6 +70,19 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private int currentMon = 3;
     [SerializeField] private int currentMove = 1; //0 means Back
 
+    public enum PartyScreenReason
+    {
+        ChoosingSwitch,
+        SwitchingMove,
+        UsingItem
+    }
+
+    public PartyScreenReason partyScreenReason;
+
+    private ItemID cachedItem;
+    private ItemSubset cachedSubset;
+    private int cachedItemPosition;
+
     private Image Box(int i) => i switch
     {
         1 => box1,
@@ -444,16 +457,19 @@ public class MenuManager : MonoBehaviour
         menuMode = MenuMode.Main;
     }
 
-    public void PartyMenu()
+    public void PartyMenu(PartyScreenReason reason)
     {
+        partyScreenReason = reason;
         announce.enabled = false;
+        battle.choseSwitchMon = false;
 
         for (int i = 1; i <= 5; i++)
         {
             Text(i).enabled = false;
         }
 
-        text7.enabled = !battle.partyBackButtonInactive;
+        box7.enabled = reason is not PartyScreenReason.SwitchingMove;
+        text7.enabled = box7.enabled;
         box7.color = backColor;
         text7.text = "Back";
 
@@ -600,11 +616,12 @@ public class MenuManager : MonoBehaviour
         currentMove = 0;
     }
 
-    private void ItemSubmenu(ItemSubset subset)
+    private void ItemSubmenu(ItemSubset subset, int initialPosition = 0)
     {
         menuMode = MenuMode.Items;
         cachedItems = GetItemsBySubset(subset);
         cachedItemCount = cachedItems.Length;
+        cachedSubset = subset;
         DisableBoxes();
         box5.enabled = true;
         box5.color = backColor;
@@ -631,7 +648,7 @@ public class MenuManager : MonoBehaviour
         DisableParty();
         megaIndicator.SetActive(false);
         summaryIndicator.SetActive(false);
-        currentItemPosition = 0;
+        currentItemPosition = initialPosition;
         currentMove = 0;
         UpdateItemSubmenu();
     }
@@ -675,7 +692,7 @@ public class MenuManager : MonoBehaviour
         {
             case MenuMode.Main: MainMenu(); break;
             case MenuMode.Moves: MovesMenu(); break;
-            case MenuMode.Party: PartyMenu(); break;
+            case MenuMode.Party: PartyMenu(PartyScreenReason.ChoosingSwitch); break;
         }
     }
 
@@ -957,9 +974,8 @@ public class MenuManager : MonoBehaviour
                                 ItemCategoryMenu();
                                 break;
                             case 3:
-                                battle.partyBackButtonInactive = false;
                                 currentPartyMon = 1;
-                                PartyMenu();
+                                PartyMenu(PartyScreenReason.ChoosingSwitch);
                                 break;
                             case 4:
                                 if (battle.wildBattle)
@@ -982,8 +998,6 @@ public class MenuManager : MonoBehaviour
                 case MenuMode.Party:
                     announce.enabled = false;
 
-                    box7.enabled = !battle.partyBackButtonInactive;
-                    text7.enabled = !battle.partyBackButtonInactive;
 
                     selector1.enabled = currentPartyMon == 1;
                     selector2.enabled = currentPartyMon == 3;
@@ -1014,7 +1028,7 @@ public class MenuManager : MonoBehaviour
                         {
                             case 1:
                                 currentPartyMon = box2.enabled ? 3 :
-                                    battle.partyBackButtonInactive ? 1 : 0;
+                                    partyScreenReason is PartyScreenReason.SwitchingMove ? 1 : 0;
                                 if (currentPartyMon != 1)
                                 {
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1023,7 +1037,7 @@ public class MenuManager : MonoBehaviour
                                 break;
                             case 2:
                                 currentPartyMon = box4.enabled ? 4 :
-                                    battle.partyBackButtonInactive ? 2 : 0;
+                                    partyScreenReason is PartyScreenReason.SwitchingMove ? 2 : 0;
                                 if (currentPartyMon != 2)
                                 {
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1032,7 +1046,7 @@ public class MenuManager : MonoBehaviour
                                 break;
                             case 3:
                                 currentPartyMon = box5.enabled ? 5 :
-                                    battle.partyBackButtonInactive ? 3 : 0;
+                                    partyScreenReason is PartyScreenReason.SwitchingMove ? 3 : 0;
                                 if (currentPartyMon != 3)
                                 {
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1041,7 +1055,7 @@ public class MenuManager : MonoBehaviour
                                 break;
                             case 4:
                                 currentPartyMon = box6.enabled ? 6 :
-                                    battle.partyBackButtonInactive ? 4 : 0;
+                                    partyScreenReason is PartyScreenReason.SwitchingMove ? 4 : 0;
                                 if (currentPartyMon != 4)
                                 {
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1049,7 +1063,7 @@ public class MenuManager : MonoBehaviour
                                 }
                                 break;
                             case 5:
-                                if (!battle.partyBackButtonInactive)
+                                if (partyScreenReason is not PartyScreenReason.SwitchingMove)
                                 {
                                     currentPartyMon = 0;
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1057,7 +1071,7 @@ public class MenuManager : MonoBehaviour
                                 }
                                 break;
                             case 6:
-                                if (!battle.partyBackButtonInactive)
+                                if (partyScreenReason is not PartyScreenReason.SwitchingMove)
                                 {
                                     currentPartyMon = 0;
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1157,71 +1171,112 @@ public class MenuManager : MonoBehaviour
                         battle.audioSource0.volume = 0.6F;
                         battle.audioSource0.PlayOneShot(Select);
                         battle.audioSource0.panStereo = 0;
-                        switch (currentPartyMon)
+                        if (partyScreenReason != PartyScreenReason.UsingItem)
                         {
-                            case 1:
-                            case 2:
-                            case 3:
-                            case 4:
-                            case 5:
-                            case 6:
-                                if (battle.PlayerPokemon[currentPartyMon - 1].fainted)
-                                {
-                                    StartCoroutine(AnnounceAndReturn(
-                                        battle.PlayerPokemon[currentPartyMon - 1].MonName
-                                        + " has no energy to battle!"));
-                                }
-                                else if (battle.PlayerPokemon[currentPartyMon - 1].onField)
-                                {
-                                    StartCoroutine(AnnounceAndReturn(
-                                        battle.PlayerPokemon[currentPartyMon - 1].MonName
-                                        + " is already on the field!"));
-                                }
-                                else if (battle.IsTrapped(currentMon))
-                                {
-                                    StartCoroutine(AnnounceAndReturn(
-                                        battle.PokemonOnField[currentMon].PokemonData.MonName
-                                        + " is trapped and cannot switch!"));
-                                }
-                                else
-                                {
-                                    if (battle.partyBackButtonInactive)
+                            switch (currentPartyMon)
+                            {
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                case 5:
+                                case 6:
+                                    if (battle.PlayerPokemon[currentPartyMon - 1].fainted)
                                     {
-                                        GoToAnnounce();
-                                        battle.switchingTarget = currentPartyMon - 1;
-                                        battle.choseSwitchMon = true;
+                                        StartCoroutine(AnnounceAndReturn(
+                                            battle.PlayerPokemon[currentPartyMon - 1].MonName
+                                            + " has no energy to battle!"));
+                                    }
+                                    else if (battle.PlayerPokemon[currentPartyMon - 1].onField)
+                                    {
+                                        StartCoroutine(AnnounceAndReturn(
+                                            battle.PlayerPokemon[currentPartyMon - 1].MonName
+                                            + " is already on the field!"));
+                                    }
+                                    else if (battle.IsTrapped(currentMon))
+                                    {
+                                        StartCoroutine(AnnounceAndReturn(
+                                            battle.PokemonOnField[currentMon].PokemonData.MonName
+                                            + " is trapped and cannot switch!"));
                                     }
                                     else
                                     {
-                                        battle.PokemonOnField[currentMon].choseMove = true;
-                                        battle.Moves[currentMon] = MoveID.Switch;
-                                        battle.SwitchTargets[currentMon] = currentPartyMon - 1;
-                                        if (GetNextPokemon())
+                                        if (partyScreenReason is PartyScreenReason.SwitchingMove)
                                         {
-                                            menuMode = MenuMode.Main;
                                             GoToAnnounce();
-                                            currentMove = 1;
-                                            currentMon = 2;
-                                            GetNextPokemon();
-                                            battle.DoNextMove();
+                                            battle.switchingTarget = currentPartyMon - 1;
+                                            battle.choseSwitchMon = true;
                                         }
                                         else
                                         {
-                                            MainMenu();
-                                            currentMove = 1;
+                                            battle.PokemonOnField[currentMon].choseMove = true;
+                                            battle.Moves[currentMon] = MoveID.Switch;
+                                            battle.SwitchTargets[currentMon] = currentPartyMon - 1;
+                                            if (GetNextPokemon())
+                                            {
+                                                menuMode = MenuMode.Main;
+                                                GoToAnnounce();
+                                                currentMove = 1;
+                                                currentMon = 2;
+                                                GetNextPokemon();
+                                                battle.DoNextMove();
+                                            }
+                                            else
+                                            {
+                                                MainMenu();
+                                                currentMove = 1;
+                                            }
                                         }
                                     }
-                                }
-                                break;
-                            case 0:
-                                MainMenu();
-                                battle.audioSource0.volume = 0.6F;
-                                battle.audioSource0.PlayOneShot(Select);
-                                battle.audioSource0.panStereo = 0;
-                                break;
-                            default:
-                                break;
-
+                                    break;
+                                case 0:
+                                    MainMenu();
+                                    battle.audioSource0.volume = 0.6F;
+                                    battle.audioSource0.PlayOneShot(Select);
+                                    battle.audioSource0.panStereo = 0;
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            switch (currentPartyMon)
+                            {
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                case 5:
+                                case 6:
+                                    battle.audioSource0.volume = 0.6F;
+                                    battle.audioSource0.PlayOneShot(Select);
+                                    battle.audioSource0.panStereo = 0;
+                                    battle.PokemonOnField[currentMon].choseMove = true;
+                                    battle.Moves[currentMon] = MoveID.UseItem;
+                                    battle.itemToUse[currentMon] = cachedItem;
+                                    battle.itemTarget[currentMon] = currentPartyMon - 1;
+                                    if (GetNextPokemon())
+                                    {
+                                        menuMode = MenuMode.Main;
+                                        GoToAnnounce();
+                                        currentMove = 1;
+                                        currentMon = 2;
+                                        GetNextPokemon();
+                                        battle.DoNextMove();
+                                    }
+                                    else
+                                    {
+                                        MainMenu();
+                                        currentMove = 1;
+                                    }
+                                    break;
+                                case 0:
+                                    ItemSubmenu(cachedSubset, cachedItemPosition);
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     }
                     if (Input.GetKeyDown(KeyCode.S))
@@ -1415,12 +1470,13 @@ public class MenuManager : MonoBehaviour
                                 ItemCategoryMenu();
                                 break;
                             default:
-                                ItemID item = cachedItems[currentItemPosition + currentMove - 1];
-                                switch (item.Data().type)
+                                cachedItem = cachedItems[currentItemPosition + currentMove - 1];
+                                cachedItemPosition = currentItemPosition;
+                                switch (cachedItem.Data().type)
                                 {
                                     case ItemType.PokeBall:
                                         battle.Moves[currentMon] = MoveID.UseItem;
-                                        battle.itemToUse[currentMon] = item;
+                                        battle.itemToUse[currentMon] = cachedItem;
                                         battle.PokemonOnField[currentMon].choseMove = true;
                                         if (GetNextPokemon())
                                         {
@@ -1437,7 +1493,12 @@ public class MenuManager : MonoBehaviour
                                             MainMenu();
                                             currentMove = 1;
                                         }
-                                        break;
+                                        return;
+                                    case ItemType.Medicine:
+                                    case ItemType.BattleItem:
+                                    case ItemType.Berry:
+                                        PartyMenu(PartyScreenReason.UsingItem);
+                                        return;
                                 }
                                 break;
                         }

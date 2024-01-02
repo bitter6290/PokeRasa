@@ -1,11 +1,13 @@
-﻿public class TeamPokemon
+﻿using System.Collections.Generic;
+
+public class TeamPokemon
 {
     public SpeciesID species;
     public EvIvSpread evIv;
     public Nature nature = Nature.Any;
     public int level;
     public Gender gender = Gender.Any;
-    public MoveID[] moves = new MoveID[0]; /*Supplying an array with fewer than 4 moves 
+    public List<MoveID> moves = new(); /*Supplying an array with fewer than 4 moves 
                             * will only overwrite as many moves as you supply;
                             * to create a Pokemon with fewer than 4 moves,
                             * fill out the array with Move.None.
@@ -18,7 +20,7 @@
             if (nature != Nature.Any) initialPokemon.SetNature(nature);
             if (evIv.real) initialPokemon.SetEvIv(evIv);
             if (gender != Gender.Any) initialPokemon.gender = gender;
-            for (int i = 0; i < moves.Length; i++)
+            for (int i = 0; i < moves.Count; i++)
             {
                 switch (i)
                 {

@@ -551,7 +551,7 @@ public static class Item
         price = 200,
         fieldEffect = FieldEffect.Heal,
         fieldEffectIntensity = 20,
-        battleEffect = BattleItemEffect.Heal,
+        battleEffect = BattleEffect.Heal,
         battleEffectIntensity = 20,
         graphicsPath = "potion"
     };

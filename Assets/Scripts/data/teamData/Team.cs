@@ -1,4 +1,5 @@
-﻿public static class Team
+﻿using System.Collections.Generic;
+public static class Team
 {
     public static TeamData mayTestTeam = new()
     {
@@ -12,6 +13,7 @@
                 nature = Nature.Any,
                 evIv = Spreads.random,
                 level = 20,
+                moves = {MoveID.Pound}
             }
         }
     };

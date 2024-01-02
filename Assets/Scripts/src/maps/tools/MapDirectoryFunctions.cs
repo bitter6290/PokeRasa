@@ -11,9 +11,12 @@ public static class MapDirectoryUtils
     {
         MapDirectory maps = Directory;
         maps.maps = new();
+        int i = 0;
         foreach (string guid in FindAssets("t:MapData"))
         {
-            maps.maps.Add(LoadAssetAtPath<MapData>(GUIDToAssetPath(guid)));
+            MapData mapData = (LoadAssetAtPath<MapData>(GUIDToAssetPath(guid)));
+            maps.maps.Add(mapData);
+            mapData.index = i++;
         }
         SaveAssets();
     }

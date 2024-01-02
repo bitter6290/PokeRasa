@@ -16,7 +16,7 @@ public static class TriggeredTileAnim
             yield return new WaitForSeconds(0.2F);
         }
         renderer.sprite = Sprite.Create(tallGrassShake, new Rect(0, 0, 16, 16), Vector2.zero, 16);
-        while (c.pos == pos)
+        while (c.pos == pos && c.charObject != null)
         {
             yield return null;
         }

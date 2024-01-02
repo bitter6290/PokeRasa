@@ -94,7 +94,7 @@ public class Pokemon : ICloneable
     public bool makeShedinja = false;
 
     [NonSerialized]
-    public bool evolveAfterBattle;
+    public bool shouldEvolve;
     [NonSerialized]
     public SpeciesID destinationSpecies;
 
@@ -195,17 +195,17 @@ public class Pokemon : ICloneable
     }
     public void CheckEvolution()
     {
-        if (evolveAfterBattle) return;
+        if (shouldEvolve) return;
         foreach (EvolutionData data in SpeciesData.evolution)
         {
             if (CheckEvolutionMethod(data.Method, data.Data))
             {
-                (evolveAfterBattle, destinationSpecies) =
+                (shouldEvolve, destinationSpecies) =
                     (true, data.Destination);
                 return;
             }
         }
-        (evolveAfterBattle, destinationSpecies) = (false, SpeciesID.Missingno);
+        (shouldEvolve, destinationSpecies) = (false, SpeciesID.Missingno);
     }
     public bool CheckEvolutionMethod(EvolutionMethod method, int data)
     {

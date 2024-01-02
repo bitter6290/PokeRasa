@@ -12,7 +12,7 @@ public class EvolutionSceneEditor : Editor
         if (GUILayout.Button("Test"))
         {
             Pokemon mon = Pokemon.WildPokemon(SpeciesID.Magikarp, 21);
-            mon.evolveAfterBattle = true;
+            mon.shouldEvolve = true;
             mon.destinationSpecies = SpeciesID.Gyarados;
 
             scene.StartCoroutine(scene.PrepareScene(mon).Join(scene.DoEvolutionScene()));
