@@ -281,6 +281,68 @@ public partial class Battle : MonoBehaviour
         return false;
     }
 
+    public bool CanStatus(int index, Status status, int attacker = NoMons, bool breakSub = false)
+    {
+        if (PokemonOnField[index].PokemonData.status is not Status.None) return false;
+        if (Sides[index < 3 ? 0 : 1].safeguard) return false;
+        switch (EffectiveAbility(index))
+            {
+                case Comatose or PurifyingSalt: return false;
+                case LeafGuard when IsWeatherAffected(index, Weather.Sun): return false;
+                default: break;
+            }
+        if (IsTerrainAffected(index, Terrain.Misty)) return false;
+        if (PokemonOnField[index].hasSubstitute) return false;
+        switch (status)
+        {
+            case Status.Poison or Status.ToxicPoison:
+                if (PokemonOnField[index].HasType(Type.Poison) || PokemonOnField[index].HasType(Type.Steel)) return false;
+                if (HasAbility(index, Immunity) || AbilityOnSide(PastelVeil, index < 3 ? 0 : 1))
+                {
+                    if (attacker == NoMons) return false;
+                    else if (!HasMoldBreaker(attacker)) return false;
+                }
+                return true;
+            case Status.Paralysis:
+                if (PokemonOnField[index].HasType(Type.Electric)) return false;
+                if (HasAbility(index, Limber))
+                {
+                    if (attacker == NoMons) return false;
+                    else if (!HasMoldBreaker(attacker)) return false;
+                }
+                return true;
+            case Status.Burn:
+                if (PokemonOnField[index].HasType(Type.Fire)) return false;
+                if (EffectiveAbility(index) is WaterVeil or WaterBubble or ThermalExchange)
+                {
+                    if (attacker == NoMons) return false;
+                    else if (!HasMoldBreaker(attacker)) return false;
+                }
+                return true;
+            case Status.Sleep:
+                if (UproarOnField && !HasAbility(index, Soundproof)) return false;
+                if (IsTerrainAffected(index, Terrain.Electric)) return false;
+                if (EffectiveAbility(index) is Insomnia or VitalSpirit ||
+                    AbilityOnSide(SweetVeil, index < 3 ? 0 : 1))
+                {
+                    if (attacker == NoMons) return false;
+                    else if (!HasMoldBreaker(attacker)) return false;
+                }
+                return true;
+            case Status.Freeze:
+                if (IsWeatherAffected(index, Weather.Sun)) return false;
+                if (PokemonOnField[index].HasType(Type.Ice)) return false;
+                if (EffectiveAbility(index) is MagmaArmor)
+                {
+                    if (attacker == NoMons) return false;
+                    else if (!HasMoldBreaker(attacker)) return false;
+                }
+                return true;
+            default:
+                return false;
+        }
+    }
+
     private bool AllOthersDone(int index)
     {
         for (int i = 0; i < 6; i++)
@@ -2131,18 +2193,21 @@ public partial class Battle : MonoBehaviour
                                 break;
                             case Sleep:
                             case MoveEffect.Rest:
-                                if (UproarOnField && !HasAbility(i, Soundproof)) continue;
-                                goto case MoveEffect.TriAttack;
+                                if (!CanStatus(i, Status.Sleep, attacker)) continue;
+                                goto default;
                             case Burn:
-                                if (target.HasType(Type.Fire)) continue;
-                                goto case MoveEffect.TriAttack;
+                                if (!CanStatus(i, Status.Burn, attacker)) continue;
+                                goto default;
                             case Paralyze:
-                                if (target.HasType(Type.Electric)) continue;
-                                goto case MoveEffect.TriAttack;
+                                if (!CanStatus(i, Status.Paralysis, attacker)) continue;
+                                goto default;
                             case Poison:
                             case Toxic:
-                                if (target.HasType(Type.Poison)) continue;
-                                goto case MoveEffect.TriAttack;
+                                if (!CanStatus(i, Status.Poison, attacker)) continue;
+                                goto default;
+                            case Freeze:
+                                if (!CanStatus(i, Status.Freeze, attacker)) continue;
+                                goto default;
                             case Telekinesis when target.telekinesis || target.ingrained || target.smackDown ||
                                     target.PokemonData.getSpecies is SpeciesID.GengarMega or
                                     SpeciesID.Diglett or SpeciesID.Dugtrio
@@ -2208,15 +2273,9 @@ public partial class Battle : MonoBehaviour
                 }
                 switch (EffectiveAbility(defender))
                 {
-                    case Static when MakesContact(attacker, move) &&
-                            !(attackingMon.HasType(Type.Electric) ||
-                            HasAbility(attacker, Limber)):
-                    case PoisonPoint when MakesContact(attacker, move) &&
-                        !(attackingMon.HasType(Type.Poison) || attackingMon.HasType(Type.Steel) ||
-                            (HasAbility(attacker, Immunity) && !HasMoldBreaker(attacker))):
-                    case FlameBody when MakesContact(attacker, move) &&
-                            !(attackingMon.HasType(Type.Fire) ||
-                            HasAbility(attacker, WaterVeil)):
+                    case Static when MakesContact(attacker, move) && CanStatus(attacker, Status.Paralysis):
+                    case PoisonPoint when MakesContact(attacker, move) && CanStatus(attacker, Status.Poison):
+                    case FlameBody when MakesContact(attacker, move) && CanStatus(attacker, Status.Burn):
                         if (random.NextDouble() < 1F / 3F)
                         {
                             abilityEffects.Enqueue((defender, attacker, EffectiveAbility(defender)));
@@ -4784,7 +4843,7 @@ public partial class Battle : MonoBehaviour
     public static IEnumerator DoDamage(Pokemon mon, int damage)
     {
         int initialHP = mon.HP;
-        float duration = Mathf.Pow(damage, 0.33F) / 5;
+        float duration = Mathf.Abs(Mathf.Pow(damage, 0.33F) / 5);
         float baseTime = Time.time;
         while (Time.time < baseTime + duration)
         {
