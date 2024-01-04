@@ -89,6 +89,8 @@ public class Pokemon : ICloneable
 
     public int id;
 
+    public bool egg;
+
     [NonSerialized]
     public bool makeShedinja = false;
 

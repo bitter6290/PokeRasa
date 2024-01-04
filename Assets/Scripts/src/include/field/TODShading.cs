@@ -20,7 +20,7 @@ public class TODShading : MonoBehaviour
 
     public ShadingBehaviour shadingBehaviour;
 
-    private static Color morningColor = new(1, 1, 140F / 255F, 20F / 255F);
+    private static Color morningColor = new(1, 1, 180F / 255F, 20F / 255F);
     private static Color dayColor = new(1, 1, 1, 0);
     private static Color eveningColor = new(105F / 255F, 75F / 255F, 60F / 255F, 70F / 255F);
     private static Color nightColor = new(0, 0, 48F / 255F, 128F / 255F);

@@ -181,7 +181,7 @@ public partial class Battle
 
     public IEnumerator BallShake(Transform transform) //0.95
     {
-        audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/BallShake"));
+        audioSource0.PlayOneShot(SFX.BallShake);
         yield return Rotate(transform, -45, 0.1f); //0.1
         yield return Rotate(transform, 90, 0.2f);  //0.3
         yield return Rotate(transform, -45, 0.1f); //0.4
