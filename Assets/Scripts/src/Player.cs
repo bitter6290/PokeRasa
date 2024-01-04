@@ -1,12 +1,15 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using Scene = SceneID;
 using BagOutcome = BagController.BagOutcome;
 using PartyScreenOutcome = PartyScreen.PartyScreenOutcome;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class Player : LoadedChar
 {
@@ -15,13 +18,20 @@ public class Player : LoadedChar
     public bool[] TM = new bool[(int)TMID.Count];
     public bool[] storyFlags = new bool[(int)Flag.Count];
     public bool[] trainerFlags = new bool[(int)TrainerFlag.Count];
+    public bool[] seenFlags = new bool[(int)SpeciesID.Count];
+    public bool[] caughtFlags = new bool[(int)SpeciesID.Count];
     public List<Box> boxes = new() { Box.newBox("Box 1") };
     public int currentBox = 0;
     public int money = 0;
+    public string playerName = "Brendan";
+
+    public string saveID = "Test";
 
     public TODShading todShading;
 
     public Dictionary<ItemID, int> Bag = new();
+    public List<(ItemID, int)> SerializeBag => Bag.Select(x => (x.Key, x.Value)).ToList();
+
     public Dictionary<MapData, bool[,]> neighborCollision;
 
 
@@ -60,7 +70,7 @@ public class Player : LoadedChar
     private FieldMenu menu;
     public MenuItem cachedMenuItem;
 
-    private BagController bag;
+    private BagController bagController;
     public ItemID bagResult;
     public BagOutcome bagOutcome;
 
@@ -130,7 +140,122 @@ public class Player : LoadedChar
         CloseMenu,
         Bag,
         Pokemon,
+        Save,
         Settings
+    }
+
+    public void DeserializeBag(List<(ItemID, int)> listIn)
+    {
+        foreach ((ItemID item, int number) in listIn)
+        {
+            Bag.Add(item, number);
+        }
+    }
+
+    public MapData StringToMap(string stringIn)
+    {
+        foreach (MapData data in mapDirectory.maps)
+        {
+            if (data.id == stringIn) return data;
+        }
+        return null;
+    }
+
+    [Serializable]
+    public struct SaveFile
+    {
+        public bool[] TM;
+        public bool[] storyFlags;
+        public bool[] trainerFlags;
+        public bool[] seenFlags;
+        public bool[] caughtFlags;
+        public string mapID;
+        public int posX;
+        public int posY;
+        public CollisionID currentHeight;
+        public List<(ItemID, int)> bag;
+        public string name;
+        public int currentBox;
+        public int money;
+        public Pokemon[] party;
+        public List<Box> boxes;
+    }
+
+    public void LoadSave(SaveFile file)
+    {
+        TM = file.TM;
+        if (TM.Length != (int)TMID.Count)
+        {
+            Array.Resize(ref TM, (int)TMID.Count);
+        }
+        storyFlags = file.storyFlags;
+        if (storyFlags.Length != (int)Flag.Count)
+        {
+            Array.Resize(ref storyFlags, (int)Flag.Count);
+        }
+        trainerFlags = file.trainerFlags;
+        if (trainerFlags.Length != (int)TrainerFlag.Count)
+        {
+            Array.Resize(ref trainerFlags, (int)TrainerFlag.Count);
+        }
+        seenFlags = file.seenFlags;
+        if (seenFlags.Length != (int)SpeciesID.Count)
+        {
+            Array.Resize(ref seenFlags, (int)SpeciesID.Count);
+        }
+        caughtFlags = file.caughtFlags;
+        if (caughtFlags.Length != (int)SpeciesID.Count)
+        {
+            Array.Resize(ref caughtFlags, (int)SpeciesID.Count);
+        }
+        currentMap = StringToMap(file.mapID);
+        pos = new(file.posX, file.posY);
+        DeserializeBag(file.bag);
+        playerName = file.name;
+        currentBox = file.currentBox;
+        currentHeight = file.currentHeight;
+        money = file.money;
+        Party = file.party;
+        if (Party.Length != 6)
+        {
+            Array.Resize(ref Party, 6);
+        }
+        boxes = file.boxes;
+    }
+
+    public void LoadSave(string saveID)
+    {
+        this.saveID = saveID;
+        BinaryFormatter bf = new();
+        FileStream file = File.OpenRead(Application.persistentDataPath + "/" + saveID + ".dat");
+        SaveFile data = (SaveFile)bf.Deserialize(file);
+        LoadSave(data);
+    }
+
+    public void SaveGame()
+    {
+        BinaryFormatter bf = new();
+        FileStream file = File.Create(Application.persistentDataPath + "/" + saveID + ".dat");
+        SaveFile data = new()
+        {
+            TM = TM,
+            storyFlags = storyFlags,
+            trainerFlags = trainerFlags,
+            seenFlags = seenFlags,
+            caughtFlags = caughtFlags,
+            mapID = currentMap.id,
+            posX = pos.x,
+            posY = pos.y,
+            name = playerName,
+            currentBox = currentBox,
+            currentHeight = currentHeight,
+            money = money,
+            party = Party,
+            boxes = boxes
+        };
+        bf.Serialize(file, data);
+        file.Close();
+        Debug.Log("Game saved!");
     }
 
     public Pokemon[] Party = new Pokemon[6];
@@ -211,6 +336,8 @@ public class Player : LoadedChar
 
     public bool TryAddMon(Pokemon mon)
     {
+        seenFlags[(int)mon.species] = true;
+        caughtFlags[(int)mon.species] = true;
         SortParty();
         if (monsInParty >= 6)
         {
@@ -327,7 +454,8 @@ public class Player : LoadedChar
 
     public void SwitchMap()
     {
-        mapManager.mapData = currentMap;
+        mapManager.map = currentMap;
+        todShading.shadingBehaviour = currentMap.shading;
         mapManager.ReadMap();
         currentMap.mapScripts.BeforeLoad(this);
         RefreshObjects();
@@ -440,7 +568,7 @@ public class Player : LoadedChar
 
     public void SwitchAndReposition(Vector2Int pos)
     {
-        mapManager.mapData = currentMap;
+        mapManager.map = currentMap;
         mapManager.ReadAndReposition(this, pos);
         currentMap.mapScripts.BeforeLoad(this);
         RefreshObjects();
@@ -572,9 +700,9 @@ public class Player : LoadedChar
 
     private void TryChangeMap(int x, int y)
     {
-        if (x >= mapManager.mapData.width)
+        if (x >= mapManager.map.width)
         {
-            foreach (Connection i in mapManager.mapData.connection)
+            foreach (Connection i in mapManager.map.connection)
             {
                 if (i.direction == Direction.E && y >= i.offset && y < i.map.height + i.offset)
                 {
@@ -587,7 +715,7 @@ public class Player : LoadedChar
         }
         else if (x < 0)
         {
-            foreach (Connection i in mapManager.mapData.connection)
+            foreach (Connection i in mapManager.map.connection)
             {
                 if (i.direction == Direction.W && y >= i.offset && y < i.map.height + i.offset)
                 {
@@ -598,9 +726,9 @@ public class Player : LoadedChar
                 }
             }
         }
-        else if (y >= mapManager.mapData.height)
+        else if (y >= mapManager.map.height)
         {
-            foreach (Connection i in mapManager.mapData.connection)
+            foreach (Connection i in mapManager.map.connection)
             {
                 if (i.direction == Direction.N && x >= i.offset && x < i.map.width + i.offset)
                 {
@@ -613,7 +741,7 @@ public class Player : LoadedChar
         }
         else if (y < 0)
         {
-            foreach (Connection i in mapManager.mapData.connection)
+            foreach (Connection i in mapManager.map.connection)
             {
                 if (i.direction == Direction.S && x >= i.offset && x < i.map.width + i.offset)
                 {
@@ -772,12 +900,12 @@ public class Player : LoadedChar
         if (newTile is IDoor) isDoor = true;
         if (isDoor)
         {
-            StartCoroutine(TriggeredTileAnim.DoBackwardsDoorAnim(pos, (IDoor)newTile, 0.3F));
+            StartCoroutine(TriggeredTileAnim.DoBackwardsDoorAnim(pos, (IDoor)newTile, 0.3f));
         }
         yield return FadeFromBlack(0.3f);
         if (isDoor)
         {
-            StartCoroutine(GoSouth());
+            yield return GoSouth();
         }
         state = PlayerState.Free;
     }
@@ -804,9 +932,9 @@ public class Player : LoadedChar
                     while (!doneBag)
                     {
                         yield return Scene.Bag.Load();
-                        bag = FindObjectOfType<BagController>();
+                        bagController = FindObjectOfType<BagController>();
                         StartCoroutine(FadeFromBlack(0.2f));
-                        yield return bag.DoBag(this, false, (BagCachedData)cachedScreenData);
+                        yield return bagController.DoBag(this, false, (BagCachedData)cachedScreenData);
                         switch (bagOutcome)
                         {
                             case BagOutcome.None:
@@ -919,6 +1047,21 @@ public class Player : LoadedChar
                         }
 
                     }
+                    break;
+                case MenuItem.Save:
+                    SaveGame();
+                    state = PlayerState.Announce;
+                    menu.active = false;
+                    yield return announcer.AnnouncementUp();
+                    yield return announcer.Announce("Game saved.");
+                    yield return announcer.AnnouncementDown();
+                    yield return null;
+                    menu.active = true;
+                    state = PlayerState.Locked;
+
+#if UNITY_EDITOR
+                    Debug.Log(Application.persistentDataPath);
+#endif
                     break;
                 case MenuItem.CloseMenu:
                 default:
@@ -1232,7 +1375,7 @@ public class Player : LoadedChar
         DontDestroyOnLoad(gameObject);
     }
     // Update is called once per frame
-    public new void Update()
+    public override void Update()
     {
         if (active)
         {

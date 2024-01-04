@@ -23,15 +23,15 @@ public class MapWriter
         Tilemap level3 = mapHelper.level3;
         Tilemap collision = mapHelper.collisionMap;
         Tilemap wildData = mapHelper.wildDataMap;
-        Tileset currentTiles = mapHelper.mapData.tileset;
+        Tileset currentTiles = mapHelper.map.tileset;
         List<byte> data = new()
         {
             (byte)(version & 255),
             (byte)(version >> 8),
         };
-        for (int x = 0; x < mapHelper.mapData.width; x++)
+        for (int x = 0; x < mapHelper.map.width; x++)
         {
-            for (int y = 0; y < mapHelper.mapData.height; y++)
+            for (int y = 0; y < mapHelper.map.height; y++)
             {
                 ushort tile1SW = level1.HasTile(new Vector3Int(2 * x, 2 * y))
                     ? (ushort)currentTiles.Tiles.FindIndex(a => a == level1.GetTile(new Vector3Int(2 * x, 2 * y))) : (ushort)0;
@@ -73,7 +73,7 @@ public class MapWriter
             }
         }
         string outString = System.Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?");
-        mapHelper.mapData.WriteMapTiles(outString);
+        mapHelper.map.WriteMapTiles(outString);
         AssetDatabase.SaveAssets();
         Debug.Log("Saved successfully");
         AssetDatabase.Refresh();

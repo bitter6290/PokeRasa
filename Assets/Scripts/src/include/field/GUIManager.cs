@@ -17,7 +17,7 @@ public class GUIManager : MonoBehaviour
         announcerDownPosition = new Vector3(announcerUpPosition.x,
             announcerUpPosition.y - boxHeight, announcerUpPosition.z);
         announcementBox.position = announcerDownPosition;
-        announcementText.text = "";
+        announcementText.text = string.Empty;
         DontDestroyOnLoad(this);
     }
 
@@ -25,7 +25,7 @@ public class GUIManager : MonoBehaviour
     {
         float baseTime = Time.time;
         float endTime = baseTime + 0.1F;
-        announcementText.text = "";
+        announcementText.text = string.Empty;
         while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) * 10.0F;
@@ -40,7 +40,7 @@ public class GUIManager : MonoBehaviour
     {
         float baseTime = Time.time;
         float endTime = baseTime + 0.1F;
-        announcementText.text = "";
+        announcementText.text = string.Empty;
         while (Time.time < endTime)
         {
             float progress = (Time.time - baseTime) * 10.0F;
@@ -51,10 +51,10 @@ public class GUIManager : MonoBehaviour
         announcementBox.localPosition = announcerDownPosition;
     }
 
-    public IEnumerator Announce(string announcement)
+    public IEnumerator Announce(string announcement, bool intoPrompt = false)
     {
         float targetTime;
-        announcementText.text = "";
+        announcementText.text = string.Empty;
         for (int i = 1; i <= announcement.Length; i++)
         {
             announcementText.text = announcement[..i];
@@ -66,10 +66,14 @@ public class GUIManager : MonoBehaviour
                 yield return null;
             }
         }
-        while (!Input.GetKeyDown(KeyCode.Return))
+        if (!intoPrompt)
         {
-            yield return null;
+            while (!Input.GetKeyDown(KeyCode.Return))
+            {
+                yield return null;
+            }
+            announcementText.text = string.Empty;
         }
-        announcementText.text = "";
+        else yield return new WaitForSeconds(0.1f);
     }
 }

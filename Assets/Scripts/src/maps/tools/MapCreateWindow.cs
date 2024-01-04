@@ -40,12 +40,12 @@ public class MapCreateWindow : EditorWindow
             }
             AssetDatabase.CreateAsset(data,
                 "Assets/Maps/" + data.name + ".asset");
-            helper.mapData = data;
+            helper.map = data;
             helper.forceOpen();
             MapReader.CreateNewMapV1(helper);
             helper.WriteMap();
             AssetDatabase.SaveAssets();
-            helper.mapData = AssetDatabase.LoadAssetAtPath<MapData>(
+            helper.map = AssetDatabase.LoadAssetAtPath<MapData>(
                 "Assets/Maps/" + data.name + ".asset");
             Close();
         }

@@ -257,7 +257,7 @@ public abstract class LoadedChar : MonoBehaviour
 
     public void Pause(float time) { StartCoroutine(DoPause(time)); Actions.Dequeue(); }
 
-    public void Update()
+    public virtual void Update()
     {
         if (active && free && !moving)
         {

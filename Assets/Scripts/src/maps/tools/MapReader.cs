@@ -9,21 +9,21 @@ public static class MapReader
         Tilemap level1 = manager.level1;
         Tilemap level2 = manager.level2;
         Tilemap level3 = manager.level3;
-        string inString = manager.mapData.MapTiles.Replace("?", "AAAA").Replace("@", "AA");
+        string inString = manager.map.MapTiles.Replace("?", "AAAA").Replace("@", "AA");
         Debug.Log(inString.Length);
         byte[] data = System.Convert.FromBase64String(inString);
-        manager.collision = new byte[manager.mapData.width, manager.mapData.height];
-        manager.wildData = new byte[manager.mapData.width, manager.mapData.height];
+        manager.collision = new byte[manager.map.width, manager.map.height];
+        manager.wildData = new byte[manager.map.width, manager.map.height];
         level1.ClearAllTiles();
         level2.ClearAllTiles();
         level3.ClearAllTiles();
         manager.borderingCollision = new();
-        Tileset currentTiles = manager.mapData.tileset;
-        for (int x = 0; x < manager.mapData.width; x++)
+        Tileset currentTiles = manager.map.tileset;
+        for (int x = 0; x < manager.map.width; x++)
         {
-            for (int y = 0; y < manager.mapData.height; y++)
+            for (int y = 0; y < manager.map.height; y++)
             {
-                int offset = (x * manager.mapData.height + y) * 26 + 2;
+                int offset = (x * manager.map.height + y) * 26 + 2;
                 level1.SetTile(new Vector3Int(2 * x, 2 * y),
                     currentTiles.Tiles[data[offset] + (data[offset + 1] * 256)]);
                 level2.SetTile(new Vector3Int(2 * x, 2 * y),
@@ -52,9 +52,9 @@ public static class MapReader
                 manager.wildData[x, y] = data[offset + 25];
             }
         }
-        if (manager.mapData.connection.Length != 0)
+        if (manager.map.connection.Length != 0)
         {
-            foreach (Connection i in manager.mapData.connection)
+            foreach (Connection i in manager.map.connection)
             {
                 MapData connectedMap = i.map;
                 string connectionString = connectedMap.MapTiles.Replace("?", "AAAA").Replace("@", "AA");
@@ -69,29 +69,29 @@ public static class MapReader
                             for (int y = 0; y < connectedMap.height; y++)
                             {
                                 int offset = (x * connectedMap.height + y) * 26 + 2;
-                                level1.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * manager.mapData.height)),
+                                level1.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset] + (connectionData[offset + 1] * 256)]);
-                                level2.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * manager.mapData.height)),
+                                level2.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 2] + (connectionData[offset + 3] * 256)]);
-                                level3.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * manager.mapData.height)),
+                                level3.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 4] + (connectionData[offset + 5] * 256)]);
-                                level1.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * manager.mapData.height)),
+                                level1.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 6] + (connectionData[offset + 7] * 256)]);
-                                level2.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * manager.mapData.height)),
+                                level2.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 8] + (connectionData[offset + 9] * 256)]);
-                                level3.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * manager.mapData.height)),
+                                level3.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 10] + (connectionData[offset + 11] * 256)]);
-                                level1.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * manager.mapData.height)),
+                                level1.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 12] + (connectionData[offset + 13] * 256)]);
-                                level2.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * manager.mapData.height)),
+                                level2.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 14] + (connectionData[offset + 15] * 256)]);
-                                level3.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * manager.mapData.height)),
+                                level3.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 16] + (connectionData[offset + 17] * 256)]);
-                                level1.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * manager.mapData.height)),
+                                level1.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 18] + (connectionData[offset + 19] * 256)]);
-                                level2.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * manager.mapData.height)),
+                                level2.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 20] + (connectionData[offset + 21] * 256)]);
-                                level3.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * manager.mapData.height)),
+                                level3.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * manager.map.height)),
                                     currentTiles.Tiles[connectionData[offset + 22] + (connectionData[offset + 23] * 256)]);
                                 connectingCollision[x, y] = connectionData[offset + 24];
                             }
@@ -137,29 +137,29 @@ public static class MapReader
                             for (int y = 0; y < connectedMap.height; y++)
                             {
                                 int offset = (x * connectedMap.height + y) * 26 + 2;
-                                level1.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width), 2 * (y + i.offset)),
+                                level1.SetTile(new Vector3Int(2 * x + (2 * manager.map.width), 2 * (y + i.offset)),
                                     currentTiles.Tiles[connectionData[offset] + (connectionData[offset + 1] * 256)]);
-                                level2.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width), 2 * (y + i.offset)),
+                                level2.SetTile(new Vector3Int(2 * x + (2 * manager.map.width), 2 * (y + i.offset)),
                                     currentTiles.Tiles[connectionData[offset + 2] + (connectionData[offset + 3] * 256)]);
-                                level3.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width), 2 * (y + i.offset)),
+                                level3.SetTile(new Vector3Int(2 * x + (2 * manager.map.width), 2 * (y + i.offset)),
                                     currentTiles.Tiles[connectionData[offset + 4] + (connectionData[offset + 5] * 256)]);
-                                level1.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width) + 1, 2 * (y + i.offset)),
+                                level1.SetTile(new Vector3Int(2 * x + (2 * manager.map.width) + 1, 2 * (y + i.offset)),
                                     currentTiles.Tiles[connectionData[offset + 6] + (connectionData[offset + 7] * 256)]);
-                                level2.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width) + 1, 2 * (y + i.offset)),
+                                level2.SetTile(new Vector3Int(2 * x + (2 * manager.map.width) + 1, 2 * (y + i.offset)),
                                     currentTiles.Tiles[connectionData[offset + 8] + (connectionData[offset + 9] * 256)]);
-                                level3.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width) + 1, 2 * (y + i.offset)),
+                                level3.SetTile(new Vector3Int(2 * x + (2 * manager.map.width) + 1, 2 * (y + i.offset)),
                                     currentTiles.Tiles[connectionData[offset + 10] + (connectionData[offset + 11] * 256)]);
-                                level1.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width), 2 * (y + i.offset) + 1),
+                                level1.SetTile(new Vector3Int(2 * x + (2 * manager.map.width), 2 * (y + i.offset) + 1),
                                     currentTiles.Tiles[connectionData[offset + 12] + (connectionData[offset + 13] * 256)]);
-                                level2.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width), 2 * (y + i.offset) + 1),
+                                level2.SetTile(new Vector3Int(2 * x + (2 * manager.map.width), 2 * (y + i.offset) + 1),
                                     currentTiles.Tiles[connectionData[offset + 14] + (connectionData[offset + 15] * 256)]);
-                                level3.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width), 2 * (y + i.offset) + 1),
+                                level3.SetTile(new Vector3Int(2 * x + (2 * manager.map.width), 2 * (y + i.offset) + 1),
                                     currentTiles.Tiles[connectionData[offset + 16] + (connectionData[offset + 17] * 256)]);
-                                level1.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width) + 1, 2 * (y + i.offset) + 1),
+                                level1.SetTile(new Vector3Int(2 * x + (2 * manager.map.width) + 1, 2 * (y + i.offset) + 1),
                                     currentTiles.Tiles[connectionData[offset + 18] + (connectionData[offset + 19] * 256)]);
-                                level2.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width) + 1, 2 * (y + i.offset) + 1),
+                                level2.SetTile(new Vector3Int(2 * x + (2 * manager.map.width) + 1, 2 * (y + i.offset) + 1),
                                     currentTiles.Tiles[connectionData[offset + 20] + (connectionData[offset + 21] * 256)]);
-                                level3.SetTile(new Vector3Int(2 * x + (2 * manager.mapData.width) + 1, 2 * (y + i.offset) + 1),
+                                level3.SetTile(new Vector3Int(2 * x + (2 * manager.map.width) + 1, 2 * (y + i.offset) + 1),
                                     currentTiles.Tiles[connectionData[offset + 22] + (connectionData[offset + 23] * 256)]);
                                 connectingCollision[x, y] = connectionData[offset + 24];
                             }
@@ -211,7 +211,7 @@ public static class MapReader
         Tilemap level1 = mapHelper.level1;
         Tilemap level2 = mapHelper.level2;
         Tilemap level3 = mapHelper.level3;
-        foreach (Connection i in mapHelper.mapData.connection)
+        foreach (Connection i in mapHelper.map.connection)
         {
             MapData connectedMap = i.map;
             string connectionString = connectedMap.MapTiles.Replace("?", "AAAA").Replace("@", "AA");
@@ -225,29 +225,29 @@ public static class MapReader
                         for (int y = 0; y < connectedMap.height; y++)
                         {
                             int offset = (x * connectedMap.height + y) * 26 + 2;
-                            level1.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * mapHelper.mapData.height)),
+                            level1.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset] + (connectionData[offset + 1] * 256)]);
-                            level2.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * mapHelper.mapData.height)),
+                            level2.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 2] + (connectionData[offset + 3] * 256)]);
-                            level3.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * mapHelper.mapData.height)),
+                            level3.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 4] + (connectionData[offset + 5] * 256)]);
-                            level1.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * mapHelper.mapData.height)),
+                            level1.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 6] + (connectionData[offset + 7] * 256)]);
-                            level2.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * mapHelper.mapData.height)),
+                            level2.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 8] + (connectionData[offset + 9] * 256)]);
-                            level3.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * mapHelper.mapData.height)),
+                            level3.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 10] + (connectionData[offset + 11] * 256)]);
-                            level1.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * mapHelper.mapData.height)),
+                            level1.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 12] + (connectionData[offset + 13] * 256)]);
-                            level2.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * mapHelper.mapData.height)),
+                            level2.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 14] + (connectionData[offset + 15] * 256)]);
-                            level3.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * mapHelper.mapData.height)),
+                            level3.SetTile(new Vector3Int(2 * (x + i.offset), 2 * y + 1 + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 16] + (connectionData[offset + 17] * 256)]);
-                            level1.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * mapHelper.mapData.height)),
+                            level1.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 18] + (connectionData[offset + 19] * 256)]);
-                            level2.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * mapHelper.mapData.height)),
+                            level2.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 20] + (connectionData[offset + 21] * 256)]);
-                            level3.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * mapHelper.mapData.height)),
+                            level3.SetTile(new Vector3Int(2 * (x + i.offset) + 1, 2 * y + 1 + (2 * mapHelper.map.height)),
                                 currentTiles.Tiles[connectionData[offset + 22] + (connectionData[offset + 23] * 256)]);
                         }
                     }
@@ -291,29 +291,29 @@ public static class MapReader
                         for (int y = 0; y < connectedMap.height; y++)
                         {
                             int offset = (x * connectedMap.height + y) * 26 + 2;
-                            level1.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width), 2 * (y + i.offset)),
+                            level1.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width), 2 * (y + i.offset)),
                                 currentTiles.Tiles[connectionData[offset] + (connectionData[offset + 1] * 256)]);
-                            level2.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width), 2 * (y + i.offset)),
+                            level2.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width), 2 * (y + i.offset)),
                                 currentTiles.Tiles[connectionData[offset + 2] + (connectionData[offset + 3] * 256)]);
-                            level3.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width), 2 * (y + i.offset)),
+                            level3.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width), 2 * (y + i.offset)),
                                 currentTiles.Tiles[connectionData[offset + 4] + (connectionData[offset + 5] * 256)]);
-                            level1.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width) + 1, 2 * (y + i.offset)),
+                            level1.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width) + 1, 2 * (y + i.offset)),
                                 currentTiles.Tiles[connectionData[offset + 6] + (connectionData[offset + 7] * 256)]);
-                            level2.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width) + 1, 2 * (y + i.offset)),
+                            level2.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width) + 1, 2 * (y + i.offset)),
                                 currentTiles.Tiles[connectionData[offset + 8] + (connectionData[offset + 9] * 256)]);
-                            level3.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width) + 1, 2 * (y + i.offset)),
+                            level3.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width) + 1, 2 * (y + i.offset)),
                                 currentTiles.Tiles[connectionData[offset + 10] + (connectionData[offset + 11] * 256)]);
-                            level1.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width), 2 * (y + i.offset) + 1),
+                            level1.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width), 2 * (y + i.offset) + 1),
                                 currentTiles.Tiles[connectionData[offset + 12] + (connectionData[offset + 13] * 256)]);
-                            level2.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width), 2 * (y + i.offset) + 1),
+                            level2.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width), 2 * (y + i.offset) + 1),
                                 currentTiles.Tiles[connectionData[offset + 14] + (connectionData[offset + 15] * 256)]);
-                            level3.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width), 2 * (y + i.offset) + 1),
+                            level3.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width), 2 * (y + i.offset) + 1),
                                 currentTiles.Tiles[connectionData[offset + 16] + (connectionData[offset + 17] * 256)]);
-                            level1.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width) + 1, 2 * (y + i.offset) + 1),
+                            level1.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width) + 1, 2 * (y + i.offset) + 1),
                                 currentTiles.Tiles[connectionData[offset + 18] + (connectionData[offset + 19] * 256)]);
-                            level2.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width) + 1, 2 * (y + i.offset) + 1),
+                            level2.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width) + 1, 2 * (y + i.offset) + 1),
                                 currentTiles.Tiles[connectionData[offset + 20] + (connectionData[offset + 21] * 256)]);
-                            level3.SetTile(new Vector3Int(2 * x + (2 * mapHelper.mapData.width) + 1, 2 * (y + i.offset) + 1),
+                            level3.SetTile(new Vector3Int(2 * x + (2 * mapHelper.map.width) + 1, 2 * (y + i.offset) + 1),
                                 currentTiles.Tiles[connectionData[offset + 22] + (connectionData[offset + 23] * 256)]);
                         }
                     }
@@ -361,7 +361,7 @@ public static class MapReader
         {
             for (int y = mapHelper.level1.cellBounds.min.y; y < mapHelper.level1.cellBounds.max.y; y++)
             {
-                if (x >= 0 && x < mapHelper.mapData.width * 2 && y >= 0 && y < mapHelper.mapData.height * 2) continue;
+                if (x >= 0 && x < mapHelper.map.width * 2 && y >= 0 && y < mapHelper.map.height * 2) continue;
                 mapHelper.level1.SetTile(new Vector3Int(x, y, 0), null);
                 mapHelper.level2.SetTile(new Vector3Int(x, y, 0), null);
                 mapHelper.level3.SetTile(new Vector3Int(x, y, 0), null);
@@ -376,20 +376,20 @@ public static class MapReader
         Tilemap level3 = mapHelper.level3;
         Tilemap collision = mapHelper.collisionMap;
         Tilemap wildData = mapHelper.wildDataMap;
-        string inString = mapHelper.mapData.MapTiles.Replace("?", "AAAA").Replace("@", "AA");
+        string inString = mapHelper.map.MapTiles.Replace("?", "AAAA").Replace("@", "AA");
         Debug.Log(inString.Length);
         byte[] data = System.Convert.FromBase64String(inString);
-        Tileset currentTiles = mapHelper.mapData.tileset;
+        Tileset currentTiles = mapHelper.map.tileset;
         level1.ClearAllTiles();
         level2.ClearAllTiles();
         level3.ClearAllTiles();
         collision.ClearAllTiles();
         wildData.ClearAllTiles();
-        for (int x = 0; x < mapHelper.mapData.width; x++)
+        for (int x = 0; x < mapHelper.map.width; x++)
         {
-            for (int y = 0; y < mapHelper.mapData.height; y++)
+            for (int y = 0; y < mapHelper.map.height; y++)
             {
-                int offset = (x * mapHelper.mapData.height + y) * 26 + 2;
+                int offset = (x * mapHelper.map.height + y) * 26 + 2;
                 level1.SetTile(new Vector3Int(2 * x, 2 * y),
                     currentTiles.Tiles[data[offset] + (data[offset + 1] * 256)]);
                 level2.SetTile(new Vector3Int(2 * x, 2 * y),
@@ -432,17 +432,17 @@ public static class MapReader
         Tilemap level3 = mapHelper.level3;
         Tilemap collision = mapHelper.collisionMap;
         Tilemap wildData = mapHelper.wildDataMap;
-        Tileset currentTiles = mapHelper.mapData.tileset;
+        Tileset currentTiles = mapHelper.map.tileset;
         level1.ClearAllTiles();
         level2.ClearAllTiles();
         level3.ClearAllTiles();
         collision.ClearAllTiles();
         wildData.ClearAllTiles();
-        for (int x = 0; x < mapHelper.mapData.width; x++)
+        for (int x = 0; x < mapHelper.map.width; x++)
         {
-            for (int y = 0; y < mapHelper.mapData.height; y++)
+            for (int y = 0; y < mapHelper.map.height; y++)
             {
-                int offset = (x * mapHelper.mapData.height + y) * 26 + 2;
+                int offset = (x * mapHelper.map.height + y) * 26 + 2;
                 level1.SetTile(new Vector3Int(2 * x, 2 * y),
                     currentTiles.defaultSW);
                 level1.SetTile(new Vector3Int(2 * x + 1, 2 * y),

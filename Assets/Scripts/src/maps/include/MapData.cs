@@ -14,6 +14,8 @@ public class MapData : ScriptableObject
     public int width;
     public Connection[] connection = new Connection[0];
 
+    public TODShading.ShadingBehaviour shading;
+
     public TileTrigger[] triggers = new TileTrigger[0];
     public TileTrigger[] signposts = new TileTrigger[0];
     public WarpTrigger[] warps = new WarpTrigger[0];

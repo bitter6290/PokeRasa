@@ -11,6 +11,15 @@ public class TODShading : MonoBehaviour
     [SerializeField]
     private bool active = true;
 
+    public enum ShadingBehaviour
+    {
+        NoShading,
+        Normal,
+        AlwaysDark
+    }
+
+    public ShadingBehaviour shadingBehaviour;
+
     private static Color morningColor = new(1, 1, 140F / 255F, 20F / 255F);
     private static Color dayColor = new(1, 1, 1, 0);
     private static Color eveningColor = new(105F / 255F, 75F / 255F, 60F / 255F, 70F / 255F);
@@ -50,13 +59,18 @@ public class TODShading : MonoBehaviour
     {
         if (!active)
         { sprite.color = new(0, 0, 0, 0); return; }
-        sprite.color = TimeUtils.timeOfDay switch
+        sprite.color = shadingBehaviour switch
         {
-            Morning => morningColor,
-            Day => dayColor,
-            Evening => eveningColor,
-            Night => nightColor,
-            _ => dayColor
+            ShadingBehaviour.Normal => TimeUtils.timeOfDay switch
+            {
+                Morning => morningColor,
+                Day => dayColor,
+                Evening => eveningColor,
+                Night => nightColor,
+                _ => dayColor
+            },
+            ShadingBehaviour.AlwaysDark => nightColor,
+            _ => dayColor,
         };
     }
 }

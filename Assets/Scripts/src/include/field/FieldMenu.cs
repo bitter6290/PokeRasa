@@ -28,7 +28,7 @@ public class FieldMenu : MonoBehaviour
         _ => throw new System.Exception("Passed bad argument to FieldMenu.images")
     };
 
-    private bool active;
+    public bool active;
 
     public Player player;
 
@@ -108,6 +108,7 @@ public class FieldMenu : MonoBehaviour
 
     public IEnumerator DoMenu()
     {
+        chosen = false;
         while (!chosen) yield return null;
         player.cachedMenuItem = menu[currentItem].menuItem;
     }

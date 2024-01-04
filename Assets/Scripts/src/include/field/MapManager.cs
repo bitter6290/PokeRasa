@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class MapManager : MonoBehaviour
 {
-    public MapData mapData;
+    public MapData map;
     public Tilemap level1;
     public Tilemap level2;
     public Tilemap level3;

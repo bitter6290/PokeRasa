@@ -310,6 +310,7 @@ public class BattlePokemon
 
     public BattlePokemon(Pokemon pokemonData, int index, bool player, Battle battle, bool exists = true)
     {
+        battle.player.seenFlags[(int)pokemonData.species] = true;
         pokemonData.onField = true;
         PokemonData = pokemonData;
         this.exists = exists;

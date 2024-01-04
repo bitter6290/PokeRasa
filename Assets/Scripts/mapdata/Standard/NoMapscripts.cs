@@ -1,4 +1,4 @@
-﻿namespace Scripts.Standard
+﻿namespace Scripts.General
 {
     public class NoMapscripts : MapScripts
     {

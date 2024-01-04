@@ -33,7 +33,7 @@ public class MapHelper : MapManager
 
     public new void ReadMap()
     {
-        if (mapData == null)
+        if (map == null)
         {
             EditorUtility.DisplayDialog("No map selected",
                 "No map is selected, select one with the drop-down menu before loading.", "OK");
@@ -45,13 +45,13 @@ public class MapHelper : MapManager
                 "Map is not saved. Really discard unsaved work?", "Yes", "Cancel"))
                 return;
         }
-        if (mapData.MapTiles.Length == 0)
+        if (map.MapTiles.Length == 0)
         {
             MapReader.CreateNewMapV1(this);
         }
         else
         {
-            openMap = mapData;
+            openMap = map;
             open = true;
             MapReader.ReadForEditingV1(this);
         }

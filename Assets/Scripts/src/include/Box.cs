@@ -1,7 +1,7 @@
-﻿public class Box
+﻿[System.Serializable]
+public class Box
 {
-    private string boxName;
-    public string BoxName => boxName;
+    public string boxName;
 
     public Pokemon[] pokemon = new Pokemon[30];
 
@@ -16,8 +16,6 @@
             return 255;
         }
     }
-
-    public void Rename(string newName) => boxName = newName;
 
     public static Box newBox(string name) => new() { boxName = name };
 }

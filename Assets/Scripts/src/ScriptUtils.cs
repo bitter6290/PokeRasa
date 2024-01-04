@@ -26,41 +26,6 @@ public static class ScriptUtils
         yield return new WaitForSeconds(duration);
     }
 
-    public static IEnumerator DoNothing()
-    {
-        yield break;
-    }
-
-    public static IEnumerator NoObjectScript(Player p)
-    {
-        yield break;
-    }
-
-    public static IEnumerator NoCharScript(Player p, LoadedChar c)
-    {
-        yield break;
-    }
-
-    public static IEnumerator TrainerSeeSingle(Player p, LoadedChar c, TeamData team, List<string> beforeText)
-    {
-        p.locked = true;
-        if (p.state != PlayerState.Moving) p.state = PlayerState.Locked;
-        c.free = false;
-        switch (c.facing)
-        {
-            case Direction.N: p.StartCoroutine(p.playerGraphics.FaceSouth(p, 0.05F)); break;
-            case Direction.S: p.StartCoroutine(p.playerGraphics.FaceNorth(p, 0.05F)); break;
-            case Direction.W: p.StartCoroutine(p.playerGraphics.FaceEast(p, 0.05F)); break;
-            case Direction.E: p.StartCoroutine(p.playerGraphics.FaceWest(p, 0.05F)); break;
-        }
-        yield return FieldAnim.ExclamBubble(c.charObject);
-        int distance = System.Math.Abs(p.pos.x - c.pos.x + p.pos.y - c.pos.y);
-        for (int i = 1; i < distance; i++) yield return c.WalkInDirection();
-        yield return p.DoAnnouncements(beforeText);
-        p.StartCoroutine(p.StartSingleTrainerBattle(c, team));
-        yield break;
-    }
-
     public static IEnumerator DoAtEnd(this IEnumerator ienum, MovementHandler action)
     {
         yield return ienum;
@@ -80,6 +45,12 @@ public static class ScriptUtils
             yield return ienum;
         }
     }
+
+    public static IEnumerator DoNothing()
+    {
+        yield break;
+    }
+
 
     public static void HealAll(Player p)
     {
@@ -107,4 +78,41 @@ public static class ScriptUtils
             }
         }
     }
+
+    public static IEnumerator NoObjectScript(Player p)
+    {
+        yield break;
+    }
+
+    public static IEnumerator NoCharScript(Player p, LoadedChar c)
+    {
+        yield break;
+    }
+
+    public static IEnumerator TrainerSeeSingle(Player p, LoadedChar c, TeamData team, List<string> beforeText)
+    {
+        p.locked = true;
+        if (p.state != PlayerState.Moving) p.state = PlayerState.Locked;
+        while (c.moving) yield return null;
+        c.FaceAndLock();
+        switch (c.facing)
+        {
+            case Direction.N: p.StartCoroutine(p.playerGraphics.FaceSouth(p, 0.05F)); break;
+            case Direction.S: p.StartCoroutine(p.playerGraphics.FaceNorth(p, 0.05F)); break;
+            case Direction.W: p.StartCoroutine(p.playerGraphics.FaceEast(p, 0.05F)); break;
+            case Direction.E: p.StartCoroutine(p.playerGraphics.FaceWest(p, 0.05F)); break;
+        }
+        yield return FieldAnim.ExclamBubble(c.charObject);
+        int distance = System.Math.Abs(p.pos.x - c.pos.x + p.pos.y - c.pos.y);
+        for (int i = 1; i < distance; i++) yield return c.WalkInDirection();
+        yield return p.DoAnnouncements(beforeText);
+        p.StartCoroutine(p.StartSingleTrainerBattle(c, team));
+        yield break;
+    }
+
+    public static readonly List<(string, int)> BinaryChoice = new()
+        {
+            ("No", 0),
+            ("Yes", 1),
+        };
 }
