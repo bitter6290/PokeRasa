@@ -58,9 +58,7 @@ public static class ScriptUtils
         {
             if (i.exists)
             {
-                i.fainted = false;
-                i.status = Status.None;
-                i.HP = i.hpMax;
+                i.FullHeal();
             }
         }
     }

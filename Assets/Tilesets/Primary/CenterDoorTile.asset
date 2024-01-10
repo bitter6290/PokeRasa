@@ -37,3 +37,4 @@ MonoBehaviour:
   frameTime: 0.1
   animFrames: {fileID: 2800000, guid: 94c444c2bd6774a13954a5f35923deac, type: 3}
   dimensions: {x: 16, y: 32}
+  sound: {fileID: 8300000, guid: e1b818b38bc104ceeb735afea06b69f1, type: 3}

@@ -11,5 +11,8 @@ public class DoorTile : UnityEngine.Tilemaps.Tile, IDoor
 
     public Vector2Int dimensions;
     public Vector2Int Dimensions => dimensions;
+
+    public AudioClip sound;
+    public AudioClip Sound => sound;
 }
 

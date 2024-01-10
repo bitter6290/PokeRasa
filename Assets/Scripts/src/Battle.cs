@@ -1097,8 +1097,8 @@ public partial class Battle : MonoBehaviour
                         }
                         else
                         {
-                            int amountHealed = Min(target.hpMax - target.HP, item.BattleEffectIntensity());
-                            target.HP += amountHealed;
+                            int amountHealed = Min(target.hpMax - target.hp, item.BattleEffectIntensity());
+                            target.hp += amountHealed;
                             yield return Announce(target.MonName + " was healed by " + amountHealed + " points.");
                         }
                         break;
@@ -1301,7 +1301,7 @@ public partial class Battle : MonoBehaviour
                 break;
             case HealthPower:
                 effectivePower = (int)(move.Data().power
-                    * (float)attacker.PokemonData.HP / attacker.PokemonData.hpMax);
+                    * (float)attacker.PokemonData.hp / attacker.PokemonData.hpMax);
                 break;
             case Return:
                 effectivePower = (attacker.PokemonData.friendship / 5) << 1;
@@ -1319,7 +1319,7 @@ public partial class Battle : MonoBehaviour
                 effectiveType = attacker.PokemonData.hiddenPowerType;
                 break;
             case Reversal:
-                effectivePower = ReversalPower(attacker.PokemonData.HP, attacker.PokemonData.hpMax);
+                effectivePower = ReversalPower(attacker.PokemonData.hp, attacker.PokemonData.hpMax);
                 break;
             case TargetHealthPower:
                 effectivePower = 1 + (int)(move.Data().power * defender.HealthProportion);
@@ -1353,7 +1353,7 @@ public partial class Battle : MonoBehaviour
             case WakeUpSlap
                 when defender.PokemonData.status == Status.Sleep && !defender.hasSubstitute:
             case WeatherBall when !(this.weather is Weather.None or Weather.StrongWinds):
-            case Brine when defender.PokemonData.HP << 1 < defender.PokemonData.hpMax:
+            case Brine when defender.PokemonData.hp << 1 < defender.PokemonData.hpMax:
             case Pursuit when pursuitHitsOnSwitch:
             case Venoshock when defender.PokemonData.status is Status.Poison or Status.ToxicPoison:
             case Hex when defender.PokemonData.status is not Status.None:
@@ -1573,19 +1573,19 @@ public partial class Battle : MonoBehaviour
                 => 1.5F,
             Overgrow =>
                     move.Data().type == Type.Grass
-                    && attacker.PokemonData.HP * 3 <= attacker.PokemonData.hpMax
+                    && attacker.PokemonData.hp * 3 <= attacker.PokemonData.hpMax
                     ? 1.5F : 1.0F,
             Blaze =>
                     move.Data().type == Type.Fire
-                    && attacker.PokemonData.HP * 3 <= attacker.PokemonData.hpMax
+                    && attacker.PokemonData.hp * 3 <= attacker.PokemonData.hpMax
                     ? 1.5F : 1.0F,
             Torrent =>
                     move.Data().type == Type.Water
-                    && attacker.PokemonData.HP * 3 <= attacker.PokemonData.hpMax
+                    && attacker.PokemonData.hp * 3 <= attacker.PokemonData.hpMax
                     ? 1.5F : 1.0F,
             Swarm =>
                     move.Data().type == Type.Bug
-                    && attacker.PokemonData.HP * 3 <= attacker.PokemonData.hpMax
+                    && attacker.PokemonData.hp * 3 <= attacker.PokemonData.hpMax
                     ? 1.5F : 1.0F,
             SolarPower when IsWeatherAffected(attacker.index, Weather.Sun) => 1.5F,
             ToxicBoost when move.Data().physical && attacker.PokemonData.status is
@@ -1866,7 +1866,7 @@ public partial class Battle : MonoBehaviour
                 {
                     case DreamEater when target.PokemonData.status != Status.Sleep:
                     case Endeavor when
-                            PokemonOnField[attacker].PokemonData.HP > target.PokemonData.HP:
+                            PokemonOnField[attacker].PokemonData.hp > target.PokemonData.hp:
                     case SuckerPunch when
                             Moves[i].Data().power == 0 || target.done:
                     case Quash when target.quashed:
@@ -2483,7 +2483,7 @@ public partial class Battle : MonoBehaviour
                     case DirectLevel:
                         damage = attackingMon.PokemonData.level; break;
                     case FinalGambit:
-                        damage = attackingMon.PokemonData.HP; break;
+                        damage = attackingMon.PokemonData.hp; break;
                     case Counter:
                         damage = attackingMon.damageTaken << 1; break;
                     case MetalBurst:
@@ -2494,10 +2494,10 @@ public partial class Battle : MonoBehaviour
                             * (50 + (random.Next() % 100)) / 100);
                         break;
                     case SuperFang:
-                        damage = defendingMon.PokemonData.HP >> 1;
+                        damage = defendingMon.PokemonData.hp >> 1;
                         break;
                     case GuardianOfAlola:
-                        damage = defendingMon.PokemonData.HP >> 1;
+                        damage = defendingMon.PokemonData.hp >> 1;
                         damage += damage >> 1;
                         if (defendingMon.protected75) damage >>= 2;
                         break;
@@ -2522,8 +2522,8 @@ public partial class Battle : MonoBehaviour
                             EffectiveItem(attacker).Data().flingPower);
                         break;
                     case Endeavor:
-                        damage = PokemonOnField[i].PokemonData.HP
-                            - PokemonOnField[attacker].PokemonData.HP;
+                        damage = PokemonOnField[i].PokemonData.hp
+                            - PokemonOnField[attacker].PokemonData.hp;
                         break;
                     default:
                         damage = DamageCalc(attackingMon, defendingMon,
@@ -2531,7 +2531,7 @@ public partial class Battle : MonoBehaviour
                             powerOverride); break;
                 }
                 if (parentalBond) damage >>= 1;
-                Debug.Log(defendingMon.PokemonData.HP + " HP, " + damage + " damage");
+                Debug.Log(defendingMon.PokemonData.hp + " HP, " + damage + " damage");
                 if (defendingMon.hasSubstitute && !Moves[attacker].HasFlag(soundMove)
                     && !HasAbility(attacker, Infiltrator))
                 {
@@ -2552,31 +2552,31 @@ public partial class Battle : MonoBehaviour
                     defendingMon.damagedThisTurn = true;
                     defendingMon.focused = false;
                     defendingMon.damagedByMon[attacker] = true;
-                    if (damage >= defendingMon.PokemonData.HP)
+                    if (damage >= defendingMon.PokemonData.hp)
                     {
                         if (move.Data().effect == FalseSwipe)
                         {
-                            attackingMon.moveDamageDone = defendingMon.PokemonData.HP - 1;
+                            attackingMon.moveDamageDone = defendingMon.PokemonData.hp - 1;
                             yield return DoSturdyDamage(i);
                         }
                         else if (HasAbility(i, Sturdy)
                                 && defendingMon.AtFullHealth
                                 && !HasMoldBreaker(attacker))
                         {
-                            attackingMon.moveDamageDone = defendingMon.PokemonData.HP - 1;
+                            attackingMon.moveDamageDone = defendingMon.PokemonData.hp - 1;
                             yield return DoSturdyDamage(i);
                             abilityEffects.Enqueue((i, i, Sturdy));
                         }
                         else if (defendingMon.endure)
                         {
-                            attackingMon.moveDamageDone = defendingMon.PokemonData.HP - 1;
+                            attackingMon.moveDamageDone = defendingMon.PokemonData.hp - 1;
                             yield return DoSturdyDamage(i);
                             defendingMon.enduredHit = true;
                         }
                         //Todo: Add focus sash effect as else if
                         else
                         {
-                            attackingMon.moveDamageDone = defendingMon.PokemonData.HP;
+                            attackingMon.moveDamageDone = defendingMon.PokemonData.hp;
                             yield return DoFatalDamage(i);
                             defendingMon.PokemonData.fainted = true;
                             if (defendingMon.destinyBond)
@@ -2620,7 +2620,7 @@ public partial class Battle : MonoBehaviour
             Debug.Log("Tried to use a non-Pokéball item as a Pokéball");
             return BallThrowOutcome.Shake0;
         }
-        float chance = (float)(3 * mon.PokemonData.hpMax - 2 * mon.PokemonData.HP) / (3 * mon.PokemonData.hpMax);
+        float chance = (float)(3 * mon.PokemonData.hpMax - 2 * mon.PokemonData.hp) / (3 * mon.PokemonData.hpMax);
         chance *= ball switch
         {
             BallCatchType.Normal => 1,
@@ -2841,7 +2841,7 @@ public partial class Battle : MonoBehaviour
                 PokemonOnField[i].infatuated = false;
         }
         if (!PokemonOnField[index].PokemonData.fainted && HasAbility(index, Regenerator))
-            PokemonOnField[index].PokemonData.HP += PokemonOnField[index].PokemonData.hpMax / 3;
+            PokemonOnField[index].PokemonData.hp += PokemonOnField[index].PokemonData.hpMax / 3;
         if (!PokemonOnField[index].PokemonData.fainted && HasAbility(index, NaturalCure))
             PokemonOnField[index].PokemonData.status = Status.None;
         PokemonOnField[index].PokemonData.onField = false;
@@ -3549,9 +3549,9 @@ public partial class Battle : MonoBehaviour
         yield return DefenderAnims(index, MoveID.Pound, 0);
         audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Neutral Hit"));
         audioSource0.panStereo = index < 3 ? 0.5F : -0.5F;
-        if (damage >= PokemonOnField[index].PokemonData.HP)
+        if (damage >= PokemonOnField[index].PokemonData.hp)
         {
-            yield return DoDamage(PokemonOnField[index].PokemonData, PokemonOnField[index].PokemonData.HP);
+            yield return DoDamage(PokemonOnField[index].PokemonData, PokemonOnField[index].PokemonData.hp);
             PokemonOnField[index].PokemonData.fainted = true;
         }
         else
@@ -4286,7 +4286,7 @@ public partial class Battle : MonoBehaviour
                             bool pokemonLeft = false;
                             for (int j = 0; j < 6; j++)
                             {
-                                if (PokemonOnField[j].PokemonData.HP > 0 && PokemonOnField[j].isHit)
+                                if (PokemonOnField[j].PokemonData.hp > 0 && PokemonOnField[j].isHit)
                                 {
                                     pokemonLeft = true;
                                 }
@@ -4440,7 +4440,7 @@ public partial class Battle : MonoBehaviour
                             bool pokemonLeft = false;
                             for (int j = 0; j < 6; j++)
                             {
-                                if (PokemonOnField[j].PokemonData.HP > 0 && PokemonOnField[j].isHit)
+                                if (PokemonOnField[j].PokemonData.hp > 0 && PokemonOnField[j].isHit)
                                 {
                                     pokemonLeft = true;
                                 }
@@ -4842,23 +4842,23 @@ public partial class Battle : MonoBehaviour
 
     public static IEnumerator DoDamage(Pokemon mon, int damage)
     {
-        int initialHP = mon.HP;
+        int initialHP = mon.hp;
         float duration = Mathf.Abs(Mathf.Pow(damage, 0.33F) / 5);
         float baseTime = Time.time;
         while (Time.time < baseTime + duration)
         {
             float progress = (Time.time - baseTime) / duration;
-            mon.HP = initialHP - (int)(damage * progress);
+            mon.hp = initialHP - (int)(damage * progress);
             yield return null;
         }
-        mon.HP = initialHP - damage;
+        mon.hp = initialHP - damage;
     }
 
     private IEnumerator DoFatalDamage(int index) =>
-        DoDamage(PokemonOnField[index].PokemonData, PokemonOnField[index].PokemonData.HP);
+        DoDamage(PokemonOnField[index].PokemonData, PokemonOnField[index].PokemonData.hp);
 
     private IEnumerator DoSturdyDamage(int index) =>
-        DoDamage(PokemonOnField[index].PokemonData, PokemonOnField[index].PokemonData.HP - 1);
+        DoDamage(PokemonOnField[index].PokemonData, PokemonOnField[index].PokemonData.hp - 1);
 
     private IEnumerator DoHitFlash(int index)
     {

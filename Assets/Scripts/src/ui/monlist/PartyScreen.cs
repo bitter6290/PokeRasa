@@ -10,13 +10,14 @@ public class PartyScreen : MonoBehaviour
 {
     [SerializeField] private MonDisplay[] displays = new MonDisplay[6];
     [SerializeField] private RawImage exit;
-    [SerializeField] private GameObject announcerPanel;
-    [SerializeField] private TMPro.TextMeshProUGUI announcer;
+    [SerializeField] private Announcer announcer;
     [SerializeField] private AudioSource audioSource;
 
     public Player p;
 
     private int selectedMon;
+
+    private int movingMon;
 
     private bool itemPrompt;
 
@@ -40,6 +41,7 @@ public class PartyScreen : MonoBehaviour
     {
         Active,
         Busy,
+        Moving,
         Announce
     }
     private State state;
@@ -48,13 +50,15 @@ public class PartyScreen : MonoBehaviour
     private const int GetSummary = 2;
     private const int GiveItem = 4;
     private const int TakeItem = 8;
+    private const int MoveMon = 16;
 
     private static (string, int)[] menuChoices = new (string, int)[]
     {
         ("Close", CloseMenu),
         ("Summary", GetSummary),
         ("Give", GiveItem),
-        ("Take", TakeItem)
+        ("Take", TakeItem),
+        ("Move", MoveMon)
     };
 
 
@@ -74,27 +78,35 @@ public class PartyScreen : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             displays[i].UpdateDisplay();
-            //if (moving & i == movingMon) continue; //Todo: moving mons around the party
+            if (state is State.Moving & i == movingMon) displays[i].GoToMoving();
             if (i == selectedMon) displays[i].Select();
             else displays[i].Deselect();
         }
         exit.color = selectedMon is exitNumber ? exitSelected : exitUnselected;
     }
 
-    private void Select(int i)
+    private void Select(int i, bool playSound = true)
     {
         if (selectedMon is exitNumber)
             exit.color = exitUnselected;
         else
-            displays[selectedMon].Deselect();
+        {
+            if (selectedMon != movingMon || state is not State.Moving)
+                displays[selectedMon].Deselect();
+            else
+                displays[selectedMon].GoToMoving();
+        }
         selectedMon = i;
         displays[selectedMon].Select();
-        audioSource.PlayOneShot(SFX.MoveCursor);
+        if (playSound) audioSource.PlayOneShot(SFX.MoveCursor);
     }
 
     private void GoToExit()
     {
-        displays[selectedMon].Deselect();
+        if (state is not State.Moving || selectedMon != movingMon)
+            displays[selectedMon].Deselect();
+        else
+            displays[selectedMon].GoToMoving();
         selectedMon = exitNumber;
         exit.color = exitSelected;
         audioSource.PlayOneShot(SFX.MoveCursor);
@@ -129,30 +141,6 @@ public class PartyScreen : MonoBehaviour
         while (!done) yield return null;
     }
 
-    private IEnumerator Announce(string announcement)
-    {
-        float targetTime;
-        for (int i = 1; i <= announcement.Length; i++)
-        {
-            announcer.text = announcement[..i];
-            targetTime = Time.time + 0.04F;
-            while (Time.time < targetTime)
-            {
-                if (Input.GetKey(KeyCode.Return))
-                    i = Mathf.Min(i + 1, announcement.Length - 1);
-                yield return null;
-            }
-        }
-        targetTime = Time.time + 3.0F;
-        while (Time.time < targetTime)
-        {
-            if (Input.GetKeyDown(KeyCode.Return))
-                break;
-            yield return null;
-        }
-        announcer.text = "";
-    }
-
     private IEnumerator DoHeal()
     {
         state = State.Busy;
@@ -167,10 +155,8 @@ public class PartyScreen : MonoBehaviour
     {
         State previousState = state;
         state = State.Announce;
-        announcerPanel.SetActive(true);
-        yield return Announce(announcement);
+        yield return announcer.AnnounceAndDisappear(announcement);
         state = previousState;
-        announcerPanel.SetActive(false);
     }
 
     private IEnumerator DoChoiceMenu()
@@ -187,6 +173,7 @@ public class PartyScreen : MonoBehaviour
                 case GetSummary:
                 case GiveItem when currentMon.item is ItemID.None:
                 case TakeItem when currentMon.item is not ItemID.None:
+                case MoveMon when p.monsInParty > 1:
                     possibleChoices.Add(choice);
                     continue;
                 default: continue;
@@ -216,6 +203,10 @@ public class PartyScreen : MonoBehaviour
             case GiveItem:
                 CacheAndReturn(PartyScreenOutcome.GiveItem);
                 break;
+            case MoveMon:
+                state = State.Moving;
+                movingMon = selectedMon;
+                break;
         }
     }
 
@@ -228,7 +219,7 @@ public class PartyScreen : MonoBehaviour
     private void CacheAndReturn(PartyScreenOutcome outcome)
     {
         p.partyScreenOutcome = outcome;
-        p.cachedScreenData = new PartyScreenCachedData() { currentMon = selectedMon };
+        p.cachedScreenData = new PartyBoxCachedData() { currentMon = selectedMon };
         done = true;
     }
 
@@ -236,7 +227,7 @@ public class PartyScreen : MonoBehaviour
     {
         switch (state)
         {
-            case State.Active:
+            case State.Active or State.Moving:
                 if (Input.GetKeyDown(KeyCode.DownArrow) && selectedMon != exitNumber)
                 {
                     if (p.monsInParty > selectedMon + 2)
@@ -272,65 +263,81 @@ public class PartyScreen : MonoBehaviour
                         ReturnWithNothing();
                         p.audioSource.PlayOneShot(SFX.Select);
                     }
-                    else if (itemPrompt)
+                    else if (state is State.Active)
                     {
-                        switch (p.bagOutcome)
+                        if (itemPrompt)
                         {
-                            case BagOutcome.Use:
-                                if (displays[selectedMon].ineligible) return;
-                                switch (p.bagResult.FieldEffect())
-                                {
-                                    case FieldEffect.None:
-                                        break;
-                                    case FieldEffect.Heal:
-                                        StartCoroutine(DoHeal());
-                                        break;
-                                    case FieldEffect.TM:
-                                        break;
-                                    case FieldEffect.Evolution:
-                                        p.audioSource.PlayOneShot(SFX.Select);
-                                        p.partyScreenOutcome = PartyScreenOutcome.Evo;
-                                        p.partyScreenResult = selectedMon;
-                                        done = true;
-                                        break;
-                                    case FieldEffect.HPEVDown10:
-                                        break;
-                                    case FieldEffect.AttackEVDown10:
-                                        break;
-                                    case FieldEffect.DefenseEVDown10:
-                                        break;
-                                    case FieldEffect.SpAtkEVDown10:
-                                        break;
-                                    case FieldEffect.SpDefEVDown10:
-                                        break;
-                                    case FieldEffect.SpeedEVDown10:
-                                        break;
-                                }
-                                break;
-                            case BagOutcome.Give:
-                                if (currentMon.item != ItemID.None)
-                                {
-                                    StartCoroutine(AnnounceAndReturn(
-                                        currentMon.MonName +
-                                        " is already holding an item!"));
-                                    return;
-                                }
-                                else
-                                {
-                                    currentMon.item = p.bagResult;
-                                    if (!p.bagResult.IsZCrystal()) p.UseItem(p.bagResult);
-                                    StartCoroutine(AnnounceAndReturn("The " +
-                                        p.bagResult.Data().itemName +
-                                        " was given to " +
-                                        currentMon.MonName +
-                                        " to hold.").DoAtEnd(ReturnWithNothing));
-                                }
-                                break;
+                            switch (p.bagOutcome)
+                            {
+                                case BagOutcome.Use:
+                                    if (displays[selectedMon].ineligible) return;
+                                    switch (p.bagResult.FieldEffect())
+                                    {
+                                        case FieldEffect.None:
+                                            break;
+                                        case FieldEffect.Heal:
+                                            StartCoroutine(DoHeal());
+                                            break;
+                                        case FieldEffect.TM:
+                                            break;
+                                        case FieldEffect.Evolution:
+                                            p.audioSource.PlayOneShot(SFX.Select);
+                                            p.partyScreenOutcome = PartyScreenOutcome.Evo;
+                                            p.partyScreenResult = selectedMon;
+                                            done = true;
+                                            break;
+                                        case FieldEffect.HPEVDown10:
+                                            break;
+                                        case FieldEffect.AttackEVDown10:
+                                            break;
+                                        case FieldEffect.DefenseEVDown10:
+                                            break;
+                                        case FieldEffect.SpAtkEVDown10:
+                                            break;
+                                        case FieldEffect.SpDefEVDown10:
+                                            break;
+                                        case FieldEffect.SpeedEVDown10:
+                                            break;
+                                    }
+                                    break;
+                                case BagOutcome.Give:
+                                    if (currentMon.item != ItemID.None)
+                                    {
+                                        StartCoroutine(AnnounceAndReturn(
+                                            currentMon.MonName +
+                                            " is already holding an item!"));
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        currentMon.item = p.bagResult;
+                                        if (!p.bagResult.IsZCrystal()) p.UseItem(p.bagResult);
+                                        StartCoroutine(AnnounceAndReturn("The " +
+                                            p.bagResult.Data().itemName +
+                                            " was given to " +
+                                            currentMon.MonName +
+                                            " to hold.").DoAtEnd(ReturnWithNothing));
+                                    }
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            StartCoroutine(DoChoiceMenu());
                         }
                     }
-                    else
+                    else //state is State.Moving
                     {
-                        StartCoroutine(DoChoiceMenu());
+                        state = State.Active;
+                        if (selectedMon != movingMon)
+                        {
+                            (p.Party[selectedMon], p.Party[movingMon]) = (p.Party[movingMon], p.Party[selectedMon]);
+                            Init(p);
+                            UpdateDisplays();
+                        }
+                        audioSource.PlayOneShot(SFX.Select);
+                        Select(selectedMon, false);
+                        break;
                     }
                 }
                 break;

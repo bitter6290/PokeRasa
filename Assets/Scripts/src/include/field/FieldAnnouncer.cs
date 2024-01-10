@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-public class GUIManager : MonoBehaviour
+public class FieldAnnouncer : MonoBehaviour
 {
     public Player player;
     public RectTransform announcementBox;
@@ -9,6 +9,7 @@ public class GUIManager : MonoBehaviour
     public Vector3 announcerUpPosition;
     public Vector3 announcerDownPosition;
     public float boxHeight;
+    public AudioSource audioSource;
 
     public void Awake()
     {
@@ -51,9 +52,10 @@ public class GUIManager : MonoBehaviour
         announcementBox.localPosition = announcerDownPosition;
     }
 
-    public IEnumerator Announce(string announcement, bool intoPrompt = false)
+    public IEnumerator Announce(string announcement, bool doChime = false, bool intoPrompt = false)
     {
         float targetTime;
+        if (doChime) audioSource.PlayOneShot(SFX.Message);
         announcementText.text = string.Empty;
         for (int i = 1; i <= announcement.Length; i++)
         {
@@ -76,4 +78,6 @@ public class GUIManager : MonoBehaviour
         }
         else yield return new WaitForSeconds(0.1f);
     }
+
+    public void Start() => audioSource = gameObject.AddComponent<AudioSource>();
 }

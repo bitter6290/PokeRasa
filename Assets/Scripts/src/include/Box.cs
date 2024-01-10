@@ -3,13 +3,13 @@ public class Box
 {
     public string boxName;
 
-    public Pokemon[] pokemon = new Pokemon[30];
+    public Pokemon[] pokemon = new Pokemon[42];
 
     public int nextSlot
     {
         get
         {
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 42; i++)
             {
                 if (!pokemon[i].exists) return i;
             }
@@ -17,5 +17,5 @@ public class Box
         }
     }
 
-    public static Box newBox(string name) => new() { boxName = name };
+    public Box(string name) { boxName = name; for (int i = 0; i < 42; i++) pokemon[i] = Pokemon.EmptyMon; }
 }

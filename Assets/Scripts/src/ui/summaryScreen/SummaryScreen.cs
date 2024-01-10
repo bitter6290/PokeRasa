@@ -58,6 +58,8 @@ public class SummaryScreen : MonoBehaviour
 
     public int selectedMove;
 
+    private bool allowSwitching;
+
     //Mon screen
 
     public Image monBox;
@@ -100,14 +102,17 @@ public class SummaryScreen : MonoBehaviour
 
 
     public int index;
-    private Pokemon Mon => player.Party[index];
+    private Pokemon PlayerMon => player.Party[index];
     public Battle battle;
+    public BoxScreen boxScreen;
     public Player player;
     public AudioSource audioSource;
 
+    private Pokemon mon;
+
     public AudioClip selectionSound;
 
-    private MoveData CurrentData => Mon.MoveIDs[selectedMove].Data();
+    private MoveData CurrentData => mon.MoveIDs[selectedMove].Data();
 
     private ScreenState state = ScreenState.MoveScreen;
     private bool moving = false;
@@ -116,13 +121,14 @@ public class SummaryScreen : MonoBehaviour
 
     public static IEnumerator CloseScreen(SummaryScreen screen)
     {
-        Battle battle = null;
-        if (screen.battle != null) battle = screen.battle;
+        Battle battle = screen.battle;
+        BoxScreen boxScreen = screen.boxScreen;
         Player player = screen.player;
         yield return player.FadeToBlack(0.3F);
         Destroy(screen.gameObject);
         yield return new WaitForSeconds(0.5F);
         if (battle != null) battle.menuOpen = false;
+        if (boxScreen != null) boxScreen.Activate();
         yield return player.FadeFromBlack(0.3F);
     }
 
@@ -133,8 +139,26 @@ public class SummaryScreen : MonoBehaviour
         SummaryScreen screenScript = screen.GetComponent<SummaryScreen>();
         screenScript.player = player;
         screenScript.battle = battle;
+        screenScript.boxScreen = null;
         screenScript.index = mon;
+        screenScript.allowSwitching = true;
+        screenScript.mon = screenScript.PlayerMon;
         if (battle != null) battle.menuOpen = true;
+        yield return new WaitForSeconds(0.5F);
+        yield return player.FadeFromBlack(0.3F);
+    }
+
+    public static IEnumerator Create(Player player, Pokemon mon, BoxScreen boxScreen)
+    {
+        yield return player.FadeToBlack(0.3F);
+        GameObject screen = Instantiate(Resources.Load<GameObject>("Prefabs/Summary Screen/Move Info Screen"));
+        SummaryScreen screenScript = screen.GetComponent<SummaryScreen>();
+        screenScript.player = player;
+        screenScript.battle = null;
+        screenScript.boxScreen = boxScreen;
+        screenScript.index = 0;
+        screenScript.allowSwitching = false;
+        screenScript.mon = mon;
         yield return new WaitForSeconds(0.5F);
         yield return player.FadeFromBlack(0.3F);
     }
@@ -142,22 +166,22 @@ public class SummaryScreen : MonoBehaviour
     public void RefreshAll()
     {
 
-        monBox.sprite = Mon.SpeciesData.FrontSprite1;
+        monBox.sprite = mon.SpeciesData.FrontSprite1;
 
-        monScreenName.text = Mon.MonName;
-        speciesText.text = Mon.SpeciesData.pokedexData.number.ToString().LeadingZero2() + " / " + Mon.SpeciesData.speciesName;
+        monScreenName.text = mon.MonName;
+        speciesText.text = mon.SpeciesData.pokedexData.number.ToString().LeadingZero2() + " / " + mon.SpeciesData.speciesName;
 
-        type1Box.color = Mon.SpeciesData.type1.Color();
-        type1.text = Mon.SpeciesData.type1.Name();
-        type1.color = Mon.SpeciesData.type1.TextColor();
+        type1Box.color = mon.SpeciesData.type1.Color();
+        type1.text = mon.SpeciesData.type1.Name();
+        type1.color = mon.SpeciesData.type1.TextColor();
 
-        if (Mon.SpeciesData.type1 != Mon.SpeciesData.type2)
+        if (mon.SpeciesData.type1 != mon.SpeciesData.type2)
         {
             type2Box.enabled = true;
             type2.enabled = true;
-            type2Box.color = Mon.SpeciesData.type2.Color();
-            type2.text = Mon.SpeciesData.type2.Name();
-            type2.color = Mon.SpeciesData.type2.TextColor();
+            type2Box.color = mon.SpeciesData.type2.Color();
+            type2.text = mon.SpeciesData.type2.Name();
+            type2.color = mon.SpeciesData.type2.TextColor();
         }
         else
         {
@@ -166,22 +190,22 @@ public class SummaryScreen : MonoBehaviour
         }
 
 
-        levelText.text = "Lv. " + Mon.level;
-        xpSlider.localScale = new(Mon.levelProgress, 1, 1);
-        xpToNext.text = Mon.nextLevelXP - Mon.xp + " to next";
+        levelText.text = "Lv. " + mon.level;
+        xpSlider.localScale = new(mon.LevelProgress, 1, 1);
+        xpToNext.text = mon.NextLevelXP - mon.xp + " to next";
 
-        hpCurrent.text = Mon.HP.ToString();
-        hpMax.text = Mon.hpMax.ToString();
-        hpSlider.transform.localScale = new((float)Mon.HP / Mon.hpMax, 1, 1);
-        hpSlider.color = (((Mon.HP * 4) - 1) / Mon.hpMax) switch
+        hpCurrent.text = mon.hp.ToString();
+        hpMax.text = mon.hpMax.ToString();
+        hpSlider.transform.localScale = new((float)mon.hp / mon.hpMax, 1, 1);
+        hpSlider.color = (((mon.hp * 4) - 1) / mon.hpMax) switch
         {
             0 => HealthBarColors.Red,
             1 => HealthBarColors.Amber,
             _ => HealthBarColors.Green
         };
 
-        monStatus.enabled = Mon.status != Status.None;
-        monStatus.sprite = Mon.status switch
+        monStatus.enabled = mon.status != Status.None;
+        monStatus.sprite = mon.status switch
         {
             Status.Burn => burn,
             Status.Paralysis => paralysis,
@@ -191,14 +215,14 @@ public class SummaryScreen : MonoBehaviour
             _ => burn,
         };
 
-        abilityName.text = Mon.GetAbility.Name();
-        abilityDesc.text = Mon.GetAbility.Description();
+        abilityName.text = mon.GetAbility.Name();
+        abilityDesc.text = mon.GetAbility.Description();
 
-        if (Mon.CurrentItem is not ItemID.None)
+        if (mon.CurrentItem is not ItemID.None)
         {
             itemSprite.enabled = true;
-            itemName.text = Mon.CurrentItem.Data().itemName;
-            itemSprite.sprite = Mon.CurrentItem.Sprite();
+            itemName.text = mon.CurrentItem.Data().itemName;
+            itemSprite.sprite = mon.CurrentItem.Sprite();
         }
         else
         {
@@ -207,76 +231,76 @@ public class SummaryScreen : MonoBehaviour
         }
 
 
-        moveScreenName.text = Mon.MonName;
-        monIcon0 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Mon.SpeciesData.graphicsLocation + "/icon"),
+        moveScreenName.text = mon.MonName;
+        monIcon0 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + mon.SpeciesData.graphicsLocation + "/icon"),
             new(0, 32, 32, 32), new(0.5F, 0.5F));
-        monIcon1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Mon.SpeciesData.graphicsLocation + "/icon"),
+        monIcon1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + mon.SpeciesData.graphicsLocation + "/icon"),
             new(0, 0, 32, 32), new(0.5F, 0.5F));
 
-        move1Box.color = Mon.MoveIDs[0].Data().type.Color();
-        move2Box.color = Mon.MoveIDs[1].Data().type.Color();
-        move3Box.color = Mon.MoveIDs[2].Data().type.Color();
-        move4Box.color = Mon.MoveIDs[3].Data().type.Color();
-        move1Name.text = Mon.MoveIDs[0].Data().name;
-        move2Name.text = Mon.MoveIDs[1].Data().name;
-        move3Name.text = Mon.MoveIDs[2].Data().name;
-        move4Name.text = Mon.MoveIDs[3].Data().name;
-        move1PP.text = LeadingZero(Mon.pp1.ToString()) + " / " + LeadingZero(Mon.maxPp1.ToString());
-        move2PP.text = LeadingZero(Mon.pp2.ToString()) + " / " + LeadingZero(Mon.maxPp2.ToString());
-        move3PP.text = LeadingZero(Mon.pp3.ToString()) + " / " + LeadingZero(Mon.maxPp3.ToString());
-        move4PP.text = LeadingZero(Mon.pp4.ToString()) + " / " + LeadingZero(Mon.maxPp4.ToString());
-        move1Name.color = Mon.MoveIDs[0].Data().type.TextColor();
-        move1PP.color = Mon.MoveIDs[0].Data().type.TextColor();
-        move2Name.color = Mon.MoveIDs[1].Data().type.TextColor();
-        move2PP.color = Mon.MoveIDs[1].Data().type.TextColor();
-        move3Name.color = Mon.MoveIDs[2].Data().type.TextColor();
-        move3PP.color = Mon.MoveIDs[2].Data().type.TextColor();
-        move4Name.color = Mon.MoveIDs[3].Data().type.TextColor();
-        move4PP.color = Mon.MoveIDs[3].Data().type.TextColor();
+        move1Box.color = mon.MoveIDs[0].Data().type.Color();
+        move2Box.color = mon.MoveIDs[1].Data().type.Color();
+        move3Box.color = mon.MoveIDs[2].Data().type.Color();
+        move4Box.color = mon.MoveIDs[3].Data().type.Color();
+        move1Name.text = mon.MoveIDs[0].Data().name;
+        move2Name.text = mon.MoveIDs[1].Data().name;
+        move3Name.text = mon.MoveIDs[2].Data().name;
+        move4Name.text = mon.MoveIDs[3].Data().name;
+        move1PP.text = LeadingZero(mon.pp1.ToString()) + " / " + LeadingZero(mon.maxPp1.ToString());
+        move2PP.text = LeadingZero(mon.pp2.ToString()) + " / " + LeadingZero(mon.maxPp2.ToString());
+        move3PP.text = LeadingZero(mon.pp3.ToString()) + " / " + LeadingZero(mon.maxPp3.ToString());
+        move4PP.text = LeadingZero(mon.pp4.ToString()) + " / " + LeadingZero(mon.maxPp4.ToString());
+        move1Name.color = mon.MoveIDs[0].Data().type.TextColor();
+        move1PP.color = mon.MoveIDs[0].Data().type.TextColor();
+        move2Name.color = mon.MoveIDs[1].Data().type.TextColor();
+        move2PP.color = mon.MoveIDs[1].Data().type.TextColor();
+        move3Name.color = mon.MoveIDs[2].Data().type.TextColor();
+        move3PP.color = mon.MoveIDs[2].Data().type.TextColor();
+        move4Name.color = mon.MoveIDs[3].Data().type.TextColor();
+        move4PP.color = mon.MoveIDs[3].Data().type.TextColor();
 
-        attack.text = Mon.attack.ToString();
-        defense.text = Mon.defense.ToString();
-        spAtk.text = Mon.spAtk.ToString();
-        spDef.text = Mon.spDef.ToString();
-        speed.text = Mon.speed.ToString();
+        attack.text = mon.attack.ToString();
+        defense.text = mon.defense.ToString();
+        spAtk.text = mon.spAtk.ToString();
+        spDef.text = mon.spDef.ToString();
+        speed.text = mon.speed.ToString();
 
 
-        attackLabel.color = NatureUtils.NatureEffect(Mon.Nature, Stat.Attack) switch
+        attackLabel.color = NatureUtils.NatureEffect(mon.Nature, Stat.Attack) switch
         {
             > 1 => goodNature,
             < 1 => badNature,
             _ => Color.black
         };
 
-        defenseLabel.color = NatureUtils.NatureEffect(Mon.Nature, Stat.Defense) switch
+        defenseLabel.color = NatureUtils.NatureEffect(mon.Nature, Stat.Defense) switch
         {
             > 1 => goodNature,
             < 1 => badNature,
             _ => Color.black
         };
 
-        spAtkLabel.color = NatureUtils.NatureEffect(Mon.Nature, Stat.SpAtk) switch
+        spAtkLabel.color = NatureUtils.NatureEffect(mon.Nature, Stat.SpAtk) switch
         {
             > 1 => goodNature,
             < 1 => badNature,
             _ => Color.black
         };
 
-        spDefLabel.color = NatureUtils.NatureEffect(Mon.Nature, Stat.SpDef) switch
+        spDefLabel.color = NatureUtils.NatureEffect(mon.Nature, Stat.SpDef) switch
         {
             > 1 => goodNature,
             < 1 => badNature,
             _ => Color.black
         };
 
-        speedLabel.color = NatureUtils.NatureEffect(Mon.Nature, Stat.Speed) switch
+        speedLabel.color = NatureUtils.NatureEffect(mon.Nature, Stat.Speed) switch
         {
             > 1 => goodNature,
             < 1 => badNature,
             _ => Color.black
         };
 
-        totalMoves = Mon.Moves;
+        totalMoves = mon.Moves;
         move2Box.enabled = totalMoves > 1;
         move2Name.enabled = totalMoves > 1;
         move2PP.enabled = totalMoves > 1;
@@ -380,15 +404,17 @@ public class SummaryScreen : MonoBehaviour
                 break;
             case ScreenState.MonScreen:
                 if (Input.GetKeyDown(KeyCode.RightArrow)) StartCoroutine(MonToMove());
-                else if (Input.GetKeyDown(KeyCode.UpArrow) && index > 0)
+                else if (Input.GetKeyDown(KeyCode.UpArrow) && index > 0 && allowSwitching)
                 {
                     index--;
+                    mon = PlayerMon;
                     audioSource.PlayOneShot(selectionSound);
                     RefreshAll();
                 }
-                else if (Input.GetKeyDown(KeyCode.DownArrow) && index < 5 && player.Party[index + 1].exists)
+                else if (Input.GetKeyDown(KeyCode.DownArrow) && index < 5 && player.Party[index + 1].exists && allowSwitching)
                 {
                     index++;
+                    mon = PlayerMon;
                     audioSource.PlayOneShot(selectionSound);
                     RefreshAll();
                 }

@@ -37,9 +37,9 @@ public class MonDisplay : MonoBehaviour
         monSprite.sprite = mon.SpeciesData.Icon1;
         monName.text = mon.MonName;
         monStatus.sprite = mon.status.ToSprite();
-        healthBar.localScale = new((float)mon.HP / mon.hpMax, 1, 1);
+        healthBar.localScale = new((float)mon.hp / mon.hpMax, 1, 1);
         hpMax.text = mon.hpMax.ToString();
-        hpCurrent.text = mon.HP.ToString();
+        hpCurrent.text = mon.hp.ToString();
     }
 
     public void GoToMoving()
@@ -72,25 +72,25 @@ public class MonDisplay : MonoBehaviour
 
     public IEnumerator Heal(int amount, DataStore<int> store)
     {
-        int realAmount = Mathf.Min(amount, mon.hpMax - mon.HP);
-        int initialAmount = mon.HP;
+        int realAmount = Mathf.Min(amount, mon.hpMax - mon.hp);
+        int initialAmount = mon.hp;
         float targetTime = Mathf.Min(0.3f, Mathf.Sqrt(realAmount) * 0.1f);
         float baseTime = Time.time;
         while (Time.time < baseTime + targetTime)
         {
-            mon.HP = (int)(initialAmount + (realAmount * (Time.time - baseTime) / targetTime));
-            healthBar.localScale = new((float)mon.HP / mon.hpMax, 1, 1);
-            hpCurrent.text = mon.HP.ToString();
+            mon.hp = (int)(initialAmount + (realAmount * (Time.time - baseTime) / targetTime));
+            healthBar.localScale = new((float)mon.hp / mon.hpMax, 1, 1);
+            hpCurrent.text = mon.hp.ToString();
             yield return null;
         }
-        mon.HP = initialAmount + realAmount;
+        mon.hp = initialAmount + realAmount;
         store.Data = realAmount;
     }
 
     public void Update()
     {
-        if (selected)
-            if (Time.time % 0.36 < 0.18) monSprite.sprite = mon.SpeciesData.Icon2;
-            else monSprite.sprite = mon.SpeciesData.Icon1;
+        if (selected | moving)
+            monSprite.sprite = Time.time % 0.36 < 0.18 ?
+                mon.SpeciesData.Icon2 : mon.SpeciesData.Icon1;
     }
 }

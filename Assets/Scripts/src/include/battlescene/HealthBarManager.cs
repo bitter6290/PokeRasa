@@ -25,8 +25,8 @@ public class HealthBarManager : MonoBehaviour
     public void Update()
     {
         wholeBar.SetActive(battle.PokemonOnField[index].exists);
-        healthBar.transform.localScale = new((float)Mon.HP / Mon.hpMax, 1, 1);
-        switch (((Mon.HP * 4) - 1) / Mon.hpMax)
+        healthBar.transform.localScale = new((float)Mon.hp / Mon.hpMax, 1, 1);
+        switch (((Mon.hp * 4) - 1) / Mon.hpMax)
         {
             case 0:
                 healthBar.color = HealthBarColors.Red;

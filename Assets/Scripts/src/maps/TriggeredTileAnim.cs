@@ -34,6 +34,10 @@ public static class TriggeredTileAnim
         SpriteRenderer renderer = doorAnim.AddComponent<SpriteRenderer>();
         renderer.sortingOrder = -2;
         int i = door.AnimFrames.height;
+        if (door.Sound != null)
+        {
+            p.audioSource.PlayOneShot(door.Sound);
+        }
         while (i > 0)
         {
             i -= door.Dimensions.y;
@@ -43,7 +47,7 @@ public static class TriggeredTileAnim
         }
         p.StartCoroutine(WaitAndDestroy(persistenceTime, doorAnim));
     }
-    public static IEnumerator DoBackwardsDoorAnim(Vector2Int pos, IDoor door, float waitTime) //Should go from bottom to top
+    public static IEnumerator DoBackwardsDoorAnim(Player p, Vector2Int pos, IDoor door, float waitTime) //Should go from bottom to top
     {
         GameObject doorAnim = new();
         doorAnim.transform.position = new(pos.x, pos.y);
@@ -53,6 +57,10 @@ public static class TriggeredTileAnim
         renderer.sprite = Sprite.Create(door.AnimFrames,
             new(0, 0, door.Dimensions.x, door.Dimensions.y), Vector2.zero, 16);
         yield return new WaitForSeconds(waitTime);
+        if (door.Sound != null)
+        {
+            p.audioSource.PlayOneShot(door.Sound);
+        }
         while (i < door.AnimFrames.height)
         {
             renderer.sprite = Sprite.Create(door.AnimFrames, new(0, i,

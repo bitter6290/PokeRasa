@@ -9,6 +9,7 @@ public enum SceneID //Make sure this matches the list in Build Settings!
     Evolution,
     Bag,
     Party,
+    Box,
 }
 
 public static class SceneUtils

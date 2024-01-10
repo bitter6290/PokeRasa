@@ -27,7 +27,10 @@ public class ChoiceMenu : MonoBehaviour
     private bool done;
 
     public static IEnumerator DoChoiceMenu(Player p, List<(string name, int result)> choices,
-        int cancelChoice, DataStore<int> dataStore, Transform parent, Vector2 position, Vector2 pivot)
+        int cancelChoice, DataStore<int> dataStore, Transform parent, Vector2 position, Vector2 pivot,
+        GameObject newParent = null) // newParent should be high in the render hierarchy
+                              // (low on the inspector list) so that the menu
+                              // shows up above everything else
     {
         GameObject menu = new("Choice Menu", typeof(RectTransform));
         ChoiceMenu choiceMenu = menu.AddComponent<ChoiceMenu>();
@@ -72,6 +75,7 @@ public class ChoiceMenu : MonoBehaviour
         RawImage selectorImage = choiceMenu.selector.AddComponent<RawImage>();
         selectorImage.texture = MenuGraphics.selectorArrow;
         choiceMenu.UpdateSelection();
+        if (newParent != null) menuTransform.SetParent(newParent.transform, worldPositionStays: true);
         while (!choiceMenu.done) yield return null;
         Destroy(menu);
     }

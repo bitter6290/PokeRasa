@@ -25,6 +25,9 @@ MonoBehaviour:
   - pos: {x: 7, y: 5}
     script: {fileID: 11400000, guid: b7f5a02e0ed6443dfbb0ab76ffffc489, type: 2}
     active: 1
+  - pos: {x: 10, y: 7}
+    script: {fileID: 11400000, guid: 95fc50179ae904321af0cce0e4b813d0, type: 2}
+    active: 1
   warps:
   - pos: {x: 6, y: 0}
     destination: {fileID: 11400000, guid: 0ad9a16a74a2449bbb98e1f8733ce282, type: 2}

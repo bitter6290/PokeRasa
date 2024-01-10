@@ -11,7 +11,7 @@ public class TeamData
         for (int i = 0; i < 6; i++)
         {
             if (i < Party.Length) result[i] = Party[i].ToPokemon;
-            else result[i] = Pokemon.MakeEmptyMon;
+            else result[i] = Pokemon.EmptyMon;
         }
         return result;
     }

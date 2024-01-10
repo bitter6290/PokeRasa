@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
                 if (i == 3)
                 {
                     hpBox.enabled = battle.battleType == BattleType.Single;
-                    hpBox.text = battle.PokemonOnField[3].PokemonData.HP.ToString().LeadingZero2() + " / "
+                    hpBox.text = battle.PokemonOnField[3].PokemonData.hp.ToString().LeadingZero2() + " / "
                         + battle.PokemonOnField[3].PokemonData.hpMax.ToString().LeadingZero2();
                     battle.xpController.spriteRenderer.enabled = true;
                 }

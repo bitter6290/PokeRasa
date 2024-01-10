@@ -8,8 +8,10 @@ using UnityEngine.SceneManagement;
 using Scene = SceneID;
 using BagOutcome = BagController.BagOutcome;
 using PartyScreenOutcome = PartyScreen.PartyScreenOutcome;
+using BoxOutcome = BoxScreen.BoxScreenOutcome;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.XR;
 
 public class Player : LoadedChar
 {
@@ -20,7 +22,7 @@ public class Player : LoadedChar
     public bool[] trainerFlags = new bool[(int)TrainerFlag.Count];
     public bool[] seenFlags = new bool[(int)SpeciesID.Count];
     public bool[] caughtFlags = new bool[(int)SpeciesID.Count];
-    public List<Box> boxes = new() { Box.newBox("Box 1") };
+    public List<Box> boxes;
     public int currentBox = 0;
     public int money = 0;
     public string playerName = "Brendan";
@@ -59,7 +61,7 @@ public class Player : LoadedChar
     //public CollisionID currentHeight;
     public MapManager mapManager;
     public PlayerMovement playerGraphics;
-    public GUIManager announcer;
+    public FieldAnnouncer announcer;
 
     public new GameObject camera;
     private GameObject blackScreen;
@@ -69,6 +71,8 @@ public class Player : LoadedChar
 
     private FieldMenu menu;
     public MenuItem cachedMenuItem;
+    public Vector2 menuOpenPos;
+    public Vector2 menuClosedPos;
 
     private BagController bagController;
     public ItemID bagResult;
@@ -78,9 +82,14 @@ public class Player : LoadedChar
     public int partyScreenResult;
     public PartyScreenOutcome partyScreenOutcome;
 
+    public bool boxGiving;
+    public Pokemon boxGiveTarget;
+
     public CachedScreenData cachedScreenData;
 
     private bool blackScreenOn;
+
+    private bool menuOpen;
 
     public override IEnumerator WalkNorth() { yield return playerGraphics.WalkNorth(this, 0.3F); }
     public override IEnumerator WalkSouth() { yield return playerGraphics.WalkSouth(this, 0.3F); }
@@ -122,14 +131,15 @@ public class Player : LoadedChar
         }
     }
 
-    public class PartyScreenCachedData : CachedScreenData
+    public class PartyBoxCachedData : CachedScreenData
     {
         public int currentMon;
-        public PartyScreenCachedData()
+        public PartyBoxCachedData()
         {
             type = Screen.Pokemon;
         }
     }
+
 
     public static CachedScreenData MapCachedData = new() { type = Screen.Map };
 
@@ -223,11 +233,13 @@ public class Player : LoadedChar
         boxes = file.boxes;
     }
 
+    private string savePath => Application.persistentDataPath + "/" + saveID + ".dat";
+
     public void LoadSave(string saveID)
     {
         this.saveID = saveID;
         BinaryFormatter bf = new();
-        FileStream file = File.OpenRead(Application.persistentDataPath + "/" + saveID + ".dat");
+        FileStream file = File.OpenRead(savePath);
         SaveFile data = (SaveFile)bf.Deserialize(file);
         LoadSave(data);
     }
@@ -235,7 +247,7 @@ public class Player : LoadedChar
     public void SaveGame()
     {
         BinaryFormatter bf = new();
-        FileStream file = File.Create(Application.persistentDataPath + "/" + saveID + ".dat");
+        FileStream file = File.Create(savePath);
         SaveFile data = new()
         {
             TM = TM,
@@ -388,7 +400,7 @@ public class Player : LoadedChar
             }
             if (currentBoxes < maxBoxes)
             {
-                boxes.Add(Box.newBox("Box " + (currentBoxes + 1)));
+                boxes.Add(new("Box " + (currentBoxes + 1)));
                 currentBox = currentBoxes;
                 boxes[currentBoxes].pokemon[0] = mon;
                 return true;
@@ -406,7 +418,7 @@ public class Player : LoadedChar
         }
         for (int i = currentPos; i < 6; i++)
         {
-            Party[i] = Pokemon.MakeEmptyMon;
+            Party[i] = Pokemon.EmptyMon;
         }
     }
 
@@ -414,7 +426,7 @@ public class Player : LoadedChar
     {
         for (int i = 0; i < 6; i++)
         {
-            Party[i] = Pokemon.MakeEmptyMon;
+            Party[i] = Pokemon.EmptyMon;
         }
     }
 
@@ -756,10 +768,15 @@ public class Player : LoadedChar
 
     private void FindGUI()
     {
-        announcer = FindAnyObjectByType<GUIManager>();
+        announcer = FindAnyObjectByType<FieldAnnouncer>();
         announcer.player = this;
         menu = FindAnyObjectByType<FieldMenu>();
         menu.player = this;
+    }
+
+    private void AlignMenu()
+    {
+        if (menuOpen) menu.transform.localPosition = menuOpenPos;
     }
 
     public void CaptureCamera() => camera.transform.parent = playerGraphics.playerObject.transform;
@@ -811,7 +828,7 @@ public class Player : LoadedChar
         battle.OpponentPokemon[0] = wildMon;
         for (int i = 1; i < 6; i++)
         {
-            battle.OpponentPokemon[i] = Pokemon.MakeEmptyMon;
+            battle.OpponentPokemon[i] = Pokemon.EmptyMon;
         }
         battle.battleType = BattleType.Single;
         battle.battleTerrain = currentTerrain;
@@ -883,6 +900,7 @@ public class Player : LoadedChar
 
     private IEnumerator DoWarp(WarpTrigger warp)
     {
+        locked = true;
         state = PlayerState.Locked;
         TileBase targetTile = mapManager.level1.GetTile(new(2 * warp.pos.x, 2 * warp.pos.y));
         if (targetTile is IDoor)
@@ -900,24 +918,26 @@ public class Player : LoadedChar
         if (newTile is IDoor) isDoor = true;
         if (isDoor)
         {
-            StartCoroutine(TriggeredTileAnim.DoBackwardsDoorAnim(pos, (IDoor)newTile, 0.3f));
+            StartCoroutine(TriggeredTileAnim.DoBackwardsDoorAnim(p, pos, (IDoor)newTile, 0.3f));
         }
         yield return FadeFromBlack(0.3f);
         if (isDoor)
         {
             yield return GoSouth();
         }
+        locked = false;
         state = PlayerState.Free;
     }
 
     public IEnumerator DoMenu()
     {
+        menuOpen = true;
         LockAll();
         menu.OpenMenu();
-        audioSource.PlayOneShot(SFX.Select);
+        audioSource.PlayOneShot(SFX.BagOpen);
         state = PlayerState.Locked;
-        yield return AnimUtils.Slide(menu.transform, new Vector2(-2f, 0f), 0.2f);
-        Vector2 menuOpenPosition = menu.transform.position;
+        yield return AnimUtils.Slide(menu.transform, new Vector2(-3f, 0f), 0.2f);
+        menuOpenPos = menu.transform.localPosition;
         bool done = false;
         while (!done)
         {
@@ -941,7 +961,7 @@ public class Player : LoadedChar
                                 yield return FadeToBlack(0.2f);
                                 yield return Scene.Map.Load();
                                 MapReturn();
-                                menu.transform.position = menuOpenPosition;
+                                menu.transform.localPosition = menuOpenPos;
                                 menu.OpenMenu(MenuItem.Bag);
                                 yield return FadeFromBlack(0.2f);
                                 ActivateAll();
@@ -997,7 +1017,7 @@ public class Player : LoadedChar
                     break;
                 case MenuItem.Pokemon:
                     DeactivateAll();
-                    cachedScreenData = new PartyScreenCachedData();
+                    cachedScreenData = new PartyBoxCachedData();
                     yield return FadeToBlack(0.2f);
                     bool donepartyScreen = false;
                     bool skipLoad = false;
@@ -1018,7 +1038,7 @@ public class Player : LoadedChar
                                 yield return FadeToBlack(0.2f);
                                 yield return Scene.Map.Load();
                                 MapReturn();
-                                menu.transform.position = menuOpenPosition;
+                                menu.transform.localPosition = menuOpenPos;
                                 menu.OpenMenu(MenuItem.Pokemon);
                                 yield return FadeFromBlack(0.2f);
                                 ActivateAll();
@@ -1030,7 +1050,7 @@ public class Player : LoadedChar
                                 BagController bagController = FindObjectOfType<BagController>();
                                 StartCoroutine(FadeFromBlack(0.2f));
                                 yield return bagController.DoBag(this, true);
-                                int cachedMon = ((PartyScreenCachedData)cachedScreenData).currentMon;
+                                int cachedMon = ((PartyBoxCachedData)cachedScreenData).currentMon;
                                 Party[cachedMon].item = bagResult;
                                 if (!bagResult.IsZCrystal()) UseItem(bagResult);
                                 yield return FadeToBlack(0.2f);
@@ -1069,7 +1089,8 @@ public class Player : LoadedChar
                     break;
             }
         }
-        yield return AnimUtils.Slide(menu.transform, new Vector2(2f, 0f), 0.2f);
+        yield return AnimUtils.Slide(menu.transform, new Vector2(3f, 0f), 0.2f);
+        menuOpen = false;
         state = PlayerState.Free;
         menu.ClearName();
         UnlockAll();
@@ -1205,34 +1226,42 @@ public class Player : LoadedChar
     }
     public IEnumerator GoSouth()
     {
+        state = PlayerState.Moving;
         yield return playerGraphics.WalkSouth(this, 0.3F);
         UpdateCollision();
         if (!CheckForTriggers())
             CheckGrassEncounter();
+        state = locked ? PlayerState.Locked : PlayerState.Free;
     }
 
     public IEnumerator GoNorth()
     {
+        state = PlayerState.Moving;
         yield return playerGraphics.WalkNorth(this, 0.3F);
         UpdateCollision();
         if (!CheckForTriggers())
             CheckGrassEncounter();
+        state = locked ? PlayerState.Locked : PlayerState.Free;
     }
 
     public IEnumerator GoWest()
     {
+        state = PlayerState.Moving;
         yield return playerGraphics.WalkWest(this, 0.3F);
         UpdateCollision();
         if (!CheckForTriggers())
             CheckGrassEncounter();
+        state = locked ? PlayerState.Locked : PlayerState.Free;
     }
 
     public IEnumerator GoEast()
     {
+        state = PlayerState.Moving;
         yield return playerGraphics.WalkEast(this, 0.3F);
         UpdateCollision();
         if (!CheckForTriggers())
             CheckGrassEncounter();
+        state = locked ? PlayerState.Locked : PlayerState.Free;
     }
 
     public bool CheckForTriggers()
@@ -1269,12 +1298,64 @@ public class Player : LoadedChar
         {
             if (i.pos == facingTile)
             {
+                audioSource.PlayOneShot(SFX.Message);
                 StartCoroutine(i.script.OnTrigger(this));
                 return true;
             }
         }
         return false;
     }
+
+    public IEnumerator DoBox()
+    {
+        if (boxes.Count is 0) boxes = new()
+        {
+            new("Box 1"),
+            new("Box 2"),
+            new("Box 3"),
+            new("Box 4"),
+            new("Box 5"),
+            new("Box 6"),
+            new("Box 7"),
+            new("Box 8")
+        };
+        Lock();
+        DeactivateAll();
+        boxGiving = false;
+        bool done = false;
+        while (!done)
+        {
+            yield return FadeToBlack(0.2F);
+            yield return Scene.Box.Load();
+            BoxScreen boxScreen = FindAnyObjectByType<BoxScreen>();
+            boxScreen.p = this;
+            yield return FadeFromBlack(0.2F);
+            if (boxGiving)
+                yield return boxScreen.GiveAndDoBoxScreen();
+            else
+                yield return boxScreen.DoBoxScreen();
+            yield return FadeToBlack(0.2F);
+            if (!boxGiving)
+            {
+                done = true;
+            }
+            else
+            {
+                yield return Scene.Bag.Load();
+                BagController bagController = FindObjectOfType<BagController>();
+                StartCoroutine(FadeFromBlack(0.2f));
+                yield return bagController.DoBag(this, true);
+                UseItem(bagResult);
+                boxGiveTarget.item = bagResult;
+            }
+        }
+        yield return Scene.Map.Load();
+        MapReturn();
+        yield return FadeFromBlack(0.2F);
+        Unlock();
+    }
+
+    public void StartBox() => StartCoroutine(DoBox());
 
     public void CheckForInteractables()
     {
@@ -1286,9 +1367,11 @@ public class Player : LoadedChar
     {
         state = PlayerState.Announce;
         yield return announcer.AnnouncementUp();
+        bool chime = false;
         foreach (string i in text)
         {
-            yield return announcer.Announce(i);
+            yield return announcer.Announce(i, chime);
+            chime = true;
         }
         yield return announcer.AnnouncementDown();
         state = locked ? PlayerState.Locked : PlayerState.Free;
@@ -1317,6 +1400,7 @@ public class Player : LoadedChar
         if (todShading == null) todShading = TODShading.Initialize(this);
         camera = Instantiate(Resources.Load<GameObject>("Prefabs/Map CameraGUI"));
         FindGUI();
+        AlignMenu();
         mapManager = gameObject.AddComponent<MapManager>();
         RenderMap();
         CreatePlayerGraphics(CharGraphics.brendanWalk);
@@ -1330,6 +1414,17 @@ public class Player : LoadedChar
     {
         yield return Scene.Map.Load();
         MapReturn();
+        boxes = new()
+        {
+            new("Box 1"),
+            new("Box 2"),
+            new("Box 3"),
+            new("Box 4"),
+            new("Box 5"),
+            new("Box 6"),
+            new("Box 7"),
+            new("Box 8")
+        };
         Party[0] = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 15);
         Party[0].move1 = MoveID.Toxic;
         Party[0].pp1 = 30;
@@ -1351,6 +1446,7 @@ public class Player : LoadedChar
     // Start is called before the first frame update
     public void Start()
     {
+        Time.timeScale = 1;
         p = this;
         random = new();
         if (blackScreen == null)

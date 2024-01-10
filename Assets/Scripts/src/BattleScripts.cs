@@ -486,12 +486,12 @@ public partial class Battle
     {
         BattlePokemon target = PokemonOnField[index];
         if (target.healBlocked && !overrideBlock) yield break;
-        if (target.PokemonData.HP < target.PokemonData.hpMax)
+        if (target.PokemonData.hp < target.PokemonData.hpMax)
         {
             yield return Heal(index);
-            if (target.PokemonData.HP + amount > target.PokemonData.hpMax)
+            if (target.PokemonData.hp + amount > target.PokemonData.hpMax)
             {
-                yield return DoDamage(target.PokemonData, target.PokemonData.HP - target.PokemonData.hpMax);
+                yield return DoDamage(target.PokemonData, target.PokemonData.hp - target.PokemonData.hpMax);
             }
             else
             {
@@ -719,7 +719,7 @@ public partial class Battle
     public IEnumerator MakeSubstitute(int index)
     {
         BattlePokemon user = PokemonOnField[index];
-        if (user.PokemonData.HP
+        if (user.PokemonData.hp
             < user.PokemonData.hpMax >> 2)
         {
             yield return Announce(MonNameWithPrefix(index, true)
@@ -731,7 +731,7 @@ public partial class Battle
             user.hasSubstitute = true;
             user.substituteHP
                 = user.PokemonData.hpMax >> 2;
-            user.PokemonData.HP
+            user.PokemonData.hp
                 -= user.substituteHP;
             yield return Announce(MonNameWithPrefix(index, true)
     + " cut its own HP to make a substitute!");
@@ -802,7 +802,7 @@ public partial class Battle
                 yield return Announce("Error 112");
                 break;
         }
-        if (damage > target.PokemonData.HP)
+        if (damage > target.PokemonData.hp)
         {
             yield return DoFatalDamage(index);
             target.PokemonData.fainted = true;
@@ -888,7 +888,7 @@ public partial class Battle
             yield return Announce(MoveFailed);
             yield break;
         }
-        if (user.PokemonData.HP
+        if (user.PokemonData.hp
             < user.PokemonData.hpMax
             && user.PokemonData.status != Status.Sleep)
         {
@@ -990,15 +990,15 @@ public partial class Battle
 
     public IEnumerator PainSplit(int target, int attacker)
     {
-        if (PokemonOnField[attacker].PokemonData.HP
-            > PokemonOnField[target].PokemonData.HP)
+        if (PokemonOnField[attacker].PokemonData.hp
+            > PokemonOnField[target].PokemonData.hp)
         {
             yield return Announce(MoveFailed);
             yield break;
         }
-        int newHP = (PokemonOnField[attacker].PokemonData.HP + PokemonOnField[target].PokemonData.HP) >> 1;
-        yield return DoDamage(PokemonOnField[target].PokemonData, PokemonOnField[target].PokemonData.HP - newHP);
-        yield return DoDamage(PokemonOnField[attacker].PokemonData, PokemonOnField[attacker].PokemonData.HP - newHP);
+        int newHP = (PokemonOnField[attacker].PokemonData.hp + PokemonOnField[target].PokemonData.hp) >> 1;
+        yield return DoDamage(PokemonOnField[target].PokemonData, PokemonOnField[target].PokemonData.hp - newHP);
+        yield return DoDamage(PokemonOnField[attacker].PokemonData, PokemonOnField[attacker].PokemonData.hp - newHP);
         yield return new WaitForSeconds(0.5F);
         yield return Announce("The battlers shared their pain!");
     }
@@ -1436,7 +1436,7 @@ public partial class Battle
 
     public IEnumerator BellyDrum(int index)
     {
-        if (PokemonOnField[index].PokemonData.HP * 2 > PokemonOnField[index].PokemonData.hpMax)
+        if (PokemonOnField[index].PokemonData.hp * 2 > PokemonOnField[index].PokemonData.hpMax)
         {
             if (PokemonOnField[index].attackStage == 6)
             {
@@ -1566,7 +1566,7 @@ public partial class Battle
         if (effectiveness > 0)
         {
             int damage = FutureSightDamageCalc(data);
-            if (damage > targetMon.PokemonData.HP)
+            if (damage > targetMon.PokemonData.hp)
             {
                 if (targetMon.ability == Ability.Sturdy && targetMon.AtFullHealth
                     && !(HasAbility(data.user.lastIndex, Ability.MoldBreaker)

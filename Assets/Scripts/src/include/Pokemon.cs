@@ -14,10 +14,10 @@ public class Pokemon : ICloneable
 
     public int xp;
     public int level;
-    public int currentLevelXP => XP.LevelToXP(level, SpeciesData.xpClass);
-    public int nextLevelXP => XP.LevelToXP(level + 1, SpeciesData.xpClass);
-    public float levelProgress => level >= PokemonConst.maxLevel ? 0 :
-            (float)(xp - currentLevelXP) / (nextLevelXP - currentLevelXP);
+    public int CurrentLevelXP => XP.LevelToXP(level, SpeciesData.xpClass);
+    public int NextLevelXP => XP.LevelToXP(level + 1, SpeciesData.xpClass);
+    public float LevelProgress => level >= PokemonConst.maxLevel ? 0 :
+            (float)(xp - CurrentLevelXP) / (NextLevelXP - CurrentLevelXP);
 
     private int ivHP;
     private int ivAttack;
@@ -58,7 +58,7 @@ public class Pokemon : ICloneable
     public int maxPp4;
     public int pp4;
 
-    public int HP;
+    public int hp;
     public Status status;
     public int sleepTurns;
 
@@ -166,6 +166,27 @@ public class Pokemon : ICloneable
         };
     }
 
+    public void RestoreHP()
+    {
+        fainted = false;
+        hp = hpMax;
+    }
+
+    public void RestorePP(byte slots) //bit 0 for slot 1, bit 1 for slot 2, etc
+    {
+        if ((slots & 1) != 0) pp1 = maxPp1;
+        if ((slots & 2) != 0) pp2 = maxPp2;
+        if ((slots & 4) != 0) pp3 = maxPp3;
+        if ((slots & 8) != 0) pp4 = maxPp4;
+    }
+
+    public void FullHeal()
+    {
+        RestoreHP();
+        RestorePP(15);
+        status = Status.None;
+    }
+
     private int CalculateHPMax()
     {
         return (((2 * SpeciesData.baseHP) + ivHP + (evHP >> 2)) * level / 100 + level + 10);
@@ -192,7 +213,7 @@ public class Pokemon : ICloneable
 
     public bool ShouldLevelUp()
     {
-        return level < PokemonConst.maxLevel && xp > nextLevelXP;
+        return level < PokemonConst.maxLevel && xp > NextLevelXP;
     }
     public void CheckEvolution()
     {
@@ -244,7 +265,7 @@ public class Pokemon : ICloneable
     {
         int maxHpBefore = hpMax;
         level++;
-        HP += hpMax - maxHpBefore;
+        hp += hpMax - maxHpBefore;
         AddFriendship(5, 4, 3);
         CheckEvolution();
     }
@@ -321,7 +342,7 @@ public class Pokemon : ICloneable
         maxPp4 = Move.MoveTable[(int)move4].pp;
         pp4 = maxPp4;
 
-        HP = hpMax;
+        hp = hpMax;
         status = Status.None;
         sleepTurns = 0;
 
@@ -364,7 +385,7 @@ public class Pokemon : ICloneable
             Nature, Moves[0], Moves[1], Moves[2], Moves[3], (int)Floor(random.NextDouble() * 2),
             Species.SpeciesTable[(int)species].baseFriendship, ItemID.None, (Type)(random.Next() % 18));
     }
-    public static Pokemon MakeEmptyMon => new
+    public static Pokemon EmptyMon = new
         (SpeciesID.Missingno, Gender.Genderless, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Nature.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, 0, ItemID.None, Type.Normal, false);
     public object Clone() => MemberwiseClone() as Pokemon;
 }

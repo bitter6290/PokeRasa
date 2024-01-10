@@ -142,7 +142,7 @@ public class EvolutionScene : MonoBehaviour
         yield return new WaitForSeconds(0.5F);
         int hpMaxBefore = mon.hpMax;
         mon.species = destinationSpecies;
-        mon.HP += mon.hpMax - hpMaxBefore;
+        mon.hp += mon.hpMax - hpMaxBefore;
         mon.shouldEvolve = false;
         audioSource.PlayOneShot(destinationSpecies.Data().Cry);
         while (audioSource.isPlaying) yield return null;

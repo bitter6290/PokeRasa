@@ -41,7 +41,7 @@ public class OverallTest : MonoBehaviour
         player.TryAddMon(testPokemon8);
         player.TryAddMon(testPokemon9);
         battle.OpponentPokemon = new Pokemon[] { testPokemon, testPokemon3, testPokemon6,
-        Pokemon.MakeEmptyMon, Pokemon.MakeEmptyMon, Pokemon.MakeEmptyMon };
+        Pokemon.EmptyMon, Pokemon.EmptyMon, Pokemon.EmptyMon };
         battle.PlayerPokemon = player.Party;
         battle.StartCoroutine(battle.StartBattle());
     }
@@ -71,7 +71,7 @@ public class OverallTest : MonoBehaviour
         {
             BattlePokemon dummy = battle.PokemonOnField[0];
             dummy.PokemonData.level = 100;
-            dummy.PokemonData.HP = dummy.PokemonData.hpMax;
+            dummy.PokemonData.hp = dummy.PokemonData.hpMax;
             dummy.PokemonData.move1 = MoveID.Splash;
             dummy.PokemonData.pp1 = 255;
             dummy.PokemonData.item = ItemID.SitrusBerry;

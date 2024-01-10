@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Party.unity
     guid: 689bc36f9a9214d71ab1db176402d92d
+  - enabled: 1
+    path: Assets/Scenes/Box.unity
+    guid: f3aeff52210fb4ea48a5c1fa0837070e
   m_configObjects: {}

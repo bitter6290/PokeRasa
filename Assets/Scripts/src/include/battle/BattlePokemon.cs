@@ -147,7 +147,7 @@ public class BattlePokemon
     public int helpingHand = 0;
 
     public bool isTransformed = false;
-    public Pokemon transformedMon = Pokemon.MakeEmptyMon;
+    public Pokemon transformedMon = Pokemon.EmptyMon;
 
     public Ability ability;
     public int timeWithAbility = 0;
@@ -323,8 +323,8 @@ public class BattlePokemon
 
     public SpeciesID ApparentSpecies => isTransformed ? transformedMon.species : PokemonData.getSpecies;
 
-    public bool AtFullHealth => PokemonData.HP == PokemonData.hpMax;
-    public float HealthProportion => (float)PokemonData.HP / PokemonData.hpMax;
+    public bool AtFullHealth => PokemonData.hp == PokemonData.hpMax;
+    public float HealthProportion => (float)PokemonData.hp / PokemonData.hpMax;
 
     public MoveID GetMove(int index)
     {
@@ -382,10 +382,10 @@ public class BattlePokemon
 
     public IEnumerator DoNonMoveDamage(int damage)
     {
-        if (damage > PokemonData.HP)
+        if (damage > PokemonData.hp)
         {
             PokemonData.fainted = true;
-            yield return Battle.DoDamage(PokemonData, PokemonData.HP);
+            yield return Battle.DoDamage(PokemonData, PokemonData.hp);
         }
         else
         {
@@ -487,7 +487,7 @@ public class BattlePokemon
 
     public static BattlePokemon MakeEmptyBattleMon(int index, Battle battle)
     {
-        Pokemon emptyMon = Pokemon.MakeEmptyMon;
+        Pokemon emptyMon = Pokemon.EmptyMon;
         return new BattlePokemon(emptyMon, index, false, battle, false);
     }
 
