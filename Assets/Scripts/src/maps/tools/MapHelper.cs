@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 
 [ExecuteInEditMode]
 public class MapHelper : MapManager
@@ -11,10 +12,21 @@ public class MapHelper : MapManager
 
     public ProjectData projectData;
 
-    private bool open;
-    public void forceOpen() => open = true;
+    [HideInInspector]
+    public bool open;
+    public void ForceOpen() => open = true;
 
     private MapData openMap;
+
+    [HideInInspector]
+    public List<ObjectDisplay> objectDisplays = new();
+
+    public GameObject objectDisplayParent;
+
+    public bool draggingObject;
+    public ObjectDisplay clickedObjectDisplay;
+
+    public bool objectsEnabled = true;
 
     public void WriteMap()
     {
@@ -54,6 +66,7 @@ public class MapHelper : MapManager
             openMap = map;
             open = true;
             MapReader.ReadForEditingV1(this);
+            ShowObjects();
         }
     }
 
@@ -68,6 +81,7 @@ public class MapHelper : MapManager
         level3.ClearAllTiles();
         collisionMap.ClearAllTiles();
         wildDataMap.ClearAllTiles();
+        FlushObjects();
         openMap = null;
         open = false;
     }
@@ -123,6 +137,32 @@ public class MapHelper : MapManager
         }
         AssetDatabase.SaveAssets();
         Debug.Log("Done");
+    }
+
+    public void FlushObjects()
+    {
+        foreach (ObjectDisplay obj in objectDisplays) DestroyImmediate(obj.gameObject);
+        objectDisplays = new();
+        foreach (ObjectDisplay obj in FindObjectsByType<ObjectDisplay>(FindObjectsSortMode.None)) DestroyImmediate(obj.gameObject);
+    }
+
+    public void ShowObjects()
+    {
+        FlushObjects();
+        for (int i = 0; i < map.triggers.Length; i++)
+            objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Trigger, i));
+        for (int i = 0; i < map.signposts.Length; i++)
+            objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Signpost, i));
+        for (int i = 0; i < map.warps.Length; i++)
+            objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Warp, i));
+        for (int i = 0; i < map.chars.Length; i++)
+            objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Char, i));
+    }
+
+    public void ToggleObjects()
+    {
+        objectsEnabled = !objectsEnabled;
+        foreach (ObjectDisplay obj in objectDisplays) obj.gameObject.SetActive(objectsEnabled);
     }
 
     public void SyncTilesets()

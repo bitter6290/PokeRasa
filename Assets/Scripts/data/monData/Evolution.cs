@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using static EvolutionData;
 using static EvolutionMethod;
 using static ItemID;
@@ -92,7 +89,7 @@ public static class Evolution
     public static EvolutionData[] Lickitung = SingleEvolution(LevelUpWithMove, MoveID.Rollout, SpeciesID.Lickilicky);
     public static EvolutionData[] Koffing = LevelEvolution(35, SpeciesID.Weezing);
     public static EvolutionData[] Rhyhorn = LevelEvolution(42, SpeciesID.Rhydon);
-    public static EvolutionData[] Rhydon = SingleEvolution(TradeItem, ItemID.Protector, SpeciesID.Rhyperior);
+    public static EvolutionData[] Rhydon = SingleEvolution(TradeItem, Protector, SpeciesID.Rhyperior);
     public static EvolutionData[] Chansey = Friendship220Evolution(SpeciesID.Blissey);
     public static EvolutionData[] Tangela = SingleEvolution(LevelUpWithMove, MoveID.AncientPower, SpeciesID.Tangrowth);
     public static EvolutionData[] Horsea = LevelEvolution(32, SpeciesID.Seadra);

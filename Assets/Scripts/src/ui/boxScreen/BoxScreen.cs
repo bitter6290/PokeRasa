@@ -540,7 +540,7 @@ public class BoxScreen : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start()
+    public void Start()
     {
         InitSprites();
         leftArrowPos = leftArrow.position;
@@ -548,7 +548,7 @@ public class BoxScreen : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         float yCoord;
         switch (selection)

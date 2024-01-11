@@ -34,4 +34,6 @@ public class HumanoidCharData : CharData
         p.loadedChars.Add(id, (map, newChar));
         return newChar;
     }
+
+    public override Sprite DefaultSprite => HumanoidFromStandardImage(graphics).stillSouth;
 }

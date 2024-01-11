@@ -85,7 +85,7 @@ public abstract class LoadedChar : MonoBehaviour
 
     public bool CheckForSight(LoadedChar c)
     {
-        if (!(p.state is PlayerState.Free or PlayerState.Moving)) return false;
+        if (p.state is not (PlayerState.Free or PlayerState.Moving)) return false;
         Vector2Int comparisonPos = p.pos - pos;
         switch (facing)
         {
@@ -93,7 +93,7 @@ public abstract class LoadedChar : MonoBehaviour
                 if (comparisonPos.x == 0 && comparisonPos.y > 0 &&
                     comparisonPos.y <= charData.sightRadius)
                 {
-                    p.StartCoroutine(charData.OnSee(p, c));
+                    _ = p.StartCoroutine(charData.OnSee(p, c));
                     return true;
                 }
                 break;
@@ -101,7 +101,7 @@ public abstract class LoadedChar : MonoBehaviour
                 if (comparisonPos.x == 0 && comparisonPos.y < 0 &&
                     comparisonPos.y >= -charData.sightRadius)
                 {
-                    p.StartCoroutine(charData.OnSee(p, c));
+                    _ = p.StartCoroutine(charData.OnSee(p, c));
                     return true;
                 }
                 break;
@@ -109,7 +109,7 @@ public abstract class LoadedChar : MonoBehaviour
                 if (comparisonPos.y == 0 && comparisonPos.x > 0 &&
                     comparisonPos.x <= charData.sightRadius)
                 {
-                    p.StartCoroutine(charData.OnSee(p, c));
+                    _ = p.StartCoroutine(charData.OnSee(p, c));
                     return true;
                 }
                 break;
@@ -117,7 +117,7 @@ public abstract class LoadedChar : MonoBehaviour
                 if (comparisonPos.y == 0 && comparisonPos.x < 0 &&
                     comparisonPos.x >= -charData.sightRadius)
                 {
-                    p.StartCoroutine(charData.OnSee(p, c));
+                    _ = p.StartCoroutine(charData.OnSee(p, c));
                     return true;
                 }
                 break;
@@ -129,7 +129,7 @@ public abstract class LoadedChar : MonoBehaviour
     {
         yield return null;
         Debug.Log("Deleting" + charData.id);
-        p.loadedChars.Remove(charData.id);
+        _ = p.loadedChars.Remove(charData.id);
         Destroy(charObject);
         Destroy(this);
     }
@@ -138,13 +138,13 @@ public abstract class LoadedChar : MonoBehaviour
     {
         Vector2Int comparisonPos = p.pos - pos;
         if (comparisonPos == Vector2Int.up)
-            StartCoroutine(FaceNorth());
+            _ = StartCoroutine(FaceNorth());
         else if (comparisonPos == Vector2Int.down)
-            StartCoroutine(FaceSouth());
+            _ = StartCoroutine(FaceSouth());
         else if (comparisonPos == Vector2Int.left)
-            StartCoroutine(FaceWest());
+            _ = StartCoroutine(FaceWest());
         else if (comparisonPos == Vector2Int.right)
-            StartCoroutine(FaceEast());
+            _ = StartCoroutine(FaceEast());
     }
 
     public void FaceAndLock()
@@ -162,7 +162,7 @@ public abstract class LoadedChar : MonoBehaviour
             switch (((IBehaviourObject)p.mapManager.level1.GetTile(new Vector3Int(2 * pos.x, 2 * pos.y + 1, 0))).Behaviour)
             {
                 case TileBehaviour.StartGrassAnimation:
-                    p.StartCoroutine(TriggeredTileAnim.TallGrassShake(pos, this));
+                    _ = p.StartCoroutine(TriggeredTileAnim.TallGrassShake(pos, this));
                     break;
             }
         }
@@ -184,13 +184,13 @@ public abstract class LoadedChar : MonoBehaviour
         facing = Direction.N;
         if (p.CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
-            Actions.Dequeue();
+            _ = Actions.Dequeue();
             StartCoroutine(WalkNorth());
         }
         else
         {
             if (p.CheckCollisionAllowed(GetFacingTile(), currentHeight, false))
-                Actions.Dequeue();
+                _ = Actions.Dequeue();
             StartCoroutine(BumpNorth());
         }
     }
@@ -200,13 +200,13 @@ public abstract class LoadedChar : MonoBehaviour
         facing = Direction.S;
         if (p.CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
-            Actions.Dequeue();
+            _ = Actions.Dequeue();
             StartCoroutine(WalkSouth());
         }
         else
         {
             if (p.CheckCollisionAllowed(GetFacingTile(), currentHeight, false))
-                Actions.Dequeue();
+                _ = Actions.Dequeue();
             StartCoroutine(BumpSouth());
         }
     }
@@ -216,13 +216,13 @@ public abstract class LoadedChar : MonoBehaviour
         facing = Direction.W;
         if (p.CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
-            Actions.Dequeue();
+            _ = Actions.Dequeue();
             StartCoroutine(WalkWest());
         }
         else
         {
             if (p.CheckCollisionAllowed(GetFacingTile(), currentHeight, false))
-                Actions.Dequeue();
+                _ = Actions.Dequeue();
             StartCoroutine(BumpWest());
         }
     }
@@ -232,13 +232,13 @@ public abstract class LoadedChar : MonoBehaviour
         facing = Direction.E;
         if (p.CheckCollisionAllowed(GetFacingTile(), currentHeight))
         {
-            Actions.Dequeue();
+            _ = Actions.Dequeue();
             StartCoroutine(WalkEast());
         }
         else
         {
             if (p.CheckCollisionAllowed(GetFacingTile(), currentHeight, false))
-                Actions.Dequeue();
+                _ = Actions.Dequeue();
             StartCoroutine(BumpEast());
         }
     }
@@ -255,7 +255,7 @@ public abstract class LoadedChar : MonoBehaviour
         active = true;
     }
 
-    public void Pause(float time) { StartCoroutine(DoPause(time)); Actions.Dequeue(); }
+    public void Pause(float time) { _ = StartCoroutine(DoPause(time)); _ = Actions.Dequeue(); }
 
     public virtual void Update()
     {

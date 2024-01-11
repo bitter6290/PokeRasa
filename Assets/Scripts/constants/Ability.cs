@@ -17,7 +17,7 @@ public enum Ability
     CloudNine,
     CompoundEyes,
     Insomnia,
-    ColorChange, //Not done
+    ColorChange,
     Immunity,
     FlashFire,
     ShieldDust,

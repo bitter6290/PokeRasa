@@ -41,7 +41,7 @@ public class MapCreateWindow : EditorWindow
             AssetDatabase.CreateAsset(data,
                 "Assets/Maps/" + data.name + ".asset");
             helper.map = data;
-            helper.forceOpen();
+            helper.ForceOpen();
             MapReader.CreateNewMapV1(helper);
             helper.WriteMap();
             AssetDatabase.SaveAssets();

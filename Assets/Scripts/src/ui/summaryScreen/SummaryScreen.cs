@@ -205,15 +205,7 @@ public class SummaryScreen : MonoBehaviour
         };
 
         monStatus.enabled = mon.status != Status.None;
-        monStatus.sprite = mon.status switch
-        {
-            Status.Burn => burn,
-            Status.Paralysis => paralysis,
-            Status.Poison => poison,
-            Status.Sleep => sleep,
-            Status.Freeze => freeze,
-            _ => burn,
-        };
+        monStatus.sprite = mon.status.ToSprite();
 
         abilityName.text = mon.GetAbility.Name();
         abilityDesc.text = mon.GetAbility.Description();

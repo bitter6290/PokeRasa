@@ -1,5 +1,4 @@
-﻿using System;
-public class TeamData
+﻿public class TeamData
 {
     public TeamPokemon[] Party;
 

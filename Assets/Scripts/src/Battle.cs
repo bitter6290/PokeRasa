@@ -223,7 +223,7 @@ public partial class Battle : MonoBehaviour
         get
         {
             for (int i = 0; i < 6; i++)
-                if (!OpponentPokemon[i].fainted) return false;
+                if (!OpponentPokemon[i].fainted && OpponentPokemon[i].exists) return false;
             return true;
         }
     }
@@ -286,11 +286,11 @@ public partial class Battle : MonoBehaviour
         if (PokemonOnField[index].PokemonData.status is not Status.None) return false;
         if (Sides[index < 3 ? 0 : 1].safeguard) return false;
         switch (EffectiveAbility(index))
-            {
-                case Comatose or PurifyingSalt: return false;
-                case LeafGuard when IsWeatherAffected(index, Weather.Sun): return false;
-                default: break;
-            }
+        {
+            case Comatose or PurifyingSalt: return false;
+            case LeafGuard when IsWeatherAffected(index, Weather.Sun): return false;
+            default: break;
+        }
         if (IsTerrainAffected(index, Terrain.Misty)) return false;
         if (PokemonOnField[index].hasSubstitute) return false;
         switch (status)
@@ -1093,7 +1093,9 @@ public partial class Battle : MonoBehaviour
                     case BattleEffect.Heal:
                         if (targetBP is not NoMons)
                         {
+                            int startHP = target.hp;
                             yield return Heal(targetBP, item.BattleEffectIntensity());
+                            yield return Announce(target.MonName + " was healed by " + (target.hp - startHP) + " points.");
                         }
                         else
                         {
@@ -1352,7 +1354,7 @@ public partial class Battle : MonoBehaviour
                 when defender.PokemonData.status == Status.Paralysis && !defender.hasSubstitute:
             case WakeUpSlap
                 when defender.PokemonData.status == Status.Sleep && !defender.hasSubstitute:
-            case WeatherBall when !(this.weather is Weather.None or Weather.StrongWinds):
+            case WeatherBall when this.weather is not (Weather.None or Weather.StrongWinds):
             case Brine when defender.PokemonData.hp << 1 < defender.PokemonData.hpMax:
             case Pursuit when pursuitHitsOnSwitch:
             case Venoshock when defender.PokemonData.status is Status.Poison or Status.ToxicPoison:
@@ -1873,8 +1875,7 @@ public partial class Battle : MonoBehaviour
                     case Trap when target.trapped:
                     case FairyLock when fairyLockNext:
                     case Synchronoise when !SharesType(attacker, i):
-                    case VenomDrench when !(target.PokemonData.status is
-                            Status.Poison or Status.ToxicPoison):
+                    case VenomDrench when target.PokemonData.status is not (Status.Poison or Status.ToxicPoison):
                     case BurnUp when !PokemonOnField[attacker].HasType(Type.Fire):
                     case Purify when target.PokemonData.status is Status.None:
                     case Encore when target.encored:
@@ -2255,7 +2256,6 @@ public partial class Battle : MonoBehaviour
 
     private void GetAbilityEffects(int attacker, MoveID move)
     {
-        BattlePokemon attackingMon = PokemonOnField[attacker];
         for (int defender = 0; defender < 6; defender++)
         {
             if (PokemonOnField[defender].isHit)
@@ -2297,6 +2297,7 @@ public partial class Battle : MonoBehaviour
                             Type.Water or Type.Fire:
                     case ToxicDebris when move.Data().physical &&
                             Sides[1 - defender / 3].toxicSpikes < 2:
+                    case ColorChange when move.Data().power > 0 && !PokemonOnField[defender].IsMonotype(move.Data().type):
                     case Stamina:
                         abilityEffects.Enqueue((defender, defender, EffectiveAbility(defender)));
                         break;
@@ -2390,6 +2391,11 @@ public partial class Battle : MonoBehaviour
                     yield return AbilityPopupEnd(target);
                     yield return AbilityPopupEnd(source);
                     break;
+                case ColorChange:
+                    yield return AbilityPopupStart(target);
+                    yield return BecomeType(target, PokemonOnField[target].lastTargetedMove.Data().type);
+                    yield return AbilityPopupEnd(target);
+                    break;
                 case Gooey:
                     yield return AbilityPopupStart(source);
                     doStatAnim = true;
@@ -2403,12 +2409,27 @@ public partial class Battle : MonoBehaviour
                         + MonNameWithPrefix(target, false) + "'s Fire-type moves!");
                     yield return AbilityPopupEnd(source);
                     break;
+                case Synchronize:
+                    yield return AbilityPopupStart(source);
+                    yield return PokemonOnField[source].PokemonData.status switch
+                    {
+                        Status.Burn => GetBurn(target),
+                        Status.Paralysis => GetParalysis(target),
+                        Status.Poison => GetPoison(target),
+                        Status.ToxicPoison => GetBadPoison(target),
+                        _ => null
+                    };
+                    yield return AbilityPopupEnd(source);
+                    break;
                 case WonderGuard:
                 case Soundproof:
                 case Bulletproof:
                 case Overcoat:
                 case Dazzling:
                 case QueenlyMajesty:
+                case Limber:
+                case Insomnia:
+                case Immunity:
                     yield return AbilityPopupStart(source);
                     yield return Announce("It doesn't affect "
                         + MonNameWithPrefix(target, false) + "...");
@@ -3536,11 +3557,6 @@ public partial class Battle : MonoBehaviour
     private IEnumerator NoPP(int index)
     {
         yield return Announce(MonNameWithPrefix(index, true) + BattleText.NoPP);
-    }
-
-    private IEnumerator IsConfused(int index)
-    {
-        yield return Announce(MonNameWithPrefix(index, true) + BattleText.IsConfused);
     }
 
     private IEnumerator HurtByConfusion(int index)
@@ -4843,7 +4859,7 @@ public partial class Battle : MonoBehaviour
     public static IEnumerator DoDamage(Pokemon mon, int damage)
     {
         int initialHP = mon.hp;
-        float duration = Mathf.Abs(Mathf.Pow(damage, 0.33F) / 5);
+        float duration = Mathf.Pow(Mathf.Abs(damage), 0.33F) / 5;
         float baseTime = Time.time;
         while (Time.time < baseTime + duration)
         {
@@ -5017,17 +5033,25 @@ public partial class Battle : MonoBehaviour
             case Burn:
             case FlareBlitz:
                 yield return GetBurn(index);
+                if (HasAbility(index, Synchronize) && CanStatus(attacker, Status.Burn, index, breakSub: true))
+                    abilityEffects.Enqueue((index, attacker, Synchronize));
                 break;
             case VoltTackle:
             case Paralyze:
                 yield return GetParalysis(index);
+                if (HasAbility(index, Synchronize) && CanStatus(attacker, Status.Paralysis, index, breakSub: true))
+                    abilityEffects.Enqueue((index, attacker, Synchronize));
                 break;
             case Poison:
             case Twineedle:
                 yield return GetPoison(index, attacker: attacker);
+                if (HasAbility(index, Synchronize) && CanStatus(attacker, Status.Poison, index, breakSub: true))
+                    abilityEffects.Enqueue((index, attacker, Synchronize));
                 break;
             case Toxic:
                 yield return GetBadPoison(index);
+                if (HasAbility(index, Synchronize) && CanStatus(attacker, Status.ToxicPoison, index, breakSub: true))
+                    abilityEffects.Enqueue((index, attacker, Synchronize));
                 break;
             case Freeze:
             case FreezeDry:

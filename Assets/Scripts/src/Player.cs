@@ -544,7 +544,7 @@ public class Player : LoadedChar
         }
         foreach (MapData i in maps)
         {
-            foreach (mapChar charData in i.chars)
+            foreach (MapChar charData in i.chars)
             {
                 if (!charData.data.IsLoaded(this))
                 {
@@ -1229,9 +1229,9 @@ public class Player : LoadedChar
         state = PlayerState.Moving;
         yield return playerGraphics.WalkSouth(this, 0.3F);
         UpdateCollision();
+        state = locked ? PlayerState.Locked : PlayerState.Free;
         if (!CheckForTriggers())
             CheckGrassEncounter();
-        state = locked ? PlayerState.Locked : PlayerState.Free;
     }
 
     public IEnumerator GoNorth()
@@ -1239,9 +1239,9 @@ public class Player : LoadedChar
         state = PlayerState.Moving;
         yield return playerGraphics.WalkNorth(this, 0.3F);
         UpdateCollision();
+        state = locked ? PlayerState.Locked : PlayerState.Free;
         if (!CheckForTriggers())
             CheckGrassEncounter();
-        state = locked ? PlayerState.Locked : PlayerState.Free;
     }
 
     public IEnumerator GoWest()
@@ -1249,9 +1249,9 @@ public class Player : LoadedChar
         state = PlayerState.Moving;
         yield return playerGraphics.WalkWest(this, 0.3F);
         UpdateCollision();
+        state = locked ? PlayerState.Locked : PlayerState.Free;
         if (!CheckForTriggers())
             CheckGrassEncounter();
-        state = locked ? PlayerState.Locked : PlayerState.Free;
     }
 
     public IEnumerator GoEast()
@@ -1259,9 +1259,9 @@ public class Player : LoadedChar
         state = PlayerState.Moving;
         yield return playerGraphics.WalkEast(this, 0.3F);
         UpdateCollision();
+        state = locked ? PlayerState.Locked : PlayerState.Free;
         if (!CheckForTriggers())
             CheckGrassEncounter();
-        state = locked ? PlayerState.Locked : PlayerState.Free;
     }
 
     public bool CheckForTriggers()
@@ -1320,12 +1320,12 @@ public class Player : LoadedChar
             new("Box 8")
         };
         Lock();
+        yield return FadeToBlack(0.2F);
         DeactivateAll();
         boxGiving = false;
         bool done = false;
         while (!done)
         {
-            yield return FadeToBlack(0.2F);
             yield return Scene.Box.Load();
             BoxScreen boxScreen = FindAnyObjectByType<BoxScreen>();
             boxScreen.p = this;
@@ -1347,10 +1347,12 @@ public class Player : LoadedChar
                 yield return bagController.DoBag(this, true);
                 UseItem(bagResult);
                 boxGiveTarget.item = bagResult;
+                yield return FadeToBlack(0.2F);
             }
         }
         yield return Scene.Map.Load();
         MapReturn();
+        ActivateAll();
         yield return FadeFromBlack(0.2F);
         Unlock();
     }

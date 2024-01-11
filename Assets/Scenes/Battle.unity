@@ -12496,7 +12496,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1457792081, guid: e56fdc91c9ebd46318b0fa8856ec217d, type: 3}
+  m_Sprite: {fileID: 1457792081, guid: df9b1e37be13a4f91acdea7045086414, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -12516,7 +12516,7 @@ Transform:
   m_GameObject: {fileID: 1479699852}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2825, y: -0.7, z: 0}
+  m_LocalPosition: {x: 2.8, y: -0.7, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14625,7 +14625,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -14633,7 +14633,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14642,9 +14641,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   - species: 0
     name: 
     gender: 0
@@ -14670,7 +14667,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -14678,7 +14675,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14687,9 +14683,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   - species: 0
     name: 
     gender: 0
@@ -14715,7 +14709,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -14723,7 +14717,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14732,9 +14725,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   - species: 0
     name: 
     gender: 0
@@ -14760,7 +14751,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -14768,7 +14759,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14777,9 +14767,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   - species: 0
     name: 
     gender: 0
@@ -14805,7 +14793,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -14813,7 +14801,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14822,9 +14809,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   - species: 0
     name: 
     gender: 0
@@ -14850,7 +14835,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -14858,7 +14843,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14867,9 +14851,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   PlayerPokemon:
   - species: 0
     name: 
@@ -14896,7 +14878,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -14904,7 +14886,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14913,9 +14894,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   - species: 0
     name: 
     gender: 0
@@ -14941,7 +14920,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -14949,7 +14928,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -14958,9 +14936,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   - species: 0
     name: 
     gender: 0
@@ -14986,7 +14962,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -14994,7 +14970,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -15003,9 +14978,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   - species: 0
     name: 
     gender: 0
@@ -15031,7 +15004,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -15039,7 +15012,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -15048,9 +15020,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   - species: 0
     name: 
     gender: 0
@@ -15076,7 +15046,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -15084,7 +15054,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -15093,9 +15062,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   - species: 0
     name: 
     gender: 0
@@ -15121,7 +15088,7 @@ MonoBehaviour:
     move4: 0
     maxPp4: 0
     pp4: 0
-    HP: 0
+    hp: 0
     status: 0
     sleepTurns: 0
     fainted: 0
@@ -15129,7 +15096,6 @@ MonoBehaviour:
     item: 0
     itemChanged: 0
     newItem: 0
-    canBelch: 0
     onField: 0
     lastIndex: 0
     transformed: 0
@@ -15138,9 +15104,7 @@ MonoBehaviour:
     hiddenPowerType: 0
     gainedLevel: 0
     id: 0
-    makeShedinja: 0
-    evolveAfterBattle: 0
-    destinationSpecies: 0
+    egg: 0
   state: 0
   currentPlayerMon: 3
   OpponentName: Test Pilot
@@ -15186,11 +15150,7 @@ MonoBehaviour:
   audioSource1: {fileID: 0}
   megaEvolveOnMove: 000000000000
   usingZMove: 000000000000
-  zMovePower: 000000000000000000000000000000000000000000000000
-  hasPlayerUsedZMove: 0
-  hasOpponentUsedZMove: 0
   menuOpen: 0
-  partyBackButtonInactive: 0
   switchingMon: 0
   switchingTarget: 0
   choseSwitchMon: 0
@@ -15221,7 +15181,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -15229,7 +15189,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -15238,9 +15197,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -15361,7 +15318,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -15369,7 +15326,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -15378,9 +15334,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -15492,7 +15446,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -15500,7 +15454,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -15509,9 +15462,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -15632,7 +15583,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -15640,7 +15591,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -15649,9 +15599,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -15763,7 +15711,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -15771,7 +15719,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -15780,9 +15727,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -15903,7 +15848,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -15911,7 +15856,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -15920,9 +15864,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -16034,7 +15976,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -16042,7 +15984,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -16051,9 +15992,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -16174,7 +16113,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -16182,7 +16121,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -16191,9 +16129,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -16305,7 +16241,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -16313,7 +16249,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -16322,9 +16257,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -16445,7 +16378,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -16453,7 +16386,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -16462,9 +16394,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -16576,7 +16506,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -16584,7 +16514,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 1
       lastIndex: 0
       transformed: 0
@@ -16593,9 +16522,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     partyIndex: 0
     attackStage: 0
     defenseStage: 0
@@ -16716,7 +16643,7 @@ MonoBehaviour:
       move4: 0
       maxPp4: 0
       pp4: 0
-      HP: 10
+      hp: 0
       status: 0
       sleepTurns: 0
       fainted: 0
@@ -16724,7 +16651,6 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      canBelch: 0
       onField: 0
       lastIndex: 0
       transformed: 0
@@ -16733,9 +16659,7 @@ MonoBehaviour:
       hiddenPowerType: 0
       gainedLevel: 0
       id: 0
-      makeShedinja: 0
-      evolveAfterBattle: 0
-      destinationSpecies: 0
+      egg: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -16821,51 +16745,15 @@ MonoBehaviour:
     zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
-  turnsElapsed: 0
-  pursuitHitsOnSwitch: 0
-  followMeActive: 0
-  announcementLog: []
-  continueMultiHitMove: 0
-  consumeItems: 1
-  doStatAnim: 1
-  flungItem: 0
-  lastMoveUsed: 0
-  currentMovingMon: 0
-  payDay: 0
-  happyHour: 0
-  weather: 0
-  weatherTimer: 0
-  terrain: 0
-  terrainTimer: 0
   battleTerrain: 0
   gravity: 0
-  gravityTimer: 0
-  wonderRoom: 0
-  wonderRoomTimer: 0
-  magicRoom: 0
-  magicRoomTimer: 0
-  trickRoom: 0
-  trickRoomTimer: 0
-  mudSport: 0
-  mudSportTimer: 0
-  waterSport: 0
-  waterSportTimer: 0
-  snatch: 0
-  snatchingMon: 0
-  echoedVoiceUsed: 0
-  echoedVoiceIntensity: 0
-  ionDeluge: 0
-  fairyLockNext: 0
-  fairyLockNow: 0
-  isFutureSightTargeted: 000000000000
-  doAbilityEffect: 000000000000
-  oneAnnouncementDone: 0
   battleType: 0
   Moves: 000000000000000000000000000000000000000000000000
   SwitchTargets: 00000000
   Targets: 00000000
   MoveNums: 00000000
   itemToUse: 000000000000000000000000000000000000000000000000
+  itemTarget: 000000000000000000000000000000000000000000000000
   playerMonIcons:
   - {fileID: 0}
   - {fileID: 0}
@@ -16938,6 +16826,7 @@ MonoBehaviour:
   battle: {fileID: 1814309873}
   currentMon: 3
   currentMove: 1
+  partyScreenReason: 0
   currentPartyMon: 0
   megaEvolving: 0
   usingZMove: 0

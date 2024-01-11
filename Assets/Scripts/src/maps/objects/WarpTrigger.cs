@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class WarpTrigger
+public class WarpTrigger : IIntPosition
 {
     public enum TriggerType
     {
@@ -16,4 +16,10 @@ public class WarpTrigger
     public Vector2Int destinationPos;
     public bool active;
     public TriggerType triggerType;
+
+    public Vector2Int Pos
+    {
+        get => pos;
+        set => pos = value;
+    }
 }
