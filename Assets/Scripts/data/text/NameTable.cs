@@ -309,6 +309,10 @@
     "Embody Aspect",
     "Toxic Chain",
     "Supersweet Syrup",
+    "Tera Shift",
+    "Tera Shell",
+    "Teraform Zero",
+    "Poison Puppeteer",
     };
 
     public static readonly string[] Stat = new string[9]

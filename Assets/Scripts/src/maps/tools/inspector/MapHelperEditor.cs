@@ -53,41 +53,43 @@ public class MapHelperEditor : Editor
     {
         MapHelper mapHelper = (MapHelper)target;
         Event e = Event.current;
-        if (e.type is EventType.KeyDown && e.modifiers is EventModifiers.None)
+        Camera camera;
+        Vector3Int cellCoords;
+        Vector2Int finalCoords;
+        switch (e.type)
         {
-            switch (e.keyCode)
-            {
-                case KeyCode.C: mapHelper.collisionMap.gameObject.SetActive(!mapHelper.collisionMap.gameObject.activeSelf); e.Use(); break;
-                case KeyCode.W: mapHelper.wildDataMap.gameObject.SetActive(!mapHelper.wildDataMap.gameObject.activeSelf); e.Use(); break;
-                case KeyCode.O: mapHelper.ToggleObjects(); e.Use(); break;
-            }
-        }
-        else if (e.type is EventType.MouseDown && !mapHelper.draggingObject)
-        {
-            Camera camera = SceneView.currentDrawingSceneView.camera;
-            Vector3Int cellCoords = mapHelper.collisionMap.WorldToCell(camera.ScreenToWorldPoint(new(2 * e.mousePosition.x, camera.pixelHeight - 2 * e.mousePosition.y)));
-            Vector2Int finalCoords = new(cellCoords.x, cellCoords.y);
-            foreach (ObjectDisplay display in mapHelper.objectDisplays)
-            {
-                if (display.Pos == finalCoords)
+            case EventType.KeyDown when e.modifiers is EventModifiers.None:
+                switch (e.keyCode)
                 {
-                    mapHelper.draggingObject = true;
-                    mapHelper.clickedObjectDisplay = display;
-                    e.Use();
-                    return;
+                    case KeyCode.C: mapHelper.collisionMap.gameObject.SetActive(!mapHelper.collisionMap.gameObject.activeSelf); e.Use(); break;
+                    case KeyCode.W: mapHelper.wildDataMap.gameObject.SetActive(!mapHelper.wildDataMap.gameObject.activeSelf); e.Use(); break;
+                    case KeyCode.O: mapHelper.ToggleObjects(); e.Use(); break;
                 }
-            }
-        }
-        else if (e.type is EventType.MouseDrag && mapHelper.draggingObject)
-        {
-            Camera camera = SceneView.currentDrawingSceneView.camera;
-            Vector3Int cellCoords = mapHelper.collisionMap.WorldToCell(camera.ScreenToWorldPoint(new(2 * e.mousePosition.x, camera.pixelHeight - 2 * e.mousePosition.y)));
-            Vector2Int finalCoords = new(cellCoords.x, cellCoords.y);
-            mapHelper.clickedObjectDisplay.Reposition(finalCoords);
-        }
-        else if (e.type is EventType.MouseUp && mapHelper.draggingObject)
-        {
-            mapHelper.draggingObject = false;
+                break;
+            case EventType.MouseDown when !mapHelper.draggingObject:
+                camera = SceneView.currentDrawingSceneView.camera;
+                cellCoords = mapHelper.collisionMap.WorldToCell(camera.ScreenToWorldPoint(new(2 * e.mousePosition.x, camera.pixelHeight - 2 * e.mousePosition.y)));
+                finalCoords = new(cellCoords.x, cellCoords.y);
+                foreach (ObjectDisplay display in mapHelper.objectDisplays)
+                {
+                    if (display.Pos == finalCoords)
+                    {
+                        mapHelper.draggingObject = true;
+                        mapHelper.clickedObjectDisplay = display;
+                        e.Use();
+                        return;
+                    }
+                }
+                break;
+            case EventType.MouseDrag when mapHelper.draggingObject:
+                camera = SceneView.currentDrawingSceneView.camera;
+                cellCoords = mapHelper.collisionMap.WorldToCell(camera.ScreenToWorldPoint(new(2 * e.mousePosition.x, camera.pixelHeight - 2 * e.mousePosition.y)));
+                finalCoords = new(cellCoords.x, cellCoords.y);
+                mapHelper.clickedObjectDisplay.Reposition(finalCoords);
+                break;
+            case EventType.MouseUp:
+                mapHelper.draggingObject = false;
+                break;
         }
     }
 }

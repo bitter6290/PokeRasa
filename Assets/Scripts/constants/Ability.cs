@@ -29,7 +29,7 @@ public enum Ability
     WonderGuard,
     Levitate,
     EffectSpore, //Not done
-    Synchronize, //Not done
+    Synchronize,
     ClearBody,
     NaturalCure,
     LightningRod, //Not done
@@ -55,16 +55,16 @@ public enum Ability
     KeenEye,
     HyperCutter,
     Pickup, //Not done
-    Truant, //Not done
+    Truant,
     Hustle,
     CuteCharm, //Not done
-    Plus, //Not done
-    Minus, //Not done
+    Plus,
+    Minus,
     Forecast,
     StickyHold,
     ShedSkin, //Not done
     Guts,
-    MarvelScale, //Not done
+    MarvelScale,
     LiquidOoze,
     Overgrow,
     Blaze,
@@ -80,11 +80,11 @@ public enum Ability
     AirLock,
     TangledFeet, //Not done
     MotorDrive, //Not done
-    Rivalry, //Not done
+    Rivalry,
     Steadfast,
     SnowCloak,
     Gluttony,
-    AngerPoint, //Not done
+    AngerPoint,
     Unburden, //Not done
     Heatproof,
     Simple,
@@ -108,7 +108,7 @@ public enum Ability
     MoldBreaker, //Will always need updating
     SuperLuck,
     Aftermath, //Not done
-    Anticipation, //Not done
+    Anticipation,
     Forewarn, //Not done
     Unaware,
     TintedLens,
@@ -131,9 +131,9 @@ public enum Ability
     Unnerve, //Not done
     Defiant,
     Defeatist,
-    CursedBody, //Not done
+    CursedBody,
     Healer, //Not done
-    FriendGuard, //Not done
+    FriendGuard,
     WeakArmor,
     HeavyMetal,
     LightMetal,
@@ -142,7 +142,7 @@ public enum Ability
     FlareBoost,
     Harvest, //Not done
     Telepathy, //Not done
-    Moody, //Not done
+    Moody,
     Overcoat,
     PoisonTouch, //Not done
     Regenerator,
@@ -176,7 +176,7 @@ public enum Ability
     Competitive,
     StrongJaw,
     Refrigerate,
-    SweetVeil, //Not done
+    SweetVeil,
     StanceChange, //Not done
     GaleWings,
     MegaLauncher,
@@ -201,8 +201,8 @@ public enum Ability
     ShieldsDown, //Not done
     Stakeout, //Not done
     WaterBubble, //Not done
-    Steelworker, //Not done
-    Berserk, //Not done
+    Steelworker,
+    Berserk,
     SlushRush,
     LongReach,
     LiquidVoice,
@@ -227,10 +227,10 @@ public enum Ability
     PowerOfAlchemy, //Not done
     BeastBoost, //Not done
     RKSSystem, //Not done
-    ElectricSurge, //Not done
-    PsychicSurge, //Not done
-    MistySurge, //Not done
-    GrassySurge, //Not done
+    ElectricSurge,
+    PsychicSurge,
+    MistySurge,
+    GrassySurge,
     FullMetalBody, //Not done
     ShadowShield,
     PrismArmor,
@@ -265,32 +265,32 @@ public enum Ability
     CuriousMedicine, //Not done
     Transistor, //Not done
     DragonsMaw, //Not done
-    ChillingNeigh, //Not done
-    GrimNeigh, //Not done
-    AsOneGlastrier, //Not done
-    AsOneSpectrier, //Not done
+    ChillingNeigh,
+    GrimNeigh,
+    AsOneGlastrier,
+    AsOneSpectrier,
     LingeringAroma, //Not done
     SeedSower, //Not done
     ThermalExchange, //Not done
-    AngerShell, //Not done
-    PurifyingSalt, //Not done
+    AngerShell,
+    PurifyingSalt,
     WellBakedBody, //Not done
     WindRider, //Not done
     GuardDog, //Not done
-    RockyPayload, //Not done
+    RockyPayload,
     WindPower, //Not done
-    ZeroToHero, //Not done
-    Commander, //Not done
+    ZeroToHero, //Needs Palafin-Hero
+    Commander, //Needs Dondozo
     Electromorphosis, //Not done
-    Protosynthesis, //Not done
-    QuarkDrive, //Not done
+    Protosynthesis,
+    QuarkDrive,
     GoodAsGold, //Not done
     VesselOfRuin, //Not done
     SwordOfRuin, //Not done
     TabletsOfRuin, //Not done
     BeadsOfRuin, //Not done
-    OrichalcumPulse, //Not done
-    HadronEngine, //Not done
+    OrichalcumPulse,
+    HadronEngine,
     Opportunist, //Not done
     CudChew, //Not done
     Sharpness,
@@ -308,6 +308,11 @@ public enum Ability
     EmbodyRock, //Not done
     ToxicChain, //Not done
     SupersweetSyrup, //Not done
+    TeraShift, //Needs Terapagos
+    TeraShell,
+    TeraformZero, //Not done
+    PoisonPuppeteer,
+
 
 
     Count
@@ -631,6 +636,10 @@ public static class AbilityUtils
         EmbodyRock => "The Pokémon's heart fills with memories, causing the Cornerstone Mask to shine and the Pokémon's Defense stat to be boosted.",
         ToxicChain => "The power of the Pokémon's toxic chain may badly poison any target the Pokémon hits with a move.",
         SupersweetSyrup => "A sickly sweet scent spreads across the field the first time the Pokémon enters a battle, lowering the evasiveness of opposing Pokémon.",
+        TeraShift => "When the Pokémon enters a battle, it absorbs the energy around itself and transforms into its Terastal Form.",
+        TeraShell => "The Pokémon's shell contains the powers of each type. All damage-dealing moves that hit the Pokémon when its HP is full will not be very effective.",
+        TeraformZero => "When Terapagos changes into its Stellar Form, it uses its hidden powers to eliminate all effects of weather and terrain, reducing them to zero.",
+        PoisonPuppeteer => "Pokémon poisoned by Pecharunt's moves will also become confused.",
         _ => "Description not done yet"
     };
 }

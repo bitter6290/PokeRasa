@@ -967,6 +967,13 @@ public static class Item
         graphicsPath = "whipped_dream"
     };
 
+    public static readonly AbstractItem BoosterEnergy = new()
+    {
+        itemName = "Booster Energy",
+        price = 20000,
+        graphicsPath = "booster_energy"
+    };
+
     //Poké balls
 
     public static readonly PokeBall PokeBall = new()
@@ -2073,6 +2080,7 @@ public static class Item
         DouseDrive,
         Satchet,
         WhippedDream,
+        BoosterEnergy,
         //Poké balls
         PokeBall,
         GreatBall,

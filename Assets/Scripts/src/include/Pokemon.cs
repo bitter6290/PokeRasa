@@ -8,7 +8,7 @@ public class Pokemon : ICloneable
 
 
     public string name = string.Empty;
-    public string MonName => name == string.Empty ? SpeciesData.speciesName : name;
+    public string MonName => name == string.Empty ? species.Data().speciesName : name;
 
     public Gender gender;
 
@@ -58,6 +58,10 @@ public class Pokemon : ICloneable
     public int maxPp4;
     public int pp4;
 
+    public bool switchedOut;
+
+    public bool fellBelow50;
+
     public int hp;
     public Status status;
     public int sleepTurns;
@@ -77,6 +81,8 @@ public class Pokemon : ICloneable
 
     public bool onField = false;
     public int lastIndex = 0;
+    [NonSerialized]
+    public BattlePokemon battlePokemon;
 
     public bool transformed;
     public SpeciesID temporarySpecies;

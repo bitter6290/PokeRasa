@@ -50,6 +50,14 @@ public static class BattleText
     public static string SnowContinue = "Snow continues to fall.";
     public static string SnowEnd = "The snow stopped.";
 
+    public static string HeavyRainStart = "A heavy rain began to fall!";
+    public static string HeavyRainEnd = "The heavy rain lifted!";
+    public static string ExtremeSunStart = "The sunlight turned extremely harsh!";
+    public static string ExtremeSunEnd = "The extreme sunlight faded.";
+    public static string StrongWindsStart = "A mysterious air current is protecting Flying-type Pokémon!";
+    public static string StrongWindsContinue = "The strong winds continue to blow.";
+    public static string StrongWindsEnd = "The mysterious strong winds have dissipated!";
+
     public static string StartGrassyTerrain = "Grass grew to cover the battefield!";
     public static string EndGrassyTerrain = "The grass disappeared from the battlefield.";
     public static string StartElectricTerrain = "Electricity covered the battlefield!";

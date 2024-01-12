@@ -125,6 +125,7 @@
     DouseDrive,
     Satchet,
     WhippedDream,
+    BoosterEnergy,
     //Poké balls
     PokeBall,
     GreatBall,

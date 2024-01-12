@@ -12,3 +12,8 @@ public enum Stat
 
     CritRate,
 }
+
+public static class StatUtils
+{
+    public static string Name(this Stat stat) => NameTable.Stat[(int)stat];
+}

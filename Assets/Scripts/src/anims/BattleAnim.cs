@@ -17,13 +17,13 @@ public partial class Battle
     }
 
     //Specific procedures
-    public IEnumerator StatUp(int index)
+    public IEnumerator StatUpAnim(int index)
     {
         audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/StatUp"));
         yield return maskManager[index].MaskAnimation(0.3F, 0.6F, 160.0F / 255.0F, "BattleMasks/Animations/StatUp_0");
     }
 
-    public IEnumerator StatDown(int index)
+    public IEnumerator StatDownAnim(int index)
     {
         audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/StatDown"));
         yield return maskManager[index].MaskAnimation(0.3F, 0.6F, 160.0F / 255.0F, "BattleMasks/Animations/StatDown_0");

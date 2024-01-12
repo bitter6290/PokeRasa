@@ -5,7 +5,9 @@ using UnityEngine;
 using static System.Convert;
 using static System.Math;
 
+#if UNITY_EDITOR
 [Serializable]
+#endif
 public class BattlePokemon
 {
     public Pokemon PokemonData;
@@ -30,6 +32,7 @@ public class BattlePokemon
     public int attackOverride;
     public int spAtkOverride;
 
+
     public bool overrideDefenses;
     public int defenseOverride;
     public int spDefOverride;
@@ -43,8 +46,14 @@ public class BattlePokemon
 
     public int turnOnField;
 
+    public bool truantThisTurn;
+    public bool truantNextTurn;
+
     public bool exists;
     public bool player;
+
+    public Stat protoQuarkStat;
+    public bool boosterEnergy;
 
     public bool done = true;
 
@@ -127,6 +136,7 @@ public class BattlePokemon
     public int rolloutIntensity = 0;
 
     public bool flashFire = false;
+    public bool unburdened = false;
 
     public bool usedMindReader = false;
     public bool hasMindReader = false;
@@ -312,6 +322,7 @@ public class BattlePokemon
     {
         battle.player.seenFlags[(int)pokemonData.species] = true;
         pokemonData.onField = true;
+        pokemonData.battlePokemon = this;
         PokemonData = pokemonData;
         this.exists = exists;
         this.index = index;

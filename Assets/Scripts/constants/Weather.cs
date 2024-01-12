@@ -5,5 +5,7 @@
     Rain,
     Sand,
     Snow,
+    HeavyRain,
+    ExtremeSun,
     StrongWinds,
 }
