@@ -696,6 +696,30 @@ public static class Item
         graphicsPath = "utility_umbrella"
     };
 
+    public static readonly HeldItem ChoiceBand = new()
+    {
+        itemName = "Choice Band",
+        price = 250000,
+        heldEffect = ChoiceItem,
+        graphicsPath = "choice_band"
+    };
+
+    public static readonly HeldItem ChoiceSpecs = new()
+    {
+        itemName = "Choice Specs",
+        price = 250000,
+        heldEffect = ChoiceItem,
+        graphicsPath = "choice_specs"
+    };
+
+    public static readonly HeldItem ChoiceScarf = new()
+    {
+        itemName = "Choice Scarf",
+        price = 250000,
+        heldEffect = ChoiceItem,
+        graphicsPath = "choice_scarf"
+    };
+
     //Plates
 
     public static readonly PlateItem BlankPlate = new()
@@ -2045,6 +2069,10 @@ public static class Item
         DeepSeaScale,
         RazorClaw,
         RazorFang,
+        UtilityUmbrella,
+        ChoiceBand,
+        ChoiceSpecs,
+        ChoiceScarf,
         //Plates
         BlankPlate,
         FlamePlate,

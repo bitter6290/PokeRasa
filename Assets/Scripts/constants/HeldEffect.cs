@@ -1,6 +1,7 @@
 ﻿public enum HeldEffect : ushort
 {
     None,
+    ChoiceItem,
     Flinch10,
     DeepSeaTooth,
     DeepSeaScale,

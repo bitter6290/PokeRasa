@@ -10,4 +10,5 @@
     Gravity,
     NoMove,
     HealBlock,
+    Choiced,
 }

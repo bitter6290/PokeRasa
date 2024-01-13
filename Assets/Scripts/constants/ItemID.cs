@@ -90,6 +90,10 @@
     DeepSeaScale,
     RazorClaw,
     RazorFang,
+    UtilityUmbrella,
+    ChoiceBand,
+    ChoiceSpecs,
+    ChoiceScarf,
     //Plates
     BlankPlate,
     FlamePlate,

@@ -270,6 +270,11 @@ public class MenuManager : MonoBehaviour
                     + battle.PokemonOnField[currentMon].GetMove(selectedMove - 1).Data().name
                     + " during the heal block!"));
                 break;
+            case MoveSelectOutcome.Choiced:
+                StartCoroutine(AnnounceAndReturn(
+                    battle.MonNameWithPrefix(currentMon, true) + " can only use " +
+                    battle.PokemonOnField[currentMon].lastMoveUsed.Data().name + "!"));
+                break;
             case MoveSelectOutcome.Success:
                 if (battle.TryAddMove(currentMon, selectedMove))
                 {

@@ -64,7 +64,6 @@ public class BattlePokemon
     public bool isUnaffected = false;
     public bool isCrit = false;
     public bool gotMoveEffect = false;
-    public bool abilityHealed25 = false;
     public bool abilityActivated = false;
     public bool wasProtected = false;
     public bool protected75 = false;
@@ -383,6 +382,9 @@ public class BattlePokemon
         if (healBlocked &&
             (GetMove(move).Data().moveFlags & MoveFlags.healBlockAffected) != 0)
             return MoveSelectOutcome.HealBlock;
+        if (battle.IsChoiced(index) &&
+            lastMoveUsed != MoveID.None && lastMoveUsed != GetMove(move) && PokemonData.HasMove(lastMoveUsed))
+            return MoveSelectOutcome.Choiced;
         return MoveSelectOutcome.Success;
     }
 

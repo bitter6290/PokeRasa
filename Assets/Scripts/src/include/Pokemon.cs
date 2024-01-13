@@ -1,5 +1,6 @@
 using static System.Math;
 using System;
+using System.Collections.Generic;
 
 [Serializable]
 public class Pokemon : ICloneable
@@ -73,6 +74,9 @@ public class Pokemon : ICloneable
     public ItemID item;
     public bool itemChanged;
     public ItemID newItem;
+
+    [NonSerialized]
+    public List<Ability> activatedAbilities = new();
 
     [NonSerialized]
     public bool canBelch;

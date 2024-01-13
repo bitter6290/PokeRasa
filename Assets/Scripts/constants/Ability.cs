@@ -123,7 +123,7 @@ public enum Ability
     Frisk,
     Reckless,
     Multitype, //Not done
-    FlowerGift, //Not done
+    FlowerGift,
     BadDreams, //Not done
     Pickpocket, //Not done
     SheerForce, //Not done
@@ -167,7 +167,7 @@ public enum Ability
     Turboblaze, //Tied to Mold Breaker
     Teravolt, //Tied to Mold Breaker
     AromaVeil, //Not done
-    FlowerVeil, //Not done
+    FlowerVeil,
     CheekPouch, //Not done
     Protean,
     FurCoat,
@@ -177,7 +177,7 @@ public enum Ability
     StrongJaw,
     Refrigerate,
     SweetVeil,
-    StanceChange, //Not done
+    StanceChange,
     GaleWings,
     MegaLauncher,
     GrassPelt, //Shouldn't be checked when dealing confusion damage (??)
@@ -190,9 +190,9 @@ public enum Ability
     DarkAura,
     FairyAura,
     AuraBreak,
-    PrimoridialSea, //Not done
-    DesolateLand, //Not done
-    DeltaStream, //Not done
+    PrimoridialSea,
+    DesolateLand,
+    DeltaStream,
     Stamina,
     WimpOut, //Not done
     EmergencyExit, //Not done
@@ -200,7 +200,7 @@ public enum Ability
     Merciless,
     ShieldsDown, //Not done
     Stakeout, //Not done
-    WaterBubble, //Not done
+    WaterBubble,
     Steelworker,
     Berserk,
     SlushRush,
@@ -235,36 +235,36 @@ public enum Ability
     ShadowShield,
     PrismArmor,
     Neuroforce, //Not done
-    IntrepidSword, //Not done
-    DauntlessShield, //Not done
+    IntrepidSword,
+    DauntlessShield,
     Libero,
     BallFetch, //Not done
     CottonDown, //Not done
-    PropellorTail, //Not done
+    PropellorTail,
     MirrorArmor, //Not done
     GulpMissile, //Not done
-    Stalwart, //Not done
+    Stalwart,
     SteamEngine,
     PunkRock,
-    SandSpit, //Not done
+    SandSpit,
     IceScales,
     Ripen, //Not done
-    IceFace, //Not done
+    IceFace, //Needs Eiscue
     PowerSpot, //Not done
-    Mimicry, //Not done
+    Mimicry,
     ScreenCleaner, //Not done
-    SteelySpirit, //Not done
+    SteelySpirit,
     PerishBody, //Not done
     WanderingSpirit, //Not done
-    GorillaTactics, //Not done
-    NeutralizingGas, //Not done
-    PastelVeil, //Not done
-    HungerSwitch, //Not done
+    GorillaTactics,
+    NeutralizingGas,
+    PastelVeil,
+    HungerSwitch, //Needs Morpeko
     QuickDraw, //Not done
-    UnseenFist, //Not done
+    UnseenFist,
     CuriousMedicine, //Not done
-    Transistor, //Not done
-    DragonsMaw, //Not done
+    Transistor,
+    DragonsMaw,
     ChillingNeigh,
     GrimNeigh,
     AsOneGlastrier,
@@ -275,7 +275,7 @@ public enum Ability
     AngerShell,
     PurifyingSalt,
     WellBakedBody, //Not done
-    WindRider, //Not done
+    WindRider,
     GuardDog, //Not done
     RockyPayload,
     WindPower, //Not done
@@ -328,7 +328,7 @@ public static class AbilityUtils
         or Comatose or Commander or Disguise or GulpMissile or IceFace
         or Multitype or Protosynthesis or QuarkDrive or RKSSystem
         or Schooling or ShieldsDown or StanceChange or WonderGuard
-        or ZenMode or ZeroToHero;
+        or ZenMode or ZeroToHero or Protosynthesis or OrichalcumPulse;
     public static string Description(this Ability ability) => ability switch
     {
         Stench => "By releasing a stench when attacking, the Pokémon may cause the target to flinch.",
