@@ -4,11 +4,13 @@ using UnityEngine;
 using static System.Math;
 using static BattleText;
 using static Ability;
+using System;
 
 public partial class Battle
 {
-    public IEnumerator StatUp(int index, Stat statID,
-        int amount, int attacker, bool checkContrary = true, bool checkSimple = true)
+    private IEnumerator StatUp(int index, Stat statID,
+        int amount, int attacker, bool checkContrary = true, bool checkSimple = true,
+        bool checkOpportunist = true)
     {
         if (HasAbility(index, Contrary) && checkContrary
             && !HasMoldBreaker(index))
@@ -16,6 +18,13 @@ public partial class Battle
             yield return StatDown(index, statID, amount, attacker, false);
             yield break;
         }
+        if (checkOpportunist)
+            foreach (int i in GetAdjacentOpponents(index)) //Judgment call,
+                                                           //but distant opponents usually don't interact
+            {
+                if (HasAbility(i, Opportunist))
+                    yield return StatUp(i, statID, amount, i, checkOpportunist: false);
+            }
         if (HasAbility(index, Simple) && checkSimple)
         {
             amount <<= 1;
@@ -46,21 +55,24 @@ public partial class Battle
         if (stagesRaised > 0) doStatAnim = false;
     }
 
-    public IEnumerator StatDown(int index, Stat statID,
-        int amount, int attacker, bool checkContrary = true, bool checkSide = true)
+    private IEnumerator StatDown(int index, Stat statID,
+        int amount, int attacker, bool checkContrary = true, bool checkSide = true, bool checkMirrorArmor = true)
     {
         switch (EffectiveAbility(index))
         {
             case Contrary when checkContrary:
                 yield return StatUp(index, statID, amount, attacker, false);
                 yield break;
+            case MirrorArmor when checkMirrorArmor && attacker != index:
+                yield return PopupDo(index, StatDown(attacker, statID, amount, index, checkMirrorArmor: false));
+                yield break;
             case Simple: amount <<= 1; break;
-            case WhiteSmoke or ClearBody:
-            case KeenEye or Illuminate when statID == Stat.Accuracy:
+            case WhiteSmoke or ClearBody or FullMetalBody:
+            case KeenEye or Illuminate or MindsEye when statID == Stat.Accuracy:
             case HyperCutter when statID == Stat.Attack:
             case BigPecks when statID == Stat.Defense:
                 if ((!checkSide || GetSide(attacker) != GetSide(index)) &&
-                        !HasMoldBreaker(attacker))
+                        (!HasMoldBreaker(attacker) || HasAbility(index, FullMetalBody)))
                 {
                     yield return AbilityPopupStart(index);
                     yield return Announce(MonNameWithPrefix(index, true) +
@@ -149,7 +161,7 @@ public partial class Battle
 
     }
 
-    public IEnumerator GetBurn(int index)
+    private IEnumerator GetBurn(int index)
     {
         if (Sides[index < 3 ? 0 : 1].safeguard)
         {
@@ -176,7 +188,7 @@ public partial class Battle
             yield return Announce(MonNameWithPrefix(index, true) + " was burned!");
         }
     }
-    public IEnumerator GetParalysis(int index)
+    private IEnumerator GetParalysis(int index)
     {
         if (Sides[index < 3 ? 0 : 1].safeguard)
         {
@@ -209,7 +221,7 @@ public partial class Battle
             yield return Announce(MonNameWithPrefix(index, true) + " was paralyzed!");
         }
     }
-    public IEnumerator HealParalysis(int index)
+    private IEnumerator HealParalysis(int index)
     {
         if (PokemonOnField[index].PokemonData.status == Status.Paralysis)
         {
@@ -218,7 +230,7 @@ public partial class Battle
                 + " was cured of its paralysis!");
         }
     }
-    public IEnumerator HealBurn(int index)
+    private IEnumerator HealBurn(int index)
     {
         if (PokemonOnField[index].PokemonData.status == Status.Burn)
         {
@@ -227,7 +239,7 @@ public partial class Battle
                 + " was cured of its burn!");
         }
     }
-    public IEnumerator HealPoison(int index)
+    private IEnumerator HealPoison(int index)
     {
         if (PokemonOnField[index].PokemonData.status is Status.Poison or Status.ToxicPoison)
         {
@@ -236,7 +248,7 @@ public partial class Battle
                 + " is no longer poisoned!");
         }
     }
-    public IEnumerator TriAttack(int index)
+    private IEnumerator TriAttack(int index)
     {
         var random = new System.Random();
         switch (random.Next() % 3)
@@ -254,7 +266,7 @@ public partial class Battle
                 break;
         }
     }
-    public IEnumerator GetPoison(int index, bool announceFailure = true, int attacker = ReturnFalse)
+    private IEnumerator GetPoison(int index, bool announceFailure = true, int attacker = ReturnFalse)
     {
         BattlePokemon target = PokemonOnField[index];
         if (Sides[index < 3 ? 0 : 1].safeguard)
@@ -298,7 +310,7 @@ public partial class Battle
             yield return Announce(MonNameWithPrefix(index, true) + " was poisoned!");
         }
     }
-    public IEnumerator GetBadPoison(int index)
+    private IEnumerator GetBadPoison(int index)
     {
         BattlePokemon target = PokemonOnField[index];
         if (Sides[index < 3 ? 0 : 1].safeguard)
@@ -337,7 +349,7 @@ public partial class Battle
             yield return Announce(MonNameWithPrefix(index, true) + " was badly poisoned!");
         }
     }
-    public IEnumerator GetFreeze(int index)
+    private IEnumerator GetFreeze(int index)
     {
         if (Sides[index < 3 ? 0 : 1].safeguard)
         {
@@ -374,7 +386,7 @@ public partial class Battle
             yield return Announce(MonNameWithPrefix(index, true) + " was frozen solid!");
         }
     }
-    public IEnumerator FallAsleep(int index, int attacker = 63)
+    private IEnumerator FallAsleep(int index, int attacker = 63)
     {
         if (Sides[index < 3 ? 0 : 1].safeguard)
         {
@@ -413,14 +425,14 @@ public partial class Battle
         }
     }
 
-    public IEnumerator BurnHurt(int index)
+    private IEnumerator BurnHurt(int index)
     {
         yield return ShowBurn(index);
         yield return PokemonOnField[index].DoProportionalDamage(0.0625F);
         yield return Announce(MonNameWithPrefix(index, true) + " is hurt by its burn!");
     }
 
-    public IEnumerator PoisonHurt(int index)
+    private IEnumerator PoisonHurt(int index)
     {
         BattlePokemon target = PokemonOnField[index];
         int poisonDamage = target.PokemonData.hpMax >> 3;
@@ -437,7 +449,7 @@ public partial class Battle
         yield return Announce(MonNameWithPrefix(index, true) + " is hurt by poison!");
     }
 
-    public IEnumerator ToxicPoisonHurt(int index)
+    private IEnumerator ToxicPoisonHurt(int index)
     {
         BattlePokemon target = PokemonOnField[index];
         if (HasAbility(index, PoisonHeal))
@@ -454,14 +466,14 @@ public partial class Battle
         yield return Announce(MonNameWithPrefix(index, true) + " is hurt by poison!");
     }
 
-    public IEnumerator WakeUp(int index)
+    private IEnumerator WakeUp(int index)
     {
         PokemonOnField[index].PokemonData.status = Status.None;
         PokemonOnField[index].nightmare = false;
         yield return Announce(MonNameWithPrefix(index, true) + WokeUp);
     }
 
-    public IEnumerator Confuse(int index)
+    private IEnumerator Confuse(int index)
     {
         if (PokemonOnField[index].confused)
         {
@@ -485,10 +497,10 @@ public partial class Battle
         yield return Announce(MonNameWithPrefix(index, true) + " became confused!");
     }
 
-    public bool CanDisable(int index) => (!PokemonOnField[index].disabled &&
+    private bool CanDisable(int index) => (!PokemonOnField[index].disabled &&
         PokemonOnField[index].lastMoveUsed is not MoveID.None or MoveID.Struggle);
 
-    public IEnumerator Disable(int index)
+    private IEnumerator Disable(int index)
     {
         BattlePokemon target = PokemonOnField[index];
         if (!CanDisable(index))
@@ -504,7 +516,7 @@ public partial class Battle
             + " was disabled!");
     }
 
-    public IEnumerator StartMist(int side)
+    private IEnumerator StartMist(int side)
     {
         if (Sides[side].mist)
         {
@@ -517,7 +529,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator Heal(int index, int amount,
+    private IEnumerator Heal(int index, int amount,
         bool overrideBlock = false)
     {
         BattlePokemon target = PokemonOnField[index];
@@ -540,7 +552,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator Faint(int index)
+    private IEnumerator Faint(int index)
     {
         string faintedMonName = MonNameWithPrefix(index, true);
         yield return FaintAnim(index);
@@ -550,7 +562,7 @@ public partial class Battle
         yield return Announce(faintedMonName + " fainted!");
     }
 
-    public IEnumerator StartTrapping(int attacker, int index)
+    private IEnumerator StartTrapping(int attacker, int index)
     {
         if (PokemonOnField[index].trapped)
         {
@@ -561,7 +573,7 @@ public partial class Battle
         yield return Announce(MonNameWithPrefix(index, true) + " can no longer escape!");
     }
 
-    public IEnumerator GetContinuousDamage(int attacker, int index, MoveID move)
+    private IEnumerator GetContinuousDamage(int attacker, int index, MoveID move)
     {
         BattlePokemon target = PokemonOnField[index];
         if (target.getsContinuousDamage)
@@ -638,7 +650,7 @@ public partial class Battle
 
     }
 
-    public IEnumerator VoluntarySwitch(int index, int partyIndex, bool doAnnouncement, bool fromMove)
+    private IEnumerator VoluntarySwitch(int index, int partyIndex, bool doAnnouncement, bool fromMove)
     {
         if (index < 3)
         {
@@ -654,8 +666,7 @@ public partial class Battle
             LeaveField(index);
             yield return Announce(OpponentName + " sent out "
                 + OpponentPokemon[partyIndex].MonName + "!");
-            PokemonOnField[index] = new BattlePokemon(
-                OpponentPokemon[partyIndex], index, false, this);
+            PokemonOnField[index] = new(OpponentPokemon[partyIndex], index, false, this);
             PokemonOnField[index].partyIndex = partyIndex;
             HandleFacing(index);
             audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
@@ -675,8 +686,7 @@ public partial class Battle
             }
             LeaveField(index);
             yield return Announce("Go! " + PlayerPokemon[partyIndex].MonName + "!");
-            PokemonOnField[index] = new BattlePokemon(
-                            PlayerPokemon[partyIndex], index, true, this);
+            PokemonOnField[index] = new(PlayerPokemon[partyIndex], index, true, this);
             PokemonOnField[index].partyIndex = partyIndex;
             HandleFacing(index);
             audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
@@ -691,7 +701,7 @@ public partial class Battle
         PokemonOnField[index] = BattlePokemon.MakeEmptyBattleMon(index, this);
     }
 
-    public IEnumerator BatonPass(int index, int partyIndex)
+    private IEnumerator BatonPass(int index, int partyIndex)
     {
         BatonPassStruct passedData = PokemonOnField[index].MakeBatonPassStruct();
         yield return VoluntarySwitch(index, partyIndex, false, true);
@@ -699,7 +709,7 @@ public partial class Battle
         yield return EntryAbilityCheck(index);
     }
 
-    public IEnumerator HeartSwap(int user, int target)
+    private IEnumerator HeartSwap(int user, int target)
     {
         StatStruct targetData = PokemonOnField[target].MakeStatStruct();
         PokemonOnField[target].ApplyStatStruct(PokemonOnField[user].MakeStatStruct());
@@ -708,7 +718,7 @@ public partial class Battle
             " swapped stat changes with its target!");
     }
 
-    public IEnumerator ForcedSwitch(int index)
+    private IEnumerator ForcedSwitch(int index)
     {
         switch (battleType) //Todo: Implement Multi Battle functionality
         {
@@ -751,7 +761,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator MakeSubstitute(int index)
+    private IEnumerator MakeSubstitute(int index)
     {
         BattlePokemon user = PokemonOnField[index];
         if (user.PokemonData.hp
@@ -773,14 +783,14 @@ public partial class Battle
         }
     }
 
-    public IEnumerator SubstituteFaded(int index)
+    private IEnumerator SubstituteFaded(int index)
     {
         yield return Announce(MonNameWithPrefix(index, true)
             + "'s substitute faded!");
         PokemonOnField[index].hasSubstitute = false;
     }
 
-    public IEnumerator DoContinuousDamage(int index, ContinuousDamage type)
+    private IEnumerator DoContinuousDamage(int index, ContinuousDamage type)
     {
         BattlePokemon target = PokemonOnField[index];
         int damage = 0;
@@ -847,7 +857,7 @@ public partial class Battle
             yield return target.DoNonMoveDamage(damage);
         }
     }
-    public IEnumerator StartWeather(Weather weather, int turns)
+    private IEnumerator StartWeather(Weather weather, int turns)
     {
         if ((this.weather is Weather.HeavyRain or Weather.ExtremeSun or Weather.StrongWinds &&
             weather is not Weather.HeavyRain or Weather.ExtremeSun or Weather.StrongWinds) ||
@@ -867,7 +877,7 @@ public partial class Battle
         });
         yield return CheckWeatherAbilities();
     }
-    public IEnumerator WeatherContinues()
+    private IEnumerator WeatherContinues()
     {
         if (weather == Weather.None)
         {
@@ -891,7 +901,7 @@ public partial class Battle
             weatherTimer--;
         }
     }
-    public IEnumerator WeatherEnds()
+    private IEnumerator WeatherEnds()
     {
         yield return Announce(weather switch
         {
@@ -907,7 +917,7 @@ public partial class Battle
         weather = Weather.None;
         yield return CheckWeatherAbilities();
     }
-    public IEnumerator Rest(int index)
+    private IEnumerator Rest(int index)
     {
         BattlePokemon user = PokemonOnField[index];
         if (Sides[index < 3 ? 0 : 1].safeguard
@@ -933,7 +943,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator GetLeechSeed(int index, int attacker)
+    private IEnumerator GetLeechSeed(int index, int attacker)
     {
         if (PokemonOnField[index].seeded)
         {
@@ -947,7 +957,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator TransformMon(int index, int target)
+    private IEnumerator TransformByMove(int index, int target)
     {
         BattlePokemon user = PokemonOnField[index];
         if (user.isTransformed || PokemonOnField[target].isTransformed)
@@ -973,7 +983,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator StartReflect(int side)
+    private IEnumerator StartReflect(int side)
     {
         if (Sides[side].reflect)
         {
@@ -987,7 +997,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator StartLightScreen(int side)
+    private IEnumerator StartLightScreen(int side)
     {
         if (Sides[side].lightScreen)
         {
@@ -1001,7 +1011,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerable StartAuroraVeil(int side)
+    private IEnumerable StartAuroraVeil(int side)
     {
         if (Sides[side].auroraVeil)
         {
@@ -1016,7 +1026,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator PainSplit(int target, int attacker)
+    private IEnumerator DoPainSplit(int target, int attacker)
     {
         if (PokemonOnField[attacker].PokemonData.hp
             > PokemonOnField[target].PokemonData.hp)
@@ -1031,7 +1041,7 @@ public partial class Battle
         yield return Announce("The battlers shared their pain!");
     }
 
-    public IEnumerator DoLeechSeed(int index)
+    private IEnumerator DoLeechSeed(int index)
     {
         BattlePokemon target = PokemonOnField[index];
         if (!PokemonOnField[target.seedingSlot].exists) yield break;
@@ -1055,7 +1065,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator DoMimic(int index, int target)
+    private IEnumerator DoMimic(int index, int target)
     {
         BattlePokemon user = PokemonOnField[index];
         if (((Move.MoveTable[(int)PokemonOnField[target].lastMoveUsed].moveFlags & MoveFlags.cannotMimic) != 0)
@@ -1073,7 +1083,7 @@ public partial class Battle
             + " mimicked " + Move.MoveTable[(int)user.mimicMove].name + "!");
     }
 
-    public IEnumerator Conversion(int index)
+    private IEnumerator Conversion(int index)
     {
         Type newType = Move.MoveTable[(int)PokemonOnField[index].GetMove(0)].type;
         PokemonOnField[index].newType1 = newType;
@@ -1083,7 +1093,7 @@ public partial class Battle
             + " became the " + TypeUtils.typeName[(int)newType] + " type!");
     }
 
-    public IEnumerator Camouflage(int index)
+    private IEnumerator Camouflage(int index)
     {
         Type newType = terrain switch
         {
@@ -1117,7 +1127,7 @@ public partial class Battle
             + " became the " + TypeUtils.typeName[(int)newType] + " type!");
     }
 
-    public IEnumerator BecomeType(int index, Type type)
+    private IEnumerator BecomeType(int index, Type type)
     {
         PokemonOnField[index].newType1 = type;
         PokemonOnField[index].newType2 = type;
@@ -1127,7 +1137,7 @@ public partial class Battle
             + " became the " + TypeUtils.typeName[(int)type] + " type!");
     }
 
-    public IEnumerator DoHaze()
+    private IEnumerator DoHaze()
     {
         for (int i = 0; i < 6; i++)
         {
@@ -1141,7 +1151,7 @@ public partial class Battle
         yield return Announce("All stat changes were reversed!");
     }
 
-    public IEnumerator CreateTerrain(Terrain terrain, bool extend)
+    private IEnumerator CreateTerrain(Terrain terrain, bool extend)
     {
         //Todo: Add terrain animation
         this.terrain = terrain;
@@ -1159,7 +1169,7 @@ public partial class Battle
         yield return CheckTerrainAbilities();
     }
 
-    public IEnumerator RemoveTerrain()
+    private IEnumerator RemoveTerrain()
     {
         //Todo: Add terrain removal animation
         if (terrain == Terrain.None) yield break;
@@ -1176,7 +1186,7 @@ public partial class Battle
         terrain = Terrain.None;
     }
 
-    public IEnumerator StartSafeguard(int index)
+    private IEnumerator StartSafeguard(int index)
     {
         int side = index < 3 ? 0 : 1;
         Sides[side].safeguard = true;
@@ -1185,13 +1195,13 @@ public partial class Battle
             + " team became cloaked in a mystical veil!");
     }
 
-    public void GetPerishSong(int index)
+    private void GetPerishSong(int index)
     {
         PokemonOnField[index].perishSong = true;
         PokemonOnField[index].perishCounter = 3;
     }
 
-    public IEnumerator DoPerishSong(int index)
+    private IEnumerator DoPerishSong(int index)
     {
         PokemonOnField[index].perishCounter--;
         yield return Announce(MonNameWithPrefix(index, true)
@@ -1204,7 +1214,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator Infatuate(int index, int attacker)
+    private IEnumerator Infatuate(int index, int attacker)
     {
         if (OppositeGenders(index, attacker) && !PokemonOnField[index].infatuated)
         {
@@ -1233,7 +1243,7 @@ public partial class Battle
 
     }
 
-    public IEnumerator CureStatusHealBell(Pokemon mon)
+    private IEnumerator CureStatusHealBell(Pokemon mon)
     {
         switch (mon.status)
         {
@@ -1259,7 +1269,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator HealBell(int index)
+    private IEnumerator HealBell(int index)
     {
         yield return Announce("A bell chimed!");
         if (index < 3)
@@ -1288,7 +1298,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator Thief(int attacker, int defender)
+    private IEnumerator DoThief(int attacker, int defender)
     {
         if (PokemonOnField[attacker].PokemonData.item == ItemID.None
             && ItemUtils.CanBeStolen(PokemonOnField[defender].PokemonData.item)
@@ -1305,7 +1315,7 @@ public partial class Battle
     }
 
 
-    public IEnumerator SwitchItems(int attacker, int defender)
+    private IEnumerator SwitchItems(int attacker, int defender)
     {
         if (HasAbility(defender, StickyHold))
         {
@@ -1336,7 +1346,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator Bestow(int attacker, int defender)
+    private IEnumerator DoBestow(int attacker, int defender)
     {
         BattlePokemon user = PokemonOnField[attacker];
         BattlePokemon target = PokemonOnField[defender];
@@ -1358,10 +1368,9 @@ public partial class Battle
                 + target.Item.Data().itemName + "!");
         }
     }
-    public IEnumerator KnockOff(int attacker, int defender)
+    private IEnumerator DoKnockOff(int attacker, int defender)
     {
-        if (ItemUtils.CanBeStolen(PokemonOnField[defender].PokemonData.item)
-            && !HasAbility(defender, StickyHold))
+        if (ItemIsChangeable(defender))
         {
             yield return Announce(MonNameWithPrefix(attacker, true)
                 + " knocked off " + MonNameWithPrefix(defender, false)
@@ -1371,21 +1380,21 @@ public partial class Battle
         }
     }
 
-    public IEnumerator GhostCurse(int attacker, int defender)
+    private IEnumerator GhostCurse(int attacker, int defender)
     {
-        PokemonOnField[attacker].DoNonMoveDamage(PokemonOnField[attacker].PokemonData.hpMax >> 1);
+        yield return DoDamage(PokemonOnField[attacker].PokemonData, PokemonOnField[attacker].PokemonData.hpMax >> 1);
         PokemonOnField[defender].cursed = true;
         yield return Announce(MonNameWithPrefix(attacker, true) + " cut its own HP to put a curse on "
             + MonNameWithPrefix(defender, false) + "!");
     }
 
-    public IEnumerator DoCurse(int index)
+    private IEnumerator DoCurse(int index)
     {
         PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].PokemonData.hpMax >> 2);
         yield return Announce(MonNameWithPrefix(index, true) + " is hurt by Curse!");
     }
 
-    public IEnumerator Spikes(int index)
+    private IEnumerator DoSpikes(int index)
     {
         if (Sides[GetSide(5 - index)].spikes < 3)
         {
@@ -1399,7 +1408,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator ToxicSpikes(int index)
+    private IEnumerator DoToxicSpikes(int index)
     {
         if (Sides[GetSide(5 - index)].toxicSpikes < 2)
         {
@@ -1413,7 +1422,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator PsychUp(int user, int target)
+    private IEnumerator PsychUp(int user, int target)
     {
         PokemonOnField[user].ApplyStatStruct(PokemonOnField[target].MakeStatStruct());
         yield return Announce(MonNameWithPrefix(user, true)
@@ -1421,7 +1430,7 @@ public partial class Battle
             + "'s stat changes!");
     }
 
-    public IEnumerator DrainPP(int index, int amount, bool announce = true)
+    private IEnumerator DrainPP(int index, int amount, bool announce = true)
     {
         BattlePokemon target = PokemonOnField[index];
         bool worked = true;
@@ -1438,7 +1447,7 @@ public partial class Battle
         else yield return Announce(MoveFailed);
     }
 
-    public IEnumerator GetNightmare(int index)
+    private IEnumerator GetNightmare(int index)
     {
         if (PokemonOnField[index].PokemonData.status != Status.Sleep || PokemonOnField[index].nightmare)
             yield return Announce(MoveFailed);
@@ -1449,13 +1458,13 @@ public partial class Battle
         }
     }
 
-    public IEnumerator DoNightmare(int index)
+    private IEnumerator DoNightmare(int index)
     {
         PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].PokemonData.hpMax >> 2);
         yield return Announce(MonNameWithPrefix(index, true) + " is locked in a nightmare!");
     }
 
-    public IEnumerator GetMindReader(int user, int target)
+    private IEnumerator GetMindReader(int user, int target)
     {
         PokemonOnField[user].usedMindReader = true;
         PokemonOnField[user].mindReaderTarget = target;
@@ -1463,7 +1472,7 @@ public partial class Battle
             + MonNameWithPrefix(target, false) + "!");
     }
 
-    public IEnumerator BellyDrum(int index)
+    private IEnumerator DoBellyDrum(int index)
     {
         if (PokemonOnField[index].PokemonData.hp * 2 > PokemonOnField[index].PokemonData.hpMax)
         {
@@ -1485,7 +1494,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator RemoveHazards(int index)
+    private IEnumerator RemoveHazards(int index)
     {
         Side side = Sides[index / 3];
         string teamText = (index > 2 ? "your" : "the opponent's") + "team!";
@@ -1511,14 +1520,14 @@ public partial class Battle
         }
     }
 
-    public IEnumerator Identify(int index, bool miracleEye)
+    private IEnumerator DoIdentify(int index, bool miracleEye)
     {
         PokemonOnField[index].identified = true;
         PokemonOnField[index].identifiedByMiracleEye = miracleEye;
         yield return Announce(MonNameWithPrefix(index, true) + " was identified!");
     }
 
-    public static List<Type> GetConversion2Types(Type type)
+    private static List<Type> GetConversion2Types(Type type)
     {
         return type switch
         {
@@ -1544,7 +1553,7 @@ public partial class Battle
         };
     }
 
-    public IEnumerator Conversion2(int index, int target)
+    private IEnumerator Conversion2(int index, int target)
     {
         var random = new System.Random();
         List<Type> possibleTypes = new();
@@ -1563,7 +1572,7 @@ public partial class Battle
             + TypeUtils.typeName[(int)possibleTypes[whichType]] + " type!");
     }
 
-    public IEnumerator GetFutureSight(int target, int user)
+    private IEnumerator GetFutureSight(int target, int user)
     {
         var random = new System.Random();
         FutureSightStruct futureSightData = new()
@@ -1584,7 +1593,7 @@ public partial class Battle
         yield return Announce(MonNameWithPrefix(user, true) + " foresaw an attack!");
     }
 
-    public IEnumerator FutureSightAttack()
+    private IEnumerator FutureSightAttack()
     {
         FutureSightStruct data = futureSight.Dequeue();
         isFutureSightTargeted[data.target] = false;
@@ -1623,7 +1632,7 @@ public partial class Battle
         yield return AnnounceTypeEffectiveness(effectiveness, false, data.target);
     }
 
-    public IEnumerator GetEncored(int target)
+    private IEnumerator GetEncored(int target)
     {
         BattlePokemon targetMon = PokemonOnField[target];
         if (targetMon.encored || targetMon.lastMoveUsed == MoveID.None)
@@ -1639,7 +1648,7 @@ public partial class Battle
             + " received an encore!");
     }
 
-    public IEnumerator StartUproar(int index)
+    private IEnumerator StartUproar(int index)
     {
         yield return Announce(MonNameWithPrefix(index, true) + " caused an uproar!");
         for (int i = 0; i < 6; i++)
@@ -1652,7 +1661,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator Stockpile(int index)
+    private IEnumerator DoStockpile(int index)
     {
         BattlePokemon mon = PokemonOnField[index];
         if (mon.stockpile >= 3) yield break;
@@ -1665,7 +1674,7 @@ public partial class Battle
         yield return StatUp(index, Stat.SpDef, 1, index, false);
     }
 
-    public IEnumerator Swallow(int index)
+    private IEnumerator DoSwallow(int index)
     {
         BattlePokemon user = PokemonOnField[index];
         switch (user.stockpile)
@@ -1684,14 +1693,14 @@ public partial class Battle
         user.stockpile = 0;
     }
 
-    public IEnumerator Torment(int index)
+    private IEnumerator DoTorment(int index)
     {
         PokemonOnField[index].tormented = true;
         yield return Announce(MonNameWithPrefix(index, true)
             + " was subjected to torment!");
     }
 
-    public IEnumerator MakeWish(int index)
+    private IEnumerator MakeWish(int index)
     {
         yield return Announce(MonNameWithPrefix(index, true)
             + " made a wish!");
@@ -1699,7 +1708,7 @@ public partial class Battle
             turnsElapsed + 1, index, MonNameWithPrefix(index, true)));
     }
 
-    public IEnumerator GetWish()
+    private IEnumerator GetWish()
     {
         (int wishHP, int, int slot, string wisher) wishStruct = wishes.Dequeue();
         if (PokemonOnField[wishStruct.slot].exists && !PokemonOnField[wishStruct.slot].AtFullHealth)
@@ -1709,7 +1718,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator GetTaunted(int index)
+    private IEnumerator GetTaunted(int index)
     {
         PokemonOnField[index].taunted = true;
         PokemonOnField[index].tauntTimer
@@ -1718,7 +1727,7 @@ public partial class Battle
             + " fell for the taunt!");
     }
 
-    public IEnumerator RolePlay(int user, int target)
+    private IEnumerator DoRolePlay(int user, int target)
     {
         yield return AbilityPopupStart(user);
         yield return abilityControllers[user].ChangeAbility(
@@ -1732,7 +1741,7 @@ public partial class Battle
         yield return EntryAbilityCheck(user);
     }
 
-    public IEnumerator SkillSwap(int user, int target)
+    private IEnumerator DoSkillSwap(int user, int target)
     {
         StartCoroutine(AbilityPopupStart(user));
         yield return AbilityPopupStart(target);
@@ -1760,41 +1769,28 @@ public partial class Battle
         }
     }
 
-    public IEnumerator Entrainment(int user, int target)
-    {
-        yield return AbilityPopupStart(target);
-        yield return abilityControllers[target].ChangeAbility(
-            PokemonOnField[user].ability.Name());
-        yield return Announce(MonNameWithPrefix(target, true) +
-            " acquired " + PokemonOnField[target].ability.Name() + "!");
-        yield return AbilityPopupEnd(target);
-        yield return ExitAbilityCheck(target);
-        PokemonOnField[target].ability = PokemonOnField[user].ability;
-        yield return EntryAbilityCheck(target);
-    }
-
-    public IEnumerator HelpingHand(int user, int target)
+    private IEnumerator HelpingHand(int user, int target)
     {
         PokemonOnField[target].helpingHand++;
         yield return Announce(MonNameWithPrefix(user, true)
             + " is ready to help " + MonNameWithPrefix(target, false) + "!");
     }
 
-    public IEnumerator Ingrain(int index)
+    private IEnumerator Ingrain(int index)
     {
         PokemonOnField[index].ingrained = true;
         yield return Announce(MonNameWithPrefix(index, true)
             + " planted its roots!");
     }
 
-    public IEnumerator StartAquaRing(int index)
+    private IEnumerator StartAquaRing(int index)
     {
         PokemonOnField[index].hasAquaRing = true;
         yield return Announce(MonNameWithPrefix(index, true)
             + " surrounded itself with a veil of water!");
     }
 
-    public IEnumerator Recycle(int index)
+    private IEnumerator DoRecycle(int index)
     {
         BattlePokemon user = PokemonOnField[index];
         if (user.Item != ItemID.None || user.eatenBerry == ItemID.None)
@@ -1819,7 +1815,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator BreakScreens(int index)
+    private IEnumerator DoBreakScreens(int index)
     {
         Side side = Sides[GetSide(index)];
         string sideText = index < 3 ? "The foes'" : "Your team's";
@@ -1835,7 +1831,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator HealStatus(int index)
+    private IEnumerator HealStatus(int index)
     {
         switch (PokemonOnField[index].PokemonData.status)
         {
@@ -1856,7 +1852,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator Gravity()
+    private IEnumerator Gravity()
     {
         yield return Announce("Gravity intensified!");
         gravity = true;
@@ -1876,7 +1872,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator Tailwind(int side)
+    private IEnumerator Tailwind(int side)
     {
         Sides[side].tailwind = true;
         Sides[side].tailwindTurns = 4;
@@ -1884,7 +1880,7 @@ public partial class Battle
             + (side == 0 ? "the foes'" : "your") + " team!");
     }
 
-    public IEnumerator Embargo(int index)
+    private IEnumerator Embargo(int index)
     {
         PokemonOnField[index].embargoed = true;
         PokemonOnField[index].embargoTimer = 5;
@@ -1892,7 +1888,7 @@ public partial class Battle
             + " can't use items anymore!");
     }
 
-    public IEnumerator PsychoShift(int index, int attacker)
+    private IEnumerator DoPsychoShift(int index, int attacker)
     {
         Pokemon user = PokemonOnField[attacker].PokemonData;
         Pokemon target = PokemonOnField[index].PokemonData;
@@ -1911,14 +1907,14 @@ public partial class Battle
         yield return HealStatus(attacker);
     }
 
-    public IEnumerator SuppressAbility(int index)
+    private IEnumerator SuppressAbility(int index)
     {
         PokemonOnField[index].abilitySuppressed = true;
         yield return Announce(MonNameWithPrefix(index, true)
             + "'s ability was suppressed!");
     }
 
-    public IEnumerator LuckyChant(int side)
+    private IEnumerator LuckyChant(int side)
     {
         Sides[side].luckyChant = true;
         Sides[side].luckyChantTurns = 5;
@@ -1926,27 +1922,17 @@ public partial class Battle
             " protected from critical hits!");
     }
 
-    public IEnumerator WorrySeed(int index)
+    private IEnumerator ChangeAbility(int index, Ability ability)
     {
         yield return AbilityPopupStart(index);
-        yield return abilityControllers[index].ChangeAbility(NameTable.Ability[(int)Insomnia]);
-        PokemonOnField[index].ability = Insomnia;
+        yield return abilityControllers[index].ChangeAbility(ability.Name());
+        PokemonOnField[index].ability = ability;
         yield return Announce(MonNameWithPrefix(index, true) +
-            " acquired Insomnia!");
+            " acquired " + ability.Name() + "!");
         yield return AbilityPopupEnd(index);
     }
 
-    public IEnumerator SimpleBeam(int index)
-    {
-        yield return AbilityPopupStart(index);
-        yield return abilityControllers[index].ChangeAbility(NameTable.Ability[(int)Simple]);
-        PokemonOnField[index].ability = Simple;
-        yield return Announce(MonNameWithPrefix(index, true) +
-            " acquired Simple!");
-        yield return AbilityPopupEnd(index);
-    }
-
-    public IEnumerator Defog(int attacker, int target) //Todo: add Sticky Web and Terrain clearing effects
+    private IEnumerator DoDefog(int attacker, int target) //Todo: add Sticky Web and Terrain clearing effects
     {
         foreach (Side i in Sides)
         {
@@ -2005,7 +1991,7 @@ public partial class Battle
         yield return StatDown(target, Stat.Evasion, 1, attacker);
     }
 
-    public IEnumerator StartTrickRoom(int index)
+    private IEnumerator StartTrickRoom(int index)
     {
         if (trickRoom)
         {
@@ -2022,7 +2008,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator StartWonderRoom()
+    private IEnumerator StartWonderRoom()
     {
         if (wonderRoom)
         {
@@ -2039,7 +2025,7 @@ public partial class Battle
         }
     }
 
-    public IEnumerator StartMagicRoom()
+    private IEnumerator StartMagicRoom()
     {
         if (magicRoom)
         {
@@ -2056,21 +2042,21 @@ public partial class Battle
         }
     }
 
-    public IEnumerator StealthRock(int index)
+    private IEnumerator DoStealthRock(int index)
     {
         yield return Announce("Pointed stones float in the air around "
             + (index < 3 ? "your" : "the opponent's") + " team!");
         Sides[(5 - index) / 3].stealthRock = true;
     }
 
-    public IEnumerator StickyWeb(int index)
+    private IEnumerator DoStickyWeb(int index)
     {
         yield return Announce("A sticky web spreads out under " +
             (index < 3 ? "your" : "the opponent's") + " team!");
         Sides[(5 - index) / 3].stealthRock = true;
     }
 
-    public IEnumerator GuardSplit(int index, int attacker)
+    private IEnumerator GuardSplit(int index, int attacker)
     {
         BattlePokemon user = PokemonOnField[attacker];
         BattlePokemon target = PokemonOnField[index];
@@ -2086,7 +2072,7 @@ public partial class Battle
             + " shared its guard with the target!");
     }
 
-    public IEnumerator PowerSplit(int index, int attacker)
+    private IEnumerator PowerSplit(int index, int attacker)
     {
         BattlePokemon user = PokemonOnField[attacker];
         BattlePokemon target = PokemonOnField[index];
@@ -2102,7 +2088,7 @@ public partial class Battle
             + " shared its power with the target!");
     }
 
-    public IEnumerator AllySwitch(int index, int attacker)
+    private IEnumerator AllySwitch(int index, int attacker)
     {
         (PokemonOnField[attacker], PokemonOnField[index]) =
             (PokemonOnField[index], PokemonOnField[attacker]);
@@ -2113,7 +2099,7 @@ public partial class Battle
             + " switched places!");
     }
 
-    public IEnumerator ReflectType(int user, int target)
+    private IEnumerator ReflectType(int user, int target)
     {
         BattlePokemon attacker = PokemonOnField[user];
         BattlePokemon defender = PokemonOnField[target];
@@ -2130,7 +2116,7 @@ public partial class Battle
             "'s!");
     }
 
-    public bool GetAnticipation(int index)
+    private bool GetAnticipation(int index)
     {
         int baseNum = index > 2 ? 0 : 3;
         for (int i = baseNum; i < baseNum + 3; i++)
@@ -2145,21 +2131,56 @@ public partial class Battle
         return false;
     }
 
-    public IEnumerator MakeRainbow(int index)
+    private (MoveID, int) GetForewarnMove(int index)
+    {
+        int baseNum = index > 2 ? 0 : 3;
+        MoveID topMove = MoveID.None;
+        int topPower = 0;
+        int indexToReturn = NoMons;
+        int ties = 0;
+        for (int i = baseNum; i < baseNum + 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                MoveID currentMove = PokemonOnField[i].GetMove(j);
+                int currentPower = currentMove.ForewarnPower();
+                if (currentPower == 0) continue;
+                if (currentPower > topPower)
+                {
+                    topMove = currentMove;
+                    topPower = currentPower;
+                    indexToReturn = i;
+                    ties = 1;
+                }
+                else if (currentPower == topPower)
+                {
+                    if (random.Next(++ties) is 0)
+                    {
+                        topMove = currentMove;
+                        topPower = currentPower;
+                        indexToReturn = i;
+                    }
+                }
+            }
+        }
+        return (topMove, indexToReturn);
+    }
+
+    private IEnumerator MakeRainbow(int index)
     {
         yield return Announce("A rainbow appeared over " +
             (index > 2 ? "your" : "the foe's" + " Pokémon!"));
         Sides[GetSide(index)].rainbow = true;
         Sides[GetSide(index)].rainbowTurns = 4;
     }
-    public IEnumerator MakeSwamp(int index)
+    private IEnumerator MakeSwamp(int index)
     {
         yield return Announce("A swamp appeared around " +
             (index > 2 ? "your" : "the foe's" + " Pokémon!"));
         Sides[GetSide(index)].swamp = true;
         Sides[GetSide(index)].swampTurns = 4;
     }
-    public IEnumerator MakeBurningField(int index)
+    private IEnumerator MakeBurningField(int index)
     {
         yield return Announce("A burning field surrounds " +
             (index > 2 ? "your" : "the foe's" + " Pokémon!"));
@@ -2167,11 +2188,91 @@ public partial class Battle
         Sides[GetSide(index)].burningFieldTurns = 4;
     }
 
-    public IEnumerator AddType3(int index, Type type)
+    private IEnumerator AddType3(int index, Type type)
     {
         yield return Announce("The " + type.Name() + " type was added to " +
             MonNameWithPrefix(index, false) + "!");
         PokemonOnField[index].Type3 = type;
         PokemonOnField[index].hasType3 = true;
+    }
+
+    private IEnumerator DoStanceChange(int index)
+    {
+        if (PokemonOnField[index].ApparentSpecies is SpeciesID.AegislashShield &&
+    Moves[index].Data().power > 0)
+        {
+            yield return Transform(index, SpeciesID.AegislashBlade);
+        }
+        else if (PokemonOnField[index].ApparentSpecies is SpeciesID.AegislashBlade &&
+            Moves[index] is MoveID.KingsShield)
+        {
+            yield return Transform(index, SpeciesID.AegislashShield);
+        }
+    }
+
+    private IEnumerator DoTrace(int index)
+    {
+        int baseNum = index < 3 ? 3 : 0;
+        for (int i = 0; i < 3; i++)
+        {
+            if (PokemonOnField[baseNum + i].exists)
+            {
+                yield return AbilityPopupStart(index);
+                yield return new WaitForSeconds(0.2F);
+                yield return abilityControllers[index].ChangeAbility(
+                    EffectiveAbility(baseNum + i).Name());
+                PokemonOnField[index].ability = EffectiveAbility(i);
+                PokemonOnField[index].timeWithAbility = 0;
+                yield return Announce(MonNameWithPrefix(index, true)
+                    + " traced the foe's "
+                    + EffectiveAbility(baseNum + i).Name()
+                    + "!");
+                yield return AbilityPopupEnd(index);
+                yield return EntryAbilityCheck(index);
+                break;
+            }
+        }
+    }
+
+    private IEnumerator DoIntimidate(int index)
+    {
+        yield return AbilityPopupStart(index);
+        foreach (int i in GetAdjacentOpponents(index))
+        {
+            if (MonIsActive(i))
+            {
+                doStatAnim = true;
+                if (HasAbility(i, GuardDog))
+                {
+                    yield return PopupDo(i, StatUp(i, Stat.Attack, 1, index, false, false));
+                }
+                else if (EffectiveAbility(i) is
+                    Oblivious or OwnTempo or InnerFocus
+                    or Scrappy)
+                {
+                    yield return AbilityPopupStart(i);
+                    yield return Announce(MonNameWithPrefix(i, true)
+                    + "'s attack wasn't lowered because of "
+                    + EffectiveAbility(i).Name() + "!");
+                    yield return AbilityPopupEnd(i);
+                }
+                else { yield return StatDown(i, Stat.Attack, 1, index); }
+            }
+        }
+        yield return AbilityPopupEnd(index);
+    }
+
+    private IEnumerator DoSupersweetSyrup(int index)
+    {
+        yield return AbilityPopupStart(index);
+        foreach (int i in GetAdjacentOpponents(index))
+        {
+            if (MonIsActive(i))
+            {
+                doStatAnim = true;
+                yield return StatDown(i, Stat.Evasion, 1, index);
+            }
+        }
+        yield return AbilityPopupEnd(index);
     }
 }

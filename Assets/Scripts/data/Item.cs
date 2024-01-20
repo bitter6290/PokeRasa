@@ -636,6 +636,14 @@ public static class Item
         graphicsPath = "ice_stone",
     };
 
+    public static readonly FieldItem Honey = new()
+    {
+        itemName = "Honey",
+        price = 300,
+        fieldEffect = FieldEffect.None, //Todo: honey encounter effect
+        graphicsPath = "honey",
+    };
+
     //Held items
 
     public static readonly HeldItem KingsRock = new()
@@ -669,7 +677,7 @@ public static class Item
         itemName = "Deep Sea Scale",
         price = 20000,
         heldEffect = HeldEffect.DeepSeaScale,
-        graphicsPath = "deep_sea_scale"
+        graphicsPath = "deep_sea_scale",
     };
 
     public static readonly HeldItem RazorClaw = new()
@@ -677,7 +685,8 @@ public static class Item
         itemName = "Razor Claw",
         price = 10000,
         heldEffect = CritRateUp1,
-        graphicsPath = "razor_claw"
+        graphicsPath = "razor_claw",
+        flingPower = 80
     };
 
     public static readonly HeldItem RazorFang = new()
@@ -685,7 +694,8 @@ public static class Item
         itemName = "Razor Fang",
         price = 10000,
         heldEffect = Flinch10,
-        graphicsPath = "razor_fang"
+        graphicsPath = "razor_fang",
+        flingEffect = MoveEffect.Flinch
     };
 
     public static readonly HeldItem UtilityUmbrella = new()
@@ -693,7 +703,8 @@ public static class Item
         itemName = "Utility Umbrella",
         price = 10000,
         heldEffect = ProtectFromWeather,
-        graphicsPath = "utility_umbrella"
+        graphicsPath = "utility_umbrella",
+        flingPower = 60,
     };
 
     public static readonly HeldItem ChoiceBand = new()
@@ -701,7 +712,8 @@ public static class Item
         itemName = "Choice Band",
         price = 250000,
         heldEffect = ChoiceItem,
-        graphicsPath = "choice_band"
+        graphicsPath = "choice_band",
+        flingPower = 10,
     };
 
     public static readonly HeldItem ChoiceSpecs = new()
@@ -709,7 +721,8 @@ public static class Item
         itemName = "Choice Specs",
         price = 250000,
         heldEffect = ChoiceItem,
-        graphicsPath = "choice_specs"
+        graphicsPath = "choice_specs",
+        flingPower = 10,
     };
 
     public static readonly HeldItem ChoiceScarf = new()
@@ -717,7 +730,76 @@ public static class Item
         itemName = "Choice Scarf",
         price = 250000,
         heldEffect = ChoiceItem,
-        graphicsPath = "choice_scarf"
+        graphicsPath = "choice_scarf",
+        flingPower = 10,
+    };
+
+    public static readonly HeldItem Leftovers = new()
+    {
+        itemName = "Leftovers",
+        price = 50000,
+        heldEffect = HeldEffect.Leftovers,
+        graphicsPath = "leftovers",
+        flingPower = 10,
+    };
+
+    public static readonly HeldItem ToxicOrb = new()
+    {
+        itemName = "Toxic Orb",
+        price = 100000,
+        heldEffect = HeldEffect.ToxicOrb,
+        graphicsPath = "toxic_orb",
+        flingEffect = MoveEffect.Toxic,
+    };
+
+    public static readonly HeldItem FlameOrb = new()
+    {
+        itemName = "Flame Orb",
+        price = 100000,
+        heldEffect = HeldEffect.FlameOrb,
+        graphicsPath = "flame_orb",
+        flingEffect = MoveEffect.Burn,
+    };
+
+    public static readonly HeldItem AbsorbBulb = new()
+    {
+        itemName = "Absorb Bulb",
+        price = 20000,
+        heldEffect = ActivateOnAttack,
+        graphicsPath = "absorb_bulb"
+    };
+
+    public static readonly HeldItem LuminousMoss = new()
+    {
+        itemName = "Luminous Moss",
+        price = 20000,
+        heldEffect = ActivateOnAttack,
+        graphicsPath = "luminous_moss"
+    };
+
+    public static readonly HeldItem CellBattery = new()
+    {
+        itemName = "Cell Battery",
+        price = 20000,
+        heldEffect = ActivateOnAttack,
+        graphicsPath = "cell_battery"
+    };
+
+    public static readonly HeldItem Snowball = new()
+    {
+        itemName = "Snowball",
+        price = 20000,
+        heldEffect = ActivateOnAttack,
+        graphicsPath = "snowball"
+    };
+
+    public static readonly HeldItem WeaknessPolicy = new()
+    {
+        itemName = "Weakness Policy",
+        price = 20000,
+        heldEffect = ActivateOnAttack,
+        graphicsPath = "weakness_policy",
+        flingPower = 80
     };
 
     //Plates
@@ -728,6 +810,7 @@ public static class Item
         price = 0,
         heldEffect = NormalPowerUp20,
         plateType = Type.Normal,
+        destinationSpecies = Arceus,
         graphicsPath = "blank_plate"
     };
 
@@ -737,6 +820,7 @@ public static class Item
         price = 0,
         heldEffect = FirePowerUp20,
         plateType = Type.Fire,
+        destinationSpecies = ArceusFire,
         graphicsPath = "flame_plate"
     };
 
@@ -746,6 +830,7 @@ public static class Item
         price = 0,
         heldEffect = WaterPowerUp20,
         plateType = Type.Water,
+        destinationSpecies = ArceusWater,
         graphicsPath = "water_plate"
     };
 
@@ -755,6 +840,7 @@ public static class Item
         price = 0,
         heldEffect = GrassPowerUp20,
         plateType = Type.Grass,
+        destinationSpecies = ArceusGrass,
         graphicsPath = "meadow_plate"
     };
 
@@ -764,6 +850,7 @@ public static class Item
         price = 0,
         heldEffect = ElectricPowerUp20,
         plateType = Type.Electric,
+        destinationSpecies = ArceusElectric,
         graphicsPath = "zap_plate"
     };
 
@@ -773,6 +860,7 @@ public static class Item
         price = 0,
         heldEffect = IcePowerUp20,
         plateType = Type.Ice,
+        destinationSpecies = ArceusIce,
         graphicsPath = "icicle_plate"
     };
 
@@ -782,6 +870,7 @@ public static class Item
         price = 0,
         heldEffect = GroundPowerUp20,
         plateType = Type.Ground,
+        destinationSpecies = ArceusGround,
         graphicsPath = "earth_plate"
     };
 
@@ -791,6 +880,7 @@ public static class Item
         price = 0,
         heldEffect = RockPowerUp20,
         plateType = Type.Rock,
+        destinationSpecies = ArceusRock,
         graphicsPath = "stone_plate"
     };
 
@@ -800,6 +890,7 @@ public static class Item
         price = 0,
         heldEffect = FlyingPowerUp20,
         plateType = Type.Flying,
+        destinationSpecies = ArceusFlying,
         graphicsPath = "sky_plate"
     };
 
@@ -809,6 +900,7 @@ public static class Item
         price = 0,
         heldEffect = FightingPowerUp20,
         plateType = Type.Fighting,
+        destinationSpecies = ArceusFighting,
         graphicsPath = "fist_plate"
     };
 
@@ -818,6 +910,7 @@ public static class Item
         price = 0,
         heldEffect = BugPowerUp20,
         plateType = Type.Bug,
+        destinationSpecies = ArceusBug,
         graphicsPath = "insect_plate"
     };
 
@@ -827,6 +920,7 @@ public static class Item
         price = 0,
         heldEffect = PsychicPowerUp20,
         plateType = Type.Psychic,
+        destinationSpecies = ArceusPsychic,
         graphicsPath = "mind_plate"
     };
 
@@ -836,6 +930,7 @@ public static class Item
         price = 0,
         heldEffect = GhostPowerUp20,
         plateType = Type.Ghost,
+        destinationSpecies = ArceusGhost,
         graphicsPath = "spooky_plate"
     };
 
@@ -845,6 +940,7 @@ public static class Item
         price = 0,
         heldEffect = PoisonPowerUp20,
         plateType = Type.Poison,
+        destinationSpecies = ArceusPoison,
         graphicsPath = "toxic_plate"
     };
 
@@ -854,6 +950,7 @@ public static class Item
         price = 0,
         heldEffect = DragonPowerUp20,
         plateType = Type.Dragon,
+        destinationSpecies = ArceusDragon,
         graphicsPath = "draco_plate"
     };
 
@@ -863,6 +960,7 @@ public static class Item
         price = 0,
         heldEffect = DarkPowerUp20,
         plateType = Type.Dark,
+        destinationSpecies = ArceusDark,
         graphicsPath = "dread_plate"
     };
 
@@ -872,6 +970,7 @@ public static class Item
         price = 0,
         heldEffect = SteelPowerUp20,
         plateType = Type.Steel,
+        destinationSpecies = ArceusSteel,
         graphicsPath = "iron_plate"
     };
 
@@ -881,6 +980,7 @@ public static class Item
         price = 0,
         heldEffect = FairyPowerUp20,
         plateType = Type.Fairy,
+        destinationSpecies = ArceusFairy,
         graphicsPath = "pixie_plate"
     };
 
@@ -1839,6 +1939,30 @@ public static class Item
         graphicsPath = "kommonium_z"
     };
 
+    public static readonly HoldToTransform AdamantCrystal = new()
+    {
+        itemName = "Adamant Crystal",
+        price = 1000000,
+        baseSpecies = Dialga,
+        transformedSpecies = DialgaOrigin,
+        graphicsPath = "adamant_crystal"
+    };
+    public static readonly HoldToTransform LustrousGlobe = new()
+    {
+        itemName = "Lustrous Globe",
+        price = 1000000,
+        baseSpecies = Palkia,
+        transformedSpecies = PalkiaOrigin,
+        graphicsPath = "lustrous_globe"
+    };
+    public static readonly HoldToTransform GriseousOrb = new()
+    {
+        itemName = "Griseous Orb",
+        price = 1000000,
+        baseSpecies = Giratina,
+        transformedSpecies = GiratinaOrigin,
+        graphicsPath = "griseous_orb"
+    };
     public static readonly HoldToTransform FightingMemory = new()
     {
         itemName = "Fighting Memory",
@@ -2062,6 +2186,8 @@ public static class Item
         DuskStone,
         DawnStone,
         IceStone,
+        //Other field items
+        Honey,
         //Held items
         KingsRock,
         MetalCoat,
@@ -2073,6 +2199,14 @@ public static class Item
         ChoiceBand,
         ChoiceSpecs,
         ChoiceScarf,
+        Leftovers,
+        ToxicOrb,
+        FlameOrb,
+        AbsorbBulb,
+        LuminousMoss,
+        CellBattery,
+        Snowball,
+        WeaknessPolicy,
         //Plates
         BlankPlate,
         FlamePlate,
@@ -2115,6 +2249,10 @@ public static class Item
         UltraBall,
         MasterBall,
         //Hold-to-transform items
+            //Orbs
+        AdamantCrystal,
+        LustrousGlobe,
+        GriseousOrb,
             //Memories
         FightingMemory,
         FlyingMemory,

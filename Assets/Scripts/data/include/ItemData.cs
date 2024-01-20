@@ -74,6 +74,7 @@ public class HeldItem : ItemData //subdata length 2
 public class PlateItem : HeldItem //subdata length 3
 {
     public Type plateType;
+    public SpeciesID destinationSpecies; //Accessed directly
     public override int[] ItemSubdata => new int[3]
     {
         (int)heldEffect,
@@ -425,12 +426,26 @@ public static class ItemUtils
         };
     }
 
+    public static SpeciesID transformBase(this ItemID item)
+    {
+        if (item.Data() is HoldToTransform) return ((HoldToTransform)item.Data()).baseSpecies;
+        if (item.Data() is PlateItem) return SpeciesID.Arceus;
+        return SpeciesID.Missingno;
+    }
+
+    public static SpeciesID transformDestination(this ItemID item)
+    {
+        if (item.Data() is HoldToTransform) return ((HoldToTransform)item.Data()).baseSpecies;
+        if (item.Data() is PlateItem) return ((PlateItem)item.Data()).destinationSpecies;
+        return SpeciesID.Missingno;
+    }
+
     public static bool IsZCrystal(this ItemID item) => item.Data().type is
         ItemType.ZCrystalGeneric or ItemType.ZCrystalSpecific or
         ItemType.ZCrystalMultipleSpecies;
-    public static bool CanBeStolen(ItemID item) =>
+    public static bool CanBeStolen(this ItemID item) =>
         item.Data().type is ItemType.FieldItem or ItemType.BattleItem or ItemType.Medicine
-        or ItemType.AbstractItem;
+        or ItemType.AbstractItem or ItemType.HeldItem;
 
     public static ItemData Data(this ItemID item) => Item.ItemTable[(int)item];
     public static int Subdata(this ItemID item, int subdata) => Item.ItemTable[(int)item].ItemSubdata[subdata];

@@ -28993,6 +28993,7 @@ public static class Species
         ArceusGrass,
         ArceusElectric,
         ArceusIce,
+        ArceusPsychic,
         ArceusDragon,
         ArceusDark,
         ArceusFairy,

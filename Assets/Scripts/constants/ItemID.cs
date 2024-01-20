@@ -83,6 +83,8 @@
     DuskStone,
     DawnStone,
     IceStone,
+    //Other field items
+    Honey,
     //Held items
     KingsRock,
     MetalCoat,
@@ -94,6 +96,14 @@
     ChoiceBand,
     ChoiceSpecs,
     ChoiceScarf,
+    Leftovers,
+    ToxicOrb,
+    FlameOrb,
+    AbsorbBulb,
+    LuminousMoss,
+    CellBattery,
+    Snowball,
+    WeaknessPolicy,
     //Plates
     BlankPlate,
     FlamePlate,
@@ -136,6 +146,10 @@
     UltraBall,
     MasterBall,
     //Hold-to-transform items
+    //Orbs
+    AdamantCrystal,
+    LustrousGlobe,
+    GriseousOrb,
     //Memories
     FightingMemory,
     FlyingMemory,
@@ -184,7 +198,7 @@
     Mawilite,
     Aggronite,
     Medichamite,
-    Manectite,
+    Manectrite,
     Sharpedonite,
     Cameruptite,
     Altarianite,
@@ -237,7 +251,6 @@
     MimikiumZ,
     LycaniumZ,
     KommoniumZ,
-
     Count,
 
     CloseBag = 65535,

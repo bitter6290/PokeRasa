@@ -803,15 +803,21 @@ public enum MoveID
 public static class MoveUtils
 {
     public static MoveData Data(this MoveID move) => Move.MoveTable[(int)move];
-    public static bool HasFlag(this MoveID move, int flag)
-        => (move.Data().moveFlags & flag) != 0;
     public static bool TriageAffected(this MoveID move) =>
         move.Data().effect is MoveEffect.Heal50 or MoveEffect.Absorb50
         or MoveEffect.HealingWish or MoveEffect.DreamEater or MoveEffect.HealWeather
         or MoveEffect.Roost or MoveEffect.Swallow or MoveEffect.Rest;
     public static bool SheerForceAffected(this MoveID move) =>
-        move.HasFlag(MoveFlags.effectOnSelfOnly) ?
+        move.Data().moveFlags.HasFlag(MoveFlags.effectOnSelfOnly) ?
         move.Data().effect.IsSheerForceAffectedSelfOnly() :
         move.Data().effect.IsSheerForceAffectedNotSelfOnly();
     //Todo: update Triage for Gen 5+ moves
+    public static int ForewarnPower(this MoveID move) =>
+        (move.Data().power, move.Data().effect) switch
+        {
+            (1, MoveEffect.HealthPower or MoveEffect.OHKO) => 150,
+            (1, MoveEffect.Counter or MoveEffect.MetalBurst) => 120,
+            (1, _) => 80,
+            (_, _) => move.Data().power
+        };
 }

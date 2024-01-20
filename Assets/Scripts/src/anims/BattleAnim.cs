@@ -188,6 +188,24 @@ public partial class Battle
         yield return new WaitForSeconds(0.55f); //0.95
     }
 
+    public IEnumerator BallCatch(Transform transform, SpriteRenderer spriteRenderer) //0.70
+    {
+        //Todo: Add catch click
+        spriteRenderer.color = Color.gray;
+        StartCoroutine(CatchStar(transform, -1)); //0.00 - 0.70
+        StartCoroutine(CatchStar(transform, 0)); //0.00 - 0.70
+        yield return CatchStar(transform, 1); //0.70
+    }
+
+    public IEnumerator CatchStar(Transform parent, int xVelocity) //0.70
+    {
+        GameObject starObject = NewSpriteFromTexturePart("Sprites/Battle/gold_stars", parent, Vector2.one, Vector2.zero, new(0, 8, 16, 16));
+        StartCoroutine(Fall(starObject.transform, 8, new(xVelocity, 4), 0.7F)); //0.00 - 0.70
+        yield return new WaitForSeconds(0.5F); //0.50
+        yield return FadeDelete(starObject.GetComponent<SpriteRenderer>(), 0.2F); //0.70
+
+    }
+
     public IEnumerator MegaEvolution(int index) //3.90
     {
         GameObject megaCircle = NewSpriteFromTexture("Sprites/Battle/MegaCircle", spriteTransform[index],

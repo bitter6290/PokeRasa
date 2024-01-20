@@ -197,6 +197,7 @@ public class PartyScreen : MonoBehaviour
             case TakeItem:
                 yield return AnnounceAndReturn("Took the " + currentMon.item.Data().itemName + " from " + currentMon.MonName + ".");
                 if (!currentMon.item.IsZCrystal()) p.AddItem(currentMon.item);
+                currentMon.CheckTransformationEnd(currentMon.item);
                 currentMon.item = ItemID.None;
                 state = State.Active;
                 break;
@@ -311,6 +312,8 @@ public class PartyScreen : MonoBehaviour
                                     else
                                     {
                                         currentMon.item = p.bagResult;
+                                        currentMon.CheckTransformation();
+                                        displays[selectedMon].UpdateDisplay();
                                         if (!p.bagResult.IsZCrystal()) p.UseItem(p.bagResult);
                                         StartCoroutine(AnnounceAndReturn("The " +
                                             p.bagResult.Data().itemName +

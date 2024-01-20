@@ -281,7 +281,7 @@ public class MenuManager : MonoBehaviour
                     mon.choseMove = true;
                     switch (battle.battleType)
                     {
-                        case BattleType.Single:
+                        case Battle.BattleType.Single:
                             battle.Targets[currentMon] = 0;
                             break;
                     }
@@ -365,28 +365,31 @@ public class MenuManager : MonoBehaviour
         box5.enabled = true;
         text5.text = "Back";
 
+        Type[] moveTypes = new Type[4];
+
         for (int i = 0; i < 4; i++)
         {
+            moveTypes[i] = battle.GetEffectiveType(mon.GetMove(i), currentMon);
             Box(i + 1).color = mon.GetMove(i) == MoveID.None
-                ? transparent : TypeUtils.typeColor[(int)mon.GetMove(i).Data().type];
+                ? transparent : moveTypes[i].Color();
             Box(i + 1).enabled = !(mon.GetMove(i) == MoveID.None);
             Text(i + 1).text = mon.GetMove(i).Data().name;
-            Text(i + 1).color = mon.GetMove(i).Data().type.TextColor();
+            Text(i + 1).color = moveTypes[i].TextColor();
             Text(i + 1).enabled = !(mon.GetMove(i) == MoveID.None);
         }
 
         pp1.text = LeadingZero(mon.GetPP(0).ToString()) + " / " +
             LeadingZero(mon.GetMaxPP(0).ToString());
-        pp1.color = mon.GetMove(0).Data().type.TextColor();
+        pp1.color = moveTypes[0].TextColor();
         pp2.text = LeadingZero(mon.GetPP(1).ToString()) + " / " +
             LeadingZero(mon.GetMaxPP(1).ToString());
-        pp2.color = mon.GetMove(1).Data().type.TextColor();
+        pp2.color = moveTypes[1].TextColor();
         pp3.text = LeadingZero(mon.GetPP(2).ToString()) + " / " +
             LeadingZero(mon.GetMaxPP(2).ToString());
-        pp3.color = mon.GetMove(2).Data().type.TextColor();
+        pp3.color = moveTypes[2].TextColor();
         pp4.text = LeadingZero(mon.GetPP(3).ToString()) + " / " +
             LeadingZero(mon.GetMaxPP(3).ToString());
-        pp4.color = mon.GetMove(3).Data().type.TextColor();
+        pp4.color = moveTypes[3].TextColor();
 
         pp1.enabled = !(mon.GetMove(0) == MoveID.None);
         pp2.enabled = !(mon.GetMove(1) == MoveID.None);
@@ -950,7 +953,7 @@ public class MenuManager : MonoBehaviour
                                     battle.PokemonOnField[currentMon].choseMove = true;
                                     switch (battle.battleType)
                                     {
-                                        case BattleType.Single:
+                                        case Battle.BattleType.Single:
                                             battle.Targets[currentMon] = 0;
                                             break;
                                     }

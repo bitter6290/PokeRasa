@@ -158,6 +158,9 @@ public class BattlePokemon
     public bool isTransformed = false;
     public Pokemon transformedMon = Pokemon.EmptyMon;
 
+    public bool illusionActive = false;
+    public SpeciesID illusionSpecies = SpeciesID.Missingno;
+
     public Ability ability;
     public int timeWithAbility = 0;
 
@@ -285,9 +288,10 @@ public class BattlePokemon
 
     public bool electrify = false;
 
-    public MoveID zMoveBase;
+    public byte turnsToCudChew;
+    public BerryEffect cudChewEffect;
 
-    public bool HatesStat(Stat stat) => PokemonData.Nature.NatureEffect(stat) < 1;
+    public MoveID zMoveBase;
 
     public Battle battle;
 
@@ -297,6 +301,8 @@ public class BattlePokemon
     public ItemID Item => embargoed ?
             (BaseItem.Data().type is ItemType.MegaStone ? BaseItem : ItemID.None)
             : BaseItem;
+
+    public bool HatesStat(Stat stat) => PokemonData.Nature.NatureEffect(stat) < 1;
 
     public int EffectiveWeight => Max(100, PokemonData.SpeciesData.pokedexData.weight -
         (autotomized ? 100000 : 0));
@@ -331,7 +337,19 @@ public class BattlePokemon
         pokemonData.lastIndex = index;
     }
 
-    public SpeciesID ApparentSpecies => isTransformed ? transformedMon.species : PokemonData.getSpecies;
+    public SpeciesID ApparentSpecies =>
+        PokemonData.illusionActive ? PokemonData.illusionPokemon.species :
+        isTransformed ? transformedMon.species :
+        PokemonData.GetSpecies;
+
+    public int ApparentLevel => PokemonData.illusionActive ? PokemonData.illusionPokemon.level :
+        PokemonData.level;
+
+    public string ApparentName => PokemonData.illusionActive ? PokemonData.illusionPokemon.MonName :
+        PokemonData.MonName;
+
+    public Gender ApparentGender => PokemonData.illusionActive ? PokemonData.illusionPokemon.gender :
+        PokemonData.gender;
 
     public bool AtFullHealth => PokemonData.hp == PokemonData.hpMax;
     public float HealthProportion => (float)PokemonData.hp / PokemonData.hpMax;

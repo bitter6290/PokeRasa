@@ -500,6 +500,7 @@ public class BoxScreen : MonoBehaviour
                         p.audioSource.PlayOneShot(SFX.Select);
                         p.GetItem(item, 1);
                         GetPokemon(selection).item = ItemID.None;
+                        GetPokemon(selection).CheckTransformationEnd(item);
                         infoDisplay.Adopt(GetPokemon(selection));
                         yield return announcer.AnnounceAndDisappear("Received " +
                             item.Data().itemName + " from " + GetPokemon(selection).MonName + ".");
@@ -507,6 +508,7 @@ public class BoxScreen : MonoBehaviour
                         break;
                     case MenuGive:
                         p.cachedScreenData = new Player.PartyBoxCachedData() { currentMon = selection };
+                        p.boxGiveTarget = GetPokemon(selection);
                         p.boxGiving = true;
                         done = true;
                         yield break;

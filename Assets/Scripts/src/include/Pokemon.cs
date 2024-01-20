@@ -91,6 +91,9 @@ public class Pokemon : ICloneable
     public bool transformed;
     public SpeciesID temporarySpecies;
 
+    public bool illusionActive;
+    public Pokemon illusionPokemon;
+
     public byte friendship; //Friendship is implemented at the Gen 7 standard by default
 
     public Type hiddenPowerType;
@@ -116,7 +119,7 @@ public class Pokemon : ICloneable
     public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
         (int)temporarySpecies : (int)species];
 
-    public SpeciesID getSpecies => transformed ? temporarySpecies : species;
+    public SpeciesID GetSpecies => transformed ? temporarySpecies : species;
 
     public MoveID[] MoveIDs => new MoveID[4]
     {
@@ -205,6 +208,42 @@ public class Pokemon : ICloneable
     private int CalculateStat(Stat stat, int baseStat, int statIv, int statEv)
     {
         return (int)Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * NatureUtils.NatureEffect(nature, stat));
+    }
+
+    public void CheckTransformation()
+    {
+        if (item.Data() is HoldToTransform)
+        {
+            HoldToTransform thisItem = (HoldToTransform)item.Data();
+            if (species == thisItem.baseSpecies)
+            {
+                species = thisItem.transformedSpecies;
+            }
+        }
+        else if (species is SpeciesID.Arceus && item.Data() is PlateItem)
+        {
+            species = ((PlateItem)item.Data()).destinationSpecies;
+        }
+    }
+
+    public void CheckTransformationEnd(ItemID item)
+    {
+        if (item.Data() is HoldToTransform)
+        {
+            HoldToTransform thisItem = (HoldToTransform)item.Data();
+            if (species == thisItem.transformedSpecies)
+            {
+                species = thisItem.baseSpecies;
+            }
+        }
+        else if (item.Data() is PlateItem)
+        {
+            PlateItem thisItem = (PlateItem)item.Data();
+            if (species == thisItem.destinationSpecies)
+            {
+                species = SpeciesID.Arceus;
+            }
+        }
     }
 
     public bool AddFriendship(int upTo100, int upTo200, int at200OrUp)

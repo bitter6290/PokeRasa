@@ -8,10 +8,8 @@ using UnityEngine.SceneManagement;
 using Scene = SceneID;
 using BagOutcome = BagController.BagOutcome;
 using PartyScreenOutcome = PartyScreen.PartyScreenOutcome;
-using BoxOutcome = BoxScreen.BoxScreenOutcome;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
-using UnityEngine.XR;
 
 public class Player : LoadedChar
 {
@@ -804,7 +802,7 @@ public class Player : LoadedChar
         battle.OpponentName = opponentTeam.trainerName;
         battle.PlayerPokemon = Party;
         battle.OpponentPokemon = opponentParty;
-        battle.battleType = BattleType.Single;
+        battle.battleType = Battle.BattleType.Single;
         battle.wildBattle = false;
         battle.battleTerrain = currentTerrain;
         yield return FadeFromBlack(0.2F);
@@ -830,7 +828,7 @@ public class Player : LoadedChar
         {
             battle.OpponentPokemon[i] = Pokemon.EmptyMon;
         }
-        battle.battleType = BattleType.Single;
+        battle.battleType = Battle.BattleType.Single;
         battle.battleTerrain = currentTerrain;
         battle.wildBattle = true;
         yield return FadeFromBlack(0.2F);
@@ -1052,6 +1050,7 @@ public class Player : LoadedChar
                                 yield return bagController.DoBag(this, true);
                                 int cachedMon = ((PartyBoxCachedData)cachedScreenData).currentMon;
                                 Party[cachedMon].item = bagResult;
+                                Party[cachedMon].CheckTransformation();
                                 if (!bagResult.IsZCrystal()) UseItem(bagResult);
                                 yield return FadeToBlack(0.2f);
                                 yield return Scene.Party.Load();
@@ -1347,6 +1346,7 @@ public class Player : LoadedChar
                 yield return bagController.DoBag(this, true);
                 UseItem(bagResult);
                 boxGiveTarget.item = bagResult;
+                boxGiveTarget.CheckTransformation();
                 yield return FadeToBlack(0.2F);
             }
         }
@@ -1379,10 +1379,13 @@ public class Player : LoadedChar
         state = locked ? PlayerState.Locked : PlayerState.Free;
     }
 
-    public void ResetTransformations()
+    private void ResetTransformations()
     {
         foreach (Pokemon mon in Party)
+        {
             mon.transformed = false;
+            if (mon.hp > mon.hpMax) mon.hp = mon.hpMax;
+        }
     }
 
     public void Lock()
@@ -1438,11 +1441,13 @@ public class Player : LoadedChar
         Party[0].pp3 = 40;
         Party[0].maxPp3 = 40;
         Party[1] = Pokemon.WildPokemon(SpeciesID.Pikachu, 5);
+        Party[2] = Pokemon.WildPokemon(SpeciesID.Dialga, 5);
         AddItem(ItemID.PokeBall, 5);
         AddItem(ItemID.GreatBall, 5);
         AddItem(ItemID.CheriBerry, 5);
         AddItem(ItemID.ThunderStone, 1);
         AddItem(ItemID.Potion, 3);
+        AddItem(ItemID.AdamantCrystal, 1);
         active = true;
     }
     // Start is called before the first frame update

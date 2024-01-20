@@ -21,6 +21,8 @@ public static class ScriptUtils
         return list[(int)(random.NextDouble() * list.Count)];
     }
 
+    public static void Set<T>(ref T field, T toSet) => field = toSet;
+
     public static IEnumerator Wait(float duration)
     {
         yield return new WaitForSeconds(duration);

@@ -25,4 +25,8 @@
     DarkPowerUp20,
     SteelPowerUp20,
     FairyPowerUp20,
+    Leftovers,
+    ToxicOrb,
+    FlameOrb,
+    ActivateOnAttack,
 }

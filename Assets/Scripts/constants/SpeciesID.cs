@@ -946,6 +946,7 @@ public enum SpeciesID
     ArceusGrass,
     ArceusElectric,
     ArceusIce,
+    ArceusPsychic,
     ArceusDragon,
     ArceusDark,
     ArceusFairy,

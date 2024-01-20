@@ -28,11 +28,11 @@ public enum Ability
     RoughSkin,
     WonderGuard,
     Levitate,
-    EffectSpore, //Not done
+    EffectSpore,
     Synchronize,
     ClearBody,
     NaturalCure,
-    LightningRod, //Not done
+    LightningRod,
     SereneGrace,
     SwiftSwim,
     Chlorophyll,
@@ -54,15 +54,15 @@ public enum Ability
     RunAway,
     KeenEye,
     HyperCutter,
-    Pickup, //Not done
+    Pickup, //Needs more items
     Truant,
     Hustle,
-    CuteCharm, //Not done
+    CuteCharm,
     Plus,
     Minus,
     Forecast,
     StickyHold,
-    ShedSkin, //Not done
+    ShedSkin,
     Guts,
     MarvelScale,
     LiquidOoze,
@@ -78,61 +78,61 @@ public enum Ability
     PurePower,
     ShellArmor,
     AirLock,
-    TangledFeet, //Not done
-    MotorDrive, //Not done
+    TangledFeet,
+    MotorDrive,
     Rivalry,
     Steadfast,
     SnowCloak,
     Gluttony,
     AngerPoint,
-    Unburden, //Not done
+    Unburden,
     Heatproof,
     Simple,
     DrySkin,
-    Download, //Not done
+    Download,
     IronFist,
     PoisonHeal,
     Adaptability,
     SkillLink,
-    Hydration, //Not done
+    Hydration,
     SolarPower,
-    QuickFeet, //Not done
+    QuickFeet,
     Normalize,
     Sniper,
     MagicGuard, //Will always need updating
     NoGuard,
     Stall,
     Technician,
-    LeafGuard, //Not done
+    LeafGuard,
     Klutz,
     MoldBreaker, //Will always need updating
     SuperLuck,
-    Aftermath, //Not done
+    Aftermath,
     Anticipation,
-    Forewarn, //Not done
+    Forewarn,
     Unaware,
     TintedLens,
     Filter,
-    SlowStart, //Not done
+    SlowStart,
     Scrappy,
-    StormDrain, //Not done
+    StormDrain,
     IceBody,
     SolidRock,
     SnowWarning,
-    HoneyGather, //Not done
+    HoneyGather,
     Frisk,
     Reckless,
-    Multitype, //Not done
+    Multitype, //Fake ability
     FlowerGift,
-    BadDreams, //Not done
-    Pickpocket, //Not done
-    SheerForce, //Not done
+    BadDreams,
+    Pickpocket,
+    SheerForce, //Needs constant maintenance, plus Life Orb interaction
     Contrary,
-    Unnerve, //Not done
+    Unnerve,
     Defiant,
     Defeatist,
     CursedBody,
-    Healer, //Not done
+    Healer,
     FriendGuard,
     WeakArmor,
     HeavyMetal,
@@ -140,18 +140,18 @@ public enum Ability
     Multiscale,
     ToxicBoost,
     FlareBoost,
-    Harvest, //Not done
-    Telepathy, //Not done
+    Harvest,
+    Telepathy,
     Moody,
     Overcoat,
-    PoisonTouch, //Not done
+    PoisonTouch,
     Regenerator,
     BigPecks,
     SandRush,
     WonderSkin,
     Analytic, //Still doesn't handle fainting mons in multi battles correctly
     Illusion, //Not done
-    Imposter, //Not done
+    Imposter,
     Infiltrator,
     Mummy,
     Moxie,
@@ -162,16 +162,16 @@ public enum Ability
     Prankster,
     SandForce,
     IronBarbs,
-    ZenMode, //Not done
+    ZenMode, //Needs Darmanitan-Galar
     VictoryStar,
     Turboblaze, //Tied to Mold Breaker
     Teravolt, //Tied to Mold Breaker
-    AromaVeil, //Not done
+    AromaVeil,
     FlowerVeil,
-    CheekPouch, //Not done
+    CheekPouch,
     Protean,
     FurCoat,
-    Magician, //Not done
+    Magician,
     Bulletproof,
     Competitive,
     StrongJaw,
@@ -181,7 +181,7 @@ public enum Ability
     GaleWings,
     MegaLauncher,
     GrassPelt, //Shouldn't be checked when dealing confusion damage (??)
-    Symbiosis, //Not done
+    Symbiosis, //Needs to be checked whenever an item is used up
     ToughClaws,
     Pixilate,
     Gooey,
@@ -196,10 +196,10 @@ public enum Ability
     Stamina,
     WimpOut, //Not done
     EmergencyExit, //Not done
-    WaterCompaction, //Not done
+    WaterCompaction,
     Merciless,
     ShieldsDown, //Not done
-    Stakeout, //Not done
+    Stakeout,
     WaterBubble,
     Steelworker,
     Berserk,
@@ -208,54 +208,54 @@ public enum Ability
     LiquidVoice,
     Triage,
     Galvanize,
-    SurgeSurfer, //Not done
-    Schooling, //Not done
-    Disguise, //Not done
-    BattleBond, //Not done
-    PowerConstruct, //Not done
-    Corrosion, //Not done
-    Comatose, //Not done
+    SurgeSurfer,
+    Schooling,
+    Disguise,
+    BattleBond, //Done with Gen 9 mechanics
+    PowerConstruct,
+    Corrosion,
+    Comatose, //Must be referenced when a move cares about sleep
     QueenlyMajesty,
-    InnardsOut, //Not done
-    Dancer, //Not done
-    Battery, //Not done
+    InnardsOut,
+    Dancer, //Needs testing
+    Battery,
     Fluffy,
     Dazzling,
-    SoulHeart, //Not done
-    TanglingHair, //Not done
-    Receiver, //Not done
-    PowerOfAlchemy, //Not done
-    BeastBoost, //Not done
-    RKSSystem, //Not done
+    SoulHeart,
+    TanglingHair,
+    Receiver,
+    PowerOfAlchemy,
+    BeastBoost,
+    RKSSystem, //Fake ability
     ElectricSurge,
     PsychicSurge,
     MistySurge,
     GrassySurge,
-    FullMetalBody, //Not done
+    FullMetalBody, 
     ShadowShield,
     PrismArmor,
-    Neuroforce, //Not done
+    Neuroforce,
     IntrepidSword,
     DauntlessShield,
     Libero,
-    BallFetch, //Not done
-    CottonDown, //Not done
+    BallFetch,
+    CottonDown,
     PropellorTail,
-    MirrorArmor, //Not done
-    GulpMissile, //Not done
+    MirrorArmor,
+    GulpMissile, //Needs Cramorant
     Stalwart,
     SteamEngine,
     PunkRock,
     SandSpit,
     IceScales,
-    Ripen, //Not done
+    Ripen,
     IceFace, //Needs Eiscue
-    PowerSpot, //Not done
+    PowerSpot,
     Mimicry,
-    ScreenCleaner, //Not done
+    ScreenCleaner,
     SteelySpirit,
-    PerishBody, //Not done
-    WanderingSpirit, //Not done
+    PerishBody,
+    WanderingSpirit,
     GorillaTactics,
     NeutralizingGas,
     PastelVeil,
@@ -269,48 +269,48 @@ public enum Ability
     GrimNeigh,
     AsOneGlastrier,
     AsOneSpectrier,
-    LingeringAroma, //Not done
-    SeedSower, //Not done
-    ThermalExchange, //Not done
+    LingeringAroma,
+    SeedSower,
+    ThermalExchange,
     AngerShell,
     PurifyingSalt,
-    WellBakedBody, //Not done
+    WellBakedBody,
     WindRider,
-    GuardDog, //Not done
+    GuardDog,
     RockyPayload,
-    WindPower, //Not done
+    WindPower,
     ZeroToHero, //Needs Palafin-Hero
     Commander, //Needs Dondozo
-    Electromorphosis, //Not done
+    Electromorphosis,
     Protosynthesis,
     QuarkDrive,
-    GoodAsGold, //Not done
-    VesselOfRuin, //Not done
-    SwordOfRuin, //Not done
-    TabletsOfRuin, //Not done
-    BeadsOfRuin, //Not done
+    GoodAsGold,
+    VesselOfRuin,
+    SwordOfRuin,
+    TabletsOfRuin,
+    BeadsOfRuin,
     OrichalcumPulse,
     HadronEngine,
-    Opportunist, //Not done
+    Opportunist,
     CudChew, //Not done
     Sharpness,
     SupremeOverlord,
-    Costar, //Not done
+    Costar,
     ToxicDebris,
     ArmorTail,
     EarthEater,
     MyceliumMight,
-    Hospitality, //Not done
-    MindsEye, //Not done
-    EmbodyTeal, //Not done
-    EmbodyFire, //Not done
-    EmbodyWater, //Not done
-    EmbodyRock, //Not done
-    ToxicChain, //Not done
-    SupersweetSyrup, //Not done
+    Hospitality,
+    MindsEye,
+    EmbodyTeal, //Not done, needs Tera
+    EmbodyFire, //Not done, needs Tera
+    EmbodyWater, //Not done, needs Tera
+    EmbodyRock, //Not done, needs Tera
+    ToxicChain,
+    SupersweetSyrup,
     TeraShift, //Needs Terapagos
     TeraShell,
-    TeraformZero, //Not done
+    TeraformZero,
     PoisonPuppeteer,
 
 
@@ -329,6 +329,18 @@ public static class AbilityUtils
         or Multitype or Protosynthesis or QuarkDrive or RKSSystem
         or Schooling or ShieldsDown or StanceChange or WonderGuard
         or ZenMode or ZeroToHero or Protosynthesis or OrichalcumPulse;
+    public static bool Uncopiable(this Ability ability)
+        => ability is AsOneGlastrier or AsOneSpectrier or BattleBond
+        or Comatose or Commander or Disguise or FlowerGift or Forecast
+        or GulpMissile or IceFace or Illusion or Imposter or Multitype
+        or PowerOfAlchemy or Protosynthesis or QuarkDrive or Receiver
+        or RKSSystem or Schooling or ShieldsDown or StanceChange or Trace
+        or WonderGuard or ZenMode or ZeroToHero;
+    public static bool Unsuppressable(this Ability ability)
+        => ability is AsOneGlastrier or AsOneSpectrier or BattleBond
+        or Comatose or Disguise or GulpMissile or IceFace or Multitype
+        or PowerConstruct or Protosynthesis or QuarkDrive or RKSSystem
+        or Schooling or ShieldsDown or StanceChange or ZenMode or ZeroToHero;
     public static string Description(this Ability ability) => ability switch
     {
         Stench => "By releasing a stench when attacking, the Pokémon may cause the target to flinch.",
