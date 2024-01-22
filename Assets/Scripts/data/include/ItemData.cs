@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
+﻿using UnityEngine;
 
 public abstract class ItemData
 {

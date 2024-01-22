@@ -196,10 +196,12 @@ public class PartyScreen : MonoBehaviour
                 state = State.Active;
                 break;
             case TakeItem:
-                yield return AnnounceAndReturn("Took the " + currentMon.item.Data().itemName + " from " + currentMon.MonName + ".");
-                if (!currentMon.item.IsZCrystal()) p.AddItem(currentMon.item);
+                ItemID item = currentMon.item;
                 currentMon.CheckTransformationEnd(currentMon.item);
                 currentMon.item = ItemID.None;
+                displays[selectedMon].UpdateDisplay();
+                yield return AnnounceAndReturn("Took the " + item.Data().itemName + " from " + currentMon.MonName + ".");
+                if (!item.IsZCrystal()) p.AddItem(item);
                 state = State.Active;
                 break;
             case GiveItem:
@@ -247,9 +249,16 @@ public class PartyScreen : MonoBehaviour
                         Select(selectedMon - 2);
                 }
                 else if (Input.GetKeyDown(KeyCode.LeftArrow) &&
-                    0 < selectedMon && selectedMon is not exitNumber)
+                    0 < selectedMon)
                 {
-                    Select(selectedMon - 1);
+                    if (selectedMon is not exitNumber)
+                    {
+                        Select(selectedMon - 1);
+                    }
+                    else
+                    {
+                        Select(p.monsInParty - 1);
+                    }
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow) && selectedMon != exitNumber)
                 {

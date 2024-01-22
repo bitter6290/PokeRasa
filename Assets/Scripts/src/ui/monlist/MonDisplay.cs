@@ -13,6 +13,8 @@ public class MonDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hpMax;
     [SerializeField] private TextMeshProUGUI hpCurrent;
     [SerializeField] private TextMeshProUGUI eligibilityText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private RawImage itemSprite;
 
     private static Color unselectedColor = new(184f / 255f, 180f / 255f, 1);
     private static Color selectedColor = new(90f / 255f, 84f / 255f, 1);
@@ -25,7 +27,7 @@ public class MonDisplay : MonoBehaviour
     public bool selected;
     public bool moving;
     public Pokemon mon;
-
+    
     public void UpdateDisplay()
     {
         if (!mon.exists)
@@ -40,6 +42,9 @@ public class MonDisplay : MonoBehaviour
         healthBar.localScale = new((float)mon.hp / mon.hpMax, 1, 1);
         hpMax.text = mon.hpMax.ToString();
         hpCurrent.text = mon.hp.ToString();
+        levelText.text = "Lv. " + mon.level;
+        itemSprite.enabled = mon.item is not ItemID.None;
+        itemSprite.texture = mon.item.Data().ItemSprite;
     }
 
     public void GoToMoving()
