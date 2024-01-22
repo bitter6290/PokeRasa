@@ -1,4 +1,4 @@
-public enum ContinuousDamage : byte
+public enum PartialTrapping : byte
 {
     None,
     Wrap,
@@ -9,4 +9,5 @@ public enum ContinuousDamage : byte
     SandTomb,
     MagmaStorm,
     Infestation,
+    Octolock,
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Battle;
 
 public class OverallTest : MonoBehaviour
 {
@@ -22,12 +23,9 @@ public class OverallTest : MonoBehaviour
         testPokemon.move1 = MoveID.Splash;
         testPokemon.whichAbility = 0;
         testPokemon.pp1 = 40;
-        testPokemon.maxPp1 = 40;
         testPokemon2.item = ItemID.Venusaurite;
         testPokemon2.move1 = MoveID.Rollout;
         testPokemon2.pp2 = 40;
-        testPokemon2.maxPp2 = 40;
-        testPokemon4.maxPp1 = 10;
         testPokemon4.item = ItemID.NormaliumZ;
         testPokemon4.move2 = MoveID.Scratch;
         testPokemon4.pp1 = 10;
@@ -40,9 +38,9 @@ public class OverallTest : MonoBehaviour
         player.TryAddMon(testPokemon7);
         player.TryAddMon(testPokemon8);
         player.TryAddMon(testPokemon9);
-        battle.OpponentPokemon = new Pokemon[] { testPokemon, testPokemon3, testPokemon6,
+        battle.opponentPokemon = new Pokemon[] { testPokemon, testPokemon3, testPokemon6,
         Pokemon.EmptyMon, Pokemon.EmptyMon, Pokemon.EmptyMon };
-        battle.PlayerPokemon = player.Party;
+        battle.playerPokemon = player.Party;
         battle.StartCoroutine(battle.StartBattle());
     }
 
@@ -51,13 +49,13 @@ public class OverallTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            battle.PokemonOnField[0].PokemonData.gender = Gender.Female;
-            battle.PokemonOnField[3].PokemonData.gender = Gender.Male;
-            battle.PokemonOnField[3].PokemonData.move1 = MoveID.Attract;
+            battle.PokemonOnField[0].pokemon.gender = Gender.Female;
+            battle.PokemonOnField[3].pokemon.gender = Gender.Male;
+            battle.PokemonOnField[3].pokemon.move1 = MoveID.Attract;
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
-            Pokemon tester = battle.PokemonOnField[3].PokemonData;
+            Pokemon tester = battle.PokemonOnField[3].pokemon;
             BattlePokemon defender = battle.PokemonOnField[0];
             battle.Moves[0] = MoveID.Splash;
             tester.move1 = MoveID.Flamethrower;
@@ -65,42 +63,42 @@ public class OverallTest : MonoBehaviour
             defender.typesOverriden = true;
             defender.newType1 = Type.Grass;
             defender.newType1 = Type.Grass;
-            defender.PokemonData.item = ItemID.OccaBerry;
+            defender.pokemon.item = ItemID.OccaBerry;
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             BattlePokemon dummy = battle.PokemonOnField[0];
-            dummy.PokemonData.level = 100;
-            dummy.PokemonData.hp = dummy.PokemonData.hpMax;
-            dummy.PokemonData.move1 = MoveID.Splash;
-            dummy.PokemonData.pp1 = 255;
-            dummy.PokemonData.item = ItemID.SitrusBerry;
-            dummy.PokemonData.itemChanged = false;
+            dummy.pokemon.level = 100;
+            dummy.pokemon.hp = dummy.pokemon.hpMax;
+            dummy.pokemon.move1 = MoveID.Splash;
+            dummy.pokemon.pp1 = 255;
+            dummy.pokemon.item = ItemID.SitrusBerry;
+            dummy.pokemon.itemChanged = false;
             battle.Moves[0] = MoveID.Splash;
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            battle.PokemonOnField[0].PokemonData.move1 = MoveID.Encore;
-            battle.PokemonOnField[3].PokemonData.move1 = MoveID.Pound;
-            battle.PokemonOnField[3].PokemonData.move2 = MoveID.Scratch;
-            battle.PokemonOnField[3].PokemonData.move3 = MoveID.Tackle;
-            battle.PokemonOnField[3].PokemonData.pp2 = 30;
-            battle.PokemonOnField[3].PokemonData.pp3 = 30;
+            battle.PokemonOnField[0].pokemon.move1 = MoveID.Encore;
+            battle.PokemonOnField[3].pokemon.move1 = MoveID.Pound;
+            battle.PokemonOnField[3].pokemon.move2 = MoveID.Scratch;
+            battle.PokemonOnField[3].pokemon.move3 = MoveID.Tackle;
+            battle.PokemonOnField[3].pokemon.pp2 = 30;
+            battle.PokemonOnField[3].pokemon.pp3 = 30;
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
             BattlePokemon tester = battle.PokemonOnField[3];
             BattlePokemon defender = battle.PokemonOnField[0];
-            tester.PokemonData.move1 = MoveID.Pluck;
-            tester.PokemonData.pp1 = 40;
-            defender.PokemonData.move1 = MoveID.Splash;
-            defender.PokemonData.pp1 = 40;
-            defender.PokemonData.item = ItemID.LiechiBerry;
+            tester.pokemon.move1 = MoveID.Pluck;
+            tester.pokemon.pp1 = 40;
+            defender.pokemon.move1 = MoveID.Splash;
+            defender.pokemon.pp1 = 40;
+            defender.pokemon.item = ItemID.LiechiBerry;
             battle.Moves[0] = MoveID.Splash;
         }
         if (Input.GetKeyDown(KeyCode.S) && Input.GetKeyDown(KeyCode.RightShift))
         {
-            Pokemon tester = battle.PokemonOnField[3].PokemonData;
+            Pokemon tester = battle.PokemonOnField[3].pokemon;
             tester.move1 = MoveID.Stockpile;
             tester.move2 = MoveID.SpitUp;
             tester.move3 = MoveID.Swallow;

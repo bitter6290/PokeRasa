@@ -14,6 +14,6 @@ public class SpriteTest : MonoBehaviour
         {
             species = (SpeciesID)((int)(species + 1) % 3);
         }
-        battle.PokemonOnField[index].PokemonData.species = species;
+        battle.PokemonOnField[index].pokemon.species = species;
     }
 }

@@ -182,7 +182,7 @@ public class MenuManager : MonoBehaviour
 
     public MenuMode menuMode;
 
-    private BattlePokemon mon;
+    private Battle.BattlePokemon mon;
 
     private ItemID[] cachedItems;
     private int cachedItemCount;
@@ -496,11 +496,11 @@ public class MenuManager : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-            PartyBox(i + 1).enabled = battle.PlayerPokemon[i].exists;
+            PartyBox(i + 1).enabled = battle.playerPokemon[i].exists;
             PartyBox(i + 1).color = partyMonColor(i);
-            PartyText(i + 1).enabled = battle.PlayerPokemon[i].exists;
-            PartyText(i + 1).text = battle.PlayerPokemon[i].MonName;
-            PartyIcon(i + 1).enabled = battle.PlayerPokemon[i].exists;
+            PartyText(i + 1).enabled = battle.playerPokemon[i].exists;
+            PartyText(i + 1).text = battle.playerPokemon[i].MonName;
+            PartyIcon(i + 1).enabled = battle.playerPokemon[i].exists;
             PartyIcon(i + 1).sprite = (currentPartyMon == (i + 1)
                 && Time.time % 0.36 > 0.18) ?
             battle.playerMonIcons2[i] : battle.playerMonIcons[i];
@@ -708,7 +708,7 @@ public class MenuManager : MonoBehaviour
 
     private Color partyMonColor(int index)
     {
-        return battle.PlayerPokemon[index].fainted ? partyFainted : partyOK;
+        return battle.playerPokemon[index].fainted ? partyFainted : partyOK;
     }
 
     // Start is called before the first frame update
@@ -1189,22 +1189,22 @@ public class MenuManager : MonoBehaviour
                                 case 4:
                                 case 5:
                                 case 6:
-                                    if (battle.PlayerPokemon[currentPartyMon - 1].fainted)
+                                    if (battle.playerPokemon[currentPartyMon - 1].fainted)
                                     {
                                         StartCoroutine(AnnounceAndReturn(
-                                            battle.PlayerPokemon[currentPartyMon - 1].MonName
+                                            battle.playerPokemon[currentPartyMon - 1].MonName
                                             + " has no energy to battle!"));
                                     }
-                                    else if (battle.PlayerPokemon[currentPartyMon - 1].onField)
+                                    else if (battle.playerPokemon[currentPartyMon - 1].onField)
                                     {
                                         StartCoroutine(AnnounceAndReturn(
-                                            battle.PlayerPokemon[currentPartyMon - 1].MonName
+                                            battle.playerPokemon[currentPartyMon - 1].MonName
                                             + " is already on the field!"));
                                     }
                                     else if (battle.IsTrapped(currentMon))
                                     {
                                         StartCoroutine(AnnounceAndReturn(
-                                            battle.PokemonOnField[currentMon].PokemonData.MonName
+                                            battle.PokemonOnField[currentMon].pokemon.MonName
                                             + " is trapped and cannot switch!"));
                                     }
                                     else

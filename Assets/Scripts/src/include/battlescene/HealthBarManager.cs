@@ -20,7 +20,7 @@ public class HealthBarManager : MonoBehaviour
     public Battle battle;
     public int index;
 
-    private Pokemon Mon => battle.PokemonOnField[index].PokemonData;
+    private Pokemon Mon => battle.PokemonOnField[index].pokemon;
 
     public void Update()
     {

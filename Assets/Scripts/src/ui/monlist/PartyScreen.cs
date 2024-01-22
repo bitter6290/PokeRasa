@@ -179,13 +179,14 @@ public class PartyScreen : MonoBehaviour
                 default: continue;
             }
         }
+        audioSource.PlayOneShot(SFX.Select);
         yield return ChoiceMenu.DoChoiceMenu(p, possibleChoices, 0,
-            result, displays[selectedMon].transform, new(-40, goingDown ? 15 : -15), new(1, goingDown ? 1 : 0));
+            result, displays[selectedMon].transform, new(-40, goingDown ? 15 : -15),
+            new(1, goingDown ? 1 : 0), exit.gameObject);
         switch (result.Data)
         {
             case CloseMenu:
             default:
-                audioSource.PlayOneShot(SFX.Select);
                 state = State.Active;
                 break;
             case GetSummary:

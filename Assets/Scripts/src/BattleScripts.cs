@@ -169,7 +169,7 @@ public partial class Battle
                 yield return Announce(MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
-        if (PokemonOnField[index].PokemonData.status != Status.None)
+        if (PokemonOnField[index].pokemon.status != Status.None)
         {
             if (ShowFailure)
             {
@@ -184,7 +184,7 @@ public partial class Battle
         else
         {
             yield return ShowBurn(index);
-            PokemonOnField[index].PokemonData.status = Status.Burn;
+            PokemonOnField[index].pokemon.status = Status.Burn;
             yield return Announce(MonNameWithPrefix(index, true) + " was burned!");
         }
     }
@@ -196,7 +196,7 @@ public partial class Battle
                 yield return Announce(MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
-        if (PokemonOnField[index].PokemonData.status != Status.None)
+        if (PokemonOnField[index].pokemon.status != Status.None)
         {
             if (ShowFailure)
             {
@@ -217,33 +217,33 @@ public partial class Battle
         else
         {
             yield return ShowParalysis(index);
-            PokemonOnField[index].PokemonData.status = Status.Paralysis;
+            PokemonOnField[index].pokemon.status = Status.Paralysis;
             yield return Announce(MonNameWithPrefix(index, true) + " was paralyzed!");
         }
     }
     private IEnumerator HealParalysis(int index)
     {
-        if (PokemonOnField[index].PokemonData.status == Status.Paralysis)
+        if (PokemonOnField[index].pokemon.status == Status.Paralysis)
         {
-            PokemonOnField[index].PokemonData.status = Status.None;
+            PokemonOnField[index].pokemon.status = Status.None;
             yield return Announce(MonNameWithPrefix(index, true)
                 + " was cured of its paralysis!");
         }
     }
     private IEnumerator HealBurn(int index)
     {
-        if (PokemonOnField[index].PokemonData.status == Status.Burn)
+        if (PokemonOnField[index].pokemon.status == Status.Burn)
         {
-            PokemonOnField[index].PokemonData.status = Status.None;
+            PokemonOnField[index].pokemon.status = Status.None;
             yield return Announce(MonNameWithPrefix(index, true)
                 + " was cured of its burn!");
         }
     }
     private IEnumerator HealPoison(int index)
     {
-        if (PokemonOnField[index].PokemonData.status is Status.Poison or Status.ToxicPoison)
+        if (PokemonOnField[index].pokemon.status is Status.Poison or Status.ToxicPoison)
         {
-            PokemonOnField[index].PokemonData.status = Status.None;
+            PokemonOnField[index].pokemon.status = Status.None;
             yield return Announce(MonNameWithPrefix(index, true)
                 + " is no longer poisoned!");
         }
@@ -275,7 +275,7 @@ public partial class Battle
                 yield return Announce(MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
-        else if (target.PokemonData.status != Status.None)
+        else if (target.pokemon.status != Status.None)
         {
             if (ShowFailure && announceFailure)
             {
@@ -306,7 +306,7 @@ public partial class Battle
                 if (HasAbility(attacker, PoisonPuppeteer) && !PokemonOnField[index].confused) yield return Confuse(index);
             }
             yield return ShowPoison(index);
-            target.PokemonData.status = Status.Poison;
+            target.pokemon.status = Status.Poison;
             yield return Announce(MonNameWithPrefix(index, true) + " was poisoned!");
         }
     }
@@ -319,7 +319,7 @@ public partial class Battle
                 yield return Announce(MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
-        else if (target.PokemonData.status != Status.None)
+        else if (target.pokemon.status != Status.None)
         {
             if (ShowFailure)
                 yield return Announce(MoveFailed);
@@ -344,7 +344,7 @@ public partial class Battle
         else
         {
             yield return ShowToxicPoison(index);
-            target.PokemonData.status = Status.ToxicPoison;
+            target.pokemon.status = Status.ToxicPoison;
             target.toxicCounter = 0;
             yield return Announce(MonNameWithPrefix(index, true) + " was badly poisoned!");
         }
@@ -357,7 +357,7 @@ public partial class Battle
                 yield return Announce(MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
-        else if (PokemonOnField[index].PokemonData.status != Status.None)
+        else if (PokemonOnField[index].pokemon.status != Status.None)
         {
             if (ShowFailure)
                 yield return Announce(MoveFailed);
@@ -382,7 +382,7 @@ public partial class Battle
         else
         {
             yield return ShowFreeze(index);
-            PokemonOnField[index].PokemonData.status = Status.Freeze;
+            PokemonOnField[index].pokemon.status = Status.Freeze;
             yield return Announce(MonNameWithPrefix(index, true) + " was frozen solid!");
         }
     }
@@ -394,7 +394,7 @@ public partial class Battle
                 yield return Announce(MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
-        if (PokemonOnField[index].PokemonData.status != Status.None)
+        if (PokemonOnField[index].pokemon.status != Status.None)
         {
             if (ShowFailure)
                 yield return Announce(MoveFailed);
@@ -417,10 +417,10 @@ public partial class Battle
         }
         else
         {
-            PokemonOnField[index].PokemonData.status = Status.Sleep;
-            PokemonOnField[index].PokemonData.sleepTurns = 1 + (random.Next() % 3);
+            PokemonOnField[index].pokemon.status = Status.Sleep;
+            PokemonOnField[index].pokemon.sleepTurns = 1 + (random.Next() % 3);
             if (HasAbility(index, EarlyBird))
-                PokemonOnField[index].PokemonData.sleepTurns >>= 1;
+                PokemonOnField[index].pokemon.sleepTurns >>= 1;
             yield return Announce(MonNameWithPrefix(index, true) + " fell asleep!");
         }
     }
@@ -435,11 +435,11 @@ public partial class Battle
     private IEnumerator PoisonHurt(int index)
     {
         BattlePokemon target = PokemonOnField[index];
-        int poisonDamage = target.PokemonData.hpMax >> 3;
+        int poisonDamage = target.pokemon.hpMax >> 3;
         if (HasAbility(index, PoisonHeal))
         {
             yield return AbilityPopupStart(index);
-            yield return Heal(index, target.PokemonData.hpMax >> 3);
+            yield return Heal(index, target.pokemon.hpMax >> 3);
             yield return Announce(MonNameWithPrefix(index, true) + " is healed by Poison Heal!");
             yield return AbilityPopupEnd(index);
             yield break;
@@ -455,7 +455,7 @@ public partial class Battle
         if (HasAbility(index, PoisonHeal))
         {
             yield return AbilityPopupStart(index);
-            yield return Heal(index, target.PokemonData.hpMax >> 3);
+            yield return Heal(index, target.pokemon.hpMax >> 3);
             yield return Announce(MonNameWithPrefix(index, true) + " is healed by Poison Heal!");
             yield return AbilityPopupEnd(index);
             yield break;
@@ -468,7 +468,7 @@ public partial class Battle
 
     private IEnumerator WakeUp(int index)
     {
-        PokemonOnField[index].PokemonData.status = Status.None;
+        PokemonOnField[index].pokemon.status = Status.None;
         PokemonOnField[index].nightmare = false;
         yield return Announce(MonNameWithPrefix(index, true) + WokeUp);
     }
@@ -534,16 +534,16 @@ public partial class Battle
     {
         BattlePokemon target = PokemonOnField[index];
         if (target.healBlocked && !overrideBlock) yield break;
-        if (target.PokemonData.hp < target.PokemonData.hpMax)
+        if (target.pokemon.hp < target.pokemon.hpMax)
         {
             yield return Heal(index);
-            if (target.PokemonData.hp + amount > target.PokemonData.hpMax)
+            if (target.pokemon.hp + amount > target.pokemon.hpMax)
             {
-                yield return DoDamage(target.PokemonData, target.PokemonData.hp - target.PokemonData.hpMax);
+                yield return DoDamage(target.pokemon, target.pokemon.hp - target.pokemon.hpMax);
             }
             else
             {
-                yield return DoDamage(target.PokemonData, -1 * amount);
+                yield return DoDamage(target.pokemon, -1 * amount);
             }
         }
         else
@@ -576,77 +576,84 @@ public partial class Battle
     private IEnumerator GetContinuousDamage(int attacker, int index, MoveID move)
     {
         BattlePokemon target = PokemonOnField[index];
-        if (target.getsContinuousDamage)
+        if (target.partialTrapped)
         {
             yield break;
         }
         switch (move)
         {
             case MoveID.Wrap:
-                target.getsContinuousDamage = true;
-                target.continuousDamageType = ContinuousDamage.Wrap;
-                target.continuousDamageSource = attacker;
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.Wrap;
+                target.partialTrappingSource = attacker;
                 yield return Announce(MonNameWithPrefix(index, true) +
                     " was wrapped by "
-                    + MonNameWithPrefix(target.continuousDamageSource, false) + "!");
+                    + MonNameWithPrefix(target.partialTrappingSource, false) + "!");
                 break;
             case MoveID.Bind:
-                target.getsContinuousDamage = true;
-                target.continuousDamageType = ContinuousDamage.Bind;
-                target.continuousDamageSource = attacker;
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.Bind;
+                target.partialTrappingSource = attacker;
                 yield return Announce(MonNameWithPrefix(index, true) +
                     " is squeezed by " +
-                    MonNameWithPrefix(target.continuousDamageSource, false) + "'s Bind!");
+                    MonNameWithPrefix(target.partialTrappingSource, false) + "'s Bind!");
                 break;
             case MoveID.FireSpin:
-                target.getsContinuousDamage = true;
-                target.continuousDamageType = ContinuousDamage.FireSpin;
-                target.continuousDamageSource = attacker;
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.FireSpin;
+                target.partialTrappingSource = attacker;
                 yield return Announce(MonNameWithPrefix(index, true) +
                     " was trapped in the vortex!");
                 break;
             case MoveID.Clamp:
-                target.getsContinuousDamage = true;
-                target.continuousDamageType = ContinuousDamage.Clamp;
-                target.continuousDamageSource = attacker;
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.Clamp;
+                target.partialTrappingSource = attacker;
                 yield return Announce(MonNameWithPrefix(index, true) +
                     " was clamped by " +
-                    MonNameWithPrefix(target.continuousDamageSource, false) + "!");
+                    MonNameWithPrefix(target.partialTrappingSource, false) + "!");
                 break;
             case MoveID.Whirlpool:
-                target.getsContinuousDamage = true;
-                target.continuousDamageType = ContinuousDamage.Whirlpool;
-                target.continuousDamageSource = attacker;
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.Whirlpool;
+                target.partialTrappingSource = attacker;
                 yield return Announce(MonNameWithPrefix(index, true) +
                     " was trapped in the vortex!");
                 break;
             case MoveID.SandTomb:
-                target.getsContinuousDamage = true;
-                target.continuousDamageType = ContinuousDamage.SandTomb;
-                target.continuousDamageSource = attacker;
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.SandTomb;
+                target.partialTrappingSource = attacker;
                 yield return Announce(MonNameWithPrefix(index, true) +
                     " was trapped by Sand Tomb!");
                 break;
             case MoveID.MagmaStorm:
-                target.getsContinuousDamage = true;
-                target.continuousDamageType = ContinuousDamage.MagmaStorm;
-                target.continuousDamageSource = attacker;
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.MagmaStorm;
+                target.partialTrappingSource = attacker;
                 yield return Announce(MonNameWithPrefix(index, true) +
                     " was trapped in the swirling magma!");
                 break;
             case MoveID.Infestation:
-                target.getsContinuousDamage = true;
-                target.continuousDamageType = ContinuousDamage.Infestation;
-                target.continuousDamageSource = attacker;
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.Infestation;
+                target.partialTrappingSource = attacker;
                 yield return Announce(MonNameWithPrefix(index, true) +
                     " has been inflicted by " +
                     MonNameWithPrefix(attacker, false) + "'s Infestation!");
+                break;
+            case MoveID.Octolock:
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.Octolock;
+                target.partialTrappingSource = attacker;
+                yield return Announce(MonNameWithPrefix(index, true) +
+                    " can no longer escape because of Octolock!");
                 break;
             default:
                 yield return Announce("Error 111");
                 yield break;
         }
-        target.continuousDamageTimer = 4 + (random.Next() & 1);
+        target.partialTrappingTimer = 4 + (random.Next() & 1);
 
     }
 
@@ -659,18 +666,18 @@ public partial class Battle
             {
                 if (fromMove)
                     yield return Announce(MonNameWithPrefix(index, true) + " came back to "
-                        + OpponentName + "!");
+                        + opponentName + "!");
                 else
-                    yield return Announce(OpponentName + " withdrew " + MonNameWithPrefix(index, false) + "!");
+                    yield return Announce(opponentName + " withdrew " + MonNameWithPrefix(index, false) + "!");
             }
             LeaveField(index);
-            yield return Announce(OpponentName + " sent out "
-                + OpponentPokemon[partyIndex].MonName + "!");
-            PokemonOnField[index] = new(OpponentPokemon[partyIndex], index, false, this);
+            yield return Announce(opponentName + " sent out "
+                + opponentPokemon[partyIndex].MonName + "!");
+            PokemonOnField[index] = new(opponentPokemon[partyIndex], index, false, this);
             PokemonOnField[index].partyIndex = partyIndex;
             HandleFacing(index);
             audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
-                + PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
+                + PokemonOnField[index].pokemon.SpeciesData.cryLocation));
             yield return MonEntersField(index);
         }
         else
@@ -685,12 +692,12 @@ public partial class Battle
                     yield return Announce(MonNameWithPrefix(index, true) + "! Come back!");
             }
             LeaveField(index);
-            yield return Announce("Go! " + PlayerPokemon[partyIndex].MonName + "!");
-            PokemonOnField[index] = new(PlayerPokemon[partyIndex], index, true, this);
+            yield return Announce("Go! " + playerPokemon[partyIndex].MonName + "!");
+            PokemonOnField[index] = new(playerPokemon[partyIndex], index, true, this);
             PokemonOnField[index].partyIndex = partyIndex;
             HandleFacing(index);
             audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
-                + PokemonOnField[index].PokemonData.SpeciesData.cryLocation));
+                + PokemonOnField[index].pokemon.SpeciesData.cryLocation));
             yield return MonEntersField(index);
         }
     }
@@ -725,10 +732,10 @@ public partial class Battle
             case BattleType.Single:
             default:
                 List<int> RemainingIndices = new();
-                Pokemon[] PokemonArray = index < 3 ? OpponentPokemon : PlayerPokemon;
+                Pokemon[] PokemonArray = index < 3 ? opponentPokemon : playerPokemon;
                 for (int i = 0; i < 6; i++)
                 {
-                    if (PokemonArray[i] == PokemonOnField[index].PokemonData) continue;
+                    if (PokemonArray[i] == PokemonOnField[index].pokemon) continue;
                     if (PokemonArray[i].exists
                             && !PokemonArray[i].fainted)
                     {
@@ -753,7 +760,7 @@ public partial class Battle
                         partyIndex = partyIndex
                     };
                     HandleFacing(index);
-                    yield return Announce(PokemonOnField[index].PokemonData.MonName
+                    yield return Announce(PokemonOnField[index].pokemon.MonName
                         + " was dragged out!");
                 }
                 break;
@@ -764,8 +771,8 @@ public partial class Battle
     private IEnumerator MakeSubstitute(int index)
     {
         BattlePokemon user = PokemonOnField[index];
-        if (user.PokemonData.hp
-            < user.PokemonData.hpMax >> 2)
+        if (user.pokemon.hp
+            < user.pokemon.hpMax >> 2)
         {
             yield return Announce(MonNameWithPrefix(index, true)
                 + " doesn't have enough HP left to make a substitute!");
@@ -775,8 +782,8 @@ public partial class Battle
         {
             user.hasSubstitute = true;
             user.substituteHP
-                = user.PokemonData.hpMax >> 2;
-            user.PokemonData.hp
+                = user.pokemon.hpMax >> 2;
+            user.pokemon.hp
                 -= user.substituteHP;
             yield return Announce(MonNameWithPrefix(index, true)
     + " cut its own HP to make a substitute!");
@@ -790,67 +797,74 @@ public partial class Battle
         PokemonOnField[index].hasSubstitute = false;
     }
 
-    private IEnumerator DoContinuousDamage(int index, ContinuousDamage type)
+    private IEnumerator DoContinuousDamage(int index, PartialTrapping type)
     {
         BattlePokemon target = PokemonOnField[index];
         int damage = 0;
         switch (type)
         {
-            case ContinuousDamage.Wrap:
-                //yield return Wrap(index);
-                damage = target.PokemonData.hpMax >> 3;
+            case PartialTrapping.Wrap:
+                //yield return WrapAnim(index);
+                damage = target.pokemon.hpMax >> 3;
                 yield return Announce(MonNameWithPrefix(index, true) + " is hurt by Wrap!");
                 break;
-            case ContinuousDamage.Bind:
-                //yield return Bind(index);
-                damage = target.PokemonData.hpMax >> 3;
+            case PartialTrapping.Bind:
+                //yield return BindAnim(index);
+                damage = target.pokemon.hpMax >> 3;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Bind!");
                 break;
-            case ContinuousDamage.FireSpin:
-                //yield return FireSpin(index);
-                damage = target.PokemonData.hpMax >> 3;
+            case PartialTrapping.FireSpin:
+                //yield return FireSpinAnim(index);
+                damage = target.pokemon.hpMax >> 3;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Fire Spin!");
                 break;
-            case ContinuousDamage.Clamp:
-                //yield return Clamp(index);
-                damage = target.PokemonData.hpMax >> 3;
+            case PartialTrapping.Clamp:
+                //yield return ClampAnim(index);
+                damage = target.pokemon.hpMax >> 3;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Clamp!");
                 break;
-            case ContinuousDamage.Whirlpool:
-                //yield return Whirlpool(index);
-                damage = target.PokemonData.hpMax >> 3;
+            case PartialTrapping.Whirlpool:
+                //yield return WhirlpoolAnim(index);
+                damage = target.pokemon.hpMax >> 3;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Whirlpool!");
                 break;
-            case ContinuousDamage.SandTomb:
-                //yield return SandTomb(index);
-                damage = target.PokemonData.hpMax >> 3;
+            case PartialTrapping.SandTomb:
+                //yield return SandTombAnim(index);
+                damage = target.pokemon.hpMax >> 3;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Sand Tomb!");
                 break;
-            case ContinuousDamage.MagmaStorm:
-                //yield return MagmaStorm(index);
-                damage = target.PokemonData.hpMax >> 3;
+            case PartialTrapping.MagmaStorm:
+                //yield return MagmaStormAnim(index);
+                damage = target.pokemon.hpMax >> 3;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by the swirling magma!");
                 break;
-            case ContinuousDamage.Infestation:
-                //yield return Infestation(index);
-                damage = target.PokemonData.hpMax >> 3;
+            case PartialTrapping.Infestation:
+                //yield return InfestationAnim(index);
+                damage = target.pokemon.hpMax >> 3;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Infestation!");
+                break;
+            case PartialTrapping.Octolock:
+                //yield return OctolockAnim(index);
+                doStatAnim = true;
+                yield return StatDown(index, Stat.Defense, 1, target.partialTrappingSource);
+                yield return StatDown(index, Stat.SpDef, 1, target.partialTrappingSource);
                 break;
             default:
                 yield return Announce("Error 112");
                 break;
         }
-        if (damage > target.PokemonData.hp)
+        if (type is PartialTrapping.Octolock) yield break;
+        else if (damage > target.pokemon.hp)
         {
             yield return DoFatalDamage(index);
-            target.PokemonData.fainted = true;
+            target.pokemon.fainted = true;
         }
         else
         {
@@ -926,16 +940,16 @@ public partial class Battle
             yield return Announce(MoveFailed);
             yield break;
         }
-        if (user.PokemonData.hp
-            < user.PokemonData.hpMax
-            && user.PokemonData.status != Status.Sleep)
+        if (user.pokemon.hp
+            < user.pokemon.hpMax
+            && user.pokemon.status != Status.Sleep)
         {
-            user.PokemonData.status = Status.Sleep;
-            user.PokemonData.sleepTurns = 2;
+            user.pokemon.status = Status.Sleep;
+            user.pokemon.sleepTurns = 2;
             yield return Announce(MonNameWithPrefix(index, true)
                 + " slept and became healthy!");
             yield return Heal(index,
-                user.PokemonData.hpMax);
+                user.pokemon.hpMax);
         }
         else
         {
@@ -969,7 +983,7 @@ public partial class Battle
             //TransformMon(int index, int target)
             yield return AnimUtils.Fade(spriteRenderer[index], 0.0F, 0.5F);
             user.isTransformed = true;
-            user.transformedMon = PokemonOnField[target].PokemonData.Clone() as Pokemon;
+            user.transformedMon = PokemonOnField[target].pokemon.Clone() as Pokemon;
             user.transformedMon.SetTransformPP();
             user.ability = PokemonOnField[target].ability;
             user.ApplyStatStruct(
@@ -1028,15 +1042,15 @@ public partial class Battle
 
     private IEnumerator DoPainSplit(int target, int attacker)
     {
-        if (PokemonOnField[attacker].PokemonData.hp
-            > PokemonOnField[target].PokemonData.hp)
+        if (PokemonOnField[attacker].pokemon.hp
+            > PokemonOnField[target].pokemon.hp)
         {
             yield return Announce(MoveFailed);
             yield break;
         }
-        int newHP = (PokemonOnField[attacker].PokemonData.hp + PokemonOnField[target].PokemonData.hp) >> 1;
-        yield return DoDamage(PokemonOnField[target].PokemonData, PokemonOnField[target].PokemonData.hp - newHP);
-        yield return DoDamage(PokemonOnField[attacker].PokemonData, PokemonOnField[attacker].PokemonData.hp - newHP);
+        int newHP = (PokemonOnField[attacker].pokemon.hp + PokemonOnField[target].pokemon.hp) >> 1;
+        yield return DoDamage(PokemonOnField[target].pokemon, PokemonOnField[target].pokemon.hp - newHP);
+        yield return DoDamage(PokemonOnField[attacker].pokemon, PokemonOnField[attacker].pokemon.hp - newHP);
         yield return new WaitForSeconds(0.5F);
         yield return Announce("The battlers shared their pain!");
     }
@@ -1046,7 +1060,7 @@ public partial class Battle
         BattlePokemon target = PokemonOnField[index];
         if (!PokemonOnField[target.seedingSlot].exists) yield break;
         //yield return LeechSeed(index, target.seedingSlot);
-        int healthAmount = target.PokemonData.hpMax >> 3;
+        int healthAmount = target.pokemon.hpMax >> 3;
         target.DoNonMoveDamage(healthAmount);
         if (HasAbility(index, LiquidOoze))
         {
@@ -1069,7 +1083,7 @@ public partial class Battle
     {
         BattlePokemon user = PokemonOnField[index];
         if (((Move.MoveTable[(int)PokemonOnField[target].lastMoveUsed].moveFlags & MoveFlags.cannotMimic) != 0)
-            || PokemonOnField[index].PokemonData.HasMove(PokemonOnField[target].lastMoveUsed))
+            || PokemonOnField[index].pokemon.HasMove(PokemonOnField[target].lastMoveUsed))
         {
             yield return Announce(MoveFailed);
             yield break;
@@ -1210,7 +1224,7 @@ public partial class Battle
         if (PokemonOnField[index].perishCounter <= 0)
         {
             yield return DoFatalDamage(index);
-            PokemonOnField[index].PokemonData.fainted = true;
+            PokemonOnField[index].pokemon.fainted = true;
         }
     }
 
@@ -1276,11 +1290,11 @@ public partial class Battle
         {
             for (int i = 0; i < 6; i++)
             {
-                if (OpponentPokemon[i].exists
-                    && OpponentPokemon[i].SpeciesData.abilities[OpponentPokemon[i].whichAbility] != Soundproof
+                if (opponentPokemon[i].exists
+                    && opponentPokemon[i].SpeciesData.abilities[opponentPokemon[i].whichAbility] != Soundproof
                     )
                 {
-                    yield return CureStatusHealBell(OpponentPokemon[i]);
+                    yield return CureStatusHealBell(opponentPokemon[i]);
                 }
             }
         }
@@ -1288,11 +1302,11 @@ public partial class Battle
         {
             for (int i = 0; i < 6; i++)
             {
-                if (PlayerPokemon[i].exists
-                    && PlayerPokemon[i].SpeciesData.abilities[PlayerPokemon[i].whichAbility] != Soundproof
+                if (playerPokemon[i].exists
+                    && playerPokemon[i].SpeciesData.abilities[playerPokemon[i].whichAbility] != Soundproof
                     )
                 {
-                    yield return CureStatusHealBell(PlayerPokemon[i]);
+                    yield return CureStatusHealBell(playerPokemon[i]);
                 }
             }
         }
@@ -1300,17 +1314,17 @@ public partial class Battle
 
     private IEnumerator DoThief(int attacker, int defender)
     {
-        if (PokemonOnField[attacker].PokemonData.item == ItemID.None
-            && ItemUtils.CanBeStolen(PokemonOnField[defender].PokemonData.item)
+        if (PokemonOnField[attacker].pokemon.item == ItemID.None
+            && ItemUtils.CanBeStolen(PokemonOnField[defender].pokemon.item)
             && !HasAbility(defender, StickyHold))
         {
-            PokemonOnField[attacker].PokemonData.newItem = PokemonOnField[defender].PokemonData.item;
-            PokemonOnField[defender].PokemonData.newItem = ItemID.None;
-            PokemonOnField[defender].PokemonData.itemChanged = true;
-            PokemonOnField[attacker].PokemonData.itemChanged = true;
+            PokemonOnField[attacker].pokemon.newItem = PokemonOnField[defender].pokemon.item;
+            PokemonOnField[defender].pokemon.newItem = ItemID.None;
+            PokemonOnField[defender].pokemon.itemChanged = true;
+            PokemonOnField[attacker].pokemon.itemChanged = true;
             yield return Announce(MonNameWithPrefix(attacker, true)
                 + " stole " + MonNameWithPrefix(defender, false) + "'s "
-                + Item.ItemTable[(int)PokemonOnField[attacker].PokemonData.item].itemName + "!");
+                + Item.ItemTable[(int)PokemonOnField[attacker].pokemon.item].itemName + "!");
         }
     }
 
@@ -1327,16 +1341,16 @@ public partial class Battle
             }
             yield break;
         }
-        if (PokemonOnField[attacker].PokemonData.item == ItemID.None
+        if (PokemonOnField[attacker].pokemon.item == ItemID.None
         && ItemUtils.CanBeStolen(PokemonOnField[defender].Item)
         && ItemUtils.CanBeStolen(PokemonOnField[attacker].Item)
         && !HasAbility(defender, StickyHold))
         {
             ItemID attackerItem = PokemonOnField[attacker].Item;
-            PokemonOnField[attacker].PokemonData.newItem = PokemonOnField[defender].Item;
-            PokemonOnField[defender].PokemonData.newItem = attackerItem;
-            PokemonOnField[defender].PokemonData.itemChanged = true;
-            PokemonOnField[attacker].PokemonData.itemChanged = true;
+            PokemonOnField[attacker].pokemon.newItem = PokemonOnField[defender].Item;
+            PokemonOnField[defender].pokemon.newItem = attackerItem;
+            PokemonOnField[defender].pokemon.itemChanged = true;
+            PokemonOnField[attacker].pokemon.itemChanged = true;
             yield return Announce(MonNameWithPrefix(attacker, true)
                 + " switched items with " + MonNameWithPrefix(defender, false) + "!");
             yield return Announce(MonNameWithPrefix(defender, true)
@@ -1353,16 +1367,16 @@ public partial class Battle
         if (user.Item == ItemID.None || target.Item != ItemID.None)
             yield return Announce(MoveFailed);
         //Todo: add other failure conditions
-        if (user.Item.Data().type == ItemType.Plate && user.PokemonData.SpeciesData.speciesName == "Arceus")
+        if (user.Item.Data().type == ItemType.Plate && user.pokemon.SpeciesData.speciesName == "Arceus")
         {
             yield return Announce(MoveFailed);
         }
         else
         {
-            target.PokemonData.newItem = user.Item;
-            user.PokemonData.newItem = ItemID.None;
-            target.PokemonData.itemChanged = true;
-            user.PokemonData.itemChanged = true;
+            target.pokemon.newItem = user.Item;
+            user.pokemon.newItem = ItemID.None;
+            target.pokemon.itemChanged = true;
+            user.pokemon.itemChanged = true;
             yield return Announce(MonNameWithPrefix(attacker, true)
                 + " gave " + MonNameWithPrefix(defender, false) + " its "
                 + target.Item.Data().itemName + "!");
@@ -1375,14 +1389,14 @@ public partial class Battle
             yield return Announce(MonNameWithPrefix(attacker, true)
                 + " knocked off " + MonNameWithPrefix(defender, false)
                 + "'s " + PokemonOnField[defender].Item.Data().itemName + "!");
-            PokemonOnField[defender].PokemonData.newItem = ItemID.None;
-            PokemonOnField[defender].PokemonData.itemChanged = true;
+            PokemonOnField[defender].pokemon.newItem = ItemID.None;
+            PokemonOnField[defender].pokemon.itemChanged = true;
         }
     }
 
     private IEnumerator GhostCurse(int attacker, int defender)
     {
-        yield return DoDamage(PokemonOnField[attacker].PokemonData, PokemonOnField[attacker].PokemonData.hpMax >> 1);
+        yield return DoDamage(PokemonOnField[attacker].pokemon, PokemonOnField[attacker].pokemon.hpMax >> 1);
         PokemonOnField[defender].cursed = true;
         yield return Announce(MonNameWithPrefix(attacker, true) + " cut its own HP to put a curse on "
             + MonNameWithPrefix(defender, false) + "!");
@@ -1390,7 +1404,7 @@ public partial class Battle
 
     private IEnumerator DoCurse(int index)
     {
-        PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].PokemonData.hpMax >> 2);
+        PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].pokemon.hpMax >> 2);
         yield return Announce(MonNameWithPrefix(index, true) + " is hurt by Curse!");
     }
 
@@ -1436,10 +1450,10 @@ public partial class Battle
         bool worked = true;
         switch (target.lastMoveSlot)
         {
-            case 1: target.PokemonData.pp1 = Max(0, target.PokemonData.pp1 - amount); break;
-            case 2: target.PokemonData.pp2 = Max(0, target.PokemonData.pp2 - amount); break;
-            case 3: target.PokemonData.pp3 = Max(0, target.PokemonData.pp3 - amount); break;
-            case 4: target.PokemonData.pp4 = Max(0, target.PokemonData.pp4 - amount); break;
+            case 1: target.pokemon.pp1 = Max(0, target.pokemon.pp1 - amount); break;
+            case 2: target.pokemon.pp2 = Max(0, target.pokemon.pp2 - amount); break;
+            case 3: target.pokemon.pp3 = Max(0, target.pokemon.pp3 - amount); break;
+            case 4: target.pokemon.pp4 = Max(0, target.pokemon.pp4 - amount); break;
             default: worked = false; break;
         }
         if (announce && worked) yield return Announce("It reduced the PP of " + MonNameWithPrefix(index, false)
@@ -1449,7 +1463,7 @@ public partial class Battle
 
     private IEnumerator GetNightmare(int index)
     {
-        if (PokemonOnField[index].PokemonData.status != Status.Sleep || PokemonOnField[index].nightmare)
+        if (PokemonOnField[index].pokemon.status != Status.Sleep || PokemonOnField[index].nightmare)
             yield return Announce(MoveFailed);
         else
         {
@@ -1460,7 +1474,7 @@ public partial class Battle
 
     private IEnumerator DoNightmare(int index)
     {
-        PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].PokemonData.hpMax >> 2);
+        PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].pokemon.hpMax >> 2);
         yield return Announce(MonNameWithPrefix(index, true) + " is locked in a nightmare!");
     }
 
@@ -1474,7 +1488,7 @@ public partial class Battle
 
     private IEnumerator DoBellyDrum(int index)
     {
-        if (PokemonOnField[index].PokemonData.hp * 2 > PokemonOnField[index].PokemonData.hpMax)
+        if (PokemonOnField[index].pokemon.hp * 2 > PokemonOnField[index].pokemon.hpMax)
         {
             if (PokemonOnField[index].attackStage == 6)
             {
@@ -1482,7 +1496,7 @@ public partial class Battle
                     + "'s Attack won't go any higher!");
                 yield break;
             }
-            PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].PokemonData.hpMax >> 1);
+            PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].pokemon.hpMax >> 1);
             yield return StatUpAnim(index);
             PokemonOnField[index].attackStage = 6;
             yield return Announce(MonNameWithPrefix(index, true)
@@ -1579,10 +1593,10 @@ public partial class Battle
         {
             turn = turnsElapsed + 2,
             target = target,
-            user = PokemonOnField[user].PokemonData,
-            spAtk = PokemonOnField[user].PokemonData.spAtk,
+            user = PokemonOnField[user].pokemon,
+            spAtk = PokemonOnField[user].pokemon.spAtk,
             spAtkStage = PokemonOnField[user].spAtkStage,
-            level = PokemonOnField[user].PokemonData.level,
+            level = PokemonOnField[user].pokemon.level,
             stab = PokemonOnField[user].HasType(GetMove(user).type),
             critical = random.NextDouble() < GetCritChance(user, Moves[user]),
             type = GetEffectiveType(Moves[user], user),
@@ -1604,7 +1618,7 @@ public partial class Battle
         if (effectiveness > 0)
         {
             int damage = FutureSightDamageCalc(data);
-            if (damage > targetMon.PokemonData.hp)
+            if (damage > targetMon.pokemon.hp)
             {
                 if (targetMon.ability == Sturdy && targetMon.AtFullHealth
                     && !(HasAbility(data.user.lastIndex, MoldBreaker)
@@ -1621,12 +1635,12 @@ public partial class Battle
                 else
                 {
                     yield return DoFatalDamage(data.target);
-                    targetMon.PokemonData.fainted = true;
+                    targetMon.pokemon.fainted = true;
                 }
             }
             else
             {
-                yield return DoDamage(targetMon.PokemonData, damage);
+                yield return DoDamage(targetMon.pokemon, damage);
             }
         }
         yield return AnnounceTypeEffectiveness(effectiveness, false, data.target);
@@ -1654,7 +1668,7 @@ public partial class Battle
         for (int i = 0; i < 6; i++)
         {
             if (PokemonOnField[i].exists
-                && PokemonOnField[i].PokemonData.status == Status.Sleep)
+                && PokemonOnField[i].pokemon.status == Status.Sleep)
             {
                 yield return WakeUp(i);
             }
@@ -1679,9 +1693,9 @@ public partial class Battle
         BattlePokemon user = PokemonOnField[index];
         switch (user.stockpile)
         {
-            case 1: yield return Heal(index, user.PokemonData.hpMax >> 2); break;
-            case 2: yield return Heal(index, user.PokemonData.hpMax >> 1); break;
-            case 3: yield return Heal(index, user.PokemonData.hpMax); break;
+            case 1: yield return Heal(index, user.pokemon.hpMax >> 2); break;
+            case 2: yield return Heal(index, user.pokemon.hpMax >> 1); break;
+            case 3: yield return Heal(index, user.pokemon.hpMax); break;
             default: yield break;
         }
         if (user.stockpileDef > 0 || user.stockpileSpDef > 0)
@@ -1704,7 +1718,7 @@ public partial class Battle
     {
         yield return Announce(MonNameWithPrefix(index, true)
             + " made a wish!");
-        wishes.Enqueue((PokemonOnField[index].PokemonData.hpMax >> 1,
+        wishes.Enqueue((PokemonOnField[index].pokemon.hpMax >> 1,
             turnsElapsed + 1, index, MonNameWithPrefix(index, true)));
     }
 
@@ -1802,12 +1816,12 @@ public partial class Battle
         {
             if (consumeItems)
             {
-                user.PokemonData.item = user.eatenBerry;
+                user.pokemon.item = user.eatenBerry;
             }
             else
             {
-                user.PokemonData.newItem = user.eatenBerry;
-                user.PokemonData.itemChanged = true;
+                user.pokemon.newItem = user.eatenBerry;
+                user.pokemon.itemChanged = true;
             }
             user.eatenBerry = ItemID.None;
             yield return Announce(MonNameWithPrefix(index, true)
@@ -1833,7 +1847,7 @@ public partial class Battle
 
     private IEnumerator HealStatus(int index)
     {
-        switch (PokemonOnField[index].PokemonData.status)
+        switch (PokemonOnField[index].pokemon.status)
         {
             case Status.Paralysis:
                 yield return HealParalysis(index);
@@ -1890,8 +1904,8 @@ public partial class Battle
 
     private IEnumerator DoPsychoShift(int index, int attacker)
     {
-        Pokemon user = PokemonOnField[attacker].PokemonData;
-        Pokemon target = PokemonOnField[index].PokemonData;
+        Pokemon user = PokemonOnField[attacker].pokemon;
+        Pokemon target = PokemonOnField[index].pokemon;
         if (target.status != Status.None) yield break;
         if (user.status == Status.None) yield break;
         yield return user.status switch
@@ -2121,7 +2135,7 @@ public partial class Battle
         int baseNum = index > 2 ? 0 : 3;
         for (int i = baseNum; i < baseNum + 3; i++)
         {
-            foreach (MoveID move in PokemonOnField[i].PokemonData.MoveIDs)
+            foreach (MoveID move in PokemonOnField[i].pokemon.MoveIDs)
             {
                 MoveData data = move.Data();
                 if (data.effect is MoveEffect.OHKO or MoveEffect.SelfDestruct) return true;
@@ -2274,5 +2288,14 @@ public partial class Battle
             }
         }
         yield return AbilityPopupEnd(index);
+    }
+
+    private IEnumerator DoStuffCheeks(int index)
+    {
+        BerryEffect effect = PokemonOnField[index].Item.BerryEffect();
+        if (effect is None) yield break;
+        UseUpItem(index);
+        yield return DoBerryEffect(index, effect, false);
+        yield return StatUp(index, Stat.Defense, 2, index);
     }
 }

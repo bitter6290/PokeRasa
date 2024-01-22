@@ -756,6 +756,40 @@ public enum MoveID
     VeeveeVolley,
     DoubleIronBash,
 
+    // Gen 8
+    MaxGuard,
+    DynamaxCannon,
+    SnipeShot,
+    JawLock,
+    StuffCheeks,
+    NoRetreat,
+    TarShot,
+    MagicPowder,
+    DragonDarts,
+    Teatime,
+    Octolock,
+    BoltBeak,
+    FishiousRend,
+    CourtChange,
+    MaxFlare,
+    MaxFlutterby,
+    MaxLightning,
+    MaxStrike,
+    MaxKnuckle,
+    MaxPhantasm,
+    MaxHailstorm,
+    MaxOoze,
+    MaxGeyser,
+    MaxAirstream,
+    MaxStarfall,
+    MaxWyrmwind,
+    MaxMindstorm,
+    MaxRockfall,
+    MaxQuake,
+    MaxDarkness,
+    MaxOvergrowth,
+    MaxSteelspike,
+
 
     //Nonstandard moves
 
@@ -820,4 +854,38 @@ public static class MoveUtils
             (1, _) => 80,
             (_, _) => move.Data().power
         };
+    public static MoveID MaxMove(this MoveID move, Pokemon mon)
+    {
+        if (move.Data().power is 0) return MoveID.MaxGuard;
+        if (mon.gMaxFactor)
+        {
+            switch (move)
+            {
+                default: break;
+            }
+        }
+        return move.Data().type switch
+        {
+            Type.Normal => MoveID.MaxStrike,
+            Type.Fire => MoveID.MaxFlare,
+            Type.Water => MoveID.MaxGeyser,
+            Type.Grass => MoveID.MaxOvergrowth,
+            Type.Electric => MoveID.MaxLightning,
+            Type.Ice => MoveID.MaxHailstorm,
+            Type.Ground => MoveID.MaxQuake,
+            Type.Fighting => MoveID.MaxKnuckle,
+            Type.Poison => MoveID.MaxOoze,
+            Type.Flying => MoveID.MaxAirstream,
+            Type.Bug => MoveID.MaxFlutterby,
+            Type.Rock => MoveID.MaxRockfall,
+            Type.Psychic => MoveID.MaxMindstorm,
+            Type.Ghost => MoveID.MaxPhantasm,
+            Type.Dragon => MoveID.MaxWyrmwind,
+            Type.Dark => MoveID.MaxDarkness,
+            Type.Steel => MoveID.MaxSteelspike,
+            Type.Fairy => MoveID.MaxStarfall,
+            Type.Typeless => MoveID.None,
+            _ => MoveID.None,
+        };
+    }
 }

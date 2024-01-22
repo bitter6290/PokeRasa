@@ -18,7 +18,7 @@ public class SpriteManager : MonoBehaviour
 
     public Battle battle;
     public int index;
-    public BattlePokemon TrackedMon => battle.PokemonOnField[index];
+    public Battle.BattlePokemon TrackedMon => battle.PokemonOnField[index];
 
     private float basePosition;
 

@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using static MenuManager;
-using static StatusSprite;
 
 public class SummaryScreen : MonoBehaviour
 {

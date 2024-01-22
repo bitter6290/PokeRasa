@@ -88,7 +88,7 @@ public class MaskManager : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        mask.enabled = !battle.PokemonOnField[index].PokemonData.fainted;
+        mask.enabled = !battle.PokemonOnField[index].pokemon.fainted;
         mask.sprite = baseSprite.sprite;
     }
 }

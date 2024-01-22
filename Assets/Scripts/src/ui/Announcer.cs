@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public delegate IEnumerator FAnnounce(string announcement);
+
 public class Announcer : MonoBehaviour
 {
     [SerializeField]

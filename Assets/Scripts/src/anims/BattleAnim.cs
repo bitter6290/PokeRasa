@@ -115,7 +115,7 @@ public partial class Battle
     {
         Vector3 initialPosition = spriteTransform[index].position;
         audioSource0.pitch = 0.7F;
-        Cry(PokemonOnField[index].PokemonData.species, audioSource0);
+        Cry(PokemonOnField[index].pokemon.species, audioSource0);
         yield return new WaitForSeconds(1.3F); //1.30
         audioSource0.pitch = 1.0F;
         GameObject mask = new();
@@ -169,11 +169,11 @@ public partial class Battle
         float alpha = renderer.color.a;
         yield return Fade(renderer, 0.0F, 0.5F);
         if (untransform)
-            PokemonOnField[index].PokemonData.transformed = false;
+            PokemonOnField[index].pokemon.transformed = false;
         else
         {
-            PokemonOnField[index].PokemonData.transformed = true;
-            PokemonOnField[index].PokemonData.temporarySpecies = destinationSpecies;
+            PokemonOnField[index].pokemon.transformed = true;
+            PokemonOnField[index].pokemon.temporarySpecies = destinationSpecies;
         }
         yield return new WaitForSeconds(0.5F);
         yield return Fade(renderer, alpha, 0.5F);
@@ -269,7 +269,7 @@ public partial class Battle
                 yield return new WaitForSeconds(0.9F); //0.90
                 break;
             case MoveID.Growl:
-                Cry(PokemonOnField[index].PokemonData.species, audioSource0);
+                Cry(PokemonOnField[index].pokemon.species, audioSource0);
                 yield return Sway(spriteTransform[index], 0.25F, 0.1F, 0.1F, 3); //0.30
                 yield return new WaitForSeconds(0.5F); //0.80
                 break;

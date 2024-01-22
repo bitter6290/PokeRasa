@@ -14599,7 +14599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   wildBattle: 0
-  OpponentPokemon:
+  opponentPokemon:
   - species: 0
     name: 
     gender: 0
@@ -14614,17 +14614,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -14637,9 +14639,11 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14656,17 +14660,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -14679,9 +14685,11 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14698,17 +14706,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -14721,9 +14731,11 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14740,17 +14752,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -14763,9 +14777,11 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14782,17 +14798,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -14805,9 +14823,11 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14824,17 +14844,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -14847,12 +14869,14 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
-  PlayerPokemon:
+  playerPokemon:
   - species: 0
     name: 
     gender: 0
@@ -14867,17 +14891,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -14890,51 +14916,11 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    id: 0
-    egg: 0
-  - species: 0
-    name: 
-    gender: 0
-    xp: 0
-    level: 0
-    evHP: 0
-    evAttack: 0
-    evDefense: 0
-    evSpAtk: 0
-    evSpDef: 0
-    evSpeed: 0
-    totalEv: 0
-    whichAbility: 0
-    move1: 0
-    maxPp1: 0
-    pp1: 0
-    move2: 0
-    maxPp2: 0
-    pp2: 0
-    move3: 0
-    maxPp3: 0
-    pp3: 0
-    move4: 0
-    maxPp4: 0
-    pp4: 0
-    hp: 0
-    status: 0
-    sleepTurns: 0
-    fainted: 0
-    exists: 0
-    item: 0
-    itemChanged: 0
-    newItem: 0
-    onField: 0
-    lastIndex: 0
-    transformed: 0
-    temporarySpecies: 0
-    friendship: 0
-    hiddenPowerType: 0
-    gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14951,17 +14937,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -14974,9 +14962,11 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14993,17 +14983,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -15016,9 +15008,11 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -15035,17 +15029,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -15058,9 +15054,11 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -15077,17 +15075,19 @@ MonoBehaviour:
     totalEv: 0
     whichAbility: 0
     move1: 0
-    maxPp1: 0
+    pp1Level: 0
     pp1: 0
     move2: 0
-    maxPp2: 0
+    pp2Level: 0
     pp2: 0
     move3: 0
-    maxPp3: 0
+    pp3Level: 0
     pp3: 0
     move4: 0
-    maxPp4: 0
+    pp4Level: 0
     pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
     hp: 0
     status: 0
     sleepTurns: 0
@@ -15100,15 +15100,63 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
+    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
+    gMaxFactor: 0
+    id: 0
+    egg: 0
+  - species: 0
+    name: 
+    gender: 0
+    xp: 0
+    level: 0
+    evHP: 0
+    evAttack: 0
+    evDefense: 0
+    evSpAtk: 0
+    evSpDef: 0
+    evSpeed: 0
+    totalEv: 0
+    whichAbility: 0
+    move1: 0
+    pp1Level: 0
+    pp1: 0
+    move2: 0
+    pp2Level: 0
+    pp2: 0
+    move3: 0
+    pp3Level: 0
+    pp3: 0
+    move4: 0
+    pp4Level: 0
+    pp4: 0
+    switchedOut: 0
+    fellBelow50: 0
+    hp: 0
+    status: 0
+    sleepTurns: 0
+    fainted: 0
+    exists: 0
+    item: 0
+    itemChanged: 0
+    newItem: 0
+    onField: 0
+    lastIndex: 0
+    transformed: 0
+    temporarySpecies: 0
+    illusionActive: 0
+    friendship: 0
+    hiddenPowerType: 0
+    gainedLevel: 0
+    gMaxFactor: 0
     id: 0
     egg: 0
   state: 0
   currentPlayerMon: 3
-  OpponentName: Test Pilot
-  Announcer: {fileID: 1147491813}
+  opponentName: Error 401
+  announcer: {fileID: 1147491813}
   maskManager:
   - {fileID: 35164471}
   - {fileID: 0}
@@ -15151,11 +15199,13 @@ MonoBehaviour:
   megaEvolveOnMove: 000000000000
   usingZMove: 000000000000
   menuOpen: 0
+  textSpeed: 25
+  persistenceTime: 1.5
   switchingMon: 0
   switchingTarget: 0
   choseSwitchMon: 0
   PokemonOnField:
-  - PokemonData:
+  - pokemon:
       species: 0
       name: 
       gender: 0
@@ -15170,17 +15220,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -15189,13 +15241,15 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      onField: 1
+      onField: 0
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -15217,8 +15271,12 @@ MonoBehaviour:
     speedOverride: 0
     index: 0
     turnOnField: 0
+    truantThisTurn: 0
+    truantNextTurn: 0
     exists: 0
     player: 0
+    protoQuarkStat: 0
+    boosterEnergy: 0
     done: 1
     isTarget: 0
     isHit: 0
@@ -15226,7 +15284,6 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
-    abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
     protected75: 0
@@ -15235,12 +15292,13 @@ MonoBehaviour:
     roosting: 0
     confused: 0
     confusionCounter: 0
-    getsContinuousDamage: 0
-    continuousDamageType: 0
-    continuousDamageSource: 0
-    continuousDamageTimer: 0
+    partialTrapped: 0
+    partialTrappingType: 0
+    partialTrappingSource: 0
+    partialTrappingTimer: 0
     trapped: 0
     trappingSlot: 0
+    usedNoRetreat: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -15279,6 +15337,7 @@ MonoBehaviour:
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    unburdened: 0
     usedMindReader: 0
     hasMindReader: 0
     mindReaderTarget: 0
@@ -15307,17 +15366,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -15330,11 +15391,15 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
+    illusionActive: 0
+    illusionSpecies: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -15348,6 +15413,8 @@ MonoBehaviour:
     shellTrapWorks: 0
     taunted: 0
     tauntTimer: 0
+    dynamaxed: 0
+    dynamaxTurns: 0
     tormented: 0
     cursed: 0
     moveFailedThisTurn: 0
@@ -15398,6 +15465,7 @@ MonoBehaviour:
     telekinesisTimer: 0
     smackDown: 0
     powdered: 0
+    tarShot: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -15417,10 +15485,12 @@ MonoBehaviour:
     meFirst: 0
     usedMove: 
     electrify: 0
+    turnsToCudChew: 0
+    cudChewEffect: 0
     zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
-  - PokemonData:
+  - pokemon:
       species: 0
       name: 
       gender: 0
@@ -15435,17 +15505,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -15454,13 +15526,15 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      onField: 1
+      onField: 0
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -15482,8 +15556,12 @@ MonoBehaviour:
     speedOverride: 0
     index: 0
     turnOnField: 0
+    truantThisTurn: 0
+    truantNextTurn: 0
     exists: 0
     player: 0
+    protoQuarkStat: 0
+    boosterEnergy: 0
     done: 1
     isTarget: 0
     isHit: 0
@@ -15491,7 +15569,6 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
-    abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
     protected75: 0
@@ -15500,12 +15577,13 @@ MonoBehaviour:
     roosting: 0
     confused: 0
     confusionCounter: 0
-    getsContinuousDamage: 0
-    continuousDamageType: 0
-    continuousDamageSource: 0
-    continuousDamageTimer: 0
+    partialTrapped: 0
+    partialTrappingType: 0
+    partialTrappingSource: 0
+    partialTrappingTimer: 0
     trapped: 0
     trappingSlot: 0
+    usedNoRetreat: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -15544,6 +15622,7 @@ MonoBehaviour:
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    unburdened: 0
     usedMindReader: 0
     hasMindReader: 0
     mindReaderTarget: 0
@@ -15572,17 +15651,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -15595,11 +15676,15 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
+    illusionActive: 0
+    illusionSpecies: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -15613,6 +15698,8 @@ MonoBehaviour:
     shellTrapWorks: 0
     taunted: 0
     tauntTimer: 0
+    dynamaxed: 0
+    dynamaxTurns: 0
     tormented: 0
     cursed: 0
     moveFailedThisTurn: 0
@@ -15663,6 +15750,7 @@ MonoBehaviour:
     telekinesisTimer: 0
     smackDown: 0
     powdered: 0
+    tarShot: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -15682,10 +15770,12 @@ MonoBehaviour:
     meFirst: 0
     usedMove: 
     electrify: 0
+    turnsToCudChew: 0
+    cudChewEffect: 0
     zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
-  - PokemonData:
+  - pokemon:
       species: 0
       name: 
       gender: 0
@@ -15700,17 +15790,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -15719,13 +15811,15 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      onField: 1
+      onField: 0
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -15747,8 +15841,12 @@ MonoBehaviour:
     speedOverride: 0
     index: 0
     turnOnField: 0
+    truantThisTurn: 0
+    truantNextTurn: 0
     exists: 0
     player: 0
+    protoQuarkStat: 0
+    boosterEnergy: 0
     done: 1
     isTarget: 0
     isHit: 0
@@ -15756,7 +15854,6 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
-    abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
     protected75: 0
@@ -15765,12 +15862,13 @@ MonoBehaviour:
     roosting: 0
     confused: 0
     confusionCounter: 0
-    getsContinuousDamage: 0
-    continuousDamageType: 0
-    continuousDamageSource: 0
-    continuousDamageTimer: 0
+    partialTrapped: 0
+    partialTrappingType: 0
+    partialTrappingSource: 0
+    partialTrappingTimer: 0
     trapped: 0
     trappingSlot: 0
+    usedNoRetreat: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -15809,6 +15907,7 @@ MonoBehaviour:
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    unburdened: 0
     usedMindReader: 0
     hasMindReader: 0
     mindReaderTarget: 0
@@ -15837,17 +15936,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -15860,11 +15961,15 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
+    illusionActive: 0
+    illusionSpecies: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -15878,6 +15983,8 @@ MonoBehaviour:
     shellTrapWorks: 0
     taunted: 0
     tauntTimer: 0
+    dynamaxed: 0
+    dynamaxTurns: 0
     tormented: 0
     cursed: 0
     moveFailedThisTurn: 0
@@ -15928,6 +16035,7 @@ MonoBehaviour:
     telekinesisTimer: 0
     smackDown: 0
     powdered: 0
+    tarShot: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -15947,10 +16055,12 @@ MonoBehaviour:
     meFirst: 0
     usedMove: 
     electrify: 0
+    turnsToCudChew: 0
+    cudChewEffect: 0
     zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
-  - PokemonData:
+  - pokemon:
       species: 0
       name: 
       gender: 0
@@ -15965,17 +16075,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -15984,13 +16096,15 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      onField: 1
+      onField: 0
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -16012,8 +16126,12 @@ MonoBehaviour:
     speedOverride: 0
     index: 0
     turnOnField: 0
+    truantThisTurn: 0
+    truantNextTurn: 0
     exists: 0
     player: 0
+    protoQuarkStat: 0
+    boosterEnergy: 0
     done: 1
     isTarget: 0
     isHit: 0
@@ -16021,7 +16139,6 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
-    abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
     protected75: 0
@@ -16030,12 +16147,13 @@ MonoBehaviour:
     roosting: 0
     confused: 0
     confusionCounter: 0
-    getsContinuousDamage: 0
-    continuousDamageType: 0
-    continuousDamageSource: 0
-    continuousDamageTimer: 0
+    partialTrapped: 0
+    partialTrappingType: 0
+    partialTrappingSource: 0
+    partialTrappingTimer: 0
     trapped: 0
     trappingSlot: 0
+    usedNoRetreat: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -16074,6 +16192,7 @@ MonoBehaviour:
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    unburdened: 0
     usedMindReader: 0
     hasMindReader: 0
     mindReaderTarget: 0
@@ -16102,17 +16221,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -16125,11 +16246,15 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
+    illusionActive: 0
+    illusionSpecies: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -16143,6 +16268,8 @@ MonoBehaviour:
     shellTrapWorks: 0
     taunted: 0
     tauntTimer: 0
+    dynamaxed: 0
+    dynamaxTurns: 0
     tormented: 0
     cursed: 0
     moveFailedThisTurn: 0
@@ -16193,6 +16320,7 @@ MonoBehaviour:
     telekinesisTimer: 0
     smackDown: 0
     powdered: 0
+    tarShot: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -16212,10 +16340,12 @@ MonoBehaviour:
     meFirst: 0
     usedMove: 
     electrify: 0
+    turnsToCudChew: 0
+    cudChewEffect: 0
     zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
-  - PokemonData:
+  - pokemon:
       species: 0
       name: 
       gender: 0
@@ -16230,17 +16360,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -16249,13 +16381,15 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      onField: 1
+      onField: 0
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -16277,8 +16411,12 @@ MonoBehaviour:
     speedOverride: 0
     index: 0
     turnOnField: 0
+    truantThisTurn: 0
+    truantNextTurn: 0
     exists: 0
     player: 0
+    protoQuarkStat: 0
+    boosterEnergy: 0
     done: 1
     isTarget: 0
     isHit: 0
@@ -16286,7 +16424,6 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
-    abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
     protected75: 0
@@ -16295,12 +16432,13 @@ MonoBehaviour:
     roosting: 0
     confused: 0
     confusionCounter: 0
-    getsContinuousDamage: 0
-    continuousDamageType: 0
-    continuousDamageSource: 0
-    continuousDamageTimer: 0
+    partialTrapped: 0
+    partialTrappingType: 0
+    partialTrappingSource: 0
+    partialTrappingTimer: 0
     trapped: 0
     trappingSlot: 0
+    usedNoRetreat: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -16339,6 +16477,7 @@ MonoBehaviour:
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    unburdened: 0
     usedMindReader: 0
     hasMindReader: 0
     mindReaderTarget: 0
@@ -16367,17 +16506,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -16390,11 +16531,15 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
+    illusionActive: 0
+    illusionSpecies: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -16408,6 +16553,8 @@ MonoBehaviour:
     shellTrapWorks: 0
     taunted: 0
     tauntTimer: 0
+    dynamaxed: 0
+    dynamaxTurns: 0
     tormented: 0
     cursed: 0
     moveFailedThisTurn: 0
@@ -16458,6 +16605,7 @@ MonoBehaviour:
     telekinesisTimer: 0
     smackDown: 0
     powdered: 0
+    tarShot: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -16477,10 +16625,12 @@ MonoBehaviour:
     meFirst: 0
     usedMove: 
     electrify: 0
+    turnsToCudChew: 0
+    cudChewEffect: 0
     zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
-  - PokemonData:
+  - pokemon:
       species: 0
       name: 
       gender: 0
@@ -16495,17 +16645,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -16514,13 +16666,15 @@ MonoBehaviour:
       item: 0
       itemChanged: 0
       newItem: 0
-      onField: 1
+      onField: 0
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -16542,8 +16696,12 @@ MonoBehaviour:
     speedOverride: 0
     index: 0
     turnOnField: 0
+    truantThisTurn: 0
+    truantNextTurn: 0
     exists: 0
     player: 0
+    protoQuarkStat: 0
+    boosterEnergy: 0
     done: 1
     isTarget: 0
     isHit: 0
@@ -16551,7 +16709,6 @@ MonoBehaviour:
     isUnaffected: 0
     isCrit: 0
     gotMoveEffect: 0
-    abilityHealed25: 0
     abilityActivated: 0
     wasProtected: 0
     protected75: 0
@@ -16560,12 +16717,13 @@ MonoBehaviour:
     roosting: 0
     confused: 0
     confusionCounter: 0
-    getsContinuousDamage: 0
-    continuousDamageType: 0
-    continuousDamageSource: 0
-    continuousDamageTimer: 0
+    partialTrapped: 0
+    partialTrappingType: 0
+    partialTrappingSource: 0
+    partialTrappingTimer: 0
     trapped: 0
     trappingSlot: 0
+    usedNoRetreat: 0
     thrashing: 0
     thrashingTimer: 0
     lockedInNextTurn: 0
@@ -16604,6 +16762,7 @@ MonoBehaviour:
     bideDamage: 0
     rolloutIntensity: 0
     flashFire: 0
+    unburdened: 0
     usedMindReader: 0
     hasMindReader: 0
     mindReaderTarget: 0
@@ -16632,17 +16791,19 @@ MonoBehaviour:
       totalEv: 0
       whichAbility: 0
       move1: 0
-      maxPp1: 0
+      pp1Level: 0
       pp1: 0
       move2: 0
-      maxPp2: 0
+      pp2Level: 0
       pp2: 0
       move3: 0
-      maxPp3: 0
+      pp3Level: 0
       pp3: 0
       move4: 0
-      maxPp4: 0
+      pp4Level: 0
       pp4: 0
+      switchedOut: 0
+      fellBelow50: 0
       hp: 0
       status: 0
       sleepTurns: 0
@@ -16655,11 +16816,15 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
+      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
+      gMaxFactor: 0
       id: 0
       egg: 0
+    illusionActive: 0
+    illusionSpecies: 0
     ability: 0
     timeWithAbility: 0
     endure: 0
@@ -16673,6 +16838,8 @@ MonoBehaviour:
     shellTrapWorks: 0
     taunted: 0
     tauntTimer: 0
+    dynamaxed: 0
+    dynamaxTurns: 0
     tormented: 0
     cursed: 0
     moveFailedThisTurn: 0
@@ -16723,6 +16890,7 @@ MonoBehaviour:
     telekinesisTimer: 0
     smackDown: 0
     powdered: 0
+    tarShot: 0
     grudge: 0
     gotGrudgeEffect: 0
     snatch: 0
@@ -16742,9 +16910,12 @@ MonoBehaviour:
     meFirst: 0
     usedMove: 
     electrify: 0
+    turnsToCudChew: 0
+    cudChewEffect: 0
     zMoveBase: 0
     battle: {fileID: 0}
     lastTargetedMove: 0
+  consumeItems: 1
   battleTerrain: 0
   gravity: 0
   battleType: 0

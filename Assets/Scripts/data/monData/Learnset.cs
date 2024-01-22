@@ -7,8 +7,21 @@ public static class Learnset
     };
     public static LearnsetMove[] BulbasaurLearnset = new LearnsetMove[]
     {
-        new LearnsetMove(1, Pound),
-        new LearnsetMove(5, CometPunch)
+        new(1, Tackle),
+        new(1, Growl),
+        new(3, VineWhip),
+        new(6, Growth),
+        new(9, LeechSeed),
+        new(12, RazorLeaf),
+        new(15, PoisonPowder),
+        new(15, SleepPowder),
+        new(18, SeedBomb),
+        new(21, TakeDown),
+        new(24, SweetScent),
+        new(27, Synthesis),
+        new(30, WorrySeed),
+        new(33, PowerWhip),
+        new(36, SolarBeam)
     };
     public static LearnsetMove[] IvysaurLearnset = new LearnsetMove[]
     {
@@ -23,8 +36,8 @@ public static class Learnset
     };
     public static LearnsetMove[] VenusaurLearnset = new LearnsetMove[]
     {
-        //new(0, PetalBlizzard),
-        //new(1, PetalBlizzard),
+        new(0, PetalBlizzard),
+        new(1, PetalBlizzard),
         new(1, PetalDance),
         new(1, Tackle),
         new(1, Growl),
@@ -34,11 +47,11 @@ public static class Learnset
         new(12, RazorLeaf),
         new(15, PoisonPowder),
         new(15, SleepPowder),
-        //new(20, SeedBomb),
+        new(20, SeedBomb),
         new(25, TakeDown),
         new(30, SweetScent),
         new(37, Synthesis),
-        //new(44, WorrySeed),
+        new(44, WorrySeed),
         new(51, DoubleEdge),
         new(58, SolarBeam),
     };

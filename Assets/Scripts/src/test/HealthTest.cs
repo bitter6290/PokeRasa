@@ -14,7 +14,7 @@ public class HealthTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            battle.PokemonOnField[index].PokemonData.hp -= 10;
+            battle.PokemonOnField[index].pokemon.hp -= 10;
         }
     }
 }

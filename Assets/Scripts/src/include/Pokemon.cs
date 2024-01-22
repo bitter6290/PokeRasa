@@ -1,6 +1,8 @@
 using static System.Math;
 using System;
 using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
 
 [Serializable]
 public class Pokemon : ICloneable
@@ -47,16 +49,20 @@ public class Pokemon : ICloneable
     public int speed => CalculateStat(Stat.Speed, SpeciesData.baseSpeed, ivSpeed, evSpeed);
 
     public MoveID move1;
-    public int maxPp1;
+    public int pp1Level;
+    public int maxPp1 => move1.Data().pp + pp1Level * move1.Data().pp / 5;
     public int pp1;
     public MoveID move2;
-    public int maxPp2;
+    public int pp2Level;
+    public int maxPp2 => move2.Data().pp + pp1Level * move1.Data().pp / 5;
     public int pp2;
     public MoveID move3;
-    public int maxPp3;
+    public int pp3Level;
+    public int maxPp3 => move3.Data().pp + pp1Level * move1.Data().pp / 5;
     public int pp3;
     public MoveID move4;
-    public int maxPp4;
+    public int pp4Level;
+    public int maxPp4 => move4.Data().pp + pp1Level * move1.Data().pp / 5;
     public int pp4;
 
     public bool switchedOut;
@@ -85,8 +91,6 @@ public class Pokemon : ICloneable
 
     public bool onField = false;
     public int lastIndex = 0;
-    [NonSerialized]
-    public BattlePokemon battlePokemon;
 
     public bool transformed;
     public SpeciesID temporarySpecies;
@@ -99,6 +103,8 @@ public class Pokemon : ICloneable
     public Type hiddenPowerType;
 
     public bool gainedLevel;
+
+    public bool gMaxFactor;
 
     public int id;
 
@@ -114,6 +120,17 @@ public class Pokemon : ICloneable
 
     public bool UsesFemaleSprites => SpeciesData.genderDifferences && gender == Gender.Female;
 
+    private ref int PPLevel(int slot)
+    {
+        switch (slot)
+        {
+            case 1: return ref pp1Level;
+            case 2: return ref pp2Level;
+            case 3: return ref pp3Level;
+            case 4: return ref pp4Level;
+            default: throw new Exception("Passed bad arguemnt to Pokemon.ppLevel");
+        }
+    }
 
 
     public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
@@ -136,6 +153,18 @@ public class Pokemon : ICloneable
         pp3,
         pp4
     };
+
+    public void UsePP(int index, int amount)
+    {
+        switch (index)
+        {
+            case 0: pp1 -= amount; break;
+            case 1: pp2 -= amount; break;
+            case 2: pp3 -= amount; break;
+            case 3: pp4 -= amount; break;
+            default: throw new Exception("Passed bad index to UsePP");
+        }
+    }
 
     public bool HasMove(MoveID move) => move1 == move || move2 == move || move3 == move || move4 == move;
 
@@ -278,6 +307,14 @@ public class Pokemon : ICloneable
         }
         (shouldEvolve, destinationSpecies) = (false, SpeciesID.Missingno);
     }
+
+    public bool UsePPUp(int slot)
+    {
+        ref int ppLevel = ref PPLevel(slot);
+        if (ppLevel > 2) return false;
+        ppLevel++; return true;
+    }
+
     public bool CheckEvolutionMethod(EvolutionMethod method, int data)
     {
 
@@ -326,22 +363,22 @@ public class Pokemon : ICloneable
         {
             case 1:
                 move1 = move;
-                maxPp1 = Move.MoveTable[(int)move].pp;
+                pp1Level = 0;
                 pp1 = maxPp1;
                 break;
             case 2:
                 move2 = move;
-                maxPp2 = Move.MoveTable[(int)move].pp;
+                pp2Level = 0;
                 pp2 = maxPp2;
                 break;
             case 3:
                 move3 = move;
-                maxPp3 = Move.MoveTable[(int)move].pp;
+                pp3Level = 0;
                 pp3 = maxPp3;
                 break;
             case 4:
                 move4 = move;
-                maxPp4 = Move.MoveTable[(int)move].pp;
+                pp4Level = 0;
                 pp4 = maxPp4;
                 break;
         }
@@ -382,13 +419,9 @@ public class Pokemon : ICloneable
         move3 = Move3;
         move4 = Move4;
 
-        maxPp1 = Move.MoveTable[(int)move1].pp;
         pp1 = maxPp1;
-        maxPp2 = Move.MoveTable[(int)move2].pp;
         pp2 = maxPp2;
-        maxPp3 = Move.MoveTable[(int)move3].pp;
         pp3 = maxPp3;
-        maxPp4 = Move.MoveTable[(int)move4].pp;
         pp4 = maxPp4;
 
         hp = hpMax;
@@ -410,6 +443,69 @@ public class Pokemon : ICloneable
 
         exists = Exists;
     }
+
+
+    public IEnumerator CheckLevelUpMoves(FAnnounce Announce, Player p, Transform baseTransform, float menuScale, Vector2 menuPos)
+    {
+        foreach (LearnsetMove move in SpeciesData.learnset)
+        {
+            if (move.level != level) continue; //Learnsets should be ordered by level, but this is a failsafe
+            if (Moves < 4)
+            {
+                AddMove(Moves + 1, move.move);
+                yield return Announce(MonName + " learned " + move.move.Data().name + "!");
+            }
+            else
+            {
+                DataStore<int> whichMove = new();
+                DataStore<int> binaryStore = new();
+                IEnumerator BinaryChoice() => ChoiceMenu.DoChoiceMenu(p,
+                        ScriptUtils.BinaryChoice, 0, binaryStore,
+                        baseTransform, menuPos, Vector2.zero, menuScale: menuScale);
+                IEnumerator WantsToLearn()
+                {
+                    yield return Announce(MonName + " wants to learn " + move.move.Data().name + ".");
+                    yield return Announce("However, " + MonName + " already knows four moves.");
+                    yield return Announce("Should a move be forgotten in order to learn " + move.move.Data().name + "?");
+                    yield return BinaryChoice();
+                    if (binaryStore.Data == 0) yield return GiveUpOn();
+                    else yield return DoMoveReplaceScreen();
+                }
+                IEnumerator GiveUpOn()
+                {
+                    yield return Announce("Give up on learning " + move.move.Data().name + "?");
+                    yield return BinaryChoice();
+                    if (binaryStore.Data == 0) yield return WantsToLearn();
+                    else yield return Announce(MonName + " gave up on learning " + move.move.Data().name + ".");
+                }
+                IEnumerator DoMoveReplaceScreen()
+                {
+                    yield return MoveReplaceScreen.DoMoveReplaceScreen(p, this, whichMove, move.move);
+                    if (whichMove.Data == 4) yield return GiveUpOn();
+                    else yield return Forget();
+                }
+                IEnumerator Forget()
+                {
+                    yield return Announce("Really forget "
+                        + MoveIDs[whichMove.Data].Data().name + "?");
+                    yield return BinaryChoice();
+                    if (binaryStore.Data == 0) yield return WantsToLearn();
+                    else yield return LearnedMove();
+                }
+                IEnumerator LearnedMove()
+                {
+                    yield return Announce("1... 2... 3... And...");
+                    yield return Announce("Done!");
+                    yield return Announce(MonName + " forgot "
+                        + MoveIDs[whichMove.Data].Data().name + " and learned "
+                        + move.move.Data().name + "!");
+                    AddMove(whichMove.Data + 1, move.move);
+                }
+                yield return WantsToLearn();
+            }
+        }
+    }
+
     public static Pokemon WildPokemon(SpeciesID species, int level)
     {
         var random = new System.Random();

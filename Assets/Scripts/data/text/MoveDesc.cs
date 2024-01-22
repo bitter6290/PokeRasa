@@ -742,4 +742,38 @@ public static class MoveDesc
     public static string SparklySwirlDesc = "The user attacks the target by wrapping it with a whirlwind of an overpowering scent. This also heals all status conditions of the user's party.";
     public static string VeeveeVolleyDesc = "The more Eevee loves its Trainer, the greater the move's power. It never misses.";
     public static string DoubleIronBashDesc = "The user uses the hex nut in its chest as an axis to spin, striking the target with its arms twice in a row. This may also make the target flinch.";
+
+    //Gen 8
+    public static string MaxGuardDesc = "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession.";
+    public static string DynamaxCannonDesc = "The user unleashes a strong beam from its core. This move deals twice the damage if the target is Dynamaxed.";
+    public static string SnipeShotDesc = "The user ignores the effects of opposing Pokémon's moves and Abilities that draw in moves, allowing this move to hit the chosen target.";
+    public static string JawLockDesc = "This move prevents the user and the target from switching out until either of them faints. The effect goes away if either of the Pokémon leaves the field.";
+    public static string StuffCheeksDesc = "The user eats its held Berry, then sharply boosts its Defense stat.";
+    public static string NoRetreatDesc = "This move boosts all the user's stats but prevents the user from switching out or fleeing.";
+    public static string TarShotDesc = "The user pours sticky tar over the target, lowering the target's Speed stat. The target becomes weaker to Fire-type moves.";
+    public static string MagicPowderDesc = "The user scatters a cloud of magic powder that changes the target's type to Psychic.";
+    public static string DragonDartsDesc = "The user attacks twice using Dreepy. If there are two opposing Pokémon, this move hits each of them once.";
+    public static string TeatimeDesc = "The user has teatime with all the Pokémon currently in the battle. Each Pokémon eats its held Berry.";
+    public static string OctolockDesc = "The user locks the target in and prevents it from fleeing. This move also lowers the target's Defense and Sp. Def every turn.";
+    public static string BoltBeakDesc = "The user stabs the target with its electrified beak. This move's power is doubled if the user moves before the target.";
+    public static string FishiousRendDesc = "The user rends the target with its hard gills. This move's power is doubled if the user moves before the target.";
+    public static string CourtChangeDesc = "With its mysterious power, the user swaps the effects on either side of the field.";
+    public static string MaxFlareDesc = "This is a Fire-type attack Dynamax Pokémon use. The user intensifies the sun for five turns.";
+    public static string MaxFlutterbyDesc = "This is a Bug-type attack Dynamax Pokémon use. This lowers the target's Sp. Atk stat.";
+    public static string MaxLightningDesc = "This is an Electric-type attack Dynamax Pokémon use. The user turns the ground into Electric Terrain for five turns.";
+    public static string MaxStrikeDesc = "This is a Normal-type attack Dynamax Pokémon use. This lowers the target's Speed stat.";
+    public static string MaxKnuckleDesc = "This is a Fighting-type attack Dynamax Pokémon use. This boosts ally Pokémon's Attack stats.";
+    public static string MaxPhantasmDesc = "This is a Ghost-type attack Dynamax Pokémon use. This lowers the target's Defense stat.";
+    public static string MaxHailstormDesc = "This is an Ice-type attack Dynamax Pokémon use. The user summons a snowstorm lasting five turns.";
+    public static string MaxOozeDesc = "This is a Poison-type attack Dynamax Pokémon use. This boosts ally Pokémon's Sp. Atk stats.";
+    public static string MaxGeyserDesc = "This is a Water-type attack Dynamax Pokémon use. The user summons a heavy rain that falls for five turns.";
+    public static string MaxAirstreamDesc = "This is a Flying-type attack Dynamax Pokémon use. This boosts ally Pokémon's Speed stats.";
+    public static string MaxStarfallDesc = "This is a Fairy-type attack Dynamax Pokémon use. The user turns the ground into Misty Terrain for five turns.";
+    public static string MaxWyrmwindDesc = "This is a Dragon-type attack Dynamax Pokémon use. This lowers the target's Attack stat.";
+    public static string MaxMindstormDesc = "This is a Psychic-type attack Dynamax Pokémon use. The user turns the ground into Psychic Terrain for five turns.";
+    public static string MaxRockfallDesc = "This is a Rock-type attack Dynamax Pokémon use. The user summons a sandstorm lasting five turns.";
+    public static string MaxQuakeDesc = "This is a Ground-type attack Dynamax Pokémon use. This boosts ally Pokémon's Sp. Def stats.";
+    public static string MaxDarknessDesc = "This is a Dark-type attack Dynamax Pokémon use. This lowers the target's Sp. Def stat.";
+    public static string MaxOvergrowthDesc = "This is a Grass-type attack Dynamax Pokémon use. The user turns the ground into Grassy Terrain for five turns.";
+    public static string MaxSteelspikeDesc = "This is a Steel-type attack Dynamax Pokémon use. This boosts ally Pokémon's Defense stats.";
 }

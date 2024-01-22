@@ -15,6 +15,6 @@ public class StatusTest : MonoBehaviour
         {
             status = (Status)(((int)status + 1) % 7);
         }
-        battle.PokemonOnField[3].PokemonData.status = status;
+        battle.PokemonOnField[3].pokemon.status = status;
     }
 }

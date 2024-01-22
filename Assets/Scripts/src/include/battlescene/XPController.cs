@@ -13,13 +13,13 @@ public class XPController : MonoBehaviour
     public void AlignBar()
     {
         if (battle.PokemonOnField[3].exists)
-            gameObject.transform.localScale = new(Mathf.Min(2, 2 * battle.PokemonOnField[3].PokemonData.LevelProgress), 0.0625F, 1);
+            gameObject.transform.localScale = new(Mathf.Min(2, 2 * battle.PokemonOnField[3].pokemon.LevelProgress), 0.0625F, 1);
     }
 
     public IEnumerator GainXP(int XP)
     {
         doAlignment = false;
-        Pokemon mon = battle.PokemonOnField[3].PokemonData;
+        Pokemon mon = battle.PokemonOnField[3].pokemon;
         if (mon.level >= PokemonConst.maxLevel) yield break;
         int baseXP = mon.xp;
         float baseTime = Time.time;
@@ -51,12 +51,13 @@ public class XPController : MonoBehaviour
 
     public IEnumerator AnnounceLevelUp()
     {
-        Pokemon mon = battle.PokemonOnField[3].PokemonData;
+        Pokemon mon = battle.PokemonOnField[3].pokemon;
         mon.LevelUp();
         yield return AnimUtils.ColorChange(spriteRenderer, defaultColor, flashColor, 0.3F);
         yield return AnimUtils.ColorChange(spriteRenderer, flashColor, defaultColor, 0.3F);
         yield return battle.Announce(battle.MonNameWithPrefix(3, true) + " grew to level "
             + mon.level + "!");
+        yield return mon.CheckLevelUpMoves(battle.Announce, battle.player, battle.announcer.transform, 1.2F, new(-500, 100));
         AlignBar();
     }
 

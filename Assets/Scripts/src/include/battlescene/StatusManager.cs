@@ -28,9 +28,9 @@ public class StatusManager : MonoBehaviour
     {
         statusbar.enabled = battle.PokemonOnField[index].exists;
         bubbleRenderer.enabled = battle.PokemonOnField[index].exists;
-        if (currentStatus != battle.PokemonOnField[index].PokemonData.status)
+        if (currentStatus != battle.PokemonOnField[index].pokemon.status)
         {
-            currentStatus = battle.PokemonOnField[index].PokemonData.status;
+            currentStatus = battle.PokemonOnField[index].pokemon.status;
             statusbar.sprite = currentStatus.ToSprite();
             statusbar.color = currentStatus == Status.ToxicPoison
                 ? new Color(180.0F / 255.0F, 180.0F / 255.0F, 180.0F / 255.0F)

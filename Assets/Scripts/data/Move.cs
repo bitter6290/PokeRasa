@@ -28,13 +28,13 @@ public static class Move
         15, 85, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Single, 10,
-        makesContact, DoubleSlapDesc, 100); //Done
+        makesContact, DoubleSlapDesc, 100, MaxMovePower: 90); //Done
     public static readonly MoveData CometPunch = new(
         "Comet Punch", Normal,
         18, 85, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Single, 15,
-         makesContact & punchMove, CometPunchDesc, 100); //Needs anim
+         makesContact & punchMove, CometPunchDesc, 100, MaxMovePower: 100); //Needs anim
     public static readonly MoveData MegaPunch = new(
         "Mega Punch", Normal,
         80, 85, 0,
@@ -81,7 +81,7 @@ public static class Move
         1, 30, 0,
         MoveEffect.OHKO, 0,
         true, Single, 5,
-        makesContact, GuillotineDesc, 180); //Needs anim
+        makesContact, GuillotineDesc, 180, MaxMovePower: 130); //Needs anim
     public static readonly MoveData RazorWind = new(
         "Razor Wind", Normal,
         80, 100, 0,
@@ -151,7 +151,7 @@ public static class Move
         30, 100, 0,
         MoveEffect.MultiHit2, 0,
         true, Single, 30,
-        makesContact, DoubleKickDesc, 100); //Needs anim
+        makesContact, DoubleKickDesc, 100, MaxMovePower: 80); //Needs anim
     public static readonly MoveData MegaKick = new(
         "Mega Kick", Normal,
         120, 75, 0,
@@ -190,13 +190,13 @@ public static class Move
         15, 85, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Single, 20,
-        makesContact, FuryAttackDesc, 100); //Needs anim
+        makesContact, FuryAttackDesc, 100, MaxMovePower: 90); //Needs anim
     public static readonly MoveData HornDrill = new(
         "Horn Drill", Normal,
         1, 30, 0,
         MoveEffect.OHKO, 0,
         true, Single, 5,
-        makesContact, HornDrillDesc, 180); //Needs anim
+        makesContact, HornDrillDesc, 180, MaxMovePower: 130); //Needs anim
     public static readonly MoveData Tackle = new(
         "Tackle", Normal,
         40, 100, 0,
@@ -245,12 +245,12 @@ public static class Move
         "Twineedle", Bug,
         25, 100, 0,
         MoveEffect.Twineedle, 20,
-        true, Single, 20, noFlag, TwineedleDesc, 100); //Needs anim
+        true, Single, 20, noFlag, TwineedleDesc, 100, MaxMovePower: 100); //Needs anim
     public static readonly MoveData PinMissile = new(
         "Pin Missile", Bug,
         25, 95, 0,
         MoveEffect.MultiHit2to5, 0,
-        true, Single, 20, noFlag, PinMissileDesc, 140); //Needs anim
+        true, Single, 20, noFlag, PinMissileDesc, 140, MaxMovePower: 130); //Needs anim
     public static readonly MoveData Leer = new(
         "Leer", Normal,
         0, 100, 0,
@@ -389,13 +389,13 @@ public static class Move
         1, 100, 0,
         MoveEffect.WeightPower, 0,
         true, Single, 20,
-        makesContact, LowKickDesc, 160); //Needs anim
+        makesContact, LowKickDesc, 160, MaxMovePower: 100); //Needs anim
     public static readonly MoveData Counter = new(
         "Counter", Fighting,
         1, 100, -5,
         MoveEffect.Counter, 0,
         true, Target.None, 20,
-        makesContact, CounterDesc, 100); //Needs anim
+        makesContact, CounterDesc, 100, MaxMovePower: 75); //Needs anim
     public static readonly MoveData SeismicToss = new(
         "Seismic Toss", Fighting,
         0, 100, 0,
@@ -463,7 +463,7 @@ public static class Move
         "Dragon Rage", Dragon,
         1, 100, 0,
         MoveEffect.Direct40, 0,
-        false, Single, 10, noFlag, DragonRageDesc, 100); //Needs anim
+        false, Single, 10, noFlag, DragonRageDesc, 100, MaxMovePower: 90); //Needs anim
     public static readonly MoveData FireSpin = new(
         "Fire Spin", Fire,
         35, 85, 0,
@@ -502,7 +502,7 @@ public static class Move
         "Fissure", Ground,
         1, 30, 0,
         MoveEffect.OHKO, 0,
-        true, Single, 5, noFlag, FissureDesc, 180); //Needs anim
+        true, Single, 5, noFlag, FissureDesc, 180, MaxMovePower: 130); //Needs anim
     public static readonly MoveData Dig = new(
         "Dig", Ground,
         80, 100, 0,
@@ -550,7 +550,7 @@ public static class Move
         "Night Shade", Ghost,
         1, 100, 0,
         MoveEffect.DirectLevel, 0,
-        false, Single, 15, noFlag, NightShadeDesc, 100); //Needs anim
+        false, Single, 15, noFlag, NightShadeDesc, 100, MaxMovePower: 100); //Needs anim
     public static readonly MoveData Mimic = SingleTargetStatusMove(
         "Mimic", Normal, 101, 0, MoveEffect.Mimic, 10,
         noFlag, AccuracyUp1, MimicDesc); //Needs anim
@@ -674,7 +674,7 @@ public static class Move
         "Spike Cannon", Normal,
         20, 100, 0,
         MoveEffect.MultiHit2to5, 0,
-        true, Single, 15, noFlag, SpikeCannonDesc, 100); //Needs anim
+        true, Single, 15, noFlag, SpikeCannonDesc, 100, MaxMovePower: 120); //Needs anim
     public static readonly MoveData Constrict = new(
         "Constrict", Normal,
         10, 100, 0,
@@ -715,7 +715,7 @@ public static class Move
         "Barrage", Normal,
         15, 85, 0,
         MoveEffect.MultiHit2to5, 0,
-        true, Single, 20, noFlag, BarrageDesc, 100); //Needs anim
+        true, Single, 20, noFlag, BarrageDesc, 100, MaxMovePower: 90); //Needs anim
     public static readonly MoveData LeechLife = new(
         "Leech Life", Bug,
         80, 100, 0,
@@ -756,7 +756,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.Psywave, 0,
         false, Single, 15,
-        noFlag, PsywaveDesc, 100); //Needs anim
+        noFlag, PsywaveDesc, 100, MaxMovePower: 90); //Needs anim
     public static readonly MoveData Splash = SelfTargetingMove(
         "Splash", Normal, 0, MoveEffect.None, 40,
         gravityDisabled, AttackUp3, SplashDesc); //Needs anim
@@ -779,12 +779,12 @@ public static class Move
         18, 80, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Single, 15,
-        makesContact, FurySwipesDesc, 100); //Needs anim
+        makesContact, FurySwipesDesc, 100, MaxMovePower: 100); //Needs anim
     public static readonly MoveData Bonemerang = new(
         "Bonemerang", Ground,
         50, 90, 0,
         MoveEffect.MultiHit2, 0,
-        true, Single, 10, noFlag, BonemerangDesc, 100); //Needs anim
+        true, Single, 10, noFlag, BonemerangDesc, 100, MaxMovePower: 120); //Needs anim
     public static readonly MoveData Rest = SelfTargetingMove(
         "Rest", Type.Psychic, 0, MoveEffect.Rest, 10,
         snatchAffected, NormalizeDebuffs, RestDesc); //Needs anim
@@ -837,7 +837,7 @@ public static class Move
         10, 90, 0,
         MoveEffect.TripleHit, 0,
         true, Single, 10,
-        makesContact, TripleKickDesc, 120); //Needs anim
+        makesContact, TripleKickDesc, 120, MaxMovePower: 80); //Needs anim
     public static readonly MoveData Thief = new(
         "Thief", Dark,
         60, 100, 0,
@@ -874,7 +874,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.Reversal, 0,
         true, Single, 15,
-        makesContact, FlailDesc, 160); //Needs anim
+        makesContact, FlailDesc, 160, MaxMovePower: 130); //Needs anim
     public static readonly MoveData Conversion2 = SelfTargetingMove(
         "Conversion 2", Normal, 0, MoveEffect.Conversion2, 30,
         effectOnSelfOnly, Heal100, Conversion2Desc); //Needs anim
@@ -892,7 +892,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.Reversal, 0,
         true, Single, 15,
-        makesContact, ReversalDesc, 160); //Needs anim
+        makesContact, ReversalDesc, 160, MaxMovePower: 100); //Needs anim
     public static readonly MoveData Spite = SingleTargetStatusMove(
         "Spite", Ghost, 100, 0, MoveEffect.Spite, 10,
         magicBounceAffected, Heal100, SpiteDesc); //Needs anim
@@ -976,7 +976,7 @@ public static class Move
         25, 90, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Single, 10,
-        noFlag, BoneRushDesc, 140); //Needs anim
+        noFlag, BoneRushDesc, 140, MaxMovePower: 130); //Needs anim
     public static readonly MoveData LockOn = SingleTargetStatusMove(
         "Lock On", Normal, 101, 0, MoveEffect.MindReader, 5,
         noFlag, SpeedUp1, LockOnDesc); //Needs anim
@@ -1054,7 +1054,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.Return, 0,
         true, Single, 20,
-        makesContact, ReturnDesc, 160); //Needs anim
+        makesContact, ReturnDesc, 160, MaxMovePower: 120); //Needs anim
     public static readonly MoveData Present = new(
         "Present", Normal,
         1, 90, 0,
@@ -1062,10 +1062,10 @@ public static class Move
         true, Single, 15, noFlag, PresentDesc, 100); //Needs anim
     public static readonly MoveData Frustration = new(
         "Frustration", Normal,
-        0, 100, 0,
+        1, 100, 0,
         MoveEffect.Frustration, 0,
         true, Single, 20,
-        makesContact, FrustrationDesc, 160); //Needs anim
+        makesContact, FrustrationDesc, 160, MaxMovePower: 120); //Needs anim
     public static readonly MoveData Safeguard = FieldMove(
         "Safeguard", Normal, 0, MoveEffect.Safeguard, 25,
         snatchAffected, SpeedUp1, SafeguardDesc); //Needs anim
@@ -1081,7 +1081,7 @@ public static class Move
         "Magnitude", Ground,
         1, 100, 0,
         MoveEffect.Magnitude, 0,
-        true, Single, 30, noFlag, MagnitudeDesc, 140); //Needs anim
+        true, Single, 30, noFlag, MagnitudeDesc, 140, MaxMovePower: 90); //Needs anim
     public static readonly MoveData DynamicPunch = new(
         "Dynamic Punch", Fighting,
         100, 50, 0,
@@ -1225,7 +1225,7 @@ public static class Move
         "Beat Up", Dark,
         1, 100, 0,
         MoveEffect.BeatUp, 0,
-        true, Single, 10, noFlag, BeatUpDesc, 100); //Needs anim
+        true, Single, 10, noFlag, BeatUpDesc, 100, MaxMovePower: 100); //Needs anim
 
     //Gen 3
 
@@ -1248,7 +1248,7 @@ public static class Move
         "Spit Up", Normal,
         1, 100, 0,
         MoveEffect.SpitUp, 0,
-        false, Single, 10, noFlag, SpitUpDesc, 100); //Needs anim
+        false, Single, 10, noFlag, SpitUpDesc, 100, MaxMovePower: 100); //Needs anim
     public static readonly MoveData Swallow = SelfTargetingMove(
         "Swallow", Normal, 0, MoveEffect.Swallow, 10,
         snatchAffected, NormalizeDebuffs, SwallowDesc); //Needs anim
@@ -1298,7 +1298,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.NaturePower, 0,
         false, Single, 20,
-        noFlag, NaturePowerDesc, 0); //Needs anim
+        noFlag, NaturePowerDesc, 0, MaxMovePower: 90); //Needs anim
     public static readonly MoveData Charge = SelfTargetingMove(
         "Charge", Electric, 0, MoveEffect.Charge, 20,
         snatchAffected, SpDefUp1, ChargeDesc); //Needs anim
@@ -1365,7 +1365,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.Endeavor, 0,
         true, Single, 5,
-        makesContact, EndeavorDesc, 160); //Needs anim
+        makesContact, EndeavorDesc, 160, MaxMovePower: 130); //Needs anim
     public static readonly MoveData Eruption = new(
         "Eruption", Fire,
         150, 100, 0,
@@ -1404,7 +1404,7 @@ public static class Move
         15, 100, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Single, 20,
-        makesContact, ArmThrustDesc, 100); //Needs anim
+        makesContact, ArmThrustDesc, 100, MaxMovePower: 70); //Needs anim
     public static readonly MoveData Camouflage = SelfTargetingMove(
         "Camouflage", Normal, 0, MoveEffect.Camouflage, 20,
         snatchAffected, EvasionUp1, CamouflageDesc); //Needs anim
@@ -1592,7 +1592,7 @@ public static class Move
         1, 30, 0,
         MoveEffect.OHKO, 0,
         false, Single, 5,
-        noFlag, SheerColdDesc, 180); //Needs anim
+        noFlag, SheerColdDesc, 180, MaxMovePower: 130); //Needs anim
     public static readonly MoveData MuddyWater = new(
         "Muddy Water", Water,
         90, 85, 0,
@@ -1604,7 +1604,7 @@ public static class Move
         25, 100, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Single, 30,
-        bulletMove, BulletSeedDesc, 140); //Needs anim
+        bulletMove, BulletSeedDesc, 140, MaxMovePower: 130); //Needs anim
     public static readonly MoveData AerialAce = new(
         "Aerial Ace", Flying,
         60, 101, 0,
@@ -1616,7 +1616,7 @@ public static class Move
         25, 100, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Single, 30,
-        noFlag, IcicleSpearDesc, 140); //Needs anim
+        noFlag, IcicleSpearDesc, 140, MaxMovePower: 130); //Needs anim
     public static readonly MoveData IronDefense = SelfTargetingMove(
         "Iron Defense", Steel, 0, MoveEffect.DefenseUp2, 15,
         snatchAffected, NormalizeDebuffs, IronDefenseDesc); //Needs anim
@@ -1701,7 +1701,7 @@ public static class Move
         25, 90, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Single, 10,
-        bulletMove, RockBlastDesc, 140); //Needs anim
+        bulletMove, RockBlastDesc, 140, MaxMovePower: 130); //Needs anim
     public static readonly MoveData ShockWave = new(
         "Shock Wave", Electric,
         60, 101, 0,
@@ -1755,7 +1755,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.LowSpeedPower, 0,
         true, Single, 5,
-        makesContact, GyroBallDesc, 160); //Needs anim
+        makesContact, GyroBallDesc, 160, MaxMovePower: 130); //Needs anim
     public static readonly MoveData HealingWish = SelfTargetingMove(
         "Healing Wish", Type.Psychic, 0, MoveEffect.HealingWish, 10,
         snatchAffected & healBlockAffected, 0, HealingWishDesc); //Needs anim
@@ -1770,7 +1770,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.NaturalGift, 0,
         true, Single, 15,
-        noFlag, NaturalGiftDesc, 160); //Needs anim
+        noFlag, NaturalGiftDesc, 160, MaxMovePower: 90); //Needs anim
     public static readonly MoveData Feint = new(
         "Feint", Normal,
         30, 100, 2,
@@ -1798,7 +1798,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.MetalBurst, 0,
         true, Target.None, 10,
-        noFlag, MetalBurstDesc, 100); //Needs anim
+        noFlag, MetalBurstDesc, 100, MaxMovePower: 100); //Needs anim
     public static readonly MoveData UTurn = new(
         "U-Turn", Bug,
         70, 100, 0,
@@ -1831,7 +1831,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.Fling, 100,
         true, Single, 10,
-        noFlag, FlingDesc, 100); //Needs anim
+        noFlag, FlingDesc, 100, MaxMovePower: 100); //Needs anim
     public static readonly MoveData PsychoShift = SingleTargetStatusMove(
         "Psycho Shift", Type.Psychic, 100, 0, MoveEffect.PsychoShift, 10,
         noFlag, SpAtkUp2, PsychoShiftDesc); //Needs anim
@@ -1840,7 +1840,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.TrumpCard, 0,
         false, Single, 5,
-        noFlag, TrumpCardDesc, 160); //Needs anim
+        noFlag, TrumpCardDesc, 160, MaxMovePower: 120); //Needs anim
     public static readonly MoveData HealBlock = new(
         "Heal Block", Type.Psychic,
         0, 100, 0,
@@ -2166,7 +2166,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.WeightPower, 0,
         false, Single, 20,
-        makesContact, GrassKnotDesc, 160); //Needs anim
+        makesContact, GrassKnotDesc, 160, MaxMovePower: 130); //Needs anim
     public static readonly MoveData Chatter = new(
         "Chatter", Flying,
         65, 100, 0,
@@ -2220,7 +2220,7 @@ public static class Move
         35, 90, 0,
         MoveEffect.MultiHit2, 0,
         true, Single, 10,
-        makesContact, DoubleHitDesc, 140); //Needs anim
+        makesContact, DoubleHitDesc, 140, MaxMovePower: 120); //Needs anim
     public static readonly MoveData RoarOfTime = new(
         "Roar of Time", Dragon,
         150, 90, 0,
@@ -2343,7 +2343,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.RelativeWeightPower, 0,
         true, Single, 10,
-        makesContact, HeavySlamDesc, 160); //Needs anim
+        makesContact, HeavySlamDesc, 160, MaxMovePower: 130); //Needs anim
     public static readonly MoveData Synchronoise = new(
         "Synchronoise", Type.Psychic,
         120, 100, 0,
@@ -2355,7 +2355,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.HighSpeedPower, 0,
         false, Single, 10,
-        noFlag, ElectroBallDesc, 160); //Needs anim
+        noFlag, ElectroBallDesc, 160, MaxMovePower: 130); //Needs anim
     public static readonly MoveData Soak = SingleTargetStatusMove(
         "Soak", Water, 100, 0, MoveEffect.Soak, 20,
         magicBounceAffected, SpAtkUp1, SoakDesc); //Needs anim
@@ -2497,7 +2497,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.FinalGambit, 0,
         false, Single, 5,
-        noFlag, FinalGambitDesc, 180); //Needs anim
+        noFlag, FinalGambitDesc, 180, MaxMovePower: 100); //Needs anim
     public static readonly MoveData Bestow = SingleTargetStatusMove(
         "Bestow", Normal, 101, 0, MoveEffect.Bestow, 15,
         noFlag, SpeedUp2, BestowDesc); //Needs anim
@@ -2582,7 +2582,7 @@ public static class Move
         40, 90, 0,
         MoveEffect.MultiHit2, 0,
         true, Single, 15,
-        makesContact, DualChopDesc, 100); //Needs anim
+        makesContact, DualChopDesc, 100, MaxMovePower: 130); //Needs anim
     public static readonly MoveData HeartStamp = new(
         "Heart Stamp", Type.Psychic,
         60, 100, 0,
@@ -2612,7 +2612,7 @@ public static class Move
         1, 100, 0,
         MoveEffect.RelativeWeightPower, 0,
         true, Single, 10,
-        makesContact, HeatCrashDesc, 160); //Needs anim
+        makesContact, HeatCrashDesc, 160, MaxMovePower: 130); //Needs anim
     public static readonly MoveData LeafTornado = new(
         "Leaf Tornado", Grass,
         65, 90, 0,
@@ -2645,7 +2645,7 @@ public static class Move
         25, 85, 0,
         MoveEffect.MultiHit2to5, 0,
         true, Single, 10,
-        makesContact, TailSlapDesc, 140); //Needs anim
+        makesContact, TailSlapDesc, 140, MaxMovePower: 130); //Needs anim
     public static readonly MoveData Hurricane = new(
         "Hurricane", Flying,
         110, 70, 0,
@@ -2913,7 +2913,7 @@ public static class Move
         15, 100, 1,
         MoveEffect.MultiHit2to5, 0,
         false, Single, 20,
-        noFlag, WaterShurikenDesc, 100); //Needs anim
+        noFlag, WaterShurikenDesc, 100, MaxMovePower: 90); //Needs anim
     public static readonly MoveData MysticalFire = new(
         "Mystical Fire", Fire,
         75, 100, 0,
@@ -3429,7 +3429,7 @@ public static class Move
         1, 90, 0,
         MoveEffect.SuperFang, 0,
         false, Single, 10,
-        noFlag, NaturesMadnessDesc, 100); //Needs anim
+        noFlag, NaturesMadnessDesc, 100, MaxMovePower: 100); //Needs anim
     public static readonly MoveData MultiAttack = new(
         "Multi-Attack", Normal,
         120, 100, 0,
@@ -3518,7 +3518,7 @@ public static class Move
         1, 101, 0,
         MoveEffect.Return, 0,
         false, Single, 20,
-        noFlag, PikaPapowDesc, 100); //Needs anim
+        noFlag, PikaPapowDesc, 100, MaxMovePower: 130); //Needs anim
     public static readonly MoveData BouncyBubble = new(
         "Bouncy Bubble", Water,
         60, 100, 0,
@@ -3572,13 +3572,97 @@ public static class Move
         1, 101, 0,
         MoveEffect.Return, 0,
         true, Single, 20,
-        makesContact, VeeveeVolleyDesc, 100); //Needs anim
+        makesContact, VeeveeVolleyDesc, 100, MaxMovePower: 130); //Needs anim
     public static readonly MoveData DoubleIronBash = new(
         "Double Iron Bash", Steel,
         60, 100, 0,
         MoveEffect.DoubleIronBash, 30,
         true, Single, 5,
-        makesContact, DoubleIronBashDesc, 120); //Needs anim
+        makesContact, DoubleIronBashDesc, 120, MaxMovePower: 140); //Needs anim
+
+    // Gen 8
+
+    public static readonly MoveData MaxGuard = SelfTargetingMove(
+        "Max Guard", Normal, 4, MoveEffect.MaxGuard, 1,
+        usesProtectCounter, ZMoveEffect.None, MaxGuardDesc); //Needs anim
+    public static readonly MoveData DynamaxCannon = new(
+        "Dynamax Cannon", Dragon,
+        100, 100, 0,
+        MoveEffect.DynamaxCannon, 0,
+        false, Single, 5,
+        noFlag, DynamaxCannonDesc, 180); //Needs anim
+    public static readonly MoveData SnipeShot = new(
+        "Snipe Shot", Water,
+        80, 100, 0,
+        MoveEffect.SnipeShot, 0,
+        false, Single, 15,
+        highCrit, SnipeShotDesc, 160); //Needs anim
+    public static readonly MoveData JawLock = new(
+        "Jaw Lock", Dark,
+        80, 100, 0,
+        MoveEffect.JawLock, 101,
+        true, Single, 10,
+        makesContact, JawLockDesc, 160); //Needs anim
+    public static readonly MoveData StuffCheeks = SelfTargetingMove(
+        "Stuff Cheeks", Normal, 0, MoveEffect.StuffCheeks, 10, snatchAffected,
+        NormalizeDebuffs, StuffCheeksDesc); //Needs anim
+    public static readonly MoveData NoRetreat = SelfTargetingMove(
+        "No Retreat", Fighting, 0, MoveEffect.NoRetreat, 5,
+        snatchAffected, NormalizeDebuffs, NoRetreatDesc); //Needs anim
+    public static readonly MoveData TarShot = SingleTargetStatusMove(
+        "Tar Shot", Rock, 100, 0, MoveEffect.TarShot, 15,
+        magicBounceAffected, NormalizeDebuffs, TarShotDesc); //Needs anim
+    public static readonly MoveData MagicPowder = SingleTargetStatusMove(
+        "Magic Powder", Type.Psychic, 100, 0, MoveEffect.MagicPowder, 20,
+        magicBounceAffected & powderMove, AttackUp1, MagicPowderDesc); //Needs anim
+    public static readonly MoveData DragonDarts = new(
+        "Dragon Darts", Dragon,
+        50, 100, 0,
+        MoveEffect.DragonDarts, 0,
+        true, Single, 10,
+        noFlag, DragonDartsDesc, 100, MaxMovePower: 130); //Needs anim
+    public static readonly MoveData Teatime = new(
+        "Teatime", Normal,
+        0, 101, 0,
+        MoveEffect.Teatime, 101,
+        false, All, 10,
+        noFlag, TeatimeDesc, 0, NormalizeDebuffs, 0); //Needs anim
+    public static readonly MoveData Octolock = SingleTargetStatusMove(
+        "Octolock", Fighting, 100, 0, MoveEffect.ContinuousDamage, 15,
+        noFlag, NormalizeDebuffs, OctolockDesc); //Needs anim
+    public static readonly MoveData BoltBeak = new(
+        "Bolt Beak", Electric,
+        85, 100, 0,
+        MoveEffect.BoltBeak, 0,
+        true, Single, 10,
+        makesContact, BoltBeakDesc, 160, MaxMovePower: 130); //Needs anim
+    public static readonly MoveData FishiousRend = new(
+        "Fishious Rend", Water,
+        85, 100, 0,
+        MoveEffect.BoltBeak, 0,
+        true, Single, 10,
+        makesContact, FishiousRendDesc, 160, MaxMovePower: 130); //Needs anim
+    public static readonly MoveData CourtChange = FieldMove(
+        "Court Change", Normal, 0, MoveEffect.CourtChange, 10,
+        noFlag, SpeedUp1, CourtChangeDesc); //Needs anim
+    public static readonly MoveData MaxFlare = MaxMove("Max Flare", Fire, MaxFlareDesc); //Needs anim
+    public static readonly MoveData MaxFlutterby = MaxMove("MAx Flutterby", Bug, MaxFlutterbyDesc); //Needs anim
+    public static readonly MoveData MaxLightning = MaxMove("Max Lightning", Electric, MaxLightningDesc); //Needs anim
+    public static readonly MoveData MaxStrike = MaxMove("Max Strike", Normal, MaxStrikeDesc); //Needs anim
+    public static readonly MoveData MaxKnuckle = MaxMove("Max Knuckle", Fighting, MaxKnuckleDesc); //Needs anim
+    public static readonly MoveData MaxPhantasm = MaxMove("Max Phantasm", Ghost, MaxPhantasmDesc); //Needs anim
+    public static readonly MoveData MaxHailstorm = MaxMove("Max Hailstorm", Ice, MaxHailstormDesc); //Needs anim
+    public static readonly MoveData MaxOoze = MaxMove("Max Ooze", Poison, MaxOozeDesc); //Needs anim
+    public static readonly MoveData MaxGeyser = MaxMove("Max Geyser", Water, MaxGeyserDesc); //Needs anim
+    public static readonly MoveData MaxAirstream = MaxMove("Max Airstream", Flying, MaxAirstreamDesc); //Needs anim
+    public static readonly MoveData MaxStarfall = MaxMove("Max Starfall", Fairy, MaxStarfallDesc); //Needs anim
+    public static readonly MoveData MaxWyrmwind = MaxMove("Max Wyrmwind", Dragon, MaxWyrmwindDesc); //Needs anim
+    public static readonly MoveData MaxMindstorm = MaxMove("Max Mindstorm", Type.Psychic, MaxMindstormDesc); //Needs anim
+    public static readonly MoveData MaxRockfall = MaxMove("Max Rockfall", Rock, MaxRockfallDesc); //Needs anim
+    public static readonly MoveData MaxQuake = MaxMove("Max Quake", Ground, MaxQuakeDesc); //Needs anim
+    public static readonly MoveData MaxDarkness = MaxMove("Max Darkness", Dark, MaxDarknessDesc); //Needs anim
+    public static readonly MoveData MaxOvergrowth = MaxMove("Max Overgrowth", Grass, MaxOvergrowthDesc); //Needs anim
+    public static readonly MoveData MaxSteelspike = MaxMove("Max Steelspike", Steel, MaxSteelspikeDesc); //Needs anim
 
     //Non-standard moves
     public static readonly MoveData ConfusionHit = new(
@@ -4490,6 +4574,40 @@ public static class Move
         SparklySwirl,
         VeeveeVolley,
         DoubleIronBash,
+
+        // Gen 8
+        MaxGuard,
+        DynamaxCannon,
+        SnipeShot,
+        JawLock,
+        StuffCheeks,
+        NoRetreat,
+        TarShot,
+        MagicPowder,
+        DragonDarts,
+        Teatime,
+        Octolock,
+        BoltBeak,
+        FishiousRend,
+        CourtChange,
+        MaxFlare,
+        MaxFlutterby,
+        MaxLightning,
+        MaxStrike,
+        MaxKnuckle,
+        MaxPhantasm,
+        MaxHailstorm,
+        MaxOoze,
+        MaxGeyser,
+        MaxAirstream,
+        MaxStarfall,
+        MaxWyrmwind,
+        MaxMindstorm,
+        MaxRockfall,
+        MaxQuake,
+        MaxDarkness,
+        MaxOvergrowth,
+        MaxSteelspike,
 
         //Nonstandard moves
 

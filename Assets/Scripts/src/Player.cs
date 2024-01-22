@@ -799,9 +799,9 @@ public class Player : LoadedChar
         Battle battle = FindAnyObjectByType<Battle>();
         battle.player = this;
         SortParty();
-        battle.OpponentName = opponentTeam.trainerName;
-        battle.PlayerPokemon = Party;
-        battle.OpponentPokemon = opponentParty;
+        battle.opponentName = opponentTeam.trainerName;
+        battle.playerPokemon = Party;
+        battle.opponentPokemon = opponentParty;
         battle.battleType = Battle.BattleType.Single;
         battle.wildBattle = false;
         battle.battleTerrain = currentTerrain;
@@ -821,12 +821,12 @@ public class Player : LoadedChar
         Battle battle = FindAnyObjectByType<Battle>();
         battle.player = this;
         SortParty();
-        battle.PlayerPokemon = Party;
-        battle.OpponentPokemon = new Pokemon[6];
-        battle.OpponentPokemon[0] = wildMon;
+        battle.playerPokemon = Party;
+        battle.opponentPokemon = new Pokemon[6];
+        battle.opponentPokemon[0] = wildMon;
         for (int i = 1; i < 6; i++)
         {
-            battle.OpponentPokemon[i] = Pokemon.EmptyMon;
+            battle.opponentPokemon[i] = Pokemon.EmptyMon;
         }
         battle.battleType = Battle.BattleType.Single;
         battle.battleTerrain = currentTerrain;
@@ -1433,13 +1433,10 @@ public class Player : LoadedChar
         Party[0] = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 15);
         Party[0].move1 = MoveID.Toxic;
         Party[0].pp1 = 30;
-        Party[0].maxPp1 = 32;
         Party[0].move2 = MoveID.Growl;
         Party[0].pp2 = 40;
-        Party[0].maxPp2 = 40;
         Party[0].move3 = MoveID.Tackle;
         Party[0].pp3 = 40;
-        Party[0].maxPp3 = 40;
         Party[1] = Pokemon.WildPokemon(SpeciesID.Pikachu, 5);
         Party[2] = Pokemon.WildPokemon(SpeciesID.Dialga, 5);
         AddItem(ItemID.PokeBall, 5);
