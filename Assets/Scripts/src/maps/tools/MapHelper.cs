@@ -36,6 +36,9 @@ public class MapHelper : MapManager
     public ObjectDisplay clickedObjectDisplay;
 
     [HideInInspector]
+    public List<TileBase> missingTiles;
+
+    [HideInInspector]
     public bool objectsEnabled = true;
 
     public bool WriteMap()
@@ -48,8 +51,26 @@ public class MapHelper : MapManager
         }
         else
         {
-            MapWriter writer = new(this);
-            return writer.Write();
+            while (true)
+            {
+                missingTiles = new();
+                MapWriter writer = new(this);
+                if (writer.Write(false)) return true;
+                else if (EditorUtility.DisplayDialog("Missing tiles detected",
+                    "Some tiles in the scene are missing from the tileset, add them before saving?", "Yes", "No"))
+                {
+                    foreach (TileBase tile in missingTiles)
+                    {
+                        openMap.tileset.Tiles.Add(tile);
+                    }
+                }
+                else if (EditorUtility.DisplayDialog("Save anyway?", "Save anyway? Missing tiles will not be saved.", "Yes", "No"))
+                {
+                    writer.Write(true);
+                    return true;
+                }
+                else return false;
+            }
         }
     }
 

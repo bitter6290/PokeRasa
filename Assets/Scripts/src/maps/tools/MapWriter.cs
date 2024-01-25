@@ -16,7 +16,7 @@ public class MapWriter
         mapHelper = mapManager;
     }
 
-    public bool Write()
+    public bool Write(bool overrideMissing)
     {
         Tilemap level1 = mapHelper.level1;
         Tilemap level2 = mapHelper.level2;
@@ -39,6 +39,7 @@ public class MapWriter
                 index = 0;
                 ok = false;
                 Debug.Log("Unfamiliar tile at " + location + " on tilemap " + map);
+                mapHelper.missingTiles.Add(map.GetTile(location));
             }
             return index;
         }
@@ -89,12 +90,16 @@ public class MapWriter
                 data.AddRange(tileData);
             }
         }
-        string outString = System.Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?");
-        mapHelper.OpenMap.WriteMapTiles(outString);
-        EditorUtility.SetDirty(mapHelper.map);
-        AssetDatabase.SaveAssets();
-        Debug.Log(ok ? "Saved successfully" : "Some tiles are missing, saved anyway");
-        AssetDatabase.Refresh();
+        if (ok || overrideMissing)
+        {
+            string outString = Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?");
+            mapHelper.OpenMap.WriteMapTiles(outString);
+            EditorUtility.SetDirty(mapHelper.map);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+        Debug.Log(ok ? "Saved successfully" : overrideMissing ?
+            "Some tiles are missing, saved anyway" : "Missing tiles, did not save");
         return ok;
     }
 }
