@@ -92,7 +92,7 @@ public class MapWriter
         }
         if (ok || overrideMissing)
         {
-            string outString = Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?");
+            string outString = Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?").Replace("?@A","&").Replace("?@","^");
             mapHelper.OpenMap.WriteMapTiles(outString);
             EditorUtility.SetDirty(mapHelper.map);
             AssetDatabase.SaveAssets();

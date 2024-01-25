@@ -110,7 +110,7 @@ public class MartMenu : MonoBehaviour
                 p.audioSource.PlayOneShot(SFX.Select);
                 done = true;
             }
-            if (CurrentItem.Data().price <= p.money)
+            else if (CurrentItem.Data().price <= p.money)
             {
                 p.audioSource.PlayOneShot(SFX.Select);
                 StartCoroutine(GotoQuantity());

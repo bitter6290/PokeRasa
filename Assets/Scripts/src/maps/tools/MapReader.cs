@@ -9,7 +9,7 @@ public static class MapReader
         Tilemap level1 = manager.level1;
         Tilemap level2 = manager.level2;
         Tilemap level3 = manager.level3;
-        string inString = manager.map.MapTiles.Replace("?", "AAAA").Replace("@", "AA");
+        string inString = manager.map.MapTiles.Replace("?", "AAAA").Replace("@", "AA").Replace("&", "AAAAAAA").Replace("^","AAAAAA");
         Debug.Log(inString.Length);
         byte[] data = System.Convert.FromBase64String(inString);
         manager.collision = new byte[manager.map.width, manager.map.height];
@@ -57,7 +57,7 @@ public static class MapReader
             foreach (Connection i in manager.map.connection)
             {
                 MapData connectedMap = i.map;
-                string connectionString = connectedMap.MapTiles.Replace("?", "AAAA").Replace("@", "AA");
+                string connectionString = connectedMap.MapTiles.Replace("?", "AAAA").Replace("@", "AA").Replace("&", "AAAAAAA").Replace("^", "AAAAAA");
                 byte[] connectionData = System.Convert.FromBase64String(connectionString);
                 byte[,] connectingCollision = new byte[connectedMap.width, connectedMap.height];
                 currentTiles = i.map.tileset;
@@ -228,7 +228,7 @@ public static class MapReader
         foreach (Connection i in mapHelper.map.connection)
         {
             MapData connectedMap = i.map;
-            string connectionString = connectedMap.MapTiles.Replace("?", "AAAA").Replace("@", "AA");
+            string connectionString = connectedMap.MapTiles.Replace("?", "AAAA").Replace("@", "AA").Replace("&","AAAAAAA").Replace("^", "AAAAAA");
             byte[] connectionData = System.Convert.FromBase64String(connectionString);
             Tileset currentTiles = i.map.tileset;
             switch (i.direction)
@@ -404,7 +404,7 @@ public static class MapReader
         Tilemap level3 = mapHelper.level3;
         Tilemap collision = mapHelper.collisionMap;
         Tilemap wildData = mapHelper.wildDataMap;
-        string inString = mapHelper.map.MapTiles.Replace("?", "AAAA").Replace("@", "AA");
+        string inString = mapHelper.map.MapTiles.Replace("?", "AAAA").Replace("@", "AA").Replace("&", "AAAAAAA").Replace("^", "AAAAAA");
         Debug.Log(inString.Length);
         byte[] data = System.Convert.FromBase64String(inString);
         Tileset currentTiles = mapHelper.map.tileset;
