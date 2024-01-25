@@ -488,7 +488,8 @@ MonoBehaviour:
   announcementText: {fileID: 8442271497828163261}
   announcerUpPosition: {x: 0, y: 0, z: 0}
   announcerDownPosition: {x: 0, y: 0, z: 0}
-  boxHeight: 0
+  audioSource: {fileID: 0}
+  up: 0
 --- !u!1 &4317513316184672321
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +784,9 @@ MonoBehaviour:
   menu6: {fileID: 4571177481334160667}
   currentMenu: {fileID: 5369483116003367329}
   menuName: {fileID: 8480120359653109046}
+  active: 0
   player: {fileID: 0}
+  canvas: {fileID: 4118363624281552454}
 --- !u!1 &7160807042049030046
 GameObject:
   m_ObjectHideFlags: 0

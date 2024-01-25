@@ -1,5 +1,7 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 
 public class MapData : ScriptableObject
 {
@@ -16,11 +18,13 @@ public class MapData : ScriptableObject
 
     public TODShading.ShadingBehaviour shading;
 
-    public TileTrigger[] triggers = new TileTrigger[0];
-    public TileTrigger[] signposts = new TileTrigger[0];
-    public WarpTrigger[] warps = new WarpTrigger[0];
-    public MapChar[] chars = new MapChar[0];
+    public List<TileTrigger> triggers = new();
+    public List<TileTrigger> signposts = new();
+    public List<WarpTrigger> warps = new();
+    public List<MapChar> chars = new();
     public WildDataset[] grassData = new WildDataset[9];
+
+    public Metatiles.FourTiles boundary;
 
     public (CharData, Vector2Int) CharFromId(string id)
     {

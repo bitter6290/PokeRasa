@@ -2,6 +2,7 @@
 using UnityEngine;
 public abstract class CharScripts : ScriptableObject
 {
+    public abstract bool LoadCheck(Player p);
     public abstract IEnumerator OnInteract(Player p, LoadedChar c);
     public abstract IEnumerator OnSee(Player p, LoadedChar c);
     public abstract IEnumerator OnWin(Player p, LoadedChar c);

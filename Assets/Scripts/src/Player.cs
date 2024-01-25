@@ -15,6 +15,8 @@ public class Player : LoadedChar
 {
     public const int maxBoxes = 255;
 
+    public static Player player;
+
     public bool[] TM = new bool[(int)TMID.Count];
     public bool[] storyFlags = new bool[(int)Flag.Count];
     public bool[] trainerFlags = new bool[(int)TrainerFlag.Count];
@@ -26,6 +28,8 @@ public class Player : LoadedChar
     public string playerName = "Brendan";
 
     public string saveID = "Test";
+
+    public static readonly Vector3 choicePosition = new(-400, 60);
 
     public TODShading todShading;
 
@@ -64,6 +68,8 @@ public class Player : LoadedChar
     public new GameObject camera;
     private GameObject blackScreen;
     private SpriteRenderer blackScreenRenderer;
+
+    public Canvas canvas;
 
     public AudioSource audioSource;
 
@@ -138,6 +144,10 @@ public class Player : LoadedChar
         }
     }
 
+    public IEnumerator DoChoiceMenu(DataStore<int> dataStore,
+        List<(string, int)> choices, int cancelChoice)
+        => ChoiceMenu.DoChoiceMenu(this, choices, cancelChoice, dataStore,
+            announcer.transform, choicePosition, Vector2.zero);
 
     public static CachedScreenData MapCachedData = new() { type = Screen.Map };
 
@@ -509,8 +519,13 @@ public class Player : LoadedChar
                 if (i.currentMap != currentMap)
                     foreach (Connection j in currentMap.connection)
                     {
-                        if (j.map == i.currentMap) i.pos += GetMapOffset(j);
-                    };
+                        if (j.map == i.currentMap)
+                        {
+                            Vector2Int mapOffset = GetMapOffset(j);
+                            i.pos += mapOffset;
+                            i.AlignObject();
+                        }
+                    }
                 i.currentMap = currentMap;
                 continue;
             }
@@ -770,6 +785,7 @@ public class Player : LoadedChar
         announcer.player = this;
         menu = FindAnyObjectByType<FieldMenu>();
         menu.player = this;
+        canvas = menu.canvas;
     }
 
     private void AlignMenu()
@@ -805,6 +821,7 @@ public class Player : LoadedChar
         battle.battleType = Battle.BattleType.Single;
         battle.wildBattle = false;
         battle.battleTerrain = currentTerrain;
+        battle.prizeMoney = opponentTeam.prizeMoney;
         yield return FadeFromBlack(0.2F);
         battle.StartCoroutine(battle.StartBattle());
     }
@@ -1367,6 +1384,7 @@ public class Player : LoadedChar
 
     public IEnumerator DoAnnouncements(List<string> text)
     {
+        PlayerState previousState = state;
         state = PlayerState.Announce;
         yield return announcer.AnnouncementUp();
         bool chime = false;
@@ -1376,7 +1394,7 @@ public class Player : LoadedChar
             chime = true;
         }
         yield return announcer.AnnouncementDown();
-        state = locked ? PlayerState.Locked : PlayerState.Free;
+        state = previousState;
     }
 
     private void ResetTransformations()
@@ -1450,6 +1468,7 @@ public class Player : LoadedChar
     // Start is called before the first frame update
     public void Start()
     {
+        player = this;
         Time.timeScale = 1;
         p = this;
         random = new();

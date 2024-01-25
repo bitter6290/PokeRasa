@@ -110,7 +110,34 @@ public static class ScriptUtils
         yield break;
     }
 
-    public static readonly List<(string, int)> BinaryChoice = new()
+    public static IEnumerator MartScript(Player p, ItemID[] items)
+    {
+        const int Sell = 2;
+        const int Buy = 1;
+        List<(string, int)> menuChoices = new() { ("Cancel", 0), ("Sell", Sell), ("Buy", Buy) };
+        p.locked = true;
+        if (p.state != PlayerState.Moving) p.state = PlayerState.Locked;
+        yield return p.announcer.AnnouncementUp();
+        yield return p.announcer.Announce("Welcome!\nWhat do you need?", persist: true);
+        DataStore<int> menuChoice = new();
+        while (true)
+        {
+            yield return p.DoChoiceMenu(menuChoice, menuChoices, 0);
+            if (menuChoice.Data == 0) break;
+            if (menuChoice.Data == Buy)
+            {
+                yield return p.announcer.AnnouncementDown();
+                yield return MartMenu.DoMartMenu(p, items);
+            }
+            yield return p.announcer.AnnouncementUp();
+            yield return p.announcer.Announce("Is there anything else we can do for you?", persist: true);
+        }
+        yield return p.announcer.AnnouncementDown();
+        p.locked = false;
+        p.state = PlayerState.Free;
+    }
+
+    public static readonly List<(string, int)> binaryChoice = new()
         {
             ("No", 0),
             ("Yes", 1),

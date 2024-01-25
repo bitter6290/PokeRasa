@@ -5,16 +5,6 @@ using static ScriptUtils;
 
 namespace Scripts.General
 {
-    public static class NurseUtils
-    {
-        public static readonly Sprite pokeball = Sprite.Create(
-            Resources.Load<Texture2D>("Sprites/Field/pokeball"),
-            new(0, 0, 8, 8), StaticValues.defPivot, 16);
-        public static readonly Sprite screen = Sprite.Create(
-            Resources.Load<Texture2D>("Sprites/Field/center_screen"),
-            new(0, 0, 24, 16), StaticValues.defPivot, 16);
-        public static readonly AudioClip heal = Resources.Load<AudioClip>("Sound/Field SFX/CenterHeal");
-    }
     public class PokeCenterNurse : TriggerScript
     {
         private static readonly Vector2[] ballPositions = new Vector2[6]
@@ -37,7 +27,7 @@ namespace Scripts.General
             yield return p.announcer.Announce("We restore your tired Pokémon to full health.", true);
             yield return p.announcer.Announce("Would you like to rest your Pokémon?", true, true);
             DataStore<int> menuResult = new();
-            yield return ChoiceMenu.DoChoiceMenu(p, BinaryChoice, 0, menuResult, p.announcer.transform, new(-400, 60), Vector2.zero);
+            yield return p.DoChoiceMenu(menuResult, binaryChoice, 0);
             if (menuResult.Data is 1)
             {
                 yield return p.announcer.Announce("OK, I'll take your Pokémon for a few seconds.");
@@ -95,5 +85,15 @@ namespace Scripts.General
             p.state = PlayerState.Free;
             nurse.free = true;
         }
+    }
+    public static class NurseUtils
+    {
+        public static readonly Sprite pokeball = Sprite.Create(
+            Resources.Load<Texture2D>("Sprites/Field/pokeball"),
+            new(0, 0, 8, 8), StaticValues.defPivot, 16);
+        public static readonly Sprite screen = Sprite.Create(
+            Resources.Load<Texture2D>("Sprites/Field/center_screen"),
+            new(0, 0, 24, 16), StaticValues.defPivot, 16);
+        public static readonly AudioClip heal = Resources.Load<AudioClip>("Sound/Field SFX/CenterHeal");
     }
 }

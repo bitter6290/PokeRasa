@@ -4,6 +4,7 @@ public static class Team
     public static TeamData mayTestTeam = new()
     {
         trainerName = "Pokémon Trainer May",
+        prizeMoney = 5000,
         Party = new TeamPokemon[]
         {
             new()

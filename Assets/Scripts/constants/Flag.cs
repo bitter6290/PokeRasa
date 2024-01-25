@@ -1,6 +1,8 @@
 ﻿using System;
 public enum Flag
 {
+    //One-time items
+    TestPotion,
     //Key items
     Key_Pokedex,
     Key_RunningShoes,

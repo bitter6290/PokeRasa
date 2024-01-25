@@ -8,8 +8,9 @@ public class FieldAnnouncer : MonoBehaviour
     public TextMeshProUGUI announcementText;
     public Vector3 announcerUpPosition;
     public Vector3 announcerDownPosition;
-    public float boxHeight;
+    private float boxHeight;
     public AudioSource audioSource;
+    public bool up = false;
 
     public void Awake()
     {
@@ -22,8 +23,12 @@ public class FieldAnnouncer : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    public void Flush() => announcementText.text = string.Empty;
+
     public IEnumerator AnnouncementUp()
     {
+        if (up) yield break;
+        up = true;
         float baseTime = Time.time;
         float endTime = baseTime + 0.1F;
         announcementText.text = string.Empty;
@@ -39,6 +44,7 @@ public class FieldAnnouncer : MonoBehaviour
 
     public IEnumerator AnnouncementDown()
     {
+        up = false;
         float baseTime = Time.time;
         float endTime = baseTime + 0.1F;
         announcementText.text = string.Empty;
@@ -52,7 +58,7 @@ public class FieldAnnouncer : MonoBehaviour
         announcementBox.localPosition = announcerDownPosition;
     }
 
-    public IEnumerator Announce(string announcement, bool doChime = false, bool intoPrompt = false)
+    public IEnumerator Announce(string announcement, bool doChime = false, bool persist = false)
     {
         float targetTime;
         if (doChime) audioSource.PlayOneShot(SFX.Message);
@@ -68,7 +74,7 @@ public class FieldAnnouncer : MonoBehaviour
                 yield return null;
             }
         }
-        if (!intoPrompt)
+        if (!persist)
         {
             while (!Input.GetKeyDown(KeyCode.Return))
             {

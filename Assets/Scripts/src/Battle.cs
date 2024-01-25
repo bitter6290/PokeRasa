@@ -98,6 +98,7 @@ public partial class Battle : MonoBehaviour
     public int currentPlayerMon = 4;
 
     public string opponentName = "Error 401";
+    public int prizeMoney = 0;
 
     public TextMeshProUGUI announcer;
 
@@ -8592,9 +8593,38 @@ public partial class Battle : MonoBehaviour
         else
         {
             yield return Announce("Defeated " + opponentName + "!");
+            yield return Announce(player.name + " got $" + prizeMoney + " for winning!");
+            player.money += prizeMoney;
             player.StartCoroutine(player.TrainerBattleWon());
             while (true) yield return null;
         }
+    }
+
+    private int losingPrizeMoney
+    {
+        get
+        {
+            int topLevel = 1;
+            foreach (Pokemon mon in player.Party)
+            {
+                if (!mon.exists) continue;
+                if (mon.level > topLevel) topLevel = mon.level;
+            }
+            int multiplier = 8;
+            //Todo: badge formula
+            return topLevel * multiplier;
+        }
+    }
+
+    private IEnumerator LostBattle()
+    {
+        yield return Announce(player.playerName + " has no more Pokémon that can fight!");
+        int losingMoney = losingPrizeMoney;
+        yield return Announce("Paid out $" + losingMoney + " to the winner...");
+        player.money -= losingMoney;
+        yield return Announce("... ...");
+        yield return Announce(player.playerName + " blacked out!");
+        //Todo: player portion of script
     }
 
     private void Start()

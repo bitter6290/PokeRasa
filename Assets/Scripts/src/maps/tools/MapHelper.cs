@@ -3,6 +3,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using System.Collections;
+using static UnityEngine.GraphicsBuffer;
 
 [ExecuteInEditMode]
 public class MapHelper : MapManager
@@ -15,31 +17,39 @@ public class MapHelper : MapManager
     [HideInInspector]
     public bool open;
     public void ForceOpen() => open = true;
+    public void ForceClose() => open = false;
 
+    [HideInInspector]
+    [SerializeField]
     private MapData openMap;
+    public MapData OpenMap => openMap;
 
     [HideInInspector]
     public List<ObjectDisplay> objectDisplays = new();
 
+    [HideInInspector]
     public GameObject objectDisplayParent;
 
+    [HideInInspector]
     public bool draggingObject;
+    [HideInInspector]
     public ObjectDisplay clickedObjectDisplay;
 
+    [HideInInspector]
     public bool objectsEnabled = true;
 
-    public void WriteMap()
+    public bool WriteMap()
     {
         if (!open)
         {
             EditorUtility.DisplayDialog("No map open",
                 "Cannot write to a nonexistent map, open a map before editing.", "OK");
-            return;
+            return false; ;
         }
         else
         {
             MapWriter writer = new(this);
-            writer.Write();
+            return writer.Write();
         }
     }
 
@@ -88,8 +98,10 @@ public class MapHelper : MapManager
 
     public void SaveAndCloseMap()
     {
-        WriteMap();
-        CloseMap(true);
+        if (WriteMap())
+        {
+            CloseMap(true);
+        }
     }
 
     public void CreateMap()
@@ -104,6 +116,19 @@ public class MapHelper : MapManager
         CreateMapPopup.helper = this;
         CreateMapPopup.position = new Rect(Screen.width / 6, Screen.height / 6, 2 * Screen.width / 3, 2 * Screen.width / 3);
         CreateMapPopup.ShowPopup();
+    }
+
+    public void CopyMap()
+    {
+        if (!open)
+        {
+            EditorUtility.DisplayDialog("No map open",
+                "Cannot copy to a nonexistent map, open a map first.", "OK");
+        }
+        var CopyMapPopup = ScriptableObject.CreateInstance<MapCopyWindow>();
+        CopyMapPopup.helper = this;
+        CopyMapPopup.position = new Rect(Screen.width / 6, Screen.height / 6, 2 * Screen.width / 3, 2 * Screen.width / 3);
+        CopyMapPopup.ShowPopup();
     }
 
     public void UpdateConnections()
@@ -149,13 +174,13 @@ public class MapHelper : MapManager
     public void ShowObjects()
     {
         FlushObjects();
-        for (int i = 0; i < map.triggers.Length; i++)
+        for (int i = 0; i < map.triggers.Count; i++)
             objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Trigger, i));
-        for (int i = 0; i < map.signposts.Length; i++)
+        for (int i = 0; i < map.signposts.Count; i++)
             objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Signpost, i));
-        for (int i = 0; i < map.warps.Length; i++)
+        for (int i = 0; i < map.warps.Count; i++)
             objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Warp, i));
-        for (int i = 0; i < map.chars.Length; i++)
+        for (int i = 0; i < map.chars.Count; i++)
             objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Char, i));
     }
 

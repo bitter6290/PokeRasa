@@ -28,6 +28,7 @@ public class MapCreateWindow : EditorWindow
             data.name = name;
             data.id = name;
             data.tileset = tileset;
+            data.boundary = tileset.defaultBoundary;
             int freeIds = ProjectData.freeMapIDs.Count;
             if (freeIds > 0)
             {

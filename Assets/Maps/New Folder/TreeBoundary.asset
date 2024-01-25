@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6283e1d5206e4f63bd9595c88c9b01b, type: 3}
+  m_Name: TreeBoundary
+  m_EditorClassIdentifier: 
+  nwTile:
+    nwTile:
+      level1: {fileID: 11400000, guid: 6d95dede982924e9db4f192385c1aecd, type: 2}
+      level2: {fileID: 11400000, guid: 83801940d969345dca2405bf9770da1a, type: 2}
+      level3: {fileID: 0}
+    neTile:
+      level1: {fileID: 11400000, guid: 8f71d53a3925a40a7a952738b55d2d34, type: 2}
+      level2: {fileID: 11400000, guid: 347456b5c637445aa9da30620e607145, type: 2}
+      level3: {fileID: 0}
+    swTile:
+      level1: {fileID: 11400000, guid: 8f71d53a3925a40a7a952738b55d2d34, type: 2}
+      level2: {fileID: 11400000, guid: 51d226a1c53524f44bccd7504303246a, type: 2}
+      level3: {fileID: 0}
+    seTile:
+      level1: {fileID: 11400000, guid: 6d95dede982924e9db4f192385c1aecd, type: 2}
+      level2: {fileID: 11400000, guid: 987cef5610d564d6f9ef302b8cc922c0, type: 2}
+      level3: {fileID: 0}
+  neTile:
+    nwTile:
+      level1: {fileID: 11400000, guid: 6d95dede982924e9db4f192385c1aecd, type: 2}
+      level2: {fileID: 11400000, guid: 14d88825b11674b7bb2da344d5388917, type: 2}
+      level3: {fileID: 0}
+    neTile:
+      level1: {fileID: 11400000, guid: 8f71d53a3925a40a7a952738b55d2d34, type: 2}
+      level2: {fileID: 11400000, guid: 912a504972f3d42e5910c8347ba5f778, type: 2}
+      level3: {fileID: 0}
+    swTile:
+      level1: {fileID: 11400000, guid: 8f71d53a3925a40a7a952738b55d2d34, type: 2}
+      level2: {fileID: 11400000, guid: 9499a90e9171541a6adf5d09b2dc0554, type: 2}
+      level3: {fileID: 0}
+    seTile:
+      level1: {fileID: 11400000, guid: 6d95dede982924e9db4f192385c1aecd, type: 2}
+      level2: {fileID: 11400000, guid: 1e16c40fb4ccc4380bbcd010b8f45efe, type: 2}
+      level3: {fileID: 0}
+  swTile:
+    nwTile:
+      level1: {fileID: 11400000, guid: 6d95dede982924e9db4f192385c1aecd, type: 2}
+      level2: {fileID: 11400000, guid: 53388e2af17624b60a36eb74c97762f2, type: 2}
+      level3: {fileID: 0}
+    neTile:
+      level1: {fileID: 11400000, guid: 8f71d53a3925a40a7a952738b55d2d34, type: 2}
+      level2: {fileID: 11400000, guid: dd91ea2bb760c4d55ab6136bd121339a, type: 2}
+      level3: {fileID: 0}
+    swTile:
+      level1: {fileID: 11400000, guid: 8f71d53a3925a40a7a952738b55d2d34, type: 2}
+      level2: {fileID: 11400000, guid: 4cd87603c0eca49e98dba95bd0f62d2c, type: 2}
+      level3: {fileID: 0}
+    seTile:
+      level1: {fileID: 11400000, guid: 6d95dede982924e9db4f192385c1aecd, type: 2}
+      level2: {fileID: 11400000, guid: 719441d23e8054f88b9e7d6748e0f761, type: 2}
+      level3: {fileID: 11400000, guid: 6cc3c8d0e75324226b15283fbe432ea4, type: 2}
+  seTile:
+    nwTile:
+      level1: {fileID: 11400000, guid: 6d95dede982924e9db4f192385c1aecd, type: 2}
+      level2: {fileID: 11400000, guid: c2e68e3c979f446e3972e28b6b8e03af, type: 2}
+      level3: {fileID: 0}
+    neTile:
+      level1: {fileID: 11400000, guid: 8f71d53a3925a40a7a952738b55d2d34, type: 2}
+      level2: {fileID: 11400000, guid: 1dc54e08da1d148e49b30a100d17a36d, type: 2}
+      level3: {fileID: 0}
+    swTile:
+      level1: {fileID: 11400000, guid: 8f71d53a3925a40a7a952738b55d2d34, type: 2}
+      level2: {fileID: 11400000, guid: 45e72530b520146998458858925b3051, type: 2}
+      level3: {fileID: 11400000, guid: 7dd1f0ba0fd47453fa0c8377e9ab4b23, type: 2}
+    seTile:
+      level1: {fileID: 11400000, guid: 6d95dede982924e9db4f192385c1aecd, type: 2}
+      level2: {fileID: 11400000, guid: 9e4bf7f1197b54d4fbe536f63c951da8, type: 2}
+      level3: {fileID: 0}

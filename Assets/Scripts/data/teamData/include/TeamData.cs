@@ -1,8 +1,9 @@
-﻿public class TeamData
+﻿public struct TeamData
 {
     public TeamPokemon[] Party;
 
     public string trainerName;
+    public int prizeMoney;
 
     public Pokemon[] GetParty()
     {

@@ -116,3 +116,4 @@ MonoBehaviour:
   defaultSE: {fileID: 11400000, guid: 0f5ba3e8cb69a47c0b1c89d4493ad8e4, type: 2}
   defaultNW: {fileID: 11400000, guid: 0f5ba3e8cb69a47c0b1c89d4493ad8e4, type: 2}
   defaultNE: {fileID: 11400000, guid: 0f5ba3e8cb69a47c0b1c89d4493ad8e4, type: 2}
+  defaultBoundary: {fileID: 11400000, guid: aa3a64c965a06425b9e5def5fc9fff0b, type: 2}

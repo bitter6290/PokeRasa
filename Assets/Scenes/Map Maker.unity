@@ -282,7 +282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1839735485 &459109006
 Tilemap:
   m_ObjectHideFlags: 0
@@ -460,16 +460,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c3ad5caad044217be993e50be06081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 11400000, guid: cf50f3ee8c8754aa487ae32f47d9649f, type: 2}
+  map: {fileID: 11400000, guid: 0ad9a16a74a2449bbb98e1f8733ce282, type: 2}
   level1: {fileID: 175103180}
   level2: {fileID: 2060845063}
   level3: {fileID: 1626772733}
   collisionMap: {fileID: 1671551014}
   wildDataMap: {fileID: 459109006}
   projectData:
-    nextMapID: 8
+    nextMapID: 9
     freeMapIDs: 
   open: 0
+  openMap: {fileID: 0}
   objectDisplays: []
   objectDisplayParent: {fileID: 0}
   draggingObject: 0

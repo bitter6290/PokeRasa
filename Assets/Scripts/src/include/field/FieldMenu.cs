@@ -36,6 +36,7 @@ public class FieldMenu : MonoBehaviour
     private bool chosen;
 
     private MenuData[] menu;
+    public Canvas canvas;
 
     public void Update()
     {

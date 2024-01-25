@@ -6,6 +6,7 @@ namespace Scripts.Test
 {
     public class May : CharScripts
     {
+        public override bool LoadCheck(Player p) => true;
         public override IEnumerator OnInteract(Player p, LoadedChar c)
         {
             c.FaceAndLock();

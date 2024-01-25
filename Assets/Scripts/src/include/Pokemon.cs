@@ -460,7 +460,7 @@ public class Pokemon : ICloneable
                 DataStore<int> whichMove = new();
                 DataStore<int> binaryStore = new();
                 IEnumerator BinaryChoice() => ChoiceMenu.DoChoiceMenu(p,
-                        ScriptUtils.BinaryChoice, 0, binaryStore,
+                        ScriptUtils.binaryChoice, 0, binaryStore,
                         baseTransform, menuPos, Vector2.zero, menuScale: menuScale);
                 IEnumerator WantsToLearn()
                 {

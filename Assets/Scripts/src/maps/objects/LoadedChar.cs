@@ -137,14 +137,21 @@ public abstract class LoadedChar : MonoBehaviour
     public void FacePlayer()
     {
         Vector2Int comparisonPos = p.pos - pos;
-        if (comparisonPos == Vector2Int.up)
-            _ = StartCoroutine(FaceNorth());
-        else if (comparisonPos == Vector2Int.down)
-            _ = StartCoroutine(FaceSouth());
-        else if (comparisonPos == Vector2Int.left)
-            _ = StartCoroutine(FaceWest());
-        else if (comparisonPos == Vector2Int.right)
-            _ = StartCoroutine(FaceEast());
+        switch (comparisonPos.x)
+        {
+            case > 0:
+                if (comparisonPos.y == 0) StartCoroutine(FaceEast()); break;
+            case < 0:
+                if (comparisonPos.y == 0) StartCoroutine(FaceWest()); break;
+            default:
+                switch (comparisonPos.y)
+                {
+                    case > 0: StartCoroutine(FaceNorth()); break;
+                    case < 0: StartCoroutine(FaceSouth()); break;
+                    default: break;
+                }
+                break;
+        }
     }
 
     public void FaceAndLock()

@@ -203,6 +203,20 @@ public static class MapReader
                 manager.borderingCollision.Add(i.map, connectingCollision);
             }
         }
+        for (int i = -30; i < (manager.map.width * 2) + 30; i++)
+        {
+            for (int j = -30; j < (manager.map.height * 2) + 30; j++)
+            {
+                Vector3Int pos = new(i, j);
+                if ((level1.GetTile(pos), level2.GetTile(pos), level3.GetTile(pos)) == (null, null, null))
+                {
+                    Metatiles.MapTile mapTile = manager.map.boundary.GetTile(new(i,j));
+                    level1.SetTile(pos, mapTile.level1);
+                    level2.SetTile(pos, mapTile.level2);
+                    level3.SetTile(pos, mapTile.level3);
+                }
+            }
+        }
         Debug.Log("Loaded successfully");
     }
 #if UNITY_EDITOR
@@ -353,6 +367,20 @@ public static class MapReader
                     break;
             }
         }
+        for (int i = -30; i < (mapHelper.map.width * 2) + 30; i++)
+        {
+            for (int j = -30; j < (mapHelper.map.height * 2) + 30; j++)
+            {
+                Vector3Int pos = new(i, j);
+                if ((level1.GetTile(pos), level2.GetTile(pos), level3.GetTile(pos)) is (null, null, null))
+                {
+                    Metatiles.MapTile mapTile = mapHelper.map.boundary.GetTile(new(i, j));
+                    level1.SetTile(pos, mapTile.level1);
+                    level2.SetTile(pos, mapTile.level2);
+                    level3.SetTile(pos, mapTile.level3);
+                }
+            }
+        }
     }
 
     public static void ClearConnections(MapHelper mapHelper)
@@ -455,7 +483,6 @@ public static class MapReader
                     Tiles.CollisionTileTable[(int)CollisionID.Level3]);
                 wildData.SetTile(new Vector3Int(x, y),
                     Tiles.CollisionTileTable[(int)CollisionID.Impassable]);
-
             }
         }
         RenderNeighborsForEditingV1(mapHelper);

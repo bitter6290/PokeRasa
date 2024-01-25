@@ -472,7 +472,7 @@ public class BoxScreen : MonoBehaviour
                         {
                             announcer.gameObject.SetActive(true);
                             yield return announcer.Announce("Really release " + GetPokemon(selection).MonName + "?", false);
-                            yield return ChoiceMenu.DoChoiceMenu(p, ScriptUtils.BinaryChoice, 0, dataStore,
+                            yield return ChoiceMenu.DoChoiceMenu(p, ScriptUtils.binaryChoice, 0, dataStore,
                                 GetSprite(selection), new(-0.5f, 0.5f), GetMenuPivot(selection), guiParent);
                             switch (dataStore.Data)
                             {
