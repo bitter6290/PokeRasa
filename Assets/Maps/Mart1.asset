@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba887c79a07fd4408bcb46a0c8f52cbf, type: 3}
+  m_Name: Mart1
+  m_EditorClassIdentifier: 
+  index: 9
+  id: Mart1
+  mapTiles: AQCV@Q@ACW^CX^CY&DAJU^JY^Jc^Jg&MAlQ^lg^lw^m??wCZAJo@ACbAJw@ACdAJ4@ACfAK&JU@AChAJY@ACiAJc^Jg&MAlQ^lg^ow^m??wCk^Cl^Cm^Cn??AKg^Kk^Ko^Ks??AmQ^mw^nQ^nw&wCZ^Cb^Cd^Cf&DAJk^Js^Jc^Jg&MAmQCc?mwCs?nQCtAK0AnwCuAK4@ACZ?rwCb?rwCd^Cf&DAJk^Js^Jc^Jg&MApQ^pQ^pwCw?pwCx^CpALI@ACpALM@ACr^Cr??AJk^Js^J0^J8&MAmQ^mw^nQ^nw&wCZ^Cb^CX^CY&DAJkAt?JsAtQ@AJ0Atg@AJ8Atw^mQC4?mwC5?nQC6?nwC7^CZALg@ACbALk@ACdALw@ACfAL0^KUAvg@AKUAvw@AKc^Kc??AqQ^qQ^qw^qw??CZAPE@ACbAPI@ACdAPM@ACfAPQ?DAJk^Js^J0^J8&MAmQ^mw^lw^nw&wCV^Cb^CX^Cf&DAJU^Js^Jc^J8&MAlQ^mw^lw^m??wD&DB^DC^DD??AMQ^MU^Ks^Ks??AmQD1?mwD2?nQD3?nwD4?AwCZ^Cb^Cd^Cf&DAJk^Js^J0^J8&MAmQ^mw^nQ^nw&wCZ^Cb^Cd^Cf&DAJk^Js^Jc^Jg&MAw&wQ^wg^ww??DE^DF^Cr^Cr??AJk^Js^J0^J8&MAmQ^mw^nQ^nw&wCZ^Cb^Cd^Cf&DAJk^Js^J0^J8&MAmQ^mw^nQ^nw&wCZ^Cb^CX^CY&DAM&ME^MI^MM??Ax&xQ^qw^qw??CZ^Cb^DG^CY&DAJkAxw@AJsAy?J0AyQ@AJ8Ayg^mQDL?mwDM?nQDN?nwDO^CZAM8@ACbAN?CdANE@ACfANI^Jk^Js^J0^J8&MA0w^lg^lwDU?mADV?AwClANY@AClANc@ACnANg@ACnANk^Kk^Kk^Ks^Ks??AmQ^mw^lw^m??wCZANo@ACbANs@ACdANw@ACfAN0^JkA3g@AJsA3w@AJ0A4?J8A4Q^mQDi?mwDj?nQDk?nwDl^CZ^Cb^Cd^Cf&DAJU^JY^JcA5g@AJgA5w?MApQDo?pQDp?pwDq?pwDr^Cp^Cp^Cr^Cr??AJk^Js^Jc^J8&MAlQ^mw^lw^nw&wCV^Cb^CX^Cf&DAJU^Js^Jc^J8&MAmQ^mw^nQ^nw&wCV^CW^CXANQ@ACYANU?DAKUA1g@AKUA1w@AKcA2?KcA2Q^qQ^qQ^qw^qw??CZ^Cb^Cd^Cf&DAJk^Js^J0^J8&MAmQ^mw^nQ^nw&wCZ^Cb^Cd^Cf&DAJk^Js^J0^J8&MAlQ^lg^lwDm?mADn?AwClAOg@AClAOk@ACnAOo@ACnAOs^Kk^Kk^Ks^Ks??AmQ^mwCN?xg^m??wCZAMc@ACbAMg@ACdAMk@ACfAMo^JkAyw@AJsAz?J0AzQ@AJ8Azg^mQDP?mwDQ?nQDR?nwDS^CZAB?CbABE@ACdABM@ACfABQ^JU?WAJY?XAJc?ZAOw?b@MApQ^7Q^pw^7g??Cp^Dv^Cr^Dw?^==
+  tileset: {fileID: 11400000, guid: 4e2d0bce123de4fdf9a5402b3593ef27, type: 2}
+  height: 8
+  width: 11
+  connection: []
+  shading: 0
+  triggers: []
+  signposts:
+  - pos: {x: 1, y: 3}
+    script: {fileID: 11400000, guid: 7afb35f612f1c4642912f7994bda8ccd, type: 2}
+    active: 0
+  - pos: {x: 2, y: 4}
+    script: {fileID: 11400000, guid: 7afb35f612f1c4642912f7994bda8ccd, type: 2}
+    active: 0
+  warps:
+  - pos: {x: 3, y: 0}
+    destination: {fileID: 11400000, guid: 64dd3971948364967b233c2fd81257e0, type: 2}
+    destinationPos: {x: 10, y: 7}
+    active: 0
+    triggerType: 4
+  - pos: {x: 4, y: 0}
+    destination: {fileID: 11400000, guid: 64dd3971948364967b233c2fd81257e0, type: 2}
+    destinationPos: {x: 10, y: 7}
+    active: 0
+    triggerType: 4
+  chars:
+  - data: {fileID: 11400000, guid: 24a66466d351e42939ad186ed7661d88, type: 2}
+    pos: {x: 1, y: 4}
+  grassData:
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  boundary: {fileID: 11400000, guid: aa3a64c965a06425b9e5def5fc9fff0b, type: 2}
+  mapScripts: {fileID: 11400000, guid: 1d32d9536ee0f457b866b2732ad8cc24, type: 2}

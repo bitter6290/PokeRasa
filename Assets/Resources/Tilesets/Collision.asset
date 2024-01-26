@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2adba1a210e854786911b6663af307c7, type: 3}
+  m_Name: Collision
+  m_EditorClassIdentifier: 
+  tilePath: 
+  Tiles:
+  - {fileID: 11400000, guid: e5cdc003e45b24ec8b02bd99e7f9e229, type: 2}
+  - {fileID: 11400000, guid: 2aed248e013124c4b90b2a8f3bf0b44b, type: 2}
+  - {fileID: 11400000, guid: 068a5533168bf469fbc19e792eb21e56, type: 2}
+  - {fileID: 11400000, guid: b0d86447a70f64facaf5be93d0b155ac, type: 2}
+  - {fileID: 11400000, guid: e7e448c5aaa8a40aeb6e69cd3745a971, type: 2}
+  - {fileID: 11400000, guid: 3a1bf9d39c6ba4d10b138dd8be3c4380, type: 2}
+  - {fileID: 11400000, guid: 3acf9e1c365b04cee84aa5a20b745395, type: 2}
+  - {fileID: 11400000, guid: 290d0828ded1b493eaa523f1fe71bba1, type: 2}
+  - {fileID: 11400000, guid: 3a8fb4bb4c0064b58a5717448df24b97, type: 2}
+  - {fileID: 11400000, guid: d450325e4b30a4ae69982f516b88fc77, type: 2}
+  - {fileID: 11400000, guid: cc423ff0b20f3440e97a4ee0087fa40c, type: 2}
+  - {fileID: 11400000, guid: 7aa48e768196d4aa2b812af1fb986124, type: 2}
+  - {fileID: 11400000, guid: 5b9bc93303506420481e5f8a852129a2, type: 2}
+  defaultSW: {fileID: 0}
+  defaultSE: {fileID: 0}
+  defaultNW: {fileID: 0}
+  defaultNE: {fileID: 0}
+  defaultBoundary: {fileID: 0}

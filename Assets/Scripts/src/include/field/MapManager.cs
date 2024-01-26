@@ -4,6 +4,9 @@ using UnityEngine.Tilemaps;
 
 public class MapManager : MonoBehaviour
 {
+#if UNITY_EDITOR
+    [System.NonSerialized]
+#endif
     public MapData map;
     public Tilemap level1;
     public Tilemap level2;

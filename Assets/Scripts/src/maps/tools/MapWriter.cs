@@ -33,13 +33,15 @@ public class MapWriter
         bool ok = true;
         int GetIndex(Tilemap map, Vector3Int location)
         {
-            int index = currentTiles.Tiles.FindIndex(a => a == map.GetTile(location));
+            TileBase currentTile = map.GetTile(location);
+            int index = currentTiles.Tiles.FindIndex(a => a == currentTile);
             if (index is -1)
             {
                 index = 0;
                 ok = false;
                 Debug.Log("Unfamiliar tile at " + location + " on tilemap " + map);
-                mapHelper.missingTiles.Add(map.GetTile(location));
+                if (!mapHelper.missingTiles.Contains(currentTile))
+                    mapHelper.missingTiles.Add(currentTile);
             }
             return index;
         }
@@ -92,9 +94,9 @@ public class MapWriter
         }
         if (ok || overrideMissing)
         {
-            string outString = Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?").Replace("?@A","&").Replace("?@","^");
+            string outString = Convert.ToBase64String(data.ToArray()).Replace("AA", "@").Replace("@@", "?").Replace("?@A", "&").Replace("?@", "^");
             mapHelper.OpenMap.WriteMapTiles(outString);
-            EditorUtility.SetDirty(mapHelper.map);
+            EditorUtility.SetDirty(mapHelper.OpenMap);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }

@@ -1,4 +1,5 @@
 ﻿#if UNITY_EDITOR
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -31,6 +32,11 @@ public class MapHelperEditor : Editor
         {
             mapHelper.SaveAndCloseMap();
         }
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+        if (GUILayout.Button("Edit Map Data"))
+        {
+            mapHelper.MapEditWindow();
+        }
         if (GUILayout.Button("Update Connections"))
         {
             mapHelper.UpdateConnections();
@@ -39,24 +45,34 @@ public class MapHelperEditor : Editor
         {
             mapHelper.ReflectConnections();
         }
-        if (GUILayout.Button("Sync Tiles"))
-        {
-            mapHelper.SyncTilesets();
-        }
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         if (GUILayout.Button("New Trigger"))
         {
-            mapHelper.map.triggers.Add(new());
+            mapHelper.OpenMap.triggers.Add(new());
             mapHelper.ShowObjects();
         }
         if (GUILayout.Button("New Signpost"))
         {
-            mapHelper.map.signposts.Add(new());
+            mapHelper.OpenMap.signposts.Add(new());
             mapHelper.ShowObjects();
+        }
+        if (GUILayout.Button("New Warp"))
+        {
+            mapHelper.OpenMap.warps.Add(new());
+            mapHelper.ShowObjects();
+        }
+        if (GUILayout.Button("New Object"))
+        {
+            var newObjectWindow = CreateInstance<NewCharWindow>();
+            newObjectWindow.helper = mapHelper;
+            newObjectWindow.position = new Rect(Screen.width / 6, Screen.height / 6, 2 * Screen.width / 3, 2 * Screen.width / 3);
+            newObjectWindow.ShowPopup();
         }
         if (GUILayout.Button("Update Objects"))
         {
             mapHelper.ShowObjects();
         }
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         mapHelper.collisionMap.gameObject.SetActive(GUILayout.Toggle(mapHelper.collisionMap.isActiveAndEnabled, "Show Collision"));
         mapHelper.wildDataMap.gameObject.SetActive(GUILayout.Toggle(mapHelper.wildDataMap.isActiveAndEnabled, "Show Encounters"));
         if (GUILayout.Button("Toggle Objects"))
@@ -92,10 +108,21 @@ public class MapHelperEditor : Editor
                     {
                         if (display.Pos == finalCoords)
                         {
-                            mapHelper.draggingObject = true;
-                            mapHelper.clickedObjectDisplay = display;
-                            e.Use();
-                            break;
+                            switch (e.button)
+                            {
+                                case 0:
+                                    mapHelper.draggingObject = true;
+                                    mapHelper.clickedObjectDisplay = display;
+                                    e.Use();
+                                    return;
+                                case 1:
+                                    var editObjectPopup = CreateInstance<ObjectEditWindow>();
+                                    editObjectPopup.@object = display;
+                                    editObjectPopup.position = new Rect(Screen.width / 6, Screen.height / 6, 2 * Screen.width / 3, 2 * Screen.width / 3);
+                                    editObjectPopup.ShowPopup();
+                                    e.Use();
+                                    return;
+                            }
                         }
                     }
                     break;

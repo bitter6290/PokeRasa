@@ -51,14 +51,14 @@ public class MapData : ScriptableObject
 }
 
 [Serializable]
-public struct MapChar : IIntPosition
+public class MapChar : IIntPosition
 {
     public CharData data;
     public Vector2Int pos;
 
     public Vector2Int Pos
     {
-        readonly get => pos;
+        get => pos;
         set => pos = value;
     }
 }

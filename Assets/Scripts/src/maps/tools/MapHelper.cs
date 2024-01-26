@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using System.Collections;
 using static UnityEngine.GraphicsBuffer;
+using System;
 
 [ExecuteInEditMode]
 public class MapHelper : MapManager
@@ -16,7 +17,7 @@ public class MapHelper : MapManager
 
     [HideInInspector]
     public bool open;
-    public void ForceOpen() => open = true;
+    public void ForceOpen(MapData map) { open = true; openMap = map; }
     public void ForceClose() => open = false;
 
     [HideInInspector]
@@ -76,37 +77,51 @@ public class MapHelper : MapManager
 
     public new void ReadMap()
     {
-        if (map == null)
+        if (open && !CheckUnsaved()) return;
+        var openMapWindow = ScriptableObject.CreateInstance<OpenMapWindow>();
+        openMapWindow.helper = this;
+        openMapWindow.position = new Rect(Screen.width / 6, Screen.height / 6, 2 * Screen.width / 3, 2 * Screen.width / 3);
+        openMapWindow.ShowPopup();
+    }
+    public void TryToOpenMap(MapData mapData)
+    {
+        if (mapData == null)
         {
-            EditorUtility.DisplayDialog("No map selected",
-                "No map is selected, select one with the drop-down menu before loading.", "OK");
+            EditorUtility.DisplayDialog("No map selected", "No map was selected!","OK");
             return;
         }
-        if (open)
+        if (mapData == openMap)
         {
-            if (!EditorUtility.DisplayDialog("Map is not saved",
-                "Map is not saved. Really discard unsaved work?", "Yes", "Cancel"))
-                return;
-        }
-        if (map.MapTiles.Length == 0)
-        {
-            MapReader.CreateNewMapV1(this);
+            EditorUtility.DisplayDialog("Map already open", "Can't open map, selected map is already open.", "OK");
+            return;
         }
         else
         {
-            openMap = map;
+            openMap = mapData;
             open = true;
-            MapReader.ReadForEditingV1(this);
+            if (mapData.MapTiles.Length == 0)
+            {
+                MapReader.CreateNewMapV1(this);
+            }
+            else
+            {
+                MapReader.ReadForEditingV1(this);
+            }
             ShowObjects();
         }
     }
 
+    public bool CheckUnsaved()
+    {
+        return EditorUtility.DisplayDialog("Map is not saved", "Map is not saved. Save now?", "Yes", "No")
+            ? WriteMap()
+            : EditorUtility.DisplayDialog("Discard unsaved work?", "Really discard unsaved work?", "Yes", "Cancel");
+    }
+
     public void CloseMap(bool saved = false)
     {
-        if (open && !saved)
-            if (!EditorUtility.DisplayDialog("Map is not saved",
-                "Map is not saved. Really discard unsaved work?", "Yes", "Cancel"))
-                return;
+        if (open && !saved && !CheckUnsaved())
+            return;
         level1.ClearAllTiles();
         level2.ClearAllTiles();
         level3.ClearAllTiles();
@@ -127,12 +142,7 @@ public class MapHelper : MapManager
 
     public void CreateMap()
     {
-        if (open)
-        {
-            if (!EditorUtility.DisplayDialog("Map is not saved",
-                "Map is not saved. Really discard unsaved work?", "Yes", "Cancel"))
-                return;
-        }
+        if (open && !CheckUnsaved()) return;
         var CreateMapPopup = ScriptableObject.CreateInstance<MapCreateWindow>();
         CreateMapPopup.helper = this;
         CreateMapPopup.position = new Rect(Screen.width / 6, Screen.height / 6, 2 * Screen.width / 3, 2 * Screen.width / 3);
@@ -150,6 +160,14 @@ public class MapHelper : MapManager
         CopyMapPopup.helper = this;
         CopyMapPopup.position = new Rect(Screen.width / 6, Screen.height / 6, 2 * Screen.width / 3, 2 * Screen.width / 3);
         CopyMapPopup.ShowPopup();
+    }
+
+    public void MapEditWindow()
+    {
+        var mapEditWindow = ScriptableObject.CreateInstance<MapEditWindow>();
+        mapEditWindow.helper = this;
+        mapEditWindow.position = new Rect(Screen.width / 6, Screen.height / 6, 2 * Screen.width / 3, 2 * Screen.width / 3);
+        mapEditWindow.ShowPopup();
     }
 
     public void UpdateConnections()
@@ -195,13 +213,13 @@ public class MapHelper : MapManager
     public void ShowObjects()
     {
         FlushObjects();
-        for (int i = 0; i < map.triggers.Count; i++)
+        for (int i = 0; i < openMap.triggers.Count; i++)
             objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Trigger, i));
-        for (int i = 0; i < map.signposts.Count; i++)
+        for (int i = 0; i < openMap.signposts.Count; i++)
             objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Signpost, i));
-        for (int i = 0; i < map.warps.Count; i++)
+        for (int i = 0; i < openMap.warps.Count; i++)
             objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Warp, i));
-        for (int i = 0; i < map.chars.Count; i++)
+        for (int i = 0; i < openMap.chars.Count; i++)
             objectDisplays.Add(ObjectDisplay.Create(this, ObjectDisplay.Mode.Char, i));
     }
 
@@ -211,24 +229,13 @@ public class MapHelper : MapManager
         foreach (ObjectDisplay obj in objectDisplays) obj.gameObject.SetActive(objectsEnabled);
     }
 
-    public void SyncTilesets()
+    public void NewChar()
     {
-        foreach (CollisionTile i in Tiles.CollisionTileTable)
-        {
-            CollisionTile test = AssetDatabase.LoadAssetAtPath<CollisionTile>(
-                "Assets/Generated Palettes/Collision/tile_" + (int)i.collisionID + ".asset"
-            );
-            if (test == null)
-                AssetDatabase.CreateAsset(i,
-                    "Assets/Generated Palettes/Collision/tile_" + (int)i.collisionID + ".asset");
-            else
-            {
-                test.sprite = i.sprite;
-                test.collisionID = i.collisionID;
-            }
-            AssetDatabase.SaveAssets();
-        }
-        AssetDatabase.Refresh();
+        if (!open) return;
+        var newCharWindow = ScriptableObject.CreateInstance<NewCharWindow>();
+        newCharWindow.helper = this;
+        newCharWindow.position = new Rect(Screen.width / 6, Screen.height / 6, 2 * Screen.width / 3, 2 * Screen.width / 3);
+        newCharWindow.ShowPopup();
     }
 }
 #endif

@@ -21,12 +21,12 @@ public class ObjectDisplay : MonoBehaviour, IPointerClickHandler
 
     public MapHelper mapHelper;
 
-    private IIntPosition Target => mode switch
+    public IIntPosition Target => mode switch
     {
-        Mode.Trigger => mapHelper.map.triggers[index],
-        Mode.Signpost => mapHelper.map.signposts[index],
-        Mode.Warp => mapHelper.map.warps[index],
-        Mode.Char => mapHelper.map.chars[index],
+        Mode.Trigger => mapHelper.OpenMap.triggers[index],
+        Mode.Signpost => mapHelper.OpenMap.signposts[index],
+        Mode.Warp => mapHelper.OpenMap.warps[index],
+        Mode.Char => mapHelper.OpenMap.chars[index],
         _ => throw new System.Exception("ObjectDisplay " + name + " has bad Mode")
     };
 
@@ -37,7 +37,7 @@ public class ObjectDisplay : MonoBehaviour, IPointerClickHandler
     public void Render()
     {
         transform.position = new(Target.Pos.x + (mode is Mode.Char ? 0.5f : 0), Target.Pos.y + (mode is Mode.Char ? 0.5f : 0), 0);
-        sprite.sortingOrder = 3;
+        sprite.sortingOrder = 0;
         switch (mode)
         {
             case Mode.Trigger:

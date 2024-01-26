@@ -117,6 +117,11 @@ public static class ScriptUtils
         List<(string, int)> menuChoices = new() { ("Cancel", 0), ("Sell", Sell), ("Buy", Buy) };
         p.locked = true;
         if (p.state != PlayerState.Moving) p.state = PlayerState.Locked;
+        if (p.loadedChars.ContainsKey("martemployee"))
+        {
+            if (p.facing is Direction.N) p.StartCoroutine(p.loadedChars["martemployee"].chara.FaceSouth());
+            else p.StartCoroutine(p.loadedChars["martemployee"].chara.FaceEast());
+        }
         yield return p.announcer.AnnouncementUp();
         yield return p.announcer.Announce("Welcome!\nWhat do you need?", persist: true);
         DataStore<int> menuChoice = new();
