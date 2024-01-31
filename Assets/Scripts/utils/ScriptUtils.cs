@@ -134,6 +134,12 @@ public static class ScriptUtils
                 yield return p.announcer.AnnouncementDown();
                 yield return MartMenu.DoMartMenu(p, items);
             }
+            if (menuChoice.Data == Sell)
+            {
+                yield return p.DoBagPrompt();
+                if (p.bagResult != ItemID.None)
+                    yield return MartQuantity.DoQuantityScreen(p, p.bagResult, true);
+            }
             yield return p.announcer.AnnouncementUp();
             yield return p.announcer.Announce("Is there anything else we can do for you?", persist: true);
         }

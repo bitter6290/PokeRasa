@@ -95,8 +95,12 @@ public class Pokemon : ICloneable
     public bool transformed;
     public SpeciesID temporarySpecies;
 
+    [NonSerialized]
     public bool illusionActive;
+    [NonSerialized]
     public Pokemon illusionPokemon;
+
+
 
     public byte friendship; //Friendship is implemented at the Gen 7 standard by default
 

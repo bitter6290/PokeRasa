@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MartQuantity : MonoBehaviour
 {
+    private const float arrowAnimTime = 0.15F;
     private static readonly Vector3 position = new(-375, 0);
 
     [SerializeField]
@@ -39,41 +40,59 @@ public class MartQuantity : MonoBehaviour
     private bool initialized = false;
 
     private bool inDialogue = false;
+    private bool selling = false;
 
     private void UpdateText()
     {
         quantityText.text = quantity.ToString();
-        priceText.text = "$" + quantity * item.Data().price;
+        int buyPrice = quantity * item.Data().price;
+        priceText.text = "$" + (selling ? buyPrice * 4 / 5 : buyPrice);
     }
 
     private IEnumerator TryToBuy()
     {
         inDialogue = true;
-        yield return p.announcer.Announce(item.Data().itemName
-            + ", and you want " + quantity + ".\nThat will be $"
-            + quantity * item.Data().price + ". OK?");
+        int buyPrice = quantity * item.Data().price;
+        yield return p.announcer.Announce(selling
+            ? ("I can pay $" + buyPrice * 4 / 5 + ".\nWould that be OK?")
+            : (item.Data().itemName + ", and you want " + quantity
+                + ".\nThat will be $" + buyPrice + ". OK?"));
         DataStore<int> menuResult = new();
         yield return p.DoChoiceMenu(menuResult, ScriptUtils.binaryChoice, 0);
         if (menuResult.Data is 1)
         {
-            p.money -= quantity * item.Data().price;
-            p.AddItem(item, quantity);
-            yield return p.announcer.Announce("Here you are!\nThank you!");
-            yield return p.announcer.Announce("You put away the " + item.Data().itemName
-                + (quantity > 1 ? "s" : string.Empty) + " in your Bag.");
+            if (selling)
+            {
+                p.money += buyPrice * 4 / 5;
+                p.UseItem(item, quantity);
+                yield return p.announcer.Announce("Turned over the " + item.Data().itemName
+                    + " and received $" + buyPrice * 4 / 5 + ".");
+            }
+            else
+            {
+                p.money -= quantity * item.Data().price;
+                p.AddItem(item, quantity);
+                yield return p.announcer.Announce("Here you are!\nThank you!");
+                yield return p.announcer.Announce("You put away the " + item.Data().itemName
+                    + (quantity > 1 ? "s" : string.Empty) + " in your Bag.");
+            }
         }
         yield return p.announcer.AnnouncementDown();
         done = true;
         yield break; //Todo
     }
 
-    public static IEnumerator DoQuantityScreen(Player p, ItemID item)
+    public static IEnumerator DoQuantityScreen(Player p, ItemID item, bool selling)
     {
         yield return p.announcer.AnnouncementUp();
-        yield return p.announcer.Announce(item.Data().itemName + "? Certainly.\nHow many would you like?", persist: true);
+        yield return p.announcer.Announce(item.Data().itemName
+            + (selling
+                ? "?\nHow many would you like to sell?"
+                : "? Certainly.\nHow many would you like?"),
+            persist: true);
         GameObject quantityObject = Instantiate(Resources.Load<GameObject>("Prefabs/Mart/Quantity"));
         MartQuantity quantityScreen = quantityObject.GetComponent<MartQuantity>();
-        quantityScreen.Initialize(p, item);
+        quantityScreen.Initialize(p, item, selling);
         quantityObject.transform.SetParent(p.canvas.transform);
         quantityObject.transform.localPosition = position;
         quantityObject.transform.localScale = Vector3.one;
@@ -82,12 +101,13 @@ public class MartQuantity : MonoBehaviour
         yield break; //Todo
     }
 
-    public void Initialize(Player p, ItemID item)
+    public void Initialize(Player p, ItemID item, bool selling)
     {
         if (initialized) return;
         initialized = true;
         this.p = p;
         this.item = item;
+        this.selling = selling;
         UpdateText();
     }
 
@@ -106,14 +126,15 @@ public class MartQuantity : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if ((quantity + 1) * item.Data().price <= p.money && quantity < 99)
+            if ((selling ? (quantity < p.NumberOf(item)) :
+                (quantity + 1) * item.Data().price <= p.money) && quantity < 99)
             {
                 p.audioSource.PlayOneShot(SFX.MoveCursor);
                 quantity++;
                 UpdateText();
                 upArrow.sprite = arrowSelect;
                 upArrowHit = true;
-                upArrowTime = Time.time + 0.15F;
+                upArrowTime = Time.time + arrowAnimTime;
             }
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -125,12 +146,12 @@ public class MartQuantity : MonoBehaviour
                 UpdateText();
                 downArrow.sprite = arrowSelect;
                 downArrowHit = true;
-                downArrowTime = Time.time + 0.15F;
+                downArrowTime = Time.time + arrowAnimTime;
             }
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            int toIncrement = (p.money / item.Data().price) - quantity;
+            int toIncrement = (selling ? p.NumberOf(item) : p.money / item.Data().price) - quantity;
             if (!Input.GetKey(KeyCode.RightShift) && !Input.GetKey(KeyCode.LeftShift) && toIncrement > 10) toIncrement = 10;
             if (quantity + toIncrement > 99) toIncrement = 99 - quantity;
             if (toIncrement > 0)
@@ -140,7 +161,7 @@ public class MartQuantity : MonoBehaviour
                 UpdateText();
                 upArrow.sprite = arrowSelect;
                 upArrowHit = true;
-                upArrowTime = Time.time + 0.4F;
+                upArrowTime = Time.time + arrowAnimTime;
             }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -157,7 +178,7 @@ public class MartQuantity : MonoBehaviour
                 UpdateText();
                 downArrow.sprite = arrowSelect;
                 downArrowHit = true;
-                downArrowTime = Time.time + 0.4F;
+                downArrowTime = Time.time + arrowAnimTime;
             }
         }
         return;

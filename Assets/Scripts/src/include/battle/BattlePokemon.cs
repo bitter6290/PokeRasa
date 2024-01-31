@@ -96,6 +96,9 @@ public partial class Battle
         public int skyDropTarget = 0;
         public bool dontCheckPP = false;
 
+        public bool statsRoseThisTurn = false;
+        public bool statsDroppedThisTurn = false;
+
         public bool choseMove = false;
 
         public bool flinched = false;
@@ -786,5 +789,6 @@ public partial class Battle
                     return 0;
             }
         }
+        public static implicit operator int(BattlePokemon mon) => mon.index;
     }
 }

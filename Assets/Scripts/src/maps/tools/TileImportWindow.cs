@@ -29,7 +29,7 @@ public class TileImportWindow : EditorWindow
     public static void AddToTileset()
     {
         var TileWindow = CreateInstance<TileImportWindow>();
-        TileWindow.position = new Rect(Screen.width / 6, Screen.height / 6, Screen.width / 3, Screen.width / 3);
+        TileWindow.position = new Rect(Screen.width / 6, Screen.height / 6, Screen.width / 3, Screen.height / 3);
         TileWindow.ShowPopup();
     }
 

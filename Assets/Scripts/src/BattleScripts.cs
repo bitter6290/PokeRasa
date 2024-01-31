@@ -52,7 +52,7 @@ public partial class Battle
                     + "'s " + NameTable.Stat[(int)statID] + StatRoseDrastically);
                 break;
         }
-        if (stagesRaised > 0) doStatAnim = false;
+        if (stagesRaised > 0) { PokemonOnField[index].statsRoseThisTurn = true; doStatAnim = false; }
     }
 
     private IEnumerator StatDown(int index, Stat statID,
@@ -141,7 +141,7 @@ public partial class Battle
                     + "'s " + NameTable.Stat[(int)statID] + StatFellDrastically);
                 break;
         }
-        if (stagesLowered > 0) doStatAnim = false;
+        if (stagesLowered > 0) { PokemonOnField[index].statsDroppedThisTurn = true; doStatAnim = false; }
         if ((!checkSide || GetSide(attacker) != GetSide(index)) &&
             HasAbility(index, Defiant))
         {
@@ -649,6 +649,20 @@ public partial class Battle
                 yield return Announce(MonNameWithPrefix(index, true) +
                     " can no longer escape because of Octolock!");
                 break;
+            case MoveID.SnapTrap:
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.SnapTrap;
+                target.partialTrappingSource = attacker;
+                yield return Announce(MonNameWithPrefix(index, true) +
+                    " got trapped by a snap trap!");
+                break;
+            case MoveID.ThunderCage:
+                target.partialTrapped = true;
+                target.partialTrappingType = PartialTrapping.ThunderCage;
+                target.partialTrappingSource = attacker;
+                yield return Announce(MonNameWithPrefix(attacker, true) +
+                    " trapped " + MonNameWithPrefix(index, false) + "!");
+                break;
             default:
                 yield return Announce("Error 111");
                 yield break;
@@ -855,6 +869,16 @@ public partial class Battle
                 doStatAnim = true;
                 yield return StatDown(index, Stat.Defense, 1, target.partialTrappingSource);
                 yield return StatDown(index, Stat.SpDef, 1, target.partialTrappingSource);
+                break;
+            case PartialTrapping.SnapTrap:
+                damage = target.pokemon.hpMax >> 3;
+                yield return Announce(MonNameWithPrefix(index, true)
+                    + " is hurt by Snap Trap!");
+                break;
+            case PartialTrapping.ThunderCage:
+                damage = target.pokemon.hpMax >> 3;
+                yield return Announce(MonNameWithPrefix(index, true)
+                    + " is hurt by Thunder Cage!");
                 break;
             default:
                 yield return Announce("Error 112");
@@ -1496,7 +1520,8 @@ public partial class Battle
                     + "'s Attack won't go any higher!");
                 yield break;
             }
-            PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].pokemon.hpMax >> 1);
+            yield return DoDamage(PokemonOnField[index].pokemon,
+                PokemonOnField[index].pokemon.hpMax >> 1);
             yield return StatUpAnim(index);
             PokemonOnField[index].attackStage = 6;
             yield return Announce(MonNameWithPrefix(index, true)
@@ -1506,6 +1531,17 @@ public partial class Battle
         {
             yield return Announce(MoveFailed);
         }
+    }
+
+    private IEnumerator DoClangorousSoul(int index)
+    {
+        yield return StatUp(index, Stat.Attack, 1, index);
+        yield return StatUp(index, Stat.Defense, 1, index);
+        yield return StatUp(index, Stat.SpAtk, 1, index);
+        yield return StatUp(index, Stat.SpDef, 1, index);
+        yield return StatUp(index, Stat.Speed, 1, index);
+        yield return DoDamage(PokemonOnField[index].pokemon,
+            PokemonOnField[index].pokemon.hpMax / 3);
     }
 
     private IEnumerator RemoveHazards(int index)

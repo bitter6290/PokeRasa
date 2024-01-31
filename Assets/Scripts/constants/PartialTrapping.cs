@@ -10,4 +10,6 @@ public enum PartialTrapping : byte
     MagmaStorm,
     Infestation,
     Octolock,
+    SnapTrap,
+    ThunderCage,
 }

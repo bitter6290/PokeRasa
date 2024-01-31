@@ -31,6 +31,7 @@ public abstract class CharData : ScriptableObject
     }
 
     public abstract LoadedChar Load(Player p, MapData map, Vector2Int pos);
-
+#if UNITY_EDITOR
     public abstract Sprite DefaultSprite { get; }
+#endif
 }

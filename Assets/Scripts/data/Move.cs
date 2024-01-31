@@ -1,11 +1,10 @@
 using static Type;
 using static MoveData;
 using static MoveFlags;
-using static MoveDesc;
 using static Target;
 using static ZMoveEffect;
 
-public static class Move
+public static partial class Move
 {
     public const int AlwaysHit = 101;
     public const int noFlag = 0;
@@ -3663,6 +3662,300 @@ public static class Move
     public static readonly MoveData MaxDarkness = MaxMove("Max Darkness", Dark, MaxDarknessDesc); //Needs anim
     public static readonly MoveData MaxOvergrowth = MaxMove("Max Overgrowth", Grass, MaxOvergrowthDesc); //Needs anim
     public static readonly MoveData MaxSteelspike = MaxMove("Max Steelspike", Steel, MaxSteelspikeDesc); //Needs anim
+    public static readonly MoveData ClangorousSoul = SelfTargetingMove(
+        "Clangorous Soul", Dragon, 0, MoveEffect.ClangorousSoul, 5,
+        soundMove & snatchAffected, Heal100, ClangorousSoulDesc); //Needs anim
+    public static readonly MoveData BodyPress = new(
+        "Body Press", Fighting,
+        80, 100, 0,
+        MoveEffect.BodyPress, 0,
+        true, Single, 10,
+        makesContact, BodyPressDesc, 160); //Needs anim
+    public static readonly MoveData Decorate = SingleTargetStatusMove(
+        "Decorate", Fairy, 101, 0, MoveEffect.AttackSpAtkUp2, 15, noFlag, ZMoveEffect.FollowMe, DecorateDesc); //Needs anim
+    public static readonly MoveData DrumBeating = new(
+        "Drum Beating", Grass,
+        80, 100, 0,
+        MoveEffect.SpeedDown1, 101,
+        true, Single, 10,
+        noFlag, DrumBeatingDesc, 160); //Needs anim
+    public static readonly MoveData SnapTrap = new(
+        "Snap Trap", Grass,
+        35, 100, 0,
+        MoveEffect.ContinuousDamage, 101,
+        true, Single, 15,
+        makesContact, SnapTrapDesc, 100); //Needs anim
+    public static readonly MoveData PyroBall = new(
+        "Pyro Ball", Fire,
+        120, 90, 0,
+        MoveEffect.Burn, 10,
+        true, Single, 5,
+        bulletMove, PyroBallDesc, 190); //Needs anim
+    public static readonly MoveData BehemothBlade = new(
+        "Behemoth Blade", Steel,
+        100, 100, 0,
+        MoveEffect.DynamaxCannon, 0,
+        true, Single, 5,
+        makesContact, BehemothBladeDesc, 180); //Needs anim
+    public static readonly MoveData BehemothBash = new(
+        "Behemoth Bash", Steel,
+        100, 100, 0,
+        MoveEffect.DynamaxCannon, 0,
+        true, Single, 5,
+        makesContact, BehemothBashDesc, 180); //Needs anim
+    public static readonly MoveData AuraWheel = new(
+        "Aura Wheel", Electric,
+        110, 100, 0,
+        MoveEffect.AuraWheel, 101,
+        true, Single, 10,
+        effectOnSelfOnly, AuraWheelDesc, 185); //Needs anim
+    public static readonly MoveData BreakingSwipe = new(
+        "Breaking Swipe", Dragon,
+        60, 100, 0,
+        MoveEffect.AttackDown1, 101,
+        true, SpreadMove, 15,
+        makesContact, BreakingSwipeDesc, 120); //Needs anim
+    public static readonly MoveData BranchPoke = SingleTargetNoAddedEffect(
+        "Branch Poke", Grass, 40, 100, 0, true, 40, makesContact, 100, BranchPokeDesc); //Needs anim
+    public static readonly MoveData Overdrive = new(
+        "Overdrive", Electric,
+        80, 100, 0,
+        MoveEffect.Hit, 0,
+        false, SpreadMove, 10,
+        soundMove, OverdriveDesc, 160); //Needs anim
+    public static readonly MoveData AppleAcid = new(
+        "Apple Acid", Grass,
+        80, 100, 0,
+        MoveEffect.SpDefDown1, 101,
+        false, Single, 10,
+        noFlag, AppleAcidDesc, 160); //Needs anim
+    public static readonly MoveData GravApple = new(
+        "Grav Apple", Grass,
+        80, 100, 0,
+        MoveEffect.DefenseDown1, 101,
+        false, Single, 10,
+        noFlag, GravAppleDesc, 160); //Needs anim
+    public static readonly MoveData SpiritBreak = new(
+        "Spirit Break", Fairy,
+        75, 100, 0,
+        MoveEffect.SpAtkDown1, 101,
+        true, Single, 15,
+        makesContact, SpiritBreakDesc, 150); //Needs anim
+    public static readonly MoveData StrangeSteam = new(
+        "Strange Steam", Fairy,
+        90, 95, 0,
+        MoveEffect.Confuse, 20,
+        false, Single, 10,
+        noFlag, StrangeSteamDesc, 175); //Needs anim
+    public static readonly MoveData LifeDew = new(
+        "Life Dew", Water,
+        0, 101, 0,
+        MoveEffect.Heal25, 101,
+        false, Ally + Spread + Ranged, 10,
+        snatchAffected, LifeDewDesc, 0, DefenseUp1); //Needs anim
+    public static readonly MoveData Obstruct = SelfTargetingMove(
+        "Obstruct", Dark, 4, MoveEffect.Obstruct, 10, usesProtectCounter, AttackUp1, ObstructDesc); //Needs anim
+    public static readonly MoveData FalseSurrender = SingleTargetNoAddedEffect(
+        "False Surrender", Dark, 80, 101, 0, true, 10, makesContact, 160, FalseSurrenderDesc); //Needs anim
+    public static readonly MoveData MeteorAssault = new(
+        "Meteor Assault", Fighting,
+        150, 100, 0,
+        MoveEffect.Recharge, 101,
+        true, Single, 5,
+        noFlag, MeteorAssaultDesc, 200); //Needs anim
+    public static readonly MoveData Eternabeam = new(
+        "Eternabeam", Dragon,
+        160, 90, 0,
+        MoveEffect.Recharge, 101,
+        false, Single, 5,
+        noFlag, EternabeamDesc, 200); //Needs anim
+    public static readonly MoveData SteelBeam = new(
+        "Steel Beam", Steel,
+        140, 95, 0,
+        MoveEffect.Recoil50Max, 0,
+        false, Single, 5,
+        noFlag, SteelBeamDesc, 200); //Needs anim
+    public static readonly MoveData ExpandingForce = new(
+        "Expanding Force", Type.Psychic,
+        80, 100, 0,
+        MoveEffect.ExpandingForce, 0,
+        false, Single, 10,
+        noFlag, ExpandingForceDesc, 160); //Needs anim
+    public static readonly MoveData SteelRoller = new(
+        "Steel Roller", Steel,
+        130, 100, 0,
+        MoveEffect.SteelRoller, 101,
+        true, Single, 5,
+        makesContact, SteelRollerDesc, 195); //Needs anim
+    public static readonly MoveData ScaleShot = new(
+        "Scale Shot", Dragon,
+        25, 90, 0,
+        MoveEffect.ScaleShot, 101,
+        true, Single, 20,
+        noFlag, ScaleShotDesc, 140, MaxMovePower: 130); //Needs anim
+    public static readonly MoveData MeteorBeam = new(
+        "Meteor Beam", Rock,
+        120, 90, 0,
+        MoveEffect.MeteorBeam, 101,
+        false, Single, 10,
+        noFlag, MeteorBeamDesc, 190); //Needs anim
+    public static readonly MoveData ShellSideArm = new(
+        "Shell Side Arm", Poison,
+        90, 100, 0,
+        MoveEffect.ShellSideArm, 0,
+        false, Single, 10,
+        noFlag, ShellSideArmDesc, 175); //Needs anim
+    public static readonly MoveData MistyExplosion = new(
+        "Misty Explosion", Fairy,
+        100, 100, 0,
+        MoveEffect.MistyExplosion, 0,
+        false, Surrounding, 5,
+        noFlag, MistyExplosionDesc, 180); //Needs anim
+    public static readonly MoveData GrassyGlide = new(
+        "Grassy Glide", Grass,
+        55, 100, 0,
+        MoveEffect.GrassyGlide, 0,
+        true, Single, 20,
+        makesContact, GrassyGlideDesc, 110); //Needs anim
+    public static readonly MoveData RisingVoltage = new(
+        "Rising Voltage", Electric,
+        70, 100, 0,
+        MoveEffect.RisingVoltage, 0,
+        false, Single, 20,
+        noFlag, RisingVoltageDesc, 140); //Needs anim
+    public static readonly MoveData TerrainPulse = new(
+        "Terrain Pulse", Normal,
+        50, 100, 0,
+        MoveEffect.TerrainPulse, 0,
+        false, Single, 10,
+        megaLauncherBoosted, TerrainPulseDesc, 100); //Needs anim
+    public static readonly MoveData SkitterSmack = new(
+        "Skitter Smack", Bug,
+        70, 90, 0,
+        MoveEffect.SpAtkDown1, 101,
+        true, Single, 10,
+        makesContact, SkitterSmackDesc, 140); //Needs anim
+    public static readonly MoveData BurningJealousy = new(
+        "Burning Jealousy", Fire,
+        70, 100, 0,
+        MoveEffect.BurningJealousy, 0,
+        false, Single, 5,
+        noFlag, BurningJealousyDesc, 140); //Needs anim
+    public static readonly MoveData LashOut = new(
+        "Lash Out", Dark,
+        75, 100, 0,
+        MoveEffect.LashOut, 0,
+        true, Single, 5,
+        makesContact, LashOutDesc, 150); //Needs anim
+    public static readonly MoveData Poltergeist = new(
+        "Poltergeist", Ghost,
+        110, 90, 0,
+        MoveEffect.Poltergeist, 0,
+        true, Single, 5,
+        noFlag, PoltergeistDesc, 185); //Needs anim
+    public static readonly MoveData CorrosiveGas = new(
+        "Corrosive Gas", Poison,
+        0, 100, 0,
+        MoveEffect.KnockOff, 101,
+        false, Surrounding, 40,
+        magicBounceAffected, CorrosiveGasDesc, 0, NormalizeDebuffs); //Needs anim
+    public static readonly MoveData Coaching = new(
+        "Coaching", Fighting,
+        0, 101, 0,
+        MoveEffect.AttackDefenseUp1, 101,
+        false, Ally + Ranged, 10,
+        noFlag, CoachingDesc, 0, ZMoveEffect.FollowMe); //Needs anim
+    public static readonly MoveData FlipTurn = new(
+        "Flip Turn", Water,
+        60, 100, 0,
+        MoveEffect.SwitchHit, 101,
+        true, Single, 20,
+        makesContact, FlipTurnDesc, 120); //Needs anim
+    public static readonly MoveData TripleAxel = new(
+        "Triple Axel", Ice,
+        20, 90, 0,
+        MoveEffect.TripleHit, 0,
+        true, Single, 10,
+        makesContact, TripleAxelDesc, 175, MaxMovePower: 140); //Needs anim
+    public static readonly MoveData DualWingbeat = new(
+        "Dual Wingbeat", Flying,
+        40, 90, 0,
+        MoveEffect.MultiHit2, 0,
+        true, Single, 10,
+        makesContact, DualWingbeatDesc, 100, MaxMovePower: 130); //Needs anim
+    public static readonly MoveData ScorchingSands = new(
+        "Scorching Sands", Ground,
+        70, 100, 0,
+        MoveEffect.Burn, 30,
+        false, Single, 10,
+        noFlag, ScorchingSandsDesc, 140); //Needs anim
+    public static readonly MoveData JungleHealing = new(
+        "Jungle Healing", Grass,
+        0, 101, 0,
+        MoveEffect.JungleHealing, 101,
+        false, Self + Ally + Ranged, 10,
+        noFlag, JungleHealingDesc, 0, SpDefUp1); //Needs anim
+    public static readonly MoveData WickedBlow = new(
+        "Wicked Blow", Dark,
+        75, 100, 0,
+        MoveEffect.AlwaysCrit, 0,
+        true, Single, 5,
+        makesContact, WickedBlowDesc, 150); //Needs anim
+    public static readonly MoveData SurgingStrikes = new(
+        "Surging Strikes", Water,
+        25, 100, 0,
+        MoveEffect.SurgingStrikes, 0,
+        true, Single, 5,
+        makesContact, SurgingStrikesDesc, 150, MaxMovePower: 130); //Needs anim
+    public static readonly MoveData ThunderCage = new(
+        "Thunder Cage", Electric,
+        80, 90, 0,
+        MoveEffect.ContinuousDamage, 101,
+        false, Single, 15,
+        noFlag, ThunderCageDesc, 160); //Needs anim
+    public static readonly MoveData DragonEnergy = new(
+        "Dragon Energy", Dragon,
+        150, 100, 0,
+        MoveEffect.HealthPower, 0,
+        false, Single, 5,
+        noFlag, DragonEnergyDesc, 200); //Needs anim
+    public static readonly MoveData FreezingGlare = new(
+        "Freezing Glare", Type.Psychic,
+        90, 100, 0,
+        MoveEffect.Freeze, 10,
+        false, Single, 10,
+        noFlag, FreezingGlareDesc, 175); //Needs anim
+    public static readonly MoveData FieryWrath = new(
+        "Fiery Wrath", Dark,
+        90, 100, 0,
+        MoveEffect.Flinch, 20,
+        false, SpreadMove, 10,
+        noFlag, FieryWrathDesc, 175); //Needs anim
+    public static readonly MoveData ThunderousKick = new(
+        "Thunderous Kick", Fighting,
+        90, 100, 0,
+        MoveEffect.DefenseDown1, 101,
+        true, Single, 10,
+        makesContact, ThunderousKickDesc, 175); //Needs anim
+    public static readonly MoveData GlacialLance = new(
+        "Glacial Lance", Ice,
+        120, 100, 0,
+        MoveEffect.Hit, 0,
+        true, SpreadMove, 5,
+        noFlag, GlacialLanceDesc, 190); //Needs anim
+    public static readonly MoveData AstralBarrage = new(
+        "Astral Barrage", Ghost,
+        120, 100, 0,
+        MoveEffect.Hit, 0,
+        false, SpreadMove, 5,
+        noFlag, AstralBarrageDesc, 190); //Needs anim
+    public static readonly MoveData EerieSpell = new(
+        "Eerie Spell", Type.Psychic,
+        80, 100, 0,
+        MoveEffect.EerieSpell, 101,
+        false, Single, 5,
+        noFlag, EerieSpellDesc, 160); //Needs anim
+
 
     //Non-standard moves
     public static readonly MoveData ConfusionHit = new(
@@ -3808,6 +4101,9 @@ public static class Move
         MoveEffect.ShellTrapAttack, 100,
         false, Spread, 5,
         noFlag, InvalidMove, 0); //Needs anim
+    public static readonly MoveData MeteorBeamAttack = SingleTargetNoAddedEffect(
+        "Meteor Beam", Rock, 120, 90, 0, false, 10,
+        noFlag, 0, InvalidMove); //Needs anim
     public static readonly MoveData Struggle = new(
         "Struggle", Typeless,
         50, 100, 0,
@@ -4608,6 +4904,51 @@ public static class Move
         MaxDarkness,
         MaxOvergrowth,
         MaxSteelspike,
+        ClangorousSoul,
+        BodyPress,
+        Decorate,
+        DrumBeating,
+        SnapTrap,
+        PyroBall,
+        BehemothBlade,
+        BehemothBash,
+        AuraWheel,
+        BreakingSwipe,
+        BranchPoke,
+        Overdrive,
+        AppleAcid,
+        GravApple,
+        SpiritBreak,
+        StrangeSteam,
+        LifeDew,
+        Obstruct,
+        FalseSurrender,
+        MeteorAssault,
+        Eternabeam,
+        SteelBeam,
+        ExpandingForce,
+        SteelRoller,
+        ScaleShot,
+        MeteorBeam,
+        ShellSideArm,
+        MistyExplosion,
+        GrassyGlide,
+        RisingVoltage,
+        TerrainPulse,
+        SkitterSmack,
+        BurningJealousy,
+        LashOut,
+        Poltergeist,
+        CorrosiveGas,
+        Coaching,
+        FlipTurn,
+        TripleAxel,
+        DualWingbeat,
+        ScorchingSands,
+        JungleHealing,
+        WickedBlow,
+        SurgingStrikes,
+        ThunderCage,
 
         //Nonstandard moves
 
@@ -4637,5 +4978,6 @@ public static class Move
         PollenPuffHeal,
         BeakBlastAttack,
         ShellTrapAttack,
+        MeteorBeamAttack,
     };
 }

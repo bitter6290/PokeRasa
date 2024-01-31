@@ -64,6 +64,8 @@ public class MapHelper : MapManager
                     {
                         openMap.tileset.Tiles.Add(tile);
                     }
+                    EditorUtility.SetDirty(openMap.tileset);
+                    AssetDatabase.SaveAssets();
                 }
                 else if (EditorUtility.DisplayDialog("Save anyway?", "Save anyway? Missing tiles will not be saved.", "Yes", "No"))
                 {

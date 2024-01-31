@@ -37,7 +37,7 @@ public class ObjectDisplay : MonoBehaviour, IPointerClickHandler
     public void Render()
     {
         transform.position = new(Target.Pos.x + (mode is Mode.Char ? 0.5f : 0), Target.Pos.y + (mode is Mode.Char ? 0.5f : 0), 0);
-        sprite.sortingOrder = 0;
+        sprite.sortingOrder = mode is Mode.Char ? 0 : 4;
         switch (mode)
         {
             case Mode.Trigger:
@@ -73,8 +73,6 @@ public class ObjectDisplay : MonoBehaviour, IPointerClickHandler
         display.mode = mode;
         display.index = index;
         display.sprite = thisObject.AddComponent<SpriteRenderer>();
-        Debug.Log(mode);
-        Debug.Log(index);
         display.Render();
         return display;
     }

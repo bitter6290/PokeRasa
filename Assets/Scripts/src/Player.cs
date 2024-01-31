@@ -1112,6 +1112,19 @@ public class Player : LoadedChar
         UnlockAll();
     }
 
+    public IEnumerator DoBagPrompt()
+    {
+        yield return FadeToBlack(0.2f);
+        yield return Scene.Bag.Load();
+        BagController bagController = FindObjectOfType<BagController>();
+        StartCoroutine(FadeFromBlack(0.2f));
+        yield return bagController.DoBag(this, true);
+        yield return FadeToBlack(0.2f);
+        yield return Scene.Map.Load();
+        MapReturn();
+        yield return FadeFromBlack(0.2f);
+    }
+
     public bool CheckWarps(Direction dir)
     {
         foreach (WarpTrigger warp in warps)

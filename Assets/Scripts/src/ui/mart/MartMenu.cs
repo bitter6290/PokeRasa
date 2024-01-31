@@ -50,7 +50,7 @@ public class MartMenu : MonoBehaviour
     public IEnumerator GotoQuantity()
     {
         busy = true;
-        yield return MartQuantity.DoQuantityScreen(p, CurrentItem);
+        yield return MartQuantity.DoQuantityScreen(p, CurrentItem, false);
         busy = false;
     }
 
