@@ -2365,7 +2365,7 @@ public static partial class Move
         true, Single, 20,
         makesContact & effectOnSelfOnly, FlameChargeDesc, 100); //Needs anim
     public static readonly MoveData Coil = SelfTargetingMove(
-        "Coil", Poison, 0, MoveEffect.AttackDefAccUp1, 20,
+        "Coil", Poison, 0, MoveEffect.AttackDefenseAccUp1, 20,
         snatchAffected, NormalizeDebuffs, CoilDesc); //Needs anim
     public static readonly MoveData LowSweep = new(
         "Low Sweep", Fighting,
@@ -3956,6 +3956,141 @@ public static partial class Move
         false, Single, 5,
         noFlag, EerieSpellDesc, 160); //Needs anim
 
+    //Gen 8 LA Moves
+
+    public static readonly MoveData DireClaw = new(
+        "Dire Claw", Poison,
+        80, 100, 0,
+        MoveEffect.DireClaw, 50,
+        true, Single, 15,
+        makesContact, DireClawDesc, 160); //Needs anim
+    public static readonly MoveData PsyshieldBash = new(
+        "Psyshield Bash", Type.Psychic,
+        70, 90, 0,
+        MoveEffect.DefenseUp1, 101,
+        true, Single, 10,
+        effectOnSelfOnly & makesContact, PsyshieldBashDesc, 140); //Needs anim
+    public static readonly MoveData PowerShift = SelfTargetingMove(
+        "Power Shift", Normal, 0, MoveEffect.PowerTrick, 10,
+        noFlag, DefenseUp1, PowerShiftDesc); //Needs anim
+    public static readonly MoveData StoneAxe = new(
+        "Stone Axe", Rock,
+        65, 90, 0,
+        MoveEffect.StealthRock, 101,
+        true, Single, 15,
+        makesContact & sharpnessBoosted, StoneAxeDesc, 130); //Needs anim
+    public static readonly MoveData SpringtideStorm = new(
+        "Springtide Storm", Fairy,
+        100, 80, 0,
+        MoveEffect.AttackDown1, 30,
+        false, SpreadMove, 5,
+        windMove, SpringtideStormDesc, 180); //Needs anim
+    public static readonly MoveData MysticalPower = new(
+        "Mystical Power", Type.Psychic,
+        70, 90, 0,
+        MoveEffect.SpAtkUp1, 101,
+        false, Single, 10,
+        effectOnSelfOnly, MysticalPowerDesc, 140); //Needs anim
+    public static readonly MoveData RagingFury = new(
+        "Raging Fury", Fire,
+        120, 100, 0,
+        MoveEffect.Thrash, 0,
+        true, Self, 10,
+        noFlag, RagingFuryDesc, 190); //Needs anim
+    public static readonly MoveData WaveCrash = new(
+        "Wave Crash", Water,
+        120, 100, 0,
+        MoveEffect.Recoil33, 0,
+        true, Single, 10,
+        makesContact, WaveCrashDesc, 190); //Needs anim
+    public static readonly MoveData Chloroblast = new(
+        "Chloroblast", Grass,
+        150, 95, 0,
+        MoveEffect.Recoil50Max, 0,
+        false, Single, 5,
+        noFlag, ChloroblastDesc, 200); //Needs anim
+    public static readonly MoveData MountainGale = new(
+        "Mountain Gale", Ice,
+        100, 85, 0,
+        MoveEffect.Flinch, 30,
+        true, Single, 10,
+        noFlag, MountainGaleDesc, 180); //Needs anim
+    public static readonly MoveData VictoryDance = SelfTargetingMove(
+        "Victory Dance", Fighting, 0, MoveEffect.AttackDefenseSpeedUp1,
+        10, snatchAffected, NormalizeDebuffs, VictoryDanceDesc); //Needs anim
+    public static readonly MoveData HeadlongRush = new(
+        "Headlong Rush", Ground,
+        120, 100, 0,
+        MoveEffect.DefenseSpDefDown1, 101,
+        true, Single, 5,
+        makesContact, HeadlongRushDesc, 190); //Needs anim
+    public static readonly MoveData BarbBarrage = new(
+        "Barb Barrage", Poison,
+        60, 100, 0,
+        MoveEffect.BarbBarrage, 50,
+        true, Single, 10,
+        noFlag, BarbBarrageDesc, 120); //Needs anim
+    public static readonly MoveData EsperWing = new(
+        "Esper Wing", Type.Psychic,
+        80, 100, 0,
+        MoveEffect.SpeedUp1, 101,
+        false, Single, 10,
+        effectOnSelfOnly, EsperWingDesc, 160); //Needs anim
+    public static readonly MoveData BitterMalice = new(
+        "Bitter Malice", Ghost,
+        75, 100, 0,
+        MoveEffect.AttackDown1, 101,
+        false, Single, 10,
+        noFlag, BitterMaliceDesc, 150); //Needs anim
+    public static readonly MoveData Shelter = SelfTargetingMove(
+        "Shelter", Steel, 0, MoveEffect.DefenseUp2, 10, snatchAffected,
+        EvasionUp1, ShelterDesc); //Needs anim
+    public static readonly MoveData TripleArrows = new(
+        "Triple Arrows", Fighting,
+        90, 100, 0,
+        MoveEffect.TripleArrows, 100,
+        true, Single, 10,
+        noFlag, TripleArrowsDesc, 175); //Needs anim
+    public static readonly MoveData InfernalParade = new(
+        "Infernal Parade", Ghost,
+        60, 100, 0,
+        MoveEffect.InfernalParade, 30,
+        false, Single, 15,
+        noFlag, InfernalParadeDesc, 120); //Needs anim
+    public static readonly MoveData CeaselessEdge = new(
+        "Ceaseless Edge", Dark,
+        65, 90, 0,
+        MoveEffect.Spikes, 101,
+        true, Single, 15,
+        makesContact & sharpnessBoosted, CeaselessEdgeDesc, 130); //Needs anim
+    public static readonly MoveData BleakwindStorm = new(
+        "Bleakwind Storm", Flying,
+        100, 80, 0,
+        MoveEffect.SpeedDown1, 30,
+        false, SpreadMove, 10,
+        windMove, BleakwindStormDesc, 180); //Needs anim
+    public static readonly MoveData WildboltStorm = new(
+        "Wildbolt Storm", Electric,
+        100, 80, 0,
+        MoveEffect.Paralyze, 20,
+        false, SpreadMove, 10,
+        windMove, WildboltStormDesc, 180); //Needs anim
+    public static readonly MoveData SandsearStorm = new(
+        "Sandsear Storm", Ground,
+        100, 80, 0,
+        MoveEffect.Burn, 20,
+        false, SpreadMove, 10,
+        windMove, SandsearStormDesc, 180); //Needs anim
+    public static readonly MoveData LunarBlessing = new(
+        "Lunar Blessing", Type.Psychic,
+        0, 101, 0,
+        MoveEffect.LunarBlessing, 101,
+        false, Self + Ally + Spread, 5,
+        snatchAffected, LunarBlessingDesc, 0, SpDefUp2); //Needs anim
+    public static readonly MoveData TakeHeart = SelfTargetingMove(
+        "Take Heart", Type.Psychic, 0, MoveEffect.TakeHeart, 10, snatchAffected,
+        SpAtkUp1, TakeHeartDesc);
+
 
     //Gigantamax Moves
     public static readonly MoveData GMaxWildfire = MaxMove(
@@ -5038,6 +5173,38 @@ public static partial class Move
         WickedBlow,
         SurgingStrikes,
         ThunderCage,
+        DragonEnergy,
+        FreezingGlare,
+        FieryWrath,
+        ThunderousKick,
+        GlacialLance,
+        AstralBarrage,
+        EerieSpell,
+
+        DireClaw,
+        PsyshieldBash,
+        PowerShift,
+        StoneAxe,
+        SpringtideStorm,
+        MysticalPower,
+        RagingFury,
+        WaveCrash,
+        Chloroblast,
+        MountainGale,
+        VictoryDance,
+        HeadlongRush,
+        BarbBarrage,
+        EsperWing,
+        BitterMalice,
+        Shelter,
+        TripleArrows,
+        InfernalParade,
+        CeaselessEdge,
+        BleakwindStorm,
+        WildboltStorm,
+        SandsearStorm,
+        LunarBlessing,
+        TakeHeart,
 
         //G-max Moves
 

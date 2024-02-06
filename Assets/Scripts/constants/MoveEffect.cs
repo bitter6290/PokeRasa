@@ -23,6 +23,7 @@ public enum MoveEffect : ushort
     TriAttack,
     Swagger,
     Flatter,
+    DireClaw,
     //Stat changes
     AttackUp1,
     AttackUp2,
@@ -61,7 +62,8 @@ public enum MoveEffect : ushort
     AttackSpAtkDown1,
     DefenseSpDefDown1,
     AttackUp1SpeedUp2,
-    AttackDefAccUp1,
+    AttackDefenseAccUp1,
+    AttackDefenseSpeedUp1,
     SpAtkSpDefSpeedUp1,
     DefSpDefSpeedDown1,
     AttackSpAtkUp2,
@@ -86,6 +88,7 @@ public enum MoveEffect : ushort
     Rototiller,
     ShellSmash,
     TarShot,
+    TripleArrows,
     VenomDrench,
     //Other status moves
     AfterYou,
@@ -256,8 +259,9 @@ public enum MoveEffect : ushort
     ZMoveIgnoreAbility,
     LightThatBurnsTheSky,
     ClangorousSoulblaze,
-    //Moves which double in power under certain conditions
+    //Moves that double in power under certain conditions
     Acrobatics,
+    BarbBarrage,
     BoltBeak,
     Brine,
     BurningJealousy,
@@ -265,6 +269,7 @@ public enum MoveEffect : ushort
     Facade,
     FreezeDry,
     Hex,
+    InfernalParade,
     LashOut,
     Payback,
     Pursuit,
@@ -369,10 +374,12 @@ public enum MoveEffect : ushort
     HealStatus,
     HealWeather,
     JungleHealing,
+    LunarBlessing,
     Purify,
     Rest,
     Roost,
     ShoreUp,
+    TakeHeart,
     Wish,
     //Protection effects
     BanefulBunker,
@@ -406,19 +413,20 @@ public static class MoveEffectUtils
         => effect is AttackDown1 or AttackDown2 or DefenseDown1
         or DefenseDown2 or SpAtkDown1 or SpAtkDown2 or SpDefDown1
         or SpDefDown2 or SpeedDown1 or SpeedDown2 or AttackDefenseDown1
-        or DefenseSpDefDown1 or Captivate;
+        or DefenseSpDefDown1 or Captivate or TripleArrows;
 
     public static bool IsStatusMove(this MoveEffect effect)
         => effect is Paralyze or Freeze or Burn or Sleep or Poison or Toxic
-        or TriAttack;
+        or TriAttack or DireClaw or BarbBarrage or InfernalParade;
 
     public static bool IsStatRaise(this MoveEffect effect)
         => effect is AttackUp1 or AttackUp2 or DefenseUp1 or DefenseUp2
         or DefenseUp3 or SpAtkUp1 or SpAtkUp2 or SpAtkUp2 or SpAtkUp3
         or SpDefUp2 or SpeedUp1 or SpeedUp2 or EvasionUp1
         or EvasionUp2 or CritRateUp2 or AttackAccuracyUp1
-        or AttackDefenseUp1 or AttackDefAccUp1 or SpAtkSpDefUp1
-        or SpAtkSpDefSpeedUp1 or AllUp1 or AllUp2 or Autotomize or Acupressure
+        or AttackDefenseUp1 or AttackDefenseAccUp1 or SpAtkSpDefUp1
+        or AttackDefenseSpeedUp1 or SpAtkSpDefSpeedUp1 or AllUp1 or AllUp2
+        or Autotomize or Acupressure or TakeHeart
         or BellyDrum or Charge or DefenseCurl or Growth or Minimize;
 
     public static bool IsShieldDustAffected(this MoveEffect effect)
@@ -429,7 +437,7 @@ public static class MoveEffectUtils
 
     public static bool IsSheerForceAffectedNotSelfOnly(this MoveEffect effect)
     {
-        return effect.IsStatDrop() || effect.IsStatDrop()
+        return effect.IsStatusMove() || effect.IsStatDrop()
             || effect is Flinch or Trap or Confuse or SmackDown or ThousandArrows or
             Curse or Nightmare or PerishSong or LeechSeed or Telekinesis or
             Yawn or Disable or Embargo or HealBlock or FellStinger;

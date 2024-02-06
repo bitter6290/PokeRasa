@@ -248,19 +248,37 @@ public partial class Battle
                 + " is no longer poisoned!");
         }
     }
-    private IEnumerator TriAttack(int index)
+    private IEnumerator DoTriAttack(int index, int attacker)
     {
         var random = new System.Random();
         switch (random.Next() % 3)
         {
-            case 0:
+            case 0 when CanStatus(index, Status.Burn, attacker):
                 yield return GetBurn(index);
                 break;
-            case 1:
+            case 1 when CanStatus(index, Status.Paralysis, attacker):
                 yield return GetParalysis(index);
                 break;
-            case 2:
+            case 2 when CanStatus(index, Status.Freeze, attacker):
                 yield return GetFreeze(index);
+                break;
+            default:
+                break;
+        }
+    }
+    private IEnumerator DoDireClaw(int index, int attacker)
+    {
+        var random = new System.Random();
+        switch (random.Next() % 3)
+        {
+            case 0 when CanStatus(index, Status.Poison, attacker):
+                yield return GetPoison(index, false, attacker);
+                break;
+            case 1 when CanStatus(index, Status.Paralysis, attacker):
+                yield return GetParalysis(index);
+                break;
+            case 2 when CanStatus(index, Status.Sleep, attacker):
+                yield return FallAsleep(index);
                 break;
             default:
                 break;
@@ -1477,13 +1495,14 @@ public partial class Battle
 
     private IEnumerator DoSpikes(int index)
     {
-        if (Sides[GetSideNumber(5 - index)].spikes < 3)
+        Side targetSide = GetOppositeSide(index);
+        if (targetSide.spikes < 3)
         {
-            Sides[GetSideNumber(5 - index)].spikes++;
+            targetSide.spikes++;
             yield return Announce("Spikes littered the ground around " +
                 (index < 3 ? "your Pokémon!" : "the opponent's Pokémon!"));
         }
-        else
+        else if (ShowFailure)
         {
             yield return Announce(MoveFailed);
         }
@@ -1933,7 +1952,7 @@ public partial class Battle
         }
     }
 
-    private IEnumerator HealStatus(int index)
+    private IEnumerator CureStatus(int index)
     {
         switch (PokemonOnField[index].pokemon.status)
         {
@@ -2006,7 +2025,7 @@ public partial class Battle
             Status.Freeze => GetFreeze(index), // Impossible, but no reason not to implement
             _ => ScriptUtils.DoNothing()
         };
-        yield return HealStatus(attacker);
+        yield return CureStatus(attacker);
     }
 
     private IEnumerator SuppressAbility(int index)

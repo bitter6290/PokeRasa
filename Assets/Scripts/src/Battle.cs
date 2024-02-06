@@ -1631,8 +1631,8 @@ public partial class Battle : MonoBehaviour
             case Brine when defender.pokemon.hp << 1 < defender.pokemon.hpMax:
             case Pursuit when pursuitHitsOnSwitch:
             case BoltBeak when defender.done:
-            case Venoshock when defender.pokemon.status is Status.Poison or Status.ToxicPoison:
-            case Hex when defender.pokemon.status is not Status.None || HasAbility(defender, Comatose):
+            case Venoshock or BarbBarrage when defender.pokemon.status is Status.Poison or Status.ToxicPoison:
+            case Hex or InfernalParade when defender.pokemon.status is not Status.None || HasAbility(defender, Comatose):
             case MoveEffect.Round when doRound:
             case Acrobatics when attacker.Item is None:
             case DynamaxCannon when defender.dynamaxed:
@@ -2591,7 +2591,7 @@ public partial class Battle : MonoBehaviour
                             case StuffCheeks when target.Item.BerryEffect() is None:
                             case NoRetreat when target.usedNoRetreat:
                                 continue;
-                            case MoveEffect.TriAttack:
+                            case TriAttack or DireClaw:
                                 if (target.pokemon.status != Status.None) continue;
                                 goto default;
                             default:
@@ -3100,7 +3100,7 @@ public partial class Battle : MonoBehaviour
                             yield return StatUp(i, Attack, 1, i);
                         }
                         if (move.Data().moveFlags.HasFlag(extraFlinch10) &&
-                          random.NextDouble() < 0.10 && !HasAbility(i, ShieldDust))
+                          random.NextDouble() < (HasAbility(attacker, SereneGrace) ? 0.20 : 0.10) && !HasAbility(i, ShieldDust))
                             TryToFlinch(i, attacker);
                     }
                 }
@@ -3466,7 +3466,7 @@ public partial class Battle : MonoBehaviour
             BerryEffect.CureBurn => PokemonOnField[index].pokemon.status == Status.Burn,
             CureFreeze => PokemonOnField[index].pokemon.status == Status.Freeze,
             CureConfusion => PokemonOnField[index].confused,
-            CureStatus => PokemonOnField[index].pokemon.status != Status.None
+            BerryEffect.CureStatus => PokemonOnField[index].pokemon.status != Status.None
                 || PokemonOnField[index].confused,
             OnPhysHurt125 or OnPhysRaiseDefense => PokemonOnField[index].damageWasPhysical && tookMoveDamage,
             OnSpecHurt125 or OnSpecRaiseSpDef => !PokemonOnField[index].damageWasPhysical && tookMoveDamage,
@@ -3499,10 +3499,10 @@ public partial class Battle : MonoBehaviour
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is no longer confused!");
                 yield break;
-            case CureStatus:
+            case BerryEffect.CureStatus:
                 if (!PokemonOnField[index].confused)
                 {
-                    yield return HealStatus(index);
+                    yield return CureStatus(index);
                     yield break;
                 }
                 goto case CureConfusion;
@@ -4255,7 +4255,7 @@ public partial class Battle : MonoBehaviour
     {
         if (PokemonOnField[index].pokemon.status != Status.None)
         {
-            yield return HealStatus(index);
+            yield return CureStatus(index);
         }
         if (!PokemonOnField[index].AtFullHealth)
         {
@@ -5975,6 +5975,7 @@ public partial class Battle : MonoBehaviour
         {
             case Burn:
             case FlareBlitz:
+            case InfernalParade:
                 yield return GetBurn(index);
                 if (HasAbility(index, Synchronize) && CanStatus(attacker, Status.Burn, index, breakSub: true))
                     abilityEffects.Enqueue((index, attacker, Synchronize));
@@ -5987,6 +5988,7 @@ public partial class Battle : MonoBehaviour
                 break;
             case Poison:
             case Twineedle:
+            case BarbBarrage:
                 yield return GetPoison(index, attacker: attacker);
                 if (HasAbility(index, Synchronize) && CanStatus(attacker, Status.Poison, index, breakSub: true))
                     abilityEffects.Enqueue((index, attacker, Synchronize));
@@ -6012,8 +6014,11 @@ public partial class Battle : MonoBehaviour
             case Flatter:
                 yield return StatUp(index, SpAtk, 1, attacker);
                 goto case MoveEffect.Confuse;
-            case MoveEffect.TriAttack:
-                yield return TriAttack(index);
+            case TriAttack:
+                yield return DoTriAttack(index, attacker);
+                break;
+            case DireClaw:
+                yield return DoDireClaw(index, attacker);
                 break;
             case SmellingSalts:
                 yield return HealParalysis(index);
@@ -6415,7 +6420,7 @@ public partial class Battle : MonoBehaviour
                 yield return StatUp(index, Attack, 1, attacker);
                 yield return StatUp(index, Speed, 2, attacker);
                 break;
-            case AttackDefAccUp1:
+            case AttackDefenseAccUp1:
                 yield return StatUp(index, Attack, 1, attacker);
                 yield return StatUp(index, Defense, 1, attacker);
                 yield return StatUp(index, Accuracy, 1, attacker);
@@ -6446,6 +6451,11 @@ public partial class Battle : MonoBehaviour
                 yield return StatUp(index, Attack, 2, attacker);
                 yield return StatUp(index, SpAtk, 2, attacker);
                 yield return StatUp(index, Speed, 2, attacker);
+                break;
+            case TakeHeart:
+                yield return StatUp(index, SpAtk, 1, attacker);
+                yield return StatUp(index, SpDef, 1, attacker);
+                yield return CureStatus(index);
                 break;
             case SwitchHit:
                 if (PokemonOnField[index].player)
@@ -6497,6 +6507,10 @@ public partial class Battle : MonoBehaviour
             case FakeOut:
             case DoubleIronBash:
                 TryToFlinch(index, attacker);
+                break;
+            case TripleArrows:
+                if (random.Next(10) < (HasAbility(attacker, SereneGrace) ? 6 : 3)) TryToFlinch(index, attacker);
+                if ((random.Next() & 1) == 0 || HasAbility(attacker, SereneGrace)) yield return StatDown(index, Defense, 1, attacker);
                 break;
             case FlameBurst:
                 int announceFlameBurst = 0;
@@ -6944,11 +6958,14 @@ public partial class Battle : MonoBehaviour
             case Wish:
                 yield return MakeWish(index);
                 break;
-            case MoveEffect.HealStatus:
-                yield return HealStatus(index);
+            case HealStatus:
+                yield return CureStatus(index);
                 break;
+            case LunarBlessing:
+                yield return CureStatus(index);
+                goto case Heal25;
             case Purify:
-                yield return HealStatus(index);
+                yield return CureStatus(index);
                 yield return Heal(attacker,
                     PokemonOnField[attacker].pokemon.hpMax >> 1);
                 break;
@@ -6956,7 +6973,7 @@ public partial class Battle : MonoBehaviour
                 if (!PokemonOnField[index].AtFullHealth)
                     yield return Heal(index, PokemonOnField[index].pokemon.hpMax >> 2);
                 if (PokemonOnField[index].pokemon.status is not None)
-                    yield return HealStatus(index);
+                    yield return CureStatus(index);
                 break;
             case HealingWish:
                 healingWish[index] = true;
@@ -6980,8 +6997,14 @@ public partial class Battle : MonoBehaviour
             case Attract when CanInfatuate(attacker, index):
                 yield return Infatuate(index, attacker);
                 break;
-            case MoveEffect.ContinuousDamage:
+            case ContinuousDamage:
                 yield return GetContinuousDamage(attacker, index, Moves[attacker]);
+                break;
+            case StealthRock:
+                yield return DoStealthRock(attacker);
+                break;
+            case Spikes:
+                yield return DoSpikes(attacker);
                 break;
             case FollowMe:
                 PokemonOnField[index].followMe = true;
@@ -7098,7 +7121,7 @@ public partial class Battle : MonoBehaviour
                         {
                             if (MonIsActive(i) && PokemonOnField[i].pokemon.status is not None)
                             {
-                                yield return HealStatus(i);
+                                yield return CureStatus(i);
                             }
                         }
                     }
@@ -7758,13 +7781,13 @@ public partial class Battle : MonoBehaviour
             case ShedSkin when random.Next(3) is 0:
             case Hydration when IsRainAffected(index):
                 if (mon.pokemon.status != Status.None)
-                    yield return PopupDo(index, HealStatus(index));
+                    yield return PopupDo(index, CureStatus(index));
                 break;
             case Healer:
                 foreach (int i in GetNeighbors[index])
                 {
                     if (!MonIsActive(i) || PokemonOnField[i].pokemon.status is Status.None) continue;
-                    if (random.Next(10) < 3) yield return PopupDo(index, HealStatus(i));
+                    if (random.Next(10) < 3) yield return PopupDo(index, CureStatus(i));
                 }
                 break;
             case BadDreams:

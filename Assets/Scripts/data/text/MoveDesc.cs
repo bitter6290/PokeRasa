@@ -826,7 +826,32 @@
     private const string AstralBarrageDesc = "The user attacks by sending a frightful amount of small ghosts at opposing Pokémon.";
     private const string EerieSpellDesc = "The user attacks with its tremendous psychic power. This also drains 3 PP from the move last used by the target.";
 
+    private const string DireClawDesc = "The user lashes out at the target with ruinous claws. This may also leave the target poisoned, paralyzed, or asleep";
+    private const string PsyshieldBashDesc = "Cloaking itself in psychic energy, the user slams into the target. This also boosts the user’s Defense stat.";
+    private const string PowerShiftDesc = "The user swaps its Attack and Defense stats.";
+    private const string StoneAxeDesc = "The user swings its stone axes at the target. Stone splinters left behind by this attack float around the target.";
+    private const string SpringtideStormDesc = "The user attacks by wrapping opposing Pokémon in fierce winds brimming with love and hate. This may also lower their Attack stats.";
+    private const string MysticalPowerDesc = "The user attacks by emitting a mysterious power. This also boosts the user’s Sp. Atk stat.";
+    private const string RagingFuryDesc = "The user rampages around spewing flames for two to three turns. The user then becomes confused.";
+    private const string WaveCrashDesc = "The user shrouds itself in water and slams into the target with its whole body to inflict damage. This also damages the user quite a lot.";
+    private const string ChloroblastDesc = "The user launches its amassed chlorophyll to inflict damage on the target. This also damages the user.";
+    private const string MountainGaleDesc = "The user hurls giant chunks of ice at the target to inflict damage. This may also make the target flinch.";
+    private const string VictoryDanceDesc = "The user performs an intense dance to usher in victory, boosting its Attack, Defense, and Speed stats.";
+    private const string HeadlongRushDesc = "The user smashes into the target in a full-body tackle. This also lowers the user’s Defense and Sp. Def stats.";
+    private const string BarbBarrageDesc = "The user launches countless toxic barbs to inflict damage. This may also poison the target. This move’s power is doubled if the target is already poisoned.";
+    private const string EsperWingDesc = "The user slashes the target with aura-enriched wings. This also boosts the user's Speed stat. This move has a heightened chance of landing a critical hit.";
+    private const string BitterMaliceDesc = "The user attacks the target with spine-chilling resentment. This also lowers the target’s Attack stat.";
+    private const string ShelterDesc = "The user makes its skin as hard as an iron shield, sharply boosting its Defense stat.";
+    private const string TripleArrowsDesc = "The user kicks, then fires three arrows. This move has a heightened chance of landing a critical hit and may also lower the target’s Defense stat or make it flinch.";
+    private const string InfernalParadeDesc = "The user attacks with myriad fireballs. This may also leave the target with a burn. This move's power is doubled if the target has a status condition.";
+    private const string CeaselessEdgeDesc = "The user slashes its shell blade at the target. Shell splinters left behind by this attack remain scattered under the target as spikes.";
+    private const string BleakwindStormDesc = "The user attacks with savagely cold winds that cause both body and spirit to tremble. This may also lower the Speed stats of opposing Pokémon.";
+    private const string WildboltStormDesc = "The user summons a thunderous tempest and savagely attacks with lightning and wind. This may also leave opposing Pokémon with paralysis.";
+    private const string SandsearStormDesc = "The user attacks by wrapping opposing Pokémon in fierce winds and searingly hot sand. This may also leave them with a burn.";
+    private const string LunarBlessingDesc = "The user receives a blessing from the crescent moon, restoring HP and curing status conditions for itself and its ally Pokémon currently in the battle.";
+    private const string TakeHeartDesc = "The user lifts its spirits, curing its own status conditions and boosting its Sp. Atk and Sp. Def stats.";
 
+    //G-Max moves
     private const string GMaxWildfireDesc = "A Fire-type attack that Gigantamax Charizard use. This move continues to deal damage to opponents for four turns.";
     private const string GMaxBefuddleDesc = "A Bug-type attack that Gigantamax Butterfree use. This move inflicts the poisoned, paralyzed, or asleep status condition on opponents.";
     private const string GMaxVoltCrashDesc = "An Electric-type attack that Gigantamax Pikachu use. This move paralyzes opponents.";
