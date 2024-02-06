@@ -3957,6 +3957,95 @@ public static partial class Move
         noFlag, EerieSpellDesc, 160); //Needs anim
 
 
+    //Gigantamax Moves
+    public static readonly MoveData GMaxWildfire = MaxMove(
+        "G-Max Wildfire", Fire, GMaxWildfireDesc); //Needs anim
+    public static readonly MoveData GMaxBefuddle = MaxMove(
+        "G-Max Befuddle", Bug, GMaxBefuddleDesc); //Needs anim
+    public static readonly MoveData GMaxVoltCrash = MaxMove(
+        "G-Max Volt Crash", Electric, GMaxVoltCrashDesc); //Needs anim
+    public static readonly MoveData GMaxGoldRush = MaxMove(
+        "G-Max Gold Rush", Normal, GMaxGoldRushDesc); //Needs anim
+    public static readonly MoveData GMaxChiStrike = MaxMove(
+        "G-Max Chi Strike", Fighting, GMaxChiStrikeDesc); //Needs anim
+    public static readonly MoveData GMaxTerror = MaxMove(
+        "G-Max Terror", Ghost, GMaxTerrorDesc); //Needs anim
+    public static readonly MoveData GMaxResonance = MaxMove(
+        "G-Max Resonance", Ice, GMaxResonanceDesc); //Needs anim
+    public static readonly MoveData GMaxCuddle = MaxMove(
+        "G-Max Cuddle", Normal, GMaxCuddleDesc); //Needs anim
+    public static readonly MoveData GMaxReplenish = MaxMove(
+        "G-Max Replenish", Normal, GMaxReplenishDesc); //Needs anim
+    public static readonly MoveData GMaxMalodor = MaxMove(
+        "G-Max Malodor", Poison, GMaxMalodorDesc); //Needs anim
+    public static readonly MoveData GMaxStonesurge = MaxMove(
+        "G-Max Stonesurge", Water, GMaxStonesurgeDesc); //Needs anim
+    public static readonly MoveData GMaxWindRage = MaxMove(
+        "G-Max Wind Rage", Flying, GMaxWindRageDesc); //Needs anim
+    public static readonly MoveData GMaxStunShock = MaxMove(
+        "G-Max Stun Shock", Electric, GMaxStunShockDesc); //Needs anim
+    public static readonly MoveData GMaxFinale = MaxMove(
+        "G-Max Finale", Fairy, GMaxFinaleDesc); //Needs anim
+    public static readonly MoveData GMaxDepletion = MaxMove(
+        "G-Max Depletion", Dragon, GMaxDepletionDesc); //Needs anim
+    public static readonly MoveData GMaxGravitas = MaxMove(
+        "G-Max Gravitas", Type.Psychic, GMaxGravitasDesc); //Needs anim
+    public static readonly MoveData GMaxVolcalith = MaxMove(
+        "G-Max Volcalith", Rock, GMaxVolcalithDesc); //Needs anim
+    public static readonly MoveData GMaxSandblast = MaxMove(
+        "G-Max Sandblast", Ground, GMaxSandblastDesc); //Needs anim
+    public static readonly MoveData GMaxSnooze = MaxMove(
+        "G-Max Snooze", Dark, GMaxSnoozeDesc); //Needs anim
+    public static readonly MoveData GMaxTartness = MaxMove(
+        "G-Max Tartness", Grass, GMaxTartnessDesc); //Needs anim
+    public static readonly MoveData GMaxSweetness = MaxMove(
+        "G-Max Sweetness", Grass, GMaxSweetnessDesc); //Needs anim
+    public static readonly MoveData GMaxSmite = MaxMove(
+        "G-Max Smite", Fairy, GMaxSmiteDesc); //Needs anim
+    public static readonly MoveData GMaxSteelsurge = MaxMove(
+        "G-Max Steelsurge", Steel, GMaxSteelsurgeDesc); //Needs anim
+    public static readonly MoveData GMaxMeltdown = MaxMove(
+        "G-Max Meltdown", Steel, GMaxMeltdownDesc); //Needs anim
+    public static readonly MoveData GMaxFoamBurst = MaxMove(
+        "G-Max Foam Burst", Water, GMaxFoamBurstDesc); //Needs anim
+    public static readonly MoveData GMaxCentinferno = MaxMove(
+        "G-Max Centinferno", Fire, GMaxCentinfernoDesc); //Needs anim
+    public static readonly MoveData GMaxVineLash = MaxMove(
+        "G-Max Vine Lash", Grass, GMaxVineLashDesc); //Needs anim
+    public static readonly MoveData GMaxCannonade = MaxMove(
+        "G-Max Cannonade", Water, GMaxCannonadeDesc); //Needs anim
+    public static readonly MoveData GMaxDrumSolo = new(
+        "G-Max Drum Solo", Grass,
+        160, 101, 0,
+        MoveEffect.GMaxIgnoreAbilities, 0,
+        false, Single, 3,
+        noFlag, GMaxDrumSoloDesc, 1); //Needs anim
+    public static readonly MoveData GMaxFireball = new(
+        "G-Max Fireball", Fire,
+        160, 101, 0,
+        MoveEffect.GMaxIgnoreAbilities, 0,
+        false, Single, 3,
+        noFlag, GMaxFireballDesc, 1); //Needs anim
+    public static readonly MoveData GMaxHydrosnipe = new(
+        "G-Max Hydrosnipe", Water,
+        160, 101, 0,
+        MoveEffect.GMaxIgnoreAbilities, 0,
+        false, Single, 3,
+        noFlag, GMaxHydrosnipeDesc, 1); //Needs anim
+    public static readonly MoveData GMaxOneBlow = new(
+        "G-Max One Blow", Dark,
+        1, 101, 0,
+        MoveEffect.GMaxBreakProtection, 0,
+        false, Single, 3,
+        noFlag, GMaxOneBlowDesc, 1); //Needs anim
+    public static readonly MoveData GMaxRapidFlow = new(
+        "G-Max Rapid Flow", Water,
+        1, 101, 0,
+        MoveEffect.GMaxBreakProtection, 0,
+        false, Single, 3,
+        noFlag, GMaxRapidFlowDesc, 1); //Needs anim
+
+
     //Non-standard moves
     public static readonly MoveData ConfusionHit = new(
         "a move it shouldn't be able to! (ConfusionHit) [Error 101]", Typeless,
@@ -4109,7 +4198,7 @@ public static partial class Move
         50, 100, 0,
         MoveEffect.Recoil25Max, 100,
         true, Single, 0,
-        cannotMimic, StruggleDesc, 0);
+        cannotMimic, StruggleDesc, 0); //Needs anim
 
 
     public static readonly MoveData[] MoveTable = new MoveData[(int)MoveID.Count] {
@@ -4949,6 +5038,42 @@ public static partial class Move
         WickedBlow,
         SurgingStrikes,
         ThunderCage,
+
+        //G-max Moves
+
+        GMaxWildfire,
+        GMaxBefuddle,
+        GMaxVoltCrash,
+        GMaxGoldRush,
+        GMaxChiStrike,
+        GMaxTerror,
+        GMaxResonance,
+        GMaxCuddle,
+        GMaxReplenish,
+        GMaxMalodor,
+        GMaxStonesurge,
+        GMaxWindRage,
+        GMaxStunShock,
+        GMaxFinale,
+        GMaxDepletion,
+        GMaxGravitas,
+        GMaxVolcalith,
+        GMaxSandblast,
+        GMaxSnooze,
+        GMaxTartness,
+        GMaxSweetness,
+        GMaxSmite,
+        GMaxSteelsurge,
+        GMaxMeltdown,
+        GMaxFoamBurst,
+        GMaxCentinferno,
+        GMaxVineLash,
+        GMaxCannonade,
+        GMaxDrumSolo,
+        GMaxFireball,
+        GMaxHydrosnipe,
+        GMaxOneBlow,
+        GMaxRapidFlow,
 
         //Nonstandard moves
 

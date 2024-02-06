@@ -229,7 +229,7 @@ public class Pokemon : ICloneable
     public void FullHeal()
     {
         RestoreHP();
-        RestorePP(15);
+        RestorePP(0b1111);
         status = Status.None;
     }
 
@@ -237,6 +237,7 @@ public class Pokemon : ICloneable
     {
         return (((2 * SpeciesData.baseHP) + ivHP + (evHP >> 2)) * level / 100 + level + 10);
     }
+
 
     private int CalculateStat(Stat stat, int baseStat, int statIv, int statEv)
     {
@@ -537,4 +538,15 @@ public class Pokemon : ICloneable
     public static Pokemon EmptyMon = new
         (SpeciesID.Missingno, Gender.Genderless, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Nature.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, 0, ItemID.None, Type.Normal, false);
     public object Clone() => MemberwiseClone() as Pokemon;
+}
+
+public static class PokemonUtils
+{
+    public static void HealAll(this Pokemon[] party)
+    {
+        foreach (Pokemon mon in party)
+        {
+            mon.FullHeal();
+        }
+    }
 }

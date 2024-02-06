@@ -287,7 +287,7 @@ public partial class Battle
         public MoveID moveUsedLastTurn = MoveID.None;
         public MoveID moveUsedThisTurn = MoveID.None;
         public MoveID lastMoveUsed = MoveID.None;
-        public int lastMoveSlot = 0;
+        public int lastMoveSlot = 63;
 
         public bool quashed = false;
 

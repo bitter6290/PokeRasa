@@ -395,6 +395,8 @@ public enum MoveEffect : ushort
     Spotlight,
     //Max moves
     MaxMove,
+    GMaxIgnoreAbilities,
+    GMaxBreakProtection,
 }
 
 public static class MoveEffectUtils

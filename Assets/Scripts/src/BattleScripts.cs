@@ -71,7 +71,7 @@ public partial class Battle
             case KeenEye or Illuminate or MindsEye when statID == Stat.Accuracy:
             case HyperCutter when statID == Stat.Attack:
             case BigPecks when statID == Stat.Defense:
-                if ((!checkSide || GetSide(attacker) != GetSide(index)) &&
+                if ((!checkSide || GetSideNumber(attacker) != GetSideNumber(index)) &&
                         (!HasMoldBreaker(attacker) || HasAbility(index, FullMetalBody)))
                 {
                     yield return AbilityPopupStart(index);
@@ -82,16 +82,16 @@ public partial class Battle
                 }
                 else break;
         }
-        if ((!checkSide || GetSide(attacker) != GetSide(index))
-            && Sides[GetSide(index)].mist)
+        if ((!checkSide || GetSideNumber(attacker) != GetSideNumber(index))
+            && Sides[GetSideNumber(index)].mist)
         {
             yield return Announce(MonNameWithPrefix(index, true) +
                 " is protected by Mist!");
             yield break;
         }
-        if ((!checkSide || GetSide(attacker) != GetSide(index)))
+        if ((!checkSide || GetSideNumber(attacker) != GetSideNumber(index)))
         {
-            if (Sides[GetSide(index)].mist)
+            if (Sides[GetSideNumber(index)].mist)
             {
                 yield return Announce(MonNameWithPrefix(index, true) +
                     " is protected by Mist!");
@@ -102,9 +102,9 @@ public partial class Battle
                 int flowerVeilUser = NoMons;
                 for (int i = 0; i < 3; i++)
                 {
-                    if (HasAbility(GetSide(index) * 3 + i, FlowerVeil))
+                    if (HasAbility(GetSideNumber(index) * 3 + i, FlowerVeil))
                     {
-                        flowerVeilUser = GetSide(index) * 3 + 1;
+                        flowerVeilUser = GetSideNumber(index) * 3 + 1;
                         break;
                     }
                 }
@@ -142,7 +142,7 @@ public partial class Battle
                 break;
         }
         if (stagesLowered > 0) { PokemonOnField[index].statsDroppedThisTurn = true; doStatAnim = false; }
-        if ((!checkSide || GetSide(attacker) != GetSide(index)) &&
+        if ((!checkSide || GetSideNumber(attacker) != GetSideNumber(index)) &&
             HasAbility(index, Defiant))
         {
             doStatAnim = true;
@@ -150,7 +150,7 @@ public partial class Battle
             yield return StatUp(index, Stat.Attack, 2, attacker);
             yield return AbilityPopupEnd(index);
         }
-        if ((!checkSide || GetSide(attacker) != GetSide(index))
+        if ((!checkSide || GetSideNumber(attacker) != GetSideNumber(index))
             && HasAbility(index, Competitive))
         {
             doStatAnim = true;
@@ -425,6 +425,21 @@ public partial class Battle
         }
     }
 
+    private IEnumerator InflictStatus(int index, Status status, int attacker)
+    {
+        if (!CanStatus(index, status)) yield break;
+        yield return status switch
+        {
+            Status.Burn => GetBurn(index),
+            Status.Paralysis => GetParalysis(index),
+            Status.Poison => GetPoison(index, false, attacker),
+            Status.ToxicPoison => GetBadPoison(index),
+            Status.Sleep => FallAsleep(index, attacker),
+            Status.Freeze => GetFreeze(index),
+            _ => null
+        };
+    }
+
     private IEnumerator BurnHurt(int index)
     {
         yield return ShowBurn(index);
@@ -671,6 +686,22 @@ public partial class Battle
 
     }
 
+    private IEnumerator GetGMaxDamage(GMaxContinuousDamage damageType, Side side)
+    {
+        side.gMaxContinuousDamage = damageType;
+        side.gMaxDamageTurns = 4;
+        yield return Announce(side.whichSide ? "Your" : "The opposing"
+            + " Pokémon " + damageType switch
+        {
+            GMaxContinuousDamage.Wildfire => "were surrounded by fire!",
+            GMaxContinuousDamage.Cannonade => "got caught in the vortex of water!",
+            GMaxContinuousDamage.VineLash => "became trapped with vines!",
+            GMaxContinuousDamage.Volcalith => "became surrounded with rocks!",
+            _ => "Invalid G-Max damage"
+
+        });
+    }
+
     private IEnumerator VoluntarySwitch(int index, int partyIndex, bool doAnnouncement, bool fromMove)
     {
         if (index < 3)
@@ -811,10 +842,13 @@ public partial class Battle
         PokemonOnField[index].hasSubstitute = false;
     }
 
-    private IEnumerator DoContinuousDamage(int index, PartialTrapping type)
+    private IEnumerator CheckContinuousDamage(int index)
     {
         BattlePokemon target = PokemonOnField[index];
+        if (!target.partialTrapped || (HasAbility(index, MagicGuard) &&
+            target.partialTrappingType != PartialTrapping.Octolock)) yield break;
         int damage = 0;
+        PartialTrapping type = target.partialTrappingType;
         switch (type)
         {
             case PartialTrapping.Wrap:
@@ -893,6 +927,7 @@ public partial class Battle
         else
         {
             yield return target.DoNonMoveDamage(damage);
+            yield return ProcessBerries(index, false);
         }
     }
     private IEnumerator StartWeather(Weather weather, int turns)
@@ -1049,8 +1084,9 @@ public partial class Battle
         }
     }
 
-    private IEnumerable StartAuroraVeil(int side)
+    private IEnumerable StartAuroraVeil(int index)
     {
+        int side = index / 3;
         if (Sides[side].auroraVeil)
         {
             yield break;
@@ -1079,21 +1115,24 @@ public partial class Battle
         yield return Announce("The battlers shared their pain!");
     }
 
-    private IEnumerator DoLeechSeed(int index)
+    private IEnumerator CheckLeechSeed(int index)
     {
         BattlePokemon target = PokemonOnField[index];
-        if (!PokemonOnField[target.seedingSlot].exists) yield break;
-        //yield return LeechSeed(index, target.seedingSlot);
+        if (!target.seeded || HasAbility(index, MagicGuard)
+            || !PokemonOnField[target.seedingSlot].exists) yield break;
+        //yield return LeechSeedAnim(index, target.seedingSlot);
         int healthAmount = target.pokemon.hpMax >> 3;
-        target.DoNonMoveDamage(healthAmount);
+        yield return DoDamage(index, healthAmount);
         if (HasAbility(index, LiquidOoze))
         {
             yield return AbilityPopupStart(index);
-            PokemonOnField[target.seedingSlot].DoNonMoveDamage(healthAmount);
+            yield return DoDamage(target.seedingSlot, healthAmount);
             yield return new WaitForSeconds(0.5F);
             yield return Announce(MonNameWithPrefix(target.seedingSlot, true)
                 + " sucked up the liquid ooze!");
             yield return AbilityPopupEnd(index);
+            yield return ProcessFaintingSingle(target.seedingSlot);
+            yield return ProcessBerries(target.seedingSlot, false);
         }
         else
         {
@@ -1101,6 +1140,8 @@ public partial class Battle
             yield return Announce(MonNameWithPrefix(index, true)
                 + "'s health was sapped by Leech Seed!");
         }
+        yield return ProcessFaintingSingle(index);
+        yield return ProcessBerries(index, false);
     }
 
     private IEnumerator DoMimic(int index, int target)
@@ -1239,8 +1280,9 @@ public partial class Battle
         PokemonOnField[index].perishCounter = 3;
     }
 
-    private IEnumerator DoPerishSong(int index)
+    private IEnumerator CheckPerishSong(int index)
     {
+        if (!PokemonOnField[index].perishSong || HasAbility(index, MagicGuard)) yield break;
         PokemonOnField[index].perishCounter--;
         yield return Announce(MonNameWithPrefix(index, true)
             + "'s perish counter fell to "
@@ -1249,6 +1291,7 @@ public partial class Battle
         {
             yield return DoFatalDamage(index);
             PokemonOnField[index].pokemon.fainted = true;
+            yield return ProcessFaintingSingle(index);
         }
     }
 
@@ -1434,9 +1477,9 @@ public partial class Battle
 
     private IEnumerator DoSpikes(int index)
     {
-        if (Sides[GetSide(5 - index)].spikes < 3)
+        if (Sides[GetSideNumber(5 - index)].spikes < 3)
         {
-            Sides[GetSide(5 - index)].spikes++;
+            Sides[GetSideNumber(5 - index)].spikes++;
             yield return Announce("Spikes littered the ground around " +
                 (index < 3 ? "your Pokémon!" : "the opponent's Pokémon!"));
         }
@@ -1448,9 +1491,9 @@ public partial class Battle
 
     private IEnumerator DoToxicSpikes(int index)
     {
-        if (Sides[GetSide(5 - index)].toxicSpikes < 2)
+        if (Sides[GetSideNumber(5 - index)].toxicSpikes < 2)
         {
-            Sides[GetSide(5 - index)].toxicSpikes++;
+            Sides[GetSideNumber(5 - index)].toxicSpikes++;
             yield return Announce("Toxic spikes littered the ground around " +
                 (index < 3 ? "your Pokémon!" : "the opponent's Pokémon!"));
         }
@@ -1496,10 +1539,14 @@ public partial class Battle
         }
     }
 
-    private IEnumerator DoNightmare(int index)
+    private IEnumerator CheckNightmare(int index)
     {
-        PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].pokemon.hpMax >> 2);
+        if (!PokemonOnField[index].nightmare || HasAbility(index, MagicGuard)) yield break;
+        if (PokemonOnField[index].pokemon.status != Status.Sleep) { PokemonOnField[index].nightmare = false; yield break; }
+        yield return DoDamage(PokemonOnField[index].pokemon, PokemonOnField[index].pokemon.hpMax >> 2);
         yield return Announce(MonNameWithPrefix(index, true) + " is locked in a nightmare!");
+        yield return ProcessFaintingSingle(index);
+        yield return ProcessBerries(index, false);
     }
 
     private IEnumerator GetMindReader(int user, int target)
@@ -1547,7 +1594,7 @@ public partial class Battle
     private IEnumerator RemoveHazards(int index)
     {
         Side side = Sides[index / 3];
-        string teamText = (index > 2 ? "your" : "the opponent's") + "team!";
+        string teamText = (index > 2 ? "your" : "the opponent's") + " team!";
         if (side.spikes > 0)
         {
             yield return Announce(SpikesDisappeared + teamText);
@@ -1562,6 +1609,11 @@ public partial class Battle
         {
             yield return Announce(StealthRockDisappeared + teamText);
             side.stealthRock = false;
+        }
+        if (side.steelsurge)
+        {
+            yield return Announce("The steel spikes disappeared from around " + teamText);
+            side.steelsurge = false;
         }
         if (side.stickyWeb)
         {
@@ -1867,7 +1919,7 @@ public partial class Battle
 
     private IEnumerator DoBreakScreens(int index)
     {
-        Side side = Sides[GetSide(index)];
+        Side side = Sides[GetSideNumber(index)];
         string sideText = index < 3 ? "The foes'" : "Your team's";
         if (side.lightScreen)
         {
@@ -1982,7 +2034,7 @@ public partial class Battle
         yield return AbilityPopupEnd(index);
     }
 
-    private IEnumerator DoDefog(int attacker, int target) //Todo: add Sticky Web and Terrain clearing effects
+    private IEnumerator DoDefog(int attacker, int target, bool doEvasionDrop) //Todo: add Sticky Web and Terrain clearing effects
     {
         foreach (Side i in Sides)
         {
@@ -2001,6 +2053,11 @@ public partial class Battle
             {
                 yield return Announce(StealthRockDisappeared + sideText);
                 i.stealthRock = false;
+            }
+            if (i.steelsurge)
+            {
+                yield return Announce("The steel spikes disappeared from around " + sideText);
+                i.steelsurge = false;
             }
             if (i.stickyWeb)
             {
@@ -2032,11 +2089,11 @@ public partial class Battle
                 i.mist = false;
             }
         }
-        if (Sides[GetSide(target)].auroraVeil)
+        if (Sides[GetSideNumber(target)].auroraVeil)
         {
             yield return Announce(target < 3 ? "The foes'" : "Your team's" +
                 " Aurora Veil wore off!");
-            Sides[GetSide(target)].auroraVeil = false;
+            Sides[GetSideNumber(target)].auroraVeil = false;
         }
         yield return StatDown(target, Stat.Evasion, 1, attacker);
     }
@@ -2096,7 +2153,14 @@ public partial class Battle
     {
         yield return Announce("Pointed stones float in the air around "
             + (index < 3 ? "your" : "the opponent's") + " team!");
-        Sides[(5 - index) / 3].stealthRock = true;
+        GetOppositeSide(index).stealthRock = true;
+    }
+
+    private IEnumerator DoSteelsurge(int index)
+    {
+        yield return Announce("Steel splinters litter the field around "
+            + (index < 3 ? "your" : "the opponent's") + " team!");
+        GetOppositeSide(index).steelsurge = true;
     }
 
     private IEnumerator DoStickyWeb(int index)
@@ -2220,22 +2284,22 @@ public partial class Battle
     {
         yield return Announce("A rainbow appeared over " +
             (index > 2 ? "your" : "the foe's" + " Pokémon!"));
-        Sides[GetSide(index)].rainbow = true;
-        Sides[GetSide(index)].rainbowTurns = 4;
+        Sides[GetSideNumber(index)].rainbow = true;
+        Sides[GetSideNumber(index)].rainbowTurns = 4;
     }
     private IEnumerator MakeSwamp(int index)
     {
         yield return Announce("A swamp appeared around " +
             (index > 2 ? "your" : "the foe's" + " Pokémon!"));
-        Sides[GetSide(index)].swamp = true;
-        Sides[GetSide(index)].swampTurns = 4;
+        Sides[GetSideNumber(index)].swamp = true;
+        Sides[GetSideNumber(index)].swampTurns = 4;
     }
     private IEnumerator MakeBurningField(int index)
     {
         yield return Announce("A burning field surrounds " +
             (index > 2 ? "your" : "the foe's" + " Pokémon!"));
-        Sides[GetSide(index)].burningField = true;
-        Sides[GetSide(index)].burningFieldTurns = 4;
+        Sides[GetSideNumber(index)].burningField = true;
+        Sides[GetSideNumber(index)].burningFieldTurns = 4;
     }
 
     private IEnumerator AddType3(int index, Type type)
@@ -2333,5 +2397,12 @@ public partial class Battle
         UseUpItem(index);
         yield return DoBerryEffect(index, effect, false);
         yield return StatUp(index, Stat.Defense, 2, index);
+    }
+
+    private IEnumerator ScatterCoins(int amount, bool player)
+    {
+        yield return Announce("Coins were scattered everywhere!");
+        scatteredCoins += amount;
+        scatteredCoins = Min(scatteredCoins, 99999);
     }
 }

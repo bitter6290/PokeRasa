@@ -20,6 +20,7 @@ public partial class Battle {
         public int luckyChantTurns = 0;
         public int toxicSpikes = 0;
         public bool stealthRock = false;
+        public bool steelsurge = false;
         public bool stickyWeb = false;
         public bool wideGuard = false;
         public bool quickGuard = false;
