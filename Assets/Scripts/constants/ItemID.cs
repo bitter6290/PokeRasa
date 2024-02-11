@@ -83,6 +83,14 @@
     DuskStone,
     DawnStone,
     IceStone,
+    TartApple,
+    SweetApple,
+    CrackedPot,
+    ChippedPot,
+    ScrollOfDarkness,
+    ScrollOfWaters,
+    GalaricaCuff,
+    GalaricaWreath,
     //Other field items
     Honey,
     //Held items

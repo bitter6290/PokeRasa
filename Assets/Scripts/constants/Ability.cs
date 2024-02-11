@@ -240,16 +240,16 @@ public enum Ability
     Libero,
     BallFetch,
     CottonDown,
-    PropellorTail,
+    PropellerTail,
     MirrorArmor,
-    GulpMissile, //Needs Cramorant
+    GulpMissile,
     Stalwart,
     SteamEngine,
     PunkRock,
     SandSpit,
     IceScales,
     Ripen,
-    IceFace, //Needs Eiscue
+    IceFace,
     PowerSpot,
     Mimicry,
     ScreenCleaner,
@@ -259,7 +259,7 @@ public enum Ability
     GorillaTactics,
     NeutralizingGas,
     PastelVeil,
-    HungerSwitch, //Needs Morpeko
+    HungerSwitch,
     QuickDraw, //Not done
     UnseenFist,
     CuriousMedicine, //Not done
@@ -292,7 +292,7 @@ public enum Ability
     OrichalcumPulse,
     HadronEngine,
     Opportunist,
-    CudChew, //Not done
+    CudChew,
     Sharpness,
     SupremeOverlord,
     Costar,
@@ -580,7 +580,7 @@ public static class AbilityUtils
         Libero => "Changes the Pokémon's type to the type of the move it's about to use. This works only once each time the Pokémon enters battle.",
         BallFetch => "If the Pokémon is not holding an item, it will fetch the Poké Ball from the first failed throw of the battle.",
         CottonDown => "When the Pokémon is hit by an attack, it scatters cotton fluff around and lowers the Speed stats of all Pokémon except itself.",
-        PropellorTail => "Ignores the effects of opposing Pokémon's Abilities and moves that draw in moves.",
+        PropellerTail => "Ignores the effects of opposing Pokémon's Abilities and moves that draw in moves.",
         MirrorArmor => "Bounces back only the stat-lowering effects that the Pokémon receives.",
         GulpMissile => "When the Pokémon uses Surf or Dive, it will come back with prey. When it takes damage, it will spit out the prey to attack.",
         Stalwart => "Ignores the effects of opposing Pokémon's Abilities and moves that draw in moves.",

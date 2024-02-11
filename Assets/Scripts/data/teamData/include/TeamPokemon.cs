@@ -17,7 +17,7 @@ public class TeamPokemon
         get
         {
             Pokemon initialPokemon = Pokemon.WildPokemon(species, level);
-            if (nature != Nature.Any) initialPokemon.SetNature(nature);
+            if (nature != Nature.Any) initialPokemon.SetRawNature(nature);
             if (evIv.real) initialPokemon.SetEvIv(evIv);
             if (gender != Gender.Any) initialPokemon.gender = gender;
             for (int i = 0; i < moves.Count; i++)

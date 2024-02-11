@@ -87,7 +87,11 @@ public static class Evolution
         //new(???, 28, SpeciesID.MarowakAlola)
     };
     public static EvolutionData[] Lickitung = SingleEvolution(LevelUpWithMove, MoveID.Rollout, SpeciesID.Lickilicky);
-    public static EvolutionData[] Koffing = LevelEvolution(35, SpeciesID.Weezing);
+    public static EvolutionData[] Koffing = new EvolutionData[]
+    {
+        new(LevelUp, 35, SpeciesID.Weezing),
+        //new(???, 35, SpeciesID.WeezingGalar)
+    };
     public static EvolutionData[] Rhyhorn = LevelEvolution(42, SpeciesID.Rhydon);
     public static EvolutionData[] Rhydon = SingleEvolution(TradeItem, Protector, SpeciesID.Rhyperior);
     public static EvolutionData[] Chansey = Friendship220Evolution(SpeciesID.Blissey);
@@ -502,6 +506,57 @@ public static class Evolution
     };
     public static EvolutionData[] Poipole = SingleEvolution(LevelUpWithMove, MoveID.DragonPulse, SpeciesID.Naganadel);
 
+    //Gen 8
+
+    public static EvolutionData[] Grookey = LevelEvolution(16, SpeciesID.Thwackey);
+    public static EvolutionData[] Thwackey = LevelEvolution(35, SpeciesID.Rillaboom);
+    public static EvolutionData[] Scorbunny = LevelEvolution(16, SpeciesID.Raboot);
+    public static EvolutionData[] Raboot = LevelEvolution(35, SpeciesID.Cinderace);
+    public static EvolutionData[] Sobble = LevelEvolution(16, SpeciesID.Drizzile);
+    public static EvolutionData[] Drizzile = LevelEvolution(35, SpeciesID.Inteleon);
+    public static EvolutionData[] Skwovet = LevelEvolution(24, SpeciesID.Greedent);
+    public static EvolutionData[] Rookidee = LevelEvolution(18, SpeciesID.Corvisquire);
+    public static EvolutionData[] Corvisquire = LevelEvolution(38, SpeciesID.Corviknight);
+    public static EvolutionData[] Blipbug = LevelEvolution(10, SpeciesID.Dottler);
+    public static EvolutionData[] Dottler = LevelEvolution(30, SpeciesID.Orbeetle);
+    public static EvolutionData[] Nickit = LevelEvolution(18, SpeciesID.Thievul);
+    public static EvolutionData[] Gossifleur = LevelEvolution(20, SpeciesID.Eldegoss);
+    public static EvolutionData[] Wooloo = LevelEvolution(24, SpeciesID.Dubwool);
+    public static EvolutionData[] Chewtle = LevelEvolution(22, SpeciesID.Drednaw);
+    public static EvolutionData[] Yamper = LevelEvolution(25, SpeciesID.Boltund);
+    public static EvolutionData[] Rolycoly = LevelEvolution(18, SpeciesID.Carkol);
+    public static EvolutionData[] Carkol = LevelEvolution(34, SpeciesID.Coalossal);
+    public static EvolutionData[] Applin = new EvolutionData[]
+    {
+        new(EvolutionItem, TartApple, SpeciesID.Flapple),
+        new(EvolutionItem, SweetApple, SpeciesID.Appletun),
+        //new(EvolutionItem, SyrupyApple, SpeciesID.Dipplin)
+    };
+    public static EvolutionData[] Silicobra = LevelEvolution(36, SpeciesID.Sandaconda);
+    public static EvolutionData[] Arrokuda = LevelEvolution(26, SpeciesID.Barraskewda);
+    public static EvolutionData[] Toxel = new EvolutionData[]
+    {
+        new(LevelUpAmped, 30, SpeciesID.Toxtricity),
+        new(LevelUpLowKey, 30, SpeciesID.ToxtricityLowKey)
+    };
+    public static EvolutionData[] Sizzlipede = LevelEvolution(28, SpeciesID.Centiskorch);
+    public static EvolutionData[] Clobbopus = SingleEvolution(LevelUpWithMove, MoveID.Taunt, SpeciesID.Grapploct);
+    public static EvolutionData[] Hatenna = LevelEvolution(32, SpeciesID.Hattrem);
+    public static EvolutionData[] Hattrem = LevelEvolution(42, SpeciesID.Hatterene);
+    public static EvolutionData[] Impidimp = LevelEvolution(32, SpeciesID.Morgrem);
+    public static EvolutionData[] Morgrem = LevelEvolution(42, SpeciesID.Grimmsnarl);
+    //Todo: Milcery
+    public static EvolutionData[] Snom = SingleEvolution(FriendshipNight, 220, SpeciesID.Frosmoth);
+    public static EvolutionData[] Cufant = LevelEvolution(34, SpeciesID.Copperajah);
+    //Todo: public static EvolutionData[] Duraludon = ItemEvolution(MetalAlloy, Archaludon);
+    public static EvolutionData[] Dreepy = LevelEvolution(50, SpeciesID.Drakloak);
+    public static EvolutionData[] Drakloak = LevelEvolution(60, SpeciesID.Dragapult);
+    public static EvolutionData[] Kubfu = new EvolutionData[]
+    {
+        new(EvolutionItem, ScrollOfDarkness, SpeciesID.Urshifu),
+        new(EvolutionItem, ScrollOfWaters, SpeciesID.UrshifuRapid)
+    };
+
     //Forms
 
     public static EvolutionData[] DeerlingSummer = LevelEvolution(34, SpeciesID.SawsbuckSummer);
@@ -522,5 +577,26 @@ public static class Evolution
     public static EvolutionData[] GeodudeAlola = LevelEvolution(25, SpeciesID.GravelerAlola);
     public static EvolutionData[] GravelerAlola = TradeEvolution(SpeciesID.GolemAlola);
     public static EvolutionData[] GrimerAlola = LevelEvolution(38, SpeciesID.MukAlola);
-
+    //Galar
+    public static EvolutionData[] PonytaGalar = LevelEvolution(40, SpeciesID.RapidashGalar);
+    public static EvolutionData[] ZigzagoonGalar = LevelEvolution(20, SpeciesID.LinooneGalar);
+    public static EvolutionData[] LinooneGalar = SingleEvolution(LevelUpNight, 35, SpeciesID.Obstagoon);
+    public static EvolutionData[] MeowthGalar = LevelEvolution(28, SpeciesID.Perrserker);
+    public static EvolutionData[] CorsolaGalar = LevelEvolution(38, SpeciesID.Cursola);
+    public static EvolutionData[] FarfetchdGalar = SingleEvolution(EvolutionCounter, 3, SpeciesID.Sirfetchd);
+    public static EvolutionData[] MrMimeGalar = LevelEvolution(42, SpeciesID.MrRime);
+    public static EvolutionData[] YamaskGalar = SingleEvolution(EvolutionCounter, 49, SpeciesID.Runerigus);
+    public static EvolutionData[] SlowpokeGalar = new EvolutionData[]
+    {
+        new(EvolutionItem, GalaricaCuff, SpeciesID.SlowbroGalar),
+        new(EvolutionItem, GalaricaWreath, SpeciesID.SlowkingGalar)
+    };
+    public static EvolutionData[] DarumakaGalar = ItemEvolution(IceStone, SpeciesID.DarmanitanGalar);
+    //Hisui
+    public static EvolutionData[] GrowlitheHisui = ItemEvolution(FireStone, SpeciesID.ArcanineHisui);
+    public static EvolutionData[] VoltorbHisui = ItemEvolution(LeafStone, SpeciesID.ElectrodeHisui);
+    public static EvolutionData[] QwilfishHisui = SingleEvolution(LevelUpWithMove, MoveID.BarbBarrage, SpeciesID.Overqwil);
+    public static EvolutionData[] SneaselHisui = SingleEvolution(LevelUpWithItemDay, RazorClaw, SpeciesID.Sneasler);
+    public static EvolutionData[] ZoruaHisui = LevelEvolution(30, SpeciesID.ZoroarkHisui);
+    public static EvolutionData[] SliggooHisui = SingleEvolution(LevelUpRain, 50, SpeciesID.GoodraHisui);
 }

@@ -818,6 +818,7 @@ public class Player : LoadedChar
         battle.opponentName = opponentTeam.trainerName;
         battle.playerPokemon = Party;
         battle.opponentPokemon = opponentParty;
+        opponentParty.HealAll();
         battle.battleType = Battle.BattleType.Single;
         battle.wildBattle = false;
         battle.battleTerrain = currentTerrain;

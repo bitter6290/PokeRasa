@@ -38,7 +38,10 @@ public class Pokemon : ICloneable
     public int totalEv;
 
     private Nature nature;
-    public Nature Nature => nature;
+    public Nature mintedNature;
+    public bool minted;
+    public Nature Nature => minted ? mintedNature : nature;
+    public Nature RawNature => nature;
     public int whichAbility;
 
     public int hpMax => CalculateHPMax();
@@ -76,6 +79,8 @@ public class Pokemon : ICloneable
     public bool fainted;
 
     public bool exists;
+
+    public int evolutionCounter;
 
     public ItemID item;
     public bool itemChanged;
@@ -121,6 +126,10 @@ public class Pokemon : ICloneable
     public bool shouldEvolve;
     [NonSerialized]
     public SpeciesID destinationSpecies;
+
+    private bool Amped => nature is Nature.Hardy or Nature.Brave or Nature.Adamant
+        or Nature.Naughty or Nature.Docile or Nature.Impish or Nature.Lax or Nature.Hasty
+        or Nature.Jolly or Nature.Naive or Nature.Rash or Nature.Sassy or Nature.Quirky;
 
     public bool UsesFemaleSprites => SpeciesData.genderDifferences && gender == Gender.Female;
 
@@ -199,7 +208,14 @@ public class Pokemon : ICloneable
         evSpeed = spread.evSpeed;
     }
 
-    public void SetNature(Nature nature) => this.nature = nature;
+
+    public void SetRawNature(Nature nature) => this.nature = nature;
+
+    public void Mint(Nature nature)
+    {
+        minted = true;
+        mintedNature = nature;
+    }
 
     public void AbilityCapsule()
     {
@@ -338,12 +354,16 @@ public class Pokemon : ICloneable
             case EvolutionMethod.LevelUpDay when TimeUtils.timeOfDay is TimeOfDay.Day:
             case EvolutionMethod.LevelUpNight when TimeUtils.timeOfDay is TimeOfDay.Night:
             case EvolutionMethod.LevelUpEvening when TimeUtils.timeOfDay is TimeOfDay.Evening:
+            case EvolutionMethod.LevelUpAmped when Amped:
+            case EvolutionMethod.LevelUpLowKey when !Amped:
                 goto case EvolutionMethod.LevelUp;
             case EvolutionMethod.LevelUpMakeShedinja:
                 makeShedinja = level >= data;
                 return makeShedinja;
             case EvolutionMethod.Friendship:
                 return friendship >= data;
+            case EvolutionMethod.EvolutionCounter:
+                return evolutionCounter >= data;
             case EvolutionMethod.FriendshipDay when TimeUtils.timeOfDay is TimeOfDay.Day:
             case EvolutionMethod.FriendshipNight when TimeUtils.timeOfDay is TimeOfDay.Night:
                 goto case EvolutionMethod.Friendship;
@@ -526,7 +546,7 @@ public class Pokemon : ICloneable
             ? Gender.Genderless
             : personality % 100 > Species.SpeciesTable[(int)species].malePercent
             ? Gender.Female : Gender.Male;
-        Nature Nature = (Nature)((personality >> 1) % 25);
+        Nature Nature = (Nature)((personality >> 8) % 25);
 
         MoveID[] Moves = Learnset.GetMoves(Species.SpeciesTable[(int)species].learnset, level);
 

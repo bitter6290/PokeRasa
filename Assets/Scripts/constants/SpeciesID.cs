@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public enum SpeciesID
 {
     //Gen 1
@@ -827,6 +823,104 @@ public enum SpeciesID
     Meltan,
     Melmetal,
 
+    //Gen 8
+    Grookey,
+    Thwackey,
+    Rillaboom,
+    Scorbunny,
+    Raboot,
+    Cinderace,
+    Sobble,
+    Drizzile,
+    Inteleon,
+    Skwovet,
+    Greedent,
+    Rookidee,
+    Corvisquire,
+    Corviknight,
+    Blipbug,
+    Dottler,
+    Orbeetle,
+    Nickit,
+    Thievul,
+    Gossifleur,
+    Eldegoss,
+    Wooloo,
+    Dubwool,
+    Chewtle,
+    Drednaw,
+    Yamper,
+    Boltund,
+    Rolycoly,
+    Carkol,
+    Coalossal,
+    Applin,
+    Flapple,
+    Appletun,
+    Silicobra,
+    Sandaconda,
+    Cramorant,
+    Arrokuda,
+    Barraskewda,
+    Toxel,
+    Toxtricity,
+    Sizzlipede,
+    Centiskorch,
+    Clobbopus,
+    Grapploct,
+    Sinistea,
+    Polteageist,
+    Hatenna,
+    Hattrem,
+    Hatterene,
+    Impidimp,
+    Morgrem,
+    Grimmsnarl,
+    Obstagoon,
+    Perrserker,
+    Cursola,
+    Sirfetchd,
+    MrRime,
+    Runerigus,
+    Milcery,
+    Alcremie,
+    Falinks,
+    Pincurchin,
+    Snom,
+    Frosmoth,
+    Stonjourner,
+    Eiscue,
+    Indeedee,
+    Morpeko,
+    Cufant,
+    Copperajah,
+    Dracozolt,
+    Arctozolt,
+    Dracovish,
+    Arctovish,
+    Duraludon,
+    Dreepy,
+    Drakloak,
+    Dragapult,
+    Zacian,
+    Zamazenta,
+    Eternatus,
+    Kubfu,
+    Urshifu,
+    Zarude,
+    Regieleki,
+    Regidrago,
+    Glastrier,
+    Spectrier,
+    Calyrex,
+    Wyrdeer,
+    Kleavor,
+    Ursaluna,
+    Basculegion,
+    Sneasler,
+    Overqwil,
+    Enamorus,
+
     //Forms
 
     //Regional forms
@@ -849,6 +943,43 @@ public enum SpeciesID
     MukAlola,
     ExeggutorAlola,
     MarowakAlola,
+    //Galar
+    MeowthGalar,
+    PonytaGalar,
+    RapidashGalar,
+    SlowpokeGalar,
+    SlowbroGalar,
+    FarfetchdGalar,
+    WeezingGalar,
+    MrMimeGalar,
+    ArticunoGalar,
+    ZapdosGalar,
+    MoltresGalar,
+    SlowkingGalar,
+    CorsolaGalar,
+    ZigzagoonGalar,
+    LinooneGalar,
+    DarumakaGalar,
+    DarmanitanGalar,
+    YamaskGalar,
+    StunfiskGalar,
+    //Hisui
+    GrowlitheHisui,
+    ArcanineHisui,
+    VoltorbHisui,
+    ElectrodeHisui,
+    TyphlosionHisui,
+    QwilfishHisui,
+    SneaselHisui,
+    SamurottHisui,
+    LilligantHisui,
+    ZoruaHisui,
+    ZoroarkHisui,
+    BraviaryHisui,
+    SliggooHisui,
+    GoodraHisui,
+    AvaluggHisui,
+    DecidueyeHisui,
 
     //Other forms
 
@@ -954,6 +1085,7 @@ public enum SpeciesID
     BasculinBlue,
 
     DarmanitanZen,
+    DarmanitanGalarZen,
 
     DeerlingSummer,
     DeerlingAutumn,
@@ -1140,6 +1272,45 @@ public enum SpeciesID
     NecrozmaUltra,
 
     MagearnaOriginal,
+
+    CramorantGulping,
+    CramorantGorging,
+
+    ToxtricityLowKey,
+
+    SinisteaAntique,
+
+    PolteageistAntique,
+
+    AlcremieRubyCream,
+    AlcremieMatchaCream,
+    AlcremieMintCream,
+    AlcremieLemonCream,
+    AlcremieSaltedCream,
+    AlcremieRubySwirl,
+    AlcremieCaramelSwirl,
+    AlcremieRainbowSwirl,
+
+    EiscueNoice,
+
+    MorpekoHangry,
+
+    ZacianCrowned,
+
+    ZamazentaCrowned,
+
+    EternatusEternamax,
+
+    UrshifuRapid,
+
+    ZarudeDada,
+
+    CalyrexIce,
+    CalyrexShadow,
+
+    BasculegionF,
+
+    EnamorusT,
 
     //Megas
 

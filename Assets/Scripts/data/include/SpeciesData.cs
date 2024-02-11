@@ -1,6 +1,4 @@
 using System;
-using System.Drawing;
-using Unity.VisualScripting;
 using static EvYield;
 using static Type;
 using static XPClass;
@@ -90,10 +88,31 @@ public struct SpeciesData
         }
     }
 
-    public Sprite Icon1 => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
-        new Rect(0.0f, 32.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
-    public Sprite Icon2 => Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
-        new Rect(0.0f, 0.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
+    private static string Strip(string path) => path.Split(new char[] { '/' })[0];
+
+    public Sprite Icon1
+    {
+        get
+        {
+            Sprite @try = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
+                new Rect(0.0f, 32.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
+            if (@try is not null) return @try;
+            else return Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Strip(graphicsLocation) + "/icon"),
+                new Rect(0.0f, 32.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
+        }
+    }
+
+    public Sprite Icon2
+    {
+        get
+        {
+            Sprite @try = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon"),
+                new Rect(0.0f, 0.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
+            if (@try is not null) return @try;
+            else return Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + Strip(graphicsLocation) + "/icon"),
+                new Rect(0.0f, 0.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
+        }
+    }
 
     public AudioClip Cry => Resources.Load<AudioClip>("Sound/Cries/" + cryLocation);
 
@@ -1297,7 +1316,7 @@ public struct SpeciesData
         cryLocation = "oricorio_" + graphicsSubfolder,
         graphicsLocation = "oricorio/" + graphicsSubfolder,
         backSpriteHeight = 0,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Oricorio,
         abilities = new[]
         {
             Dancer,
@@ -1332,7 +1351,7 @@ public struct SpeciesData
         cryLocation = "rockruff",
         graphicsLocation = "rockruff",
         backSpriteHeight = 7,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Rockruff,
         abilities = abilities
     };
 
@@ -1362,7 +1381,7 @@ public struct SpeciesData
         cryLocation = "silvally",
         graphicsLocation = "silvally/" + graphicsSubfolder,
         backSpriteHeight = 0,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Silvally,
         abilities = new[]
         {
             RKSSystem,
@@ -1397,7 +1416,7 @@ public struct SpeciesData
         cryLocation = "minior",
         graphicsLocation = core ? "minior/core/" + graphicsSubfolder : "minior",
         backSpriteHeight = core ? 15 : 14,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Minior,
         abilities = new[]
         {
             ShieldsDown,
@@ -1406,6 +1425,7 @@ public struct SpeciesData
         }
     };
 
+    //Mimikyu constructor
     public static SpeciesData Mimikyu(bool busted) => new()
     {
         speciesName = "Mimikyu",
@@ -1431,7 +1451,7 @@ public struct SpeciesData
         cryLocation = "mimikyu",
         graphicsLocation = "mimikyu" + (busted ? "/busted" : string.Empty),
         backSpriteHeight = busted ? 15 : 7,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Mimikyu,
         abilities = new[]
         {
             Disguise,
@@ -1440,6 +1460,7 @@ public struct SpeciesData
         }
     };
 
+    //Magearna constructor
     public static SpeciesData Magearna(bool original) => new()
     {
         speciesName = "Magearna",
@@ -1465,12 +1486,258 @@ public struct SpeciesData
         cryLocation = "magearna",
         graphicsLocation = "magearna" + (original ? "/original_color" : string.Empty),
         backSpriteHeight = 5,
-        pokedexData = Pokedex.Bulbasaur, //Not done
+        pokedexData = Pokedex.Magearna,
         abilities = new[]
         {
             SoulHeart,
             SoulHeart,
             SoulHeart
+        }
+    };
+
+    //Cramorant constructor
+    public static SpeciesData Cramorant(int whichForm) => new()
+    {
+        speciesName = "Cramorant",
+        type1 = Flying,
+        type2 = Water,
+        baseHP = 70,
+        baseAttack = 85,
+        baseDefense = 55,
+        baseSpAtk = 85,
+        baseSpDef = 95,
+        baseSpeed = 85,
+        evYield = 2 * SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 166,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Water1,
+        eggGroup2 = EggGroup.Flying,
+        eggCycles = 20,
+        catchRate = 45,
+        cryLocation = "cramorant",
+        graphicsLocation = "cramorant" + whichForm switch
+        {
+            0 => string.Empty,
+            1 => "/gulping",
+            2 => "/gorging",
+            _ => throw new Exception("Passed bad argument to Cramorant constructor")
+        },
+        backSpriteHeight = 1,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            GulpMissile,
+            GulpMissile,
+            GulpMissile
+        }
+    };
+
+    //Toxtricity constructor
+    public static SpeciesData Toxtricity(bool lowKey) => new()
+    {
+        speciesName = "Toxtricity",
+        type1 = Electric,
+        type2 = Poison,
+        baseHP = 75,
+        baseAttack = 98,
+        baseDefense = 70,
+        baseSpAtk = 114,
+        baseSpDef = 70,
+        baseSpeed = 75,
+        evYield = 2 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumSlow,
+        xpYield = 176,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.HumanLike,
+        eggGroup2 = EggGroup.HumanLike,
+        eggCycles = 25,
+        catchRate = 45,
+        cryLocation = "toxtricity",
+        graphicsLocation = "toxtricity" + (lowKey ? "/low_key" : string.Empty),
+        backSpriteHeight = 0,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            lowKey ? Minus : Plus,
+            lowKey ? Minus : Plus,
+            lowKey ? Minus : Plus
+        }
+    };
+
+    //Sinistea constructor
+    public static SpeciesData Sinistea(bool genuine) => new()
+    {
+        speciesName = "Sinistea",
+        type1 = Ghost,
+        type2 = Ghost,
+        baseHP = 40,
+        baseAttack = 45,
+        baseDefense = 45,
+        baseSpAtk = 74,
+        baseSpDef = 54,
+        baseSpeed = 50,
+        evYield = SpAtk,
+        evolution = genuine ?
+            EvolutionData.ItemEvolution(ItemID.ChippedPot, SpeciesID.PolteageistAntique) :
+            EvolutionData.ItemEvolution(ItemID.CrackedPot, SpeciesID.Polteageist),
+        xpClass = MediumFast,
+        xpYield = 62,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 120,
+        cryLocation = "sinistea",
+        graphicsLocation = "sinistea",
+        backSpriteHeight = 16,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            WeakArmor,
+            WeakArmor,
+            CursedBody
+        }
+    };
+
+    //Polteageist constructor
+    public static SpeciesData Polteageist(bool genuine) => new()
+    {
+        speciesName = "Polteageist",
+        type1 = Ghost,
+        type2 = Ghost,
+        baseHP = 60,
+        baseAttack = 65,
+        baseDefense = 65,
+        baseSpAtk = 134,
+        baseSpDef = 114,
+        baseSpeed = 70,
+        evYield = 2 * SpAtk,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 178,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Mineral,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 60,
+        cryLocation = "polteageist",
+        graphicsLocation = "polteageist",
+        backSpriteHeight = 16,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            WeakArmor,
+            WeakArmor,
+            CursedBody
+        }
+    };
+
+    //Alcremie constructor
+    public static SpeciesData Alcremie(string path = "") => new()
+    {
+        speciesName = "Alcremie",
+        type1 = Fairy,
+        type2 = Fairy,
+        baseHP = 65,
+        baseAttack = 60,
+        baseDefense = 75,
+        baseSpAtk = 110,
+        baseSpDef = 121,
+        baseSpeed = 64,
+        evYield = 2 * SpDef,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 173,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 0,
+        eggGroup1 = EggGroup.Fairy,
+        eggGroup2 = EggGroup.Amorphous,
+        eggCycles = 20,
+        catchRate = 100,
+        cryLocation = "alcremie",
+        graphicsLocation = path is "" ? "alcremie" : "alcremie/" + path,
+        backSpriteHeight = 9,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            SweetVeil,
+            SweetVeil,
+            AromaVeil
+        }
+    };
+
+    //Morpeko constructor
+    public static SpeciesData Morpeko(bool hangry) => new()
+    {
+        speciesName = "Morpeko",
+        type1 = Electric,
+        type2 = Dark,
+        baseHP = 58,
+        baseAttack = 95,
+        baseDefense = 58,
+        baseSpAtk = 70,
+        baseSpDef = 58,
+        baseSpeed = 97,
+        evYield = 2 * Speed,
+        evolution = Evolution.None,
+        xpClass = MediumFast,
+        xpYield = 153,
+        learnset = EmptyLearnset, //Not done
+        malePercent = 50,
+        eggGroup1 = EggGroup.Field,
+        eggGroup2 = EggGroup.Fairy,
+        eggCycles = 10,
+        catchRate = 180,
+        cryLocation = "morpeko",
+        graphicsLocation = "morpeko" + (hangry ? "/hangry" : string.Empty),
+        backSpriteHeight = 8,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            HungerSwitch,
+            HungerSwitch,
+            HungerSwitch
+        }
+    };
+
+    //Zarude constructor
+    public static SpeciesData Zarude(bool dada) => new()
+    {
+        speciesName = "Zarude",
+        type1 = Dark,
+        type2 = Grass,
+        baseHP = 105,
+        baseAttack = 120,
+        baseDefense = 105,
+        baseSpAtk = 70,
+        baseSpDef = 95,
+        baseSpeed = 105,
+        evYield = 3 * Attack,
+        evolution = Evolution.None,
+        xpClass = Slow,
+        xpYield = 300,
+        learnset = EmptyLearnset, //Not done
+        malePercent = Genderless,
+        eggGroup1 = EggGroup.Undiscovered,
+        eggGroup2 = EggGroup.Undiscovered,
+        eggCycles = 120,
+        catchRate = 3,
+        cryLocation = "zarude",
+        graphicsLocation = "zarude" + (dada ? "/dada" : string.Empty),
+        backSpriteHeight = 5,
+        pokedexData = Pokedex.Bulbasaur, //Not done
+        abilities = new[]
+        {
+            LeafGuard,
+            LeafGuard,
+            LeafGuard
         }
     };
 

@@ -816,9 +816,11 @@ public partial class Battle : MonoBehaviour
         return EffectiveAbility(index) is MoldBreaker or Teravolt or Turboblaze;
     }
 
-    private bool IsPhysical(int attacker, int defender, int moveSlot)
+    private bool IsPhysical(int attacker, int defender, int moveSlot) => IsPhysical(attacker, defender, PokemonOnField[attacker].GetMove(moveSlot));
+
+    private bool IsPhysical(int attacker, int defender, MoveID move)
     {
-        switch (PokemonOnField[attacker].GetMove(moveSlot).Data().effect)
+        switch (move.Data().effect)
         {
             case PhotonGeyser or LightThatBurnsTheSky:
                 return PokemonOnField[attacker].Attack > PokemonOnField[attacker].SpAtk;
@@ -833,7 +835,7 @@ public partial class Battle : MonoBehaviour
                     : PokemonOnField[attacker].Attack * PokemonOnField[defender].SpDef >
                             PokemonOnField[attacker].SpAtk * PokemonOnField[defender].Defense;
             default:
-                return PokemonOnField[attacker].GetMoveRaw(moveSlot).Data().physical;
+                return move.Data().physical;
         }
     }
 
@@ -996,13 +998,14 @@ public partial class Battle : MonoBehaviour
                     DouseDrive => Type.Water,
                     _ => Type.Normal
                 }; break;
-            //case AuraWheel: //Todo: uncomment when Morpeko is added
-            //    effectiveType = PokemonOnField[index].ApparentSpecies switch
-            //    {
-            //        SpeciesID.Morpeko => Type.Electric,
-            //        SpeciesID.MorpekoHangry => Type.Dark
-            //    };
-            //    break;
+            case AuraWheel:
+                effectiveType = PokemonOnField[index].ApparentSpecies switch
+                {
+                    SpeciesID.Morpeko => Type.Electric,
+                    SpeciesID.MorpekoHangry => Type.Dark,
+                    _ => Type.Typeless,
+                };
+                break;
             default: break;
         }
         if (move.Data().effect is not TerrainPulse)
@@ -2044,7 +2047,7 @@ public partial class Battle : MonoBehaviour
         {
             if ((targetData & Target.Spread) == 0 && !(move.Data().effect is ExpandingForce && IsTerrainAffected(attacker, Terrain.Psychic)))
             {
-                if (EffectiveAbility(attacker) is not Stalwart or PropellorTail &&
+                if (EffectiveAbility(attacker) is not Stalwart or PropellerTail &&
                     move.Data().effect is not SnipeShot)
                     CheckForRedirection(attacker);
                 PokemonOnField[Targets[attacker]].isTarget = true;
@@ -2187,6 +2190,7 @@ public partial class Battle : MonoBehaviour
                         case Telepathy when GetMove(attacker).power > 0 && attacker / 3 == i / 3:
                         case Dazzling or QueenlyMajesty when GetPriority(attacker) > 0:
                         case Disguise when PokemonOnField[i].ApparentSpecies is SpeciesID.MimikyuBase:
+                        case IceFace when PokemonOnField[i].ApparentSpecies is SpeciesID.Eiscue && IsPhysical(attacker, i, move):
                         case Sturdy when move.Data().effect is OHKO:
                             abilityEffects.Enqueue((i, i, ability));
                             continue;
@@ -2665,6 +2669,7 @@ public partial class Battle : MonoBehaviour
                     switch (defenderAbility)
                     {
                         case Static when MakesContact(attacker, move) && CanStatus(attacker, Status.Paralysis):
+                        case GulpMissile when PokemonOnField[defender].ApparentSpecies is SpeciesID.CramorantGulping or SpeciesID.CramorantGorging:
                         case CursedBody when MakesContact(attacker, move) && CanDisable(attacker):
                         case PoisonPoint when MakesContact(attacker, move) && CanStatus(attacker, Status.Poison):
                         case FlameBody when MakesContact(attacker, move) && CanStatus(attacker, Status.Burn):
@@ -2830,6 +2835,9 @@ public partial class Battle : MonoBehaviour
                 case ColorChange:
                     yield return PopupDo(target, BecomeType(target, PokemonOnField[target].lastTargetedMove.Data().type));
                     break;
+                case GulpMissile:
+                    yield return DoGulpMissile(source, target);
+                    break;
                 case Gooey:
                 case TanglingHair:
                     doStatAnim = true;
@@ -2874,6 +2882,11 @@ public partial class Battle : MonoBehaviour
                     yield return AbilityPopupStart(target);
                     yield return Transform(target, SpeciesID.MimikyuBusted);
                     yield return Announce(MonNameWithPrefix(target, true) + "'s disguise was broken!");
+                    yield return AbilityPopupEnd(target);
+                    break;
+                case IceFace:
+                    yield return AbilityPopupStart(target);
+                    yield return Transform(target, SpeciesID.EiscueNoice);
                     yield return AbilityPopupEnd(target);
                     break;
                 case VoltAbsorb:
@@ -3255,6 +3268,7 @@ public partial class Battle : MonoBehaviour
             yield return Faint(index);
             Moves[index] = MoveID.None;
             yield return HandleXPOnFaint(partyIndex);
+            if (mon.species is SpeciesID.YamaskGalar) mon.evolutionCounter = 0;
             if (PokemonOnField[index + (index < 3 ? 3 : -3)].pokemon.level
                 - mon.level >= 30)
                 mon.AddFriendship(-5, -5, -10);
@@ -4364,6 +4378,7 @@ public partial class Battle : MonoBehaviour
 
     private IEnumerator ExecuteMove(int index, bool parentalBond = false, bool dancer = false)
     {
+        bool critSomeone = false;
         bool isMultiTarget = false;
         oneAnnouncementDone = false;
         currentMovingMon = index;
@@ -4763,9 +4778,14 @@ public partial class Battle : MonoBehaviour
             MoveCleanup();
             yield break;
         }
-        if (Moves[index] is MoveID.DarkVoid & user.pokemon.GetSpecies != SpeciesID.Darkrai) //Todo: add Hyperspace Fury/Hoopa Unbound effect
+        if ((Moves[index] is MoveID.DarkVoid &
+                user.pokemon.GetSpecies != SpeciesID.Darkrai) ||
+            (Moves[index] is MoveID.HyperspaceFury &
+                user.pokemon.GetSpecies != SpeciesID.HoopaUnbound) ||
+            (Moves[index] is MoveID.AuraWheel &
+                user.pokemon.GetSpecies is not SpeciesID.Morpeko or SpeciesID.MorpekoHangry))
         {
-            Debug.Log("No dark void!");
+            Debug.Log("Wrong species!");
             yield return Announce(BattleText.MoveFailed);
             user.moveFailedThisTurn = true;
             user.done = true;
@@ -5114,6 +5134,7 @@ public partial class Battle : MonoBehaviour
                                 }
                                 if (PokemonOnField[j].isCrit)
                                 {
+                                    critSomeone = true;
                                     if (battleType == BattleType.Single)
                                     {
                                         yield return Announce(BattleText.CriticalHit);
@@ -5279,6 +5300,7 @@ public partial class Battle : MonoBehaviour
                                 }
                                 if (PokemonOnField[j].isCrit)
                                 {
+                                    critSomeone = true;
                                     if (battleType == BattleType.Single)
                                     {
                                         yield return Announce(BattleText.CriticalHit);
@@ -5457,6 +5479,7 @@ public partial class Battle : MonoBehaviour
                         }
                         if (target.isCrit)
                         {
+                            critSomeone = true;
                             if (battleType == BattleType.Single)
                             {
                                 yield return Announce(BattleText.CriticalHit);
@@ -5623,12 +5646,19 @@ public partial class Battle : MonoBehaviour
                 PokemonOnField[i].goingNext = true;
             }
         }
+        if (user.ApparentSpecies is SpeciesID.Cramorant && HasAbility(index, GulpMissile) &&
+            Moves[index] is MoveID.Surf or MoveID.Dive)
+        {
+            yield return PopupDo(index, Transform(index, user.pokemon.hp * 2 < user.pokemon.hpMax ?
+                SpeciesID.CramorantGorging : SpeciesID.CramorantGulping));
+        }
         if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
         if (!parentalBond && checkParentalBond && HasAbility(index, ParentalBond))
         {
             user.dontCheckPP = true;
             yield return ExecuteMove(index, true);
         }
+        if (user.pokemon.species is SpeciesID.FarfetchdGalar && critSomeone) user.pokemon.evolutionCounter++;
         user.done = true;
         MoveCleanup();
     }
@@ -5685,7 +5715,7 @@ public partial class Battle : MonoBehaviour
         yield return doWait ? new WaitForSeconds(0.6F) : null;
     }
 
-    public IEnumerator DoDamage(Pokemon mon, int damage)
+    public IEnumerator DoDamage(Pokemon mon, int damage, bool ignoreYamask = false)
     {
         int initialHP = mon.hp;
         bool wasAbove50 = (mon.hp << 1) >= mon.hpMax;
@@ -5698,6 +5728,7 @@ public partial class Battle : MonoBehaviour
             mon.hp = initialHP - (int)(damage * progress);
             yield return null;
         }
+        if (mon.species is SpeciesID.YamaskGalar && damage > 0 && !ignoreYamask) mon.evolutionCounter += damage;
         if (mon.onField)
         {
             foreach (BattlePokemon battleMon in PokemonOnField)
@@ -7778,6 +7809,10 @@ public partial class Battle : MonoBehaviour
                     yield return AbilityPopupEnd(index);
                 }
                 break;
+            case IceFace when PokemonOnField[index].ApparentSpecies is SpeciesID.EiscueNoice &
+                IsWeatherAffected(index, Snow):
+                yield return PopupDo(index, Transform(index, SpeciesID.Eiscue));
+                break;
             case ShedSkin when random.Next(3) is 0:
             case Hydration when IsRainAffected(index):
                 if (mon.pokemon.status != Status.None)
@@ -7839,6 +7874,22 @@ public partial class Battle : MonoBehaviour
                 if (mon.turnsToCudChew-- == 1)
                 {
                     yield return PopupDo(index, DoBerryEffect(index, mon.cudChewEffect, true));
+                }
+                break;
+            case HungerSwitch:
+                switch (PokemonOnField[index].ApparentSpecies)
+                {
+                    case SpeciesID.Morpeko:
+                        yield return AbilityPopupStart(index);
+                        yield return Transform(index, SpeciesID.MorpekoHangry);
+                        yield return AbilityPopupEnd(index);
+                        break;
+                    case SpeciesID.MorpekoHangry:
+                        yield return AbilityPopupStart(index);
+                        yield return Transform(index, SpeciesID.Morpeko);
+                        yield return AbilityPopupEnd(index);
+                        break;
+                    default: break;
                 }
                 break;
             default:
@@ -7927,7 +7978,7 @@ public partial class Battle : MonoBehaviour
                     or SandVeil or Overcoat)
             {
                 yield return DoHitFlash(i);
-                yield return DoDamage(mon.pokemon, mon.pokemon.hpMax >> 4);
+                yield return DoDamage(mon.pokemon, mon.pokemon.hpMax >> 4, true);
                 yield return Announce(MonNameWithPrefix(i, true)
                     + " is buffeted by the sandstorm!");
                 yield return ProcessBerries(i, false);
@@ -8520,6 +8571,7 @@ public partial class Battle : MonoBehaviour
             playerPokemon[i].canBelch = false;
             playerPokemon[i].switchedOut = false;
             playerPokemon[i].activatedAbilities = new();
+            if (playerPokemon[i].species is SpeciesID.FarfetchdGalar) playerPokemon[i].evolutionCounter = 0;
         }
         if (battleType == BattleType.Single)
         {

@@ -30,6 +30,9 @@ public enum EvolutionMethod
     LevelUpEvening,
     LevelUpNight,
     LevelUpRain,
+    LevelUpAmped,
+    LevelUpLowKey,
+    EvolutionCounter,
 
     Incidental, //Shedinja
 

@@ -1481,7 +1481,7 @@ public partial class Battle
 
     private IEnumerator GhostCurse(int attacker, int defender)
     {
-        yield return DoDamage(PokemonOnField[attacker].pokemon, PokemonOnField[attacker].pokemon.hpMax >> 1);
+        yield return DoDamage(PokemonOnField[attacker].pokemon, PokemonOnField[attacker].pokemon.hpMax >> 1, true);
         PokemonOnField[defender].cursed = true;
         yield return Announce(MonNameWithPrefix(attacker, true) + " cut its own HP to put a curse on "
             + MonNameWithPrefix(defender, false) + "!");
@@ -2416,6 +2416,28 @@ public partial class Battle
         UseUpItem(index);
         yield return DoBerryEffect(index, effect, false);
         yield return StatUp(index, Stat.Defense, 2, index);
+    }
+
+    private IEnumerator DoGulpMissile(int source, int target)
+    {
+        switch (PokemonOnField[source].ApparentSpecies)
+        {
+            case SpeciesID.CramorantGulping:
+                yield return AbilityPopupStart(source);
+                yield return Transform(source, SpeciesID.Cramorant);
+                yield return DoDamage(target, PokemonOnField[target].pokemon.hpMax >> 2);
+                yield return StatDown(target, Stat.Defense, 1, source);
+                yield return AbilityPopupEnd(source);
+                break;
+            case SpeciesID.CramorantGorging:
+                yield return AbilityPopupStart(source);
+                yield return Transform(source, SpeciesID.Cramorant);
+                yield return DoDamage(target, PokemonOnField[target].pokemon.hpMax >> 2);
+                yield return GetParalysis(target);
+                yield return AbilityPopupEnd(source);
+                break;
+            default: break;
+        }
     }
 
     private IEnumerator ScatterCoins(int amount, bool player)

@@ -556,6 +556,8 @@ public static class Item
         graphicsPath = "potion"
     };
 
+    //Evolution items
+
     public static readonly FieldItem FireStone = new()
     {
         itemName = "Fire Stone",
@@ -635,6 +637,72 @@ public static class Item
         fieldEffect = FieldEffect.Evolution,
         graphicsPath = "ice_stone",
     };
+
+    public static readonly FieldItem TartApple = new()
+    {
+        itemName = "Tart Apple",
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution,
+        graphicsPath = "tart_apple"
+    };
+
+    public static readonly FieldItem SweetApple = new()
+    {
+        itemName = "Sweet Apple",
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution,
+        graphicsPath = "sweet_apple"
+    };
+
+    public static readonly FieldItem CrackedPot = new()
+    {
+        itemName = "Cracked Pot",
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution,
+        graphicsPath = "cracked_pot"
+    };
+
+    public static readonly FieldItem ChippedPot = new()
+    {
+        itemName = "Chipped Pot",
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution,
+        graphicsPath = "chipped_pot"
+    };
+
+    public static readonly FieldItem ScrollOfDarkness = new()
+    {
+        itemName = "Scroll of Darkness",
+        price = 20000,
+        fieldEffect = FieldEffect.Evolution,
+        graphicsPath = "comet_shard" //Todo
+    };
+
+    public static readonly FieldItem ScrollOfWaters = new()
+    {
+        itemName = "Scroll of Waters",
+        price = 20000,
+        fieldEffect = FieldEffect.Evolution,
+        graphicsPath = "comet_shard" //Todo
+    };
+
+    public static readonly FieldItem GalaricaCuff = new()
+    {
+        itemName = "Galarica Cuff",
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution,
+        graphicsPath = "galarica_cuff"
+    };
+
+    public static readonly FieldItem GalaricaWreath = new()
+    {
+        itemName = "Galarica Wreath",
+        price = 10000,
+        fieldEffect = FieldEffect.Evolution,
+        graphicsPath = "galarica_wreath"
+    };
+
+    //Other field items
 
     public static readonly FieldItem Honey = new()
     {
@@ -2186,6 +2254,14 @@ public static class Item
         DuskStone,
         DawnStone,
         IceStone,
+        TartApple,
+        SweetApple,
+        CrackedPot,
+        ChippedPot,
+        ScrollOfDarkness,
+        ScrollOfWaters,
+        GalaricaCuff,
+        GalaricaWreath,
         //Other field items
         Honey,
         //Held items
