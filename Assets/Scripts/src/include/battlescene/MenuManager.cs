@@ -358,7 +358,7 @@ public class MenuManager : MonoBehaviour
         mon = battle.PokemonOnField[currentMon];
 
         currentMove = mon.lastMoveSlot;
-        if (currentMove == 0) currentMove = 1;
+        if (currentMove is 0 or 63) currentMove = 1;
 
         box5.color = backColor;
         text5.enabled = true;
@@ -503,7 +503,7 @@ public class MenuManager : MonoBehaviour
             PartyIcon(i + 1).enabled = battle.playerPokemon[i].exists;
             PartyIcon(i + 1).sprite = (currentPartyMon == (i + 1)
                 && Time.time % 0.36 > 0.18) ?
-            battle.playerMonIcons2[i] : battle.playerMonIcons[i];
+            battle.PlayerIcon2(i) : battle.PlayerIcon1(i);
         }
 
         megaIndicator.SetActive(false);
@@ -527,7 +527,7 @@ public class MenuManager : MonoBehaviour
         {
             canMegaEvolve = false;
             megaEvolving = false;
-            if (battle.CanUseZMove(currentMon, currentMove - 1))
+            if (currentMove > 0 && battle.CanUseZMove(currentMon, currentMove - 1))
             {
                 canUseZMove = true;
                 megaKey.text = "Z";
@@ -1018,17 +1018,17 @@ public class MenuManager : MonoBehaviour
                     bool useSprite2 = Time.time % 0.36 > 0.18;
 
                     partyMon1.sprite = currentPartyMon == 1 && useSprite2 ?
-                        battle.playerMonIcons2[0] : battle.playerMonIcons[0];
+                        battle.PlayerIcon2(0) : battle.PlayerIcon1(0);
                     partyMon2.sprite = currentPartyMon == 3 && useSprite2 ?
-                        battle.playerMonIcons2[2] : battle.playerMonIcons[2];
+                        battle.PlayerIcon2(2) : battle.PlayerIcon1(2);
                     partyMon3.sprite = currentPartyMon == 2 && useSprite2 ?
-                        battle.playerMonIcons2[1] : battle.playerMonIcons[1];
+                        battle.PlayerIcon2(1) : battle.PlayerIcon1(1);
                     partyMon4.sprite = currentPartyMon == 4 && useSprite2 ?
-                        battle.playerMonIcons2[3] : battle.playerMonIcons[3];
+                        battle.PlayerIcon2(3) : battle.PlayerIcon1(3);
                     partyMon5.sprite = currentPartyMon == 5 && useSprite2 ?
-                        battle.playerMonIcons2[4] : battle.playerMonIcons[4];
+                        battle.PlayerIcon2(4) : battle.PlayerIcon1(4);
                     partyMon6.sprite = currentPartyMon == 6 && useSprite2 ?
-                        battle.playerMonIcons2[5] : battle.playerMonIcons[5];
+                        battle.PlayerIcon2(5) : battle.PlayerIcon1(5);
 
                     if (Input.GetKeyDown(KeyCode.RightArrow))
                     {

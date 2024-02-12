@@ -12,7 +12,13 @@ public class SpriteTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightCommand))
         {
-            species = (SpeciesID)((int)(species + 1) % (int)SpeciesID.Count);
+            species++;
+            if (species >= SpeciesID.Count) species = SpeciesID.Missingno;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftCommand))
+        {
+            species--;
+            if (species < 0) species = SpeciesID.Count - 1;
         }
         battle.PokemonOnField[index].pokemon.species = species;
     }

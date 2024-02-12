@@ -26,13 +26,16 @@ public abstract class LoadedChar : MonoBehaviour
     public IEnumerator DoPause(float duration)
     {
         moving = true;
+        paused = true;
         float endTime = Time.time + duration;
         while (Time.time < endTime)
         {
             AlignObject();
-            yield return null;
+            if (breakPause) { breakPause = false;  paused = false; yield break; }
+            else yield return null;
         }
         moving = false;
+        paused = false;
     }
 
     public Player p;
@@ -52,6 +55,8 @@ public abstract class LoadedChar : MonoBehaviour
     public Queue<MovementHandler> Actions;
     public bool Busy => Actions.Count > 0;
     public bool moving = false;
+    public bool paused = false;
+    public bool breakPause = false;
     public bool active;
     public bool free;
     public bool available;

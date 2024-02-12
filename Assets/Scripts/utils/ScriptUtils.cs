@@ -93,7 +93,8 @@ public static class ScriptUtils
     {
         p.locked = true;
         if (p.state != PlayerState.Moving) p.state = PlayerState.Locked;
-        while (c.moving) yield return null;
+        while (c.moving && !c.paused) yield return null;
+        c.breakPause = c.paused;
         c.FaceAndLock();
         switch (c.facing)
         {

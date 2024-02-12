@@ -739,8 +739,7 @@ public partial class Battle
             PokemonOnField[index] = new(opponentPokemon[partyIndex], index, false, this);
             PokemonOnField[index].partyIndex = partyIndex;
             HandleFacing(index);
-            audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
-                + PokemonOnField[index].pokemon.SpeciesData.cryLocation));
+            audioSource0.PlayOneShot(PokemonOnField[index].pokemon.SpeciesData.Cry);
             yield return MonEntersField(index);
         }
         else
@@ -759,8 +758,7 @@ public partial class Battle
             PokemonOnField[index] = new(playerPokemon[partyIndex], index, true, this);
             PokemonOnField[index].partyIndex = partyIndex;
             HandleFacing(index);
-            audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
-                + PokemonOnField[index].pokemon.SpeciesData.cryLocation));
+            audioSource0.PlayOneShot(PokemonOnField[index].pokemon.SpeciesData.Cry);
             yield return MonEntersField(index);
         }
     }

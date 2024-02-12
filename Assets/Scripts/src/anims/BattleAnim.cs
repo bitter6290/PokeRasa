@@ -7,9 +7,8 @@ public partial class Battle
     //Audio functions
     public void Cry(SpeciesID species, AudioSource audioSource)
     {
-        AudioClip cry = Resources.Load("Sound/Cries/" + Species.SpeciesTable[(ushort)species].cryLocation) as AudioClip;
         audioSource.volume = 1.0F;
-        audioSource.PlayOneShot(cry);
+        audioSource.PlayOneShot(species.Data().Cry);
     }
     public AudioClip BattleFX(string path)
     {

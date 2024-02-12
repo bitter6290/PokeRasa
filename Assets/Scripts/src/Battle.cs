@@ -304,8 +304,8 @@ public partial class Battle : MonoBehaviour
     public ItemID[] itemToUse = new ItemID[6];
     public int[] itemTarget = new int[6];
 
-    public Sprite[] playerMonIcons = new Sprite[6];
-    public Sprite[] playerMonIcons2 = new Sprite[6];
+    public Sprite PlayerIcon1(int i) => playerPokemon[i].SpeciesData.Icon1;
+    public Sprite PlayerIcon2(int i) => playerPokemon[i].SpeciesData.Icon2;
 
     public string MonNameWithPrefix(int index, bool capitalized)
     {
@@ -816,7 +816,7 @@ public partial class Battle : MonoBehaviour
         return EffectiveAbility(index) is MoldBreaker or Teravolt or Turboblaze;
     }
 
-    private bool IsPhysical(int attacker, int defender, int moveSlot) => IsPhysical(attacker, defender, PokemonOnField[attacker].GetMove(moveSlot));
+    private bool IsPhysical(int attacker, int defender, int moveSlot) => IsPhysical(attacker, defender, PokemonOnField[attacker].GetMove(moveSlot - 1));
 
     private bool IsPhysical(int attacker, int defender, MoveID move)
     {
@@ -8557,16 +8557,6 @@ public partial class Battle : MonoBehaviour
         };
         for (int i = 0; i < 6; i++)
         {
-            playerMonIcons[i] = Sprite.Create(
-                Resources.Load<Texture2D>("Sprites/Pokemon/"
-                + Species.SpeciesTable[(int)playerPokemon[i].species].graphicsLocation
-                + "/icon"), new Rect(0.0F, 32.0F, 32.0F, 32.0F), StaticValues.defPivot,
-                64);
-            playerMonIcons2[i] = Sprite.Create(
-                Resources.Load<Texture2D>("Sprites/Pokemon/"
-                + Species.SpeciesTable[(int)playerPokemon[i].species].graphicsLocation
-                + "/icon"), new Rect(0.0F, 0.0F, 32.0F, 32.0F), StaticValues.defPivot,
-                64);
             playerPokemon[i].itemChanged = false;
             playerPokemon[i].canBelch = false;
             playerPokemon[i].switchedOut = false;
@@ -8619,8 +8609,7 @@ public partial class Battle : MonoBehaviour
                     PokemonOnField[index] = new BattlePokemon(pokemonData, index, true, this);
                     break;
             }
-            audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Cries/"
-                + PokemonOnField[index].pokemon.SpeciesData.cryLocation));
+            audioSource0.PlayOneShot(PokemonOnField[index].pokemon.SpeciesData.Cry);
             audioSource0.panStereo = player ? -0.5F : 0.5F;
             PokemonOnField[index].partyIndex = partyIndex;
             HandleFacing(index);

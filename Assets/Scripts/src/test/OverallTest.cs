@@ -7,19 +7,20 @@ public class OverallTest : MonoBehaviour
 {
     public Battle battle;
     public Player player;
-    private Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Gyarados, 10);
-    private Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 15);
-    private Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
-    private Pokemon testPokemon4 = Pokemon.WildPokemon(SpeciesID.NidoranM, 10);
-    private Pokemon testPokemon5 = Pokemon.WildPokemon(SpeciesID.Porygon, 10);
-    private Pokemon testPokemon6 = Pokemon.WildPokemon(SpeciesID.Charizard, 10);
-    private Pokemon testPokemon7 = Pokemon.WildPokemon(SpeciesID.Infernape, 10);
-    private Pokemon testPokemon8 = Pokemon.WildPokemon(SpeciesID.Huntail, 10);
-    private Pokemon testPokemon9 = Pokemon.WildPokemon(SpeciesID.Porygon2, 10);
+
 
     // Start is called before the first frame update
     public void Start()
     {
+        Pokemon testPokemon = Pokemon.WildPokemon(SpeciesID.Gyarados, 10);
+        Pokemon testPokemon2 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 15);
+        Pokemon testPokemon3 = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 10);
+        Pokemon testPokemon4 = Pokemon.WildPokemon(SpeciesID.NidoranM, 10);
+        Pokemon testPokemon5 = Pokemon.WildPokemon(SpeciesID.Porygon, 10);
+        Pokemon testPokemon6 = Pokemon.WildPokemon(SpeciesID.Charizard, 10);
+        Pokemon testPokemon7 = Pokemon.WildPokemon(SpeciesID.Infernape, 10);
+        Pokemon testPokemon8 = Pokemon.WildPokemon(SpeciesID.Huntail, 10);
+        Pokemon testPokemon9 = Pokemon.WildPokemon(SpeciesID.Porygon2, 10);
         testPokemon.move1 = MoveID.Splash;
         testPokemon.whichAbility = 0;
         testPokemon.pp1 = 40;

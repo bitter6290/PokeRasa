@@ -223,10 +223,8 @@ public class SummaryScreen : MonoBehaviour
 
 
         moveScreenName.text = mon.MonName;
-        monIcon0 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + mon.SpeciesData.graphicsLocation + "/icon"),
-            new(0, 32, 32, 32), new(0.5F, 0.5F));
-        monIcon1 = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + mon.SpeciesData.graphicsLocation + "/icon"),
-            new(0, 0, 32, 32), new(0.5F, 0.5F));
+        monIcon0 = mon.SpeciesData.Icon1;
+        monIcon1 = mon.SpeciesData.Icon2;
 
         move1Box.color = mon.MoveIDs[0].Data().type.Color();
         move2Box.color = mon.MoveIDs[1].Data().type.Color();
