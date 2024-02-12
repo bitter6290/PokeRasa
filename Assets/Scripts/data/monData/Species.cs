@@ -20913,7 +20913,7 @@ public static class Species
             Pressure,
         },
     };
-    public static readonly SpeciesData KeldeoOriginal = Keldeo("keldeo");
+    public static readonly SpeciesData KeldeoOriginal = Keldeo(false);
     public static readonly SpeciesData MeloettaAria = new()
     {
         speciesName = "Meloetta",
@@ -20938,7 +20938,7 @@ public static class Species
         baseFriendship = 100,
         cryLocation = "meloetta", //Verify
         graphicsLocation = "meloetta", //Verify
-        backSpriteHeight = 4,
+        backSpriteHeight = 7,
         pokedexData = Pokedex.Meloetta,
         abilities = new Ability[3]
         {
@@ -25049,8 +25049,8 @@ public static class Species
         eggCycles = 15,
         catchRate = 3,
         baseFriendship = 70,
-        cryLocation = "tapu fini", //Verify
-        graphicsLocation = "tapu fini", //Verify
+        cryLocation = "tapu_fini", //Verify
+        graphicsLocation = "tapu_fini", //Verify
         backSpriteHeight = 4,
         pokedexData = Pokedex.TapuFini,
         abilities = new Ability[3]
@@ -27470,8 +27470,8 @@ public static class Species
         eggCycles = 25,
         catchRate = 45,
         baseFriendship = 70,
-        cryLocation = "mr rime", //Verify
-        graphicsLocation = "mr rime", //Verify
+        cryLocation = "mr_rime", //Verify
+        graphicsLocation = "mr_rime", //Verify
         backSpriteHeight = 6,
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new Ability[3]
@@ -29864,7 +29864,7 @@ public static class Species
         catchRate = 190,
         baseFriendship = 70,
         cryLocation = "yamask", //Verify
-        graphicsLocation = "yamask/glarian", //Verify
+        graphicsLocation = "yamask/galarian", //Verify
         backSpriteHeight = 13,
         pokedexData = Pokedex.Yamask,
         abilities = new Ability[3]
@@ -31350,7 +31350,7 @@ public static class Species
     public static readonly SpeciesData ArceusIce = Arceus(Ice, "arceus/ice");
     public static readonly SpeciesData ArceusGround = Arceus(Ground, "arceus/ground");
     public static readonly SpeciesData ArceusFighting = Arceus(Fighting, "arceus/fighting");
-    public static readonly SpeciesData ArceusFlying = Arceus(Flying, "arceus.flying");
+    public static readonly SpeciesData ArceusFlying = Arceus(Flying, "arceus/flying");
     public static readonly SpeciesData ArceusRock = Arceus(Rock, "arceus/rock");
     public static readonly SpeciesData ArceusPoison = Arceus(Poison, "arceus/poison");
     public static readonly SpeciesData ArceusBug = Arceus(Bug, "arceus/bug");
@@ -31425,7 +31425,7 @@ public static class Species
         baseFriendship = 70,
         cryLocation = "darmanitan", //Verify
         graphicsLocation = "darmanitan/zen_mode", //Verify
-        backSpriteHeight = 7,
+        backSpriteHeight = 11,
         pokedexData = Pokedex.Darmanitan,
         abilities = new Ability[3]
         {
@@ -31646,7 +31646,7 @@ public static class Species
         },
     };
 
-    public static readonly SpeciesData KeldeoResolute = Keldeo("keldeo/resolute");
+    public static readonly SpeciesData KeldeoResolute = Keldeo(true);
     public static readonly SpeciesData MeloettaPirouette = new()
     {
         speciesName = "Meloetta",
@@ -31670,7 +31670,7 @@ public static class Species
         catchRate = 3,
         baseFriendship = 100,
         cryLocation = "meloetta", //Verify
-        graphicsLocation = "meloetta", //Verify
+        graphicsLocation = "meloetta/pirouette", //Verify
         backSpriteHeight = 4,
         pokedexData = Pokedex.Meloetta,
         abilities = new Ability[3]
@@ -31949,8 +31949,8 @@ public static class Species
         eggCycles = 120,
         catchRate = 3,
         baseFriendship = 100,
-        cryLocation = "hoopa unbound", //Verify
-        graphicsLocation = "hoopa unbound", //Verify
+        cryLocation = "hoopa_unbound", //Verify
+        graphicsLocation = "hoopa/unbound", //Verify
         backSpriteHeight = 0,
         pokedexData = Pokedex.Hoopa,
         abilities = new Ability[3]

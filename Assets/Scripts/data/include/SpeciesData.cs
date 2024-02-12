@@ -837,7 +837,7 @@ public struct SpeciesData
     };
 
     //Keldeo constructor
-    public static SpeciesData Keldeo(string graphics) => new()
+    public static SpeciesData Keldeo(bool resolute) => new()
     {
         speciesName = "Keldeo",
         type1 = Water,
@@ -860,8 +860,8 @@ public struct SpeciesData
         catchRate = 3,
         baseFriendship = 35,
         cryLocation = "keldeo", //Verify
-        graphicsLocation = graphics, //Verify
-        backSpriteHeight = 0, //Not done
+        graphicsLocation = resolute ? "keldeo/resolute" : "keldeo", //Verify
+        backSpriteHeight = resolute ? 3 : 4,
         pokedexData = Pokedex.Keldeo, //Not done
         abilities = new[]
         {
@@ -932,7 +932,7 @@ public struct SpeciesData
         baseFriendship = 70,
         cryLocation = "scatterbug", //Verify
         graphicsLocation = "scatterbug", //Verify
-        backSpriteHeight = 0, //Not done
+        backSpriteHeight = 12,
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new[]
         {
@@ -966,7 +966,7 @@ public struct SpeciesData
         baseFriendship = 70,
         cryLocation = "spewpa", //Verify
         graphicsLocation = "spewpa", //Verify
-        backSpriteHeight = 0, //Not done
+        backSpriteHeight = 12,
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new[]
         {
@@ -1223,7 +1223,7 @@ public struct SpeciesData
     public static SpeciesData Gourgeist(int baseHP, int baseAttack, int baseSpeed,
     string graphicsSubfolder, int backSpriteHeight) => new()
     {
-        speciesName = "Pumpkaboo",
+        speciesName = "Gourgeist",
         type1 = Ghost,
         type2 = Grass,
         baseHP = baseHP,
@@ -1629,7 +1629,7 @@ public struct SpeciesData
         catchRate = 60,
         cryLocation = "polteageist",
         graphicsLocation = "polteageist",
-        backSpriteHeight = 16,
+        backSpriteHeight = 13,
         pokedexData = Pokedex.Bulbasaur, //Not done
         abilities = new[]
         {

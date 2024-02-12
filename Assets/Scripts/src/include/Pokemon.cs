@@ -44,7 +44,7 @@ public class Pokemon : ICloneable
     public Nature RawNature => nature;
     public int whichAbility;
 
-    public int hpMax => CalculateHPMax();
+    public int hpMax => species is SpeciesID.Shedinja ? 1 : CalculateHPMax();
     public int attack => CalculateStat(Stat.Attack, SpeciesData.baseAttack, ivAttack, evAttack);
     public int defense => CalculateStat(Stat.Defense, SpeciesData.baseDefense, ivDefense, evDefense);
     public int spAtk => CalculateStat(Stat.SpAtk, SpeciesData.baseSpAtk, ivSpAtk, evSpAtk);
