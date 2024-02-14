@@ -1777,6 +1777,6 @@ public struct SpeciesData
          }
      );
 
-    public static SpeciesData[] SingleSpecies(SpeciesData species) =>
-        new SpeciesData[1] { species };
+    public static SpeciesID[] SingleSpecies(SpeciesID species) =>
+        new SpeciesID[1] { species };
 }

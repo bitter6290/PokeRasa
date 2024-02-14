@@ -1,7 +1,7 @@
-﻿using static PokedexDesc;
+﻿using UnityEngine;
 using static SpeciesData;
 
-public static class Pokedex
+public static partial class Pokedex
 {
     public static readonly PokedexData Bulbasaur = new()
     {
@@ -11,7 +11,7 @@ public static class Pokedex
         height = 70,
         weight = 6900,
         entry = BulbasaurDesc,
-        forms = SingleSpecies(Species.Bulbasaur),
+        forms = SingleSpecies(SpeciesID.Bulbasaur),
     };
     public static readonly PokedexData Ivysaur = new()
     {
@@ -21,7 +21,7 @@ public static class Pokedex
         height = 100,
         weight = 13000,
         entry = IvysaurDesc,
-        forms = SingleSpecies(Species.Ivysaur),
+        forms = SingleSpecies(SpeciesID.Ivysaur),
     };
     public static readonly PokedexData Venusaur = new()
     {
@@ -33,8 +33,8 @@ public static class Pokedex
         entry = VenusaurDesc,
         forms = new[]
         {
-            Species.Venusaur,
-            Species.VenusaurMega
+            SpeciesID.Venusaur,
+            SpeciesID.VenusaurMega
         }
     };
     public static readonly PokedexData Charmander = new()
@@ -45,7 +45,7 @@ public static class Pokedex
         height = 60,
         weight = 8500,
         entry = CharmanderDesc,
-        forms = SingleSpecies(Species.Charmander),
+        forms = SingleSpecies(SpeciesID.Charmander),
     };
     public static readonly PokedexData Charmeleon = new()
     {
@@ -55,7 +55,7 @@ public static class Pokedex
         height = 110,
         weight = 19000,
         entry = CharmeleonDesc,
-        forms = SingleSpecies(Species.Charmeleon),
+        forms = SingleSpecies(SpeciesID.Charmeleon),
     };
     public static readonly PokedexData Charizard = new()
     {
@@ -67,9 +67,9 @@ public static class Pokedex
         entry = CharizardDesc,
         forms = new[]
         {
-            Species.Charizard,
-            Species.CharizardMegaX,
-            Species.CharizardMegaY
+            SpeciesID.Charizard,
+            SpeciesID.CharizardMegaX,
+            SpeciesID.CharizardMegaY
         }
     };
     public static readonly PokedexData Squirtle = new()
@@ -80,7 +80,7 @@ public static class Pokedex
         height = 50,
         weight = 9000,
         entry = SquirtleDesc,
-        forms = SingleSpecies(Species.Squirtle),
+        forms = SingleSpecies(SpeciesID.Squirtle),
     };
     public static readonly PokedexData Wartortle = new()
     {
@@ -90,7 +90,7 @@ public static class Pokedex
         height = 100,
         weight = 22500,
         entry = WartortleDesc,
-        forms = SingleSpecies(Species.Wartortle),
+        forms = SingleSpecies(SpeciesID.Wartortle),
     };
     public static readonly PokedexData Blastoise = new()
     {
@@ -102,8 +102,8 @@ public static class Pokedex
         entry = BlastoiseDesc,
         forms = new[]
         {
-            Species.Blastoise,
-            Species.BlastoiseMega
+            SpeciesID.Blastoise,
+            SpeciesID.BlastoiseMega
         }
     };
     public static readonly PokedexData Caterpie = new()
@@ -114,7 +114,7 @@ public static class Pokedex
         height = 30,
         weight = 2900,
         entry = CaterpieDesc,
-        forms = SingleSpecies(Species.Caterpie),
+        forms = SingleSpecies(SpeciesID.Caterpie),
     };
     public static readonly PokedexData Metapod = new()
     {
@@ -124,7 +124,7 @@ public static class Pokedex
         height = 70,
         weight = 9900,
         entry = MetapodDesc,
-        forms = SingleSpecies(Species.Metapod),
+        forms = SingleSpecies(SpeciesID.Metapod),
     };
     public static readonly PokedexData Butterfree = new()
     {
@@ -134,7 +134,7 @@ public static class Pokedex
         height = 110,
         weight = 32000,
         entry = ButterfreeDesc,
-        forms = SingleSpecies(Species.Butterfree),
+        forms = SingleSpecies(SpeciesID.Butterfree),
     };
     public static readonly PokedexData Weedle = new()
     {
@@ -144,7 +144,7 @@ public static class Pokedex
         height = 30,
         weight = 3200,
         entry = WeedleDesc,
-        forms = SingleSpecies(Species.Weedle),
+        forms = SingleSpecies(SpeciesID.Weedle),
     };
     public static readonly PokedexData Kakuna = new()
     {
@@ -154,7 +154,7 @@ public static class Pokedex
         height = 60,
         weight = 10000,
         entry = KakunaDesc,
-        forms = SingleSpecies(Species.Kakuna),
+        forms = SingleSpecies(SpeciesID.Kakuna),
     };
     public static readonly PokedexData Beedrill = new()
     {
@@ -166,8 +166,8 @@ public static class Pokedex
         entry = BeedrillDesc,
         forms = new[]
         {
-            Species.Beedrill,
-            Species.BeedrillMega
+            SpeciesID.Beedrill,
+            SpeciesID.BeedrillMega
         }
     };
     public static readonly PokedexData Pidgey = new()
@@ -178,7 +178,7 @@ public static class Pokedex
         height = 30,
         weight = 1800,
         entry = PidgeyDesc,
-        forms = SingleSpecies(Species.Pidgey),
+        forms = SingleSpecies(SpeciesID.Pidgey),
     };
     public static readonly PokedexData Pidgeotto = new()
     {
@@ -188,7 +188,7 @@ public static class Pokedex
         height = 110,
         weight = 30000,
         entry = PidgeottoDesc,
-        forms = SingleSpecies(Species.Pidgeotto),
+        forms = SingleSpecies(SpeciesID.Pidgeotto),
     };
     public static readonly PokedexData Pidgeot = new()
     {
@@ -200,8 +200,8 @@ public static class Pokedex
         entry = PidgeotDesc,
         forms = new[]
         {
-            Species.Pidgeot,
-            Species.PidgeotMega
+            SpeciesID.Pidgeot,
+            SpeciesID.PidgeotMega
         }
     };
     public static readonly PokedexData Rattata = new()
@@ -214,8 +214,8 @@ public static class Pokedex
         entry = RattataDesc,
         forms = new[]
         {
-            Species.Rattata,
-            Species.RattataAlola
+            SpeciesID.Rattata,
+            SpeciesID.RattataAlola
         }
     };
     public static readonly PokedexData Raticate = new()
@@ -228,8 +228,8 @@ public static class Pokedex
         entry = RaticateDesc,
         forms = new[]
         {
-            Species.Raticate,
-            Species.RaticateAlola
+            SpeciesID.Raticate,
+            SpeciesID.RaticateAlola
         }
     };
     public static readonly PokedexData Spearow = new()
@@ -240,7 +240,7 @@ public static class Pokedex
         height = 30,
         weight = 2000,
         entry = SpearowDesc,
-        forms = SingleSpecies(Species.Spearow),
+        forms = SingleSpecies(SpeciesID.Spearow),
     };
     public static readonly PokedexData Fearow = new()
     {
@@ -250,7 +250,7 @@ public static class Pokedex
         height = 120,
         weight = 38000,
         entry = FearowDesc,
-        forms = SingleSpecies(Species.Fearow),
+        forms = SingleSpecies(SpeciesID.Fearow),
     };
     public static readonly PokedexData Ekans = new()
     {
@@ -260,7 +260,7 @@ public static class Pokedex
         height = 200,
         weight = 6900,
         entry = EkansDesc,
-        forms = SingleSpecies(Species.Ekans),
+        forms = SingleSpecies(SpeciesID.Ekans),
     };
     public static readonly PokedexData Arbok = new()
     {
@@ -270,7 +270,7 @@ public static class Pokedex
         height = 350,
         weight = 65000,
         entry = ArbokDesc,
-        forms = SingleSpecies(Species.Arbok),
+        forms = SingleSpecies(SpeciesID.Arbok),
     };
     public static readonly PokedexData Pikachu = new()
     {
@@ -282,22 +282,22 @@ public static class Pokedex
         entry = PikachuDesc,
         forms = new[]
         {
-            Species.Pikachu,
-            Species.PikachuCosplay,
-            Species.PikachuRockStar,
-            Species.PikachuBelle,
-            Species.PikachuPopStar,
-            Species.PikachuPhD,
-            Species.PikachuLibre,
-            Species.PikachuOriginal,
-            Species.PikachuHoenn,
-            Species.PikachuSinnoh,
-            Species.PikachuUnova,
-            Species.PikachuKalos,
-            Species.PikachuAlolaCap,
-            Species.PikachuPartnerCap,
-            Species.PikachuWorld,
-            Species.PikachuPartner
+            SpeciesID.Pikachu,
+            SpeciesID.PikachuCosplay,
+            SpeciesID.PikachuRockStar,
+            SpeciesID.PikachuBelle,
+            SpeciesID.PikachuPopStar,
+            SpeciesID.PikachuPhD,
+            SpeciesID.PikachuLibre,
+            SpeciesID.PikachuOriginal,
+            SpeciesID.PikachuHoenn,
+            SpeciesID.PikachuSinnoh,
+            SpeciesID.PikachuUnova,
+            SpeciesID.PikachuKalos,
+            SpeciesID.PikachuAlolaCap,
+            SpeciesID.PikachuPartnerCap,
+            SpeciesID.PikachuWorld,
+            SpeciesID.PikachuPartner
         }
     };
     public static readonly PokedexData Raichu = new()
@@ -310,8 +310,8 @@ public static class Pokedex
         entry = RaichuDesc,
         forms = new[]
         {
-            Species.Raichu,
-            Species.RaichuAlola
+            SpeciesID.Raichu,
+            SpeciesID.RaichuAlola
         }
     };
     public static readonly PokedexData Sandshrew = new()
@@ -324,8 +324,8 @@ public static class Pokedex
         entry = SandshrewDesc,
         forms = new[]
         {
-            Species.Sandshrew,
-            Species.SandshrewAlola
+            SpeciesID.Sandshrew,
+            SpeciesID.SandshrewAlola
         }
     };
     public static readonly PokedexData Sandslash = new()
@@ -338,8 +338,8 @@ public static class Pokedex
         entry = SandslashDesc,
         forms = new[]
         {
-            Species.Sandslash,
-            Species.SandslashAlola
+            SpeciesID.Sandslash,
+            SpeciesID.SandslashAlola
         }
     };
     public static readonly PokedexData NidoranF = new()
@@ -350,7 +350,7 @@ public static class Pokedex
         height = 40,
         weight = 7000,
         entry = NidoranFDesc,
-        forms = SingleSpecies(Species.NidoranF),
+        forms = SingleSpecies(SpeciesID.NidoranF),
 
     };
     public static readonly PokedexData Nidorina = new()
@@ -361,7 +361,7 @@ public static class Pokedex
         height = 80,
         weight = 20000,
         entry = NidorinaDesc,
-        forms = SingleSpecies(Species.Nidorina),
+        forms = SingleSpecies(SpeciesID.Nidorina),
     };
     public static readonly PokedexData Nidoqueen = new()
     {
@@ -371,7 +371,7 @@ public static class Pokedex
         height = 130,
         weight = 60000,
         entry = NidoqueenDesc,
-        forms = SingleSpecies(Species.Nidoqueen),
+        forms = SingleSpecies(SpeciesID.Nidoqueen),
     };
     public static readonly PokedexData NidoranM = new()
     {
@@ -381,7 +381,7 @@ public static class Pokedex
         height = 50,
         weight = 9000,
         entry = NidoranMDesc,
-        forms = SingleSpecies(Species.NidoranM),
+        forms = SingleSpecies(SpeciesID.NidoranM),
     };
     public static readonly PokedexData Nidorino = new()
     {
@@ -391,7 +391,7 @@ public static class Pokedex
         height = 90,
         weight = 19500,
         entry = NidorinoDesc,
-        forms = SingleSpecies(Species.Nidorino),
+        forms = SingleSpecies(SpeciesID.Nidorino),
     };
     public static readonly PokedexData Nidoking = new()
     {
@@ -401,7 +401,7 @@ public static class Pokedex
         height = 140,
         weight = 62000,
         entry = NidokingDesc,
-        forms = SingleSpecies(Species.Nidoking),
+        forms = SingleSpecies(SpeciesID.Nidoking),
     };
     public static readonly PokedexData Clefairy = new()
     {
@@ -411,7 +411,7 @@ public static class Pokedex
         height = 60,
         weight = 7500,
         entry = ClefairyDesc,
-        forms = SingleSpecies(Species.Clefairy),
+        forms = SingleSpecies(SpeciesID.Clefairy),
     };
     public static readonly PokedexData Clefable = new()
     {
@@ -421,7 +421,7 @@ public static class Pokedex
         height = 130,
         weight = 40000,
         entry = ClefableDesc,
-        forms = SingleSpecies(Species.Clefable),
+        forms = SingleSpecies(SpeciesID.Clefable),
     };
     public static readonly PokedexData Vulpix = new()
     {
@@ -433,8 +433,8 @@ public static class Pokedex
         entry = VulpixDesc,
         forms = new[]
         {
-            Species.Vulpix,
-            Species.VulpixAlola
+            SpeciesID.Vulpix,
+            SpeciesID.VulpixAlola
         }
     };
     public static readonly PokedexData Ninetales = new()
@@ -447,8 +447,8 @@ public static class Pokedex
         entry = NinetalesDesc,
         forms = new[]
         {
-            Species.Ninetales,
-            Species.NinetalesAlola
+            SpeciesID.Ninetales,
+            SpeciesID.NinetalesAlola
         }
     };
     public static readonly PokedexData Jigglypuff = new()
@@ -459,7 +459,7 @@ public static class Pokedex
         height = 50,
         weight = 5500,
         entry = JigglypuffDesc,
-        forms = SingleSpecies(Species.Jigglypuff),
+        forms = SingleSpecies(SpeciesID.Jigglypuff),
     };
     public static readonly PokedexData Wigglytuff = new()
     {
@@ -469,7 +469,7 @@ public static class Pokedex
         height = 100,
         weight = 12000,
         entry = WigglytuffDesc,
-        forms = SingleSpecies(Species.Wigglytuff),
+        forms = SingleSpecies(SpeciesID.Wigglytuff),
     };
     public static readonly PokedexData Zubat = new()
     {
@@ -479,7 +479,7 @@ public static class Pokedex
         height = 80,
         weight = 7500,
         entry = ZubatDesc,
-        forms = SingleSpecies(Species.Zubat),
+        forms = SingleSpecies(SpeciesID.Zubat),
     };
     public static readonly PokedexData Golbat = new()
     {
@@ -489,7 +489,7 @@ public static class Pokedex
         height = 160,
         weight = 55000,
         entry = GolbatDesc,
-        forms = SingleSpecies(Species.Golbat),
+        forms = SingleSpecies(SpeciesID.Golbat),
     };
     public static readonly PokedexData Oddish = new()
     {
@@ -499,7 +499,7 @@ public static class Pokedex
         height = 50,
         weight = 5400,
         entry = OddishDesc,
-        forms = SingleSpecies(Species.Oddish),
+        forms = SingleSpecies(SpeciesID.Oddish),
     };
     public static readonly PokedexData Gloom = new()
     {
@@ -509,7 +509,7 @@ public static class Pokedex
         height = 80,
         weight = 8600,
         entry = GloomDesc,
-        forms = SingleSpecies(Species.Gloom),
+        forms = SingleSpecies(SpeciesID.Gloom),
     };
     public static readonly PokedexData Vileplume = new()
     {
@@ -519,7 +519,7 @@ public static class Pokedex
         height = 120,
         weight = 18600,
         entry = VileplumeDesc,
-        forms = SingleSpecies(Species.Vileplume),
+        forms = SingleSpecies(SpeciesID.Vileplume),
     };
     public static readonly PokedexData Paras = new()
     {
@@ -529,7 +529,7 @@ public static class Pokedex
         height = 30,
         weight = 5400,
         entry = ParasDesc,
-        forms = SingleSpecies(Species.Paras),
+        forms = SingleSpecies(SpeciesID.Paras),
     };
     public static readonly PokedexData Parasect = new()
     {
@@ -539,7 +539,7 @@ public static class Pokedex
         height = 100,
         weight = 29500,
         entry = ParasectDesc,
-        forms = SingleSpecies(Species.Parasect),
+        forms = SingleSpecies(SpeciesID.Parasect),
     };
     public static readonly PokedexData Venonat = new()
     {
@@ -549,7 +549,7 @@ public static class Pokedex
         height = 100,
         weight = 30000,
         entry = VenonatDesc,
-        forms = SingleSpecies(Species.Venonat),
+        forms = SingleSpecies(SpeciesID.Venonat),
     };
     public static readonly PokedexData Venomoth = new()
     {
@@ -559,7 +559,7 @@ public static class Pokedex
         height = 150,
         weight = 12500,
         entry = VenomothDesc,
-        forms = SingleSpecies(Species.Venomoth),
+        forms = SingleSpecies(SpeciesID.Venomoth),
     };
     public static readonly PokedexData Diglett = new()
     {
@@ -571,8 +571,8 @@ public static class Pokedex
         entry = DiglettDesc,
         forms = new[]
         {
-            Species.Diglett,
-            Species.DiglettAlola
+            SpeciesID.Diglett,
+            SpeciesID.DiglettAlola
         }
     };
     public static readonly PokedexData Dugtrio = new()
@@ -585,8 +585,8 @@ public static class Pokedex
         entry = DugtrioDesc,
         forms = new[]
         {
-            Species.Dugtrio,
-            Species.DugtrioAlola
+            SpeciesID.Dugtrio,
+            SpeciesID.DugtrioAlola
         }
     };
     public static readonly PokedexData Meowth = new()
@@ -599,8 +599,9 @@ public static class Pokedex
         entry = MeowthDesc,
         forms = new[]
         {
-            Species.Meowth,
-            Species.MeowthAlola
+            SpeciesID.Meowth,
+            SpeciesID.MeowthAlola,
+            SpeciesID.MeowthGalar
         }
     };
     public static readonly PokedexData Persian = new()
@@ -613,8 +614,8 @@ public static class Pokedex
         entry = PersianDesc,
         forms = new[]
         {
-            Species.Persian,
-            Species.PersianAlola
+            SpeciesID.Persian,
+            SpeciesID.PersianAlola
         }
     };
     public static readonly PokedexData Psyduck = new()
@@ -625,7 +626,7 @@ public static class Pokedex
         height = 80,
         weight = 19600,
         entry = PsyduckDesc,
-        forms = SingleSpecies(Species.Psyduck),
+        forms = SingleSpecies(SpeciesID.Psyduck),
     };
     public static readonly PokedexData Golduck = new()
     {
@@ -635,7 +636,7 @@ public static class Pokedex
         height = 170,
         weight = 76600,
         entry = GolduckDesc,
-        forms = SingleSpecies(Species.Golduck),
+        forms = SingleSpecies(SpeciesID.Golduck),
     };
     public static readonly PokedexData Mankey = new()
     {
@@ -645,7 +646,7 @@ public static class Pokedex
         height = 50,
         weight = 28000,
         entry = MankeyDesc,
-        forms = SingleSpecies(Species.Mankey),
+        forms = SingleSpecies(SpeciesID.Mankey),
     };
     public static readonly PokedexData Primeape = new()
     {
@@ -655,7 +656,7 @@ public static class Pokedex
         height = 100,
         weight = 32000,
         entry = PrimeapeDesc,
-        forms = SingleSpecies(Species.Primeape),
+        forms = SingleSpecies(SpeciesID.Primeape),
     };
     public static readonly PokedexData Growlithe = new()
     {
@@ -665,7 +666,11 @@ public static class Pokedex
         height = 70,
         weight = 19000,
         entry = GrowlitheDesc,
-        forms = SingleSpecies(Species.Growlithe),
+        forms = new[]
+        {
+            SpeciesID.Growlithe,
+            SpeciesID.GrowlitheHisui
+        }
     };
     public static readonly PokedexData Arcanine = new()
     {
@@ -675,7 +680,11 @@ public static class Pokedex
         height = 190,
         weight = 155000,
         entry = ArcanineDesc,
-        forms = SingleSpecies(Species.Arcanine),
+        forms = new[]
+        {
+            SpeciesID.Arcanine,
+            SpeciesID.ArcanineHisui
+        }
     };
     public static readonly PokedexData Poliwag = new()
     {
@@ -685,7 +694,7 @@ public static class Pokedex
         height = 60,
         weight = 12400,
         entry = PoliwagDesc,
-        forms = SingleSpecies(Species.Poliwag),
+        forms = SingleSpecies(SpeciesID.Poliwag),
     };
     public static readonly PokedexData Poliwhirl = new()
     {
@@ -695,7 +704,7 @@ public static class Pokedex
         height = 100,
         weight = 20000,
         entry = PoliwhirlDesc,
-        forms = SingleSpecies(Species.Poliwhirl),
+        forms = SingleSpecies(SpeciesID.Poliwhirl),
     };
     public static readonly PokedexData Poliwrath = new()
     {
@@ -705,7 +714,7 @@ public static class Pokedex
         height = 130,
         weight = 54000,
         entry = PoliwrathDesc,
-        forms = SingleSpecies(Species.Poliwrath),
+        forms = SingleSpecies(SpeciesID.Poliwrath),
     };
     public static readonly PokedexData Abra = new()
     {
@@ -715,7 +724,7 @@ public static class Pokedex
         height = 90,
         weight = 19500,
         entry = AbraDesc,
-        forms = SingleSpecies(Species.Abra),
+        forms = SingleSpecies(SpeciesID.Abra),
     };
     public static readonly PokedexData Kadabra = new()
     {
@@ -725,7 +734,7 @@ public static class Pokedex
         height = 130,
         weight = 56500,
         entry = KadabraDesc,
-        forms = SingleSpecies(Species.Kadabra),
+        forms = SingleSpecies(SpeciesID.Kadabra),
     };
     public static readonly PokedexData Alakazam = new()
     {
@@ -737,8 +746,8 @@ public static class Pokedex
         entry = AlakazamDesc,
         forms = new[]
         {
-            Species.Alakazam,
-            Species.AlakazamMega
+            SpeciesID.Alakazam,
+            SpeciesID.AlakazamMega
         }
     };
     public static readonly PokedexData Machop = new()
@@ -749,7 +758,7 @@ public static class Pokedex
         height = 80,
         weight = 19500,
         entry = MachopDesc,
-        forms = SingleSpecies(Species.Machop),
+        forms = SingleSpecies(SpeciesID.Machop),
     };
     public static readonly PokedexData Machoke = new()
     {
@@ -759,7 +768,7 @@ public static class Pokedex
         height = 150,
         weight = 70500,
         entry = MachokeDesc,
-        forms = SingleSpecies(Species.Machoke),
+        forms = SingleSpecies(SpeciesID.Machoke),
     };
     public static readonly PokedexData Machamp = new()
     {
@@ -769,7 +778,7 @@ public static class Pokedex
         height = 160,
         weight = 130000,
         entry = MachampDesc,
-        forms = SingleSpecies(Species.Machamp),
+        forms = SingleSpecies(SpeciesID.Machamp),
     };
     public static readonly PokedexData Bellsprout = new()
     {
@@ -779,7 +788,7 @@ public static class Pokedex
         height = 70,
         weight = 4000,
         entry = BellsproutDesc,
-        forms = SingleSpecies(Species.Bellsprout),
+        forms = SingleSpecies(SpeciesID.Bellsprout),
     };
     public static readonly PokedexData Weepinbell = new()
     {
@@ -789,7 +798,7 @@ public static class Pokedex
         height = 100,
         weight = 6400,
         entry = WeepinbellDesc,
-        forms = SingleSpecies(Species.Weepinbell),
+        forms = SingleSpecies(SpeciesID.Weepinbell),
     };
     public static readonly PokedexData Victreebel = new()
     {
@@ -799,7 +808,7 @@ public static class Pokedex
         height = 170,
         weight = 15500,
         entry = VictreebelDesc,
-        forms = SingleSpecies(Species.Victreebel),
+        forms = SingleSpecies(SpeciesID.Victreebel),
     };
     public static readonly PokedexData Tentacool = new()
     {
@@ -809,7 +818,7 @@ public static class Pokedex
         height = 90,
         weight = 45500,
         entry = TentacoolDesc,
-        forms = SingleSpecies(Species.Tentacool),
+        forms = SingleSpecies(SpeciesID.Tentacool),
     };
     public static readonly PokedexData Tentacruel = new()
     {
@@ -819,7 +828,7 @@ public static class Pokedex
         height = 160,
         weight = 55000,
         entry = TentacruelDesc,
-        forms = SingleSpecies(Species.Tentacruel),
+        forms = SingleSpecies(SpeciesID.Tentacruel),
     };
     public static readonly PokedexData Geodude = new()
     {
@@ -831,8 +840,8 @@ public static class Pokedex
         entry = GeodudeDesc,
         forms = new[]
         {
-            Species.Geodude,
-            Species.GeodudeAlola
+            SpeciesID.Geodude,
+            SpeciesID.GeodudeAlola
         }
     };
     public static readonly PokedexData Graveler = new()
@@ -845,8 +854,8 @@ public static class Pokedex
         entry = GravelerDesc,
         forms = new[]
         {
-            Species.Graveler,
-            Species.GravelerAlola
+            SpeciesID.Graveler,
+            SpeciesID.GravelerAlola
         }
     };
     public static readonly PokedexData Golem = new()
@@ -859,8 +868,8 @@ public static class Pokedex
         entry = GolemDesc,
         forms = new[]
         {
-            Species.Golem,
-            Species.GolemAlola
+            SpeciesID.Golem,
+            SpeciesID.GolemAlola
         }
     };
     public static readonly PokedexData Ponyta = new()
@@ -871,7 +880,11 @@ public static class Pokedex
         height = 100,
         weight = 30000,
         entry = PonytaDesc,
-        forms = SingleSpecies(Species.Ponyta),
+        forms = new[]
+        {
+            SpeciesID.Ponyta,
+            SpeciesID.PonytaGalar
+        }
     };
     public static readonly PokedexData Rapidash = new()
     {
@@ -881,7 +894,11 @@ public static class Pokedex
         height = 170,
         weight = 95000,
         entry = RapidashDesc,
-        forms = SingleSpecies(Species.Rapidash),
+        forms = new[]
+        {
+            SpeciesID.Rapidash,
+            SpeciesID.RapidashGalar
+        }
     };
     public static readonly PokedexData Slowpoke = new()
     {
@@ -891,7 +908,11 @@ public static class Pokedex
         height = 120,
         weight = 36000,
         entry = SlowpokeDesc,
-        forms = SingleSpecies(Species.Slowpoke),
+        forms = new[]
+        {
+            SpeciesID.Slowpoke,
+            SpeciesID.SlowpokeGalar
+        }
     };
     public static readonly PokedexData Slowbro = new()
     {
@@ -903,8 +924,9 @@ public static class Pokedex
         entry = SlowbroDesc,
         forms = new[]
         {
-            Species.Slowbro,
-            Species.SlowbroMega
+            SpeciesID.Slowbro,
+            SpeciesID.SlowbroMega,
+            SpeciesID.SlowbroGalar
         }
     };
     public static readonly PokedexData Magnemite = new()
@@ -915,7 +937,7 @@ public static class Pokedex
         height = 30,
         weight = 6000,
         entry = MagnemiteDesc,
-        forms = SingleSpecies(Species.Magnemite),
+        forms = SingleSpecies(SpeciesID.Magnemite),
     };
     public static readonly PokedexData Magneton = new()
     {
@@ -925,7 +947,7 @@ public static class Pokedex
         height = 100,
         weight = 60000,
         entry = MagnetonDesc,
-        forms = SingleSpecies(Species.Magneton),
+        forms = SingleSpecies(SpeciesID.Magneton),
     };
     public static readonly PokedexData Farfetchd = new()
     {
@@ -935,7 +957,11 @@ public static class Pokedex
         height = 80,
         weight = 15000,
         entry = FarfetchdDesc,
-        forms = SingleSpecies(Species.Farfetchd),
+        forms = new[]
+        {
+            SpeciesID.Farfetchd,
+            SpeciesID.FarfetchdGalar
+        }
     };
     public static readonly PokedexData Doduo = new()
     {
@@ -945,7 +971,7 @@ public static class Pokedex
         height = 140,
         weight = 39200,
         entry = DoduoDesc,
-        forms = SingleSpecies(Species.Doduo),
+        forms = SingleSpecies(SpeciesID.Doduo),
     };
     public static readonly PokedexData Dodrio = new()
     {
@@ -955,7 +981,7 @@ public static class Pokedex
         height = 180,
         weight = 85200,
         entry = DodrioDesc,
-        forms = SingleSpecies(Species.Dodrio),
+        forms = SingleSpecies(SpeciesID.Dodrio),
     };
     public static readonly PokedexData Seel = new()
     {
@@ -965,7 +991,7 @@ public static class Pokedex
         height = 110,
         weight = 90000,
         entry = SeelDesc,
-        forms = SingleSpecies(Species.Seel),
+        forms = SingleSpecies(SpeciesID.Seel),
     };
     public static readonly PokedexData Dewgong = new()
     {
@@ -975,7 +1001,7 @@ public static class Pokedex
         height = 170,
         weight = 120000,
         entry = DewgongDesc,
-        forms = SingleSpecies(Species.Dewgong),
+        forms = SingleSpecies(SpeciesID.Dewgong),
     };
     public static readonly PokedexData Grimer = new()
     {
@@ -987,8 +1013,8 @@ public static class Pokedex
         entry = GrimerDesc,
         forms = new[]
         {
-            Species.Grimer,
-            Species.GrimerAlola
+            SpeciesID.Grimer,
+            SpeciesID.GrimerAlola
         }
     };
     public static readonly PokedexData Muk = new()
@@ -1001,8 +1027,8 @@ public static class Pokedex
         entry = MukDesc,
         forms = new[]
         {
-            Species.Muk,
-            Species.MukAlola
+            SpeciesID.Muk,
+            SpeciesID.MukAlola
         }
     };
     public static readonly PokedexData Shellder = new()
@@ -1013,7 +1039,7 @@ public static class Pokedex
         height = 30,
         weight = 4000,
         entry = ShellderDesc,
-        forms = SingleSpecies(Species.Shellder),
+        forms = SingleSpecies(SpeciesID.Shellder),
     };
     public static readonly PokedexData Cloyster = new()
     {
@@ -1023,7 +1049,7 @@ public static class Pokedex
         height = 150,
         weight = 132500,
         entry = CloysterDesc,
-        forms = SingleSpecies(Species.Cloyster),
+        forms = SingleSpecies(SpeciesID.Cloyster),
     };
     public static readonly PokedexData Gastly = new()
     {
@@ -1033,7 +1059,7 @@ public static class Pokedex
         height = 130,
         weight = 100,
         entry = GastlyDesc,
-        forms = SingleSpecies(Species.Gastly),
+        forms = SingleSpecies(SpeciesID.Gastly),
     };
     public static readonly PokedexData Haunter = new()
     {
@@ -1043,7 +1069,7 @@ public static class Pokedex
         height = 160,
         weight = 100,
         entry = HaunterDesc,
-        forms = SingleSpecies(Species.Haunter),
+        forms = SingleSpecies(SpeciesID.Haunter),
     };
     public static readonly PokedexData Gengar = new()
     {
@@ -1055,8 +1081,8 @@ public static class Pokedex
         entry = GengarDesc,
         forms = new[]
         {
-            Species.Gengar,
-            Species.GengarMega
+            SpeciesID.Gengar,
+            SpeciesID.GengarMega
         }
     };
     public static readonly PokedexData Onix = new()
@@ -1067,7 +1093,7 @@ public static class Pokedex
         height = 880,
         weight = 210000,
         entry = OnixDesc,
-        forms = SingleSpecies(Species.Onix),
+        forms = SingleSpecies(SpeciesID.Onix),
     };
     public static readonly PokedexData Drowzee = new()
     {
@@ -1077,7 +1103,7 @@ public static class Pokedex
         height = 100,
         weight = 32400,
         entry = DrowzeeDesc,
-        forms = SingleSpecies(Species.Drowzee),
+        forms = SingleSpecies(SpeciesID.Drowzee),
     };
     public static readonly PokedexData Hypno = new()
     {
@@ -1087,7 +1113,7 @@ public static class Pokedex
         height = 160,
         weight = 75600,
         entry = HypnoDesc,
-        forms = SingleSpecies(Species.Hypno),
+        forms = SingleSpecies(SpeciesID.Hypno),
     };
     public static readonly PokedexData Krabby = new()
     {
@@ -1097,7 +1123,7 @@ public static class Pokedex
         height = 40,
         weight = 6500,
         entry = KrabbyDesc,
-        forms = SingleSpecies(Species.Krabby),
+        forms = SingleSpecies(SpeciesID.Krabby),
     };
     public static readonly PokedexData Kingler = new()
     {
@@ -1107,7 +1133,7 @@ public static class Pokedex
         height = 130,
         weight = 60000,
         entry = KinglerDesc,
-        forms = SingleSpecies(Species.Kingler),
+        forms = SingleSpecies(SpeciesID.Kingler),
     };
     public static readonly PokedexData Voltorb = new()
     {
@@ -1117,7 +1143,11 @@ public static class Pokedex
         height = 50,
         weight = 10400,
         entry = VoltorbDesc,
-        forms = SingleSpecies(Species.Voltorb),
+        forms = new[]
+        {
+            SpeciesID.Voltorb,
+            SpeciesID.VoltorbHisui
+        }
     };
     public static readonly PokedexData Electrode = new()
     {
@@ -1127,7 +1157,7 @@ public static class Pokedex
         height = 120,
         weight = 66600,
         entry = ElectrodeDesc,
-        forms = SingleSpecies(Species.Electrode),
+        forms = SingleSpecies(SpeciesID.Electrode),
     };
     public static readonly PokedexData Exeggcute = new()
     {
@@ -1137,7 +1167,7 @@ public static class Pokedex
         height = 40,
         weight = 2500,
         entry = ExeggcuteDesc,
-        forms = SingleSpecies(Species.Exeggcute),
+        forms = SingleSpecies(SpeciesID.Exeggcute),
     };
     public static readonly PokedexData Exeggutor = new()
     {
@@ -1149,8 +1179,8 @@ public static class Pokedex
         entry = ExeggutorDesc,
         forms = new[]
         {
-            Species.Exeggutor,
-            Species.ExeggutorAlola
+            SpeciesID.Exeggutor,
+            SpeciesID.ExeggutorAlola
         }
     };
     public static readonly PokedexData Cubone = new()
@@ -1161,7 +1191,7 @@ public static class Pokedex
         height = 40,
         weight = 6500,
         entry = CuboneDesc,
-        forms = SingleSpecies(Species.Cubone),
+        forms = SingleSpecies(SpeciesID.Cubone),
     };
     public static readonly PokedexData Marowak = new()
     {
@@ -1173,8 +1203,8 @@ public static class Pokedex
         entry = MarowakDesc,
         forms = new[]
         {
-            Species.Marowak,
-            Species.MarowakAlola
+            SpeciesID.Marowak,
+            SpeciesID.MarowakAlola
         }
     };
     public static readonly PokedexData Hitmonlee = new()
@@ -1185,7 +1215,7 @@ public static class Pokedex
         height = 150,
         weight = 49800,
         entry = HitmonleeDesc,
-        forms = SingleSpecies(Species.Hitmonlee),
+        forms = SingleSpecies(SpeciesID.Hitmonlee),
     };
     public static readonly PokedexData Hitmonchan = new()
     {
@@ -1195,7 +1225,7 @@ public static class Pokedex
         height = 140,
         weight = 50200,
         entry = HitmonchanDesc,
-        forms = SingleSpecies(Species.Hitmonchan),
+        forms = SingleSpecies(SpeciesID.Hitmonchan),
     };
     public static readonly PokedexData Lickitung = new()
     {
@@ -1205,7 +1235,7 @@ public static class Pokedex
         height = 120,
         weight = 65500,
         entry = LickitungDesc,
-        forms = SingleSpecies(Species.Lickitung),
+        forms = SingleSpecies(SpeciesID.Lickitung),
     };
     public static readonly PokedexData Koffing = new()
     {
@@ -1215,7 +1245,7 @@ public static class Pokedex
         height = 60,
         weight = 1000,
         entry = KoffingDesc,
-        forms = SingleSpecies(Species.Koffing),
+        forms = SingleSpecies(SpeciesID.Koffing),
     };
     public static readonly PokedexData Weezing = new()
     {
@@ -1225,7 +1255,11 @@ public static class Pokedex
         height = 120,
         weight = 9500,
         entry = WeezingDesc,
-        forms = SingleSpecies(Species.Weezing),
+        forms = new[]
+        {
+            SpeciesID.Weezing,
+            SpeciesID.WeezingGalar,
+        }
     };
     public static readonly PokedexData Rhyhorn = new()
     {
@@ -1235,7 +1269,7 @@ public static class Pokedex
         height = 100,
         weight = 115000,
         entry = RhyhornDesc,
-        forms = SingleSpecies(Species.Rhyhorn),
+        forms = SingleSpecies(SpeciesID.Rhyhorn),
     };
     public static readonly PokedexData Rhydon = new()
     {
@@ -1245,7 +1279,7 @@ public static class Pokedex
         height = 190,
         weight = 120000,
         entry = RhydonDesc,
-        forms = SingleSpecies(Species.Rhydon),
+        forms = SingleSpecies(SpeciesID.Rhydon),
     };
     public static readonly PokedexData Chansey = new()
     {
@@ -1255,7 +1289,7 @@ public static class Pokedex
         height = 110,
         weight = 34600,
         entry = ChanseyDesc,
-        forms = SingleSpecies(Species.Chansey),
+        forms = SingleSpecies(SpeciesID.Chansey),
     };
     public static readonly PokedexData Tangela = new()
     {
@@ -1265,7 +1299,7 @@ public static class Pokedex
         height = 100,
         weight = 35000,
         entry = TangelaDesc,
-        forms = SingleSpecies(Species.Tangela),
+        forms = SingleSpecies(SpeciesID.Tangela),
     };
     public static readonly PokedexData Kangaskhan = new()
     {
@@ -1277,8 +1311,8 @@ public static class Pokedex
         entry = KangaskhanDesc,
         forms = new[]
         {
-            Species.Kangaskhan,
-            Species.KangaskhanMega
+            SpeciesID.Kangaskhan,
+            SpeciesID.KangaskhanMega
         }
     };
     public static readonly PokedexData Horsea = new()
@@ -1289,7 +1323,7 @@ public static class Pokedex
         height = 40,
         weight = 8000,
         entry = HorseaDesc,
-        forms = SingleSpecies(Species.Horsea),
+        forms = SingleSpecies(SpeciesID.Horsea),
     };
     public static readonly PokedexData Seadra = new()
     {
@@ -1299,7 +1333,7 @@ public static class Pokedex
         height = 120,
         weight = 25000,
         entry = SeadraDesc,
-        forms = SingleSpecies(Species.Seadra),
+        forms = SingleSpecies(SpeciesID.Seadra),
     };
     public static readonly PokedexData Goldeen = new()
     {
@@ -1309,7 +1343,7 @@ public static class Pokedex
         height = 60,
         weight = 15000,
         entry = GoldeenDesc,
-        forms = SingleSpecies(Species.Goldeen),
+        forms = SingleSpecies(SpeciesID.Goldeen),
     };
     public static readonly PokedexData Seaking = new()
     {
@@ -1319,7 +1353,7 @@ public static class Pokedex
         height = 130,
         weight = 39000,
         entry = SeakingDesc,
-        forms = SingleSpecies(Species.Seaking),
+        forms = SingleSpecies(SpeciesID.Seaking),
     };
     public static readonly PokedexData Staryu = new()
     {
@@ -1329,7 +1363,7 @@ public static class Pokedex
         height = 80,
         weight = 34500,
         entry = StaryuDesc,
-        forms = SingleSpecies(Species.Staryu),
+        forms = SingleSpecies(SpeciesID.Staryu),
     };
     public static readonly PokedexData Starmie = new()
     {
@@ -1339,7 +1373,7 @@ public static class Pokedex
         height = 110,
         weight = 80000,
         entry = StarmieDesc,
-        forms = SingleSpecies(Species.Starmie),
+        forms = SingleSpecies(SpeciesID.Starmie),
     };
     public static readonly PokedexData MrMime = new()
     {
@@ -1349,7 +1383,11 @@ public static class Pokedex
         height = 130,
         weight = 54500,
         entry = MrMimeDesc,
-        forms = SingleSpecies(Species.MrMime),
+        forms = new[]
+        {
+            SpeciesID.MrMime,
+            SpeciesID.MrMimeGalar,
+        }
     };
     public static readonly PokedexData Scyther = new()
     {
@@ -1359,7 +1397,7 @@ public static class Pokedex
         height = 150,
         weight = 56000,
         entry = ScytherDesc,
-        forms = SingleSpecies(Species.Scyther),
+        forms = SingleSpecies(SpeciesID.Scyther),
     };
     public static readonly PokedexData Jynx = new()
     {
@@ -1369,7 +1407,7 @@ public static class Pokedex
         height = 140,
         weight = 40600,
         entry = JynxDesc,
-        forms = SingleSpecies(Species.Jynx),
+        forms = SingleSpecies(SpeciesID.Jynx),
     };
     public static readonly PokedexData Electabuzz = new()
     {
@@ -1379,7 +1417,7 @@ public static class Pokedex
         height = 110,
         weight = 30000,
         entry = ElectabuzzDesc,
-        forms = SingleSpecies(Species.Electabuzz),
+        forms = SingleSpecies(SpeciesID.Electabuzz),
     };
     public static readonly PokedexData Magmar = new()
     {
@@ -1389,7 +1427,7 @@ public static class Pokedex
         height = 130,
         weight = 44500,
         entry = MagmarDesc,
-        forms = SingleSpecies(Species.Magmar),
+        forms = SingleSpecies(SpeciesID.Magmar),
     };
     public static readonly PokedexData Pinsir = new()
     {
@@ -1401,8 +1439,8 @@ public static class Pokedex
         entry = PinsirDesc,
         forms = new[]
         {
-            Species.Pinsir,
-            Species.PinsirMega
+            SpeciesID.Pinsir,
+            SpeciesID.PinsirMega
         }
     };
     public static readonly PokedexData Tauros = new()
@@ -1413,7 +1451,7 @@ public static class Pokedex
         height = 140,
         weight = 88400,
         entry = TaurosDesc,
-        forms = SingleSpecies(Species.Tauros),
+        forms = SingleSpecies(SpeciesID.Tauros),
     };
     public static readonly PokedexData Magikarp = new()
     {
@@ -1423,7 +1461,7 @@ public static class Pokedex
         height = 90,
         weight = 10000,
         entry = MagikarpDesc,
-        forms = SingleSpecies(Species.Magikarp),
+        forms = SingleSpecies(SpeciesID.Magikarp),
     };
     public static readonly PokedexData Gyarados = new()
     {
@@ -1435,8 +1473,8 @@ public static class Pokedex
         entry = GyaradosDesc,
         forms = new[]
         {
-            Species.Gyarados,
-            Species.GyaradosMega
+            SpeciesID.Gyarados,
+            SpeciesID.GyaradosMega
         }
     };
     public static readonly PokedexData Lapras = new()
@@ -1447,7 +1485,7 @@ public static class Pokedex
         height = 250,
         weight = 220000,
         entry = LaprasDesc,
-        forms = SingleSpecies(Species.Lapras),
+        forms = SingleSpecies(SpeciesID.Lapras),
     };
     public static readonly PokedexData Ditto = new()
     {
@@ -1457,7 +1495,7 @@ public static class Pokedex
         height = 30,
         weight = 4000,
         entry = DittoDesc,
-        forms = SingleSpecies(Species.Ditto),
+        forms = SingleSpecies(SpeciesID.Ditto),
     };
     public static readonly PokedexData Eevee = new()
     {
@@ -1469,8 +1507,8 @@ public static class Pokedex
         entry = EeveeDesc,
         forms = new[]
         {
-            Species.Eevee,
-            Species.EeveePartner
+            SpeciesID.Eevee,
+            SpeciesID.EeveePartner
         }
     };
     public static readonly PokedexData Vaporeon = new()
@@ -1481,7 +1519,7 @@ public static class Pokedex
         height = 100,
         weight = 29000,
         entry = VaporeonDesc,
-        forms = SingleSpecies(Species.Vaporeon),
+        forms = SingleSpecies(SpeciesID.Vaporeon),
     };
     public static readonly PokedexData Jolteon = new()
     {
@@ -1491,7 +1529,7 @@ public static class Pokedex
         height = 80,
         weight = 24500,
         entry = JolteonDesc,
-        forms = SingleSpecies(Species.Jolteon),
+        forms = SingleSpecies(SpeciesID.Jolteon),
     };
     public static readonly PokedexData Flareon = new()
     {
@@ -1501,7 +1539,7 @@ public static class Pokedex
         height = 90,
         weight = 25000,
         entry = FlareonDesc,
-        forms = SingleSpecies(Species.Flareon),
+        forms = SingleSpecies(SpeciesID.Flareon),
     };
     public static readonly PokedexData Porygon = new()
     {
@@ -1511,7 +1549,7 @@ public static class Pokedex
         height = 80,
         weight = 36500,
         entry = PorygonDesc,
-        forms = SingleSpecies(Species.Porygon),
+        forms = SingleSpecies(SpeciesID.Porygon),
     };
     public static readonly PokedexData Omanyte = new()
     {
@@ -1521,7 +1559,7 @@ public static class Pokedex
         height = 40,
         weight = 7500,
         entry = OmanyteDesc,
-        forms = SingleSpecies(Species.Omanyte),
+        forms = SingleSpecies(SpeciesID.Omanyte),
     };
     public static readonly PokedexData Omastar = new()
     {
@@ -1531,7 +1569,7 @@ public static class Pokedex
         height = 100,
         weight = 35000,
         entry = OmastarDesc,
-        forms = SingleSpecies(Species.Omastar),
+        forms = SingleSpecies(SpeciesID.Omastar),
     };
     public static readonly PokedexData Kabuto = new()
     {
@@ -1541,7 +1579,7 @@ public static class Pokedex
         height = 50,
         weight = 11500,
         entry = KabutoDesc,
-        forms = SingleSpecies(Species.Kabuto),
+        forms = SingleSpecies(SpeciesID.Kabuto),
     };
     public static readonly PokedexData Kabutops = new()
     {
@@ -1551,7 +1589,7 @@ public static class Pokedex
         height = 130,
         weight = 40500,
         entry = KabutopsDesc,
-        forms = SingleSpecies(Species.Kabutops),
+        forms = SingleSpecies(SpeciesID.Kabutops),
     };
     public static readonly PokedexData Aerodactyl = new()
     {
@@ -1563,8 +1601,8 @@ public static class Pokedex
         entry = AerodactylDesc,
         forms = new[]
         {
-            Species.Aerodactyl,
-            Species.AerodactylMega
+            SpeciesID.Aerodactyl,
+            SpeciesID.AerodactylMega
         }
     };
     public static readonly PokedexData Snorlax = new()
@@ -1575,7 +1613,7 @@ public static class Pokedex
         height = 210,
         weight = 460000,
         entry = SnorlaxDesc,
-        forms = SingleSpecies(Species.Snorlax),
+        forms = SingleSpecies(SpeciesID.Snorlax),
     };
     public static readonly PokedexData Articuno = new()
     {
@@ -1585,7 +1623,11 @@ public static class Pokedex
         height = 170,
         weight = 55400,
         entry = ArticunoDesc,
-        forms = SingleSpecies(Species.Articuno),
+        forms = new[]
+        {
+            SpeciesID.Articuno,
+            SpeciesID.ArticunoGalar
+        }
     };
     public static readonly PokedexData Zapdos = new()
     {
@@ -1595,7 +1637,11 @@ public static class Pokedex
         height = 160,
         weight = 52600,
         entry = ZapdosDesc,
-        forms = SingleSpecies(Species.Zapdos),
+        forms = new[]
+        {
+            SpeciesID.Zapdos,
+            SpeciesID.ZapdosGalar
+        }
     };
     public static readonly PokedexData Moltres = new()
     {
@@ -1605,7 +1651,11 @@ public static class Pokedex
         height = 200,
         weight = 60000,
         entry = MoltresDesc,
-        forms = SingleSpecies(Species.Moltres),
+        forms = new[]
+        {
+            SpeciesID.Moltres,
+            SpeciesID.MoltresGalar
+        }
     };
     public static readonly PokedexData Dratini = new()
     {
@@ -1615,7 +1665,7 @@ public static class Pokedex
         height = 180,
         weight = 3300,
         entry = DratiniDesc,
-        forms = SingleSpecies(Species.Dratini),
+        forms = SingleSpecies(SpeciesID.Dratini),
     };
     public static readonly PokedexData Dragonair = new()
     {
@@ -1625,7 +1675,7 @@ public static class Pokedex
         height = 400,
         weight = 16500,
         entry = DragonairDesc,
-        forms = SingleSpecies(Species.Dragonair),
+        forms = SingleSpecies(SpeciesID.Dragonair),
     };
     public static readonly PokedexData Dragonite = new()
     {
@@ -1635,7 +1685,7 @@ public static class Pokedex
         height = 220,
         weight = 210000,
         entry = DragoniteDesc,
-        forms = SingleSpecies(Species.Dragonite),
+        forms = SingleSpecies(SpeciesID.Dragonite),
     };
     public static readonly PokedexData Mewtwo = new()
     {
@@ -1647,9 +1697,9 @@ public static class Pokedex
         entry = MewtwoDesc,
         forms = new[]
         {
-            Species.Mewtwo,
-            Species.MewtwoMegaX,
-            Species.MewtwoMegaY
+            SpeciesID.Mewtwo,
+            SpeciesID.MewtwoMegaX,
+            SpeciesID.MewtwoMegaY
         }
     };
     public static readonly PokedexData Mew = new()
@@ -1660,7 +1710,7 @@ public static class Pokedex
         height = 40,
         weight = 4000,
         entry = MewDesc,
-        forms = SingleSpecies(Species.Mew),
+        forms = SingleSpecies(SpeciesID.Mew),
     };
     public static readonly PokedexData Chikorita = new()
     {
@@ -1670,7 +1720,7 @@ public static class Pokedex
         height = 90,
         weight = 6400,
         entry = ChikoritaDesc,
-        forms = SingleSpecies(Species.Chikorita),
+        forms = SingleSpecies(SpeciesID.Chikorita),
     };
     public static readonly PokedexData Bayleef = new()
     {
@@ -1680,7 +1730,7 @@ public static class Pokedex
         height = 120,
         weight = 15800,
         entry = BayleefDesc,
-        forms = SingleSpecies(Species.Bayleef),
+        forms = SingleSpecies(SpeciesID.Bayleef),
     };
     public static readonly PokedexData Meganium = new()
     {
@@ -1690,7 +1740,7 @@ public static class Pokedex
         height = 180,
         weight = 100500,
         entry = MeganiumDesc,
-        forms = SingleSpecies(Species.Meganium),
+        forms = SingleSpecies(SpeciesID.Meganium),
     };
     public static readonly PokedexData Cyndaquil = new()
     {
@@ -1700,7 +1750,7 @@ public static class Pokedex
         height = 50,
         weight = 7900,
         entry = CyndaquilDesc,
-        forms = SingleSpecies(Species.Cyndaquil),
+        forms = SingleSpecies(SpeciesID.Cyndaquil),
     };
     public static readonly PokedexData Quilava = new()
     {
@@ -1710,7 +1760,7 @@ public static class Pokedex
         height = 90,
         weight = 19000,
         entry = QuilavaDesc,
-        forms = SingleSpecies(Species.Quilava),
+        forms = SingleSpecies(SpeciesID.Quilava),
     };
     public static readonly PokedexData Typhlosion = new()
     {
@@ -1720,7 +1770,11 @@ public static class Pokedex
         height = 170,
         weight = 79500,
         entry = TyphlosionDesc,
-        forms = SingleSpecies(Species.Typhlosion),
+        forms = new[]
+        {
+            SpeciesID.Typhlosion,
+            SpeciesID.TyphlosionHisui
+        }
     };
     public static readonly PokedexData Totodile = new()
     {
@@ -1730,7 +1784,7 @@ public static class Pokedex
         height = 60,
         weight = 9500,
         entry = TotodileDesc,
-        forms = SingleSpecies(Species.Totodile),
+        forms = SingleSpecies(SpeciesID.Totodile),
     };
     public static readonly PokedexData Croconaw = new()
     {
@@ -1740,7 +1794,7 @@ public static class Pokedex
         height = 110,
         weight = 25000,
         entry = CroconawDesc,
-        forms = SingleSpecies(Species.Croconaw),
+        forms = SingleSpecies(SpeciesID.Croconaw),
     };
     public static readonly PokedexData Feraligatr = new()
     {
@@ -1750,7 +1804,7 @@ public static class Pokedex
         height = 230,
         weight = 88800,
         entry = FeraligatrDesc,
-        forms = SingleSpecies(Species.Feraligatr),
+        forms = SingleSpecies(SpeciesID.Feraligatr),
     };
     public static readonly PokedexData Sentret = new()
     {
@@ -1760,7 +1814,7 @@ public static class Pokedex
         height = 80,
         weight = 6000,
         entry = SentretDesc,
-        forms = SingleSpecies(Species.Sentret),
+        forms = SingleSpecies(SpeciesID.Sentret),
     };
     public static readonly PokedexData Furret = new()
     {
@@ -1770,7 +1824,7 @@ public static class Pokedex
         height = 180,
         weight = 32500,
         entry = FurretDesc,
-        forms = SingleSpecies(Species.Furret),
+        forms = SingleSpecies(SpeciesID.Furret),
     };
     public static readonly PokedexData Hoothoot = new()
     {
@@ -1780,7 +1834,7 @@ public static class Pokedex
         height = 70,
         weight = 21200,
         entry = HoothootDesc,
-        forms = SingleSpecies(Species.Hoothoot),
+        forms = SingleSpecies(SpeciesID.Hoothoot),
     };
     public static readonly PokedexData Noctowl = new()
     {
@@ -1790,7 +1844,7 @@ public static class Pokedex
         height = 160,
         weight = 40800,
         entry = NoctowlDesc,
-        forms = SingleSpecies(Species.Noctowl),
+        forms = SingleSpecies(SpeciesID.Noctowl),
     };
     public static readonly PokedexData Ledyba = new()
     {
@@ -1800,7 +1854,7 @@ public static class Pokedex
         height = 100,
         weight = 10800,
         entry = LedybaDesc,
-        forms = SingleSpecies(Species.Ledyba),
+        forms = SingleSpecies(SpeciesID.Ledyba),
     };
     public static readonly PokedexData Ledian = new()
     {
@@ -1810,7 +1864,7 @@ public static class Pokedex
         height = 140,
         weight = 35600,
         entry = LedianDesc,
-        forms = SingleSpecies(Species.Ledian),
+        forms = SingleSpecies(SpeciesID.Ledian),
     };
     public static readonly PokedexData Spinarak = new()
     {
@@ -1820,7 +1874,7 @@ public static class Pokedex
         height = 50,
         weight = 8500,
         entry = SpinarakDesc,
-        forms = SingleSpecies(Species.Spinarak),
+        forms = SingleSpecies(SpeciesID.Spinarak),
     };
     public static readonly PokedexData Ariados = new()
     {
@@ -1830,7 +1884,7 @@ public static class Pokedex
         height = 110,
         weight = 33500,
         entry = AriadosDesc,
-        forms = SingleSpecies(Species.Ariados),
+        forms = SingleSpecies(SpeciesID.Ariados),
     };
     public static readonly PokedexData Crobat = new()
     {
@@ -1840,7 +1894,7 @@ public static class Pokedex
         height = 180,
         weight = 75000,
         entry = CrobatDesc,
-        forms = SingleSpecies(Species.Crobat),
+        forms = SingleSpecies(SpeciesID.Crobat),
     };
     public static readonly PokedexData Chinchou = new()
     {
@@ -1850,7 +1904,7 @@ public static class Pokedex
         height = 50,
         weight = 12000,
         entry = ChinchouDesc,
-        forms = SingleSpecies(Species.Chinchou),
+        forms = SingleSpecies(SpeciesID.Chinchou),
     };
     public static readonly PokedexData Lanturn = new()
     {
@@ -1860,7 +1914,7 @@ public static class Pokedex
         height = 120,
         weight = 22500,
         entry = LanturnDesc,
-        forms = SingleSpecies(Species.Lanturn),
+        forms = SingleSpecies(SpeciesID.Lanturn),
     };
     public static readonly PokedexData Pichu = new()
     {
@@ -1872,8 +1926,8 @@ public static class Pokedex
         entry = PichuDesc,
         forms = new[]
         {
-            Species.Pichu,
-            Species.PichuSpikyEared
+            SpeciesID.Pichu,
+            SpeciesID.PichuSpikyEared
         }
     };
     public static readonly PokedexData Cleffa = new()
@@ -1884,7 +1938,7 @@ public static class Pokedex
         height = 30,
         weight = 3000,
         entry = CleffaDesc,
-        forms = SingleSpecies(Species.Cleffa),
+        forms = SingleSpecies(SpeciesID.Cleffa),
     };
     public static readonly PokedexData Igglybuff = new()
     {
@@ -1894,7 +1948,7 @@ public static class Pokedex
         height = 30,
         weight = 1000,
         entry = IgglybuffDesc,
-        forms = SingleSpecies(Species.Igglybuff),
+        forms = SingleSpecies(SpeciesID.Igglybuff),
     };
     public static readonly PokedexData Togepi = new()
     {
@@ -1904,7 +1958,7 @@ public static class Pokedex
         height = 30,
         weight = 1500,
         entry = TogepiDesc,
-        forms = SingleSpecies(Species.Togepi),
+        forms = SingleSpecies(SpeciesID.Togepi),
     };
     public static readonly PokedexData Togetic = new()
     {
@@ -1914,7 +1968,7 @@ public static class Pokedex
         height = 60,
         weight = 3200,
         entry = TogeticDesc,
-        forms = SingleSpecies(Species.Togetic),
+        forms = SingleSpecies(SpeciesID.Togetic),
     };
     public static readonly PokedexData Natu = new()
     {
@@ -1924,7 +1978,7 @@ public static class Pokedex
         height = 20,
         weight = 2000,
         entry = NatuDesc,
-        forms = SingleSpecies(Species.Natu),
+        forms = SingleSpecies(SpeciesID.Natu),
     };
     public static readonly PokedexData Xatu = new()
     {
@@ -1934,7 +1988,7 @@ public static class Pokedex
         height = 150,
         weight = 15000,
         entry = XatuDesc,
-        forms = SingleSpecies(Species.Xatu),
+        forms = SingleSpecies(SpeciesID.Xatu),
     };
     public static readonly PokedexData Mareep = new()
     {
@@ -1944,7 +1998,7 @@ public static class Pokedex
         height = 60,
         weight = 7800,
         entry = MareepDesc,
-        forms = SingleSpecies(Species.Mareep),
+        forms = SingleSpecies(SpeciesID.Mareep),
     };
     public static readonly PokedexData Flaaffy = new()
     {
@@ -1954,7 +2008,7 @@ public static class Pokedex
         height = 80,
         weight = 13300,
         entry = FlaaffyDesc,
-        forms = SingleSpecies(Species.Flaaffy),
+        forms = SingleSpecies(SpeciesID.Flaaffy),
     };
     public static readonly PokedexData Ampharos = new()
     {
@@ -1966,8 +2020,8 @@ public static class Pokedex
         entry = AmpharosDesc,
         forms = new[]
         {
-            Species.Ampharos,
-            Species.AmpharosMega
+            SpeciesID.Ampharos,
+            SpeciesID.AmpharosMega
         }
     };
     public static readonly PokedexData Bellossom = new()
@@ -1978,7 +2032,7 @@ public static class Pokedex
         height = 40,
         weight = 5800,
         entry = BellossomDesc,
-        forms = SingleSpecies(Species.Bellossom),
+        forms = SingleSpecies(SpeciesID.Bellossom),
     };
     public static readonly PokedexData Marill = new()
     {
@@ -1988,7 +2042,7 @@ public static class Pokedex
         height = 40,
         weight = 8500,
         entry = MarillDesc,
-        forms = SingleSpecies(Species.Marill),
+        forms = SingleSpecies(SpeciesID.Marill),
     };
     public static readonly PokedexData Azumarill = new()
     {
@@ -1998,7 +2052,7 @@ public static class Pokedex
         height = 80,
         weight = 28500,
         entry = AzumarillDesc,
-        forms = SingleSpecies(Species.Azumarill),
+        forms = SingleSpecies(SpeciesID.Azumarill),
     };
     public static readonly PokedexData Sudowoodo = new()
     {
@@ -2008,7 +2062,7 @@ public static class Pokedex
         height = 120,
         weight = 38000,
         entry = SudowoodoDesc,
-        forms = SingleSpecies(Species.Sudowoodo),
+        forms = SingleSpecies(SpeciesID.Sudowoodo),
     };
     public static readonly PokedexData Politoed = new()
     {
@@ -2018,7 +2072,7 @@ public static class Pokedex
         height = 110,
         weight = 33900,
         entry = PolitoedDesc,
-        forms = SingleSpecies(Species.Politoed),
+        forms = SingleSpecies(SpeciesID.Politoed),
     };
     public static readonly PokedexData Hoppip = new()
     {
@@ -2028,7 +2082,7 @@ public static class Pokedex
         height = 40,
         weight = 500,
         entry = HoppipDesc,
-        forms = SingleSpecies(Species.Hoppip),
+        forms = SingleSpecies(SpeciesID.Hoppip),
     };
     public static readonly PokedexData Skiploom = new()
     {
@@ -2038,7 +2092,7 @@ public static class Pokedex
         height = 60,
         weight = 1000,
         entry = SkiploomDesc,
-        forms = SingleSpecies(Species.Skiploom),
+        forms = SingleSpecies(SpeciesID.Skiploom),
     };
     public static readonly PokedexData Jumpluff = new()
     {
@@ -2048,7 +2102,7 @@ public static class Pokedex
         height = 80,
         weight = 3000,
         entry = JumpluffDesc,
-        forms = SingleSpecies(Species.Jumpluff),
+        forms = SingleSpecies(SpeciesID.Jumpluff),
     };
     public static readonly PokedexData Aipom = new()
     {
@@ -2058,7 +2112,7 @@ public static class Pokedex
         height = 80,
         weight = 11500,
         entry = AipomDesc,
-        forms = SingleSpecies(Species.Aipom),
+        forms = SingleSpecies(SpeciesID.Aipom),
     };
     public static readonly PokedexData Sunkern = new()
     {
@@ -2068,7 +2122,7 @@ public static class Pokedex
         height = 30,
         weight = 1800,
         entry = SunkernDesc,
-        forms = SingleSpecies(Species.Sunkern),
+        forms = SingleSpecies(SpeciesID.Sunkern),
     };
     public static readonly PokedexData Sunflora = new()
     {
@@ -2078,7 +2132,7 @@ public static class Pokedex
         height = 80,
         weight = 8500,
         entry = SunfloraDesc,
-        forms = SingleSpecies(Species.Sunflora),
+        forms = SingleSpecies(SpeciesID.Sunflora),
     };
     public static readonly PokedexData Yanma = new()
     {
@@ -2088,7 +2142,7 @@ public static class Pokedex
         height = 120,
         weight = 38000,
         entry = YanmaDesc,
-        forms = SingleSpecies(Species.Yanma),
+        forms = SingleSpecies(SpeciesID.Yanma),
     };
     public static readonly PokedexData Wooper = new()
     {
@@ -2098,7 +2152,7 @@ public static class Pokedex
         height = 40,
         weight = 8500,
         entry = WooperDesc,
-        forms = SingleSpecies(Species.Wooper),
+        forms = SingleSpecies(SpeciesID.Wooper),
     };
     public static readonly PokedexData Quagsire = new()
     {
@@ -2108,7 +2162,7 @@ public static class Pokedex
         height = 140,
         weight = 75000,
         entry = QuagsireDesc,
-        forms = SingleSpecies(Species.Quagsire),
+        forms = SingleSpecies(SpeciesID.Quagsire),
     };
     public static readonly PokedexData Espeon = new()
     {
@@ -2118,7 +2172,7 @@ public static class Pokedex
         height = 90,
         weight = 26500,
         entry = EspeonDesc,
-        forms = SingleSpecies(Species.Espeon),
+        forms = SingleSpecies(SpeciesID.Espeon),
     };
     public static readonly PokedexData Umbreon = new()
     {
@@ -2128,7 +2182,7 @@ public static class Pokedex
         height = 100,
         weight = 27000,
         entry = UmbreonDesc,
-        forms = SingleSpecies(Species.Umbreon),
+        forms = SingleSpecies(SpeciesID.Umbreon),
     };
     public static readonly PokedexData Murkrow = new()
     {
@@ -2138,7 +2192,7 @@ public static class Pokedex
         height = 50,
         weight = 2100,
         entry = MurkrowDesc,
-        forms = SingleSpecies(Species.Murkrow),
+        forms = SingleSpecies(SpeciesID.Murkrow),
     };
     public static readonly PokedexData Slowking = new()
     {
@@ -2148,7 +2202,11 @@ public static class Pokedex
         height = 200,
         weight = 79500,
         entry = SlowkingDesc,
-        forms = SingleSpecies(Species.Slowking),
+        forms = new[]
+        {
+            SpeciesID.Slowking,
+            SpeciesID.SlowkingGalar
+        }
     };
     public static readonly PokedexData Misdreavus = new()
     {
@@ -2158,7 +2216,7 @@ public static class Pokedex
         height = 70,
         weight = 1000,
         entry = MisdreavusDesc,
-        forms = SingleSpecies(Species.Misdreavus),
+        forms = SingleSpecies(SpeciesID.Misdreavus),
     };
     public static readonly PokedexData Unown = new()
     {
@@ -2170,32 +2228,32 @@ public static class Pokedex
         entry = UnownDesc,
         forms = new[]
         {
-            Species.Unown,
-            Species.Unown_B,
-            Species.Unown_C,
-            Species.Unown_D,
-            Species.Unown_E,
-            Species.Unown_F,
-            Species.Unown_G,
-            Species.Unown_H,
-            Species.Unown_I,
-            Species.Unown_J,
-            Species.Unown_K,
-            Species.Unown_L,
-            Species.Unown_M,
-            Species.Unown_N,
-            Species.Unown_O,
-            Species.Unown_P,
-            Species.Unown_Q,
-            Species.Unown_R,
-            Species.Unown_S,
-            Species.Unown_T,
-            Species.Unown_U,
-            Species.Unown_V,
-            Species.Unown_W,
-            Species.Unown_X,
-            Species.Unown_Y,
-            Species.Unown_Z,
+            SpeciesID.Unown,
+            SpeciesID.Unown_B,
+            SpeciesID.Unown_C,
+            SpeciesID.Unown_D,
+            SpeciesID.Unown_E,
+            SpeciesID.Unown_F,
+            SpeciesID.Unown_G,
+            SpeciesID.Unown_H,
+            SpeciesID.Unown_I,
+            SpeciesID.Unown_J,
+            SpeciesID.Unown_K,
+            SpeciesID.Unown_L,
+            SpeciesID.Unown_M,
+            SpeciesID.Unown_N,
+            SpeciesID.Unown_O,
+            SpeciesID.Unown_P,
+            SpeciesID.Unown_Q,
+            SpeciesID.Unown_R,
+            SpeciesID.Unown_S,
+            SpeciesID.Unown_T,
+            SpeciesID.Unown_U,
+            SpeciesID.Unown_V,
+            SpeciesID.Unown_W,
+            SpeciesID.Unown_X,
+            SpeciesID.Unown_Y,
+            SpeciesID.Unown_Z,
         }
     };
     public static readonly PokedexData Wobbuffet = new()
@@ -2206,7 +2264,7 @@ public static class Pokedex
         height = 130,
         weight = 28500,
         entry = WobbuffetDesc,
-        forms = SingleSpecies(Species.Wobbuffet),
+        forms = SingleSpecies(SpeciesID.Wobbuffet),
     };
     public static readonly PokedexData Girafarig = new()
     {
@@ -2216,7 +2274,7 @@ public static class Pokedex
         height = 150,
         weight = 41500,
         entry = GirafarigDesc,
-        forms = SingleSpecies(Species.Girafarig),
+        forms = SingleSpecies(SpeciesID.Girafarig),
     };
     public static readonly PokedexData Pineco = new()
     {
@@ -2226,7 +2284,7 @@ public static class Pokedex
         height = 60,
         weight = 7200,
         entry = PinecoDesc,
-        forms = SingleSpecies(Species.Pineco),
+        forms = SingleSpecies(SpeciesID.Pineco),
     };
     public static readonly PokedexData Forretress = new()
     {
@@ -2236,7 +2294,7 @@ public static class Pokedex
         height = 120,
         weight = 125800,
         entry = ForretressDesc,
-        forms = SingleSpecies(Species.Forretress),
+        forms = SingleSpecies(SpeciesID.Forretress),
     };
     public static readonly PokedexData Dunsparce = new()
     {
@@ -2246,7 +2304,7 @@ public static class Pokedex
         height = 150,
         weight = 14000,
         entry = DunsparceDesc,
-        forms = SingleSpecies(Species.Dunsparce),
+        forms = SingleSpecies(SpeciesID.Dunsparce),
     };
     public static readonly PokedexData Gligar = new()
     {
@@ -2256,7 +2314,7 @@ public static class Pokedex
         height = 110,
         weight = 64800,
         entry = GligarDesc,
-        forms = SingleSpecies(Species.Gligar),
+        forms = SingleSpecies(SpeciesID.Gligar),
     };
     public static readonly PokedexData Steelix = new()
     {
@@ -2268,8 +2326,8 @@ public static class Pokedex
         entry = SteelixDesc,
         forms = new[]
         {
-            Species.Steelix,
-            Species.SteelixMega
+            SpeciesID.Steelix,
+            SpeciesID.SteelixMega
         }
     };
     public static readonly PokedexData Snubbull = new()
@@ -2280,7 +2338,7 @@ public static class Pokedex
         height = 60,
         weight = 7800,
         entry = SnubbullDesc,
-        forms = SingleSpecies(Species.Snubbull),
+        forms = SingleSpecies(SpeciesID.Snubbull),
     };
     public static readonly PokedexData Granbull = new()
     {
@@ -2290,7 +2348,7 @@ public static class Pokedex
         height = 140,
         weight = 48700,
         entry = GranbullDesc,
-        forms = SingleSpecies(Species.Granbull),
+        forms = SingleSpecies(SpeciesID.Granbull),
     };
     public static readonly PokedexData Qwilfish = new()
     {
@@ -2300,7 +2358,11 @@ public static class Pokedex
         height = 50,
         weight = 3900,
         entry = QwilfishDesc,
-        forms = SingleSpecies(Species.Qwilfish),
+        forms = new[]
+        {
+            SpeciesID.Qwilfish,
+            SpeciesID.QwilfishHisui
+        }
     };
     public static readonly PokedexData Scizor = new()
     {
@@ -2312,8 +2374,8 @@ public static class Pokedex
         entry = ScizorDesc,
         forms = new[]
         {
-            Species.Scizor,
-            Species.ScizorMega
+            SpeciesID.Scizor,
+            SpeciesID.ScizorMega
         }
     };
     public static readonly PokedexData Shuckle = new()
@@ -2324,7 +2386,7 @@ public static class Pokedex
         height = 60,
         weight = 20500,
         entry = ShuckleDesc,
-        forms = SingleSpecies(Species.Shuckle),
+        forms = SingleSpecies(SpeciesID.Shuckle),
     };
     public static readonly PokedexData Heracross = new()
     {
@@ -2336,8 +2398,8 @@ public static class Pokedex
         entry = HeracrossDesc,
         forms = new[]
         {
-            Species.Heracross,
-            Species.HeracrossMega
+            SpeciesID.Heracross,
+            SpeciesID.HeracrossMega
         }
     };
     public static readonly PokedexData Sneasel = new()
@@ -2348,7 +2410,11 @@ public static class Pokedex
         height = 90,
         weight = 28000,
         entry = SneaselDesc,
-        forms = SingleSpecies(Species.Sneasel),
+        forms = new[]
+        {
+            SpeciesID.Sneasel,
+            SpeciesID.SneaselHisui
+        }
     };
     public static readonly PokedexData Teddiursa = new()
     {
@@ -2358,7 +2424,7 @@ public static class Pokedex
         height = 60,
         weight = 8800,
         entry = TeddiursaDesc,
-        forms = SingleSpecies(Species.Teddiursa),
+        forms = SingleSpecies(SpeciesID.Teddiursa),
     };
     public static readonly PokedexData Ursaring = new()
     {
@@ -2368,7 +2434,7 @@ public static class Pokedex
         height = 180,
         weight = 125800,
         entry = UrsaringDesc,
-        forms = SingleSpecies(Species.Ursaring),
+        forms = SingleSpecies(SpeciesID.Ursaring),
     };
     public static readonly PokedexData Slugma = new()
     {
@@ -2378,7 +2444,7 @@ public static class Pokedex
         height = 70,
         weight = 35000,
         entry = SlugmaDesc,
-        forms = SingleSpecies(Species.Slugma),
+        forms = SingleSpecies(SpeciesID.Slugma),
     };
     public static readonly PokedexData Magcargo = new()
     {
@@ -2388,7 +2454,7 @@ public static class Pokedex
         height = 80,
         weight = 55000,
         entry = MagcargoDesc,
-        forms = SingleSpecies(Species.Magcargo),
+        forms = SingleSpecies(SpeciesID.Magcargo),
     };
     public static readonly PokedexData Swinub = new()
     {
@@ -2398,7 +2464,7 @@ public static class Pokedex
         height = 40,
         weight = 6500,
         entry = SwinubDesc,
-        forms = SingleSpecies(Species.Swinub),
+        forms = SingleSpecies(SpeciesID.Swinub),
     };
     public static readonly PokedexData Piloswine = new()
     {
@@ -2408,7 +2474,7 @@ public static class Pokedex
         height = 110,
         weight = 55800,
         entry = PiloswineDesc,
-        forms = SingleSpecies(Species.Piloswine),
+        forms = SingleSpecies(SpeciesID.Piloswine),
     };
     public static readonly PokedexData Corsola = new()
     {
@@ -2418,7 +2484,11 @@ public static class Pokedex
         height = 60,
         weight = 5000,
         entry = CorsolaDesc,
-        forms = SingleSpecies(Species.Corsola),
+        forms = new[]
+        {
+            SpeciesID.Corsola,
+            SpeciesID.CorsolaGalar
+        }
     };
     public static readonly PokedexData Remoraid = new()
     {
@@ -2428,7 +2498,7 @@ public static class Pokedex
         height = 60,
         weight = 12000,
         entry = RemoraidDesc,
-        forms = SingleSpecies(Species.Remoraid),
+        forms = SingleSpecies(SpeciesID.Remoraid),
     };
     public static readonly PokedexData Octillery = new()
     {
@@ -2438,7 +2508,7 @@ public static class Pokedex
         height = 90,
         weight = 28500,
         entry = OctilleryDesc,
-        forms = SingleSpecies(Species.Octillery),
+        forms = SingleSpecies(SpeciesID.Octillery),
     };
     public static readonly PokedexData Delibird = new()
     {
@@ -2448,7 +2518,7 @@ public static class Pokedex
         height = 90,
         weight = 16000,
         entry = DelibirdDesc,
-        forms = SingleSpecies(Species.Delibird),
+        forms = SingleSpecies(SpeciesID.Delibird),
     };
     public static readonly PokedexData Mantine = new()
     {
@@ -2458,7 +2528,7 @@ public static class Pokedex
         height = 210,
         weight = 220000,
         entry = MantineDesc,
-        forms = SingleSpecies(Species.Mantine),
+        forms = SingleSpecies(SpeciesID.Mantine),
     };
     public static readonly PokedexData Skarmory = new()
     {
@@ -2468,7 +2538,7 @@ public static class Pokedex
         height = 170,
         weight = 50500,
         entry = SkarmoryDesc,
-        forms = SingleSpecies(Species.Skarmory),
+        forms = SingleSpecies(SpeciesID.Skarmory),
     };
     public static readonly PokedexData Houndour = new()
     {
@@ -2478,7 +2548,7 @@ public static class Pokedex
         height = 60,
         weight = 10800,
         entry = HoundourDesc,
-        forms = SingleSpecies(Species.Houndour),
+        forms = SingleSpecies(SpeciesID.Houndour),
     };
     public static readonly PokedexData Houndoom = new()
     {
@@ -2490,8 +2560,8 @@ public static class Pokedex
         entry = HoundoomDesc,
         forms = new[]
         {
-            Species.Houndoom,
-            Species.HoundoomMega
+            SpeciesID.Houndoom,
+            SpeciesID.HoundoomMega
         }
     };
     public static readonly PokedexData Kingdra = new()
@@ -2502,7 +2572,7 @@ public static class Pokedex
         height = 180,
         weight = 152000,
         entry = KingdraDesc,
-        forms = SingleSpecies(Species.Kingdra),
+        forms = SingleSpecies(SpeciesID.Kingdra),
     };
     public static readonly PokedexData Phanpy = new()
     {
@@ -2512,7 +2582,7 @@ public static class Pokedex
         height = 50,
         weight = 33500,
         entry = PhanpyDesc,
-        forms = SingleSpecies(Species.Phanpy),
+        forms = SingleSpecies(SpeciesID.Phanpy),
     };
     public static readonly PokedexData Donphan = new()
     {
@@ -2522,7 +2592,7 @@ public static class Pokedex
         height = 110,
         weight = 120000,
         entry = DonphanDesc,
-        forms = SingleSpecies(Species.Donphan),
+        forms = SingleSpecies(SpeciesID.Donphan),
     };
     public static readonly PokedexData Porygon2 = new()
     {
@@ -2532,7 +2602,7 @@ public static class Pokedex
         height = 60,
         weight = 32500,
         entry = Porygon2Desc,
-        forms = SingleSpecies(Species.Porygon2),
+        forms = SingleSpecies(SpeciesID.Porygon2),
     };
     public static readonly PokedexData Stantler = new()
     {
@@ -2542,7 +2612,7 @@ public static class Pokedex
         height = 140,
         weight = 71200,
         entry = StantlerDesc,
-        forms = SingleSpecies(Species.Stantler),
+        forms = SingleSpecies(SpeciesID.Stantler),
     };
     public static readonly PokedexData Smeargle = new()
     {
@@ -2552,7 +2622,7 @@ public static class Pokedex
         height = 120,
         weight = 58000,
         entry = SmeargleDesc,
-        forms = SingleSpecies(Species.Smeargle),
+        forms = SingleSpecies(SpeciesID.Smeargle),
     };
     public static readonly PokedexData Tyrogue = new()
     {
@@ -2562,7 +2632,7 @@ public static class Pokedex
         height = 70,
         weight = 21000,
         entry = TyrogueDesc,
-        forms = SingleSpecies(Species.Tyrogue),
+        forms = SingleSpecies(SpeciesID.Tyrogue),
     };
     public static readonly PokedexData Hitmontop = new()
     {
@@ -2572,7 +2642,7 @@ public static class Pokedex
         height = 140,
         weight = 48000,
         entry = HitmontopDesc,
-        forms = SingleSpecies(Species.Hitmontop),
+        forms = SingleSpecies(SpeciesID.Hitmontop),
     };
     public static readonly PokedexData Smoochum = new()
     {
@@ -2582,7 +2652,7 @@ public static class Pokedex
         height = 40,
         weight = 6000,
         entry = SmoochumDesc,
-        forms = SingleSpecies(Species.Smoochum),
+        forms = SingleSpecies(SpeciesID.Smoochum),
     };
     public static readonly PokedexData Elekid = new()
     {
@@ -2592,7 +2662,7 @@ public static class Pokedex
         height = 60,
         weight = 23500,
         entry = ElekidDesc,
-        forms = SingleSpecies(Species.Elekid),
+        forms = SingleSpecies(SpeciesID.Elekid),
     };
     public static readonly PokedexData Magby = new()
     {
@@ -2602,7 +2672,7 @@ public static class Pokedex
         height = 70,
         weight = 21400,
         entry = MagbyDesc,
-        forms = SingleSpecies(Species.Magby),
+        forms = SingleSpecies(SpeciesID.Magby),
     };
     public static readonly PokedexData Miltank = new()
     {
@@ -2612,7 +2682,7 @@ public static class Pokedex
         height = 120,
         weight = 75500,
         entry = MiltankDesc,
-        forms = SingleSpecies(Species.Miltank),
+        forms = SingleSpecies(SpeciesID.Miltank),
     };
     public static readonly PokedexData Blissey = new()
     {
@@ -2622,7 +2692,7 @@ public static class Pokedex
         height = 150,
         weight = 46800,
         entry = BlisseyDesc,
-        forms = SingleSpecies(Species.Blissey),
+        forms = SingleSpecies(SpeciesID.Blissey),
     };
     public static readonly PokedexData Raikou = new()
     {
@@ -2632,7 +2702,7 @@ public static class Pokedex
         height = 190,
         weight = 178000,
         entry = RaikouDesc,
-        forms = SingleSpecies(Species.Raikou),
+        forms = SingleSpecies(SpeciesID.Raikou),
     };
     public static readonly PokedexData Entei = new()
     {
@@ -2642,7 +2712,7 @@ public static class Pokedex
         height = 210,
         weight = 198000,
         entry = EnteiDesc,
-        forms = SingleSpecies(Species.Entei),
+        forms = SingleSpecies(SpeciesID.Entei),
     };
     public static readonly PokedexData Suicune = new()
     {
@@ -2652,7 +2722,7 @@ public static class Pokedex
         height = 200,
         weight = 187000,
         entry = SuicuneDesc,
-        forms = SingleSpecies(Species.Suicune),
+        forms = SingleSpecies(SpeciesID.Suicune),
     };
     public static readonly PokedexData Larvitar = new()
     {
@@ -2662,7 +2732,7 @@ public static class Pokedex
         height = 60,
         weight = 72000,
         entry = LarvitarDesc,
-        forms = SingleSpecies(Species.Larvitar),
+        forms = SingleSpecies(SpeciesID.Larvitar),
     };
     public static readonly PokedexData Pupitar = new()
     {
@@ -2672,7 +2742,7 @@ public static class Pokedex
         height = 120,
         weight = 152000,
         entry = PupitarDesc,
-        forms = SingleSpecies(Species.Pupitar),
+        forms = SingleSpecies(SpeciesID.Pupitar),
     };
     public static readonly PokedexData Tyranitar = new()
     {
@@ -2684,8 +2754,8 @@ public static class Pokedex
         entry = TyranitarDesc,
         forms = new[]
         {
-            Species.Tyranitar,
-            Species.TyranitarMega
+            SpeciesID.Tyranitar,
+            SpeciesID.TyranitarMega
         }
     };
     public static readonly PokedexData Lugia = new()
@@ -2696,7 +2766,7 @@ public static class Pokedex
         height = 520,
         weight = 216000,
         entry = LugiaDesc,
-        forms = SingleSpecies(Species.Lugia),
+        forms = SingleSpecies(SpeciesID.Lugia),
     };
     public static readonly PokedexData HoOh = new()
     {
@@ -2706,7 +2776,7 @@ public static class Pokedex
         height = 380,
         weight = 199000,
         entry = HoOhDesc,
-        forms = SingleSpecies(Species.HoOh),
+        forms = SingleSpecies(SpeciesID.HoOh),
     };
     public static readonly PokedexData Celebi = new()
     {
@@ -2716,7 +2786,7 @@ public static class Pokedex
         height = 60,
         weight = 5000,
         entry = CelebiDesc,
-        forms = SingleSpecies(Species.Celebi),
+        forms = SingleSpecies(SpeciesID.Celebi),
     };
     public static readonly PokedexData Treecko = new()
     {
@@ -2726,7 +2796,7 @@ public static class Pokedex
         height = 50,
         weight = 5000,
         entry = TreeckoDesc,
-        forms = SingleSpecies(Species.Treecko),
+        forms = SingleSpecies(SpeciesID.Treecko),
     };
     public static readonly PokedexData Grovyle = new()
     {
@@ -2736,7 +2806,7 @@ public static class Pokedex
         height = 90,
         weight = 21600,
         entry = GrovyleDesc,
-        forms = SingleSpecies(Species.Grovyle),
+        forms = SingleSpecies(SpeciesID.Grovyle),
     };
     public static readonly PokedexData Sceptile = new()
     {
@@ -2748,8 +2818,8 @@ public static class Pokedex
         entry = SceptileDesc,
         forms = new[]
         {
-            Species.Sceptile,
-            Species.SceptileMega
+            SpeciesID.Sceptile,
+            SpeciesID.SceptileMega
         }
     };
     public static readonly PokedexData Torchic = new()
@@ -2760,7 +2830,7 @@ public static class Pokedex
         height = 40,
         weight = 2500,
         entry = TorchicDesc,
-        forms = SingleSpecies(Species.Torchic),
+        forms = SingleSpecies(SpeciesID.Torchic),
     };
     public static readonly PokedexData Combusken = new()
     {
@@ -2770,7 +2840,7 @@ public static class Pokedex
         height = 90,
         weight = 19500,
         entry = CombuskenDesc,
-        forms = SingleSpecies(Species.Combusken),
+        forms = SingleSpecies(SpeciesID.Combusken),
     };
     public static readonly PokedexData Blaziken = new()
     {
@@ -2782,8 +2852,8 @@ public static class Pokedex
         entry = BlazikenDesc,
         forms = new[]
         {
-            Species.Blaziken,
-            Species.BlazikenMega
+            SpeciesID.Blaziken,
+            SpeciesID.BlazikenMega
         }
     };
     public static readonly PokedexData Mudkip = new()
@@ -2794,7 +2864,7 @@ public static class Pokedex
         height = 40,
         weight = 7600,
         entry = MudkipDesc,
-        forms = SingleSpecies(Species.Mudkip),
+        forms = SingleSpecies(SpeciesID.Mudkip),
     };
     public static readonly PokedexData Marshtomp = new()
     {
@@ -2804,7 +2874,7 @@ public static class Pokedex
         height = 70,
         weight = 28000,
         entry = MarshtompDesc,
-        forms = SingleSpecies(Species.Marshtomp),
+        forms = SingleSpecies(SpeciesID.Marshtomp),
     };
     public static readonly PokedexData Swampert = new()
     {
@@ -2816,8 +2886,8 @@ public static class Pokedex
         entry = SwampertDesc,
         forms = new[]
         {
-            Species.Swampert,
-            Species.SwampertMega
+            SpeciesID.Swampert,
+            SpeciesID.SwampertMega
         }
     };
     public static readonly PokedexData Poochyena = new()
@@ -2828,7 +2898,7 @@ public static class Pokedex
         height = 50,
         weight = 13600,
         entry = PoochyenaDesc,
-        forms = SingleSpecies(Species.Poochyena),
+        forms = SingleSpecies(SpeciesID.Poochyena),
     };
     public static readonly PokedexData Mightyena = new()
     {
@@ -2838,7 +2908,7 @@ public static class Pokedex
         height = 100,
         weight = 37000,
         entry = MightyenaDesc,
-        forms = SingleSpecies(Species.Mightyena),
+        forms = SingleSpecies(SpeciesID.Mightyena),
     };
     public static readonly PokedexData Zigzagoon = new()
     {
@@ -2848,7 +2918,11 @@ public static class Pokedex
         height = 40,
         weight = 17500,
         entry = ZigzagoonDesc,
-        forms = SingleSpecies(Species.Zigzagoon),
+        forms = new[]
+        {
+            SpeciesID.Zigzagoon,
+            SpeciesID.ZigzagoonGalar
+        }
     };
     public static readonly PokedexData Linoone = new()
     {
@@ -2858,7 +2932,11 @@ public static class Pokedex
         height = 50,
         weight = 32500,
         entry = LinooneDesc,
-        forms = SingleSpecies(Species.Linoone),
+        forms = new[]
+        {
+            SpeciesID.Linoone,
+            SpeciesID.LinooneGalar
+        }
     };
     public static readonly PokedexData Wurmple = new()
     {
@@ -2868,7 +2946,7 @@ public static class Pokedex
         height = 30,
         weight = 3600,
         entry = WurmpleDesc,
-        forms = SingleSpecies(Species.Wurmple),
+        forms = SingleSpecies(SpeciesID.Wurmple),
     };
     public static readonly PokedexData Silcoon = new()
     {
@@ -2878,7 +2956,7 @@ public static class Pokedex
         height = 60,
         weight = 10000,
         entry = SilcoonDesc,
-        forms = SingleSpecies(Species.Silcoon),
+        forms = SingleSpecies(SpeciesID.Silcoon),
     };
     public static readonly PokedexData Beautifly = new()
     {
@@ -2888,7 +2966,7 @@ public static class Pokedex
         height = 100,
         weight = 28400,
         entry = BeautiflyDesc,
-        forms = SingleSpecies(Species.Beautifly),
+        forms = SingleSpecies(SpeciesID.Beautifly),
     };
     public static readonly PokedexData Cascoon = new()
     {
@@ -2898,7 +2976,7 @@ public static class Pokedex
         height = 70,
         weight = 11500,
         entry = CascoonDesc,
-        forms = SingleSpecies(Species.Cascoon),
+        forms = SingleSpecies(SpeciesID.Cascoon),
     };
     public static readonly PokedexData Dustox = new()
     {
@@ -2908,7 +2986,7 @@ public static class Pokedex
         height = 120,
         weight = 31600,
         entry = DustoxDesc,
-        forms = SingleSpecies(Species.Dustox),
+        forms = SingleSpecies(SpeciesID.Dustox),
     };
     public static readonly PokedexData Lotad = new()
     {
@@ -2918,7 +2996,7 @@ public static class Pokedex
         height = 50,
         weight = 2600,
         entry = LotadDesc,
-        forms = SingleSpecies(Species.Lotad),
+        forms = SingleSpecies(SpeciesID.Lotad),
     };
     public static readonly PokedexData Lombre = new()
     {
@@ -2928,7 +3006,7 @@ public static class Pokedex
         height = 120,
         weight = 32500,
         entry = LombreDesc,
-        forms = SingleSpecies(Species.Lombre),
+        forms = SingleSpecies(SpeciesID.Lombre),
     };
     public static readonly PokedexData Ludicolo = new()
     {
@@ -2938,7 +3016,7 @@ public static class Pokedex
         height = 150,
         weight = 55000,
         entry = LudicoloDesc,
-        forms = SingleSpecies(Species.Ludicolo),
+        forms = SingleSpecies(SpeciesID.Ludicolo),
     };
     public static readonly PokedexData Seedot = new()
     {
@@ -2948,7 +3026,7 @@ public static class Pokedex
         height = 50,
         weight = 4000,
         entry = SeedotDesc,
-        forms = SingleSpecies(Species.Seedot),
+        forms = SingleSpecies(SpeciesID.Seedot),
     };
     public static readonly PokedexData Nuzleaf = new()
     {
@@ -2958,7 +3036,7 @@ public static class Pokedex
         height = 100,
         weight = 28000,
         entry = NuzleafDesc,
-        forms = SingleSpecies(Species.Nuzleaf),
+        forms = SingleSpecies(SpeciesID.Nuzleaf),
     };
     public static readonly PokedexData Shiftry = new()
     {
@@ -2968,7 +3046,7 @@ public static class Pokedex
         height = 130,
         weight = 59600,
         entry = ShiftryDesc,
-        forms = SingleSpecies(Species.Shiftry),
+        forms = SingleSpecies(SpeciesID.Shiftry),
     };
     public static readonly PokedexData Taillow = new()
     {
@@ -2978,7 +3056,7 @@ public static class Pokedex
         height = 30,
         weight = 2300,
         entry = TaillowDesc,
-        forms = SingleSpecies(Species.Taillow),
+        forms = SingleSpecies(SpeciesID.Taillow),
     };
     public static readonly PokedexData Swellow = new()
     {
@@ -2988,7 +3066,7 @@ public static class Pokedex
         height = 70,
         weight = 19800,
         entry = SwellowDesc,
-        forms = SingleSpecies(Species.Swellow),
+        forms = SingleSpecies(SpeciesID.Swellow),
     };
     public static readonly PokedexData Wingull = new()
     {
@@ -2998,7 +3076,7 @@ public static class Pokedex
         height = 60,
         weight = 9500,
         entry = WingullDesc,
-        forms = SingleSpecies(Species.Wingull),
+        forms = SingleSpecies(SpeciesID.Wingull),
     };
     public static readonly PokedexData Pelipper = new()
     {
@@ -3008,7 +3086,7 @@ public static class Pokedex
         height = 120,
         weight = 28000,
         entry = PelipperDesc,
-        forms = SingleSpecies(Species.Pelipper),
+        forms = SingleSpecies(SpeciesID.Pelipper),
     };
     public static readonly PokedexData Ralts = new()
     {
@@ -3018,7 +3096,7 @@ public static class Pokedex
         height = 40,
         weight = 6600,
         entry = RaltsDesc,
-        forms = SingleSpecies(Species.Ralts),
+        forms = SingleSpecies(SpeciesID.Ralts),
     };
     public static readonly PokedexData Kirlia = new()
     {
@@ -3028,7 +3106,7 @@ public static class Pokedex
         height = 80,
         weight = 20200,
         entry = KirliaDesc,
-        forms = SingleSpecies(Species.Kirlia),
+        forms = SingleSpecies(SpeciesID.Kirlia),
     };
     public static readonly PokedexData Gardevoir = new()
     {
@@ -3040,8 +3118,8 @@ public static class Pokedex
         entry = GardevoirDesc,
         forms = new[]
         {
-            Species.Gardevoir,
-            Species.GardevoirMega
+            SpeciesID.Gardevoir,
+            SpeciesID.GardevoirMega
         }
     };
     public static readonly PokedexData Surskit = new()
@@ -3052,7 +3130,7 @@ public static class Pokedex
         height = 50,
         weight = 1700,
         entry = SurskitDesc,
-        forms = SingleSpecies(Species.Surskit),
+        forms = SingleSpecies(SpeciesID.Surskit),
     };
     public static readonly PokedexData Masquerain = new()
     {
@@ -3062,7 +3140,7 @@ public static class Pokedex
         height = 80,
         weight = 3600,
         entry = MasquerainDesc,
-        forms = SingleSpecies(Species.Masquerain),
+        forms = SingleSpecies(SpeciesID.Masquerain),
     };
     public static readonly PokedexData Shroomish = new()
     {
@@ -3072,7 +3150,7 @@ public static class Pokedex
         height = 40,
         weight = 4500,
         entry = ShroomishDesc,
-        forms = SingleSpecies(Species.Shroomish),
+        forms = SingleSpecies(SpeciesID.Shroomish),
     };
     public static readonly PokedexData Breloom = new()
     {
@@ -3082,7 +3160,7 @@ public static class Pokedex
         height = 120,
         weight = 39200,
         entry = BreloomDesc,
-        forms = SingleSpecies(Species.Breloom),
+        forms = SingleSpecies(SpeciesID.Breloom),
     };
     public static readonly PokedexData Slakoth = new()
     {
@@ -3092,7 +3170,7 @@ public static class Pokedex
         height = 80,
         weight = 24000,
         entry = SlakothDesc,
-        forms = SingleSpecies(Species.Slakoth),
+        forms = SingleSpecies(SpeciesID.Slakoth),
     };
     public static readonly PokedexData Vigoroth = new()
     {
@@ -3102,7 +3180,7 @@ public static class Pokedex
         height = 140,
         weight = 46500,
         entry = VigorothDesc,
-        forms = SingleSpecies(Species.Vigoroth),
+        forms = SingleSpecies(SpeciesID.Vigoroth),
     };
     public static readonly PokedexData Slaking = new()
     {
@@ -3112,7 +3190,7 @@ public static class Pokedex
         height = 200,
         weight = 130500,
         entry = SlakingDesc,
-        forms = SingleSpecies(Species.Slaking),
+        forms = SingleSpecies(SpeciesID.Slaking),
     };
     public static readonly PokedexData Nincada = new()
     {
@@ -3122,7 +3200,7 @@ public static class Pokedex
         height = 50,
         weight = 5500,
         entry = NincadaDesc,
-        forms = SingleSpecies(Species.Nincada),
+        forms = SingleSpecies(SpeciesID.Nincada),
     };
     public static readonly PokedexData Ninjask = new()
     {
@@ -3132,7 +3210,7 @@ public static class Pokedex
         height = 80,
         weight = 12000,
         entry = NinjaskDesc,
-        forms = SingleSpecies(Species.Ninjask),
+        forms = SingleSpecies(SpeciesID.Ninjask),
     };
     public static readonly PokedexData Shedinja = new()
     {
@@ -3142,7 +3220,7 @@ public static class Pokedex
         height = 80,
         weight = 1200,
         entry = ShedinjaDesc,
-        forms = SingleSpecies(Species.Shedinja),
+        forms = SingleSpecies(SpeciesID.Shedinja),
     };
     public static readonly PokedexData Whismur = new()
     {
@@ -3152,7 +3230,7 @@ public static class Pokedex
         height = 60,
         weight = 16300,
         entry = WhismurDesc,
-        forms = SingleSpecies(Species.Whismur),
+        forms = SingleSpecies(SpeciesID.Whismur),
     };
     public static readonly PokedexData Loudred = new()
     {
@@ -3162,7 +3240,7 @@ public static class Pokedex
         height = 100,
         weight = 40500,
         entry = LoudredDesc,
-        forms = SingleSpecies(Species.Loudred),
+        forms = SingleSpecies(SpeciesID.Loudred),
     };
     public static readonly PokedexData Exploud = new()
     {
@@ -3172,7 +3250,7 @@ public static class Pokedex
         height = 150,
         weight = 84000,
         entry = ExploudDesc,
-        forms = SingleSpecies(Species.Exploud),
+        forms = SingleSpecies(SpeciesID.Exploud),
     };
     public static readonly PokedexData Makuhita = new()
     {
@@ -3182,7 +3260,7 @@ public static class Pokedex
         height = 100,
         weight = 86400,
         entry = MakuhitaDesc,
-        forms = SingleSpecies(Species.Makuhita),
+        forms = SingleSpecies(SpeciesID.Makuhita),
     };
     public static readonly PokedexData Hariyama = new()
     {
@@ -3192,7 +3270,7 @@ public static class Pokedex
         height = 230,
         weight = 253800,
         entry = HariyamaDesc,
-        forms = SingleSpecies(Species.Hariyama),
+        forms = SingleSpecies(SpeciesID.Hariyama),
     };
     public static readonly PokedexData Azurill = new()
     {
@@ -3202,7 +3280,7 @@ public static class Pokedex
         height = 20,
         weight = 2000,
         entry = AzurillDesc,
-        forms = SingleSpecies(Species.Azurill),
+        forms = SingleSpecies(SpeciesID.Azurill),
     };
     public static readonly PokedexData Nosepass = new()
     {
@@ -3212,7 +3290,7 @@ public static class Pokedex
         height = 100,
         weight = 97000,
         entry = NosepassDesc,
-        forms = SingleSpecies(Species.Nosepass),
+        forms = SingleSpecies(SpeciesID.Nosepass),
     };
     public static readonly PokedexData Skitty = new()
     {
@@ -3222,7 +3300,7 @@ public static class Pokedex
         height = 60,
         weight = 11000,
         entry = SkittyDesc,
-        forms = SingleSpecies(Species.Skitty),
+        forms = SingleSpecies(SpeciesID.Skitty),
     };
     public static readonly PokedexData Delcatty = new()
     {
@@ -3232,7 +3310,7 @@ public static class Pokedex
         height = 110,
         weight = 32600,
         entry = DelcattyDesc,
-        forms = SingleSpecies(Species.Delcatty),
+        forms = SingleSpecies(SpeciesID.Delcatty),
     };
     public static readonly PokedexData Sableye = new()
     {
@@ -3244,8 +3322,8 @@ public static class Pokedex
         entry = SableyeDesc,
         forms = new[]
         {
-            Species.Sableye,
-            Species.SableyeMega
+            SpeciesID.Sableye,
+            SpeciesID.SableyeMega
         }
     };
     public static readonly PokedexData Mawile = new()
@@ -3258,8 +3336,8 @@ public static class Pokedex
         entry = MawileDesc,
         forms = new[]
         {
-        Species.Mawile,
-        Species.MawileMega
+        SpeciesID.Mawile,
+        SpeciesID.MawileMega
     }
     };
     public static readonly PokedexData Aron = new()
@@ -3270,7 +3348,7 @@ public static class Pokedex
         height = 40,
         weight = 60000,
         entry = AronDesc,
-        forms = SingleSpecies(Species.Aron),
+        forms = SingleSpecies(SpeciesID.Aron),
     };
     public static readonly PokedexData Lairon = new()
     {
@@ -3280,7 +3358,7 @@ public static class Pokedex
         height = 90,
         weight = 120000,
         entry = LaironDesc,
-        forms = SingleSpecies(Species.Lairon),
+        forms = SingleSpecies(SpeciesID.Lairon),
     };
     public static readonly PokedexData Aggron = new()
     {
@@ -3292,8 +3370,8 @@ public static class Pokedex
         entry = AggronDesc,
         forms = new[]
         {
-            Species.Aggron,
-            Species.AggronMega
+            SpeciesID.Aggron,
+            SpeciesID.AggronMega
         }
     };
     public static readonly PokedexData Meditite = new()
@@ -3304,7 +3382,7 @@ public static class Pokedex
         height = 60,
         weight = 11200,
         entry = MedititeDesc,
-        forms = SingleSpecies(Species.Meditite),
+        forms = SingleSpecies(SpeciesID.Meditite),
     };
     public static readonly PokedexData Medicham = new()
     {
@@ -3316,8 +3394,8 @@ public static class Pokedex
         entry = MedichamDesc,
         forms = new[]
         {
-            Species.Medicham,
-            Species.MedichamMega
+            SpeciesID.Medicham,
+            SpeciesID.MedichamMega
         }
     };
     public static readonly PokedexData Electrike = new()
@@ -3328,7 +3406,7 @@ public static class Pokedex
         height = 60,
         weight = 15200,
         entry = ElectrikeDesc,
-        forms = SingleSpecies(Species.Electrike),
+        forms = SingleSpecies(SpeciesID.Electrike),
     };
     public static readonly PokedexData Manectric = new()
     {
@@ -3340,8 +3418,8 @@ public static class Pokedex
         entry = ManectricDesc,
         forms = new[]
         {
-            Species.Manectric,
-            Species.ManectricMega
+            SpeciesID.Manectric,
+            SpeciesID.ManectricMega
         }
     };
     public static readonly PokedexData Plusle = new()
@@ -3352,7 +3430,7 @@ public static class Pokedex
         height = 40,
         weight = 4200,
         entry = PlusleDesc,
-        forms = SingleSpecies(Species.Plusle),
+        forms = SingleSpecies(SpeciesID.Plusle),
     };
     public static readonly PokedexData Minun = new()
     {
@@ -3362,7 +3440,7 @@ public static class Pokedex
         height = 40,
         weight = 4200,
         entry = MinunDesc,
-        forms = SingleSpecies(Species.Minun),
+        forms = SingleSpecies(SpeciesID.Minun),
     };
     public static readonly PokedexData Volbeat = new()
     {
@@ -3372,7 +3450,7 @@ public static class Pokedex
         height = 70,
         weight = 17700,
         entry = VolbeatDesc,
-        forms = SingleSpecies(Species.Volbeat),
+        forms = SingleSpecies(SpeciesID.Volbeat),
     };
     public static readonly PokedexData Illumise = new()
     {
@@ -3382,7 +3460,7 @@ public static class Pokedex
         height = 60,
         weight = 17700,
         entry = IllumiseDesc,
-        forms = SingleSpecies(Species.Illumise),
+        forms = SingleSpecies(SpeciesID.Illumise),
     };
     public static readonly PokedexData Roselia = new()
     {
@@ -3392,7 +3470,7 @@ public static class Pokedex
         height = 30,
         weight = 2000,
         entry = RoseliaDesc,
-        forms = SingleSpecies(Species.Roselia),
+        forms = SingleSpecies(SpeciesID.Roselia),
     };
     public static readonly PokedexData Gulpin = new()
     {
@@ -3402,7 +3480,7 @@ public static class Pokedex
         height = 40,
         weight = 10300,
         entry = GulpinDesc,
-        forms = SingleSpecies(Species.Gulpin),
+        forms = SingleSpecies(SpeciesID.Gulpin),
     };
     public static readonly PokedexData Swalot = new()
     {
@@ -3412,7 +3490,7 @@ public static class Pokedex
         height = 170,
         weight = 80000,
         entry = SwalotDesc,
-        forms = SingleSpecies(Species.Swalot),
+        forms = SingleSpecies(SpeciesID.Swalot),
     };
     public static readonly PokedexData Carvanha = new()
     {
@@ -3422,7 +3500,7 @@ public static class Pokedex
         height = 80,
         weight = 20800,
         entry = CarvanhaDesc,
-        forms = SingleSpecies(Species.Carvanha),
+        forms = SingleSpecies(SpeciesID.Carvanha),
     };
     public static readonly PokedexData Sharpedo = new()
     {
@@ -3434,8 +3512,8 @@ public static class Pokedex
         entry = SharpedoDesc,
         forms = new[]
         {
-            Species.Sharpedo,
-            Species.SharpedoMega
+            SpeciesID.Sharpedo,
+            SpeciesID.SharpedoMega
         }
     };
     public static readonly PokedexData Wailmer = new()
@@ -3446,7 +3524,7 @@ public static class Pokedex
         height = 200,
         weight = 130000,
         entry = WailmerDesc,
-        forms = SingleSpecies(Species.Wailmer),
+        forms = SingleSpecies(SpeciesID.Wailmer),
     };
     public static readonly PokedexData Wailord = new()
     {
@@ -3456,7 +3534,7 @@ public static class Pokedex
         height = 1450,
         weight = 398000,
         entry = WailordDesc,
-        forms = SingleSpecies(Species.Wailord),
+        forms = SingleSpecies(SpeciesID.Wailord),
     };
     public static readonly PokedexData Numel = new()
     {
@@ -3466,7 +3544,7 @@ public static class Pokedex
         height = 70,
         weight = 24000,
         entry = NumelDesc,
-        forms = SingleSpecies(Species.Numel),
+        forms = SingleSpecies(SpeciesID.Numel),
     };
     public static readonly PokedexData Camerupt = new()
     {
@@ -3478,8 +3556,8 @@ public static class Pokedex
         entry = CameruptDesc,
         forms = new[]
         {
-            Species.Camerupt,
-            Species.CameruptMega
+            SpeciesID.Camerupt,
+            SpeciesID.CameruptMega
         }
     };
     public static readonly PokedexData Torkoal = new()
@@ -3490,7 +3568,7 @@ public static class Pokedex
         height = 50,
         weight = 80400,
         entry = TorkoalDesc,
-        forms = SingleSpecies(Species.Torkoal),
+        forms = SingleSpecies(SpeciesID.Torkoal),
     };
     public static readonly PokedexData Spoink = new()
     {
@@ -3500,7 +3578,7 @@ public static class Pokedex
         height = 70,
         weight = 30600,
         entry = SpoinkDesc,
-        forms = SingleSpecies(Species.Spoink),
+        forms = SingleSpecies(SpeciesID.Spoink),
     };
     public static readonly PokedexData Grumpig = new()
     {
@@ -3510,7 +3588,7 @@ public static class Pokedex
         height = 90,
         weight = 71500,
         entry = GrumpigDesc,
-        forms = SingleSpecies(Species.Grumpig),
+        forms = SingleSpecies(SpeciesID.Grumpig),
     };
     public static readonly PokedexData Spinda = new()
     {
@@ -3520,7 +3598,7 @@ public static class Pokedex
         height = 110,
         weight = 5000,
         entry = SpindaDesc,
-        forms = SingleSpecies(Species.Spinda),
+        forms = SingleSpecies(SpeciesID.Spinda),
     };
     public static readonly PokedexData Trapinch = new()
     {
@@ -3530,7 +3608,7 @@ public static class Pokedex
         height = 70,
         weight = 15000,
         entry = TrapinchDesc,
-        forms = SingleSpecies(Species.Trapinch),
+        forms = SingleSpecies(SpeciesID.Trapinch),
     };
     public static readonly PokedexData Vibrava = new()
     {
@@ -3540,7 +3618,7 @@ public static class Pokedex
         height = 110,
         weight = 15300,
         entry = VibravaDesc,
-        forms = SingleSpecies(Species.Vibrava),
+        forms = SingleSpecies(SpeciesID.Vibrava),
     };
     public static readonly PokedexData Flygon = new()
     {
@@ -3550,7 +3628,7 @@ public static class Pokedex
         height = 200,
         weight = 82000,
         entry = FlygonDesc,
-        forms = SingleSpecies(Species.Flygon),
+        forms = SingleSpecies(SpeciesID.Flygon),
     };
     public static readonly PokedexData Cacnea = new()
     {
@@ -3560,7 +3638,7 @@ public static class Pokedex
         height = 40,
         weight = 51300,
         entry = CacneaDesc,
-        forms = SingleSpecies(Species.Cacnea),
+        forms = SingleSpecies(SpeciesID.Cacnea),
     };
     public static readonly PokedexData Cacturne = new()
     {
@@ -3570,7 +3648,7 @@ public static class Pokedex
         height = 130,
         weight = 77400,
         entry = CacturneDesc,
-        forms = SingleSpecies(Species.Cacturne),
+        forms = SingleSpecies(SpeciesID.Cacturne),
     };
     public static readonly PokedexData Swablu = new()
     {
@@ -3580,7 +3658,7 @@ public static class Pokedex
         height = 40,
         weight = 1200,
         entry = SwabluDesc,
-        forms = SingleSpecies(Species.Swablu),
+        forms = SingleSpecies(SpeciesID.Swablu),
     };
     public static readonly PokedexData Altaria = new()
     {
@@ -3592,8 +3670,8 @@ public static class Pokedex
         entry = AltariaDesc,
         forms = new[]
         {
-            Species.Altaria,
-            Species.AltariaMega
+            SpeciesID.Altaria,
+            SpeciesID.AltariaMega
         }
     };
     public static readonly PokedexData Zangoose = new()
@@ -3604,7 +3682,7 @@ public static class Pokedex
         height = 130,
         weight = 40300,
         entry = ZangooseDesc,
-        forms = SingleSpecies(Species.Zangoose),
+        forms = SingleSpecies(SpeciesID.Zangoose),
     };
     public static readonly PokedexData Seviper = new()
     {
@@ -3614,7 +3692,7 @@ public static class Pokedex
         height = 270,
         weight = 52500,
         entry = SeviperDesc,
-        forms = SingleSpecies(Species.Seviper),
+        forms = SingleSpecies(SpeciesID.Seviper),
     };
     public static readonly PokedexData Lunatone = new()
     {
@@ -3624,7 +3702,7 @@ public static class Pokedex
         height = 100,
         weight = 168000,
         entry = LunatoneDesc,
-        forms = SingleSpecies(Species.Lunatone),
+        forms = SingleSpecies(SpeciesID.Lunatone),
     };
     public static readonly PokedexData Solrock = new()
     {
@@ -3634,7 +3712,7 @@ public static class Pokedex
         height = 120,
         weight = 154000,
         entry = SolrockDesc,
-        forms = SingleSpecies(Species.Solrock),
+        forms = SingleSpecies(SpeciesID.Solrock),
     };
     public static readonly PokedexData Barboach = new()
     {
@@ -3644,7 +3722,7 @@ public static class Pokedex
         height = 40,
         weight = 1900,
         entry = BarboachDesc,
-        forms = SingleSpecies(Species.Barboach),
+        forms = SingleSpecies(SpeciesID.Barboach),
     };
     public static readonly PokedexData Whiscash = new()
     {
@@ -3654,7 +3732,7 @@ public static class Pokedex
         height = 90,
         weight = 23600,
         entry = WhiscashDesc,
-        forms = SingleSpecies(Species.Whiscash),
+        forms = SingleSpecies(SpeciesID.Whiscash),
     };
     public static readonly PokedexData Corphish = new()
     {
@@ -3664,7 +3742,7 @@ public static class Pokedex
         height = 60,
         weight = 11500,
         entry = CorphishDesc,
-        forms = SingleSpecies(Species.Corphish),
+        forms = SingleSpecies(SpeciesID.Corphish),
     };
     public static readonly PokedexData Crawdaunt = new()
     {
@@ -3674,7 +3752,7 @@ public static class Pokedex
         height = 110,
         weight = 32800,
         entry = CrawdauntDesc,
-        forms = SingleSpecies(Species.Crawdaunt),
+        forms = SingleSpecies(SpeciesID.Crawdaunt),
     };
     public static readonly PokedexData Baltoy = new()
     {
@@ -3684,7 +3762,7 @@ public static class Pokedex
         height = 50,
         weight = 21500,
         entry = BaltoyDesc,
-        forms = SingleSpecies(Species.Baltoy),
+        forms = SingleSpecies(SpeciesID.Baltoy),
     };
     public static readonly PokedexData Claydol = new()
     {
@@ -3694,7 +3772,7 @@ public static class Pokedex
         height = 150,
         weight = 108000,
         entry = ClaydolDesc,
-        forms = SingleSpecies(Species.Claydol),
+        forms = SingleSpecies(SpeciesID.Claydol),
     };
     public static readonly PokedexData Lileep = new()
     {
@@ -3704,7 +3782,7 @@ public static class Pokedex
         height = 100,
         weight = 23800,
         entry = LileepDesc,
-        forms = SingleSpecies(Species.Lileep),
+        forms = SingleSpecies(SpeciesID.Lileep),
     };
     public static readonly PokedexData Cradily = new()
     {
@@ -3714,7 +3792,7 @@ public static class Pokedex
         height = 150,
         weight = 60400,
         entry = CradilyDesc,
-        forms = SingleSpecies(Species.Cradily),
+        forms = SingleSpecies(SpeciesID.Cradily),
     };
     public static readonly PokedexData Anorith = new()
     {
@@ -3724,7 +3802,7 @@ public static class Pokedex
         height = 70,
         weight = 12500,
         entry = AnorithDesc,
-        forms = SingleSpecies(Species.Anorith),
+        forms = SingleSpecies(SpeciesID.Anorith),
     };
     public static readonly PokedexData Armaldo = new()
     {
@@ -3734,7 +3812,7 @@ public static class Pokedex
         height = 150,
         weight = 68200,
         entry = ArmaldoDesc,
-        forms = SingleSpecies(Species.Armaldo),
+        forms = SingleSpecies(SpeciesID.Armaldo),
     };
     public static readonly PokedexData Feebas = new()
     {
@@ -3744,7 +3822,7 @@ public static class Pokedex
         height = 60,
         weight = 7400,
         entry = FeebasDesc,
-        forms = SingleSpecies(Species.Feebas),
+        forms = SingleSpecies(SpeciesID.Feebas),
     };
     public static readonly PokedexData Milotic = new()
     {
@@ -3754,7 +3832,7 @@ public static class Pokedex
         height = 620,
         weight = 162000,
         entry = MiloticDesc,
-        forms = SingleSpecies(Species.Milotic),
+        forms = SingleSpecies(SpeciesID.Milotic),
     };
     public static readonly PokedexData Castform = new()
     {
@@ -3766,10 +3844,10 @@ public static class Pokedex
         entry = CastformDesc,
         forms = new[]
         {
-            Species.Castform,
-            Species.CastformSunny,
-            Species.CastformRainy,
-            Species.CastformSnowy
+            SpeciesID.Castform,
+            SpeciesID.CastformSunny,
+            SpeciesID.CastformRainy,
+            SpeciesID.CastformSnowy
         }
     };
     public static readonly PokedexData Kecleon = new()
@@ -3780,7 +3858,7 @@ public static class Pokedex
         height = 100,
         weight = 22000,
         entry = KecleonDesc,
-        forms = SingleSpecies(Species.Kecleon),
+        forms = SingleSpecies(SpeciesID.Kecleon),
     };
     public static readonly PokedexData Shuppet = new()
     {
@@ -3790,7 +3868,7 @@ public static class Pokedex
         height = 60,
         weight = 2300,
         entry = ShuppetDesc,
-        forms = SingleSpecies(Species.Shuppet),
+        forms = SingleSpecies(SpeciesID.Shuppet),
     };
     public static readonly PokedexData Banette = new()
     {
@@ -3802,8 +3880,8 @@ public static class Pokedex
         entry = BanetteDesc,
         forms = new[]
         {
-            Species.Banette,
-            Species.BanetteMega
+            SpeciesID.Banette,
+            SpeciesID.BanetteMega
         }
     };
     public static readonly PokedexData Duskull = new()
@@ -3814,7 +3892,7 @@ public static class Pokedex
         height = 80,
         weight = 15000,
         entry = DuskullDesc,
-        forms = SingleSpecies(Species.Duskull),
+        forms = SingleSpecies(SpeciesID.Duskull),
     };
     public static readonly PokedexData Dusclops = new()
     {
@@ -3824,7 +3902,7 @@ public static class Pokedex
         height = 160,
         weight = 30600,
         entry = DusclopsDesc,
-        forms = SingleSpecies(Species.Dusclops),
+        forms = SingleSpecies(SpeciesID.Dusclops),
     };
     public static readonly PokedexData Tropius = new()
     {
@@ -3834,7 +3912,7 @@ public static class Pokedex
         height = 200,
         weight = 100000,
         entry = TropiusDesc,
-        forms = SingleSpecies(Species.Tropius),
+        forms = SingleSpecies(SpeciesID.Tropius),
     };
     public static readonly PokedexData Chimecho = new()
     {
@@ -3844,7 +3922,7 @@ public static class Pokedex
         height = 60,
         weight = 1000,
         entry = ChimechoDesc,
-        forms = SingleSpecies(Species.Chimecho),
+        forms = SingleSpecies(SpeciesID.Chimecho),
     };
     public static readonly PokedexData Absol = new()
     {
@@ -3856,8 +3934,8 @@ public static class Pokedex
         entry = AbsolDesc,
         forms = new[]
         {
-            Species.Absol,
-            Species.AbsolMega
+            SpeciesID.Absol,
+            SpeciesID.AbsolMega
         }
     };
     public static readonly PokedexData Wynaut = new()
@@ -3868,7 +3946,7 @@ public static class Pokedex
         height = 60,
         weight = 14000,
         entry = WynautDesc,
-        forms = SingleSpecies(Species.Wynaut),
+        forms = SingleSpecies(SpeciesID.Wynaut),
     };
     public static readonly PokedexData Snorunt = new()
     {
@@ -3878,7 +3956,7 @@ public static class Pokedex
         height = 70,
         weight = 16800,
         entry = SnoruntDesc,
-        forms = SingleSpecies(Species.Snorunt),
+        forms = SingleSpecies(SpeciesID.Snorunt),
     };
     public static readonly PokedexData Glalie = new()
     {
@@ -3890,8 +3968,8 @@ public static class Pokedex
         entry = GlalieDesc,
         forms = new[]
         {
-            Species.Glalie,
-            Species.GlalieMega
+            SpeciesID.Glalie,
+            SpeciesID.GlalieMega
         }
     };
     public static readonly PokedexData Spheal = new()
@@ -3902,7 +3980,7 @@ public static class Pokedex
         height = 80,
         weight = 39500,
         entry = SphealDesc,
-        forms = SingleSpecies(Species.Spheal),
+        forms = SingleSpecies(SpeciesID.Spheal),
     };
     public static readonly PokedexData Sealeo = new()
     {
@@ -3912,7 +3990,7 @@ public static class Pokedex
         height = 110,
         weight = 87600,
         entry = SealeoDesc,
-        forms = SingleSpecies(Species.Sealeo),
+        forms = SingleSpecies(SpeciesID.Sealeo),
     };
     public static readonly PokedexData Walrein = new()
     {
@@ -3922,7 +4000,7 @@ public static class Pokedex
         height = 140,
         weight = 150600,
         entry = WalreinDesc,
-        forms = SingleSpecies(Species.Walrein),
+        forms = SingleSpecies(SpeciesID.Walrein),
     };
     public static readonly PokedexData Clamperl = new()
     {
@@ -3932,7 +4010,7 @@ public static class Pokedex
         height = 40,
         weight = 52500,
         entry = ClamperlDesc,
-        forms = SingleSpecies(Species.Clamperl),
+        forms = SingleSpecies(SpeciesID.Clamperl),
     };
     public static readonly PokedexData Huntail = new()
     {
@@ -3942,7 +4020,7 @@ public static class Pokedex
         height = 170,
         weight = 27000,
         entry = HuntailDesc,
-        forms = SingleSpecies(Species.Huntail),
+        forms = SingleSpecies(SpeciesID.Huntail),
     };
     public static readonly PokedexData Gorebyss = new()
     {
@@ -3952,7 +4030,7 @@ public static class Pokedex
         height = 180,
         weight = 22600,
         entry = GorebyssDesc,
-        forms = SingleSpecies(Species.Gorebyss),
+        forms = SingleSpecies(SpeciesID.Gorebyss),
     };
     public static readonly PokedexData Relicanth = new()
     {
@@ -3962,7 +4040,7 @@ public static class Pokedex
         height = 100,
         weight = 23400,
         entry = RelicanthDesc,
-        forms = SingleSpecies(Species.Relicanth),
+        forms = SingleSpecies(SpeciesID.Relicanth),
     };
     public static readonly PokedexData Luvdisc = new()
     {
@@ -3972,7 +4050,7 @@ public static class Pokedex
         height = 60,
         weight = 8700,
         entry = LuvdiscDesc,
-        forms = SingleSpecies(Species.Luvdisc),
+        forms = SingleSpecies(SpeciesID.Luvdisc),
     };
     public static readonly PokedexData Bagon = new()
     {
@@ -3982,7 +4060,7 @@ public static class Pokedex
         height = 60,
         weight = 42100,
         entry = BagonDesc,
-        forms = SingleSpecies(Species.Bagon),
+        forms = SingleSpecies(SpeciesID.Bagon),
     };
     public static readonly PokedexData Shelgon = new()
     {
@@ -3992,7 +4070,7 @@ public static class Pokedex
         height = 110,
         weight = 110500,
         entry = ShelgonDesc,
-        forms = SingleSpecies(Species.Shelgon),
+        forms = SingleSpecies(SpeciesID.Shelgon),
     };
     public static readonly PokedexData Salamence = new()
     {
@@ -4004,8 +4082,8 @@ public static class Pokedex
         entry = SalamenceDesc,
         forms = new[]
         {
-            Species.Salamence,
-            Species.SalamenceMega
+            SpeciesID.Salamence,
+            SpeciesID.SalamenceMega
         }
     };
     public static readonly PokedexData Beldum = new()
@@ -4016,7 +4094,7 @@ public static class Pokedex
         height = 60,
         weight = 95200,
         entry = BeldumDesc,
-        forms = SingleSpecies(Species.Beldum),
+        forms = SingleSpecies(SpeciesID.Beldum),
     };
     public static readonly PokedexData Metang = new()
     {
@@ -4026,7 +4104,7 @@ public static class Pokedex
         height = 120,
         weight = 202500,
         entry = MetangDesc,
-        forms = SingleSpecies(Species.Metang),
+        forms = SingleSpecies(SpeciesID.Metang),
     };
     public static readonly PokedexData Metagross = new()
     {
@@ -4038,8 +4116,8 @@ public static class Pokedex
         entry = MetagrossDesc,
         forms = new[]
         {
-            Species.Metagross,
-            Species.MetagrossMega
+            SpeciesID.Metagross,
+            SpeciesID.MetagrossMega
         }
     };
     public static readonly PokedexData Regirock = new()
@@ -4050,7 +4128,7 @@ public static class Pokedex
         height = 170,
         weight = 230000,
         entry = RegirockDesc,
-        forms = SingleSpecies(Species.Regirock),
+        forms = SingleSpecies(SpeciesID.Regirock),
     };
     public static readonly PokedexData Regice = new()
     {
@@ -4060,7 +4138,7 @@ public static class Pokedex
         height = 180,
         weight = 175000,
         entry = RegiceDesc,
-        forms = SingleSpecies(Species.Regice),
+        forms = SingleSpecies(SpeciesID.Regice),
     };
     public static readonly PokedexData Registeel = new()
     {
@@ -4070,7 +4148,7 @@ public static class Pokedex
         height = 190,
         weight = 205000,
         entry = RegisteelDesc,
-        forms = SingleSpecies(Species.Registeel),
+        forms = SingleSpecies(SpeciesID.Registeel),
     };
     public static readonly PokedexData Latias = new()
     {
@@ -4082,8 +4160,8 @@ public static class Pokedex
         entry = LatiasDesc,
         forms = new[]
         {
-            Species.Latias,
-            Species.LatiasMega
+            SpeciesID.Latias,
+            SpeciesID.LatiasMega
         }
     };
     public static readonly PokedexData Latios = new()
@@ -4096,8 +4174,8 @@ public static class Pokedex
         entry = LatiosDesc,
         forms = new[]
         {
-            Species.Latios,
-            Species.LatiosMega
+            SpeciesID.Latios,
+            SpeciesID.LatiosMega
         }
     };
     public static readonly PokedexData Kyogre = new()
@@ -4108,7 +4186,7 @@ public static class Pokedex
         height = 450,
         weight = 352000,
         entry = KyogreDesc,
-        forms = SingleSpecies(Species.Kyogre),
+        forms = SingleSpecies(SpeciesID.Kyogre),
     };
     public static readonly PokedexData Groudon = new()
     {
@@ -4118,7 +4196,7 @@ public static class Pokedex
         height = 350,
         weight = 950000,
         entry = GroudonDesc,
-        forms = SingleSpecies(Species.Groudon),
+        forms = SingleSpecies(SpeciesID.Groudon),
     };
     public static readonly PokedexData Rayquaza = new()
     {
@@ -4130,8 +4208,8 @@ public static class Pokedex
         entry = RayquazaDesc,
         forms = new[]
         {
-            Species.Rayquaza,
-            Species.RayquazaMega
+            SpeciesID.Rayquaza,
+            SpeciesID.RayquazaMega
         }
     };
     public static readonly PokedexData Jirachi = new()
@@ -4142,7 +4220,7 @@ public static class Pokedex
         height = 30,
         weight = 1100,
         entry = JirachiDesc,
-        forms = SingleSpecies(Species.Jirachi),
+        forms = SingleSpecies(SpeciesID.Jirachi),
     };
     public static readonly PokedexData Deoxys = new()
     {
@@ -4154,10 +4232,10 @@ public static class Pokedex
         entry = DeoxysDesc,
         forms = new[]
         {
-            Species.Deoxys,
-            Species.DeoxysAttack,
-            Species.DeoxysDefense,
-            Species.DeoxysSpeed
+            SpeciesID.Deoxys,
+            SpeciesID.DeoxysAttack,
+            SpeciesID.DeoxysDefense,
+            SpeciesID.DeoxysSpeed
         }
     };
 
@@ -4170,7 +4248,7 @@ public static class Pokedex
         height = 40,
         weight = 10200,
         entry = TurtwigDesc,
-        forms = SingleSpecies(Species.Turtwig),
+        forms = SingleSpecies(SpeciesID.Turtwig),
     };
     public static readonly PokedexData Grotle = new()
     {
@@ -4180,7 +4258,7 @@ public static class Pokedex
         height = 110,
         weight = 97000,
         entry = GrotleDesc,
-        forms = SingleSpecies(Species.Grotle),
+        forms = SingleSpecies(SpeciesID.Grotle),
     };
     public static readonly PokedexData Torterra = new()
     {
@@ -4190,7 +4268,7 @@ public static class Pokedex
         height = 220,
         weight = 310000,
         entry = TorterraDesc,
-        forms = SingleSpecies(Species.Torterra),
+        forms = SingleSpecies(SpeciesID.Torterra),
     };
     public static readonly PokedexData Chimchar = new()
     {
@@ -4200,7 +4278,7 @@ public static class Pokedex
         height = 50,
         weight = 6200,
         entry = ChimcharDesc,
-        forms = SingleSpecies(Species.Chimchar),
+        forms = SingleSpecies(SpeciesID.Chimchar),
     };
     public static readonly PokedexData Monferno = new()
     {
@@ -4210,7 +4288,7 @@ public static class Pokedex
         height = 90,
         weight = 22000,
         entry = MonfernoDesc,
-        forms = SingleSpecies(Species.Monferno),
+        forms = SingleSpecies(SpeciesID.Monferno),
     };
     public static readonly PokedexData Infernape = new()
     {
@@ -4220,7 +4298,7 @@ public static class Pokedex
         height = 120,
         weight = 55000,
         entry = InfernapeDesc,
-        forms = SingleSpecies(Species.Infernape),
+        forms = SingleSpecies(SpeciesID.Infernape),
     };
     public static readonly PokedexData Piplup = new()
     {
@@ -4230,7 +4308,7 @@ public static class Pokedex
         height = 40,
         weight = 5200,
         entry = PiplupDesc,
-        forms = SingleSpecies(Species.Piplup),
+        forms = SingleSpecies(SpeciesID.Piplup),
     };
     public static readonly PokedexData Prinplup = new()
     {
@@ -4240,7 +4318,7 @@ public static class Pokedex
         height = 80,
         weight = 23000,
         entry = PrinplupDesc,
-        forms = SingleSpecies(Species.Prinplup),
+        forms = SingleSpecies(SpeciesID.Prinplup),
     };
     public static readonly PokedexData Empoleon = new()
     {
@@ -4250,7 +4328,7 @@ public static class Pokedex
         height = 170,
         weight = 84500,
         entry = EmpoleonDesc,
-        forms = SingleSpecies(Species.Empoleon),
+        forms = SingleSpecies(SpeciesID.Empoleon),
     };
     public static readonly PokedexData Starly = new()
     {
@@ -4260,7 +4338,7 @@ public static class Pokedex
         height = 30,
         weight = 2000,
         entry = StarlyDesc,
-        forms = SingleSpecies(Species.Starly),
+        forms = SingleSpecies(SpeciesID.Starly),
     };
     public static readonly PokedexData Staravia = new()
     {
@@ -4270,7 +4348,7 @@ public static class Pokedex
         height = 60,
         weight = 15500,
         entry = StaraviaDesc,
-        forms = SingleSpecies(Species.Staravia),
+        forms = SingleSpecies(SpeciesID.Staravia),
     };
     public static readonly PokedexData Staraptor = new()
     {
@@ -4280,7 +4358,7 @@ public static class Pokedex
         height = 120,
         weight = 24900,
         entry = StaraptorDesc,
-        forms = SingleSpecies(Species.Staraptor),
+        forms = SingleSpecies(SpeciesID.Staraptor),
     };
     public static readonly PokedexData Bidoof = new()
     {
@@ -4290,7 +4368,7 @@ public static class Pokedex
         height = 50,
         weight = 20000,
         entry = BidoofDesc,
-        forms = SingleSpecies(Species.Bidoof),
+        forms = SingleSpecies(SpeciesID.Bidoof),
     };
     public static readonly PokedexData Bibarel = new()
     {
@@ -4300,7 +4378,7 @@ public static class Pokedex
         height = 100,
         weight = 31500,
         entry = BibarelDesc,
-        forms = SingleSpecies(Species.Bibarel),
+        forms = SingleSpecies(SpeciesID.Bibarel),
     };
     public static readonly PokedexData Kricketot = new()
     {
@@ -4310,7 +4388,7 @@ public static class Pokedex
         height = 30,
         weight = 2200,
         entry = KricketotDesc,
-        forms = SingleSpecies(Species.Kricketot),
+        forms = SingleSpecies(SpeciesID.Kricketot),
     };
     public static readonly PokedexData Kricketune = new()
     {
@@ -4320,7 +4398,7 @@ public static class Pokedex
         height = 100,
         weight = 25500,
         entry = KricketuneDesc,
-        forms = SingleSpecies(Species.Kricketune),
+        forms = SingleSpecies(SpeciesID.Kricketune),
     };
     public static readonly PokedexData Shinx = new()
     {
@@ -4330,7 +4408,7 @@ public static class Pokedex
         height = 50,
         weight = 9500,
         entry = ShinxDesc,
-        forms = SingleSpecies(Species.Shinx),
+        forms = SingleSpecies(SpeciesID.Shinx),
     };
     public static readonly PokedexData Luxio = new()
     {
@@ -4340,7 +4418,7 @@ public static class Pokedex
         height = 90,
         weight = 30500,
         entry = LuxioDesc,
-        forms = SingleSpecies(Species.Luxio),
+        forms = SingleSpecies(SpeciesID.Luxio),
     };
     public static readonly PokedexData Luxray = new()
     {
@@ -4350,7 +4428,7 @@ public static class Pokedex
         height = 140,
         weight = 42000,
         entry = LuxrayDesc,
-        forms = SingleSpecies(Species.Luxray),
+        forms = SingleSpecies(SpeciesID.Luxray),
     };
     public static readonly PokedexData Budew = new()
     {
@@ -4360,7 +4438,7 @@ public static class Pokedex
         height = 20,
         weight = 1200,
         entry = BudewDesc,
-        forms = SingleSpecies(Species.Budew),
+        forms = SingleSpecies(SpeciesID.Budew),
     };
     public static readonly PokedexData Roserade = new()
     {
@@ -4370,7 +4448,7 @@ public static class Pokedex
         height = 90,
         weight = 14500,
         entry = RoseradeDesc,
-        forms = SingleSpecies(Species.Roserade),
+        forms = SingleSpecies(SpeciesID.Roserade),
     };
     public static readonly PokedexData Cranidos = new()
     {
@@ -4380,7 +4458,7 @@ public static class Pokedex
         height = 90,
         weight = 31500,
         entry = CranidosDesc,
-        forms = SingleSpecies(Species.Cranidos),
+        forms = SingleSpecies(SpeciesID.Cranidos),
     };
     public static readonly PokedexData Rampardos = new()
     {
@@ -4390,7 +4468,7 @@ public static class Pokedex
         height = 160,
         weight = 102500,
         entry = RampardosDesc,
-        forms = SingleSpecies(Species.Rampardos),
+        forms = SingleSpecies(SpeciesID.Rampardos),
     };
     public static readonly PokedexData Shieldon = new()
     {
@@ -4400,7 +4478,7 @@ public static class Pokedex
         height = 50,
         weight = 57000,
         entry = ShieldonDesc,
-        forms = SingleSpecies(Species.Shieldon),
+        forms = SingleSpecies(SpeciesID.Shieldon),
     };
     public static readonly PokedexData Bastiodon = new()
     {
@@ -4410,7 +4488,7 @@ public static class Pokedex
         height = 130,
         weight = 149500,
         entry = BastiodonDesc,
-        forms = SingleSpecies(Species.Bastiodon),
+        forms = SingleSpecies(SpeciesID.Bastiodon),
     };
     public static readonly PokedexData Burmy = new()
     {
@@ -4422,9 +4500,9 @@ public static class Pokedex
         entry = BurmyDesc,
         forms = new[]
         {
-            Species.Burmy,
-            Species.BurmySand,
-            Species.BurmyTrash
+            SpeciesID.Burmy,
+            SpeciesID.BurmySand,
+            SpeciesID.BurmyTrash
         }
     };
     public static readonly PokedexData Wormadam = new()
@@ -4437,9 +4515,9 @@ public static class Pokedex
         entry = WormadamDesc,
         forms = new[]
         {
-            Species.Wormadam,
-            Species.WormadamSand,
-            Species.WormadamTrash
+            SpeciesID.Wormadam,
+            SpeciesID.WormadamSand,
+            SpeciesID.WormadamTrash
         }
     };
     public static readonly PokedexData Mothim = new()
@@ -4450,7 +4528,7 @@ public static class Pokedex
         height = 90,
         weight = 23300,
         entry = MothimDesc,
-        forms = SingleSpecies(Species.Mothim),
+        forms = SingleSpecies(SpeciesID.Mothim),
     };
     public static readonly PokedexData Combee = new()
     {
@@ -4460,7 +4538,7 @@ public static class Pokedex
         height = 30,
         weight = 5500,
         entry = CombeeDesc,
-        forms = SingleSpecies(Species.Combee),
+        forms = SingleSpecies(SpeciesID.Combee),
     };
     public static readonly PokedexData Vespiquen = new()
     {
@@ -4470,7 +4548,7 @@ public static class Pokedex
         height = 120,
         weight = 38500,
         entry = VespiquenDesc,
-        forms = SingleSpecies(Species.Vespiquen),
+        forms = SingleSpecies(SpeciesID.Vespiquen),
     };
     public static readonly PokedexData Pachirisu = new()
     {
@@ -4480,7 +4558,7 @@ public static class Pokedex
         height = 40,
         weight = 3900,
         entry = PachirisuDesc,
-        forms = SingleSpecies(Species.Pachirisu),
+        forms = SingleSpecies(SpeciesID.Pachirisu),
     };
     public static readonly PokedexData Buizel = new()
     {
@@ -4490,7 +4568,7 @@ public static class Pokedex
         height = 70,
         weight = 29500,
         entry = BuizelDesc,
-        forms = SingleSpecies(Species.Buizel),
+        forms = SingleSpecies(SpeciesID.Buizel),
     };
     public static readonly PokedexData Floatzel = new()
     {
@@ -4500,7 +4578,7 @@ public static class Pokedex
         height = 110,
         weight = 33500,
         entry = FloatzelDesc,
-        forms = SingleSpecies(Species.Floatzel),
+        forms = SingleSpecies(SpeciesID.Floatzel),
     };
     public static readonly PokedexData Cherubi = new()
     {
@@ -4510,7 +4588,7 @@ public static class Pokedex
         height = 40,
         weight = 3300,
         entry = CherubiDesc,
-        forms = SingleSpecies(Species.Cherubi),
+        forms = SingleSpecies(SpeciesID.Cherubi),
     };
     public static readonly PokedexData Cherrim = new()
     {
@@ -4522,8 +4600,8 @@ public static class Pokedex
         entry = CherrimDesc,
         forms = new[]
         {
-            Species.Cherrim,
-            Species.CherrimSunshine
+            SpeciesID.Cherrim,
+            SpeciesID.CherrimSunshine
         }
     };
     public static readonly PokedexData Shellos = new()
@@ -4536,8 +4614,8 @@ public static class Pokedex
         entry = ShellosDesc,
         forms = new[]
         {
-            Species.Shellos,
-            Species.ShellosEast
+            SpeciesID.Shellos,
+            SpeciesID.ShellosEast
         }
     };
     public static readonly PokedexData Gastrodon = new()
@@ -4550,8 +4628,8 @@ public static class Pokedex
         entry = GastrodonDesc,
         forms = new[]
         {
-            Species.Gastrodon,
-            Species.GastrodonEast
+            SpeciesID.Gastrodon,
+            SpeciesID.GastrodonEast
         }
     };
     public static readonly PokedexData Ambipom = new()
@@ -4562,7 +4640,7 @@ public static class Pokedex
         height = 120,
         weight = 20300,
         entry = AmbipomDesc,
-        forms = SingleSpecies(Species.Ambipom),
+        forms = SingleSpecies(SpeciesID.Ambipom),
     };
     public static readonly PokedexData Drifloon = new()
     {
@@ -4572,7 +4650,7 @@ public static class Pokedex
         height = 40,
         weight = 1200,
         entry = DrifloonDesc,
-        forms = SingleSpecies(Species.Drifloon),
+        forms = SingleSpecies(SpeciesID.Drifloon),
     };
     public static readonly PokedexData Drifblim = new()
     {
@@ -4582,7 +4660,7 @@ public static class Pokedex
         height = 120,
         weight = 15000,
         entry = DrifblimDesc,
-        forms = SingleSpecies(Species.Drifblim),
+        forms = SingleSpecies(SpeciesID.Drifblim),
     };
     public static readonly PokedexData Buneary = new()
     {
@@ -4592,7 +4670,7 @@ public static class Pokedex
         height = 40,
         weight = 5500,
         entry = BunearyDesc,
-        forms = SingleSpecies(Species.Buneary),
+        forms = SingleSpecies(SpeciesID.Buneary),
     };
     public static readonly PokedexData Lopunny = new()
     {
@@ -4604,8 +4682,8 @@ public static class Pokedex
         entry = LopunnyDesc,
         forms = new[]
         {
-            Species.Lopunny,
-            Species.LopunnyMega
+            SpeciesID.Lopunny,
+            SpeciesID.LopunnyMega
         }
     };
     public static readonly PokedexData Mismagius = new()
@@ -4616,7 +4694,7 @@ public static class Pokedex
         height = 90,
         weight = 4400,
         entry = MismagiusDesc,
-        forms = SingleSpecies(Species.Mismagius),
+        forms = SingleSpecies(SpeciesID.Mismagius),
     };
     public static readonly PokedexData Honchkrow = new()
     {
@@ -4626,7 +4704,7 @@ public static class Pokedex
         height = 90,
         weight = 27300,
         entry = HonchkrowDesc,
-        forms = SingleSpecies(Species.Honchkrow),
+        forms = SingleSpecies(SpeciesID.Honchkrow),
     };
     public static readonly PokedexData Glameow = new()
     {
@@ -4636,7 +4714,7 @@ public static class Pokedex
         height = 50,
         weight = 3900,
         entry = GlameowDesc,
-        forms = SingleSpecies(Species.Glameow),
+        forms = SingleSpecies(SpeciesID.Glameow),
     };
     public static readonly PokedexData Purugly = new()
     {
@@ -4646,7 +4724,7 @@ public static class Pokedex
         height = 100,
         weight = 43800,
         entry = PuruglyDesc,
-        forms = SingleSpecies(Species.Purugly),
+        forms = SingleSpecies(SpeciesID.Purugly),
     };
     public static readonly PokedexData Chingling = new()
     {
@@ -4656,7 +4734,7 @@ public static class Pokedex
         height = 20,
         weight = 600,
         entry = ChinglingDesc,
-        forms = SingleSpecies(Species.Chingling),
+        forms = SingleSpecies(SpeciesID.Chingling),
     };
     public static readonly PokedexData Stunky = new()
     {
@@ -4666,7 +4744,7 @@ public static class Pokedex
         height = 40,
         weight = 19200,
         entry = StunkyDesc,
-        forms = SingleSpecies(Species.Stunky),
+        forms = SingleSpecies(SpeciesID.Stunky),
     };
     public static readonly PokedexData Skuntank = new()
     {
@@ -4676,7 +4754,7 @@ public static class Pokedex
         height = 100,
         weight = 38000,
         entry = SkuntankDesc,
-        forms = SingleSpecies(Species.Skuntank),
+        forms = SingleSpecies(SpeciesID.Skuntank),
     };
     public static readonly PokedexData Bronzor = new()
     {
@@ -4686,7 +4764,7 @@ public static class Pokedex
         height = 50,
         weight = 60500,
         entry = BronzorDesc,
-        forms = SingleSpecies(Species.Bronzor),
+        forms = SingleSpecies(SpeciesID.Bronzor),
     };
     public static readonly PokedexData Bronzong = new()
     {
@@ -4696,7 +4774,7 @@ public static class Pokedex
         height = 130,
         weight = 187000,
         entry = BronzongDesc,
-        forms = SingleSpecies(Species.Bronzong),
+        forms = SingleSpecies(SpeciesID.Bronzong),
     };
     public static readonly PokedexData Bonsly = new()
     {
@@ -4706,7 +4784,7 @@ public static class Pokedex
         height = 50,
         weight = 15000,
         entry = BonslyDesc,
-        forms = SingleSpecies(Species.Bonsly),
+        forms = SingleSpecies(SpeciesID.Bonsly),
     };
     public static readonly PokedexData MimeJr = new()
     {
@@ -4716,7 +4794,7 @@ public static class Pokedex
         height = 60,
         weight = 13000,
         entry = MimeJrDesc,
-        forms = SingleSpecies(Species.MimeJr),
+        forms = SingleSpecies(SpeciesID.MimeJr),
 
     };
     public static readonly PokedexData Happiny = new()
@@ -4727,7 +4805,7 @@ public static class Pokedex
         height = 60,
         weight = 24400,
         entry = HappinyDesc,
-        forms = SingleSpecies(Species.Happiny),
+        forms = SingleSpecies(SpeciesID.Happiny),
     };
     public static readonly PokedexData Chatot = new()
     {
@@ -4737,7 +4815,7 @@ public static class Pokedex
         height = 50,
         weight = 1900,
         entry = ChatotDesc,
-        forms = SingleSpecies(Species.Chatot),
+        forms = SingleSpecies(SpeciesID.Chatot),
     };
     public static readonly PokedexData Spiritomb = new()
     {
@@ -4747,7 +4825,7 @@ public static class Pokedex
         height = 100,
         weight = 108000,
         entry = SpiritombDesc,
-        forms = SingleSpecies(Species.Spiritomb),
+        forms = SingleSpecies(SpeciesID.Spiritomb),
     };
     public static readonly PokedexData Gible = new()
     {
@@ -4757,7 +4835,7 @@ public static class Pokedex
         height = 70,
         weight = 20500,
         entry = GibleDesc,
-        forms = SingleSpecies(Species.Gible),
+        forms = SingleSpecies(SpeciesID.Gible),
     };
     public static readonly PokedexData Gabite = new()
     {
@@ -4767,7 +4845,7 @@ public static class Pokedex
         height = 140,
         weight = 56000,
         entry = GabiteDesc,
-        forms = SingleSpecies(Species.Gabite),
+        forms = SingleSpecies(SpeciesID.Gabite),
     };
     public static readonly PokedexData Garchomp = new()
     {
@@ -4779,8 +4857,8 @@ public static class Pokedex
         entry = GarchompDesc,
         forms = new[]
         {
-            Species.Garchomp,
-            Species.GarchompMega
+            SpeciesID.Garchomp,
+            SpeciesID.GarchompMega
         }
     };
     public static readonly PokedexData Munchlax = new()
@@ -4791,7 +4869,7 @@ public static class Pokedex
         height = 60,
         weight = 105000,
         entry = MunchlaxDesc,
-        forms = SingleSpecies(Species.Munchlax),
+        forms = SingleSpecies(SpeciesID.Munchlax),
     };
     public static readonly PokedexData Riolu = new()
     {
@@ -4801,7 +4879,7 @@ public static class Pokedex
         height = 70,
         weight = 20200,
         entry = RioluDesc,
-        forms = SingleSpecies(Species.Riolu),
+        forms = SingleSpecies(SpeciesID.Riolu),
     };
     public static readonly PokedexData Lucario = new()
     {
@@ -4813,8 +4891,8 @@ public static class Pokedex
         entry = LucarioDesc,
         forms = new[]
         {
-            Species.Lucario,
-            Species.LucarioMega
+            SpeciesID.Lucario,
+            SpeciesID.LucarioMega
         }
     };
     public static readonly PokedexData Hippopotas = new()
@@ -4825,7 +4903,7 @@ public static class Pokedex
         height = 80,
         weight = 49500,
         entry = HippopotasDesc,
-        forms = SingleSpecies(Species.Hippopotas),
+        forms = SingleSpecies(SpeciesID.Hippopotas),
     };
     public static readonly PokedexData Hippowdon = new()
     {
@@ -4835,7 +4913,7 @@ public static class Pokedex
         height = 200,
         weight = 300000,
         entry = HippowdonDesc,
-        forms = SingleSpecies(Species.Hippowdon),
+        forms = SingleSpecies(SpeciesID.Hippowdon),
     };
     public static readonly PokedexData Skorupi = new()
     {
@@ -4845,7 +4923,7 @@ public static class Pokedex
         height = 80,
         weight = 12000,
         entry = SkorupiDesc,
-        forms = SingleSpecies(Species.Skorupi),
+        forms = SingleSpecies(SpeciesID.Skorupi),
     };
     public static readonly PokedexData Drapion = new()
     {
@@ -4855,7 +4933,7 @@ public static class Pokedex
         height = 130,
         weight = 61500,
         entry = DrapionDesc,
-        forms = SingleSpecies(Species.Drapion),
+        forms = SingleSpecies(SpeciesID.Drapion),
     };
     public static readonly PokedexData Croagunk = new()
     {
@@ -4865,7 +4943,7 @@ public static class Pokedex
         height = 70,
         weight = 23000,
         entry = CroagunkDesc,
-        forms = SingleSpecies(Species.Croagunk),
+        forms = SingleSpecies(SpeciesID.Croagunk),
     };
     public static readonly PokedexData Toxicroak = new()
     {
@@ -4875,7 +4953,7 @@ public static class Pokedex
         height = 130,
         weight = 44400,
         entry = ToxicroakDesc,
-        forms = SingleSpecies(Species.Toxicroak),
+        forms = SingleSpecies(SpeciesID.Toxicroak),
     };
     public static readonly PokedexData Carnivine = new()
     {
@@ -4885,7 +4963,7 @@ public static class Pokedex
         height = 140,
         weight = 27000,
         entry = CarnivineDesc,
-        forms = SingleSpecies(Species.Carnivine),
+        forms = SingleSpecies(SpeciesID.Carnivine),
     };
     public static readonly PokedexData Finneon = new()
     {
@@ -4895,7 +4973,7 @@ public static class Pokedex
         height = 40,
         weight = 7000,
         entry = FinneonDesc,
-        forms = SingleSpecies(Species.Finneon),
+        forms = SingleSpecies(SpeciesID.Finneon),
     };
     public static readonly PokedexData Lumineon = new()
     {
@@ -4905,7 +4983,7 @@ public static class Pokedex
         height = 120,
         weight = 24000,
         entry = LumineonDesc,
-        forms = SingleSpecies(Species.Lumineon),
+        forms = SingleSpecies(SpeciesID.Lumineon),
     };
     public static readonly PokedexData Mantyke = new()
     {
@@ -4915,7 +4993,7 @@ public static class Pokedex
         height = 100,
         weight = 65000,
         entry = MantykeDesc,
-        forms = SingleSpecies(Species.Mantyke),
+        forms = SingleSpecies(SpeciesID.Mantyke),
     };
     public static readonly PokedexData Snover = new()
     {
@@ -4925,7 +5003,7 @@ public static class Pokedex
         height = 100,
         weight = 50500,
         entry = SnoverDesc,
-        forms = SingleSpecies(Species.Snover),
+        forms = SingleSpecies(SpeciesID.Snover),
     };
     public static readonly PokedexData Abomasnow = new()
     {
@@ -4937,8 +5015,8 @@ public static class Pokedex
         entry = AbomasnowDesc,
         forms = new[]
         {
-            Species.Abomasnow,
-            Species.AbomasnowMega
+            SpeciesID.Abomasnow,
+            SpeciesID.AbomasnowMega
         }
     };
     public static readonly PokedexData Weavile = new()
@@ -4949,7 +5027,7 @@ public static class Pokedex
         height = 110,
         weight = 34000,
         entry = WeavileDesc,
-        forms = SingleSpecies(Species.Weavile),
+        forms = SingleSpecies(SpeciesID.Weavile),
     };
     public static readonly PokedexData Magnezone = new()
     {
@@ -4959,7 +5037,7 @@ public static class Pokedex
         height = 120,
         weight = 180000,
         entry = MagnezoneDesc,
-        forms = SingleSpecies(Species.Magnezone),
+        forms = SingleSpecies(SpeciesID.Magnezone),
     };
     public static readonly PokedexData Lickilicky = new()
     {
@@ -4969,7 +5047,7 @@ public static class Pokedex
         height = 170,
         weight = 140000,
         entry = LickilickyDesc,
-        forms = SingleSpecies(Species.Lickilicky),
+        forms = SingleSpecies(SpeciesID.Lickilicky),
     };
     public static readonly PokedexData Rhyperior = new()
     {
@@ -4979,7 +5057,7 @@ public static class Pokedex
         height = 240,
         weight = 282800,
         entry = RhyperiorDesc,
-        forms = SingleSpecies(Species.Rhyperior),
+        forms = SingleSpecies(SpeciesID.Rhyperior),
     };
     public static readonly PokedexData Tangrowth = new()
     {
@@ -4989,7 +5067,7 @@ public static class Pokedex
         height = 200,
         weight = 128600,
         entry = TangrowthDesc,
-        forms = SingleSpecies(Species.Tangrowth),
+        forms = SingleSpecies(SpeciesID.Tangrowth),
     };
     public static readonly PokedexData Electivire = new()
     {
@@ -4999,7 +5077,7 @@ public static class Pokedex
         height = 180,
         weight = 138600,
         entry = ElectivireDesc,
-        forms = SingleSpecies(Species.Electivire),
+        forms = SingleSpecies(SpeciesID.Electivire),
     };
     public static readonly PokedexData Magmortar = new()
     {
@@ -5009,7 +5087,7 @@ public static class Pokedex
         height = 160,
         weight = 68000,
         entry = MagmortarDesc,
-        forms = SingleSpecies(Species.Magmortar),
+        forms = SingleSpecies(SpeciesID.Magmortar),
     };
     public static readonly PokedexData Togekiss = new()
     {
@@ -5019,7 +5097,7 @@ public static class Pokedex
         height = 150,
         weight = 38000,
         entry = TogekissDesc,
-        forms = SingleSpecies(Species.Togekiss),
+        forms = SingleSpecies(SpeciesID.Togekiss),
     };
     public static readonly PokedexData Yanmega = new()
     {
@@ -5029,7 +5107,7 @@ public static class Pokedex
         height = 190,
         weight = 51500,
         entry = YanmegaDesc,
-        forms = SingleSpecies(Species.Yanmega),
+        forms = SingleSpecies(SpeciesID.Yanmega),
     };
     public static readonly PokedexData Leafeon = new()
     {
@@ -5039,7 +5117,7 @@ public static class Pokedex
         height = 100,
         weight = 25500,
         entry = LeafeonDesc,
-        forms = SingleSpecies(Species.Leafeon),
+        forms = SingleSpecies(SpeciesID.Leafeon),
     };
     public static readonly PokedexData Glaceon = new()
     {
@@ -5049,7 +5127,7 @@ public static class Pokedex
         height = 80,
         weight = 25900,
         entry = GlaceonDesc,
-        forms = SingleSpecies(Species.Glaceon),
+        forms = SingleSpecies(SpeciesID.Glaceon),
     };
     public static readonly PokedexData Gliscor = new()
     {
@@ -5059,7 +5137,7 @@ public static class Pokedex
         height = 200,
         weight = 42500,
         entry = GliscorDesc,
-        forms = SingleSpecies(Species.Gliscor),
+        forms = SingleSpecies(SpeciesID.Gliscor),
     };
     public static readonly PokedexData Mamoswine = new()
     {
@@ -5069,7 +5147,7 @@ public static class Pokedex
         height = 250,
         weight = 291000,
         entry = MamoswineDesc,
-        forms = SingleSpecies(Species.Mamoswine),
+        forms = SingleSpecies(SpeciesID.Mamoswine),
     };
     public static readonly PokedexData PorygonZ = new()
     {
@@ -5079,7 +5157,7 @@ public static class Pokedex
         height = 90,
         weight = 34000,
         entry = PorygonZDesc,
-        forms = SingleSpecies(Species.PorygonZ),
+        forms = SingleSpecies(SpeciesID.PorygonZ),
     };
     public static readonly PokedexData Gallade = new()
     {
@@ -5091,8 +5169,8 @@ public static class Pokedex
         entry = GalladeDesc,
         forms = new[]
         {
-            Species.Gallade,
-            Species.GalladeMega
+            SpeciesID.Gallade,
+            SpeciesID.GalladeMega
         }
     };
     public static readonly PokedexData Probopass = new()
@@ -5103,7 +5181,7 @@ public static class Pokedex
         height = 140,
         weight = 340000,
         entry = ProbopassDesc,
-        forms = SingleSpecies(Species.Probopass),
+        forms = SingleSpecies(SpeciesID.Probopass),
     };
     public static readonly PokedexData Dusknoir = new()
     {
@@ -5113,7 +5191,7 @@ public static class Pokedex
         height = 220,
         weight = 106600,
         entry = DusknoirDesc,
-        forms = SingleSpecies(Species.Dusknoir),
+        forms = SingleSpecies(SpeciesID.Dusknoir),
     };
     public static readonly PokedexData Froslass = new()
     {
@@ -5123,7 +5201,7 @@ public static class Pokedex
         height = 130,
         weight = 26600,
         entry = FroslassDesc,
-        forms = SingleSpecies(Species.Froslass),
+        forms = SingleSpecies(SpeciesID.Froslass),
     };
     public static readonly PokedexData Rotom = new()
     {
@@ -5135,12 +5213,12 @@ public static class Pokedex
         entry = RotomDesc,
         forms = new[]
         {
-            Species.Rotom,
-            Species.RotomHeat,
-            Species.RotomWash,
-            Species.RotomFrost,
-            Species.RotomFan,
-            Species.RotomMow
+            SpeciesID.Rotom,
+            SpeciesID.RotomHeat,
+            SpeciesID.RotomWash,
+            SpeciesID.RotomFrost,
+            SpeciesID.RotomFan,
+            SpeciesID.RotomMow
         }
     };
     public static readonly PokedexData Uxie = new()
@@ -5151,7 +5229,7 @@ public static class Pokedex
         height = 30,
         weight = 300,
         entry = UxieDesc,
-        forms = SingleSpecies(Species.Uxie),
+        forms = SingleSpecies(SpeciesID.Uxie),
     };
     public static readonly PokedexData Mesprit = new()
     {
@@ -5161,7 +5239,7 @@ public static class Pokedex
         height = 30,
         weight = 300,
         entry = MespritDesc,
-        forms = SingleSpecies(Species.Mesprit),
+        forms = SingleSpecies(SpeciesID.Mesprit),
     };
     public static readonly PokedexData Azelf = new()
     {
@@ -5171,7 +5249,7 @@ public static class Pokedex
         height = 30,
         weight = 300,
         entry = AzelfDesc,
-        forms = SingleSpecies(Species.Azelf),
+        forms = SingleSpecies(SpeciesID.Azelf),
     };
     public static readonly PokedexData Dialga = new()
     {
@@ -5183,8 +5261,8 @@ public static class Pokedex
         entry = DialgaDesc,
         forms = new[]
         {
-            Species.Dialga,
-            Species.DialgaOrigin
+            SpeciesID.Dialga,
+            SpeciesID.DialgaOrigin
         }
     };
     public static readonly PokedexData Palkia = new()
@@ -5197,8 +5275,8 @@ public static class Pokedex
         entry = PalkiaDesc,
         forms = new[]
         {
-            Species.Palkia,
-            Species.PalkiaOrigin
+            SpeciesID.Palkia,
+            SpeciesID.PalkiaOrigin
         }
     };
     public static readonly PokedexData Heatran = new()
@@ -5209,7 +5287,7 @@ public static class Pokedex
         height = 170,
         weight = 430000,
         entry = HeatranDesc,
-        forms = SingleSpecies(Species.Heatran),
+        forms = SingleSpecies(SpeciesID.Heatran),
     };
     public static readonly PokedexData Regigigas = new()
     {
@@ -5219,7 +5297,7 @@ public static class Pokedex
         height = 370,
         weight = 420000,
         entry = RegigigasDesc,
-        forms = SingleSpecies(Species.Regigigas),
+        forms = SingleSpecies(SpeciesID.Regigigas),
     };
     public static readonly PokedexData Giratina = new()
     {
@@ -5231,8 +5309,8 @@ public static class Pokedex
         entry = GiratinaDesc,
         forms = new[]
         {
-            Species.Giratina,
-            Species.GiratinaOrigin
+            SpeciesID.Giratina,
+            SpeciesID.GiratinaOrigin
         }
     };
     public static readonly PokedexData Cresselia = new()
@@ -5243,7 +5321,7 @@ public static class Pokedex
         height = 150,
         weight = 85600,
         entry = CresseliaDesc,
-        forms = SingleSpecies(Species.Cresselia),
+        forms = SingleSpecies(SpeciesID.Cresselia),
     };
     public static readonly PokedexData Phione = new()
     {
@@ -5253,7 +5331,7 @@ public static class Pokedex
         height = 40,
         weight = 3100,
         entry = PhioneDesc,
-        forms = SingleSpecies(Species.Phione),
+        forms = SingleSpecies(SpeciesID.Phione),
     };
     public static readonly PokedexData Manaphy = new()
     {
@@ -5263,7 +5341,7 @@ public static class Pokedex
         height = 30,
         weight = 1400,
         entry = ManaphyDesc,
-        forms = SingleSpecies(Species.Manaphy),
+        forms = SingleSpecies(SpeciesID.Manaphy),
     };
     public static readonly PokedexData Darkrai = new()
     {
@@ -5273,7 +5351,7 @@ public static class Pokedex
         height = 150,
         weight = 50500,
         entry = DarkraiDesc,
-        forms = SingleSpecies(Species.Darkrai),
+        forms = SingleSpecies(SpeciesID.Darkrai),
     };
     public static readonly PokedexData Shaymin = new()
     {
@@ -5283,7 +5361,7 @@ public static class Pokedex
         height = 20,
         weight = 2100,
         entry = ShayminDesc,
-        forms = SingleSpecies(Species.Shaymin),
+        forms = SingleSpecies(SpeciesID.Shaymin),
     };
     public static readonly PokedexData Arceus = new()
     {
@@ -5293,7 +5371,7 @@ public static class Pokedex
         height = 320,
         weight = 320000,
         entry = ArceusDesc,
-        forms = SingleSpecies(Species.Arceus),
+        forms = SingleSpecies(SpeciesID.Arceus),
     };
     public static readonly PokedexData Victini = new()
     {
@@ -5303,7 +5381,7 @@ public static class Pokedex
         height = 40,
         weight = 4000,
         entry = VictiniDesc,
-        forms = SingleSpecies(Species.Victini),
+        forms = SingleSpecies(SpeciesID.Victini),
     };
     public static readonly PokedexData Snivy = new()
     {
@@ -5313,7 +5391,7 @@ public static class Pokedex
         height = 60,
         weight = 8100,
         entry = SnivyDesc,
-        forms = SingleSpecies(Species.Snivy),
+        forms = SingleSpecies(SpeciesID.Snivy),
     };
     public static readonly PokedexData Servine = new()
     {
@@ -5323,7 +5401,7 @@ public static class Pokedex
         height = 80,
         weight = 16000,
         entry = ServineDesc,
-        forms = SingleSpecies(Species.Servine),
+        forms = SingleSpecies(SpeciesID.Servine),
     };
     public static readonly PokedexData Serperior = new()
     {
@@ -5333,7 +5411,7 @@ public static class Pokedex
         height = 330,
         weight = 63000,
         entry = SerperiorDesc,
-        forms = SingleSpecies(Species.Serperior),
+        forms = SingleSpecies(SpeciesID.Serperior),
     };
     public static readonly PokedexData Tepig = new()
     {
@@ -5343,7 +5421,7 @@ public static class Pokedex
         height = 50,
         weight = 9900,
         entry = TepigDesc,
-        forms = SingleSpecies(Species.Tepig),
+        forms = SingleSpecies(SpeciesID.Tepig),
     };
     public static readonly PokedexData Pignite = new()
     {
@@ -5353,7 +5431,7 @@ public static class Pokedex
         height = 100,
         weight = 55500,
         entry = PigniteDesc,
-        forms = SingleSpecies(Species.Pignite),
+        forms = SingleSpecies(SpeciesID.Pignite),
     };
     public static readonly PokedexData Emboar = new()
     {
@@ -5363,7 +5441,7 @@ public static class Pokedex
         height = 160,
         weight = 150000,
         entry = EmboarDesc,
-        forms = SingleSpecies(Species.Emboar),
+        forms = SingleSpecies(SpeciesID.Emboar),
     };
     public static readonly PokedexData Oshawott = new()
     {
@@ -5373,7 +5451,7 @@ public static class Pokedex
         height = 50,
         weight = 5900,
         entry = OshawottDesc,
-        forms = SingleSpecies(Species.Oshawott),
+        forms = SingleSpecies(SpeciesID.Oshawott),
     };
     public static readonly PokedexData Dewott = new()
     {
@@ -5383,7 +5461,7 @@ public static class Pokedex
         height = 80,
         weight = 24500,
         entry = DewottDesc,
-        forms = SingleSpecies(Species.Dewott),
+        forms = SingleSpecies(SpeciesID.Dewott),
     };
     public static readonly PokedexData Samurott = new()
     {
@@ -5393,7 +5471,11 @@ public static class Pokedex
         height = 150,
         weight = 94600,
         entry = SamurottDesc,
-        forms = SingleSpecies(Species.Samurott),
+        forms = new[]
+        {
+            SpeciesID.Samurott,
+            SpeciesID.SamurottHisui
+        }
     };
     public static readonly PokedexData Patrat = new()
     {
@@ -5403,7 +5485,7 @@ public static class Pokedex
         height = 50,
         weight = 11600,
         entry = PatratDesc,
-        forms = SingleSpecies(Species.Patrat),
+        forms = SingleSpecies(SpeciesID.Patrat),
     };
     public static readonly PokedexData Watchog = new()
     {
@@ -5413,7 +5495,7 @@ public static class Pokedex
         height = 110,
         weight = 27000,
         entry = WatchogDesc,
-        forms = SingleSpecies(Species.Watchog),
+        forms = SingleSpecies(SpeciesID.Watchog),
     };
     public static readonly PokedexData Lillipup = new()
     {
@@ -5423,7 +5505,7 @@ public static class Pokedex
         height = 40,
         weight = 4100,
         entry = LillipupDesc,
-        forms = SingleSpecies(Species.Lillipup),
+        forms = SingleSpecies(SpeciesID.Lillipup),
     };
     public static readonly PokedexData Herdier = new()
     {
@@ -5433,7 +5515,7 @@ public static class Pokedex
         height = 90,
         weight = 14700,
         entry = HerdierDesc,
-        forms = SingleSpecies(Species.Herdier),
+        forms = SingleSpecies(SpeciesID.Herdier),
     };
     public static readonly PokedexData Stoutland = new()
     {
@@ -5443,7 +5525,7 @@ public static class Pokedex
         height = 120,
         weight = 61000,
         entry = StoutlandDesc,
-        forms = SingleSpecies(Species.Stoutland),
+        forms = SingleSpecies(SpeciesID.Stoutland),
     };
     public static readonly PokedexData Purrloin = new()
     {
@@ -5453,7 +5535,7 @@ public static class Pokedex
         height = 40,
         weight = 10100,
         entry = PurrloinDesc,
-        forms = SingleSpecies(Species.Purrloin),
+        forms = SingleSpecies(SpeciesID.Purrloin),
     };
     public static readonly PokedexData Liepard = new()
     {
@@ -5463,7 +5545,7 @@ public static class Pokedex
         height = 110,
         weight = 37500,
         entry = LiepardDesc,
-        forms = SingleSpecies(Species.Liepard),
+        forms = SingleSpecies(SpeciesID.Liepard),
     };
     public static readonly PokedexData Pansage = new()
     {
@@ -5473,7 +5555,7 @@ public static class Pokedex
         height = 60,
         weight = 10500,
         entry = PansageDesc,
-        forms = SingleSpecies(Species.Pansage),
+        forms = SingleSpecies(SpeciesID.Pansage),
     };
     public static readonly PokedexData Simisage = new()
     {
@@ -5483,7 +5565,7 @@ public static class Pokedex
         height = 110,
         weight = 30500,
         entry = SimisageDesc,
-        forms = SingleSpecies(Species.Simisage),
+        forms = SingleSpecies(SpeciesID.Simisage),
     };
     public static readonly PokedexData Pansear = new()
     {
@@ -5493,7 +5575,7 @@ public static class Pokedex
         height = 60,
         weight = 11000,
         entry = PansearDesc,
-        forms = SingleSpecies(Species.Pansear),
+        forms = SingleSpecies(SpeciesID.Pansear),
     };
     public static readonly PokedexData Simisear = new()
     {
@@ -5503,7 +5585,7 @@ public static class Pokedex
         height = 100,
         weight = 28000,
         entry = SimisearDesc,
-        forms = SingleSpecies(Species.Simisear),
+        forms = SingleSpecies(SpeciesID.Simisear),
     };
     public static readonly PokedexData Panpour = new()
     {
@@ -5513,7 +5595,7 @@ public static class Pokedex
         height = 60,
         weight = 13500,
         entry = PanpourDesc,
-        forms = SingleSpecies(Species.Panpour),
+        forms = SingleSpecies(SpeciesID.Panpour),
     };
     public static readonly PokedexData Simipour = new()
     {
@@ -5523,7 +5605,7 @@ public static class Pokedex
         height = 100,
         weight = 29000,
         entry = SimipourDesc,
-        forms = SingleSpecies(Species.Simipour),
+        forms = SingleSpecies(SpeciesID.Simipour),
     };
     public static readonly PokedexData Munna = new()
     {
@@ -5533,7 +5615,7 @@ public static class Pokedex
         height = 60,
         weight = 23300,
         entry = MunnaDesc,
-        forms = SingleSpecies(Species.Munna),
+        forms = SingleSpecies(SpeciesID.Munna),
     };
     public static readonly PokedexData Musharna = new()
     {
@@ -5543,7 +5625,7 @@ public static class Pokedex
         height = 110,
         weight = 60500,
         entry = MusharnaDesc,
-        forms = SingleSpecies(Species.Musharna),
+        forms = SingleSpecies(SpeciesID.Musharna),
     };
     public static readonly PokedexData Pidove = new()
     {
@@ -5553,7 +5635,7 @@ public static class Pokedex
         height = 30,
         weight = 2100,
         entry = PidoveDesc,
-        forms = SingleSpecies(Species.Pidove),
+        forms = SingleSpecies(SpeciesID.Pidove),
     };
     public static readonly PokedexData Tranquill = new()
     {
@@ -5563,7 +5645,7 @@ public static class Pokedex
         height = 60,
         weight = 15000,
         entry = TranquillDesc,
-        forms = SingleSpecies(Species.Tranquill),
+        forms = SingleSpecies(SpeciesID.Tranquill),
     };
     public static readonly PokedexData Unfezant = new()
     {
@@ -5573,7 +5655,7 @@ public static class Pokedex
         height = 120,
         weight = 29000,
         entry = UnfezantDesc,
-        forms = SingleSpecies(Species.Unfezant),
+        forms = SingleSpecies(SpeciesID.Unfezant),
     };
     public static readonly PokedexData Blitzle = new()
     {
@@ -5583,7 +5665,7 @@ public static class Pokedex
         height = 80,
         weight = 29800,
         entry = BlitzleDesc,
-        forms = SingleSpecies(Species.Blitzle),
+        forms = SingleSpecies(SpeciesID.Blitzle),
     };
     public static readonly PokedexData Zebstrika = new()
     {
@@ -5593,7 +5675,7 @@ public static class Pokedex
         height = 160,
         weight = 79500,
         entry = ZebstrikaDesc,
-        forms = SingleSpecies(Species.Zebstrika),
+        forms = SingleSpecies(SpeciesID.Zebstrika),
     };
     public static readonly PokedexData Roggenrola = new()
     {
@@ -5603,7 +5685,7 @@ public static class Pokedex
         height = 40,
         weight = 18000,
         entry = RoggenrolaDesc,
-        forms = SingleSpecies(Species.Roggenrola),
+        forms = SingleSpecies(SpeciesID.Roggenrola),
     };
     public static readonly PokedexData Boldore = new()
     {
@@ -5613,7 +5695,7 @@ public static class Pokedex
         height = 90,
         weight = 102000,
         entry = BoldoreDesc,
-        forms = SingleSpecies(Species.Boldore),
+        forms = SingleSpecies(SpeciesID.Boldore),
     };
     public static readonly PokedexData Gigalith = new()
     {
@@ -5623,7 +5705,7 @@ public static class Pokedex
         height = 170,
         weight = 260000,
         entry = GigalithDesc,
-        forms = SingleSpecies(Species.Gigalith),
+        forms = SingleSpecies(SpeciesID.Gigalith),
     };
     public static readonly PokedexData Woobat = new()
     {
@@ -5633,7 +5715,7 @@ public static class Pokedex
         height = 40,
         weight = 2100,
         entry = WoobatDesc,
-        forms = SingleSpecies(Species.Woobat),
+        forms = SingleSpecies(SpeciesID.Woobat),
     };
     public static readonly PokedexData Swoobat = new()
     {
@@ -5643,7 +5725,7 @@ public static class Pokedex
         height = 90,
         weight = 10500,
         entry = SwoobatDesc,
-        forms = SingleSpecies(Species.Swoobat),
+        forms = SingleSpecies(SpeciesID.Swoobat),
     };
     public static readonly PokedexData Drilbur = new()
     {
@@ -5653,7 +5735,7 @@ public static class Pokedex
         height = 30,
         weight = 8500,
         entry = DrilburDesc,
-        forms = SingleSpecies(Species.Drilbur),
+        forms = SingleSpecies(SpeciesID.Drilbur),
     };
     public static readonly PokedexData Excadrill = new()
     {
@@ -5663,7 +5745,7 @@ public static class Pokedex
         height = 70,
         weight = 40400,
         entry = ExcadrillDesc,
-        forms = SingleSpecies(Species.Excadrill),
+        forms = SingleSpecies(SpeciesID.Excadrill),
     };
     public static readonly PokedexData Audino = new()
     {
@@ -5675,8 +5757,8 @@ public static class Pokedex
         entry = AudinoDesc,
         forms = new[]
         {
-            Species.Audino,
-            Species.AudinoMega
+            SpeciesID.Audino,
+            SpeciesID.AudinoMega
         }
     };
     public static readonly PokedexData Timburr = new()
@@ -5687,7 +5769,7 @@ public static class Pokedex
         height = 60,
         weight = 12500,
         entry = TimburrDesc,
-        forms = SingleSpecies(Species.Timburr),
+        forms = SingleSpecies(SpeciesID.Timburr),
     };
     public static readonly PokedexData Gurdurr = new()
     {
@@ -5697,7 +5779,7 @@ public static class Pokedex
         height = 120,
         weight = 40000,
         entry = GurdurrDesc,
-        forms = SingleSpecies(Species.Gurdurr),
+        forms = SingleSpecies(SpeciesID.Gurdurr),
     };
     public static readonly PokedexData Conkeldurr = new()
     {
@@ -5707,7 +5789,7 @@ public static class Pokedex
         height = 140,
         weight = 87000,
         entry = ConkeldurrDesc,
-        forms = SingleSpecies(Species.Conkeldurr),
+        forms = SingleSpecies(SpeciesID.Conkeldurr),
     };
     public static readonly PokedexData Tympole = new()
     {
@@ -5717,7 +5799,7 @@ public static class Pokedex
         height = 50,
         weight = 4500,
         entry = TympoleDesc,
-        forms = SingleSpecies(Species.Tympole),
+        forms = SingleSpecies(SpeciesID.Tympole),
     };
     public static readonly PokedexData Palpitoad = new()
     {
@@ -5727,7 +5809,7 @@ public static class Pokedex
         height = 80,
         weight = 17000,
         entry = PalpitoadDesc,
-        forms = SingleSpecies(Species.Palpitoad),
+        forms = SingleSpecies(SpeciesID.Palpitoad),
     };
     public static readonly PokedexData Seismitoad = new()
     {
@@ -5737,7 +5819,7 @@ public static class Pokedex
         height = 150,
         weight = 62000,
         entry = SeismitoadDesc,
-        forms = SingleSpecies(Species.Seismitoad),
+        forms = SingleSpecies(SpeciesID.Seismitoad),
     };
     public static readonly PokedexData Throh = new()
     {
@@ -5747,7 +5829,7 @@ public static class Pokedex
         height = 130,
         weight = 55500,
         entry = ThrohDesc,
-        forms = SingleSpecies(Species.Throh),
+        forms = SingleSpecies(SpeciesID.Throh),
     };
     public static readonly PokedexData Sawk = new()
     {
@@ -5757,7 +5839,7 @@ public static class Pokedex
         height = 140,
         weight = 51000,
         entry = SawkDesc,
-        forms = SingleSpecies(Species.Sawk),
+        forms = SingleSpecies(SpeciesID.Sawk),
     };
     public static readonly PokedexData Sewaddle = new()
     {
@@ -5767,7 +5849,7 @@ public static class Pokedex
         height = 30,
         weight = 2500,
         entry = SewaddleDesc,
-        forms = SingleSpecies(Species.Sewaddle),
+        forms = SingleSpecies(SpeciesID.Sewaddle),
     };
     public static readonly PokedexData Swadloon = new()
     {
@@ -5777,7 +5859,7 @@ public static class Pokedex
         height = 50,
         weight = 7300,
         entry = SwadloonDesc,
-        forms = SingleSpecies(Species.Swadloon),
+        forms = SingleSpecies(SpeciesID.Swadloon),
     };
     public static readonly PokedexData Leavanny = new()
     {
@@ -5787,7 +5869,7 @@ public static class Pokedex
         height = 120,
         weight = 20500,
         entry = LeavannyDesc,
-        forms = SingleSpecies(Species.Leavanny),
+        forms = SingleSpecies(SpeciesID.Leavanny),
     };
     public static readonly PokedexData Venipede = new()
     {
@@ -5797,7 +5879,7 @@ public static class Pokedex
         height = 40,
         weight = 5300,
         entry = VenipedeDesc,
-        forms = SingleSpecies(Species.Venipede),
+        forms = SingleSpecies(SpeciesID.Venipede),
     };
     public static readonly PokedexData Whirlipede = new()
     {
@@ -5807,7 +5889,7 @@ public static class Pokedex
         height = 120,
         weight = 58500,
         entry = WhirlipedeDesc,
-        forms = SingleSpecies(Species.Whirlipede),
+        forms = SingleSpecies(SpeciesID.Whirlipede),
     };
     public static readonly PokedexData Scolipede = new()
     {
@@ -5817,7 +5899,7 @@ public static class Pokedex
         height = 250,
         weight = 200500,
         entry = ScolipedeDesc,
-        forms = SingleSpecies(Species.Scolipede),
+        forms = SingleSpecies(SpeciesID.Scolipede),
     };
     public static readonly PokedexData Cottonee = new()
     {
@@ -5827,7 +5909,7 @@ public static class Pokedex
         height = 30,
         weight = 600,
         entry = CottoneeDesc,
-        forms = SingleSpecies(Species.Cottonee),
+        forms = SingleSpecies(SpeciesID.Cottonee),
     };
     public static readonly PokedexData Whimsicott = new()
     {
@@ -5837,7 +5919,7 @@ public static class Pokedex
         height = 70,
         weight = 6600,
         entry = WhimsicottDesc,
-        forms = SingleSpecies(Species.Whimsicott),
+        forms = SingleSpecies(SpeciesID.Whimsicott),
     };
     public static readonly PokedexData Petilil = new()
     {
@@ -5847,7 +5929,7 @@ public static class Pokedex
         height = 50,
         weight = 6600,
         entry = PetililDesc,
-        forms = SingleSpecies(Species.Petilil),
+        forms = SingleSpecies(SpeciesID.Petilil),
     };
     public static readonly PokedexData Lilligant = new()
     {
@@ -5857,7 +5939,11 @@ public static class Pokedex
         height = 110,
         weight = 16300,
         entry = LilligantDesc,
-        forms = SingleSpecies(Species.Lilligant),
+        forms = new[]
+        {
+            SpeciesID.Lilligant,
+            SpeciesID.LilligantHisui
+        }
     };
     public static readonly PokedexData Basculin = new()
     {
@@ -5867,7 +5953,7 @@ public static class Pokedex
         height = 100,
         weight = 18000,
         entry = BasculinDesc,
-        forms = SingleSpecies(Species.BasculinRed),
+        forms = SingleSpecies(SpeciesID.BasculinRed),
     };
     public static readonly PokedexData Sandile = new()
     {
@@ -5877,7 +5963,7 @@ public static class Pokedex
         height = 70,
         weight = 15200,
         entry = SandileDesc,
-        forms = SingleSpecies(Species.Sandile),
+        forms = SingleSpecies(SpeciesID.Sandile),
     };
     public static readonly PokedexData Krokorok = new()
     {
@@ -5887,7 +5973,7 @@ public static class Pokedex
         height = 100,
         weight = 33400,
         entry = KrokorokDesc,
-        forms = SingleSpecies(Species.Krokorok),
+        forms = SingleSpecies(SpeciesID.Krokorok),
     };
     public static readonly PokedexData Krookodile = new()
     {
@@ -5897,7 +5983,7 @@ public static class Pokedex
         height = 150,
         weight = 96300,
         entry = KrookodileDesc,
-        forms = SingleSpecies(Species.Krookodile),
+        forms = SingleSpecies(SpeciesID.Krookodile),
     };
     public static readonly PokedexData Darumaka = new()
     {
@@ -5907,7 +5993,11 @@ public static class Pokedex
         height = 60,
         weight = 37500,
         entry = DarumakaDesc,
-        forms = SingleSpecies(Species.Darumaka),
+        forms = new[]
+        {
+            SpeciesID.Darumaka,
+            SpeciesID.DarumakaGalar
+        }
     };
     public static readonly PokedexData Darmanitan = new()
     {
@@ -5917,7 +6007,13 @@ public static class Pokedex
         height = 130,
         weight = 92900,
         entry = DarmanitanDesc,
-        forms = SingleSpecies(Species.Darmanitan),
+        forms = new[]
+        {
+            SpeciesID.Darmanitan,
+            SpeciesID.DarmanitanZen,
+            SpeciesID.DarmanitanGalar,
+            SpeciesID.DarmanitanGalarZen
+        }
     };
     public static readonly PokedexData Maractus = new()
     {
@@ -5927,7 +6023,7 @@ public static class Pokedex
         height = 100,
         weight = 28000,
         entry = MaractusDesc,
-        forms = SingleSpecies(Species.Maractus),
+        forms = SingleSpecies(SpeciesID.Maractus),
     };
     public static readonly PokedexData Dwebble = new()
     {
@@ -5937,7 +6033,7 @@ public static class Pokedex
         height = 30,
         weight = 14500,
         entry = DwebbleDesc,
-        forms = SingleSpecies(Species.Dwebble),
+        forms = SingleSpecies(SpeciesID.Dwebble),
     };
     public static readonly PokedexData Crustle = new()
     {
@@ -5947,7 +6043,7 @@ public static class Pokedex
         height = 140,
         weight = 200000,
         entry = CrustleDesc,
-        forms = SingleSpecies(Species.Crustle),
+        forms = SingleSpecies(SpeciesID.Crustle),
     };
     public static readonly PokedexData Scraggy = new()
     {
@@ -5957,7 +6053,7 @@ public static class Pokedex
         height = 60,
         weight = 11800,
         entry = ScraggyDesc,
-        forms = SingleSpecies(Species.Scraggy),
+        forms = SingleSpecies(SpeciesID.Scraggy),
     };
     public static readonly PokedexData Scrafty = new()
     {
@@ -5967,7 +6063,7 @@ public static class Pokedex
         height = 110,
         weight = 30000,
         entry = ScraftyDesc,
-        forms = SingleSpecies(Species.Scrafty),
+        forms = SingleSpecies(SpeciesID.Scrafty),
     };
     public static readonly PokedexData Sigilyph = new()
     {
@@ -5977,7 +6073,7 @@ public static class Pokedex
         height = 140,
         weight = 14000,
         entry = SigilyphDesc,
-        forms = SingleSpecies(Species.Sigilyph),
+        forms = SingleSpecies(SpeciesID.Sigilyph),
     };
     public static readonly PokedexData Yamask = new()
     {
@@ -5987,7 +6083,11 @@ public static class Pokedex
         height = 50,
         weight = 1500,
         entry = YamaskDesc,
-        forms = SingleSpecies(Species.Yamask),
+        forms = new[]
+        {
+            SpeciesID.Yamask,
+            SpeciesID.YamaskGalar
+        }
     };
     public static readonly PokedexData Cofagrigus = new()
     {
@@ -5997,7 +6097,7 @@ public static class Pokedex
         height = 170,
         weight = 76500,
         entry = CofagrigusDesc,
-        forms = SingleSpecies(Species.Cofagrigus),
+        forms = SingleSpecies(SpeciesID.Cofagrigus),
     };
     public static readonly PokedexData Tirtouga = new()
     {
@@ -6007,7 +6107,7 @@ public static class Pokedex
         height = 70,
         weight = 16500,
         entry = TirtougaDesc,
-        forms = SingleSpecies(Species.Tirtouga),
+        forms = SingleSpecies(SpeciesID.Tirtouga),
     };
     public static readonly PokedexData Carracosta = new()
     {
@@ -6017,7 +6117,7 @@ public static class Pokedex
         height = 120,
         weight = 81000,
         entry = CarracostaDesc,
-        forms = SingleSpecies(Species.Carracosta),
+        forms = SingleSpecies(SpeciesID.Carracosta),
     };
     public static readonly PokedexData Archen = new()
     {
@@ -6027,7 +6127,7 @@ public static class Pokedex
         height = 50,
         weight = 9500,
         entry = ArchenDesc,
-        forms = SingleSpecies(Species.Archen),
+        forms = SingleSpecies(SpeciesID.Archen),
     };
     public static readonly PokedexData Archeops = new()
     {
@@ -6037,7 +6137,7 @@ public static class Pokedex
         height = 140,
         weight = 32000,
         entry = ArcheopsDesc,
-        forms = SingleSpecies(Species.Archeops),
+        forms = SingleSpecies(SpeciesID.Archeops),
     };
     public static readonly PokedexData Trubbish = new()
     {
@@ -6047,7 +6147,7 @@ public static class Pokedex
         height = 60,
         weight = 31000,
         entry = TrubbishDesc,
-        forms = SingleSpecies(Species.Trubbish),
+        forms = SingleSpecies(SpeciesID.Trubbish),
     };
     public static readonly PokedexData Garbodor = new()
     {
@@ -6057,7 +6157,7 @@ public static class Pokedex
         height = 190,
         weight = 107300,
         entry = GarbodorDesc,
-        forms = SingleSpecies(Species.Garbodor),
+        forms = SingleSpecies(SpeciesID.Garbodor),
     };
     public static readonly PokedexData Zorua = new()
     {
@@ -6067,7 +6167,11 @@ public static class Pokedex
         height = 70,
         weight = 12500,
         entry = ZoruaDesc,
-        forms = SingleSpecies(Species.Zorua),
+        forms = new[]
+        {
+            SpeciesID.Zorua,
+            SpeciesID.ZoruaHisui
+        }
     };
     public static readonly PokedexData Zoroark = new()
     {
@@ -6077,7 +6181,11 @@ public static class Pokedex
         height = 160,
         weight = 81100,
         entry = ZoroarkDesc,
-        forms = SingleSpecies(Species.Zoroark),
+        forms = new[]
+        {
+            SpeciesID.Zoroark,
+            SpeciesID.ZoroarkHisui
+        }
     };
     public static readonly PokedexData Minccino = new()
     {
@@ -6087,7 +6195,7 @@ public static class Pokedex
         height = 40,
         weight = 5800,
         entry = MinccinoDesc,
-        forms = SingleSpecies(Species.Minccino),
+        forms = SingleSpecies(SpeciesID.Minccino),
     };
     public static readonly PokedexData Cinccino = new()
     {
@@ -6097,7 +6205,7 @@ public static class Pokedex
         height = 50,
         weight = 7500,
         entry = CinccinoDesc,
-        forms = SingleSpecies(Species.Cinccino),
+        forms = SingleSpecies(SpeciesID.Cinccino),
     };
     public static readonly PokedexData Gothita = new()
     {
@@ -6107,7 +6215,7 @@ public static class Pokedex
         height = 40,
         weight = 5800,
         entry = GothitaDesc,
-        forms = SingleSpecies(Species.Gothita),
+        forms = SingleSpecies(SpeciesID.Gothita),
     };
     public static readonly PokedexData Gothorita = new()
     {
@@ -6117,7 +6225,7 @@ public static class Pokedex
         height = 70,
         weight = 18000,
         entry = GothoritaDesc,
-        forms = SingleSpecies(Species.Gothorita),
+        forms = SingleSpecies(SpeciesID.Gothorita),
     };
     public static readonly PokedexData Gothitelle = new()
     {
@@ -6127,7 +6235,7 @@ public static class Pokedex
         height = 150,
         weight = 44000,
         entry = GothitelleDesc,
-        forms = SingleSpecies(Species.Gothitelle),
+        forms = SingleSpecies(SpeciesID.Gothitelle),
     };
     public static readonly PokedexData Solosis = new()
     {
@@ -6137,7 +6245,7 @@ public static class Pokedex
         height = 30,
         weight = 1000,
         entry = SolosisDesc,
-        forms = SingleSpecies(Species.Solosis),
+        forms = SingleSpecies(SpeciesID.Solosis),
     };
     public static readonly PokedexData Duosion = new()
     {
@@ -6147,7 +6255,7 @@ public static class Pokedex
         height = 60,
         weight = 8000,
         entry = DuosionDesc,
-        forms = SingleSpecies(Species.Duosion),
+        forms = SingleSpecies(SpeciesID.Duosion),
     };
     public static readonly PokedexData Reuniclus = new()
     {
@@ -6157,7 +6265,7 @@ public static class Pokedex
         height = 100,
         weight = 20100,
         entry = ReuniclusDesc,
-        forms = SingleSpecies(Species.Reuniclus),
+        forms = SingleSpecies(SpeciesID.Reuniclus),
     };
     public static readonly PokedexData Ducklett = new()
     {
@@ -6167,7 +6275,7 @@ public static class Pokedex
         height = 50,
         weight = 5500,
         entry = DucklettDesc,
-        forms = SingleSpecies(Species.Ducklett),
+        forms = SingleSpecies(SpeciesID.Ducklett),
     };
     public static readonly PokedexData Swanna = new()
     {
@@ -6177,7 +6285,7 @@ public static class Pokedex
         height = 130,
         weight = 24200,
         entry = SwannaDesc,
-        forms = SingleSpecies(Species.Swanna),
+        forms = SingleSpecies(SpeciesID.Swanna),
     };
     public static readonly PokedexData Vanillite = new()
     {
@@ -6187,7 +6295,7 @@ public static class Pokedex
         height = 40,
         weight = 5700,
         entry = VanilliteDesc,
-        forms = SingleSpecies(Species.Vanillite),
+        forms = SingleSpecies(SpeciesID.Vanillite),
     };
     public static readonly PokedexData Vanillish = new()
     {
@@ -6197,7 +6305,7 @@ public static class Pokedex
         height = 110,
         weight = 41000,
         entry = VanillishDesc,
-        forms = SingleSpecies(Species.Vanillish),
+        forms = SingleSpecies(SpeciesID.Vanillish),
     };
     public static readonly PokedexData Vanilluxe = new()
     {
@@ -6207,7 +6315,7 @@ public static class Pokedex
         height = 130,
         weight = 57500,
         entry = VanilluxeDesc,
-        forms = SingleSpecies(Species.Vanilluxe),
+        forms = SingleSpecies(SpeciesID.Vanilluxe),
     };
     public static readonly PokedexData Deerling = new()
     {
@@ -6219,10 +6327,10 @@ public static class Pokedex
         entry = DeerlingSpringDesc,
         forms = new[]
         {
-            Species.DeerlingSpring,
-            Species.DeerlingSummer,
-            Species.DeerlingAutumn,
-            Species.DeerlingWinter
+            SpeciesID.DeerlingSpring,
+            SpeciesID.DeerlingSummer,
+            SpeciesID.DeerlingAutumn,
+            SpeciesID.DeerlingWinter
         }
     };
     public static readonly PokedexData Sawsbuck = new()
@@ -6235,10 +6343,10 @@ public static class Pokedex
         entry = SawsbuckSpringDesc,
         forms = new[]
         {
-            Species.SawsbuckSpring,
-            Species.SawsbuckSummer,
-            Species.SawsbuckAutumn,
-            Species.SawsbuckWinter
+            SpeciesID.SawsbuckSpring,
+            SpeciesID.SawsbuckSummer,
+            SpeciesID.SawsbuckAutumn,
+            SpeciesID.SawsbuckWinter
         }
     };
     public static readonly PokedexData Emolga = new()
@@ -6249,7 +6357,7 @@ public static class Pokedex
         height = 40,
         weight = 5000,
         entry = EmolgaDesc,
-        forms = SingleSpecies(Species.Emolga),
+        forms = SingleSpecies(SpeciesID.Emolga),
     };
     public static readonly PokedexData Karrablast = new()
     {
@@ -6259,7 +6367,7 @@ public static class Pokedex
         height = 50,
         weight = 5900,
         entry = KarrablastDesc,
-        forms = SingleSpecies(Species.Karrablast),
+        forms = SingleSpecies(SpeciesID.Karrablast),
     };
     public static readonly PokedexData Escavalier = new()
     {
@@ -6269,7 +6377,7 @@ public static class Pokedex
         height = 100,
         weight = 33000,
         entry = EscavalierDesc,
-        forms = SingleSpecies(Species.Escavalier),
+        forms = SingleSpecies(SpeciesID.Escavalier),
     };
     public static readonly PokedexData Foongus = new()
     {
@@ -6279,7 +6387,7 @@ public static class Pokedex
         height = 20,
         weight = 1000,
         entry = FoongusDesc,
-        forms = SingleSpecies(Species.Foongus),
+        forms = SingleSpecies(SpeciesID.Foongus),
     };
     public static readonly PokedexData Amoonguss = new()
     {
@@ -6289,7 +6397,7 @@ public static class Pokedex
         height = 60,
         weight = 10500,
         entry = AmoongussDesc,
-        forms = SingleSpecies(Species.Amoonguss),
+        forms = SingleSpecies(SpeciesID.Amoonguss),
     };
     public static readonly PokedexData Frillish = new()
     {
@@ -6299,7 +6407,7 @@ public static class Pokedex
         height = 120,
         weight = 33000,
         entry = FrillishDesc,
-        forms = SingleSpecies(Species.Frillish),
+        forms = SingleSpecies(SpeciesID.Frillish),
     };
     public static readonly PokedexData Jellicent = new()
     {
@@ -6309,7 +6417,7 @@ public static class Pokedex
         height = 220,
         weight = 135000,
         entry = JellicentDesc,
-        forms = SingleSpecies(Species.Jellicent),
+        forms = SingleSpecies(SpeciesID.Jellicent),
     };
     public static readonly PokedexData Alomomola = new()
     {
@@ -6319,7 +6427,7 @@ public static class Pokedex
         height = 120,
         weight = 31600,
         entry = AlomomolaDesc,
-        forms = SingleSpecies(Species.Alomomola),
+        forms = SingleSpecies(SpeciesID.Alomomola),
     };
     public static readonly PokedexData Joltik = new()
     {
@@ -6329,7 +6437,7 @@ public static class Pokedex
         height = 10,
         weight = 600,
         entry = JoltikDesc,
-        forms = SingleSpecies(Species.Joltik),
+        forms = SingleSpecies(SpeciesID.Joltik),
     };
     public static readonly PokedexData Galvantula = new()
     {
@@ -6339,7 +6447,7 @@ public static class Pokedex
         height = 80,
         weight = 14300,
         entry = GalvantulaDesc,
-        forms = SingleSpecies(Species.Galvantula),
+        forms = SingleSpecies(SpeciesID.Galvantula),
     };
     public static readonly PokedexData Ferroseed = new()
     {
@@ -6349,7 +6457,7 @@ public static class Pokedex
         height = 60,
         weight = 18800,
         entry = FerroseedDesc,
-        forms = SingleSpecies(Species.Ferroseed),
+        forms = SingleSpecies(SpeciesID.Ferroseed),
     };
     public static readonly PokedexData Ferrothorn = new()
     {
@@ -6359,7 +6467,7 @@ public static class Pokedex
         height = 100,
         weight = 110000,
         entry = FerrothornDesc,
-        forms = SingleSpecies(Species.Ferrothorn),
+        forms = SingleSpecies(SpeciesID.Ferrothorn),
     };
     public static readonly PokedexData Klink = new()
     {
@@ -6369,7 +6477,7 @@ public static class Pokedex
         height = 30,
         weight = 21000,
         entry = KlinkDesc,
-        forms = SingleSpecies(Species.Klink),
+        forms = SingleSpecies(SpeciesID.Klink),
     };
     public static readonly PokedexData Klang = new()
     {
@@ -6379,7 +6487,7 @@ public static class Pokedex
         height = 60,
         weight = 51000,
         entry = KlangDesc,
-        forms = SingleSpecies(Species.Klang),
+        forms = SingleSpecies(SpeciesID.Klang),
     };
     public static readonly PokedexData Klinklang = new()
     {
@@ -6389,7 +6497,7 @@ public static class Pokedex
         height = 60,
         weight = 81000,
         entry = KlinklangDesc,
-        forms = SingleSpecies(Species.Klinklang),
+        forms = SingleSpecies(SpeciesID.Klinklang),
     };
     public static readonly PokedexData Tynamo = new()
     {
@@ -6399,7 +6507,7 @@ public static class Pokedex
         height = 20,
         weight = 300,
         entry = TynamoDesc,
-        forms = SingleSpecies(Species.Tynamo),
+        forms = SingleSpecies(SpeciesID.Tynamo),
     };
     public static readonly PokedexData Eelektrik = new()
     {
@@ -6409,7 +6517,7 @@ public static class Pokedex
         height = 120,
         weight = 22000,
         entry = EelektrikDesc,
-        forms = SingleSpecies(Species.Eelektrik),
+        forms = SingleSpecies(SpeciesID.Eelektrik),
     };
     public static readonly PokedexData Eelektross = new()
     {
@@ -6419,7 +6527,7 @@ public static class Pokedex
         height = 210,
         weight = 80500,
         entry = EelektrossDesc,
-        forms = SingleSpecies(Species.Eelektross),
+        forms = SingleSpecies(SpeciesID.Eelektross),
     };
     public static readonly PokedexData Elgyem = new()
     {
@@ -6429,7 +6537,7 @@ public static class Pokedex
         height = 50,
         weight = 9000,
         entry = ElgyemDesc,
-        forms = SingleSpecies(Species.Elgyem),
+        forms = SingleSpecies(SpeciesID.Elgyem),
     };
     public static readonly PokedexData Beheeyem = new()
     {
@@ -6439,7 +6547,7 @@ public static class Pokedex
         height = 100,
         weight = 34500,
         entry = BeheeyemDesc,
-        forms = SingleSpecies(Species.Beheeyem),
+        forms = SingleSpecies(SpeciesID.Beheeyem),
     };
     public static readonly PokedexData Litwick = new()
     {
@@ -6449,7 +6557,7 @@ public static class Pokedex
         height = 30,
         weight = 3100,
         entry = LitwickDesc,
-        forms = SingleSpecies(Species.Litwick),
+        forms = SingleSpecies(SpeciesID.Litwick),
     };
     public static readonly PokedexData Lampent = new()
     {
@@ -6459,7 +6567,7 @@ public static class Pokedex
         height = 60,
         weight = 13000,
         entry = LampentDesc,
-        forms = SingleSpecies(Species.Lampent),
+        forms = SingleSpecies(SpeciesID.Lampent),
     };
     public static readonly PokedexData Chandelure = new()
     {
@@ -6469,7 +6577,7 @@ public static class Pokedex
         height = 100,
         weight = 34300,
         entry = ChandelureDesc,
-        forms = SingleSpecies(Species.Chandelure),
+        forms = SingleSpecies(SpeciesID.Chandelure),
     };
     public static readonly PokedexData Axew = new()
     {
@@ -6479,7 +6587,7 @@ public static class Pokedex
         height = 60,
         weight = 18000,
         entry = AxewDesc,
-        forms = SingleSpecies(Species.Axew),
+        forms = SingleSpecies(SpeciesID.Axew),
     };
     public static readonly PokedexData Fraxure = new()
     {
@@ -6489,7 +6597,7 @@ public static class Pokedex
         height = 100,
         weight = 36000,
         entry = FraxureDesc,
-        forms = SingleSpecies(Species.Fraxure),
+        forms = SingleSpecies(SpeciesID.Fraxure),
     };
     public static readonly PokedexData Haxorus = new()
     {
@@ -6499,7 +6607,7 @@ public static class Pokedex
         height = 180,
         weight = 105500,
         entry = HaxorusDesc,
-        forms = SingleSpecies(Species.Haxorus),
+        forms = SingleSpecies(SpeciesID.Haxorus),
     };
     public static readonly PokedexData Cubchoo = new()
     {
@@ -6509,7 +6617,7 @@ public static class Pokedex
         height = 50,
         weight = 8500,
         entry = CubchooDesc,
-        forms = SingleSpecies(Species.Cubchoo),
+        forms = SingleSpecies(SpeciesID.Cubchoo),
     };
     public static readonly PokedexData Beartic = new()
     {
@@ -6519,7 +6627,7 @@ public static class Pokedex
         height = 260,
         weight = 260000,
         entry = BearticDesc,
-        forms = SingleSpecies(Species.Beartic),
+        forms = SingleSpecies(SpeciesID.Beartic),
     };
     public static readonly PokedexData Cryogonal = new()
     {
@@ -6529,7 +6637,7 @@ public static class Pokedex
         height = 110,
         weight = 148000,
         entry = CryogonalDesc,
-        forms = SingleSpecies(Species.Cryogonal),
+        forms = SingleSpecies(SpeciesID.Cryogonal),
     };
     public static readonly PokedexData Shelmet = new()
     {
@@ -6539,7 +6647,7 @@ public static class Pokedex
         height = 40,
         weight = 7700,
         entry = ShelmetDesc,
-        forms = SingleSpecies(Species.Shelmet),
+        forms = SingleSpecies(SpeciesID.Shelmet),
     };
     public static readonly PokedexData Accelgor = new()
     {
@@ -6549,7 +6657,7 @@ public static class Pokedex
         height = 80,
         weight = 25300,
         entry = AccelgorDesc,
-        forms = SingleSpecies(Species.Accelgor),
+        forms = SingleSpecies(SpeciesID.Accelgor),
     };
     public static readonly PokedexData Stunfisk = new()
     {
@@ -6559,7 +6667,11 @@ public static class Pokedex
         height = 70,
         weight = 11000,
         entry = StunfiskDesc,
-        forms = SingleSpecies(Species.Stunfisk),
+        forms = new[]
+        {
+            SpeciesID.Stunfisk,
+            SpeciesID.StunfiskGalar
+        }
     };
     public static readonly PokedexData Mienfoo = new()
     {
@@ -6569,7 +6681,7 @@ public static class Pokedex
         height = 90,
         weight = 20000,
         entry = MienfooDesc,
-        forms = SingleSpecies(Species.Mienfoo),
+        forms = SingleSpecies(SpeciesID.Mienfoo),
     };
     public static readonly PokedexData Mienshao = new()
     {
@@ -6579,7 +6691,7 @@ public static class Pokedex
         height = 140,
         weight = 35500,
         entry = MienshaoDesc,
-        forms = SingleSpecies(Species.Mienshao),
+        forms = SingleSpecies(SpeciesID.Mienshao),
     };
     public static readonly PokedexData Druddigon = new()
     {
@@ -6589,7 +6701,7 @@ public static class Pokedex
         height = 160,
         weight = 139000,
         entry = DruddigonDesc,
-        forms = SingleSpecies(Species.Druddigon),
+        forms = SingleSpecies(SpeciesID.Druddigon),
     };
     public static readonly PokedexData Golett = new()
     {
@@ -6599,7 +6711,7 @@ public static class Pokedex
         height = 100,
         weight = 92000,
         entry = GolettDesc,
-        forms = SingleSpecies(Species.Golett),
+        forms = SingleSpecies(SpeciesID.Golett),
     };
     public static readonly PokedexData Golurk = new()
     {
@@ -6609,7 +6721,7 @@ public static class Pokedex
         height = 280,
         weight = 330000,
         entry = GolurkDesc,
-        forms = SingleSpecies(Species.Golurk),
+        forms = SingleSpecies(SpeciesID.Golurk),
     };
     public static readonly PokedexData Pawniard = new()
     {
@@ -6619,7 +6731,7 @@ public static class Pokedex
         height = 50,
         weight = 10200,
         entry = PawniardDesc,
-        forms = SingleSpecies(Species.Pawniard),
+        forms = SingleSpecies(SpeciesID.Pawniard),
     };
     public static readonly PokedexData Bisharp = new()
     {
@@ -6629,7 +6741,7 @@ public static class Pokedex
         height = 160,
         weight = 70000,
         entry = BisharpDesc,
-        forms = SingleSpecies(Species.Bisharp),
+        forms = SingleSpecies(SpeciesID.Bisharp),
     };
     public static readonly PokedexData Bouffalant = new()
     {
@@ -6639,7 +6751,7 @@ public static class Pokedex
         height = 160,
         weight = 94600,
         entry = BouffalantDesc,
-        forms = SingleSpecies(Species.Bouffalant),
+        forms = SingleSpecies(SpeciesID.Bouffalant),
     };
     public static readonly PokedexData Rufflet = new()
     {
@@ -6649,7 +6761,7 @@ public static class Pokedex
         height = 50,
         weight = 10500,
         entry = RuffletDesc,
-        forms = SingleSpecies(Species.Rufflet),
+        forms = SingleSpecies(SpeciesID.Rufflet),
     };
     public static readonly PokedexData Braviary = new()
     {
@@ -6659,7 +6771,11 @@ public static class Pokedex
         height = 150,
         weight = 41000,
         entry = BraviaryDesc,
-        forms = SingleSpecies(Species.Braviary),
+        forms = new[]
+        {
+            SpeciesID.Braviary,
+            SpeciesID.BraviaryHisui
+        }
     };
     public static readonly PokedexData Vullaby = new()
     {
@@ -6669,7 +6785,7 @@ public static class Pokedex
         height = 50,
         weight = 9000,
         entry = VullabyDesc,
-        forms = SingleSpecies(Species.Vullaby),
+        forms = SingleSpecies(SpeciesID.Vullaby),
     };
     public static readonly PokedexData Mandibuzz = new()
     {
@@ -6679,7 +6795,7 @@ public static class Pokedex
         height = 120,
         weight = 39500,
         entry = MandibuzzDesc,
-        forms = SingleSpecies(Species.Mandibuzz),
+        forms = SingleSpecies(SpeciesID.Mandibuzz),
     };
     public static readonly PokedexData Heatmor = new()
     {
@@ -6689,7 +6805,7 @@ public static class Pokedex
         height = 140,
         weight = 58000,
         entry = HeatmorDesc,
-        forms = SingleSpecies(Species.Heatmor),
+        forms = SingleSpecies(SpeciesID.Heatmor),
     };
     public static readonly PokedexData Durant = new()
     {
@@ -6699,7 +6815,7 @@ public static class Pokedex
         height = 30,
         weight = 33000,
         entry = DurantDesc,
-        forms = SingleSpecies(Species.Durant),
+        forms = SingleSpecies(SpeciesID.Durant),
     };
     public static readonly PokedexData Deino = new()
     {
@@ -6709,7 +6825,7 @@ public static class Pokedex
         height = 80,
         weight = 17300,
         entry = DeinoDesc,
-        forms = SingleSpecies(Species.Deino),
+        forms = SingleSpecies(SpeciesID.Deino),
     };
     public static readonly PokedexData Zweilous = new()
     {
@@ -6719,7 +6835,7 @@ public static class Pokedex
         height = 140,
         weight = 50000,
         entry = ZweilousDesc,
-        forms = SingleSpecies(Species.Zweilous),
+        forms = SingleSpecies(SpeciesID.Zweilous),
     };
     public static readonly PokedexData Hydreigon = new()
     {
@@ -6729,7 +6845,7 @@ public static class Pokedex
         height = 180,
         weight = 160000,
         entry = HydreigonDesc,
-        forms = SingleSpecies(Species.Hydreigon),
+        forms = SingleSpecies(SpeciesID.Hydreigon),
     };
     public static readonly PokedexData Larvesta = new()
     {
@@ -6739,7 +6855,7 @@ public static class Pokedex
         height = 110,
         weight = 28800,
         entry = LarvestaDesc,
-        forms = SingleSpecies(Species.Larvesta),
+        forms = SingleSpecies(SpeciesID.Larvesta),
     };
     public static readonly PokedexData Volcarona = new()
     {
@@ -6749,7 +6865,7 @@ public static class Pokedex
         height = 160,
         weight = 46000,
         entry = VolcaronaDesc,
-        forms = SingleSpecies(Species.Volcarona),
+        forms = SingleSpecies(SpeciesID.Volcarona),
     };
     public static readonly PokedexData Cobalion = new()
     {
@@ -6759,7 +6875,7 @@ public static class Pokedex
         height = 210,
         weight = 250000,
         entry = CobalionDesc,
-        forms = SingleSpecies(Species.Cobalion),
+        forms = SingleSpecies(SpeciesID.Cobalion),
     };
     public static readonly PokedexData Terrakion = new()
     {
@@ -6769,7 +6885,7 @@ public static class Pokedex
         height = 190,
         weight = 260000,
         entry = TerrakionDesc,
-        forms = SingleSpecies(Species.Terrakion),
+        forms = SingleSpecies(SpeciesID.Terrakion),
     };
     public static readonly PokedexData Virizion = new()
     {
@@ -6779,7 +6895,7 @@ public static class Pokedex
         height = 200,
         weight = 200000,
         entry = VirizionDesc,
-        forms = SingleSpecies(Species.Virizion),
+        forms = SingleSpecies(SpeciesID.Virizion),
     };
     public static readonly PokedexData Tornadus = new()
     {
@@ -6791,8 +6907,8 @@ public static class Pokedex
         entry = TornadusDesc,
         forms = new[]
         {
-            Species.TornadusI,
-            Species.TornadusT
+            SpeciesID.TornadusI,
+            SpeciesID.TornadusT
         }
     };
     public static readonly PokedexData Thundurus = new()
@@ -6805,8 +6921,8 @@ public static class Pokedex
         entry = ThundurusDesc,
         forms = new[]
         {
-            Species.ThundurusI,
-            Species.ThundurusT
+            SpeciesID.ThundurusI,
+            SpeciesID.ThundurusT
         }
     };
     public static readonly PokedexData Reshiram = new()
@@ -6817,7 +6933,7 @@ public static class Pokedex
         height = 320,
         weight = 330000,
         entry = ReshiramDesc,
-        forms = SingleSpecies(Species.Reshiram),
+        forms = SingleSpecies(SpeciesID.Reshiram),
     };
     public static readonly PokedexData Zekrom = new()
     {
@@ -6827,7 +6943,7 @@ public static class Pokedex
         height = 290,
         weight = 345000,
         entry = ZekromDesc,
-        forms = SingleSpecies(Species.Zekrom),
+        forms = SingleSpecies(SpeciesID.Zekrom),
     };
     public static readonly PokedexData Landorus = new()
     {
@@ -6839,8 +6955,8 @@ public static class Pokedex
         entry = LandorusDesc,
         forms = new[]
         {
-            Species.LandorusI,
-            Species.LandorusT
+            SpeciesID.LandorusI,
+            SpeciesID.LandorusT
         }
     };
     public static readonly PokedexData Kyurem = new()
@@ -6853,9 +6969,9 @@ public static class Pokedex
         entry = KyuremDesc,
         forms = new[]
         {
-            Species.Kyurem,
-            Species.KyuremWhite,
-            Species.KyuremBlack
+            SpeciesID.Kyurem,
+            SpeciesID.KyuremWhite,
+            SpeciesID.KyuremBlack
         }
     };
     public static readonly PokedexData Keldeo = new()
@@ -6868,8 +6984,8 @@ public static class Pokedex
         entry = KeldeoDesc,
         forms = new[]
         {
-            Species.KeldeoOriginal,
-            Species.KeldeoResolute
+            SpeciesID.KeldeoOriginal,
+            SpeciesID.KeldeoResolute
         }
     };
     public static readonly PokedexData Meloetta = new()
@@ -6882,8 +6998,8 @@ public static class Pokedex
         entry = MeloettaDesc,
         forms = new[]
         {
-            Species.MeloettaAria,
-            Species.MeloettaPirouette
+            SpeciesID.MeloettaAria,
+            SpeciesID.MeloettaPirouette
         }
     };
     public static readonly PokedexData Genesect = new()
@@ -6896,11 +7012,11 @@ public static class Pokedex
         entry = GenesectDesc,
         forms = new[]
         {
-            Species.GenesectNormal,
-            Species.GenesectDouse,
-            Species.GenesectShock,
-            Species.GenesectBurn,
-            Species.GenesectChill
+            SpeciesID.GenesectNormal,
+            SpeciesID.GenesectDouse,
+            SpeciesID.GenesectShock,
+            SpeciesID.GenesectBurn,
+            SpeciesID.GenesectChill
         }
     };
     public static readonly PokedexData Chespin = new()
@@ -6911,7 +7027,7 @@ public static class Pokedex
         height = 40,
         weight = 9000,
         entry = ChespinDesc,
-        forms = SingleSpecies(Species.Chespin),
+        forms = SingleSpecies(SpeciesID.Chespin),
     };
     public static readonly PokedexData Quilladin = new()
     {
@@ -6921,7 +7037,7 @@ public static class Pokedex
         height = 70,
         weight = 29000,
         entry = QuilladinDesc,
-        forms = SingleSpecies(Species.Quilladin),
+        forms = SingleSpecies(SpeciesID.Quilladin),
     };
     public static readonly PokedexData Chesnaught = new()
     {
@@ -6931,7 +7047,7 @@ public static class Pokedex
         height = 160,
         weight = 90000,
         entry = ChesnaughtDesc,
-        forms = SingleSpecies(Species.Chesnaught),
+        forms = SingleSpecies(SpeciesID.Chesnaught),
     };
     public static readonly PokedexData Fennekin = new()
     {
@@ -6941,7 +7057,7 @@ public static class Pokedex
         height = 40,
         weight = 9400,
         entry = FennekinDesc,
-        forms = SingleSpecies(Species.Fennekin),
+        forms = SingleSpecies(SpeciesID.Fennekin),
     };
     public static readonly PokedexData Braixen = new()
     {
@@ -6951,7 +7067,7 @@ public static class Pokedex
         height = 100,
         weight = 14500,
         entry = BraixenDesc,
-        forms = SingleSpecies(Species.Braixen),
+        forms = SingleSpecies(SpeciesID.Braixen),
     };
     public static readonly PokedexData Delphox = new()
     {
@@ -6961,7 +7077,7 @@ public static class Pokedex
         height = 150,
         weight = 39000,
         entry = DelphoxDesc,
-        forms = SingleSpecies(Species.Delphox),
+        forms = SingleSpecies(SpeciesID.Delphox),
     };
     public static readonly PokedexData Froakie = new()
     {
@@ -6971,7 +7087,7 @@ public static class Pokedex
         height = 30,
         weight = 7000,
         entry = FroakieDesc,
-        forms = SingleSpecies(Species.Froakie),
+        forms = SingleSpecies(SpeciesID.Froakie),
     };
     public static readonly PokedexData Frogadier = new()
     {
@@ -6981,7 +7097,7 @@ public static class Pokedex
         height = 60,
         weight = 10900,
         entry = FrogadierDesc,
-        forms = SingleSpecies(Species.Frogadier),
+        forms = SingleSpecies(SpeciesID.Frogadier),
     };
     public static readonly PokedexData Greninja = new()
     {
@@ -6991,7 +7107,7 @@ public static class Pokedex
         height = 150,
         weight = 40000,
         entry = GreninjaDesc,
-        forms = SingleSpecies(Species.Greninja),
+        forms = SingleSpecies(SpeciesID.Greninja),
     };
     public static readonly PokedexData Bunnelby = new()
     {
@@ -7001,7 +7117,7 @@ public static class Pokedex
         height = 40,
         weight = 5000,
         entry = BunnelbyDesc,
-        forms = SingleSpecies(Species.Bunnelby),
+        forms = SingleSpecies(SpeciesID.Bunnelby),
     };
     public static readonly PokedexData Diggersby = new()
     {
@@ -7011,7 +7127,7 @@ public static class Pokedex
         height = 100,
         weight = 42400,
         entry = DiggersbyDesc,
-        forms = SingleSpecies(Species.Diggersby),
+        forms = SingleSpecies(SpeciesID.Diggersby),
     };
     public static readonly PokedexData Fletchling = new()
     {
@@ -7021,7 +7137,7 @@ public static class Pokedex
         height = 30,
         weight = 1700,
         entry = FletchlingDesc,
-        forms = SingleSpecies(Species.Fletchling),
+        forms = SingleSpecies(SpeciesID.Fletchling),
     };
     public static readonly PokedexData Fletchinder = new()
     {
@@ -7031,7 +7147,7 @@ public static class Pokedex
         height = 70,
         weight = 16000,
         entry = FletchinderDesc,
-        forms = SingleSpecies(Species.Fletchinder),
+        forms = SingleSpecies(SpeciesID.Fletchinder),
     };
     public static readonly PokedexData Talonflame = new()
     {
@@ -7041,7 +7157,7 @@ public static class Pokedex
         height = 120,
         weight = 24500,
         entry = TalonflameDesc,
-        forms = SingleSpecies(Species.Talonflame),
+        forms = SingleSpecies(SpeciesID.Talonflame),
     };
     public static readonly PokedexData Scatterbug = new()
     {
@@ -7051,7 +7167,7 @@ public static class Pokedex
         height = 30,
         weight = 2500,
         entry = ScatterbugDesc,
-        forms = SingleSpecies(Species.ScatterbugMeadow),
+        forms = SingleSpecies(SpeciesID.ScatterbugMeadow),
     };
     public static readonly PokedexData Spewpa = new()
     {
@@ -7061,7 +7177,7 @@ public static class Pokedex
         height = 30,
         weight = 8400,
         entry = SpewpaDesc,
-        forms = SingleSpecies(Species.SpewpaMeadow),
+        forms = SingleSpecies(SpeciesID.SpewpaMeadow),
     };
     public static readonly PokedexData Vivillon = new()
     {
@@ -7073,26 +7189,26 @@ public static class Pokedex
         entry = VivillonDesc,
         forms = new[]
         {
-            Species.VivillonMeadow,
-            Species.VivillonArchipelago,
-            Species.VivillonContinental,
-            Species.VivillonElegant,
-            Species.VivillonFancy,
-            Species.VivillonGarden,
-            Species.VivillonHighPlains,
-            Species.VivillonIcySnow,
-            Species.VivillonJungle,
-            Species.VivillonMarine,
-            Species.VivillonModern,
-            Species.VivillonMonsoon,
-            Species.VivillonOcean,
-            Species.VivillonPokeBall,
-            Species.VivillonPolar,
-            Species.VivillonRiver,
-            Species.VivillonSandstorm,
-            Species.VivillonSavanna,
-            Species.VivillonSun,
-            Species.VivillonTundra,
+            SpeciesID.VivillonMeadow,
+            SpeciesID.VivillonArchipelago,
+            SpeciesID.VivillonContinental,
+            SpeciesID.VivillonElegant,
+            SpeciesID.VivillonFancy,
+            SpeciesID.VivillonGarden,
+            SpeciesID.VivillonHighPlains,
+            SpeciesID.VivillonIcySnow,
+            SpeciesID.VivillonJungle,
+            SpeciesID.VivillonMarine,
+            SpeciesID.VivillonModern,
+            SpeciesID.VivillonMonsoon,
+            SpeciesID.VivillonOcean,
+            SpeciesID.VivillonPokeBall,
+            SpeciesID.VivillonPolar,
+            SpeciesID.VivillonRiver,
+            SpeciesID.VivillonSandstorm,
+            SpeciesID.VivillonSavanna,
+            SpeciesID.VivillonSun,
+            SpeciesID.VivillonTundra,
         }
     };
     public static readonly PokedexData Litleo = new()
@@ -7103,7 +7219,7 @@ public static class Pokedex
         height = 60,
         weight = 13500,
         entry = LitleoDesc,
-        forms = SingleSpecies(Species.Litleo),
+        forms = SingleSpecies(SpeciesID.Litleo),
     };
     public static readonly PokedexData Pyroar = new()
     {
@@ -7113,7 +7229,7 @@ public static class Pokedex
         height = 150,
         weight = 81500,
         entry = PyroarDesc,
-        forms = SingleSpecies(Species.Pyroar),
+        forms = SingleSpecies(SpeciesID.Pyroar),
     };
     public static readonly PokedexData Flabebe = new()
     {
@@ -7125,11 +7241,11 @@ public static class Pokedex
         entry = FlabebeRedDesc,
         forms = new[]
         {
-            Species.FlabebeRed,
-            Species.FlabebeYellow,
-            Species.FlabebeOrange,
-            Species.FlabebeBlue,
-            Species.FlabebeWhite
+            SpeciesID.FlabebeRed,
+            SpeciesID.FlabebeYellow,
+            SpeciesID.FlabebeOrange,
+            SpeciesID.FlabebeBlue,
+            SpeciesID.FlabebeWhite
         }
     };
     public static readonly PokedexData Floette = new()
@@ -7142,12 +7258,12 @@ public static class Pokedex
         entry = FloetteRedDesc,
         forms = new[]
         {
-            Species.FloetteRed,
-            Species.FloetteYellow,
-            Species.FloetteOrange,
-            Species.FloetteBlue,
-            Species.FloetteWhite,
-            Species.FloetteEternal
+            SpeciesID.FloetteRed,
+            SpeciesID.FloetteYellow,
+            SpeciesID.FloetteOrange,
+            SpeciesID.FloetteBlue,
+            SpeciesID.FloetteWhite,
+            SpeciesID.FloetteEternal
         }
     };
     public static readonly PokedexData Florges = new()
@@ -7160,11 +7276,11 @@ public static class Pokedex
         entry = FlorgesRedDesc,
         forms = new[]
         {
-            Species.FlorgesRed,
-            Species.FlorgesYellow,
-            Species.FlorgesOrange,
-            Species.FlorgesBlue,
-            Species.FlorgesWhite
+            SpeciesID.FlorgesRed,
+            SpeciesID.FlorgesYellow,
+            SpeciesID.FlorgesOrange,
+            SpeciesID.FlorgesBlue,
+            SpeciesID.FlorgesWhite
         }
     };
     public static readonly PokedexData Skiddo = new()
@@ -7175,7 +7291,7 @@ public static class Pokedex
         height = 90,
         weight = 31000,
         entry = SkiddoDesc,
-        forms = SingleSpecies(Species.Skiddo),
+        forms = SingleSpecies(SpeciesID.Skiddo),
     };
     public static readonly PokedexData Gogoat = new()
     {
@@ -7185,7 +7301,7 @@ public static class Pokedex
         height = 170,
         weight = 91000,
         entry = GogoatDesc,
-        forms = SingleSpecies(Species.Gogoat),
+        forms = SingleSpecies(SpeciesID.Gogoat),
     };
     public static readonly PokedexData Pancham = new()
     {
@@ -7195,7 +7311,7 @@ public static class Pokedex
         height = 60,
         weight = 8000,
         entry = PanchamDesc,
-        forms = SingleSpecies(Species.Pancham),
+        forms = SingleSpecies(SpeciesID.Pancham),
     };
     public static readonly PokedexData Pangoro = new()
     {
@@ -7205,7 +7321,7 @@ public static class Pokedex
         height = 210,
         weight = 136000,
         entry = PangoroDesc,
-        forms = SingleSpecies(Species.Pangoro),
+        forms = SingleSpecies(SpeciesID.Pangoro),
     };
     public static readonly PokedexData Furfrou = new()
     {
@@ -7217,16 +7333,16 @@ public static class Pokedex
         entry = FurfrouDesc,
         forms = new[]
         {
-            Species.FurfrouNatural,
-            Species.FurfrouHeart,
-            Species.FurfrouStar,
-            Species.FurfrouDiamond,
-            Species.FurfrouDebutante,
-            Species.FurfrouMatron,
-            Species.FurfrouDandy,
-            Species.FurfrouLaReine,
-            Species.FurfrouKabuki,
-            Species.FurfrouPharaoh
+            SpeciesID.FurfrouNatural,
+            SpeciesID.FurfrouHeart,
+            SpeciesID.FurfrouStar,
+            SpeciesID.FurfrouDiamond,
+            SpeciesID.FurfrouDebutante,
+            SpeciesID.FurfrouMatron,
+            SpeciesID.FurfrouDandy,
+            SpeciesID.FurfrouLaReine,
+            SpeciesID.FurfrouKabuki,
+            SpeciesID.FurfrouPharaoh
         }
     };
     public static readonly PokedexData Espurr = new()
@@ -7237,7 +7353,7 @@ public static class Pokedex
         height = 30,
         weight = 3500,
         entry = EspurrDesc,
-        forms = SingleSpecies(Species.Espurr),
+        forms = SingleSpecies(SpeciesID.Espurr),
     };
     public static readonly PokedexData Meowstic = new()
     {
@@ -7249,8 +7365,8 @@ public static class Pokedex
         entry = MeowsticMDesc,
         forms = new[]
         {
-            Species.MeowsticM,
-            Species.MeowsticF
+            SpeciesID.MeowsticM,
+            SpeciesID.MeowsticF
         },
     };
     public static readonly PokedexData Honedge = new()
@@ -7261,7 +7377,7 @@ public static class Pokedex
         height = 80,
         weight = 2000,
         entry = HonedgeDesc,
-        forms = SingleSpecies(Species.Honedge),
+        forms = SingleSpecies(SpeciesID.Honedge),
     };
     public static readonly PokedexData Doublade = new()
     {
@@ -7271,7 +7387,7 @@ public static class Pokedex
         height = 80,
         weight = 4500,
         entry = DoubladeDesc,
-        forms = SingleSpecies(Species.Doublade),
+        forms = SingleSpecies(SpeciesID.Doublade),
     };
     public static readonly PokedexData Aegislash = new()
     {
@@ -7283,8 +7399,8 @@ public static class Pokedex
         entry = AegislashShieldDesc,
         forms = new[]
         {
-            Species.AegislashShield,
-            Species.AegislashBlade
+            SpeciesID.AegislashShield,
+            SpeciesID.AegislashBlade
         },
     };
     public static readonly PokedexData Spritzee = new()
@@ -7295,7 +7411,7 @@ public static class Pokedex
         height = 20,
         weight = 500,
         entry = SpritzeeDesc,
-        forms = SingleSpecies(Species.Spritzee),
+        forms = SingleSpecies(SpeciesID.Spritzee),
     };
     public static readonly PokedexData Aromatisse = new()
     {
@@ -7305,7 +7421,7 @@ public static class Pokedex
         height = 80,
         weight = 15500,
         entry = AromatisseDesc,
-        forms = SingleSpecies(Species.Aromatisse),
+        forms = SingleSpecies(SpeciesID.Aromatisse),
     };
     public static readonly PokedexData Swirlix = new()
     {
@@ -7315,7 +7431,7 @@ public static class Pokedex
         height = 40,
         weight = 3500,
         entry = SwirlixDesc,
-        forms = SingleSpecies(Species.Swirlix),
+        forms = SingleSpecies(SpeciesID.Swirlix),
     };
     public static readonly PokedexData Slurpuff = new()
     {
@@ -7325,7 +7441,7 @@ public static class Pokedex
         height = 80,
         weight = 5000,
         entry = SlurpuffDesc,
-        forms = SingleSpecies(Species.Slurpuff),
+        forms = SingleSpecies(SpeciesID.Slurpuff),
     };
     public static readonly PokedexData Inkay = new()
     {
@@ -7335,7 +7451,7 @@ public static class Pokedex
         height = 40,
         weight = 3500,
         entry = InkayDesc,
-        forms = SingleSpecies(Species.Inkay),
+        forms = SingleSpecies(SpeciesID.Inkay),
     };
     public static readonly PokedexData Malamar = new()
     {
@@ -7345,7 +7461,7 @@ public static class Pokedex
         height = 150,
         weight = 47000,
         entry = MalamarDesc,
-        forms = SingleSpecies(Species.Malamar),
+        forms = SingleSpecies(SpeciesID.Malamar),
     };
     public static readonly PokedexData Binacle = new()
     {
@@ -7355,7 +7471,7 @@ public static class Pokedex
         height = 50,
         weight = 31000,
         entry = BinacleDesc,
-        forms = SingleSpecies(Species.Binacle),
+        forms = SingleSpecies(SpeciesID.Binacle),
     };
     public static readonly PokedexData Barbaracle = new()
     {
@@ -7365,7 +7481,7 @@ public static class Pokedex
         height = 130,
         weight = 96000,
         entry = BarbaracleDesc,
-        forms = SingleSpecies(Species.Barbaracle),
+        forms = SingleSpecies(SpeciesID.Barbaracle),
     };
     public static readonly PokedexData Skrelp = new()
     {
@@ -7375,7 +7491,7 @@ public static class Pokedex
         height = 50,
         weight = 7300,
         entry = SkrelpDesc,
-        forms = SingleSpecies(Species.Skrelp),
+        forms = SingleSpecies(SpeciesID.Skrelp),
     };
     public static readonly PokedexData Dragalge = new()
     {
@@ -7385,7 +7501,7 @@ public static class Pokedex
         height = 180,
         weight = 81500,
         entry = DragalgeDesc,
-        forms = SingleSpecies(Species.Dragalge),
+        forms = SingleSpecies(SpeciesID.Dragalge),
     };
     public static readonly PokedexData Clauncher = new()
     {
@@ -7395,7 +7511,7 @@ public static class Pokedex
         height = 50,
         weight = 8300,
         entry = ClauncherDesc,
-        forms = SingleSpecies(Species.Clauncher),
+        forms = SingleSpecies(SpeciesID.Clauncher),
     };
     public static readonly PokedexData Clawitzer = new()
     {
@@ -7405,7 +7521,7 @@ public static class Pokedex
         height = 130,
         weight = 35300,
         entry = ClawitzerDesc,
-        forms = SingleSpecies(Species.Clawitzer),
+        forms = SingleSpecies(SpeciesID.Clawitzer),
     };
     public static readonly PokedexData Helioptile = new()
     {
@@ -7415,7 +7531,7 @@ public static class Pokedex
         height = 50,
         weight = 6000,
         entry = HelioptileDesc,
-        forms = SingleSpecies(Species.Helioptile),
+        forms = SingleSpecies(SpeciesID.Helioptile),
     };
     public static readonly PokedexData Heliolisk = new()
     {
@@ -7425,7 +7541,7 @@ public static class Pokedex
         height = 100,
         weight = 21000,
         entry = HelioliskDesc,
-        forms = SingleSpecies(Species.Heliolisk),
+        forms = SingleSpecies(SpeciesID.Heliolisk),
     };
     public static readonly PokedexData Tyrunt = new()
     {
@@ -7435,7 +7551,7 @@ public static class Pokedex
         height = 80,
         weight = 26000,
         entry = TyruntDesc,
-        forms = SingleSpecies(Species.Tyrunt),
+        forms = SingleSpecies(SpeciesID.Tyrunt),
     };
     public static readonly PokedexData Tyrantrum = new()
     {
@@ -7445,7 +7561,7 @@ public static class Pokedex
         height = 250,
         weight = 270000,
         entry = TyrantrumDesc,
-        forms = SingleSpecies(Species.Tyrantrum),
+        forms = SingleSpecies(SpeciesID.Tyrantrum),
     };
     public static readonly PokedexData Amaura = new()
     {
@@ -7455,7 +7571,7 @@ public static class Pokedex
         height = 130,
         weight = 25200,
         entry = AmauraDesc,
-        forms = SingleSpecies(Species.Amaura),
+        forms = SingleSpecies(SpeciesID.Amaura),
     };
     public static readonly PokedexData Aurorus = new()
     {
@@ -7465,7 +7581,7 @@ public static class Pokedex
         height = 270,
         weight = 225000,
         entry = AurorusDesc,
-        forms = SingleSpecies(Species.Aurorus),
+        forms = SingleSpecies(SpeciesID.Aurorus),
     };
     public static readonly PokedexData Sylveon = new()
     {
@@ -7475,7 +7591,7 @@ public static class Pokedex
         height = 100,
         weight = 23500,
         entry = SylveonDesc,
-        forms = SingleSpecies(Species.Sylveon),
+        forms = SingleSpecies(SpeciesID.Sylveon),
     };
     public static readonly PokedexData Hawlucha = new()
     {
@@ -7485,7 +7601,7 @@ public static class Pokedex
         height = 80,
         weight = 21500,
         entry = HawluchaDesc,
-        forms = SingleSpecies(Species.Hawlucha),
+        forms = SingleSpecies(SpeciesID.Hawlucha),
     };
     public static readonly PokedexData Dedenne = new()
     {
@@ -7495,7 +7611,7 @@ public static class Pokedex
         height = 20,
         weight = 2200,
         entry = DedenneDesc,
-        forms = SingleSpecies(Species.Dedenne),
+        forms = SingleSpecies(SpeciesID.Dedenne),
     };
     public static readonly PokedexData Carbink = new()
     {
@@ -7505,7 +7621,7 @@ public static class Pokedex
         height = 30,
         weight = 5700,
         entry = CarbinkDesc,
-        forms = SingleSpecies(Species.Carbink),
+        forms = SingleSpecies(SpeciesID.Carbink),
     };
     public static readonly PokedexData Goomy = new()
     {
@@ -7515,7 +7631,7 @@ public static class Pokedex
         height = 30,
         weight = 2800,
         entry = GoomyDesc,
-        forms = SingleSpecies(Species.Goomy),
+        forms = SingleSpecies(SpeciesID.Goomy),
     };
     public static readonly PokedexData Sliggoo = new()
     {
@@ -7525,7 +7641,11 @@ public static class Pokedex
         height = 80,
         weight = 17500,
         entry = SliggooDesc,
-        forms = SingleSpecies(Species.Sliggoo),
+        forms = new[]
+        {
+            SpeciesID.Sliggoo,
+            SpeciesID.SliggooHisui
+        }
     };
     public static readonly PokedexData Goodra = new()
     {
@@ -7535,7 +7655,11 @@ public static class Pokedex
         height = 200,
         weight = 150500,
         entry = GoodraDesc,
-        forms = SingleSpecies(Species.Goodra),
+        forms = new[]
+        {
+            SpeciesID.Goodra,
+            SpeciesID.GoodraHisui
+        }
     };
     public static readonly PokedexData Klefki = new()
     {
@@ -7545,7 +7669,7 @@ public static class Pokedex
         height = 20,
         weight = 3000,
         entry = KlefkiDesc,
-        forms = SingleSpecies(Species.Klefki),
+        forms = SingleSpecies(SpeciesID.Klefki),
     };
     public static readonly PokedexData Phantump = new()
     {
@@ -7555,7 +7679,7 @@ public static class Pokedex
         height = 40,
         weight = 7000,
         entry = PhantumpDesc,
-        forms = SingleSpecies(Species.Phantump),
+        forms = SingleSpecies(SpeciesID.Phantump),
     };
     public static readonly PokedexData Trevenant = new()
     {
@@ -7565,7 +7689,7 @@ public static class Pokedex
         height = 150,
         weight = 71000,
         entry = TrevenantDesc,
-        forms = SingleSpecies(Species.Trevenant),
+        forms = SingleSpecies(SpeciesID.Trevenant),
     };
     public static readonly PokedexData Pumpkaboo = new()
     {
@@ -7577,10 +7701,10 @@ public static class Pokedex
         entry = PumpkabooDesc,
         forms = new[]
         {
-            Species.PumpkabooAverage,
-            Species.PumpkabooSmall,
-            Species.PumpkabooLarge,
-            Species.PumpkabooSuper
+            SpeciesID.PumpkabooAverage,
+            SpeciesID.PumpkabooSmall,
+            SpeciesID.PumpkabooLarge,
+            SpeciesID.PumpkabooSuper
         }
     };
     public static readonly PokedexData Gourgeist = new()
@@ -7593,10 +7717,10 @@ public static class Pokedex
         entry = GourgeistDesc,
         forms = new[]
         {
-            Species.GourgeistAverage,
-            Species.GourgeistSmall,
-            Species.GourgeistLarge,
-            Species.GourgeistSuper
+            SpeciesID.GourgeistAverage,
+            SpeciesID.GourgeistSmall,
+            SpeciesID.GourgeistLarge,
+            SpeciesID.GourgeistSuper
         }
     };
     public static readonly PokedexData Bergmite = new()
@@ -7607,7 +7731,7 @@ public static class Pokedex
         height = 100,
         weight = 99500,
         entry = BergmiteDesc,
-        forms = SingleSpecies(Species.Bergmite),
+        forms = SingleSpecies(SpeciesID.Bergmite),
     };
     public static readonly PokedexData Avalugg = new()
     {
@@ -7617,7 +7741,11 @@ public static class Pokedex
         height = 200,
         weight = 505000,
         entry = AvaluggDesc,
-        forms = SingleSpecies(Species.Avalugg),
+        forms = new[]
+        {
+            SpeciesID.Avalugg,
+            SpeciesID.AvaluggHisui
+        }
     };
     public static readonly PokedexData Noibat = new()
     {
@@ -7627,7 +7755,7 @@ public static class Pokedex
         height = 50,
         weight = 8000,
         entry = NoibatDesc,
-        forms = SingleSpecies(Species.Noibat),
+        forms = SingleSpecies(SpeciesID.Noibat),
     };
     public static readonly PokedexData Noivern = new()
     {
@@ -7637,7 +7765,7 @@ public static class Pokedex
         height = 150,
         weight = 85000,
         entry = NoivernDesc,
-        forms = SingleSpecies(Species.Noivern),
+        forms = SingleSpecies(SpeciesID.Noivern),
     };
     public static readonly PokedexData Xerneas = new()
     {
@@ -7649,8 +7777,8 @@ public static class Pokedex
         entry = XerneasDesc,
         forms = new[]
         {
-            Species.XerneasInactive,
-            Species.XerneasActive
+            SpeciesID.XerneasInactive,
+            SpeciesID.XerneasActive
         },
     };
     public static readonly PokedexData Yveltal = new()
@@ -7661,7 +7789,7 @@ public static class Pokedex
         height = 580,
         weight = 203000,
         entry = YveltalDesc,
-        forms = SingleSpecies(Species.Yveltal),
+        forms = SingleSpecies(SpeciesID.Yveltal),
     };
     public static readonly PokedexData Zygarde = new()
     {
@@ -7673,9 +7801,9 @@ public static class Pokedex
         entry = Zygarde50Desc,
         forms = new[]
         {
-            Species.Zygarde50,
-            Species.Zygarde10,
-            Species.ZygardeComplete
+            SpeciesID.Zygarde50,
+            SpeciesID.Zygarde10,
+            SpeciesID.ZygardeComplete
         }
     };
     public static readonly PokedexData Diancie = new()
@@ -7688,8 +7816,8 @@ public static class Pokedex
         entry = DiancieDesc,
         forms = new[]
         {
-            Species.Diancie,
-            Species.DiancieMega
+            SpeciesID.Diancie,
+            SpeciesID.DiancieMega
         }
     };
     public static readonly PokedexData Hoopa = new()
@@ -7702,8 +7830,8 @@ public static class Pokedex
         entry = HoopaDesc,
         forms = new[]
         {
-            Species.Hoopa,
-            Species.HoopaUnbound
+            SpeciesID.Hoopa,
+            SpeciesID.HoopaUnbound
         }
     };
     public static readonly PokedexData Volcanion = new()
@@ -7714,7 +7842,7 @@ public static class Pokedex
         height = 170,
         weight = 195000,
         entry = VolcanionDesc,
-        forms = SingleSpecies(Species.Volcanion),
+        forms = SingleSpecies(SpeciesID.Volcanion),
     };
     public static readonly PokedexData Rowlet = new()
     {
@@ -7724,7 +7852,7 @@ public static class Pokedex
         height = 30,
         weight = 1500,
         entry = RowletDesc,
-        forms = SingleSpecies(Species.Rowlet),
+        forms = SingleSpecies(SpeciesID.Rowlet),
     };
     public static readonly PokedexData Dartrix = new()
     {
@@ -7734,7 +7862,7 @@ public static class Pokedex
         height = 70,
         weight = 16000,
         entry = DartrixDesc,
-        forms = SingleSpecies(Species.Dartrix),
+        forms = SingleSpecies(SpeciesID.Dartrix),
     };
     public static readonly PokedexData Decidueye = new()
     {
@@ -7744,7 +7872,11 @@ public static class Pokedex
         height = 160,
         weight = 36600,
         entry = DecidueyeDesc,
-        forms = SingleSpecies(Species.Decidueye),
+        forms = new[]
+        {
+            SpeciesID.Decidueye,
+            SpeciesID.DecidueyeHisui
+        }
     };
     public static readonly PokedexData Litten = new()
     {
@@ -7754,7 +7886,7 @@ public static class Pokedex
         height = 40,
         weight = 4300,
         entry = LittenDesc,
-        forms = SingleSpecies(Species.Litten),
+        forms = SingleSpecies(SpeciesID.Litten),
     };
     public static readonly PokedexData Torracat = new()
     {
@@ -7764,7 +7896,7 @@ public static class Pokedex
         height = 70,
         weight = 25000,
         entry = TorracatDesc,
-        forms = SingleSpecies(Species.Torracat),
+        forms = SingleSpecies(SpeciesID.Torracat),
     };
     public static readonly PokedexData Incineroar = new()
     {
@@ -7774,7 +7906,7 @@ public static class Pokedex
         height = 180,
         weight = 83000,
         entry = IncineroarDesc,
-        forms = SingleSpecies(Species.Incineroar),
+        forms = SingleSpecies(SpeciesID.Incineroar),
     };
     public static readonly PokedexData Popplio = new()
     {
@@ -7784,7 +7916,7 @@ public static class Pokedex
         height = 40,
         weight = 7500,
         entry = PopplioDesc,
-        forms = SingleSpecies(Species.Popplio),
+        forms = SingleSpecies(SpeciesID.Popplio),
     };
     public static readonly PokedexData Brionne = new()
     {
@@ -7794,7 +7926,7 @@ public static class Pokedex
         height = 60,
         weight = 17500,
         entry = BrionneDesc,
-        forms = SingleSpecies(Species.Brionne),
+        forms = SingleSpecies(SpeciesID.Brionne),
     };
     public static readonly PokedexData Primarina = new()
     {
@@ -7804,7 +7936,7 @@ public static class Pokedex
         height = 180,
         weight = 44000,
         entry = PrimarinaDesc,
-        forms = SingleSpecies(Species.Primarina),
+        forms = SingleSpecies(SpeciesID.Primarina),
     };
     public static readonly PokedexData Pikipek = new()
     {
@@ -7814,7 +7946,7 @@ public static class Pokedex
         height = 30,
         weight = 1200,
         entry = PikipekDesc,
-        forms = SingleSpecies(Species.Pikipek),
+        forms = SingleSpecies(SpeciesID.Pikipek),
     };
     public static readonly PokedexData Trumbeak = new()
     {
@@ -7824,7 +7956,7 @@ public static class Pokedex
         height = 60,
         weight = 14800,
         entry = TrumbeakDesc,
-        forms = SingleSpecies(Species.Trumbeak),
+        forms = SingleSpecies(SpeciesID.Trumbeak),
     };
     public static readonly PokedexData Toucannon = new()
     {
@@ -7834,7 +7966,7 @@ public static class Pokedex
         height = 110,
         weight = 26000,
         entry = ToucannonDesc,
-        forms = SingleSpecies(Species.Toucannon),
+        forms = SingleSpecies(SpeciesID.Toucannon),
     };
     public static readonly PokedexData Yungoos = new()
     {
@@ -7844,7 +7976,7 @@ public static class Pokedex
         height = 40,
         weight = 6000,
         entry = YungoosDesc,
-        forms = SingleSpecies(Species.Yungoos),
+        forms = SingleSpecies(SpeciesID.Yungoos),
     };
     public static readonly PokedexData Gumshoos = new()
     {
@@ -7854,7 +7986,7 @@ public static class Pokedex
         height = 70,
         weight = 14200,
         entry = GumshoosDesc,
-        forms = SingleSpecies(Species.Gumshoos),
+        forms = SingleSpecies(SpeciesID.Gumshoos),
     };
     public static readonly PokedexData Grubbin = new()
     {
@@ -7864,7 +7996,7 @@ public static class Pokedex
         height = 40,
         weight = 4400,
         entry = GrubbinDesc,
-        forms = SingleSpecies(Species.Grubbin),
+        forms = SingleSpecies(SpeciesID.Grubbin),
     };
     public static readonly PokedexData Charjabug = new()
     {
@@ -7874,7 +8006,7 @@ public static class Pokedex
         height = 50,
         weight = 10500,
         entry = CharjabugDesc,
-        forms = SingleSpecies(Species.Charjabug),
+        forms = SingleSpecies(SpeciesID.Charjabug),
     };
     public static readonly PokedexData Vikavolt = new()
     {
@@ -7884,7 +8016,7 @@ public static class Pokedex
         height = 150,
         weight = 45000,
         entry = VikavoltDesc,
-        forms = SingleSpecies(Species.Vikavolt),
+        forms = SingleSpecies(SpeciesID.Vikavolt),
     };
     public static readonly PokedexData Crabrawler = new()
     {
@@ -7894,7 +8026,7 @@ public static class Pokedex
         height = 60,
         weight = 7000,
         entry = CrabrawlerDesc,
-        forms = SingleSpecies(Species.Crabrawler),
+        forms = SingleSpecies(SpeciesID.Crabrawler),
     };
     public static readonly PokedexData Crabominable = new()
     {
@@ -7904,7 +8036,7 @@ public static class Pokedex
         height = 170,
         weight = 180000,
         entry = CrabominableDesc,
-        forms = SingleSpecies(Species.Crabominable),
+        forms = SingleSpecies(SpeciesID.Crabominable),
     };
     public static readonly PokedexData Oricorio = new()
     {
@@ -7916,10 +8048,10 @@ public static class Pokedex
         entry = OricorioBaileDesc,
         forms = new[]
         {
-            Species.OricorioBaile,
-            Species.OricorioPomPom,
-            Species.OricorioPau,
-            Species.OricorioSensu
+            SpeciesID.OricorioBaile,
+            SpeciesID.OricorioPomPom,
+            SpeciesID.OricorioPau,
+            SpeciesID.OricorioSensu
         },
     };
     public static readonly PokedexData Cutiefly = new()
@@ -7930,7 +8062,7 @@ public static class Pokedex
         height = 10,
         weight = 200,
         entry = CutieflyDesc,
-        forms = SingleSpecies(Species.Cutiefly),
+        forms = SingleSpecies(SpeciesID.Cutiefly),
     };
     public static readonly PokedexData Ribombee = new()
     {
@@ -7940,7 +8072,7 @@ public static class Pokedex
         height = 20,
         weight = 500,
         entry = RibombeeDesc,
-        forms = SingleSpecies(Species.Ribombee),
+        forms = SingleSpecies(SpeciesID.Ribombee),
     };
     public static readonly PokedexData Rockruff = new()
     {
@@ -7950,7 +8082,7 @@ public static class Pokedex
         height = 50,
         weight = 9200,
         entry = RockruffDesc,
-        forms = SingleSpecies(Species.RockruffNormal),
+        forms = SingleSpecies(SpeciesID.RockruffNormal),
     };
     public static readonly PokedexData Lycanroc = new()
     {
@@ -7962,9 +8094,9 @@ public static class Pokedex
         entry = LycanrocMiddayDesc,
         forms = new[]
         {
-            Species.Lycanroc,
-            Species.LycanrocMidnight,
-            Species.LycanrocDusk
+            SpeciesID.Lycanroc,
+            SpeciesID.LycanrocMidnight,
+            SpeciesID.LycanrocDusk
         },
     };
     public static readonly PokedexData Wishiwashi = new()
@@ -7977,8 +8109,8 @@ public static class Pokedex
         entry = WishiwashiBaseDesc,
         forms = new[]
         {
-            Species.Wishiwashi,
-            Species.WishiwashiSchool
+            SpeciesID.Wishiwashi,
+            SpeciesID.WishiwashiSchool
         }
     };
     public static readonly PokedexData Mareanie = new()
@@ -7989,7 +8121,7 @@ public static class Pokedex
         height = 40,
         weight = 8000,
         entry = MareanieDesc,
-        forms = SingleSpecies(Species.Mareanie),
+        forms = SingleSpecies(SpeciesID.Mareanie),
     };
     public static readonly PokedexData Toxapex = new()
     {
@@ -7999,7 +8131,7 @@ public static class Pokedex
         height = 70,
         weight = 14500,
         entry = ToxapexDesc,
-        forms = SingleSpecies(Species.Toxapex),
+        forms = SingleSpecies(SpeciesID.Toxapex),
     };
     public static readonly PokedexData Mudbray = new()
     {
@@ -8009,7 +8141,7 @@ public static class Pokedex
         height = 100,
         weight = 110000,
         entry = MudbrayDesc,
-        forms = SingleSpecies(Species.Mudbray),
+        forms = SingleSpecies(SpeciesID.Mudbray),
     };
     public static readonly PokedexData Mudsdale = new()
     {
@@ -8019,7 +8151,7 @@ public static class Pokedex
         height = 250,
         weight = 920000,
         entry = MudsdaleDesc,
-        forms = SingleSpecies(Species.Mudsdale),
+        forms = SingleSpecies(SpeciesID.Mudsdale),
     };
     public static readonly PokedexData Dewpider = new()
     {
@@ -8029,7 +8161,7 @@ public static class Pokedex
         height = 30,
         weight = 4000,
         entry = DewpiderDesc,
-        forms = SingleSpecies(Species.Dewpider),
+        forms = SingleSpecies(SpeciesID.Dewpider),
     };
     public static readonly PokedexData Araquanid = new()
     {
@@ -8039,7 +8171,7 @@ public static class Pokedex
         height = 180,
         weight = 82000,
         entry = AraquanidDesc,
-        forms = SingleSpecies(Species.Araquanid),
+        forms = SingleSpecies(SpeciesID.Araquanid),
     };
     public static readonly PokedexData Fomantis = new()
     {
@@ -8049,7 +8181,7 @@ public static class Pokedex
         height = 30,
         weight = 1500,
         entry = FomantisDesc,
-        forms = SingleSpecies(Species.Fomantis),
+        forms = SingleSpecies(SpeciesID.Fomantis),
     };
     public static readonly PokedexData Lurantis = new()
     {
@@ -8059,7 +8191,7 @@ public static class Pokedex
         height = 90,
         weight = 18500,
         entry = LurantisDesc,
-        forms = SingleSpecies(Species.Lurantis),
+        forms = SingleSpecies(SpeciesID.Lurantis),
     };
     public static readonly PokedexData Morelull = new()
     {
@@ -8069,7 +8201,7 @@ public static class Pokedex
         height = 20,
         weight = 1500,
         entry = MorelullDesc,
-        forms = SingleSpecies(Species.Morelull),
+        forms = SingleSpecies(SpeciesID.Morelull),
     };
     public static readonly PokedexData Shiinotic = new()
     {
@@ -8079,7 +8211,7 @@ public static class Pokedex
         height = 100,
         weight = 11500,
         entry = ShiinoticDesc,
-        forms = SingleSpecies(Species.Shiinotic),
+        forms = SingleSpecies(SpeciesID.Shiinotic),
     };
     public static readonly PokedexData Salandit = new()
     {
@@ -8089,7 +8221,7 @@ public static class Pokedex
         height = 60,
         weight = 4800,
         entry = SalanditDesc,
-        forms = SingleSpecies(Species.Salandit),
+        forms = SingleSpecies(SpeciesID.Salandit),
     };
     public static readonly PokedexData Salazzle = new()
     {
@@ -8099,7 +8231,7 @@ public static class Pokedex
         height = 120,
         weight = 22200,
         entry = SalazzleDesc,
-        forms = SingleSpecies(Species.Salazzle),
+        forms = SingleSpecies(SpeciesID.Salazzle),
     };
     public static readonly PokedexData Stufful = new()
     {
@@ -8109,7 +8241,7 @@ public static class Pokedex
         height = 50,
         weight = 6800,
         entry = StuffulDesc,
-        forms = SingleSpecies(Species.Stufful),
+        forms = SingleSpecies(SpeciesID.Stufful),
     };
     public static readonly PokedexData Bewear = new()
     {
@@ -8119,7 +8251,7 @@ public static class Pokedex
         height = 210,
         weight = 135000,
         entry = BewearDesc,
-        forms = SingleSpecies(Species.Bewear),
+        forms = SingleSpecies(SpeciesID.Bewear),
     };
     public static readonly PokedexData Bounsweet = new()
     {
@@ -8129,7 +8261,7 @@ public static class Pokedex
         height = 30,
         weight = 3200,
         entry = BounsweetDesc,
-        forms = SingleSpecies(Species.Bounsweet),
+        forms = SingleSpecies(SpeciesID.Bounsweet),
     };
     public static readonly PokedexData Steenee = new()
     {
@@ -8139,7 +8271,7 @@ public static class Pokedex
         height = 70,
         weight = 8200,
         entry = SteeneeDesc,
-        forms = SingleSpecies(Species.Steenee),
+        forms = SingleSpecies(SpeciesID.Steenee),
     };
     public static readonly PokedexData Tsareena = new()
     {
@@ -8149,7 +8281,7 @@ public static class Pokedex
         height = 120,
         weight = 21400,
         entry = TsareenaDesc,
-        forms = SingleSpecies(Species.Tsareena),
+        forms = SingleSpecies(SpeciesID.Tsareena),
     };
     public static readonly PokedexData Comfey = new()
     {
@@ -8159,7 +8291,7 @@ public static class Pokedex
         height = 10,
         weight = 300,
         entry = ComfeyDesc,
-        forms = SingleSpecies(Species.Comfey),
+        forms = SingleSpecies(SpeciesID.Comfey),
     };
     public static readonly PokedexData Oranguru = new()
     {
@@ -8169,7 +8301,7 @@ public static class Pokedex
         height = 150,
         weight = 76000,
         entry = OranguruDesc,
-        forms = SingleSpecies(Species.Oranguru),
+        forms = SingleSpecies(SpeciesID.Oranguru),
     };
     public static readonly PokedexData Passimian = new()
     {
@@ -8179,7 +8311,7 @@ public static class Pokedex
         height = 200,
         weight = 82800,
         entry = PassimianDesc,
-        forms = SingleSpecies(Species.Passimian),
+        forms = SingleSpecies(SpeciesID.Passimian),
     };
     public static readonly PokedexData Wimpod = new()
     {
@@ -8189,7 +8321,7 @@ public static class Pokedex
         height = 50,
         weight = 12000,
         entry = WimpodDesc,
-        forms = SingleSpecies(Species.Wimpod),
+        forms = SingleSpecies(SpeciesID.Wimpod),
     };
     public static readonly PokedexData Golisopod = new()
     {
@@ -8199,7 +8331,7 @@ public static class Pokedex
         height = 200,
         weight = 108000,
         entry = GolisopodDesc,
-        forms = SingleSpecies(Species.Golisopod),
+        forms = SingleSpecies(SpeciesID.Golisopod),
     };
     public static readonly PokedexData Sandygast = new()
     {
@@ -8209,7 +8341,7 @@ public static class Pokedex
         height = 50,
         weight = 70000,
         entry = SandygastDesc,
-        forms = SingleSpecies(Species.Sandygast),
+        forms = SingleSpecies(SpeciesID.Sandygast),
     };
     public static readonly PokedexData Palossand = new()
     {
@@ -8219,7 +8351,7 @@ public static class Pokedex
         height = 130,
         weight = 250000,
         entry = PalossandDesc,
-        forms = SingleSpecies(Species.Palossand),
+        forms = SingleSpecies(SpeciesID.Palossand),
     };
     public static readonly PokedexData Pyukumuku = new()
     {
@@ -8229,7 +8361,7 @@ public static class Pokedex
         height = 30,
         weight = 1200,
         entry = PyukumukuDesc,
-        forms = SingleSpecies(Species.Pyukumuku),
+        forms = SingleSpecies(SpeciesID.Pyukumuku),
     };
     public static readonly PokedexData TypeNull = new()
     {
@@ -8239,7 +8371,7 @@ public static class Pokedex
         height = 190,
         weight = 120500,
         entry = TypeNullDesc,
-        forms = SingleSpecies(Species.TypeNull),
+        forms = SingleSpecies(SpeciesID.TypeNull),
 
     };
     public static readonly PokedexData Silvally = new()
@@ -8252,24 +8384,24 @@ public static class Pokedex
         entry = SilvallyDesc,
         forms = new[]
         {
-            Species.SilvallyNormal,
-            Species.SilvallyFighting,
-            Species.SilvallyFlying,
-            Species.SilvallyPoison,
-            Species.SilvallyGround,
-            Species.SilvallyRock,
-            Species.SilvallyBug,
-            Species.SilvallyGhost,
-            Species.SilvallySteel,
-            Species.SilvallyFire,
-            Species.SilvallyWater,
-            Species.SilvallyGrass,
-            Species.SilvallyElectric,
-            Species.SilvallyPsychic,
-            Species.SilvallyIce,
-            Species.SilvallyDragon,
-            Species.SilvallyDark,
-            Species.SilvallyFairy
+            SpeciesID.SilvallyNormal,
+            SpeciesID.SilvallyFighting,
+            SpeciesID.SilvallyFlying,
+            SpeciesID.SilvallyPoison,
+            SpeciesID.SilvallyGround,
+            SpeciesID.SilvallyRock,
+            SpeciesID.SilvallyBug,
+            SpeciesID.SilvallyGhost,
+            SpeciesID.SilvallySteel,
+            SpeciesID.SilvallyFire,
+            SpeciesID.SilvallyWater,
+            SpeciesID.SilvallyGrass,
+            SpeciesID.SilvallyElectric,
+            SpeciesID.SilvallyPsychic,
+            SpeciesID.SilvallyIce,
+            SpeciesID.SilvallyDragon,
+            SpeciesID.SilvallyDark,
+            SpeciesID.SilvallyFairy
         },
     };
     public static readonly PokedexData Minior = new()
@@ -8282,14 +8414,14 @@ public static class Pokedex
         entry = MiniorMeteorDesc,
         forms = new[]
         {
-            Species.MiniorRedCore,
-            Species.MiniorOrangeCore,
-            Species.MiniorYellowCore,
-            Species.MiniorGreenCore,
-            Species.MiniorBlueCore,
-            Species.MiniorIndigoCore,
-            Species.MiniorVioletCore,
-            Species.MiniorRedMeteor
+            SpeciesID.MiniorRedCore,
+            SpeciesID.MiniorOrangeCore,
+            SpeciesID.MiniorYellowCore,
+            SpeciesID.MiniorGreenCore,
+            SpeciesID.MiniorBlueCore,
+            SpeciesID.MiniorIndigoCore,
+            SpeciesID.MiniorVioletCore,
+            SpeciesID.MiniorRedMeteor
         },
     };
     public static readonly PokedexData Komala = new()
@@ -8300,7 +8432,7 @@ public static class Pokedex
         height = 40,
         weight = 19900,
         entry = KomalaDesc,
-        forms = SingleSpecies(Species.Komala),
+        forms = SingleSpecies(SpeciesID.Komala),
     };
     public static readonly PokedexData Turtonator = new()
     {
@@ -8310,7 +8442,7 @@ public static class Pokedex
         height = 200,
         weight = 212000,
         entry = TurtonatorDesc,
-        forms = SingleSpecies(Species.Turtonator),
+        forms = SingleSpecies(SpeciesID.Turtonator),
     };
     public static readonly PokedexData Togedemaru = new()
     {
@@ -8320,7 +8452,7 @@ public static class Pokedex
         height = 30,
         weight = 3300,
         entry = TogedemaruDesc,
-        forms = SingleSpecies(Species.Togedemaru),
+        forms = SingleSpecies(SpeciesID.Togedemaru),
     };
     public static readonly PokedexData Mimikyu = new()
     {
@@ -8332,8 +8464,8 @@ public static class Pokedex
         entry = MimikyuDesc,
         forms = new[]
         {
-            Species.MimikyuBase,
-            Species.MimikyuBusted
+            SpeciesID.MimikyuBase,
+            SpeciesID.MimikyuBusted
         }
     };
     public static readonly PokedexData Bruxish = new()
@@ -8344,7 +8476,7 @@ public static class Pokedex
         height = 90,
         weight = 19000,
         entry = BruxishDesc,
-        forms = SingleSpecies(Species.Bruxish),
+        forms = SingleSpecies(SpeciesID.Bruxish),
     };
     public static readonly PokedexData Drampa = new()
     {
@@ -8354,7 +8486,7 @@ public static class Pokedex
         height = 300,
         weight = 185000,
         entry = DrampaDesc,
-        forms = SingleSpecies(Species.Drampa),
+        forms = SingleSpecies(SpeciesID.Drampa),
     };
     public static readonly PokedexData Dhelmise = new()
     {
@@ -8364,7 +8496,7 @@ public static class Pokedex
         height = 390,
         weight = 210000,
         entry = DhelmiseDesc,
-        forms = SingleSpecies(Species.Dhelmise),
+        forms = SingleSpecies(SpeciesID.Dhelmise),
     };
     public static readonly PokedexData JangmoO = new()
     {
@@ -8374,7 +8506,7 @@ public static class Pokedex
         height = 60,
         weight = 29700,
         entry = JangmoODesc,
-        forms = SingleSpecies(Species.JangmoO),
+        forms = SingleSpecies(SpeciesID.JangmoO),
     };
     public static readonly PokedexData HakamoO = new()
     {
@@ -8384,7 +8516,7 @@ public static class Pokedex
         height = 120,
         weight = 47000,
         entry = HakamoODesc,
-        forms = SingleSpecies(Species.HakamoO),
+        forms = SingleSpecies(SpeciesID.HakamoO),
     };
     public static readonly PokedexData KommoO = new()
     {
@@ -8394,7 +8526,7 @@ public static class Pokedex
         height = 160,
         weight = 78200,
         entry = KommoODesc,
-        forms = SingleSpecies(Species.KommoO),
+        forms = SingleSpecies(SpeciesID.KommoO),
     };
     public static readonly PokedexData TapuKoko = new()
     {
@@ -8404,7 +8536,7 @@ public static class Pokedex
         height = 180,
         weight = 20500,
         entry = TapuKokoDesc,
-        forms = SingleSpecies(Species.TapuKoko),
+        forms = SingleSpecies(SpeciesID.TapuKoko),
     };
     public static readonly PokedexData TapuLele = new()
     {
@@ -8414,7 +8546,7 @@ public static class Pokedex
         height = 120,
         weight = 18600,
         entry = TapuLeleDesc,
-        forms = SingleSpecies(Species.TapuLele),
+        forms = SingleSpecies(SpeciesID.TapuLele),
     };
     public static readonly PokedexData TapuBulu = new()
     {
@@ -8424,7 +8556,7 @@ public static class Pokedex
         height = 190,
         weight = 45500,
         entry = TapuBuluDesc,
-        forms = SingleSpecies(Species.TapuBulu),
+        forms = SingleSpecies(SpeciesID.TapuBulu),
     };
     public static readonly PokedexData TapuFini = new()
     {
@@ -8434,7 +8566,7 @@ public static class Pokedex
         height = 130,
         weight = 21200,
         entry = TapuFiniDesc,
-        forms = SingleSpecies(Species.TapuFini),
+        forms = SingleSpecies(SpeciesID.TapuFini),
     };
     public static readonly PokedexData Cosmog = new()
     {
@@ -8444,7 +8576,7 @@ public static class Pokedex
         height = 20,
         weight = 100,
         entry = CosmogDesc,
-        forms = SingleSpecies(Species.Cosmog),
+        forms = SingleSpecies(SpeciesID.Cosmog),
     };
     public static readonly PokedexData Cosmoem = new()
     {
@@ -8454,7 +8586,7 @@ public static class Pokedex
         height = 10,
         weight = 999900,
         entry = CosmoemDesc,
-        forms = SingleSpecies(Species.Cosmoem),
+        forms = SingleSpecies(SpeciesID.Cosmoem),
     };
     public static readonly PokedexData Solgaleo = new()
     {
@@ -8464,7 +8596,7 @@ public static class Pokedex
         height = 340,
         weight = 230000,
         entry = SolgaleoDesc,
-        forms = SingleSpecies(Species.Solgaleo),
+        forms = SingleSpecies(SpeciesID.Solgaleo),
     };
     public static readonly PokedexData Lunala = new()
     {
@@ -8474,7 +8606,7 @@ public static class Pokedex
         height = 400,
         weight = 120000,
         entry = LunalaDesc,
-        forms = SingleSpecies(Species.Lunala),
+        forms = SingleSpecies(SpeciesID.Lunala),
     };
     public static readonly PokedexData Nihilego = new()
     {
@@ -8484,7 +8616,7 @@ public static class Pokedex
         height = 120,
         weight = 55500,
         entry = NihilegoDesc,
-        forms = SingleSpecies(Species.Nihilego),
+        forms = SingleSpecies(SpeciesID.Nihilego),
     };
     public static readonly PokedexData Buzzwole = new()
     {
@@ -8494,7 +8626,7 @@ public static class Pokedex
         height = 240,
         weight = 333600,
         entry = BuzzwoleDesc,
-        forms = SingleSpecies(Species.Buzzwole),
+        forms = SingleSpecies(SpeciesID.Buzzwole),
     };
     public static readonly PokedexData Pheromosa = new()
     {
@@ -8504,7 +8636,7 @@ public static class Pokedex
         height = 180,
         weight = 25000,
         entry = PheromosaDesc,
-        forms = SingleSpecies(Species.Pheromosa),
+        forms = SingleSpecies(SpeciesID.Pheromosa),
     };
     public static readonly PokedexData Xurkitree = new()
     {
@@ -8514,7 +8646,7 @@ public static class Pokedex
         height = 380,
         weight = 100000,
         entry = XurkitreeDesc,
-        forms = SingleSpecies(Species.Xurkitree),
+        forms = SingleSpecies(SpeciesID.Xurkitree),
     };
     public static readonly PokedexData Celesteela = new()
     {
@@ -8524,7 +8656,7 @@ public static class Pokedex
         height = 920,
         weight = 999900,
         entry = CelesteelaDesc,
-        forms = SingleSpecies(Species.Celesteela),
+        forms = SingleSpecies(SpeciesID.Celesteela),
     };
     public static readonly PokedexData Kartana = new()
     {
@@ -8534,7 +8666,7 @@ public static class Pokedex
         height = 30,
         weight = 100,
         entry = KartanaDesc,
-        forms = SingleSpecies(Species.Kartana),
+        forms = SingleSpecies(SpeciesID.Kartana),
     };
     public static readonly PokedexData Guzzlord = new()
     {
@@ -8544,7 +8676,7 @@ public static class Pokedex
         height = 550,
         weight = 888000,
         entry = GuzzlordDesc,
-        forms = SingleSpecies(Species.Guzzlord),
+        forms = SingleSpecies(SpeciesID.Guzzlord),
     };
     public static readonly PokedexData Necrozma = new()
     {
@@ -8556,10 +8688,10 @@ public static class Pokedex
         entry = NecrozmaDesc,
         forms = new[]
         {
-            Species.Necrozma,
-            Species.NecrozmaDuskMane,
-            Species.NecrozmaDawnWings,
-            Species.NecrozmaUltra
+            SpeciesID.Necrozma,
+            SpeciesID.NecrozmaDuskMane,
+            SpeciesID.NecrozmaDawnWings,
+            SpeciesID.NecrozmaUltra
         }
     };
     public static readonly PokedexData Magearna = new()
@@ -8572,8 +8704,8 @@ public static class Pokedex
         entry = MagearnaDesc,
         forms = new[]
         {
-            Species.MagearnaBase,
-            Species.MagearnaOriginal
+            SpeciesID.MagearnaBase,
+            SpeciesID.MagearnaOriginal
         },
     };
     public static readonly PokedexData Marshadow = new()
@@ -8584,7 +8716,7 @@ public static class Pokedex
         height = 70,
         weight = 22200,
         entry = MarshadowDesc,
-        forms = SingleSpecies(Species.Marshadow),
+        forms = SingleSpecies(SpeciesID.Marshadow),
     };
     public static readonly PokedexData Poipole = new()
     {
@@ -8594,7 +8726,7 @@ public static class Pokedex
         height = 60,
         weight = 1800,
         entry = PoipoleDesc,
-        forms = SingleSpecies(Species.Poipole),
+        forms = SingleSpecies(SpeciesID.Poipole),
     };
     public static readonly PokedexData Naganadel = new()
     {
@@ -8604,7 +8736,7 @@ public static class Pokedex
         height = 360,
         weight = 150000,
         entry = NaganadelDesc,
-        forms = SingleSpecies(Species.Naganadel),
+        forms = SingleSpecies(SpeciesID.Naganadel),
     };
     public static readonly PokedexData Stakataka = new()
     {
@@ -8614,7 +8746,7 @@ public static class Pokedex
         height = 550,
         weight = 820000,
         entry = StakatakaDesc,
-        forms = SingleSpecies(Species.Stakataka),
+        forms = SingleSpecies(SpeciesID.Stakataka),
     };
     public static readonly PokedexData Blacephalon = new()
     {
@@ -8624,7 +8756,7 @@ public static class Pokedex
         height = 180,
         weight = 13000,
         entry = BlacephalonDesc,
-        forms = SingleSpecies(Species.Blacephalon),
+        forms = SingleSpecies(SpeciesID.Blacephalon),
     };
     public static readonly PokedexData Zeraora = new()
     {
@@ -8634,7 +8766,7 @@ public static class Pokedex
         height = 150,
         weight = 44500,
         entry = ZeraoraDesc,
-        forms = SingleSpecies(Species.Zeraora),
+        forms = SingleSpecies(SpeciesID.Zeraora),
     };
     public static readonly PokedexData Meltan = new()
     {
@@ -8644,7 +8776,7 @@ public static class Pokedex
         height = 20,
         weight = 8000,
         entry = MeltanDesc,
-        forms = SingleSpecies(Species.Meltan),
+        forms = SingleSpecies(SpeciesID.Meltan),
     };
     public static readonly PokedexData Melmetal = new()
     {
@@ -8654,7 +8786,1031 @@ public static class Pokedex
         height = 250,
         weight = 80000,
         entry = MelmetalDesc,
-        forms = SingleSpecies(Species.Melmetal),
+        forms = SingleSpecies(SpeciesID.Melmetal),
+    };
+    public static PokedexData Grookey = new()
+    {
+        number = 810,
+        name = "Grookey",
+        category = "Chimp",
+        height = 30,
+        weight = 5000,
+        entry = GrookeyDesc,
+        forms = SingleSpecies(SpeciesID.Grookey),
+    };
+    public static PokedexData Thwackey = new()
+    {
+        number = 811,
+        name = "Thwackey",
+        category = "Beat",
+        height = 70,
+        weight = 14000,
+        entry = ThwackeyDesc,
+        forms = SingleSpecies(SpeciesID.Thwackey),
+    };
+    public static PokedexData Rillaboom = new()
+    {
+        number = 812,
+        name = "Rillaboom",
+        category = "Drummer",
+        height = 210,
+        weight = 90000,
+        entry = RillaboomDesc,
+        forms = SingleSpecies(SpeciesID.Rillaboom),
+    };
+    public static PokedexData Scorbunny = new()
+    {
+        number = 813,
+        name = "Scorbunny",
+        category = "Rabbit",
+        height = 30,
+        weight = 4500,
+        entry = ScorbunnyDesc,
+        forms = SingleSpecies(SpeciesID.Scorbunny),
+    };
+    public static PokedexData Raboot = new()
+    {
+        number = 814,
+        name = "Raboot",
+        category = "Rabbit",
+        height = 60,
+        weight = 9000,
+        entry = RabootDesc,
+        forms = SingleSpecies(SpeciesID.Raboot),
+    };
+    public static PokedexData Cinderace = new()
+    {
+        number = 815,
+        name = "Cinderace",
+        category = "Striker",
+        height = 140,
+        weight = 33000,
+        entry = CinderaceDesc,
+        forms = SingleSpecies(SpeciesID.Cinderace),
+    };
+    public static PokedexData Sobble = new()
+    {
+        number = 816,
+        name = "Sobble",
+        category = "WaterLizard",
+        height = 30,
+        weight = 4000,
+        entry = SobbleDesc,
+        forms = SingleSpecies(SpeciesID.Sobble),
+    };
+    public static PokedexData Drizzile = new()
+    {
+        number = 817,
+        name = "Drizzile",
+        category = "WaterLizard",
+        height = 70,
+        weight = 11500,
+        entry = DrizzileDesc,
+        forms = SingleSpecies(SpeciesID.Drizzile),
+    };
+    public static PokedexData Inteleon = new()
+    {
+        number = 818,
+        name = "Inteleon",
+        category = "SecretAgent",
+        height = 190,
+        weight = 45200,
+        entry = InteleonDesc,
+        forms = SingleSpecies(SpeciesID.Inteleon),
+    };
+    public static PokedexData Skwovet = new()
+    {
+        number = 819,
+        name = "Skwovet",
+        category = "Cheeky",
+        height = 30,
+        weight = 2500,
+        entry = SkwovetDesc,
+        forms = SingleSpecies(SpeciesID.Skwovet),
+    };
+    public static PokedexData Greedent = new()
+    {
+        number = 820,
+        name = "Greedent",
+        category = "Greedy",
+        height = 60,
+        weight = 6000,
+        entry = GreedentDesc,
+        forms = SingleSpecies(SpeciesID.Greedent),
+    };
+    public static PokedexData Rookidee = new()
+    {
+        number = 821,
+        name = "Rookidee",
+        category = "TinyBird",
+        height = 20,
+        weight = 1800,
+        entry = RookideeDesc,
+        forms = SingleSpecies(SpeciesID.Rookidee),
+    };
+    public static PokedexData Corvisquire = new()
+    {
+        number = 822,
+        name = "Corvisquire",
+        category = "Raven",
+        height = 80,
+        weight = 16000,
+        entry = CorvisquireDesc,
+        forms = SingleSpecies(SpeciesID.Corvisquire),
+    };
+    public static PokedexData Corviknight = new()
+    {
+        number = 823,
+        name = "Corviknight",
+        category = "Raven",
+        height = 220,
+        weight = 75000,
+        entry = CorviknightDesc,
+        forms = SingleSpecies(SpeciesID.Corviknight),
+    };
+    public static PokedexData Blipbug = new()
+    {
+        number = 824,
+        name = "Blipbug",
+        category = "Larva",
+        height = 40,
+        weight = 8000,
+        entry = BlipbugDesc,
+        forms = SingleSpecies(SpeciesID.Blipbug),
+    };
+    public static PokedexData Dottler = new()
+    {
+        number = 825,
+        name = "Dottler",
+        category = "Radome",
+        height = 40,
+        weight = 19500,
+        entry = DottlerDesc,
+        forms = SingleSpecies(SpeciesID.Dottler),
+    };
+    public static PokedexData Orbeetle = new()
+    {
+        number = 826,
+        name = "Orbeetle",
+        category = "SevenSpot",
+        height = 40,
+        weight = 40800,
+        entry = OrbeetleDesc,
+        forms = SingleSpecies(SpeciesID.Orbeetle),
+    };
+    public static PokedexData Nickit = new()
+    {
+        number = 827,
+        name = "Nickit",
+        category = "Fox",
+        height = 60,
+        weight = 8900,
+        entry = NickitDesc,
+        forms = SingleSpecies(SpeciesID.Nickit),
+    };
+    public static PokedexData Thievul = new()
+    {
+        number = 828,
+        name = "Thievul",
+        category = "Fox",
+        height = 120,
+        weight = 19900,
+        entry = ThievulDesc,
+        forms = SingleSpecies(SpeciesID.Thievul),
+    };
+    public static PokedexData Gossifleur = new()
+    {
+        number = 829,
+        name = "Gossifleur",
+        category = "Flowering",
+        height = 40,
+        weight = 2200,
+        entry = GossifleurDesc,
+        forms = SingleSpecies(SpeciesID.Gossifleur),
+    };
+    public static PokedexData Eldegoss = new()
+    {
+        number = 830,
+        name = "Eldegoss",
+        category = "CottonBloom",
+        height = 50,
+        weight = 2500,
+        entry = EldegossDesc,
+        forms = SingleSpecies(SpeciesID.Eldegoss),
+    };
+    public static PokedexData Wooloo = new()
+    {
+        number = 831,
+        name = "Wooloo",
+        category = "Sheep",
+        height = 60,
+        weight = 6000,
+        entry = WoolooDesc,
+        forms = SingleSpecies(SpeciesID.Wooloo),
+    };
+    public static PokedexData Dubwool = new()
+    {
+        number = 832,
+        name = "Dubwool",
+        category = "Sheep",
+        height = 130,
+        weight = 43000,
+        entry = DubwoolDesc,
+        forms = SingleSpecies(SpeciesID.Dubwool),
+    };
+    public static PokedexData Chewtle = new()
+    {
+        number = 833,
+        name = "Chewtle",
+        category = "Snapping",
+        height = 30,
+        weight = 8500,
+        entry = ChewtleDesc,
+        forms = SingleSpecies(SpeciesID.Chewtle),
+    };
+    public static PokedexData Drednaw = new()
+    {
+        number = 834,
+        name = "Drednaw",
+        category = "Bite",
+        height = 100,
+        weight = 115500,
+        entry = DrednawDesc,
+        forms = SingleSpecies(SpeciesID.Drednaw),
+    };
+    public static PokedexData Yamper = new()
+    {
+        number = 835,
+        name = "Yamper",
+        category = "Puppy",
+        height = 30,
+        weight = 13500,
+        entry = YamperDesc,
+        forms = SingleSpecies(SpeciesID.Yamper),
+    };
+    public static PokedexData Boltund = new()
+    {
+        number = 836,
+        name = "Boltund",
+        category = "Dog",
+        height = 100,
+        weight = 34000,
+        entry = BoltundDesc,
+        forms = SingleSpecies(SpeciesID.Boltund),
+    };
+    public static PokedexData Rolycoly = new()
+    {
+        number = 837,
+        name = "Rolycoly",
+        category = "Coal",
+        height = 30,
+        weight = 12000,
+        entry = RolycolyDesc,
+        forms = SingleSpecies(SpeciesID.Rolycoly),
+    };
+    public static PokedexData Carkol = new()
+    {
+        number = 838,
+        name = "Carkol",
+        category = "Coal",
+        height = 110,
+        weight = 78000,
+        entry = CarkolDesc,
+        forms = SingleSpecies(SpeciesID.Carkol),
+    };
+    public static PokedexData Coalossal = new()
+    {
+        number = 839,
+        name = "Coalossal",
+        category = "Coal",
+        height = 280,
+        weight = 310500,
+        entry = CoalossalDesc,
+        forms = SingleSpecies(SpeciesID.Coalossal),
+    };
+    public static PokedexData Applin = new()
+    {
+        number = 840,
+        name = "Applin",
+        category = "AppleCore",
+        height = 20,
+        weight = 500,
+        entry = ApplinDesc,
+        forms = SingleSpecies(SpeciesID.Applin),
+    };
+    public static PokedexData Flapple = new()
+    {
+        number = 841,
+        name = "Flapple",
+        category = "AppleWing",
+        height = 30,
+        weight = 1000,
+        entry = FlappleDesc,
+        forms = SingleSpecies(SpeciesID.Flapple),
+    };
+    public static PokedexData Appletun = new()
+    {
+        number = 842,
+        name = "Appletun",
+        category = "AppleNectar",
+        height = 40,
+        weight = 13000,
+        entry = AppletunDesc,
+        forms = SingleSpecies(SpeciesID.Appletun),
+    };
+    public static PokedexData Silicobra = new()
+    {
+        number = 843,
+        name = "Silicobra",
+        category = "SandSnake",
+        height = 220,
+        weight = 7600,
+        entry = SilicobraDesc,
+        forms = SingleSpecies(SpeciesID.Silicobra),
+    };
+    public static PokedexData Sandaconda = new()
+    {
+        number = 844,
+        name = "Sandaconda",
+        category = "SandSnake",
+        height = 380,
+        weight = 65500,
+        entry = SandacondaDesc,
+        forms = SingleSpecies(SpeciesID.Sandaconda),
+    };
+    public static PokedexData Cramorant = new()
+    {
+        number = 845,
+        name = "Cramorant",
+        category = "Gulp",
+        height = 80,
+        weight = 18000,
+        entry = CramorantDesc,
+        forms = SingleSpecies(SpeciesID.Cramorant),
+    };
+    public static PokedexData Arrokuda = new()
+    {
+        number = 846,
+        name = "Arrokuda",
+        category = "Rush",
+        height = 50,
+        weight = 1000,
+        entry = ArrokudaDesc,
+        forms = SingleSpecies(SpeciesID.Arrokuda),
+    };
+    public static PokedexData Barraskewda = new()
+    {
+        number = 847,
+        name = "Barraskewda",
+        category = "Skewer",
+        height = 130,
+        weight = 30000,
+        entry = BarraskewdaDesc,
+        forms = SingleSpecies(SpeciesID.Barraskewda),
+    };
+    public static PokedexData Toxel = new()
+    {
+        number = 848,
+        name = "Toxel",
+        category = "Baby",
+        height = 40,
+        weight = 11000,
+        entry = ToxelDesc,
+        forms = SingleSpecies(SpeciesID.Toxel),
+    };
+    public static PokedexData Toxtricity = new()
+    {
+        number = 849,
+        name = "Toxtricity",
+        category = "Punk",
+        height = 160,
+        weight = 40000,
+        entry = ToxtricityDesc,
+        forms = new[]
+        {
+            SpeciesID.Toxtricity,
+            SpeciesID.ToxtricityLowKey
+        }
+    };
+    public static PokedexData Sizzlipede = new()
+    {
+        number = 850,
+        name = "Sizzlipede",
+        category = "Radiator",
+        height = 70,
+        weight = 1000,
+        entry = SizzlipedeDesc,
+        forms = SingleSpecies(SpeciesID.Sizzlipede),
+    };
+    public static PokedexData Centiskorch = new()
+    {
+        number = 851,
+        name = "Centiskorch",
+        category = "Radiator",
+        height = 300,
+        weight = 120000,
+        entry = CentiskorchDesc,
+        forms = SingleSpecies(SpeciesID.Centiskorch),
+    };
+    public static PokedexData Clobbopus = new()
+    {
+        number = 852,
+        name = "Clobbopus",
+        category = "Tantrum",
+        height = 60,
+        weight = 4000,
+        entry = ClobbopusDesc,
+        forms = SingleSpecies(SpeciesID.Clobbopus),
+    };
+    public static PokedexData Grapploct = new()
+    {
+        number = 853,
+        name = "Grapploct",
+        category = "Jujitsu",
+        height = 160,
+        weight = 39000,
+        entry = GrapploctDesc,
+        forms = SingleSpecies(SpeciesID.Grapploct),
+    };
+    public static PokedexData Sinistea = new()
+    {
+        number = 854,
+        name = "Sinistea",
+        category = "BlackTea",
+        height = 10,
+        weight = 200,
+        entry = SinisteaDesc,
+        forms = new[]
+        {
+            SpeciesID.Sinistea,
+            SpeciesID.SinisteaAntique
+        }
+    };
+    public static PokedexData Polteageist = new()
+    {
+        number = 855,
+        name = "Polteageist",
+        category = "BlackTea",
+        height = 20,
+        weight = 400,
+        entry = PolteageistDesc,
+        forms = new[]
+        {
+            SpeciesID.Polteageist,
+            SpeciesID.PolteageistAntique
+        }
+    };
+    public static PokedexData Hatenna = new()
+    {
+        number = 856,
+        name = "Hatenna",
+        category = "Calm",
+        height = 40,
+        weight = 3400,
+        entry = HatennaDesc,
+        forms = SingleSpecies(SpeciesID.Hatenna),
+    };
+    public static PokedexData Hattrem = new()
+    {
+        number = 857,
+        name = "Hattrem",
+        category = "Serene",
+        height = 60,
+        weight = 4800,
+        entry = HattremDesc,
+        forms = SingleSpecies(SpeciesID.Hattrem),
+    };
+    public static PokedexData Hatterene = new()
+    {
+        number = 858,
+        name = "Hatterene",
+        category = "Silent",
+        height = 210,
+        weight = 5100,
+        entry = HattereneDesc,
+        forms = SingleSpecies(SpeciesID.Hatterene),
+    };
+    public static PokedexData Impidimp = new()
+    {
+        number = 859,
+        name = "Impidimp",
+        category = "Wily",
+        height = 40,
+        weight = 5500,
+        entry = ImpidimpDesc,
+        forms = SingleSpecies(SpeciesID.Impidimp),
+    };
+    public static PokedexData Morgrem = new()
+    {
+        number = 860,
+        name = "Morgrem",
+        category = "Devious",
+        height = 80,
+        weight = 12500,
+        entry = MorgremDesc,
+        forms = SingleSpecies(SpeciesID.Morgrem),
+    };
+    public static PokedexData Grimmsnarl = new()
+    {
+        number = 861,
+        name = "Grimmsnarl",
+        category = "BulkUp",
+        height = 150,
+        weight = 61000,
+        entry = GrimmsnarlDesc,
+        forms = SingleSpecies(SpeciesID.Grimmsnarl),
+    };
+    public static PokedexData Obstagoon = new()
+    {
+        number = 862,
+        name = "Obstagoon",
+        category = "Blocking",
+        height = 160,
+        weight = 46000,
+        entry = ObstagoonDesc,
+        forms = SingleSpecies(SpeciesID.Obstagoon),
+    };
+    public static PokedexData Perrserker = new()
+    {
+        number = 863,
+        name = "Perrserker",
+        category = "Viking",
+        height = 80,
+        weight = 28000,
+        entry = PerrserkerDesc,
+        forms = SingleSpecies(SpeciesID.Perrserker),
+    };
+    public static PokedexData Cursola = new()
+    {
+        number = 864,
+        name = "Cursola",
+        category = "Coral",
+        height = 100,
+        weight = 400,
+        entry = CursolaDesc,
+        forms = SingleSpecies(SpeciesID.Cursola),
+    };
+    public static PokedexData Sirfetchd = new()
+    {
+        number = 865,
+        name = "Sirfetchd",
+        category = "WildDuck",
+        height = 80,
+        weight = 117000,
+        entry = SirfetchdDesc,
+        forms = SingleSpecies(SpeciesID.Sirfetchd),
+    };
+    public static PokedexData MrRime = new()
+    {
+        number = 866,
+        name = "Mr Rime",
+        category = "Comedian",
+        height = 150,
+        weight = 58200,
+        entry = MrRimeDesc,
+        forms = SingleSpecies(SpeciesID.MrRime),
+
+    };
+    public static PokedexData Runerigus = new()
+    {
+        number = 867,
+        name = "Runerigus",
+        category = "Grudge",
+        height = 160,
+        weight = 66600,
+        entry = RunerigusDesc,
+        forms = SingleSpecies(SpeciesID.Runerigus),
+    };
+    public static PokedexData Milcery = new()
+    {
+        number = 868,
+        name = "Milcery",
+        category = "Cream",
+        height = 20,
+        weight = 300,
+        entry = MilceryDesc,
+        forms = SingleSpecies(SpeciesID.Milcery),
+    };
+    public static PokedexData Alcremie = new()
+    {
+        number = 869,
+        name = "Alcremie",
+        category = "Cream",
+        height = 30,
+        weight = 500,
+        entry = AlcremieDesc,
+        forms = new[]
+        {
+            SpeciesID.AlcremieRubyCream,
+            SpeciesID.AlcremieMatchaCream,
+            SpeciesID.AlcremieMintCream,
+            SpeciesID.AlcremieLemonCream,
+            SpeciesID.AlcremieSaltedCream,
+            SpeciesID.AlcremieRubySwirl,
+            SpeciesID.AlcremieCaramelSwirl,
+            SpeciesID.AlcremieRainbowSwirl,
+        }
+    };
+    public static PokedexData Falinks = new()
+    {
+        number = 870,
+        name = "Falinks",
+        category = "Formation",
+        height = 300,
+        weight = 62000,
+        entry = FalinksDesc,
+        forms = SingleSpecies(SpeciesID.Falinks),
+    };
+    public static PokedexData Pincurchin = new()
+    {
+        number = 871,
+        name = "Pincurchin",
+        category = "SeaUrchin",
+        height = 30,
+        weight = 1000,
+        entry = PincurchinDesc,
+        forms = SingleSpecies(SpeciesID.Pincurchin),
+    };
+    public static PokedexData Snom = new()
+    {
+        number = 872,
+        name = "Snom",
+        category = "Worm",
+        height = 30,
+        weight = 3800,
+        entry = SnomDesc,
+        forms = SingleSpecies(SpeciesID.Snom),
+    };
+    public static PokedexData Frosmoth = new()
+    {
+        number = 873,
+        name = "Frosmoth",
+        category = "FrostMoth",
+        height = 130,
+        weight = 42000,
+        entry = FrosmothDesc,
+        forms = SingleSpecies(SpeciesID.Frosmoth),
+    };
+    public static PokedexData Stonjourner = new()
+    {
+        number = 874,
+        name = "Stonjourner",
+        category = "BigRock",
+        height = 250,
+        weight = 520000,
+        entry = StonjournerDesc,
+        forms = SingleSpecies(SpeciesID.Stonjourner),
+    };
+    public static PokedexData Eiscue = new()
+    {
+        number = 875,
+        name = "Eiscue",
+        category = "Penguin",
+        height = 140,
+        weight = 89000,
+        entry = EiscueDesc,
+        forms = SingleSpecies(SpeciesID.Eiscue),
+    };
+    public static PokedexData Indeedee = new()
+    {
+        number = 876,
+        name = "Indeedee",
+        category = "Emotion",
+        height = 90,
+        weight = 28000,
+        entry = IndeedeeDesc,
+        forms = new[]
+        {
+            SpeciesID.Indeedee,
+            SpeciesID.IndeedeeF
+        }
+    };
+    public static PokedexData Morpeko = new()
+    {
+        number = 877,
+        name = "Morpeko",
+        category = "Two-Sided",
+        height = 30,
+        weight = 3000,
+        entry = MorpekoDesc,
+        forms = new[]
+        {
+            SpeciesID.Morpeko,
+            SpeciesID.MorpekoHangry
+        }
+    };
+    public static PokedexData Cufant = new()
+    {
+        number = 878,
+        name = "Cufant",
+        category = "Copperderm",
+        height = 120,
+        weight = 100000,
+        entry = CufantDesc,
+        forms = SingleSpecies(SpeciesID.Cufant),
+    };
+    public static PokedexData Copperajah = new()
+    {
+        number = 879,
+        name = "Copperajah",
+        category = "Copperderm",
+        height = 300,
+        weight = 650000,
+        entry = CopperajahDesc,
+        forms = SingleSpecies(SpeciesID.Copperajah),
+    };
+    public static PokedexData Dracozolt = new()
+    {
+        number = 880,
+        name = "Dracozolt",
+        category = "Fossil",
+        height = 180,
+        weight = 190000,
+        entry = DracozoltDesc,
+        forms = SingleSpecies(SpeciesID.Dracozolt),
+    };
+    public static PokedexData Arctozolt = new()
+    {
+        number = 881,
+        name = "Arctozolt",
+        category = "Fossil",
+        height = 230,
+        weight = 150000,
+        entry = ArctozoltDesc,
+        forms = SingleSpecies(SpeciesID.Arctozolt),
+    };
+    public static PokedexData Dracovish = new()
+    {
+        number = 882,
+        name = "Dracovish",
+        category = "Fossil",
+        height = 230,
+        weight = 215000,
+        entry = DracovishDesc,
+        forms = SingleSpecies(SpeciesID.Dracovish),
+    };
+    public static PokedexData Arctovish = new()
+    {
+        number = 883,
+        name = "Arctovish",
+        category = "Fossil",
+        height = 200,
+        weight = 175000,
+        entry = ArctovishDesc,
+        forms = SingleSpecies(SpeciesID.Arctovish),
+    };
+    public static PokedexData Duraludon = new()
+    {
+        number = 884,
+        name = "Duraludon",
+        category = "Alloy",
+        height = 180,
+        weight = 40000,
+        entry = DuraludonDesc,
+        forms = SingleSpecies(SpeciesID.Duraludon),
+    };
+    public static PokedexData Dreepy = new()
+    {
+        number = 885,
+        name = "Dreepy",
+        category = "Lingering",
+        height = 50,
+        weight = 2000,
+        entry = DreepyDesc,
+        forms = SingleSpecies(SpeciesID.Dreepy),
+    };
+    public static PokedexData Drakloak = new()
+    {
+        number = 886,
+        name = "Drakloak",
+        category = "Caretaker",
+        height = 140,
+        weight = 11000,
+        entry = DrakloakDesc,
+        forms = SingleSpecies(SpeciesID.Drakloak),
+    };
+    public static PokedexData Dragapult = new()
+    {
+        number = 887,
+        name = "Dragapult",
+        category = "Stealth",
+        height = 300,
+        weight = 50000,
+        entry = DragapultDesc,
+        forms = SingleSpecies(SpeciesID.Dragapult),
+    };
+    public static PokedexData Zacian = new()
+    {
+        number = 888,
+        name = "Zacian",
+        category = "Warrior",
+        height = 280,
+        weight = 110000,
+        entry = ZacianDesc,
+        forms = new[]
+        {
+            SpeciesID.Zacian,
+            SpeciesID.ZacianCrowned
+        }
+    };
+    public static PokedexData Zamazenta = new()
+    {
+        number = 889,
+        name = "Zamazenta",
+        category = "Warrior",
+        height = 290,
+        weight = 210000,
+        entry = ZamazentaDesc,
+        forms = new[]
+        {
+            SpeciesID.Zamazenta,
+            SpeciesID.ZamazentaCrowned
+        }
+    };
+    public static PokedexData Eternatus = new()
+    {
+        number = 890,
+        name = "Eternatus",
+        category = "Gigantic",
+        height = 2000,
+        weight = 950000,
+        entry = EternatusDesc,
+        forms = new[]
+        {
+            SpeciesID.Eternatus,
+            SpeciesID.EternatusEternamax
+        }
+    };
+    public static PokedexData Kubfu = new()
+    {
+        number = 891,
+        name = "Kubfu",
+        category = "Wushu",
+        height = 60,
+        weight = 12000,
+        entry = KubfuDesc,
+        forms = SingleSpecies(SpeciesID.Kubfu),
+    };
+    public static PokedexData Urshifu = new()
+    {
+        number = 892,
+        name = "Urshifu",
+        category = "Wushu",
+        height = 190,
+        weight = 105000,
+        entry = UrshifuDesc,
+        forms = new[]
+        {
+            SpeciesID.Urshifu,
+            SpeciesID.UrshifuRapid
+        }
+    };
+    public static PokedexData Zarude = new()
+    {
+        number = 893,
+        name = "Zarude",
+        category = "RogueMonkey",
+        height = 180,
+        weight = 70000,
+        entry = ZarudeDesc,
+        forms = new[]
+        {
+            SpeciesID.Zarude,
+            SpeciesID.ZarudeDada
+        }
+    };
+    public static PokedexData Regieleki = new()
+    {
+        number = 894,
+        name = "Regieleki",
+        category = "Electron",
+        height = 120,
+        weight = 145000,
+        entry = RegielekiDesc,
+        forms = SingleSpecies(SpeciesID.Regieleki),
+    };
+    public static PokedexData Regidrago = new()
+    {
+        number = 895,
+        name = "Regidrago",
+        category = "DragonOrb",
+        height = 210,
+        weight = 200000,
+        entry = RegidragoDesc,
+        forms = SingleSpecies(SpeciesID.Regidrago),
+    };
+    public static PokedexData Glastrier = new()
+    {
+        number = 896,
+        name = "Glastrier",
+        category = "WildHorse",
+        height = 220,
+        weight = 800000,
+        entry = GlastrierDesc,
+        forms = SingleSpecies(SpeciesID.Glastrier),
+    };
+    public static PokedexData Spectrier = new()
+    {
+        number = 897,
+        name = "Spectrier",
+        category = "SwiftHorse",
+        height = 200,
+        weight = 44500,
+        entry = SpectrierDesc,
+        forms = SingleSpecies(SpeciesID.Spectrier),
+    };
+    public static PokedexData Calyrex = new()
+    {
+        number = 898,
+        name = "Calyrex",
+        category = "King",
+        height = 110,
+        weight = 7700,
+        entry = CalyrexDesc,
+        forms = new[]
+        {
+            SpeciesID.Calyrex,
+            SpeciesID.CalyrexIce,
+            SpeciesID.CalyrexShadow
+        }
+    };
+    public static PokedexData Wyrdeer = new()
+    {
+        number = 899,
+        name = "Wyrdeer",
+        category = "BigHorn",
+        height = 180,
+        weight = 95100,
+        entry = WyrdeerDesc,
+        forms = SingleSpecies(SpeciesID.Wyrdeer),
+    };
+    public static PokedexData Kleavor = new()
+    {
+        number = 900,
+        name = "Kleavor",
+        category = "Axe",
+        height = 180,
+        weight = 89000,
+        entry = KleavorDesc,
+        forms = SingleSpecies(SpeciesID.Kleavor),
+    };
+    public static PokedexData Ursaluna = new()
+    {
+        number = 901,
+        name = "Ursaluna",
+        category = "Peat",
+        height = 240,
+        weight = 290000,
+        entry = UrsalunaDesc,
+        forms = SingleSpecies(SpeciesID.Ursaluna),
+    };
+    public static PokedexData Basculegion = new()
+    {
+        number = 902,
+        name = "Basculegion",
+        category = "BigFish",
+        height = 300,
+        weight = 110000,
+        entry = BasculegionDesc,
+        forms = new[]
+        {
+            SpeciesID.Basculegion,
+            SpeciesID.BasculegionF
+        }
+    };
+    public static PokedexData Sneasler = new()
+    {
+        number = 903,
+        name = "Sneasler",
+        category = "FreeClimb",
+        height = 130,
+        weight = 43000,
+        entry = SneaslerDesc,
+        forms = SingleSpecies(SpeciesID.Sneasler),
+    };
+    public static PokedexData Overqwil = new()
+    {
+        number = 904,
+        name = "Overqwil",
+        category = "PinCluster",
+        height = 250,
+        weight = 60500,
+        entry = OverqwilDesc,
+        forms = SingleSpecies(SpeciesID.Overqwil),
+    };
+    public static PokedexData Enamorus = new()
+    {
+        number = 905,
+        name = "Enamorus",
+        category = "Love-Hate",
+        height = 160,
+        weight = 48000,
+        entry = EnamorusDesc,
+        forms = new[]
+        {
+            SpeciesID.Enamorus,
+            SpeciesID.EnamorusT,
+        }
     };
 
 }

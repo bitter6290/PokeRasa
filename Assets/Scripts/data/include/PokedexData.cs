@@ -7,5 +7,14 @@
     //Todo: add form tables for regional/mega/other forms
     public int weight; //in g
     public int height; //in cm
-    public SpeciesData[] forms;
+    public SpeciesID[] forms;
+
+    public bool ShowEntry(Player p)
+    {
+        foreach (SpeciesID id in forms)
+        {
+            if (p.seenFlags[(int)id]) return true;
+        }
+        return false;
+    }
 }

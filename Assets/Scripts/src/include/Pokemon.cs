@@ -362,6 +362,8 @@ public class Pokemon : ICloneable
                 return makeShedinja;
             case EvolutionMethod.Friendship:
                 return friendship >= data;
+            case EvolutionMethod.EvolutionCounterFemale when gender is Gender.Female:
+            case EvolutionMethod.EvolutionCounterMale when gender is Gender.Male:
             case EvolutionMethod.EvolutionCounter:
                 return evolutionCounter >= data;
             case EvolutionMethod.FriendshipDay when TimeUtils.timeOfDay is TimeOfDay.Day:

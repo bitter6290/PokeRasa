@@ -1083,6 +1083,7 @@ public enum SpeciesID
     ArceusFairy,
 
     BasculinBlue,
+    BasculinWhite,
 
     DarmanitanZen,
     DarmanitanGalarZen,
@@ -1292,6 +1293,8 @@ public enum SpeciesID
     AlcremieRainbowSwirl,
 
     EiscueNoice,
+
+    IndeedeeF,
 
     MorpekoHangry,
 

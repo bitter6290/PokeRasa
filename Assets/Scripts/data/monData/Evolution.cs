@@ -563,6 +563,12 @@ public static class Evolution
     public static EvolutionData[] DeerlingAutumn = LevelEvolution(34, SpeciesID.SawsbuckAutumn);
     public static EvolutionData[] DeerlingWinter = LevelEvolution(34, SpeciesID.SawsbuckWinter);
 
+    public static EvolutionData[] BasculinWhite = new EvolutionData[]
+    {
+        new(EvolutionCounterMale, 294, SpeciesID.Basculegion),
+        new(EvolutionCounterFemale, 294, SpeciesID.BasculegionF)
+    };
+
     //Regional forms
     //Alola
     public static EvolutionData[] RattataAlola = SingleEvolution(LevelUpNight, 20, SpeciesID.RaticateAlola);

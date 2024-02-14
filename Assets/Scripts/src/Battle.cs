@@ -5535,43 +5535,63 @@ public partial class Battle : MonoBehaviour
         {
             case Recoil50 when EffectiveAbility(index) is not RockHead or MagicGuard
                 && user.moveDamageDone > 0:
-                yield return user.DoNonMoveDamage(Max(1, user.moveDamageDone / 2));
-                yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
-                yield return ProcessFaintingSingle(index);
-                yield return ProcessBerries(index, false);
-                break;
+                {
+                    int damage = Max(1, user.moveDamageDone / 2);
+                    yield return DoDamage(index, damage);
+                    if (user.pokemon.species is SpeciesID.BasculinWhite) user.pokemon.evolutionCounter += damage;
+                    yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
+                    yield return ProcessFaintingSingle(index);
+                    yield return ProcessBerries(index, false);
+                    break;
+                }
             case Recoil33 when EffectiveAbility(index) is not RockHead or MagicGuard
                 && user.moveDamageDone > 0:
-                yield return user.DoNonMoveDamage(Max(1, user.moveDamageDone / 3));
-                yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
-                yield return ProcessFaintingSingle(index);
-                yield return ProcessBerries(index, false);
-                break;
+                {
+                    int damage = Max(1, user.moveDamageDone / 3);
+                    yield return DoDamage(index, damage);
+                    if (user.pokemon.species is SpeciesID.BasculinWhite) user.pokemon.evolutionCounter += damage;
+                    yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
+                    yield return ProcessFaintingSingle(index);
+                    yield return ProcessBerries(index, false);
+                    break;
+                }
             case VoltTackle when EffectiveAbility(index) is not RockHead or MagicGuard
                 && user.moveDamageDone > 0:
             case Recoil25 when EffectiveAbility(index) is not RockHead or MagicGuard
                 && user.moveDamageDone > 0:
             case FlareBlitz when EffectiveAbility(index) is not RockHead or MagicGuard
                 && user.moveDamageDone > 0:
-                yield return user.DoNonMoveDamage(Max(1, user.moveDamageDone / 4));
-                yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
-                yield return ProcessFaintingSingle(index);
-                yield return ProcessBerries(index, false);
-                break;
+                {
+                    int damage = Max(1, user.moveDamageDone / 4);
+                    yield return DoDamage(index, damage);
+                    if (user.pokemon.species is SpeciesID.BasculinWhite) user.pokemon.evolutionCounter += damage;
+                    yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
+                    yield return ProcessFaintingSingle(index);
+                    yield return ProcessBerries(index, false);
+                    break;
+                }
             case Recoil25Max when EffectiveAbility(index) is not RockHead or MagicGuard
                 && user.moveDamageDone > 0:
-                yield return user.DoProportionalDamage(0.25F);
-                yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
-                yield return ProcessFaintingSingle(index);
-                yield return ProcessBerries(index, false);
-                break;
+                {
+                    int damage = user.pokemon.hpMax >> 2;
+                    yield return DoDamage(index, damage);
+                    if (user.pokemon.species is SpeciesID.BasculinWhite) user.pokemon.evolutionCounter += damage;
+                    yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
+                    yield return ProcessFaintingSingle(index);
+                    yield return ProcessBerries(index, false);
+                    break;
+                }
             case Recoil50Max when EffectiveAbility(index) is not RockHead or MagicGuard
                 && user.moveDamageDone > 0:
-                yield return user.DoProportionalDamage(0.5F);
-                yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
-                yield return ProcessFaintingSingle(index);
-                yield return ProcessBerries(index, false);
-                break;
+                {
+                    int damage = user.pokemon.hpMax >> 1;
+                    yield return DoDamage(index, damage);
+                    if (user.pokemon.species is SpeciesID.BasculinWhite) user.pokemon.evolutionCounter += damage;
+                    yield return Announce(MonNameWithPrefix(index, true) + BattleText.Recoil);
+                    yield return ProcessFaintingSingle(index);
+                    yield return ProcessBerries(index, false);
+                    break;
+                }
             case Fling:
             case NaturalGift when EffectiveItem(index).Data().type is ItemType.Berry:
                 UseUpItem(index);

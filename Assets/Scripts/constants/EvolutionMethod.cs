@@ -33,6 +33,8 @@ public enum EvolutionMethod
     LevelUpAmped,
     LevelUpLowKey,
     EvolutionCounter,
+    EvolutionCounterMale,
+    EvolutionCounterFemale,
 
     Incidental, //Shedinja
 
