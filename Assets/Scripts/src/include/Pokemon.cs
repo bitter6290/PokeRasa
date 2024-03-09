@@ -208,6 +208,11 @@ public class Pokemon : ICloneable
         evSpeed = spread.evSpeed;
     }
 
+    private void RegisterCaught()
+    {
+        Player.player.seenFlags[(int)species] = true;
+        Player.player.caughtFlags[(int)species] = true;
+    }
 
     public void SetRawNature(Nature nature) => this.nature = nature;
 
@@ -268,11 +273,13 @@ public class Pokemon : ICloneable
             if (species == thisItem.baseSpecies)
             {
                 species = thisItem.transformedSpecies;
+                RegisterCaught();
             }
         }
         else if (species is SpeciesID.Arceus && item.Data() is PlateItem)
         {
             species = ((PlateItem)item.Data()).destinationSpecies;
+            RegisterCaught();
         }
     }
 
@@ -284,6 +291,7 @@ public class Pokemon : ICloneable
             if (species == thisItem.transformedSpecies)
             {
                 species = thisItem.baseSpecies;
+                RegisterCaught();
             }
         }
         else if (item.Data() is PlateItem)
@@ -292,6 +300,7 @@ public class Pokemon : ICloneable
             if (species == thisItem.destinationSpecies)
             {
                 species = SpeciesID.Arceus;
+                RegisterCaught();
             }
         }
     }

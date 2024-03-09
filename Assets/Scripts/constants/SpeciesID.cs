@@ -1370,6 +1370,7 @@ public enum SpeciesID
     Count,
 
     Egg = Count + 1,
+    FormsStart = RattataAlola,
 
 }
 

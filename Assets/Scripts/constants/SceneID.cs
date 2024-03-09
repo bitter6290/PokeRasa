@@ -10,6 +10,7 @@ public enum SceneID //Make sure this matches the list in Build Settings!
     Bag,
     Party,
     Box,
+    Pokedex,
 }
 
 public static class SceneUtils

@@ -929,7 +929,7 @@ public struct SpeciesData
         cryLocation: "scatterbug", //Verify
         graphicsLocation: "scatterbug", //Verify
         backSpriteHeight: 12,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Scatterbug, //Not done
         abilities: new[]
         {
             ShieldDust,
@@ -963,7 +963,7 @@ public struct SpeciesData
         cryLocation: "spewpa", //Verify
         graphicsLocation: "spewpa", //Verify
         backSpriteHeight: 12,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Spewpa,
         abilities: new[]
         {
             ShedSkin,
@@ -1522,7 +1522,7 @@ public struct SpeciesData
             _ => throw new Exception("Passed bad argument to Cramorant constructor")
         },
         backSpriteHeight: 1,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Cramorant,
         abilities: new[]
         {
             GulpMissile,
@@ -1556,7 +1556,7 @@ public struct SpeciesData
         cryLocation: "toxtricity",
         graphicsLocation: "toxtricity" + (lowKey ? "/low_key" : string.Empty),
         backSpriteHeight: 0,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Toxtricity,
         abilities: new[]
         {
             lowKey ? Minus : Plus,
@@ -1592,7 +1592,7 @@ public struct SpeciesData
         cryLocation: "sinistea",
         graphicsLocation: "sinistea",
         backSpriteHeight: 16,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Sinistea,
         abilities: new[]
         {
             WeakArmor,
@@ -1626,7 +1626,7 @@ public struct SpeciesData
         cryLocation: "polteageist",
         graphicsLocation: "polteageist",
         backSpriteHeight: 13,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Polteageist,
         abilities: new[]
         {
             WeakArmor,
@@ -1660,7 +1660,7 @@ public struct SpeciesData
         cryLocation: "alcremie",
         graphicsLocation: path is "" ? "alcremie" : "alcremie/" + path,
         backSpriteHeight: 9,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Alcremie, //Not done
         abilities: new[]
         {
             SweetVeil,
@@ -1694,7 +1694,7 @@ public struct SpeciesData
         cryLocation: "morpeko",
         graphicsLocation: "morpeko" + (hangry ? "/hangry" : string.Empty),
         backSpriteHeight: 8,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Morpeko, //Not done
         abilities: new[]
         {
             HungerSwitch,
@@ -1728,7 +1728,7 @@ public struct SpeciesData
         cryLocation: "zarude",
         graphicsLocation: "zarude" + (dada ? "/dada" : string.Empty),
         backSpriteHeight: 5,
-        pokedexData: Pokedex.Bulbasaur, //Not done
+        pokedexData: Pokedex.Zarude, //Not done
         abilities: new[]
         {
             LeafGuard,

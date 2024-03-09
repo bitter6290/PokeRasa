@@ -158,6 +158,7 @@ public class Player : LoadedChar
         CloseMenu,
         Bag,
         Pokemon,
+        Pokedex,
         Save,
         Settings
     }
@@ -544,6 +545,7 @@ public class Player : LoadedChar
                                 Debug.Log(i.pos);
                                 Debug.Log(GetMapOffset(k));
                                 i.pos += GetMapOffset(k);
+                                i.AlignObject();
                                 Debug.Log(i.pos);
                             }
                         };
@@ -1085,6 +1087,21 @@ public class Player : LoadedChar
 
                     }
                     break;
+                case MenuItem.Pokedex:
+                    DeactivateAll();
+                    yield return FadeToBlack(0.2f);
+                    yield return Scene.Pokedex.Load();
+                    DexScreen dexScreen = FindAnyObjectByType<DexScreen>();
+                    yield return FadeFromBlack(0.2f);
+                    yield return dexScreen.DoDexScreen();
+                    yield return FadeToBlack(0.2f);
+                    yield return Scene.Map.Load();
+                    MapReturn();
+                    menu.transform.localPosition = menuOpenPos;
+                    menu.OpenMenu(MenuItem.Pokedex);
+                    yield return FadeFromBlack(0.2f);
+                    ActivateAll();
+                    break;
                 case MenuItem.Save:
                     SaveGame();
                     state = PlayerState.Announce;
@@ -1462,22 +1479,45 @@ public class Player : LoadedChar
             new("Box 7"),
             new("Box 8")
         };
-        Party[0] = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 15);
-        Party[0].move1 = MoveID.Toxic;
-        Party[0].pp1 = 30;
-        Party[0].move2 = MoveID.Growl;
-        Party[0].pp2 = 40;
-        Party[0].move3 = MoveID.Tackle;
-        Party[0].pp3 = 40;
-        Party[1] = Pokemon.WildPokemon(SpeciesID.Pikachu, 5);
-        Party[2] = Pokemon.WildPokemon(SpeciesID.Dialga, 5);
+        Pokemon bulbasaur = Pokemon.WildPokemon(SpeciesID.Bulbasaur, 15);
+        bulbasaur.move1 = MoveID.Toxic;
+        bulbasaur.pp1 = 30;
+        bulbasaur.move2 = MoveID.Growl;
+        bulbasaur.pp2 = 40;
+        bulbasaur.move3 = MoveID.Tackle;
+        bulbasaur.pp3 = 40;
+        TryAddMon(bulbasaur);
+        TryAddMon(Pokemon.WildPokemon(SpeciesID.Pikachu, 5));
+        TryAddMon(Pokemon.WildPokemon(SpeciesID.Dialga, 5));
         AddItem(ItemID.PokeBall, 5);
         AddItem(ItemID.GreatBall, 5);
         AddItem(ItemID.CheriBerry, 5);
         AddItem(ItemID.ThunderStone, 1);
         AddItem(ItemID.Potion, 3);
         AddItem(ItemID.AdamantCrystal, 1);
-        active = true;
+        seenFlags[(int)SpeciesID.Raichu] = true;
+        seenFlags[(int)SpeciesID.RaichuAlola] = true;
+        seenFlags[(int)SpeciesID.VivillonArchipelago] = true;
+        seenFlags[(int)SpeciesID.VivillonContinental] = true;
+        seenFlags[(int)SpeciesID.VivillonElegant] = true;
+        seenFlags[(int)SpeciesID.VivillonFancy] = true;
+        seenFlags[(int)SpeciesID.VivillonGarden] = true;
+        seenFlags[(int)SpeciesID.VivillonHighPlains] = true;
+        seenFlags[(int)SpeciesID.VivillonIcySnow] = true;
+        seenFlags[(int)SpeciesID.VivillonJungle] = true;
+        seenFlags[(int)SpeciesID.VivillonMarine] = true;
+        seenFlags[(int)SpeciesID.VivillonMeadow] = true;
+        seenFlags[(int)SpeciesID.VivillonModern] = true;
+        seenFlags[(int)SpeciesID.VivillonMonsoon] = true;
+        seenFlags[(int)SpeciesID.VivillonOcean] = true;
+        seenFlags[(int)SpeciesID.VivillonPokeBall] = true;
+        seenFlags[(int)SpeciesID.VivillonPolar] = true;
+        seenFlags[(int)SpeciesID.VivillonRiver] = true;
+        seenFlags[(int)SpeciesID.VivillonSandstorm] = true;
+        seenFlags[(int)SpeciesID.VivillonSavanna] = true;
+        seenFlags[(int)SpeciesID.VivillonSun] = true;
+        seenFlags[(int)SpeciesID.VivillonTundra] = true;
+active = true;
     }
     // Start is called before the first frame update
     public void Start()

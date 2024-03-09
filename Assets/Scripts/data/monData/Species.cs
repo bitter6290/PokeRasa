@@ -23,7 +23,7 @@ public static class Species
         xpYield: 0,
         learnset: EmptyLearnset,
         cryLocation: "pikachu",
-        graphicsLocation: "circled_question_mark",
+        graphicsLocation: "question_mark/circled",
         backSpriteHeight: 0,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,

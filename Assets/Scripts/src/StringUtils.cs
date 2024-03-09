@@ -12,4 +12,14 @@
                 return input;
         }
     }
+    public static string LeadingZero4(this int input)
+    {
+        switch (input)
+        {
+            case < 10: return "000" + input;
+            case < 100: return "00" + input;
+            case < 1000: return "0" + input;
+            default: return input.ToString();
+        }
+    }
 }

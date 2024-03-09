@@ -17,4 +17,20 @@
         }
         return false;
     }
+    public bool ShowCaught(Player p)
+    {
+        foreach (SpeciesID id in forms)
+        {
+            if (p.caughtFlags[(int)id]) return true;
+        }
+        return false;
+    }
+    public SpeciesID GetFirstSpecies(Player p)
+    {
+        foreach (SpeciesID id in forms)
+        {
+            if (p.seenFlags[(int)id]) return id;
+        }
+        return SpeciesID.Missingno;
+    }
 }

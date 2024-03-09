@@ -8,6 +8,7 @@ public static class FieldMenuData
     public static Texture2D Settings = Resources.Load<Texture2D>("Sprites/Menu/settings");
     public static Texture2D Save = Resources.Load<Texture2D>("Sprites/Menu/save");
 
+
     public static FieldMenu.MenuData[] menuItems = new FieldMenu.MenuData[]
     {
         new()
@@ -39,6 +40,12 @@ public static class FieldMenuData
             menuItem = Player.MenuItem.Settings,
             name = "Settings",
             icon = Settings
+        },
+        new()
+        {
+            menuItem = Player.MenuItem.Pokedex,
+            name = "Pokédex",
+            icon = Pokemon //Todo
         }
     };
 }
