@@ -1517,7 +1517,7 @@ public class Player : LoadedChar
         seenFlags[(int)SpeciesID.VivillonSavanna] = true;
         seenFlags[(int)SpeciesID.VivillonSun] = true;
         seenFlags[(int)SpeciesID.VivillonTundra] = true;
-active = true;
+        active = true;
     }
     // Start is called before the first frame update
     public void Start()

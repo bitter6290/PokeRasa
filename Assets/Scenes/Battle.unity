@@ -12571,6 +12571,7 @@ RectTransform:
   - {fileID: 611701072}
   - {fileID: 1088125712}
   - {fileID: 602029260}
+  - {fileID: 1853604254}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -14612,6 +14613,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -14632,6 +14635,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -14639,7 +14643,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -14658,6 +14661,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -14678,6 +14683,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -14685,7 +14691,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -14704,6 +14709,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -14724,6 +14731,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -14731,7 +14739,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -14750,6 +14757,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -14770,6 +14779,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -14777,7 +14787,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -14796,6 +14805,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -14816,6 +14827,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -14823,7 +14835,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -14842,6 +14853,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -14862,6 +14875,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -14869,7 +14883,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -14889,6 +14902,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -14909,6 +14924,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -14916,7 +14932,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -14935,6 +14950,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -14955,6 +14972,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -14962,7 +14980,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -14981,6 +14998,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -15001,6 +15020,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -15008,7 +15028,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -15027,6 +15046,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -15047,6 +15068,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -15054,7 +15076,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -15073,6 +15094,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -15093,6 +15116,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -15100,7 +15124,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -15119,6 +15142,8 @@ MonoBehaviour:
     evSpDef: 0
     evSpeed: 0
     totalEv: 0
+    mintedNature: 0
+    minted: 0
     whichAbility: 0
     move1: 0
     pp1Level: 0
@@ -15139,6 +15164,7 @@ MonoBehaviour:
     sleepTurns: 0
     fainted: 0
     exists: 0
+    evolutionCounter: 0
     item: 0
     itemChanged: 0
     newItem: 0
@@ -15146,7 +15172,6 @@ MonoBehaviour:
     lastIndex: 0
     transformed: 0
     temporarySpecies: 0
-    illusionActive: 0
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
@@ -15156,6 +15181,7 @@ MonoBehaviour:
   state: 0
   currentPlayerMon: 3
   opponentName: Error 401
+  prizeMoney: 0
   announcer: {fileID: 1147491813}
   maskManager:
   - {fileID: 35164471}
@@ -15194,6 +15220,9 @@ MonoBehaviour:
   - {fileID: 346716635}
   - {fileID: 0}
   - {fileID: 0}
+  namingPanel: {fileID: 1853604256}
+  namingInput: {fileID: 1853604255}
+  namingIcon: {fileID: 1853604253}
   audioSource0: {fileID: 0}
   audioSource1: {fileID: 0}
   megaEvolveOnMove: 000000000000
@@ -15218,6 +15247,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -15238,6 +15269,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -15245,7 +15277,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -15308,6 +15339,8 @@ MonoBehaviour:
     skyDropping: 0
     skyDropTarget: 0
     dontCheckPP: 0
+    statsRoseThisTurn: 0
+    statsDroppedThisTurn: 0
     choseMove: 0
     flinched: 0
     usedDefenseCurl: 0
@@ -15364,6 +15397,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -15384,6 +15419,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -15391,7 +15427,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -15503,6 +15538,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -15523,6 +15560,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -15530,7 +15568,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -15593,6 +15630,8 @@ MonoBehaviour:
     skyDropping: 0
     skyDropTarget: 0
     dontCheckPP: 0
+    statsRoseThisTurn: 0
+    statsDroppedThisTurn: 0
     choseMove: 0
     flinched: 0
     usedDefenseCurl: 0
@@ -15649,6 +15688,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -15669,6 +15710,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -15676,7 +15718,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -15788,6 +15829,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -15808,6 +15851,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -15815,7 +15859,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -15878,6 +15921,8 @@ MonoBehaviour:
     skyDropping: 0
     skyDropTarget: 0
     dontCheckPP: 0
+    statsRoseThisTurn: 0
+    statsDroppedThisTurn: 0
     choseMove: 0
     flinched: 0
     usedDefenseCurl: 0
@@ -15934,6 +15979,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -15954,6 +16001,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -15961,7 +16009,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -16073,6 +16120,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -16093,6 +16142,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -16100,7 +16150,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -16163,6 +16212,8 @@ MonoBehaviour:
     skyDropping: 0
     skyDropTarget: 0
     dontCheckPP: 0
+    statsRoseThisTurn: 0
+    statsDroppedThisTurn: 0
     choseMove: 0
     flinched: 0
     usedDefenseCurl: 0
@@ -16219,6 +16270,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -16239,6 +16292,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -16246,7 +16300,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -16358,6 +16411,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -16378,6 +16433,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -16385,7 +16441,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -16448,6 +16503,8 @@ MonoBehaviour:
     skyDropping: 0
     skyDropTarget: 0
     dontCheckPP: 0
+    statsRoseThisTurn: 0
+    statsDroppedThisTurn: 0
     choseMove: 0
     flinched: 0
     usedDefenseCurl: 0
@@ -16504,6 +16561,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -16524,6 +16583,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -16531,7 +16591,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -16643,6 +16702,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -16663,6 +16724,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -16670,7 +16732,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -16733,6 +16794,8 @@ MonoBehaviour:
     skyDropping: 0
     skyDropTarget: 0
     dontCheckPP: 0
+    statsRoseThisTurn: 0
+    statsDroppedThisTurn: 0
     choseMove: 0
     flinched: 0
     usedDefenseCurl: 0
@@ -16789,6 +16852,8 @@ MonoBehaviour:
       evSpDef: 0
       evSpeed: 0
       totalEv: 0
+      mintedNature: 0
+      minted: 0
       whichAbility: 0
       move1: 0
       pp1Level: 0
@@ -16809,6 +16874,7 @@ MonoBehaviour:
       sleepTurns: 0
       fainted: 0
       exists: 0
+      evolutionCounter: 0
       item: 0
       itemChanged: 0
       newItem: 0
@@ -16816,7 +16882,6 @@ MonoBehaviour:
       lastIndex: 0
       transformed: 0
       temporarySpecies: 0
-      illusionActive: 0
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
@@ -16925,20 +16990,6 @@ MonoBehaviour:
   MoveNums: 00000000
   itemToUse: 000000000000000000000000000000000000000000000000
   itemTarget: 000000000000000000000000000000000000000000000000
-  playerMonIcons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  playerMonIcons2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &1814309874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17436,6 +17487,147 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834503854}
   m_CullTransparentMesh: 1
+--- !u!1001 &1853604252
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1495051029}
+    m_Modifications:
+    - target: {fileID: 326680097884691494, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_Name
+      value: NameInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 560
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7447.0454
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+--- !u!114 &1853604253 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4647307177978885685, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+  m_PrefabInstance: {fileID: 1853604252}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1853604254 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1228656712991802814, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+  m_PrefabInstance: {fileID: 1853604252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1853604255 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5401367108226713651, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+  m_PrefabInstance: {fileID: 1853604252}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1853604256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 326680097884691494, guid: 42f57d6d00dd442b6b6cb4152a975f9d, type: 3}
+  m_PrefabInstance: {fileID: 1853604252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1858021321
 GameObject:
   m_ObjectHideFlags: 0

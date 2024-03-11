@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public delegate IEnumerator FAnnounce(string announcement);
+public delegate IEnumerator FAnnounce(string announcement, bool persist);
 
 public class Announcer : MonoBehaviour
 {
     [SerializeField]
     private TMPro.TextMeshProUGUI announcer;
 
-    public IEnumerator Announce(string announcement, bool erase = true)
+    public IEnumerator Announce(string announcement, bool persist = false)
     {
         float targetTime;
         for (int i = 1; i <= announcement.Length; i++)
@@ -22,7 +22,7 @@ public class Announcer : MonoBehaviour
                 yield return null;
             }
         }
-        if (erase)
+        if (!persist)
         {
             targetTime = Time.time + 3.0F;
             while (Time.time < targetTime)

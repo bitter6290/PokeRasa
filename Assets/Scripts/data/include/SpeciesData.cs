@@ -39,6 +39,7 @@ public struct SpeciesData
     public int catchRate;
     public byte baseFriendship;
 
+    public SpeciesID dexRedirect;
 
     public Sprite BackSprite;
     public int backSpriteHeight;
@@ -71,7 +72,7 @@ public struct SpeciesData
         EggGroup eggGroup1, EggGroup eggGroup2, int eggCycles, int catchRate,
         string graphicsLocation, string cryLocation, int backSpriteHeight,
         PokedexData pokedexData, Ability[] abilities, bool genderDifferences = false,
-        byte baseFriendship = 70)
+        byte baseFriendship = 70, SpeciesID redirect = SpeciesID.Missingno)
     {
         this.speciesName = speciesName;
         this.type1 = type1;
@@ -113,6 +114,7 @@ public struct SpeciesData
         this.pokedexData = pokedexData;
         this.abilities = abilities;
         this.baseFriendship = baseFriendship;
+        this.dexRedirect = redirect;
     }
 
     //Pikachu forms
@@ -935,7 +937,8 @@ public struct SpeciesData
             ShieldDust,
             CompoundEyes,
             FriendGuard,
-    }
+    },
+        redirect: SpeciesID.ScatterbugArchipelago
     );
 
     public static SpeciesData Spewpa(SpeciesID nextEvo) => new
@@ -969,7 +972,8 @@ public struct SpeciesData
             ShedSkin,
             ShedSkin,
             FriendGuard,
-    }
+    },
+        redirect: SpeciesID.ScatterbugArchipelago
     );
 
     public static SpeciesData Vivillon(string graphicsSubfolder) => new
@@ -1348,7 +1352,8 @@ public struct SpeciesData
         graphicsLocation: "rockruff",
         backSpriteHeight: 7,
         pokedexData: Pokedex.Rockruff,
-        abilities: abilities
+        abilities: abilities,
+        redirect: SpeciesID.RockruffNormal
     );
 
     //Silvally constructor
@@ -1598,7 +1603,8 @@ public struct SpeciesData
             WeakArmor,
             WeakArmor,
             CursedBody
-    }
+    },
+        redirect: SpeciesID.Sinistea
     );
 
     //Polteageist constructor
@@ -1632,7 +1638,8 @@ public struct SpeciesData
             WeakArmor,
             WeakArmor,
             CursedBody
-    }
+    },
+        redirect: SpeciesID.Polteageist
     );
 
     //Alcremie constructor

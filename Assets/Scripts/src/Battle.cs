@@ -120,6 +120,13 @@ public partial class Battle : MonoBehaviour
     [SerializeField]
     private Transform[] spriteTransform;
 
+    [SerializeField]
+    private GameObject namingPanel;
+    [SerializeField]
+    private TMP_InputField namingInput;
+    [SerializeField]
+    private UnityEngine.UI.Image namingIcon;
+
     public AudioSource audioSource0;
     public AudioSource audioSource1;
 
@@ -177,6 +184,8 @@ public partial class Battle : MonoBehaviour
     private bool didAnyoneProtect = false;
 
     private bool sheerForceBoosted = false;
+
+    private bool nameDone = false;
 
     // Field varibles
 
@@ -423,6 +432,25 @@ public partial class Battle : MonoBehaviour
             default:
                 return false;
         }
+    }
+
+    public void NameDone() => nameDone = true;
+
+    private IEnumerator DoNaming(Pokemon mon)
+    {
+        namingPanel.SetActive(true);
+        namingInput.text = string.Empty;
+        namingInput.Select();
+        nameDone = false;
+        yield return null;
+        while (!nameDone && !Input.GetKeyDown(KeyCode.Return))
+        {
+            namingIcon.sprite = Time.time % 0.30F > 0.15F ? mon.SpeciesData.Icon1 : mon.SpeciesData.Icon2;
+            yield return null;
+        }
+        audioSource0.PlayOneShot(SFX.Select);
+        mon.name = namingInput.text;
+        namingPanel.SetActive(false);
     }
 
     private bool CanInfatuate(int attacker, int defender) =>
@@ -1458,7 +1486,12 @@ public partial class Battle : MonoBehaviour
                 yield return BallShake(ballObject.transform);
                 yield return BallCatch(ballObject.transform, renderer);
                 yield return Announce(PokemonOnField[targetMon].pokemon.SpeciesData.speciesName + " was caught!");
-                //Todo: name mon
+                yield return Announce("Would you like to give " + PokemonOnField[targetMon].pokemon.SpeciesData.speciesName + " a name?", true);
+                DataStore<int> result = new();
+                yield return ChoiceMenu.DoChoiceMenu(Player.player,
+                        ScriptUtils.binaryChoice, 0, result,
+                        announcer.transform, new(-500, 100), Vector2.zero, menuScale: 1.2F);
+                if (result.Data is 1) yield return DoNaming(PokemonOnField[targetMon].pokemon);
                 player.CatchMon(PokemonOnField[targetMon].pokemon);
                 yield return WonBattle();
                 yield break;
@@ -8798,7 +8831,7 @@ public partial class Battle : MonoBehaviour
         }
     }
 
-    public IEnumerator Announce(string announcement)
+    public IEnumerator Announce(string announcement, bool persist = false)
     {
         announcementLog.Add(announcement);
         float targetTime;
@@ -8820,7 +8853,7 @@ public partial class Battle : MonoBehaviour
             { break; }
             yield return null;
         }
-        announcer.text = "";
+        if (!persist) announcer.text = "";
     }
 
     private bool MegaEvolutionLockedIn(bool side)
@@ -9001,6 +9034,7 @@ public partial class Battle : MonoBehaviour
 
     private void Start()
     {
+        namingPanel.SetActive(false);
         audioSource0 = gameObject.AddComponent<AudioSource>();
         audioSource1 = gameObject.AddComponent<AudioSource>();
     }

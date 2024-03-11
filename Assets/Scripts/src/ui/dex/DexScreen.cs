@@ -233,7 +233,7 @@ public class DexScreen : MonoBehaviour
                     Sprites[i].sprite = forms[position + i].Data().Icon1;
                 }
             }
-            if (selection is not 11) selection = Mathf.Min(selection, maxShown);
+            if (selection is not 11) selection = maxShown is 7 ? 11 : Mathf.Min(selection, maxShown);
             UpdateBorders();
         }
 

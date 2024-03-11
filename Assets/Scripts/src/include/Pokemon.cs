@@ -208,10 +208,11 @@ public class Pokemon : ICloneable
         evSpeed = spread.evSpeed;
     }
 
-    private void RegisterCaught()
+    private void RegisterSeen(bool caught)
     {
-        Player.player.seenFlags[(int)species] = true;
-        Player.player.caughtFlags[(int)species] = true;
+        int target = (int)(SpeciesData.dexRedirect is SpeciesID.Missingno ? species : SpeciesData.dexRedirect);
+        Player.player.seenFlags[target] = true;
+        if (caught) Player.player.caughtFlags[target] = true;
     }
 
     public void SetRawNature(Nature nature) => this.nature = nature;
@@ -273,13 +274,13 @@ public class Pokemon : ICloneable
             if (species == thisItem.baseSpecies)
             {
                 species = thisItem.transformedSpecies;
-                RegisterCaught();
+                RegisterSeen(true);
             }
         }
         else if (species is SpeciesID.Arceus && item.Data() is PlateItem)
         {
             species = ((PlateItem)item.Data()).destinationSpecies;
-            RegisterCaught();
+            RegisterSeen(true);
         }
     }
 
@@ -291,7 +292,7 @@ public class Pokemon : ICloneable
             if (species == thisItem.transformedSpecies)
             {
                 species = thisItem.baseSpecies;
-                RegisterCaught();
+                RegisterSeen(true);
             }
         }
         else if (item.Data() is PlateItem)
@@ -300,7 +301,7 @@ public class Pokemon : ICloneable
             if (species == thisItem.destinationSpecies)
             {
                 species = SpeciesID.Arceus;
-                RegisterCaught();
+                RegisterSeen(true);
             }
         }
     }
@@ -489,7 +490,7 @@ public class Pokemon : ICloneable
             if (Moves < 4)
             {
                 AddMove(Moves + 1, move.move);
-                yield return Announce(MonName + " learned " + move.move.Data().name + "!");
+                yield return Announce(MonName + " learned " + move.move.Data().name + "!", false);
             }
             else
             {
@@ -500,19 +501,19 @@ public class Pokemon : ICloneable
                         baseTransform, menuPos, Vector2.zero, menuScale: menuScale);
                 IEnumerator WantsToLearn()
                 {
-                    yield return Announce(MonName + " wants to learn " + move.move.Data().name + ".");
-                    yield return Announce("However, " + MonName + " already knows four moves.");
-                    yield return Announce("Should a move be forgotten in order to learn " + move.move.Data().name + "?");
+                    yield return Announce(MonName + " wants to learn " + move.move.Data().name + ".", false);
+                    yield return Announce("However, " + MonName + " already knows four moves.", false);
+                    yield return Announce("Should a move be forgotten in order to learn " + move.move.Data().name + "?", true);
                     yield return BinaryChoice();
                     if (binaryStore.Data == 0) yield return GiveUpOn();
                     else yield return DoMoveReplaceScreen();
                 }
                 IEnumerator GiveUpOn()
                 {
-                    yield return Announce("Give up on learning " + move.move.Data().name + "?");
+                    yield return Announce("Give up on learning " + move.move.Data().name + "?", true);
                     yield return BinaryChoice();
                     if (binaryStore.Data == 0) yield return WantsToLearn();
-                    else yield return Announce(MonName + " gave up on learning " + move.move.Data().name + ".");
+                    else yield return Announce(MonName + " gave up on learning " + move.move.Data().name + ".", false);
                 }
                 IEnumerator DoMoveReplaceScreen()
                 {
@@ -523,18 +524,18 @@ public class Pokemon : ICloneable
                 IEnumerator Forget()
                 {
                     yield return Announce("Really forget "
-                        + MoveIDs[whichMove.Data].Data().name + "?");
+                        + MoveIDs[whichMove.Data].Data().name + "?", true);
                     yield return BinaryChoice();
                     if (binaryStore.Data == 0) yield return WantsToLearn();
                     else yield return LearnedMove();
                 }
                 IEnumerator LearnedMove()
                 {
-                    yield return Announce("1... 2... 3... And...");
-                    yield return Announce("Done!");
+                    yield return Announce("1... 2... 3... And...", false);
+                    yield return Announce("Done!", false);
                     yield return Announce(MonName + " forgot "
                         + MoveIDs[whichMove.Data].Data().name + " and learned "
-                        + move.move.Data().name + "!");
+                        + move.move.Data().name + "!", false);
                     AddMove(whichMove.Data + 1, move.move);
                 }
                 yield return WantsToLearn();

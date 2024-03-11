@@ -336,7 +336,8 @@ public partial class Battle
 
         public BattlePokemon(Pokemon pokemonData, int index, bool player, Battle battle, bool exists = true)
         {
-            battle.player.seenFlags[(int)pokemonData.species] = true;
+            int seenTarget = (int)(pokemonData.SpeciesData.dexRedirect is SpeciesID.Missingno ? pokemonData.species : pokemonData.SpeciesData.dexRedirect);
+            battle.player.seenFlags[seenTarget] = true;
             pokemonData.onField = true;
             pokemon = pokemonData;
             this.exists = exists;
