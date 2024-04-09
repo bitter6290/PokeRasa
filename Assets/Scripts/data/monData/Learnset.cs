@@ -25,14 +25,14 @@ public static class Learnset
     };
     public static LearnsetMove[] IvysaurLearnset = new LearnsetMove[]
     {
-        new LearnsetMove(0, Teleport)
+        new(0, Teleport)
     };
     public static LearnsetMove[] CharmanderLearnset = new LearnsetMove[]
     {
-        new LearnsetMove(1, DoubleSlap),
-        new LearnsetMove(2, KarateChop),
-        new LearnsetMove(3, SwordsDance),
-        new LearnsetMove(4, Growl),
+        new(1, DoubleSlap),
+        new(2, KarateChop),
+        new(3, SwordsDance),
+        new(4, Growl),
     };
     public static LearnsetMove[] VenusaurLearnset = new LearnsetMove[]
     {
@@ -56,7 +56,7 @@ public static class Learnset
         new(58, SolarBeam),
     };
 
-    public static MoveID[] GetMoves(LearnsetMove[] Learnset, int Level)
+    public static MoveID[] GetMoves(LearnsetMove[] learnset, int level)
     {
         MoveID[] result = new MoveID[4]
         {
@@ -66,11 +66,11 @@ public static class Learnset
             None
         };
         int i = 0;
-        while (i < Learnset.Length)
+        while (i < learnset.Length)
         {
-            if (Learnset[i].level == 0) continue;
-            if (Learnset[i].level > Level) break;
-            result[i & 3] = Learnset[i].move;
+            if (learnset[i].level == 0) continue;
+            if (learnset[i].level > level) break;
+            result[i & 3] = learnset[i].move;
             i++;
         };
         return result;

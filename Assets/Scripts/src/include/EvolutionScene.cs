@@ -71,7 +71,7 @@ public class EvolutionScene : MonoBehaviour
         mask.sprite = originalSprite;
     }
 
-    public IEnumerator Announce(string announcement)
+    public IEnumerator Announce(string announcement, bool persist = false)
     {
         float targetTime;
         for (int i = 1; i <= announcement.Length; i++)
@@ -86,13 +86,16 @@ public class EvolutionScene : MonoBehaviour
             }
         }
         targetTime = Time.time + 3.0F;
-        while (Time.time < targetTime)
+        if (!persist)
         {
-            if (Input.GetKeyDown(KeyCode.Return))
-                break;
-            yield return null;
+            while (Time.time < targetTime)
+            {
+                if (Input.GetKeyDown(KeyCode.Return))
+                    break;
+                yield return null;
+            }
+            text.text = "";
         }
-        text.text = "";
     }
 
     private void SwitchSprites()
@@ -136,7 +139,7 @@ public class EvolutionScene : MonoBehaviour
         yield return Announce("What?");
         //Todo: mon ETF animation
         audioSource.PlayOneShot(originalSpecies.Data().Cry);
-        while (audioSource.isPlaying) yield return null;
+        while (audioSource.isPlaying && !Input.GetKey(KeyCode.Return)) yield return null;
         yield return Announce(oldName + " is evolving!");
         yield return DoAnimation();
         yield return new WaitForSeconds(0.5F);
@@ -147,9 +150,10 @@ public class EvolutionScene : MonoBehaviour
         mon.hp += mon.hpMax - hpMaxBefore;
         mon.shouldEvolve = false;
         audioSource.PlayOneShot(destinationSpecies.Data().Cry);
-        while (audioSource.isPlaying) yield return null;
+        while (audioSource.isPlaying && !Input.GetKey(KeyCode.Return)) yield return null;
         yield return Announce("Congratulations! Your " + oldName +
             " evolved into " + mon.species.Data().speciesName + "!");
+        yield return mon.CheckLevelUpMoves(Announce, Player.player, text.transform, 1F, new(-300, 100), true);
     }
 
     private IEnumerator GrowShrink(float duration)

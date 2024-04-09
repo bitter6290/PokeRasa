@@ -28,7 +28,7 @@ public class PartyScreen : MonoBehaviour
 
     private const int exitNumber = 255;
 
-    private Pokemon currentMon => displays[selectedMon].mon;
+    private Pokemon CurrentMon => displays[selectedMon].mon;
 
     public enum PartyScreenOutcome
     {
@@ -146,9 +146,83 @@ public class PartyScreen : MonoBehaviour
         state = State.Busy;
         DataStore<int> amount = new();
         yield return displays[selectedMon].Heal(p.bagResult.FieldEffectIntensity(), amount);
-        yield return AnnounceAndReturn(currentMon.MonName + " was healed by " + amount.Data + " HP.");
+        yield return AnnounceAndReturn(CurrentMon.MonName + " was healed by " + amount.Data + " HP.");
         if (p.UseItem(p.bagResult)) ReturnWithNothing();
         else state = State.Active;
+    }
+
+    private IEnumerator DoAbilityCapsule()
+    {
+        state = State.Busy;
+        if (CurrentMon.SpeciesData.abilities[0] == CurrentMon.SpeciesData.abilities[1] || CurrentMon.whichAbility is 2)
+        {
+            yield return AnnounceAndReturn("It wouldn't have any effect.");
+            state = State.Active;
+        }
+        else
+        {
+            CurrentMon.whichAbility = 1 - CurrentMon.whichAbility;
+            yield return AnnounceAndReturn(CurrentMon.MonName + "'s ability was changed to " + CurrentMon.GetAbility.Name() + ".");
+            if (p.UseItem(p.bagResult)) ReturnWithNothing();
+            else state = State.Active;
+        }
+    }
+
+    private IEnumerator DoAbilityPatch()
+    {
+        state = State.Busy;
+        if (CurrentMon.SpeciesData.abilities[0] == CurrentMon.SpeciesData.abilities[2])
+        {
+            yield return AnnounceAndReturn("It wouldn't have any effect.");
+            state = State.Active;
+        }
+        else
+        {
+            var random = new System.Random();
+            CurrentMon.whichAbility = CurrentMon.whichAbility is 2 ? random.Next(2) : 2;
+            CurrentMon.whichAbility = 1 - CurrentMon.whichAbility;
+            yield return AnnounceAndReturn(CurrentMon.MonName + "'s ability was changed to " + CurrentMon.GetAbility.Name() + ".");
+            if (p.UseItem(p.bagResult)) ReturnWithNothing();
+            else state = State.Active;
+        }
+    }
+
+    private IEnumerator DoMint()
+    {
+        Nature nature = (Nature)p.bagResult.FieldEffectIntensity();
+        state = State.Busy;
+        if (CurrentMon.Nature == nature)
+        {
+            yield return AnnounceAndReturn("It wouldn't have any effect.");
+            state = State.Active;
+        }
+        else
+        {
+            CurrentMon.mintedNature = nature;
+            yield return AnnounceAndReturn(CurrentMon.MonName + "'s nature was changed to" + nature.Name() + ".");
+            if (p.UseItem(p.bagResult)) ReturnWithNothing();
+            else state = State.Active;
+        }
+    }
+
+    private IEnumerator DoHealStatus()
+    {
+        Status status = (Status)p.bagResult.FieldEffectIntensity();
+        state = State.Busy;
+        if (CurrentMon.status == status ||
+            (status is Status.Poison && CurrentMon.status is Status.ToxicPoison))
+        {
+            CurrentMon.status = Status.None;
+            displays[selectedMon].UpdateDisplay();
+            yield return AnnounceAndReturn(CurrentMon.MonName + status.HealString());
+            if (p.UseItem(p.bagResult)) ReturnWithNothing();
+            else state = State.Active;
+        }
+        else
+        {
+            yield return AnnounceAndReturn("It wouldn't have any effect.");
+            state = State.Active;
+        }
     }
 
     private IEnumerator AnnounceAndReturn(string announcement)
@@ -171,8 +245,8 @@ public class PartyScreen : MonoBehaviour
             {
                 case CloseMenu:
                 case GetSummary:
-                case GiveItem when currentMon.item is ItemID.None:
-                case TakeItem when currentMon.item is not ItemID.None:
+                case GiveItem when CurrentMon.item is ItemID.None:
+                case TakeItem when CurrentMon.item is not ItemID.None:
                 case MoveMon when p.monsInParty > 1:
                     possibleChoices.Add(choice);
                     continue;
@@ -196,11 +270,11 @@ public class PartyScreen : MonoBehaviour
                 state = State.Active;
                 break;
             case TakeItem:
-                ItemID item = currentMon.item;
-                currentMon.CheckTransformationEnd(currentMon.item);
-                currentMon.item = ItemID.None;
+                ItemID item = CurrentMon.item;
+                CurrentMon.CheckTransformationEnd(CurrentMon.item);
+                CurrentMon.item = ItemID.None;
                 displays[selectedMon].UpdateDisplay();
-                yield return AnnounceAndReturn("Took the " + item.Data().itemName + " from " + currentMon.MonName + ".");
+                yield return AnnounceAndReturn("Took the " + item.Data().itemName + " from " + CurrentMon.MonName + ".");
                 if (!item.IsZCrystal()) p.AddItem(item);
                 state = State.Active;
                 break;
@@ -297,6 +371,18 @@ public class PartyScreen : MonoBehaviour
                                             p.partyScreenResult = selectedMon;
                                             done = true;
                                             break;
+                                        case FieldEffect.AbilityCapsule:
+                                            StartCoroutine(DoAbilityCapsule());
+                                            break;
+                                        case FieldEffect.AbilityPatch:
+                                            StartCoroutine(DoAbilityPatch());
+                                            break;
+                                        case FieldEffect.Mint:
+                                            StartCoroutine(DoMint());
+                                            break;
+                                        case FieldEffect.HealStatus:
+                                            StartCoroutine(DoHealStatus());
+                                            break;
                                         case FieldEffect.HPEVDown10:
                                             break;
                                         case FieldEffect.AttackEVDown10:
@@ -312,23 +398,23 @@ public class PartyScreen : MonoBehaviour
                                     }
                                     break;
                                 case BagOutcome.Give:
-                                    if (currentMon.item != ItemID.None)
+                                    if (CurrentMon.item != ItemID.None)
                                     {
                                         StartCoroutine(AnnounceAndReturn(
-                                            currentMon.MonName +
+                                            CurrentMon.MonName +
                                             " is already holding an item!"));
                                         return;
                                     }
                                     else
                                     {
-                                        currentMon.item = p.bagResult;
-                                        currentMon.CheckTransformation();
+                                        CurrentMon.item = p.bagResult;
+                                        CurrentMon.CheckTransformation();
                                         displays[selectedMon].UpdateDisplay();
                                         if (!p.bagResult.IsZCrystal()) p.UseItem(p.bagResult);
                                         StartCoroutine(AnnounceAndReturn("The " +
                                             p.bagResult.Data().itemName +
                                             " was given to " +
-                                            currentMon.MonName +
+                                            CurrentMon.MonName +
                                             " to hold.").DoAtEnd(ReturnWithNothing));
                                     }
                                     break;

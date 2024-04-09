@@ -57,7 +57,7 @@ public class XPController : MonoBehaviour
         yield return AnimUtils.ColorChange(spriteRenderer, flashColor, defaultColor, 0.3F);
         yield return battle.Announce(battle.MonNameWithPrefix(3, true) + " grew to level "
             + mon.level + "!");
-        yield return mon.CheckLevelUpMoves(battle.Announce, battle.player, battle.announcer.transform, 1.2F, new(-500, 100));
+        yield return mon.CheckLevelUpMoves(battle.Announce, battle.player, battle.announcer.transform, 1.2F, new(-500, 100), false);
         AlignBar();
     }
 

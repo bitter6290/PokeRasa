@@ -84,7 +84,7 @@ public static class Species
         evolution: Evolution.Ivysaur,
         xpClass: MediumSlow,
         xpYield: 142,
-        learnset: EmptyLearnset, //Not done
+        learnset: IvysaurLearnset, //Not done
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,

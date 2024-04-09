@@ -10,7 +10,7 @@ public partial class Battle
 {
     private IEnumerator StatUp(int index, Stat statID,
         int amount, int attacker, bool checkContrary = true, bool checkSimple = true,
-        bool checkOpportunist = true)
+        bool checkOpportunist = true, bool announce = true)
     {
         if (HasAbility(index, Contrary) && checkContrary
             && !HasMoldBreaker(index))
@@ -30,33 +30,37 @@ public partial class Battle
             amount <<= 1;
         }
         int stagesRaised = PokemonOnField[index].RaiseStat(statID, amount);
-        switch (stagesRaised)
+        if (announce)
         {
-            case 0:
-                yield return Announce(MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + CantGoHigher);
-                break;
-            case 1:
-                if (doStatAnim) yield return StatUpAnim(index);
-                yield return Announce(MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + StatRose);
-                break;
-            case 2:
-                if (doStatAnim) yield return StatUpAnim(index);
-                yield return Announce(MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + StatRoseSharply);
-                break;
-            default:
-                if (doStatAnim) yield return StatUpAnim(index);
-                yield return Announce(MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + StatRoseDrastically);
-                break;
+            switch (stagesRaised)
+            {
+                case 0:
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + "'s " + NameTable.Stat[(int)statID] + CantGoHigher);
+                    break;
+                case 1:
+                    if (doStatAnim) yield return StatUpAnim(index);
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + "'s " + NameTable.Stat[(int)statID] + StatRose);
+                    break;
+                case 2:
+                    if (doStatAnim) yield return StatUpAnim(index);
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + "'s " + NameTable.Stat[(int)statID] + StatRoseSharply);
+                    break;
+                default:
+                    if (doStatAnim) yield return StatUpAnim(index);
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + "'s " + NameTable.Stat[(int)statID] + StatRoseDrastically);
+                    break;
+            }
         }
         if (stagesRaised > 0) { PokemonOnField[index].statsRoseThisTurn = true; doStatAnim = false; }
     }
 
     private IEnumerator StatDown(int index, Stat statID,
-        int amount, int attacker, bool checkContrary = true, bool checkSide = true, bool checkMirrorArmor = true)
+        int amount, int attacker, bool checkContrary = true, bool checkSide = true, bool checkMirrorArmor = true,
+        bool announce = true)
     {
         switch (EffectiveAbility(index))
         {
@@ -119,27 +123,30 @@ public partial class Battle
             }
         }
         int stagesLowered = PokemonOnField[index].LowerStat(statID, amount);
-        switch (stagesLowered)
+        if (announce)
         {
-            case 0:
-                yield return Announce(MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + CantGoLower);
-                break;
-            case 1:
-                if (doStatAnim) yield return StatDownAnim(index);
-                yield return Announce(MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + StatFell);
-                break;
-            case 2:
-                if (doStatAnim) yield return StatDownAnim(index);
-                yield return Announce(MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + StatFellSharply);
-                break;
-            default:
-                if (doStatAnim) yield return StatDownAnim(index);
-                yield return Announce(MonNameWithPrefix(index, true)
-                    + "'s " + NameTable.Stat[(int)statID] + StatFellDrastically);
-                break;
+            switch (stagesLowered)
+            {
+                case 0:
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + "'s " + NameTable.Stat[(int)statID] + CantGoLower);
+                    break;
+                case 1:
+                    if (doStatAnim) yield return StatDownAnim(index);
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + "'s " + NameTable.Stat[(int)statID] + StatFell);
+                    break;
+                case 2:
+                    if (doStatAnim) yield return StatDownAnim(index);
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + "'s " + NameTable.Stat[(int)statID] + StatFellSharply);
+                    break;
+                default:
+                    if (doStatAnim) yield return StatDownAnim(index);
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + "'s " + NameTable.Stat[(int)statID] + StatFellDrastically);
+                    break;
+            }
         }
         if (stagesLowered > 0) { PokemonOnField[index].statsDroppedThisTurn = true; doStatAnim = false; }
         if ((!checkSide || GetSideNumber(attacker) != GetSideNumber(index)) &&
@@ -710,14 +717,14 @@ public partial class Battle
         side.gMaxDamageTurns = 4;
         yield return Announce(side.whichSide ? "Your" : "The opposing"
             + " Pokémon " + damageType switch
-        {
-            GMaxContinuousDamage.Wildfire => "were surrounded by fire!",
-            GMaxContinuousDamage.Cannonade => "got caught in the vortex of water!",
-            GMaxContinuousDamage.VineLash => "became trapped with vines!",
-            GMaxContinuousDamage.Volcalith => "became surrounded with rocks!",
-            _ => "Invalid G-Max damage"
+            {
+                GMaxContinuousDamage.Wildfire => "were surrounded by fire!",
+                GMaxContinuousDamage.Cannonade => "got caught in the vortex of water!",
+                GMaxContinuousDamage.VineLash => "became trapped with vines!",
+                GMaxContinuousDamage.Volcalith => "became surrounded with rocks!",
+                _ => "Invalid G-Max damage"
 
-        });
+            });
     }
 
     private IEnumerator VoluntarySwitch(int index, int partyIndex, bool doAnnouncement, bool fromMove)
@@ -2388,6 +2395,13 @@ public partial class Battle
                     yield return AbilityPopupEnd(i);
                 }
                 else { yield return StatDown(i, Stat.Attack, 1, index); }
+                if (EffectiveItem(i).HeldEffect() is HeldEffect.AdrenalineOrb && PokemonOnField[i].speedStage < 6)
+                {
+                    yield return UseItemAnim(i);
+                    UseUpItem(i);
+                    yield return StatUp(i, Stat.Speed, 1, index, announce:false);
+                    yield return Announce("The " + EffectiveItem(i).Data().itemName + " raised " + MonNameWithPrefix(i, false) + "'s Speed!");
+                }
             }
         }
         yield return AbilityPopupEnd(index);

@@ -2,4 +2,5 @@
 {
     None,
     Heal,
+    HealStatus,
 }

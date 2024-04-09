@@ -549,11 +549,110 @@ public static class Item
     {
         itemName = "Potion",
         price = 200,
-        fieldEffect = FieldEffect.Heal,
+        fieldEffect = Heal,
         fieldEffectIntensity = 20,
         battleEffect = BattleEffect.Heal,
         battleEffectIntensity = 20,
         graphicsPath = "potion"
+    };
+
+    public static readonly Medicine SuperPotion = new()
+    {
+        itemName = "Super Potion",
+        price = 700,
+        fieldEffect = Heal,
+        fieldEffectIntensity = 60,
+        battleEffect = BattleEffect.Heal,
+        battleEffectIntensity = 60,
+        graphicsPath = "super_potion"
+    };
+
+    public static readonly Medicine HyperPotion = new()
+    {
+        itemName = "Hyper Potion",
+        price = 1500,
+        fieldEffect = Heal,
+        fieldEffectIntensity = 120,
+        battleEffect = BattleEffect.Heal,
+        battleEffectIntensity = 120,
+        graphicsPath = "hyper_potion"
+    };
+
+    public static readonly Medicine MaxPotion = new()
+    {
+        itemName = "Hyper Potion",
+        price = 2500,
+        fieldEffect = Heal,
+        fieldEffectIntensity = 10000,
+        battleEffect = BattleEffect.Heal,
+        battleEffectIntensity = 10000,
+        graphicsPath = "hyper_potion"
+    };
+
+    public static readonly Medicine Antidote = new()
+    {
+        itemName = "Antidote",
+        price = 200,
+        fieldEffect = HealStatus,
+        fieldEffectIntensity = (int)Status.Poison,
+        battleEffect = BattleEffect.HealStatus,
+        battleEffectIntensity = (int)Status.Poison,
+        graphicsPath = "antidote"
+    };
+
+    public static readonly Medicine ParalyzeHeal = new()
+    {
+        itemName = "Paralyze Heal",
+        price = 200,
+        fieldEffect = HealStatus,
+        fieldEffectIntensity = (int)Status.Paralysis,
+        battleEffect = BattleEffect.HealStatus,
+        battleEffectIntensity = (int)Status.Paralysis,
+        graphicsPath = "paralyze_heal"
+    };
+
+    public static readonly Medicine Awakening = new()
+    {
+        itemName = "Awakening",
+        price = 200,
+        fieldEffect = HealStatus,
+        fieldEffectIntensity = (int)Status.Sleep,
+        battleEffect = BattleEffect.HealStatus,
+        battleEffectIntensity = (int)Status.Sleep,
+        graphicsPath = "awakening"
+    };
+
+    public static readonly Medicine BurnHeal = new()
+    {
+        itemName = "Burn Heal",
+        price = 200,
+        fieldEffect = HealStatus,
+        fieldEffectIntensity = (int)Status.Burn,
+        battleEffect = BattleEffect.HealStatus,
+        battleEffectIntensity = (int)Status.Burn,
+        graphicsPath = "burn_heal"
+    };
+
+    public static readonly Medicine IceHeal = new()
+    {
+        itemName = "Ice Heal",
+        price = 200,
+        fieldEffect = HealStatus,
+        fieldEffectIntensity = (int)Status.Freeze,
+        battleEffect = BattleEffect.HealStatus,
+        battleEffectIntensity = (int)Status.Freeze,
+        graphicsPath = "ice_heal"
+    };
+
+    public static readonly Medicine BerryJuice = new()
+    {
+        itemName = "Berry Juice",
+        price = 1500,
+        fieldEffect = Heal,
+        fieldEffectIntensity = 20,
+        battleEffect = BattleEffect.Heal,
+        battleEffectIntensity = 20,
+        graphicsPath = "berry_juice"
     };
 
     //Evolution items
@@ -702,6 +801,197 @@ public static class Item
         graphicsPath = "galarica_wreath"
     };
 
+    //Mints
+
+    public static readonly FieldItem LonelyMint = new()
+    {
+        itemName = "Lonely Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Lonely,
+        graphicsPath = "mint_attack"
+    };
+
+    public static readonly FieldItem AdamantMint = new()
+    {
+        itemName = "Adamant Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Adamant,
+        graphicsPath = "mint_attack"
+    };
+
+    public static readonly FieldItem NaughtyMint = new()
+    {
+        itemName = "Naughty Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Naughty,
+        graphicsPath = "mint_attack"
+    };
+
+    public static readonly FieldItem BraveMint = new()
+    {
+        itemName = "Brave Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Brave,
+        graphicsPath = "mint_attack"
+    };
+
+    public static readonly FieldItem BoldMint = new()
+    {
+        itemName = "Bold Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Bold,
+        graphicsPath = "mint_defense"
+    };
+
+    public static readonly FieldItem ImpishMint = new()
+    {
+        itemName = "Impish Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Impish,
+        graphicsPath = "mint_defense"
+    };
+
+    public static readonly FieldItem LaxMint = new()
+    {
+        itemName = "Lax Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Lax,
+        graphicsPath = "mint_defense"
+    };
+
+    public static readonly FieldItem RelaxedMint = new()
+    {
+        itemName = "Relaxed Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Relaxed,
+        graphicsPath = "mint_defense"
+    };
+
+    public static readonly FieldItem ModestMint = new()
+    {
+        itemName = "Modest Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Modest,
+        graphicsPath = "mint_sp_atk"
+    };
+
+    public static readonly FieldItem MildMint = new()
+    {
+        itemName = "Mild Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Mild,
+        graphicsPath = "mint_sp_atk"
+    };
+
+    public static readonly FieldItem RashMint = new()
+    {
+        itemName = "Rash Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Rash,
+        graphicsPath = "mint_sp_atk"
+    };
+
+    public static readonly FieldItem QuietMint = new()
+    {
+        itemName = "Quiet Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Quiet,
+        graphicsPath = "mint_sp_atk"
+    };
+
+    public static readonly FieldItem CalmMint = new()
+    {
+        itemName = "Calm Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Calm,
+        graphicsPath = "mint_sp_def"
+    };
+
+    public static readonly FieldItem GentleMint = new()
+    {
+        itemName = "Gentle Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Gentle,
+        graphicsPath = "mint_sp_def"
+    };
+
+    public static readonly FieldItem CarefulMint = new()
+    {
+        itemName = "Careful Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Careful,
+        graphicsPath = "mint_sp_def"
+    };
+
+    public static readonly FieldItem SassyMint = new()
+    {
+        itemName = "Sassy Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Sassy,
+        graphicsPath = "mint_sp_def"
+    };
+
+    public static readonly FieldItem TimidMint = new()
+    {
+        itemName = "Timid Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Timid,
+        graphicsPath = "mint_speed"
+    };
+
+    public static readonly FieldItem HastyMint = new()
+    {
+        itemName = "Hasty Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Hasty,
+        graphicsPath = "mint_speed"
+    };
+
+    public static readonly FieldItem JollyMint = new()
+    {
+        itemName = "Jolly Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Jolly,
+        graphicsPath = "mint_speed"
+    };
+
+    public static readonly FieldItem NaiveMint = new()
+    {
+        itemName = "Naive Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Naive,
+        graphicsPath = "mint_speed"
+    };
+
+    public static readonly FieldItem SeriousMint = new()
+    {
+        itemName = "Serious Mint",
+        price = 20000,
+        fieldEffect = Mint,
+        fieldEffectIntensity = (int)Nature.Serious,
+        graphicsPath = "serious_mint"
+    };
+
     //Other field items
 
     public static readonly FieldItem Honey = new()
@@ -710,6 +1000,22 @@ public static class Item
         price = 300,
         fieldEffect = FieldEffect.None, //Todo: honey encounter effect
         graphicsPath = "honey",
+    };
+
+    public static readonly FieldItem AbilityCapsule = new()
+    {
+        itemName = "Ability Capsule",
+        price = 100000,
+        fieldEffect = FieldEffect.AbilityCapsule,
+        graphicsPath = "ability_capsule"
+    };
+
+    public static readonly FieldItem AbilityPatch = new()
+    {
+        itemName = "Ability Patch",
+        price = 250000,
+        fieldEffect = FieldEffect.AbilityPatch,
+        graphicsPath = "ability_patch"
     };
 
     //Held items
@@ -867,6 +1173,43 @@ public static class Item
         price = 20000,
         heldEffect = ActivateOnAttack,
         graphicsPath = "weakness_policy",
+        flingPower = 80
+    };
+
+    public static readonly HeldItem AbilityShield = new()
+    {
+        itemName = "Ability Shield",
+        price = 20000,
+        heldEffect = HeldEffect.AbilityShield,
+        graphicsPath = "ability_shield",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem AdrenalineOrb = new()
+    {
+        itemName = "Adrenaline Orb",
+        price = 5000,
+        heldEffect = HeldEffect.AdrenalineOrb,
+        graphicsPath = "adrenaline_orb",
+        flingPower = 30
+    };
+
+
+    public static readonly HeldItem AirBalloon = new()
+    {
+        itemName = "Air Balloon",
+        price = 15000,
+        heldEffect = ActivateOnAttack,
+        graphicsPath = "air_balloon",
+        flingPower = 10
+    };
+
+    public static readonly HeldItem AssaultVest = new()
+    {
+        itemName = "Assault Vest",
+        price = 50000,
+        heldEffect = Abstract,
+        graphicsPath = "assault_vest",
         flingPower = 80
     };
 
@@ -1165,6 +1508,7 @@ public static class Item
         price = 20000,
         graphicsPath = "booster_energy"
     };
+
 
     //Poké balls
 
@@ -2243,6 +2587,15 @@ public static class Item
         HopoBerry,
         //Medicine
         Potion,
+        SuperPotion,
+        HyperPotion,
+        MaxPotion,
+        Antidote,
+        ParalyzeHeal,
+        Awakening,
+        BurnHeal,
+        IceHeal,
+        BerryJuice,
         //Evolution items
         FireStone,
         WaterStone,
@@ -2262,8 +2615,32 @@ public static class Item
         ScrollOfWaters,
         GalaricaCuff,
         GalaricaWreath,
+        //Mints
+        LonelyMint,
+        AdamantMint,
+        NaughtyMint,
+        BraveMint,
+        BoldMint,
+        ImpishMint,
+        LaxMint,
+        RelaxedMint,
+        ModestMint,
+        MildMint,
+        RashMint,
+        QuietMint,
+        CalmMint,
+        GentleMint,
+        CarefulMint,
+        SassyMint,
+        TimidMint,
+        HastyMint,
+        JollyMint,
+        NaiveMint,
+        SeriousMint,
         //Other field items
         Honey,
+        AbilityCapsule,
+        AbilityPatch,
         //Held items
         KingsRock,
         MetalCoat,
@@ -2283,6 +2660,10 @@ public static class Item
         CellBattery,
         Snowball,
         WeaknessPolicy,
+        AbilityShield,
+        AdrenalineOrb,
+        AirBalloon,
+        AssaultVest,
         //Plates
         BlankPlate,
         FlamePlate,

@@ -524,6 +524,7 @@ public class Player : LoadedChar
                         {
                             Vector2Int mapOffset = GetMapOffset(j);
                             i.pos += mapOffset;
+                            if (i.moving) i.moveTarget += mapOffset;
                             i.AlignObject();
                         }
                     }
@@ -543,8 +544,10 @@ public class Player : LoadedChar
                             if (k.map == i.currentMap)
                             {
                                 Debug.Log(i.pos);
-                                Debug.Log(GetMapOffset(k));
-                                i.pos += GetMapOffset(k);
+                                Vector2Int offset = GetMapOffset(k);
+                                Debug.Log(offset);
+                                i.pos += offset;
+                                if (i.moving) i.moveTarget += offset;
                                 i.AlignObject();
                                 Debug.Log(i.pos);
                             }
@@ -570,7 +573,9 @@ public class Player : LoadedChar
                         {
                             if (k.map == i)
                             {
-                                chara.pos += GetMapOffset(k);
+                                Vector2Int offset = GetMapOffset(k);
+                                chara.pos += offset;
+                                if (chara.moving) chara.moveTarget += offset;
                                 chara.AlignObject();
                             }
                         };
@@ -949,12 +954,13 @@ public class Player : LoadedChar
 
     public IEnumerator DoMenu()
     {
+        const float menuDistance = 6f;
         menuOpen = true;
         LockAll();
         menu.OpenMenu();
         audioSource.PlayOneShot(SFX.BagOpen);
         state = PlayerState.Locked;
-        yield return AnimUtils.Slide(menu.transform, new Vector2(-3f, 0f), 0.2f);
+        yield return AnimUtils.Slide(menu.transform, new Vector2(-menuDistance, 0f), 0.2f);
         menuOpenPos = menu.transform.localPosition;
         bool done = false;
         while (!done)
@@ -1123,7 +1129,7 @@ public class Player : LoadedChar
                     break;
             }
         }
-        yield return AnimUtils.Slide(menu.transform, new Vector2(3f, 0f), 0.2f);
+        yield return AnimUtils.Slide(menu.transform, new Vector2(menuDistance, 0f), 0.2f);
         menuOpen = false;
         state = PlayerState.Free;
         menu.ClearName();
@@ -1133,6 +1139,7 @@ public class Player : LoadedChar
     public IEnumerator DoBagPrompt()
     {
         yield return FadeToBlack(0.2f);
+        DeactivateAll();
         yield return Scene.Bag.Load();
         BagController bagController = FindObjectOfType<BagController>();
         StartCoroutine(FadeFromBlack(0.2f));
@@ -1140,6 +1147,7 @@ public class Player : LoadedChar
         yield return FadeToBlack(0.2f);
         yield return Scene.Map.Load();
         MapReturn();
+        ActivateAll();
         yield return FadeFromBlack(0.2f);
     }
 
@@ -1495,6 +1503,7 @@ public class Player : LoadedChar
         AddItem(ItemID.ThunderStone, 1);
         AddItem(ItemID.Potion, 3);
         AddItem(ItemID.AdamantCrystal, 1);
+        AddItem(ItemID.AbilityCapsule, 2);
         seenFlags[(int)SpeciesID.Raichu] = true;
         seenFlags[(int)SpeciesID.RaichuAlola] = true;
         seenFlags[(int)SpeciesID.VivillonArchipelago] = true;

@@ -11,4 +11,5 @@
     NoMove,
     HealBlock,
     Choiced,
+    Vested,
 }

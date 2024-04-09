@@ -29,4 +29,10 @@
     ToxicOrb,
     FlameOrb,
     ActivateOnAttack,
+    AbilityShield,
+    BoostMoves,
+    AdrenalineOrb,
+    AmuletCoin,
+
+    Abstract, //Effect is handled through Item ID
 }

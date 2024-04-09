@@ -105,6 +105,7 @@ public partial class Battle : MonoBehaviour
     public int prizeMoney = 0;
 
     private int scatteredCoins = 0;
+    private bool amuletCoin = false;
 
     public TextMeshProUGUI announcer;
 
@@ -336,6 +337,8 @@ public partial class Battle : MonoBehaviour
             _ => false
         };
     }
+
+    private bool AbilityFixed(int index) => PokemonOnField[index].ability.Unchangeable() || EffectiveItem(index).HeldEffect() is HeldEffect.AbilityShield;
 
     public bool MoveImprisoned(MoveID move, int user)
     {
@@ -800,7 +803,7 @@ public partial class Battle : MonoBehaviour
             PokemonOnField[index].smackDown ||
             PokemonOnField[index].ingrained) return true;
         if ((HasAbility(index, Levitate) && !HasMoldBreaker(attacker)) ||
-            PokemonOnField[index].magnetRise ||
+            PokemonOnField[index].magnetRise || HasItem(index, AirBalloon) ||
             PokemonOnField[index].telekinesis) return false;
         if (PokemonOnField[index].roosting) return true;
         if (PokemonOnField[index].HasType(Type.Flying)) return false;
@@ -1150,7 +1153,7 @@ public partial class Battle : MonoBehaviour
         return spAtk;
     }
 
-    private int GetSpDefRaw(int index, bool crit, bool ignoreStage = false)
+    private int GetSpDefRaw(int index, bool crit, bool useItem = true, bool ignoreStage = false)
     {
         int spDef = ignoreStage ||
             (crit && PokemonOnField[index].spDefStage < 0) ?
@@ -1158,12 +1161,13 @@ public partial class Battle : MonoBehaviour
         if (FlowerGiftOnSide(index / 3)) spDef += spDef >> 1;
         if (OtherMonHasAbility(index, BeadsOfRuin)) spDef = spDef >> 1 + spDef >> 2;
         if (PokemonOnField[index].protoQuarkStat is SpDef && GetsProtoBoost(index)) spDef = (int)(spDef * 1.3F);
+        if (useItem && HasItem(index, AssaultVest)) spDef += spDef >> 1;
         return spDef;
     }
 
-    private int GetSpdef(int index, bool crit, bool ignoreStage = false)
+    private int GetSpdef(int index, bool crit, bool useItem = true, bool ignoreStage = false)
     {
-        return wonderRoom ? GetDefenseRaw(index, crit, ignoreStage) : GetSpDefRaw(index, crit, ignoreStage);
+        return wonderRoom ? GetDefenseRaw(index, crit, ignoreStage) : GetSpDefRaw(index, crit, useItem, ignoreStage);
     }
 
     private int GetSpeed(int index, bool useItem = true, bool ignoreStage = false)
@@ -1384,6 +1388,16 @@ public partial class Battle : MonoBehaviour
                             target.hp += amountHealed;
                             yield return Announce(target.MonName + " was healed by " + amountHealed + " points.");
                         }
+                        break;
+                    case BattleEffect.HealStatus:
+                        Status status = (Status)item.BattleEffectIntensity();
+                        if (target.status == status ||
+                            (target.status is Status.ToxicPoison && status is Status.Poison))
+                        {
+                            target.status = Status.None;
+                            yield return Announce(target.MonName + status.HealString());
+                        }
+                        else yield return Announce("But it had no effect!");
                         break;
                 }
                 break;
@@ -2328,7 +2342,7 @@ public partial class Battle : MonoBehaviour
             {
                 mon.LevelUp();
                 yield return Announce(mon.MonName + " grew to level " + mon.level + "!");
-                yield return mon.CheckLevelUpMoves(Announce, player, announcer.transform, 1.2F, new(-500, 100));
+                yield return mon.CheckLevelUpMoves(Announce, player, announcer.transform, 1.2F, new(-500, 100), false);
             }
         }
     }
@@ -2573,12 +2587,12 @@ public partial class Battle : MonoBehaviour
                             case Wish when target.healBlocked:
                             case Captivate when !OppositeGenders(attacker, i):
                             case SkillSwap or WorrySeed or SimpleBeam or Entrainment when
-                                target.ability.Unchangeable():
+                                AbilityFixed(i):
                             case MoveEffect.SuppressAbility when target.ability.Unsuppressable():
                             case SkillSwap or RolePlay when target.ability.Uncopiable():
                             case WorrySeed or SimpleBeam when HasAbility(i, Truant):
                             case RolePlay or SkillSwap when
-                                PokemonOnField[attacker].ability.Unchangeable():
+                                AbilityFixed(attacker):
                             case Incinerate or KnockOff or Trick or Thief when
                                 !ItemIsChangeable(i):
                             case Thief when PokemonOnField[attacker].Item != None:
@@ -2719,8 +2733,8 @@ public partial class Battle : MonoBehaviour
                         case Pickpocket when MakesContact(attacker, move) && PokemonOnField[defender].Item is None
                             && ItemIsChangeable(attacker):
                         case Mummy or LingeringAroma or WanderingSpirit when MakesContact(attacker, move) &&
-                            !EffectiveAbility(defender).Unchangeable() &&
-                            EffectiveAbility(defender) != defenderAbility:
+                            !AbilityFixed(defender) &&
+                            EffectiveAbility(attacker) != defenderAbility:
                         case PerishBody when !PokemonOnField[attacker].perishSong && MakesContact(attacker, move):
                         case Gooey or TanglingHair when MakesContact(attacker, move):
                             abilityEffects.Enqueue((defender, attacker, defenderAbility));
@@ -3199,6 +3213,10 @@ public partial class Battle : MonoBehaviour
                 UseUpItem(index);
                 yield return CheckSymbiosis(index);
                 break;
+            case AirBalloon:
+                UseUpItem(index);
+                yield return Announce(MonNameWithPrefix(index, true) + "'s Air Balloon popped!");
+                break;
         }
     }
 
@@ -3493,6 +3511,7 @@ public partial class Battle : MonoBehaviour
 
     private bool CheckBerryCondition(int index, bool tookMoveDamage)
     {
+        if (HasItem(index, BerryJuice)) return PokemonOnField[index].HealthProportion <= 0.5F;
         if (Unnerved(index) || !MonIsActive(index)) return false;
         return EffectiveItem(index).BerryEffect() switch
         {
@@ -3640,12 +3659,23 @@ public partial class Battle : MonoBehaviour
     {
         if (CheckBerryCondition(index, tookMoveDamage))
         {
-            yield return UseItemAnim(index);
-            PokemonOnField[index].eatenBerry = EffectiveItem(index);
-            UseUpItem(index);
-            PokemonOnField[index].pokemon.canBelch = true;
-            yield return DoBerryEffect(index, PokemonOnField[index].eatenBerry.BerryEffect());
-            yield return CheckSymbiosis(index);
+            if (HasItem(index, BerryJuice))
+            {
+                yield return UseItemAnim(index);
+                UseUpItem(index);
+                yield return Heal(index, 20);
+                yield return Announce(MonNameWithPrefix(index, true) + " restored its health using its Berry Juice!");
+                yield return CheckSymbiosis(index);
+            }
+            else
+            {
+                yield return UseItemAnim(index);
+                PokemonOnField[index].eatenBerry = EffectiveItem(index);
+                UseUpItem(index);
+                PokemonOnField[index].pokemon.canBelch = true;
+                yield return DoBerryEffect(index, PokemonOnField[index].eatenBerry.BerryEffect());
+                yield return CheckSymbiosis(index);
+            }
         }
         else yield break;
     }
@@ -8380,7 +8410,7 @@ public partial class Battle : MonoBehaviour
             highestStat = testingStat;
             currentStat = SpAtk;
         }
-        testingStat = GetSpdef(index, false, !useStatStages);
+        testingStat = GetSpdef(index, false, false, !useStatStages);
         if (testingStat > highestStat)
         {
             highestStat = testingStat;
@@ -8569,6 +8599,7 @@ public partial class Battle : MonoBehaviour
     public IEnumerator StartBattle()
     {
         scatteredCoins = 0;
+        amuletCoin = false;
         happyHour = false;
         trickRoom = false;
         trickRoomTimer = 0;
@@ -8997,6 +9028,7 @@ public partial class Battle : MonoBehaviour
         }
         else
         {
+            if (amuletCoin) prizeMoney <<= 1;
             yield return Announce("Defeated " + opponentName + "!");
             yield return Announce(player.name + " got $" + prizeMoney + " for winning!");
             player.money += prizeMoney;

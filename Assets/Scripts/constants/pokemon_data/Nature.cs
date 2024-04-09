@@ -55,4 +55,34 @@ public static class NatureUtils
         else if (statNum == raisedStat) { return 1.1F; }
         return 1.0F;
     }
+
+    public static string Name(this Nature nature) => nature switch
+    {
+        Nature.Hardy => "Hardy",
+        Nature.Lonely => "Lonely",
+        Nature.Brave => "Brave",
+        Nature.Adamant => "Adamant",
+        Nature.Naughty => "Naughty",
+        Nature.Bold => "Bold",
+        Nature.Docile => "Docile",
+        Nature.Relaxed => "Relaxed",
+        Nature.Impish => "Impish",
+        Nature.Lax => "Lax",
+        Nature.Timid => "Timid",
+        Nature.Hasty => "Hasty",
+        Nature.Serious => "Serious",
+        Nature.Jolly => "Jolly",
+        Nature.Naive => "Naive",
+        Nature.Modest => "Modest",
+        Nature.Mild => "Mild",
+        Nature.Quiet => "Quiet",
+        Nature.Bashful => "Bashful",
+        Nature.Rash => "Rash",
+        Nature.Calm => "Calm",
+        Nature.Gentle => "Gentle",
+        Nature.Sassy => "Sassy",
+        Nature.Careful => "Careful",
+        Nature.Quirky => "Quirky",
+        _ => "???"
+    };
 }

@@ -346,6 +346,7 @@ public partial class Battle
             ability = Species.SpeciesTable[(int)pokemonData.species].abilities[pokemonData.whichAbility];
             this.battle = battle;
             pokemonData.lastIndex = index;
+            if (pokemonData.item.HeldEffect() is HeldEffect.AmuletCoin) battle.amuletCoin = true;
         }
 
         public SpeciesID ApparentSpecies =>
@@ -419,6 +420,9 @@ public partial class Battle
             if (battle.IsChoiced(index) &&
                 lastMoveUsed != MoveID.None && lastMoveUsed != GetMove(move) && pokemon.HasMove(lastMoveUsed))
                 return MoveSelectOutcome.Choiced;
+            if (battle.HasItem(index, ItemID.AssaultVest) &&
+                GetMove(move).Data().power == 0 && GetMove(move) != MoveID.MeFirst)
+                return MoveSelectOutcome.Vested;
             return MoveSelectOutcome.Success;
         }
 

@@ -118,7 +118,9 @@ public class MartQuantity : MonoBehaviour
         if (downArrowHit & Time.time > downArrowTime) { downArrow.sprite = arrowDefault; downArrowHit = false; }
         if (Input.GetKeyDown(KeyCode.Delete) || Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log(done);
             done = true;
+            Debug.Log(done);
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {

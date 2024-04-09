@@ -5,6 +5,10 @@
     Heal,
     TM,
     Evolution,
+    AbilityCapsule,
+    AbilityPatch,
+    Mint,
+    HealStatus,
     // EV-reducing berries
     HPEVDown10,
     AttackEVDown10,
@@ -14,5 +18,5 @@
     SpeedEVDown10,
 
 
-    PartyMenuEffects = TM - 1
+    PartyMenuEffects = Heal - 1
 }

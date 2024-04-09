@@ -7,6 +7,13 @@ using UnityEngine;
 [Serializable]
 public class Pokemon : ICloneable
 {
+
+    private enum CapState : byte
+    {
+        No,
+        Yes,
+        Zero
+    }
     public SpeciesID species;
 
 
@@ -28,6 +35,12 @@ public class Pokemon : ICloneable
     private int ivSpAtk;
     private int ivSpDef;
     private int ivSpeed;
+    private CapState capHP;
+    private CapState capAttack;
+    private CapState capDefense;
+    private CapState capSpAtk;
+    private CapState capSpDef;
+    private CapState capSpeed;
 
     public int evHP;
     public int evAttack;
@@ -44,12 +57,12 @@ public class Pokemon : ICloneable
     public Nature RawNature => nature;
     public int whichAbility;
 
-    public int hpMax => species is SpeciesID.Shedinja ? 1 : CalculateHPMax();
-    public int attack => CalculateStat(Stat.Attack, SpeciesData.baseAttack, ivAttack, evAttack);
-    public int defense => CalculateStat(Stat.Defense, SpeciesData.baseDefense, ivDefense, evDefense);
-    public int spAtk => CalculateStat(Stat.SpAtk, SpeciesData.baseSpAtk, ivSpAtk, evSpAtk);
-    public int spDef => CalculateStat(Stat.SpDef, SpeciesData.baseSpDef, ivSpDef, evSpDef);
-    public int speed => CalculateStat(Stat.Speed, SpeciesData.baseSpeed, ivSpeed, evSpeed);
+    public int hpMax => species is SpeciesID.Shedinja ? 1 : CalculateHPMax;
+    public int attack => CalculateStat(Stat.Attack, SpeciesData.baseAttack, ivAttack, capAttack, evAttack);
+    public int defense => CalculateStat(Stat.Defense, SpeciesData.baseDefense, ivDefense, capDefense, evDefense);
+    public int spAtk => CalculateStat(Stat.SpAtk, SpeciesData.baseSpAtk, ivSpAtk, capSpAtk, evSpAtk);
+    public int spDef => CalculateStat(Stat.SpDef, SpeciesData.baseSpDef, ivSpDef, capSpDef, evSpDef);
+    public int speed => CalculateStat(Stat.Speed, SpeciesData.baseSpeed, ivSpeed, capSpeed, evSpeed);
 
     public MoveID move1;
     public int pp1Level;
@@ -191,6 +204,44 @@ public class Pokemon : ICloneable
         pp4 = 5;
     }
 
+    private bool TryApplyCap(ref CapState capState, CapState newState)
+    {
+        if (capState != newState)
+        {
+            capState = newState;
+            return true;
+        }
+        else return false;
+    }
+
+    public bool UseSilverCap(Stat stat)
+    {
+        return stat switch
+        {
+            Stat.HP => TryApplyCap(ref capHP, CapState.Yes),
+            Stat.Attack => TryApplyCap(ref capAttack, CapState.Yes),
+            Stat.Defense => TryApplyCap(ref capDefense, CapState.Yes),
+            Stat.SpAtk => TryApplyCap(ref capSpAtk, CapState.Yes),
+            Stat.SpDef => TryApplyCap(ref capSpDef, CapState.Yes),
+            Stat.Speed => TryApplyCap(ref capSpeed, CapState.Yes),
+            _ => false,
+        };
+    }
+
+    public bool UseRustyCap(Stat stat)
+    {
+        return stat switch
+        {
+            Stat.HP => TryApplyCap(ref capHP, CapState.Zero),
+            Stat.Attack => TryApplyCap(ref capAttack, CapState.Zero),
+            Stat.Defense => TryApplyCap(ref capDefense, CapState.Zero),
+            Stat.SpAtk => TryApplyCap(ref capSpAtk, CapState.Zero),
+            Stat.SpDef => TryApplyCap(ref capSpDef, CapState.Zero),
+            Stat.Speed => TryApplyCap(ref capSpeed, CapState.Zero),
+            _ => false,
+        };
+    }
+
     public void SetEvIv(EvIvSpread spread)
     {
         ivHP = spread.ivHP;
@@ -255,15 +306,21 @@ public class Pokemon : ICloneable
         status = Status.None;
     }
 
-    private int CalculateHPMax()
-    {
-        return (((2 * SpeciesData.baseHP) + ivHP + (evHP >> 2)) * level / 100 + level + 10);
-    }
+    private int CalculateHPMax => (((2 * SpeciesData.baseHP) +
+            (capHP switch { CapState.No => ivHP, CapState.Yes => 31, _ => 0 }) +
+            (evHP >> 2)) * level / 100 + level + 10);
 
 
-    private int CalculateStat(Stat stat, int baseStat, int statIv, int statEv)
+    private int CalculateStat(Stat stat, int baseStat, int statIv, CapState capState, int statEv)
     {
-        return (int)Floor((((2 * baseStat) + statIv + (statEv >> 2)) * level / 100 + 5) * NatureUtils.NatureEffect(nature, stat));
+        int iv = capState switch
+        {
+            CapState.No => statIv,
+            CapState.Yes => 31,
+            CapState.Zero => 0,
+            _ => 0
+        };
+        return (int)Floor((((2 * baseStat) + iv + (statEv >> 2)) * level / 100 + 5) * NatureUtils.NatureEffect(nature, stat));
     }
 
     public void CheckTransformation()
@@ -482,11 +539,12 @@ public class Pokemon : ICloneable
     }
 
 
-    public IEnumerator CheckLevelUpMoves(FAnnounce Announce, Player p, Transform baseTransform, float menuScale, Vector2 menuPos)
+    public IEnumerator CheckLevelUpMoves(FAnnounce Announce, Player p, Transform baseTransform, float menuScale, Vector2 menuPos, bool evolution)
     {
+        int targetLevel = evolution ? 0 : level;
         foreach (LearnsetMove move in SpeciesData.learnset)
         {
-            if (move.level != level) continue; //Learnsets should be ordered by level, but this is a failsafe
+            if (move.level != targetLevel) continue; //Learnsets should be ordered by level, but this is a failsafe
             if (Moves < 4)
             {
                 AddMove(Moves + 1, move.move);

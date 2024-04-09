@@ -275,6 +275,12 @@ public class MenuManager : MonoBehaviour
                     battle.MonNameWithPrefix(currentMon, true) + " can only use " +
                     battle.PokemonOnField[currentMon].lastMoveUsed.Data().name + "!"));
                 break;
+            case MoveSelectOutcome.Vested:
+                StartCoroutine(AnnounceAndReturn(
+                    battle.MonNameWithPrefix(currentMon, true) + " can't use "
+                    + battle.PokemonOnField[currentMon].GetMove(selectedMove - 1).Data().name
+                    + " because of its Assault Vest!"));
+                break;
             case MoveSelectOutcome.Success:
                 if (battle.TryAddMove(currentMon, selectedMove))
                 {
