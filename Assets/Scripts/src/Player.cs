@@ -1504,6 +1504,8 @@ public class Player : LoadedChar
         AddItem(ItemID.Potion, 3);
         AddItem(ItemID.AdamantCrystal, 1);
         AddItem(ItemID.AbilityCapsule, 2);
+        AddItem(ItemID.SwiftFeather, 5);
+        AddItem(ItemID.Carbos, 10);
         seenFlags[(int)SpeciesID.Raichu] = true;
         seenFlags[(int)SpeciesID.RaichuAlola] = true;
         seenFlags[(int)SpeciesID.VivillonArchipelago] = true;

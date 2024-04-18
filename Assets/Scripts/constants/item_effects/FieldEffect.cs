@@ -9,6 +9,8 @@
     AbilityPatch,
     Mint,
     HealStatus,
+    Feather,
+    Vitamin,
     // EV-reducing berries
     HPEVDown10,
     AttackEVDown10,

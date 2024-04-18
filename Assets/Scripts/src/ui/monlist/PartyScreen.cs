@@ -141,14 +141,20 @@ public class PartyScreen : MonoBehaviour
         while (!done) yield return null;
     }
 
-    private IEnumerator DoHeal()
+    private IEnumerator NoEffect => AnnounceAndReturn("It wouldn't have any effect.").DoAtEnd(() => state = State.Active);
+    private void UseResultItem()
+    {
+        if (p.UseItem(p.bagResult)) ReturnWithNothing();
+        else state = State.Active;
+    }
+
+        private IEnumerator DoHeal()
     {
         state = State.Busy;
         DataStore<int> amount = new();
         yield return displays[selectedMon].Heal(p.bagResult.FieldEffectIntensity(), amount);
         yield return AnnounceAndReturn(CurrentMon.MonName + " was healed by " + amount.Data + " HP.");
-        if (p.UseItem(p.bagResult)) ReturnWithNothing();
-        else state = State.Active;
+        UseResultItem();
     }
 
     private IEnumerator DoAbilityCapsule()
@@ -156,15 +162,13 @@ public class PartyScreen : MonoBehaviour
         state = State.Busy;
         if (CurrentMon.SpeciesData.abilities[0] == CurrentMon.SpeciesData.abilities[1] || CurrentMon.whichAbility is 2)
         {
-            yield return AnnounceAndReturn("It wouldn't have any effect.");
-            state = State.Active;
+            yield return NoEffect;
         }
         else
         {
             CurrentMon.whichAbility = 1 - CurrentMon.whichAbility;
             yield return AnnounceAndReturn(CurrentMon.MonName + "'s ability was changed to " + CurrentMon.GetAbility.Name() + ".");
-            if (p.UseItem(p.bagResult)) ReturnWithNothing();
-            else state = State.Active;
+            UseResultItem();
         }
     }
 
@@ -173,8 +177,7 @@ public class PartyScreen : MonoBehaviour
         state = State.Busy;
         if (CurrentMon.SpeciesData.abilities[0] == CurrentMon.SpeciesData.abilities[2])
         {
-            yield return AnnounceAndReturn("It wouldn't have any effect.");
-            state = State.Active;
+            yield return NoEffect;
         }
         else
         {
@@ -182,8 +185,7 @@ public class PartyScreen : MonoBehaviour
             CurrentMon.whichAbility = CurrentMon.whichAbility is 2 ? random.Next(2) : 2;
             CurrentMon.whichAbility = 1 - CurrentMon.whichAbility;
             yield return AnnounceAndReturn(CurrentMon.MonName + "'s ability was changed to " + CurrentMon.GetAbility.Name() + ".");
-            if (p.UseItem(p.bagResult)) ReturnWithNothing();
-            else state = State.Active;
+            UseResultItem();
         }
     }
 
@@ -193,15 +195,13 @@ public class PartyScreen : MonoBehaviour
         state = State.Busy;
         if (CurrentMon.Nature == nature)
         {
-            yield return AnnounceAndReturn("It wouldn't have any effect.");
-            state = State.Active;
+            yield return NoEffect;
         }
         else
         {
             CurrentMon.mintedNature = nature;
-            yield return AnnounceAndReturn(CurrentMon.MonName + "'s nature was changed to" + nature.Name() + ".");
-            if (p.UseItem(p.bagResult)) ReturnWithNothing();
-            else state = State.Active;
+            yield return AnnounceAndReturn($"{CurrentMon.MonName}'s nature was changed to {nature.Name()}.");
+            UseResultItem();
         }
     }
 
@@ -215,13 +215,41 @@ public class PartyScreen : MonoBehaviour
             CurrentMon.status = Status.None;
             displays[selectedMon].UpdateDisplay();
             yield return AnnounceAndReturn(CurrentMon.MonName + status.HealString());
-            if (p.UseItem(p.bagResult)) ReturnWithNothing();
-            else state = State.Active;
+            UseResultItem();
         }
         else
         {
-            yield return AnnounceAndReturn("It wouldn't have any effect.");
-            state = State.Active;
+            yield return NoEffect;
+        }
+    }
+
+    private IEnumerator DoFeather()
+    {
+        Stat stat = (Stat)p.bagResult.FieldEffectIntensity();
+        state = State.Busy;
+        if (CurrentMon.ApplyFeather(stat))
+        {
+            yield return AnnounceAndReturn($"{CurrentMon.MonName}'s {stat.Name()} was increased slightly.");
+            UseResultItem();
+        }
+        else
+        {
+            yield return NoEffect;
+        }
+    }
+
+    private IEnumerator DoVitamin()
+    {
+        Stat stat = (Stat)p.bagResult.FieldEffectIntensity();
+        state = State.Busy;
+        if (CurrentMon.ApplyVitamin(stat))
+        {
+            yield return AnnounceAndReturn($"{CurrentMon.MonName}'s {stat.Name()} was increased.");
+            UseResultItem();
+        }
+        else
+        {
+            yield return NoEffect;
         }
     }
 
@@ -394,6 +422,12 @@ public class PartyScreen : MonoBehaviour
                                         case FieldEffect.SpDefEVDown10:
                                             break;
                                         case FieldEffect.SpeedEVDown10:
+                                            break;
+                                        case FieldEffect.Feather:
+                                            StartCoroutine(DoFeather());
+                                            break;
+                                        case FieldEffect.Vitamin:
+                                            StartCoroutine(DoVitamin());
                                             break;
                                     }
                                     break;

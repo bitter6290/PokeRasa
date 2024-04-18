@@ -992,6 +992,116 @@ public static class Item
         graphicsPath = "serious_mint"
     };
 
+    //Feathers and vitamins
+
+    public static readonly FieldItem HealthFeather = new()
+    {
+        itemName = "Health Feather",
+        price = 100,
+        fieldEffect = Feather,
+        fieldEffectIntensity = (int)Stat.HP,
+        graphicsPath = "health_feather"
+    };
+
+    public static readonly FieldItem MuscleFeather = new()
+    {
+        itemName = "Muscle Feather",
+        price = 100,
+        fieldEffect = Feather,
+        fieldEffectIntensity = (int)Stat.Attack,
+        graphicsPath = "muscle_feather"
+    };
+
+    public static readonly FieldItem ResistFeather = new()
+    {
+        itemName = "Resist Feather",
+        price = 100,
+        fieldEffect = Feather,
+        fieldEffectIntensity = (int)Stat.Defense,
+        graphicsPath = "resist_feather"
+    };
+
+    public static readonly FieldItem GeniusFeather = new()
+    {
+        itemName = "Genius Feather",
+        price = 100,
+        fieldEffect = Feather,
+        fieldEffectIntensity = (int)Stat.SpAtk,
+        graphicsPath = "genius_feather"
+    };
+
+    public static readonly FieldItem CleverFeather = new()
+    {
+        itemName = "Clever Feather",
+        price = 100,
+        fieldEffect = Feather,
+        fieldEffectIntensity = (int)Stat.SpDef,
+        graphicsPath = "clever_feather"
+    };
+
+    public static readonly FieldItem SwiftFeather = new()
+    {
+        itemName = "Swift Feather",
+        price = 100,
+        fieldEffect = Feather,
+        fieldEffectIntensity = (int)Stat.Speed,
+        graphicsPath = "swift_feather"
+    };
+
+    public static readonly FieldItem HPUp = new()
+    {
+        itemName = "HP Up",
+        price = 10000,
+        fieldEffect = Vitamin,
+        fieldEffectIntensity = (int)Stat.HP,
+        graphicsPath = "hp_up"
+    };
+
+    public static readonly FieldItem Protein = new()
+    {
+        itemName = "Protein",
+        price = 10000,
+        fieldEffect = Vitamin,
+        fieldEffectIntensity = (int)Stat.Attack,
+        graphicsPath = "protein"
+    };
+
+    public static readonly FieldItem Iron = new()
+    {
+        itemName = "Iron",
+        price = 10000,
+        fieldEffect = Vitamin,
+        fieldEffectIntensity = (int)Stat.Defense,
+        graphicsPath = "iron"
+    };
+
+    public static readonly FieldItem Calcium = new()
+    {
+        itemName = "Calcium",
+        price = 10000,
+        fieldEffect = Vitamin,
+        fieldEffectIntensity = (int)Stat.SpAtk,
+        graphicsPath = "calcium"
+    };
+
+    public static readonly FieldItem Zinc = new()
+    {
+        itemName = "Zinc",
+        price = 10000,
+        fieldEffect = Vitamin,
+        fieldEffectIntensity = (int)Stat.SpDef,
+        graphicsPath = "zinc"
+    };
+
+    public static readonly FieldItem Carbos = new()
+    {
+        itemName = "Carbos",
+        price = 10000,
+        fieldEffect = Vitamin,
+        fieldEffectIntensity = (int)Stat.Speed,
+        graphicsPath = "carbos"
+    };
+
     //Other field items
 
     public static readonly FieldItem Honey = new()
@@ -2637,6 +2747,19 @@ public static class Item
         JollyMint,
         NaiveMint,
         SeriousMint,
+        //Feathers and vitamins
+        HealthFeather,
+        MuscleFeather,
+        ResistFeather,
+        GeniusFeather,
+        CleverFeather,
+        SwiftFeather,
+        HPUp,
+        Protein,
+        Iron,
+        Calcium,
+        Zinc,
+        Carbos,
         //Other field items
         Honey,
         AbilityCapsule,

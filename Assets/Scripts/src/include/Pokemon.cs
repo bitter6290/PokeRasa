@@ -242,6 +242,54 @@ public class Pokemon : ICloneable
         };
     }
 
+    public bool ApplyFeather(Stat stat)
+    {
+        bool Apply(ref int ev)
+        {
+            if (ev >= 252) return false;
+            else
+            {
+                ev++;
+                _ = AddFriendship(3, 2, 1);
+                return true;
+            }
+        }
+        return stat switch
+        {
+            Stat.HP => Apply(ref evHP),
+            Stat.Attack => Apply(ref evAttack),
+            Stat.Defense => Apply(ref evDefense),
+            Stat.SpAtk => Apply(ref evSpAtk),
+            Stat.SpDef => Apply(ref evSpDef),
+            Stat.Speed => Apply(ref evSpeed),
+            _ => false
+        };
+    }
+
+    public bool ApplyVitamin(Stat stat)
+    {
+        bool Apply(ref int ev)
+        {
+            if (ev >= 252) return false;
+            else
+            {
+                ev = Min(252, ev + 10);
+                _ = AddFriendship(5, 3, 2);
+                return true;
+            }
+        }
+        return stat switch
+        {
+            Stat.HP => Apply(ref evHP),
+            Stat.Attack => Apply(ref evAttack),
+            Stat.Defense => Apply(ref evDefense),
+            Stat.SpAtk => Apply(ref evSpAtk),
+            Stat.SpDef => Apply(ref evSpDef),
+            Stat.Speed => Apply(ref evSpeed),
+            _ => false
+        };
+    }
+
     public void SetEvIv(EvIvSpread spread)
     {
         ivHP = spread.ivHP;
