@@ -150,10 +150,10 @@ public class Pokemon : ICloneable
     {
         switch (slot)
         {
-            case 1: return ref pp1Level;
-            case 2: return ref pp2Level;
-            case 3: return ref pp3Level;
-            case 4: return ref pp4Level;
+            case 0: return ref pp1Level;
+            case 1: return ref pp2Level;
+            case 2: return ref pp3Level;
+            case 3: return ref pp4Level;
             default: throw new Exception("Passed bad arguemnt to Pokemon.ppLevel");
         }
     }
@@ -178,6 +178,14 @@ public class Pokemon : ICloneable
         pp2,
         pp3,
         pp4
+    };
+
+    public int[] MaxPP => new int[4]
+    {
+        maxPp1,
+        maxPp2,
+        maxPp3,
+        maxPp4
     };
 
     public void UsePP(int index, int amount)
@@ -444,11 +452,13 @@ public class Pokemon : ICloneable
         (shouldEvolve, destinationSpecies) = (false, SpeciesID.Missingno);
     }
 
-    public bool UsePPUp(int slot)
+    public bool UsePPUp(int slot, bool max)
     {
         ref int ppLevel = ref PPLevel(slot);
         if (ppLevel > 2) return false;
-        ppLevel++; return true;
+        if (max) ppLevel = 3;
+        else ppLevel++;
+        return true;
     }
 
     public bool CheckEvolutionMethod(EvolutionMethod method, int data)

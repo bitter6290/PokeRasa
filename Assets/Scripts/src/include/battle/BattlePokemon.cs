@@ -56,6 +56,8 @@ public partial class Battle
 
         public bool done = true;
 
+        public bool wimpingOut = false;
+
         //Reset after every move
         public bool isTarget = false;
         public bool isHit = false;
@@ -431,21 +433,6 @@ public partial class Battle
             || CanUseMove(2) == MoveSelectOutcome.Success
             || CanUseMove(3) == MoveSelectOutcome.Success;
 
-        public IEnumerator DoNonMoveDamage(int damage)
-        {
-            if (damage > pokemon.hp)
-            {
-                pokemon.fainted = true;
-                yield return battle.DoDamage(pokemon, pokemon.hp);
-            }
-            else
-            {
-                yield return battle.DoDamage(pokemon, damage);
-                damagedThisTurn = true;
-            }
-        }
-
-        public IEnumerator DoProportionalDamage(float proportion) => DoNonMoveDamage(Max(1, (int)(pokemon.hpMax * proportion)));
 
         public int GetPP(int index)
         {

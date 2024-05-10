@@ -644,6 +644,28 @@ public static class Item
         graphicsPath = "ice_heal"
     };
 
+    public static readonly Medicine FullHeal = new()
+    {
+        itemName = "Full Heal",
+        price = 400,
+        fieldEffect = HealStatus,
+        fieldEffectIntensity = (int)Status.Any,
+        battleEffect = BattleEffect.HealStatus,
+        battleEffectIntensity = (int)Status.Any,
+        graphicsPath = "full_heal"
+    };
+
+    public static readonly Medicine FullRestore = new()
+    {
+        itemName = "Full Restore",
+        price = 3000,
+        fieldEffect = FieldEffect.FullRestore,
+        fieldEffectIntensity = 0,
+        battleEffect = BattleEffect.FullRestore,
+        battleEffectIntensity = 0,
+        graphicsPath = "full_restore"
+    };
+
     public static readonly Medicine BerryJuice = new()
     {
         itemName = "Berry Juice",
@@ -1102,6 +1124,24 @@ public static class Item
         graphicsPath = "carbos"
     };
 
+    public static readonly FieldItem PPUp = new()
+    {
+        itemName = "PP Up",
+        price = 10000,
+        fieldEffect = FieldEffect.PPUp,
+        fieldEffectIntensity = 0,
+        graphicsPath = "pp_up"
+    };
+
+    public static readonly FieldItem PPMax = new()
+    {
+        itemName = "PP Max",
+        price = 25000,
+        fieldEffect = FieldEffect.PPMax,
+        fieldEffectIntensity = 0,
+        graphicsPath = "pp_max"
+    };
+
     //Other field items
 
     public static readonly FieldItem Honey = new()
@@ -1321,6 +1361,24 @@ public static class Item
         heldEffect = Abstract,
         graphicsPath = "assault_vest",
         flingPower = 80
+    };
+
+    public static readonly HeldItem ClearAmulet = new()
+    {
+        itemName = "Clear Amulet",
+        price = 30000,
+        heldEffect = Abstract,
+        graphicsPath = "clear_amulet",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem BindingBand = new()
+    {
+        itemName = "Binding Band",
+        price = 20000,
+        heldEffect = Abstract,
+        graphicsPath = "binding_band",
+        flingPower = 30
     };
 
     //Plates
@@ -2705,6 +2763,8 @@ public static class Item
         Awakening,
         BurnHeal,
         IceHeal,
+        FullHeal,
+        FullRestore,
         BerryJuice,
         //Evolution items
         FireStone,
@@ -2760,6 +2820,8 @@ public static class Item
         Calcium,
         Zinc,
         Carbos,
+        PPUp,
+        PPMax,
         //Other field items
         Honey,
         AbilityCapsule,
@@ -2787,6 +2849,8 @@ public static class Item
         AdrenalineOrb,
         AirBalloon,
         AssaultVest,
+        ClearAmulet,
+        BindingBand,
         //Plates
         BlankPlate,
         FlamePlate,

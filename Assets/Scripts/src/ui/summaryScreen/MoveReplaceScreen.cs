@@ -6,7 +6,7 @@ using static MenuManager;
 
 public class MoveReplaceScreen : MonoBehaviour
 {
-    //Move screen
+    private static MoveReplaceScreen currentScreen;
 
     public TextMeshProUGUI moveName;
     public TextMeshProUGUI moveType;
@@ -70,14 +70,15 @@ public class MoveReplaceScreen : MonoBehaviour
     {
         yield return player.FadeToBlack(0.3F);
         GameObject screen = Instantiate(Resources.Load<GameObject>("Prefabs/Summary Screen/Move Replace Screen"));
-        MoveReplaceScreen screenScript = screen.GetComponent<MoveReplaceScreen>();
-        screenScript.player = player;
-        screenScript.move = move;
-        screenScript.dataStore = dataStore;
-        screenScript.mon = mon;
+        yield return null;
+        currentScreen.player = player;
+        currentScreen.move = move;
+        currentScreen.dataStore = dataStore;
+        currentScreen.mon = mon;
+        currentScreen.RefreshAll();
         yield return new WaitForSeconds(0.5F);
         yield return player.FadeFromBlack(0.3F);
-        while (!screenScript.done) yield return null;
+        while (!currentScreen.done) yield return null;
         yield return player.FadeToBlack(0.3F);
         Destroy(screen.gameObject);
         yield return new WaitForSeconds(0.5F);
@@ -118,9 +119,9 @@ public class MoveReplaceScreen : MonoBehaviour
 
     public void Start()
     {
+        currentScreen = this;
         canvas.worldCamera = FindAnyObjectByType<Camera>();
         audioSource = gameObject.AddComponent<AudioSource>();
-        RefreshAll();
     }
 
     private void RefreshMove(bool playSound = true)

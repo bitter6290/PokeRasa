@@ -3,14 +3,17 @@
     None,
     // Party menu effects go under here
     Heal,
+    HealStatus,
+    FullRestore,
     TM,
     Evolution,
     AbilityCapsule,
     AbilityPatch,
     Mint,
-    HealStatus,
     Feather,
     Vitamin,
+    PPUp,
+    PPMax,
     // EV-reducing berries
     HPEVDown10,
     AttackEVDown10,

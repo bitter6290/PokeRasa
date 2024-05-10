@@ -3,4 +3,5 @@
     None,
     Heal,
     HealStatus,
+    FullRestore,
 }

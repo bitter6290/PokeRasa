@@ -119,6 +119,12 @@ public static class TypeUtils
         return 1.0F;
     }
 
+    public static int EffectivenessRaw(Type attacker, Type defender)
+    {
+        if ((int)attacker < 18 && (int)defender < 18) return typeChart[(int)attacker, (int)defender];
+        else return 2;
+    }
+
     public static BerryEffect[] typeBerries = new BerryEffect[18]
     {
         BerryEffect.ReduceNormalDamage,

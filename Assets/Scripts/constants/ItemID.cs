@@ -80,6 +80,8 @@
     Awakening,
     BurnHeal,
     IceHeal,
+    FullHeal,
+    FullRestore,
     BerryJuice,
     //Evolution items
     FireStone,
@@ -135,6 +137,8 @@
     Calcium,
     Zinc,
     Carbos,
+    PPUp,
+    PPMax,
     //Other field items
     Honey,
     AbilityCapsule,
@@ -162,6 +166,8 @@
     AdrenalineOrb,
     AirBalloon,
     AssaultVest,
+    ClearAmulet,
+    BindingBand,
     //Plates
     BlankPlate,
     FlamePlate,

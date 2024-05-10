@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 6648452900596228111}
   - component: {fileID: 1628106822480799497}
   - component: {fileID: 5343657596158233477}
+  - component: {fileID: 332570475742696324}
   m_Layer: 5
   m_Name: Move Box
   m_TagString: Untagged
@@ -415,3 +416,19 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &332570475742696324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669211923356771571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff82e97ac83d4444b828509b0088d20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: {fileID: 6805642650371543295}
+  movePp: {fileID: 9193054353422348468}
+  moveBox: {fileID: 7097312650019080283}
+  selectBox: {fileID: 5343657596158233477}

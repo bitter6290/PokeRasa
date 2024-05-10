@@ -7,6 +7,8 @@ public enum Status : byte
     ToxicPoison,
     Burn,
     Freeze,
+
+    Any, //Used for Full Heal
 }
 
 public static class StatusUtils

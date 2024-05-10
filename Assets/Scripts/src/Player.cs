@@ -918,7 +918,7 @@ public class Player : LoadedChar
         yield return Scene.Party.Load();
         partyScreen = FindObjectOfType<PartyScreen>();
         StartCoroutine(FadeFromBlack(0.2f));
-        yield return partyScreen.DoPartyScreen(this, true);
+        yield return partyScreen.DoPartyScreen(true);
     }
 
     private IEnumerator DoWarp(WarpTrigger warp)
@@ -1003,7 +1003,7 @@ public class Player : LoadedChar
                                         yield return Scene.Party.Load();
                                         partyScreen = FindObjectOfType<PartyScreen>();
                                         StartCoroutine(FadeFromBlack(0.2f));
-                                        yield return partyScreen.DoPartyScreen(this, true);
+                                        yield return partyScreen.DoPartyScreen(true);
                                         if (partyScreenOutcome == PartyScreenOutcome.Evo)
                                         {
                                             Pokemon mon = Party[partyScreenResult];
@@ -1052,7 +1052,7 @@ public class Player : LoadedChar
                             yield return Scene.Party.Load();
                             partyScreen = FindObjectOfType<PartyScreen>();
                             StartCoroutine(FadeFromBlack(0.2f));
-                            yield return partyScreen.DoPartyScreen(this, false);
+                            yield return partyScreen.DoPartyScreen(false);
                         }
                         else skipLoad = false;
                         switch (partyScreenOutcome)
@@ -1083,10 +1083,10 @@ public class Player : LoadedChar
                                 PartyScreen partyScreen = FindObjectOfType<PartyScreen>();
                                 StartCoroutine(FadeFromBlack(0.2f));
                                 if (bagResult != ItemID.None)
-                                    yield return partyScreen.DoPartyScreen(this, false, cachedMon, true,
+                                    yield return partyScreen.DoPartyScreen(false, cachedMon, true,
                                         GaveToHold(cachedMon));
                                 else
-                                    yield return partyScreen.DoPartyScreen(this, false, cachedMon);
+                                    yield return partyScreen.DoPartyScreen(false, cachedMon);
                                 skipLoad = true;
                                 break;
                         }
@@ -1494,7 +1494,19 @@ public class Player : LoadedChar
         bulbasaur.pp2 = 40;
         bulbasaur.move3 = MoveID.Tackle;
         bulbasaur.pp3 = 40;
+        Pokemon golisopod = Pokemon.WildPokemon(SpeciesID.Golisopod, 5);
+        golisopod.move1 = MoveID.HeadSmash;
+        golisopod.pp1 = 30;
+        golisopod.move2 = MoveID.BellyDrum;
+        golisopod.pp2 = 30;
+        Pokemon minior = Pokemon.WildPokemon(SpeciesID.MiniorRedMeteor, 30);
+        minior.move1 = MoveID.ClangorousSoul;
+        minior.pp1 = 30;
+        minior.move2 = MoveID.BellyDrum;
+        minior.pp2 = 30;
         TryAddMon(bulbasaur);
+        TryAddMon(golisopod);
+        TryAddMon(minior);
         TryAddMon(Pokemon.WildPokemon(SpeciesID.Pikachu, 5));
         TryAddMon(Pokemon.WildPokemon(SpeciesID.Dialga, 5));
         AddItem(ItemID.PokeBall, 5);
@@ -1506,6 +1518,8 @@ public class Player : LoadedChar
         AddItem(ItemID.AbilityCapsule, 2);
         AddItem(ItemID.SwiftFeather, 5);
         AddItem(ItemID.Carbos, 10);
+        AddItem(ItemID.PPUp, 5);
+        AddItem(ItemID.PPMax, 5);
         seenFlags[(int)SpeciesID.Raichu] = true;
         seenFlags[(int)SpeciesID.RaichuAlola] = true;
         seenFlags[(int)SpeciesID.VivillonArchipelago] = true;
@@ -1530,7 +1544,7 @@ public class Player : LoadedChar
         seenFlags[(int)SpeciesID.VivillonTundra] = true;
         active = true;
     }
-    // Start is called before the first frame update
+
     public void Start()
     {
         player = this;
@@ -1558,7 +1572,7 @@ public class Player : LoadedChar
     {
         DontDestroyOnLoad(gameObject);
     }
-    // Update is called once per frame
+
     public override void Update()
     {
         if (active)

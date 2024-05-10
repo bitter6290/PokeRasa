@@ -162,7 +162,7 @@ public enum Ability
     Prankster,
     SandForce,
     IronBarbs,
-    ZenMode, //Needs Darmanitan-Galar
+    ZenMode,
     VictoryStar,
     Turboblaze, //Tied to Mold Breaker
     Teravolt, //Tied to Mold Breaker
@@ -194,11 +194,11 @@ public enum Ability
     DesolateLand,
     DeltaStream,
     Stamina,
-    WimpOut, //Not done
-    EmergencyExit, //Not done
+    WimpOut, //Needs extensive testing
+    EmergencyExit, //Reskin of Wimp Out
     WaterCompaction,
     Merciless,
-    ShieldsDown, //Not done
+    ShieldsDown,
     Stakeout,
     WaterBubble,
     Steelworker,

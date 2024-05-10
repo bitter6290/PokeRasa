@@ -5,6 +5,7 @@ using static System.Math;
 using static BattleText;
 using static Ability;
 using System;
+using UnityEditor.Experimental.GraphView;
 
 public partial class Battle
 {
@@ -20,7 +21,10 @@ public partial class Battle
         }
         if (checkOpportunist)
             foreach (int i in GetAdjacentOpponents(index)) //Judgment call,
-                                                           //but distant opponents usually don't interact
+                                                           //but distant opponents
+                                                           //usually don't interact
+                                                           //in triple battles
+                                                           //(i.e. Intimidate)
             {
                 if (HasAbility(i, Opportunist))
                     yield return StatUp(i, statID, amount, i, checkOpportunist: false);
@@ -86,11 +90,10 @@ public partial class Battle
                 }
                 else break;
         }
-        if ((!checkSide || GetSideNumber(attacker) != GetSideNumber(index))
-            && Sides[GetSideNumber(index)].mist)
+        if (index != attacker && HasItem(index, ItemID.ClearAmulet)) //Sticky Web satisfies index == attacker
         {
             yield return Announce(MonNameWithPrefix(index, true) +
-                " is protected by Mist!");
+                " is protected by the Clear Amulet!");
             yield break;
         }
         if ((!checkSide || GetSideNumber(attacker) != GetSideNumber(index)))
@@ -168,7 +171,9 @@ public partial class Battle
 
     }
 
-    private IEnumerator GetBurn(int index)
+    private IEnumerator NoEffect(int index) => Announce("It doesn't affect " + MonNameWithPrefix(index, false));
+
+    private IEnumerator GetBurn(int index, int attacker)
     {
         if (Sides[index < 3 ? 0 : 1].safeguard)
         {
@@ -186,21 +191,39 @@ public partial class Battle
         }
         if (PokemonOnField[index].HasType(Type.Fire))
         {
-            yield return Announce("It doesn't affect " + MonNameWithPrefix(index, false));
+            yield return NoEffect(index);
+            yield break;
         }
-        else
+        if (!HasMoldBreaker(attacker))
+        {
+            if (!AbilityAllowsStatus(index, Status.Burn, attacker))
+            {
+                yield return PopupDo(index, NoEffect(index));
+                yield break;
+            }
+            for (int i = 3 * (index / 3); i < ((3 * (index / 3) + 3)); i++)
+            {
+                if (HasAbility(i, FlowerVeil) && PokemonOnField[index].HasType(Type.Grass))
+                {
+                    yield return PopupDo(i, NoEffect(index));
+                    yield break;
+                }
+            }
+        }
         {
             yield return ShowBurn(index);
             PokemonOnField[index].pokemon.status = Status.Burn;
             yield return Announce(MonNameWithPrefix(index, true) + " was burned!");
         }
     }
-    private IEnumerator GetParalysis(int index)
+    private IEnumerator GetParalysis(int index, int attacker)
     {
         if (Sides[index < 3 ? 0 : 1].safeguard)
         {
             if (ShowFailure)
+            {
                 yield return Announce(MonNameWithPrefix(index, true) + Safeguard);
+            }
             yield break;
         }
         if (PokemonOnField[index].pokemon.status != Status.None)
@@ -208,24 +231,34 @@ public partial class Battle
             if (ShowFailure)
             {
                 yield return Announce(MoveFailed);
+            }
+            yield break;
+        }
+        if (PokemonOnField[index].HasType(Type.Electric))
+        {
+            yield return NoEffect(index);
+            yield break;
+        }
+        if (!HasMoldBreaker(index))
+        {
+            if (!AbilityAllowsStatus(index, Status.Paralysis, attacker))
+            {
+                yield return PopupDo(index, NoEffect(index));
                 yield break;
             }
+            for (int i = 3 * (index / 3); i < ((3 * (index / 3) + 3)); i++)
+            {
+                if (HasAbility(i, FlowerVeil) && PokemonOnField[index].HasType(Type.Grass))
+                {
+                    yield return PopupDo(i, NoEffect(index));
+                    yield break;
+                }
+            }
         }
-        else if (PokemonOnField[index].HasType(Type.Electric))
-        {
-            yield return Announce("It doesn't affect " + MonNameWithPrefix(index, false));
-        }
-        else if (HasAbility(index, Limber))
-        {
-            yield return AbilityPopupStart(index);
-            yield return Announce("It doesn't affect " + MonNameWithPrefix(index, false));
-            yield return AbilityPopupEnd(index);
-        }
-        else
         {
             yield return ShowParalysis(index);
             PokemonOnField[index].pokemon.status = Status.Paralysis;
-            yield return Announce(MonNameWithPrefix(index, true) + " was paralyzed!");
+            yield return Announce(MonNameWithPrefix(index, true) + " is paralyzed! It may not be able to move!");
         }
     }
     private IEnumerator HealParalysis(int index)
@@ -261,13 +294,13 @@ public partial class Battle
         switch (random.Next() % 3)
         {
             case 0 when CanStatus(index, Status.Burn, attacker):
-                yield return GetBurn(index);
+                yield return GetBurn(index, attacker);
                 break;
             case 1 when CanStatus(index, Status.Paralysis, attacker):
-                yield return GetParalysis(index);
+                yield return GetParalysis(index, attacker);
                 break;
             case 2 when CanStatus(index, Status.Freeze, attacker):
-                yield return GetFreeze(index);
+                yield return GetFreeze(index, attacker);
                 break;
             default:
                 break;
@@ -282,7 +315,7 @@ public partial class Battle
                 yield return GetPoison(index, false, attacker);
                 break;
             case 1 when CanStatus(index, Status.Paralysis, attacker):
-                yield return GetParalysis(index);
+                yield return GetParalysis(index, attacker);
                 break;
             case 2 when CanStatus(index, Status.Sleep, attacker):
                 yield return FallAsleep(index);
@@ -300,7 +333,7 @@ public partial class Battle
                 yield return Announce(MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
-        else if (target.pokemon.status != Status.None)
+        if (target.pokemon.status != Status.None)
         {
             if (ShowFailure && announceFailure)
             {
@@ -308,14 +341,14 @@ public partial class Battle
             }
             yield break;
         }
-        else if ((target.HasType(Type.Poison)
+        if ((target.HasType(Type.Poison)
             || target.HasType(Type.Steel)))
         {
             if (ShowFailure && announceFailure)
                 yield return Announce("It doesn't affect " + MonNameWithPrefix(index, false));
             yield break;
         }
-        else if (EffectiveAbility(index) is Immunity && !HasMoldBreaker(attacker))
+        if (!AbilityAllowsStatus(index, Status.Poison, attacker))
         {
             if (announceFailure)
             {
@@ -323,8 +356,8 @@ public partial class Battle
                 yield return Announce("It doesn't affect " + MonNameWithPrefix(index, false) + "...");
                 yield return AbilityPopupEnd(index);
             }
+            yield break;
         }
-        else
         {
             if (attacker < 6)
             {
@@ -335,46 +368,55 @@ public partial class Battle
             yield return Announce(MonNameWithPrefix(index, true) + " was poisoned!");
         }
     }
-    private IEnumerator GetBadPoison(int index)
+    private IEnumerator GetBadPoison(int index, bool announceFailure, int attacker)
     {
         BattlePokemon target = PokemonOnField[index];
         if (Sides[index < 3 ? 0 : 1].safeguard)
         {
-            if (ShowFailure)
+            if (ShowFailure && announceFailure)
                 yield return Announce(MonNameWithPrefix(index, true) + Safeguard);
             yield break;
         }
-        else if (target.pokemon.status != Status.None)
+        if (target.pokemon.status != Status.None)
         {
-            if (ShowFailure)
+            if (ShowFailure && announceFailure)
+            {
                 yield return Announce(MoveFailed);
+            }
             yield break;
         }
-        else if ((target.HasType(Type.Poison)
-    || target.HasType(Type.Steel)))
+        if ((target.HasType(Type.Poison)
+            || target.HasType(Type.Steel)))
         {
-            if (ShowFailure)
+            if (ShowFailure && announceFailure)
                 yield return Announce("It doesn't affect " + MonNameWithPrefix(index, false));
             yield break;
         }
-        else if (EffectiveAbility(index) == Immunity)
+        if (!AbilityAllowsStatus(index, Status.Poison, attacker))
         {
-            if (ShowFailure)
+            if (announceFailure)
             {
                 yield return AbilityPopupStart(index);
                 yield return Announce("It doesn't affect " + MonNameWithPrefix(index, false) + "...");
                 yield return AbilityPopupEnd(index);
             }
+            yield break;
         }
-        else
         {
-            yield return ShowToxicPoison(index);
-            target.pokemon.status = Status.ToxicPoison;
-            target.toxicCounter = 0;
-            yield return Announce(MonNameWithPrefix(index, true) + " was badly poisoned!");
+            if (attacker < 6)
+            {
+                if (HasAbility(attacker, PoisonPuppeteer) && !PokemonOnField[index].confused) yield return Confuse(index);
+            }
+            {
+                yield return ShowToxicPoison(index);
+                target.pokemon.status = Status.ToxicPoison;
+                target.toxicCounter = 0;
+                yield return Announce(MonNameWithPrefix(index, true) + " was badly poisoned!");
+            }
         }
     }
-    private IEnumerator GetFreeze(int index)
+
+    private IEnumerator GetFreeze(int index, int attacker)
     {
         if (Sides[index < 3 ? 0 : 1].safeguard)
         {
@@ -388,7 +430,7 @@ public partial class Battle
                 yield return Announce(MoveFailed);
             yield break;
         }
-        else if (HasAbility(index, MagmaArmor))
+        else if (HasAbility(index, MagmaArmor) && !HasMoldBreaker(attacker))
         {
             if (ShowFailure)
             {
@@ -455,12 +497,12 @@ public partial class Battle
         if (!CanStatus(index, status)) yield break;
         yield return status switch
         {
-            Status.Burn => GetBurn(index),
-            Status.Paralysis => GetParalysis(index),
+            Status.Burn => GetBurn(index, attacker),
+            Status.Paralysis => GetParalysis(index, attacker),
             Status.Poison => GetPoison(index, false, attacker),
-            Status.ToxicPoison => GetBadPoison(index),
+            Status.ToxicPoison => GetBadPoison(index, false, attacker),
             Status.Sleep => FallAsleep(index, attacker),
-            Status.Freeze => GetFreeze(index),
+            Status.Freeze => GetFreeze(index, attacker),
             _ => null
         };
     }
@@ -468,8 +510,10 @@ public partial class Battle
     private IEnumerator BurnHurt(int index)
     {
         yield return ShowBurn(index);
-        yield return PokemonOnField[index].DoProportionalDamage(0.0625F);
+        yield return DoDamage(index, PokemonOnField[index].pokemon.hpMax >> 4, true, true);
         yield return Announce(MonNameWithPrefix(index, true) + " is hurt by its burn!");
+        yield return ProcessBerries(index, false);
+        yield return CheckWimpOut();
     }
 
     private IEnumerator PoisonHurt(int index)
@@ -485,8 +529,10 @@ public partial class Battle
             yield break;
         }
         yield return ShowPoison(index);
-        yield return PokemonOnField[index].DoProportionalDamage(0.125F);
+        yield return DoDamage(index, target.pokemon.hpMax >> 3, true, true);
         yield return Announce(MonNameWithPrefix(index, true) + " is hurt by poison!");
+        yield return ProcessBerries(index, false);
+        yield return CheckWimpOut();
     }
 
     private IEnumerator ToxicPoisonHurt(int index)
@@ -502,8 +548,10 @@ public partial class Battle
         }
         yield return ShowPoison(index);
         target.toxicCounter++;
-        yield return target.DoProportionalDamage(0.0625F * target.toxicCounter);
+        yield return DoDamage(index, (target.pokemon.hpMax >> 4) * target.toxicCounter, true, true);
         yield return Announce(MonNameWithPrefix(index, true) + " is hurt by poison!");
+        yield return ProcessBerries(index, false);
+        yield return CheckWimpOut();
     }
 
     private IEnumerator WakeUp(int index)
@@ -576,14 +624,14 @@ public partial class Battle
         if (target.healBlocked && !overrideBlock) yield break;
         if (target.pokemon.hp < target.pokemon.hpMax)
         {
-            yield return Heal(index);
+            yield return HealAnim(index);
             if (target.pokemon.hp + amount > target.pokemon.hpMax)
             {
-                yield return DoDamage(target.pokemon, target.pokemon.hp - target.pokemon.hpMax);
+                yield return DoDamage(target.pokemon, target.pokemon.hp - target.pokemon.hpMax, false, true);
             }
             else
             {
-                yield return DoDamage(target.pokemon, -1 * amount);
+                yield return DoDamage(target.pokemon, -1 * amount, false, true);
             }
         }
         else
@@ -872,52 +920,53 @@ public partial class Battle
             target.partialTrappingType != PartialTrapping.Octolock)) yield break;
         int damage = 0;
         PartialTrapping type = target.partialTrappingType;
+        int damageDenominator = HasItem(target.partialTrappingSource, ItemID.BindingBand) ? 6 : 8;
         switch (type)
         {
             case PartialTrapping.Wrap:
                 //yield return WrapAnim(index);
-                damage = target.pokemon.hpMax >> 3;
+                damage = target.pokemon.hpMax / damageDenominator;
                 yield return Announce(MonNameWithPrefix(index, true) + " is hurt by Wrap!");
                 break;
             case PartialTrapping.Bind:
                 //yield return BindAnim(index);
-                damage = target.pokemon.hpMax >> 3;
+                damage = target.pokemon.hpMax / damageDenominator;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Bind!");
                 break;
             case PartialTrapping.FireSpin:
                 //yield return FireSpinAnim(index);
-                damage = target.pokemon.hpMax >> 3;
+                damage = target.pokemon.hpMax / damageDenominator;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Fire Spin!");
                 break;
             case PartialTrapping.Clamp:
                 //yield return ClampAnim(index);
-                damage = target.pokemon.hpMax >> 3;
+                damage = target.pokemon.hpMax / damageDenominator;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Clamp!");
                 break;
             case PartialTrapping.Whirlpool:
                 //yield return WhirlpoolAnim(index);
-                damage = target.pokemon.hpMax >> 3;
+                damage = target.pokemon.hpMax / damageDenominator;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Whirlpool!");
                 break;
             case PartialTrapping.SandTomb:
                 //yield return SandTombAnim(index);
-                damage = target.pokemon.hpMax >> 3;
+                damage = target.pokemon.hpMax / damageDenominator;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Sand Tomb!");
                 break;
             case PartialTrapping.MagmaStorm:
                 //yield return MagmaStormAnim(index);
-                damage = target.pokemon.hpMax >> 3;
+                damage = target.pokemon.hpMax / damageDenominator;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by the swirling magma!");
                 break;
             case PartialTrapping.Infestation:
                 //yield return InfestationAnim(index);
-                damage = target.pokemon.hpMax >> 3;
+                damage = target.pokemon.hpMax / damageDenominator;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Infestation!");
                 break;
@@ -928,12 +977,12 @@ public partial class Battle
                 yield return StatDown(index, Stat.SpDef, 1, target.partialTrappingSource);
                 break;
             case PartialTrapping.SnapTrap:
-                damage = target.pokemon.hpMax >> 3;
+                damage = target.pokemon.hpMax / damageDenominator;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Snap Trap!");
                 break;
             case PartialTrapping.ThunderCage:
-                damage = target.pokemon.hpMax >> 3;
+                damage = target.pokemon.hpMax / damageDenominator;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " is hurt by Thunder Cage!");
                 break;
@@ -949,8 +998,9 @@ public partial class Battle
         }
         else
         {
-            yield return target.DoNonMoveDamage(damage);
+            yield return DoDamage(target.pokemon, damage, true, true);
             yield return ProcessBerries(index, false);
+            yield return CheckWimpOut();
         }
     }
     private IEnumerator StartWeather(Weather weather, int turns)
@@ -1132,8 +1182,8 @@ public partial class Battle
             yield break;
         }
         int newHP = (PokemonOnField[attacker].pokemon.hp + PokemonOnField[target].pokemon.hp) >> 1;
-        yield return DoDamage(PokemonOnField[target].pokemon, PokemonOnField[target].pokemon.hp - newHP);
-        yield return DoDamage(PokemonOnField[attacker].pokemon, PokemonOnField[attacker].pokemon.hp - newHP);
+        yield return DoDamage(PokemonOnField[target].pokemon, PokemonOnField[target].pokemon.hp - newHP, false, true);
+        yield return DoDamage(PokemonOnField[attacker].pokemon, PokemonOnField[attacker].pokemon.hp - newHP, false, true);
         yield return new WaitForSeconds(0.5F);
         yield return Announce("The battlers shared their pain!");
     }
@@ -1145,11 +1195,11 @@ public partial class Battle
             || !PokemonOnField[target.seedingSlot].exists) yield break;
         //yield return LeechSeedAnim(index, target.seedingSlot);
         int healthAmount = target.pokemon.hpMax >> 3;
-        yield return DoDamage(index, healthAmount);
+        yield return DoDamage(index, healthAmount, true, true);
         if (HasAbility(index, LiquidOoze))
         {
             yield return AbilityPopupStart(index);
-            yield return DoDamage(target.seedingSlot, healthAmount);
+            yield return DoDamage(target.seedingSlot, healthAmount, true, true);
             yield return new WaitForSeconds(0.5F);
             yield return Announce(MonNameWithPrefix(target.seedingSlot, true)
                 + " sucked up the liquid ooze!");
@@ -1165,6 +1215,7 @@ public partial class Battle
         }
         yield return ProcessFaintingSingle(index);
         yield return ProcessBerries(index, false);
+        yield return CheckWimpOut();
     }
 
     private IEnumerator DoMimic(int index, int target)
@@ -1486,7 +1537,7 @@ public partial class Battle
 
     private IEnumerator GhostCurse(int attacker, int defender)
     {
-        yield return DoDamage(PokemonOnField[attacker].pokemon, PokemonOnField[attacker].pokemon.hpMax >> 1, true);
+        yield return DoDamage(PokemonOnField[attacker].pokemon, PokemonOnField[attacker].pokemon.hpMax >> 1, false, true);
         PokemonOnField[defender].cursed = true;
         yield return Announce(MonNameWithPrefix(attacker, true) + " cut its own HP to put a curse on "
             + MonNameWithPrefix(defender, false) + "!");
@@ -1494,8 +1545,12 @@ public partial class Battle
 
     private IEnumerator DoCurse(int index)
     {
-        PokemonOnField[index].DoNonMoveDamage(PokemonOnField[index].pokemon.hpMax >> 2);
+        DoDamage(PokemonOnField[index].pokemon, PokemonOnField[index].pokemon.hpMax >> 2, true, true);
         yield return Announce(MonNameWithPrefix(index, true) + " is hurt by Curse!");
+        yield return ProcessBerries(index, false);
+        yield return ProcessFaintingSingle(index);
+        yield return CheckWimpOut();
+
     }
 
     private IEnumerator DoSpikes(int index)
@@ -1567,10 +1622,11 @@ public partial class Battle
     {
         if (!PokemonOnField[index].nightmare || HasAbility(index, MagicGuard)) yield break;
         if (PokemonOnField[index].pokemon.status != Status.Sleep) { PokemonOnField[index].nightmare = false; yield break; }
-        yield return DoDamage(PokemonOnField[index].pokemon, PokemonOnField[index].pokemon.hpMax >> 2);
+        yield return DoDamage(PokemonOnField[index].pokemon, PokemonOnField[index].pokemon.hpMax >> 2, true, true);
         yield return Announce(MonNameWithPrefix(index, true) + " is locked in a nightmare!");
         yield return ProcessFaintingSingle(index);
         yield return ProcessBerries(index, false);
+        yield return CheckWimpOut();
     }
 
     private IEnumerator GetMindReader(int user, int target)
@@ -1592,11 +1648,13 @@ public partial class Battle
                 yield break;
             }
             yield return DoDamage(PokemonOnField[index].pokemon,
-                PokemonOnField[index].pokemon.hpMax >> 1);
+                PokemonOnField[index].pokemon.hpMax >> 1, false, true);
             yield return StatUpAnim(index);
             PokemonOnField[index].attackStage = 6;
             yield return Announce(MonNameWithPrefix(index, true)
                 + " cut its own HP to maximize its Attack!");
+            yield return ProcessBerries(index, false);
+            yield return CheckWimpOut();
         }
         else
         {
@@ -1606,13 +1664,23 @@ public partial class Battle
 
     private IEnumerator DoClangorousSoul(int index)
     {
-        yield return StatUp(index, Stat.Attack, 1, index);
-        yield return StatUp(index, Stat.Defense, 1, index);
-        yield return StatUp(index, Stat.SpAtk, 1, index);
-        yield return StatUp(index, Stat.SpDef, 1, index);
-        yield return StatUp(index, Stat.Speed, 1, index);
-        yield return DoDamage(PokemonOnField[index].pokemon,
-            PokemonOnField[index].pokemon.hpMax / 3);
+        if (PokemonOnField[index].pokemon.hp * 3 > PokemonOnField[index].pokemon.hpMax)
+        {
+            yield return StatUp(index, Stat.Attack, 1, index);
+            yield return StatUp(index, Stat.Defense, 1, index);
+            yield return StatUp(index, Stat.SpAtk, 1, index);
+            yield return StatUp(index, Stat.SpDef, 1, index);
+            yield return StatUp(index, Stat.Speed, 1, index);
+            yield return DoDamage(PokemonOnField[index].pokemon,
+                PokemonOnField[index].pokemon.hpMax / 3, false, true); //May activate Wimp Out, needs research
+            yield return ProcessBerries(index, false);
+            yield return CheckWimpOut();
+        }
+        else
+        {
+            yield return Announce(MoveFailed);
+        }
+
     }
 
     private IEnumerator RemoveHazards(int index)
@@ -1752,7 +1820,7 @@ public partial class Battle
             }
             else
             {
-                yield return DoDamage(targetMon.pokemon, damage);
+                yield return DoDamage(targetMon.pokemon, damage, true);
             }
         }
         yield return AnnounceTypeEffectiveness(effectiveness, false, data.target);
@@ -2022,12 +2090,12 @@ public partial class Battle
         if (user.status == Status.None) yield break;
         yield return user.status switch
         {
-            Status.Burn => GetBurn(index),
-            Status.Paralysis => GetParalysis(index),
-            Status.Poison => GetPoison(index),
-            Status.ToxicPoison => GetBadPoison(index),
+            Status.Burn => GetBurn(index, attacker),
+            Status.Paralysis => GetParalysis(index, attacker),
+            Status.Poison => GetPoison(index, true, attacker),
+            Status.ToxicPoison => GetBadPoison(index, true, attacker),
             Status.Sleep => FallAsleep(index),
-            Status.Freeze => GetFreeze(index), // Impossible, but no reason not to implement
+            Status.Freeze => GetFreeze(index, attacker), // Impossible, but no reason not to implement
             _ => ScriptUtils.DoNothing()
         };
         yield return CureStatus(attacker);
@@ -2353,13 +2421,13 @@ public partial class Battle
         int baseNum = index < 3 ? 3 : 0;
         for (int i = 0; i < 3; i++)
         {
-            if (PokemonOnField[baseNum + i].exists)
+            if (PokemonOnField[baseNum + i].exists && !EffectiveAbility(baseNum + i).Uncopiable())
             {
                 yield return AbilityPopupStart(index);
                 yield return new WaitForSeconds(0.2F);
                 yield return abilityControllers[index].ChangeAbility(
                     EffectiveAbility(baseNum + i).Name());
-                PokemonOnField[index].ability = EffectiveAbility(i);
+                PokemonOnField[index].ability = EffectiveAbility(baseNum + i);
                 PokemonOnField[index].timeWithAbility = 0;
                 yield return Announce(MonNameWithPrefix(index, true)
                     + " traced the foe's "
@@ -2399,7 +2467,7 @@ public partial class Battle
                 {
                     yield return UseItemAnim(i);
                     UseUpItem(i);
-                    yield return StatUp(i, Stat.Speed, 1, index, announce:false);
+                    yield return StatUp(i, Stat.Speed, 1, index, announce: false);
                     yield return Announce("The " + EffectiveItem(i).Data().itemName + " raised " + MonNameWithPrefix(i, false) + "'s Speed!");
                 }
             }
@@ -2437,15 +2505,15 @@ public partial class Battle
             case SpeciesID.CramorantGulping:
                 yield return AbilityPopupStart(source);
                 yield return Transform(source, SpeciesID.Cramorant);
-                yield return DoDamage(target, PokemonOnField[target].pokemon.hpMax >> 2);
+                yield return DoDamage(target, PokemonOnField[target].pokemon.hpMax >> 2, true, true);
                 yield return StatDown(target, Stat.Defense, 1, source);
                 yield return AbilityPopupEnd(source);
                 break;
             case SpeciesID.CramorantGorging:
                 yield return AbilityPopupStart(source);
                 yield return Transform(source, SpeciesID.Cramorant);
-                yield return DoDamage(target, PokemonOnField[target].pokemon.hpMax >> 2);
-                yield return GetParalysis(target);
+                yield return DoDamage(target, PokemonOnField[target].pokemon.hpMax >> 2, true, true);
+                yield return GetParalysis(target, source);
                 yield return AbilityPopupEnd(source);
                 break;
             default: break;

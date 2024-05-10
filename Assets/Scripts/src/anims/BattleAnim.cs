@@ -77,7 +77,7 @@ public partial class Battle
         yield return FadeDelete(healStar.GetComponent<SpriteRenderer>(), 0.1F); //0.60
     }
 
-    public IEnumerator Heal(int index) //duration 1.10
+    public IEnumerator HealAnim(int index) //duration 1.10
     {
         audioSource0.PlayOneShot(Resources.Load<AudioClip>("Sound/Battle SFX/Heal"));
         StartCoroutine(maskManager[index].MaskColor(0.1F, 0.9F, 160.0F / 255.0F, new Color(80.0F / 255.0F, 1, 0))); //0.00 - 1.10

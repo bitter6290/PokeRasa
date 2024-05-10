@@ -13,8 +13,6 @@ public class PartyScreen : MonoBehaviour
     [SerializeField] private Announcer announcer;
     [SerializeField] private AudioSource audioSource;
 
-    public Player p;
-
     private int selectedMon;
 
     private int movingMon;
@@ -62,13 +60,12 @@ public class PartyScreen : MonoBehaviour
     };
 
 
-    public void Init(Player player)
+    public void Init()
     {
-        p = player;
-        p.SortParty();
+        player.SortParty();
         for (int i = 0; i < 6; i++)
         {
-            displays[i].mon = p.Party[i];
+            displays[i].mon = player.Party[i];
             Debug.Log(displays[i].mon.MonName);
         }
     }
@@ -119,7 +116,7 @@ public class PartyScreen : MonoBehaviour
             bool eligible = false;
             foreach (EvolutionData evolution in displays[i].mon.SpeciesData.evolution)
             {
-                if (evolution.Method is EvolutionMethod.EvolutionItem && evolution.Data == (int)p.bagResult)
+                if (evolution.Method is EvolutionMethod.EvolutionItem && evolution.Data == (int)player.bagResult)
                 {
                     eligible = true;
                 }
@@ -129,9 +126,9 @@ public class PartyScreen : MonoBehaviour
         }
     }
 
-    public IEnumerator DoPartyScreen(Player player, bool prompt, int firstSelection = 0, bool doAnnouncement = false, string announcement = null)
+    public IEnumerator DoPartyScreen(bool prompt, int firstSelection = 0, bool doAnnouncement = false, string announcement = null)
     {
-        Init(player);
+        Init();
         itemPrompt = prompt;
         if (prompt && player.bagResult.FieldEffect() is FieldEffect.Evolution &&
             player.bagOutcome == BagOutcome.Use) CheckEvoEligibility();
@@ -144,15 +141,15 @@ public class PartyScreen : MonoBehaviour
     private IEnumerator NoEffect => AnnounceAndReturn("It wouldn't have any effect.").DoAtEnd(() => state = State.Active);
     private void UseResultItem()
     {
-        if (p.UseItem(p.bagResult)) ReturnWithNothing();
+        if (player.UseItem(player.bagResult)) ReturnWithNothing();
         else state = State.Active;
     }
 
-        private IEnumerator DoHeal()
+    private IEnumerator DoHeal()
     {
         state = State.Busy;
         DataStore<int> amount = new();
-        yield return displays[selectedMon].Heal(p.bagResult.FieldEffectIntensity(), amount);
+        yield return displays[selectedMon].Heal(player.bagResult.FieldEffectIntensity(), amount);
         yield return AnnounceAndReturn(CurrentMon.MonName + " was healed by " + amount.Data + " HP.");
         UseResultItem();
     }
@@ -176,9 +173,7 @@ public class PartyScreen : MonoBehaviour
     {
         state = State.Busy;
         if (CurrentMon.SpeciesData.abilities[0] == CurrentMon.SpeciesData.abilities[2])
-        {
             yield return NoEffect;
-        }
         else
         {
             var random = new System.Random();
@@ -191,12 +186,9 @@ public class PartyScreen : MonoBehaviour
 
     private IEnumerator DoMint()
     {
-        Nature nature = (Nature)p.bagResult.FieldEffectIntensity();
+        Nature nature = (Nature)player.bagResult.FieldEffectIntensity();
         state = State.Busy;
-        if (CurrentMon.Nature == nature)
-        {
-            yield return NoEffect;
-        }
+        if (CurrentMon.Nature == nature) yield return NoEffect;
         else
         {
             CurrentMon.mintedNature = nature;
@@ -207,9 +199,9 @@ public class PartyScreen : MonoBehaviour
 
     private IEnumerator DoHealStatus()
     {
-        Status status = (Status)p.bagResult.FieldEffectIntensity();
+        Status status = (Status)player.bagResult.FieldEffectIntensity();
         state = State.Busy;
-        if (CurrentMon.status == status ||
+        if (status is Status.Any || CurrentMon.status == status ||
             (status is Status.Poison && CurrentMon.status is Status.ToxicPoison))
         {
             CurrentMon.status = Status.None;
@@ -217,39 +209,80 @@ public class PartyScreen : MonoBehaviour
             yield return AnnounceAndReturn(CurrentMon.MonName + status.HealString());
             UseResultItem();
         }
-        else
+        else yield return NoEffect;
+    }
+
+    private IEnumerator DoFullRestore()
+    {
+        bool didAnything = false;
+        if (CurrentMon.hp < CurrentMon.hpMax)
         {
-            yield return NoEffect;
+            int amount = CurrentMon.hpMax - CurrentMon.hp;
+            DataStore<int> store = new();
+            yield return displays[selectedMon].Heal(amount, store);
+            yield return AnnounceAndReturn(CurrentMon.MonName + " was healed by " + store.Data + " HP.");
+            didAnything = true;
         }
+        if (CurrentMon.status != Status.None)
+        {
+            Status status = CurrentMon.status;
+            CurrentMon.status = Status.None;
+            displays[selectedMon].UpdateDisplay();
+            yield return AnnounceAndReturn(CurrentMon.MonName + status.HealString());
+            didAnything = true;
+        }
+        if (didAnything)
+        {
+            UseResultItem();
+        }
+        else yield return NoEffect;
     }
 
     private IEnumerator DoFeather()
     {
-        Stat stat = (Stat)p.bagResult.FieldEffectIntensity();
+        Stat stat = (Stat)player.bagResult.FieldEffectIntensity();
         state = State.Busy;
         if (CurrentMon.ApplyFeather(stat))
         {
             yield return AnnounceAndReturn($"{CurrentMon.MonName}'s {stat.Name()} was increased slightly.");
             UseResultItem();
         }
-        else
-        {
-            yield return NoEffect;
-        }
+        else yield return NoEffect;
     }
 
     private IEnumerator DoVitamin()
     {
-        Stat stat = (Stat)p.bagResult.FieldEffectIntensity();
+        Stat stat = (Stat)player.bagResult.FieldEffectIntensity();
         state = State.Busy;
         if (CurrentMon.ApplyVitamin(stat))
         {
             yield return AnnounceAndReturn($"{CurrentMon.MonName}'s {stat.Name()} was increased.");
             UseResultItem();
         }
+        else yield return NoEffect;
+    }
+
+    private IEnumerator DoPPUp(bool max)
+    {
+        state = State.Busy;
+        DataStore<int> store = new();
+        store.Data = 63;
+        yield return MoveSelectScreen.DoMoveSelectScreen(CurrentMon, store);
+        if (store.Data is 63)
+        {
+            state = State.Active;
+        }
         else
         {
-            yield return NoEffect;
+            if (CurrentMon.UsePPUp(store.Data, max))
+            {
+                yield return AnnounceAndReturn($"{CurrentMon.MonName}'s " +
+                    $"{CurrentMon.MoveIDs[store.Data].Data().name} had its PP " +
+                    $"increased" + (max ?
+                    " to the maximum." : $" by {CurrentMon.MoveIDs[store.Data].Data().pp / 5}."));
+                UseResultItem();
+            }
+            else yield return NoEffect;
         }
     }
 
@@ -275,14 +308,14 @@ public class PartyScreen : MonoBehaviour
                 case GetSummary:
                 case GiveItem when CurrentMon.item is ItemID.None:
                 case TakeItem when CurrentMon.item is not ItemID.None:
-                case MoveMon when p.monsInParty > 1:
+                case MoveMon when player.monsInParty > 1:
                     possibleChoices.Add(choice);
                     continue;
                 default: continue;
             }
         }
         audioSource.PlayOneShot(SFX.Select);
-        yield return ChoiceMenu.DoChoiceMenu(p, possibleChoices, 0,
+        yield return ChoiceMenu.DoChoiceMenu(player, possibleChoices, 0,
             result, displays[selectedMon].transform, new(-40, goingDown ? 15 : -15),
             new(1, goingDown ? 1 : 0), exit.gameObject);
         switch (result.Data)
@@ -292,7 +325,7 @@ public class PartyScreen : MonoBehaviour
                 state = State.Active;
                 break;
             case GetSummary:
-                yield return SummaryScreen.Create(p, selectedMon);
+                yield return SummaryScreen.Create(player, selectedMon);
                 SummaryScreen screen = FindObjectOfType<SummaryScreen>();
                 while (screen != null) yield return null;
                 state = State.Active;
@@ -303,7 +336,7 @@ public class PartyScreen : MonoBehaviour
                 CurrentMon.item = ItemID.None;
                 displays[selectedMon].UpdateDisplay();
                 yield return AnnounceAndReturn("Took the " + item.Data().itemName + " from " + CurrentMon.MonName + ".");
-                if (!item.IsZCrystal()) p.AddItem(item);
+                if (!item.IsZCrystal()) player.AddItem(item);
                 state = State.Active;
                 break;
             case GiveItem:
@@ -318,14 +351,14 @@ public class PartyScreen : MonoBehaviour
 
     private void ReturnWithNothing()
     {
-        p.partyScreenOutcome = PartyScreenOutcome.None;
+        player.partyScreenOutcome = PartyScreenOutcome.None;
         done = true;
     }
 
     private void CacheAndReturn(PartyScreenOutcome outcome)
     {
-        p.partyScreenOutcome = outcome;
-        p.cachedScreenData = new PartyBoxCachedData() { currentMon = selectedMon };
+        player.partyScreenOutcome = outcome;
+        player.cachedScreenData = new PartyBoxCachedData() { currentMon = selectedMon };
         done = true;
     }
 
@@ -336,9 +369,9 @@ public class PartyScreen : MonoBehaviour
             case State.Active or State.Moving:
                 if (Input.GetKeyDown(KeyCode.DownArrow) && selectedMon != exitNumber)
                 {
-                    if (p.monsInParty > selectedMon + 2)
+                    if (player.monsInParty > selectedMon + 2)
                         Select(selectedMon + 2);
-                    else if (p.monsInParty == selectedMon + 2 && (selectedMon & 1) == 1)
+                    else if (player.monsInParty == selectedMon + 2 && (selectedMon & 1) == 1)
                         Select(selectedMon + 1);
                     else
                         GoToExit();
@@ -346,7 +379,7 @@ public class PartyScreen : MonoBehaviour
                 else if (Input.GetKeyDown(KeyCode.UpArrow) && selectedMon > 1)
                 {
                     if (selectedMon is exitNumber)
-                        Select(p.monsInParty - 1);
+                        Select(player.monsInParty - 1);
                     else
                         Select(selectedMon - 2);
                 }
@@ -359,12 +392,12 @@ public class PartyScreen : MonoBehaviour
                     }
                     else
                     {
-                        Select(p.monsInParty - 1);
+                        Select(player.monsInParty - 1);
                     }
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow) && selectedMon != exitNumber)
                 {
-                    if (selectedMon + 1 == p.monsInParty)
+                    if (selectedMon + 1 == player.monsInParty)
                         GoToExit();
                     else
                         Select(selectedMon + 1);
@@ -374,29 +407,35 @@ public class PartyScreen : MonoBehaviour
                     if (selectedMon is exitNumber)
                     {
                         ReturnWithNothing();
-                        p.audioSource.PlayOneShot(SFX.Select);
+                        player.audioSource.PlayOneShot(SFX.Select);
                     }
                     else if (state is State.Active)
                     {
                         if (itemPrompt)
                         {
-                            switch (p.bagOutcome)
+                            switch (player.bagOutcome)
                             {
                                 case BagOutcome.Use:
                                     if (displays[selectedMon].ineligible) return;
-                                    switch (p.bagResult.FieldEffect())
+                                    switch (player.bagResult.FieldEffect())
                                     {
                                         case FieldEffect.None:
                                             break;
                                         case FieldEffect.Heal:
                                             StartCoroutine(DoHeal());
                                             break;
+                                        case FieldEffect.HealStatus:
+                                            StartCoroutine(DoHealStatus());
+                                            break;
+                                        case FieldEffect.FullRestore:
+                                            StartCoroutine(DoFullRestore());
+                                            break;
                                         case FieldEffect.TM:
                                             break;
                                         case FieldEffect.Evolution:
-                                            p.audioSource.PlayOneShot(SFX.Select);
-                                            p.partyScreenOutcome = PartyScreenOutcome.Evo;
-                                            p.partyScreenResult = selectedMon;
+                                            player.audioSource.PlayOneShot(SFX.Select);
+                                            player.partyScreenOutcome = PartyScreenOutcome.Evo;
+                                            player.partyScreenResult = selectedMon;
                                             done = true;
                                             break;
                                         case FieldEffect.AbilityCapsule:
@@ -407,9 +446,6 @@ public class PartyScreen : MonoBehaviour
                                             break;
                                         case FieldEffect.Mint:
                                             StartCoroutine(DoMint());
-                                            break;
-                                        case FieldEffect.HealStatus:
-                                            StartCoroutine(DoHealStatus());
                                             break;
                                         case FieldEffect.HPEVDown10:
                                             break;
@@ -429,6 +465,12 @@ public class PartyScreen : MonoBehaviour
                                         case FieldEffect.Vitamin:
                                             StartCoroutine(DoVitamin());
                                             break;
+                                        case FieldEffect.PPUp:
+                                            StartCoroutine(DoPPUp(false));
+                                            break;
+                                        case FieldEffect.PPMax:
+                                            StartCoroutine(DoPPUp(true));
+                                            break;
                                     }
                                     break;
                                 case BagOutcome.Give:
@@ -441,12 +483,12 @@ public class PartyScreen : MonoBehaviour
                                     }
                                     else
                                     {
-                                        CurrentMon.item = p.bagResult;
+                                        CurrentMon.item = player.bagResult;
                                         CurrentMon.CheckTransformation();
                                         displays[selectedMon].UpdateDisplay();
-                                        if (!p.bagResult.IsZCrystal()) p.UseItem(p.bagResult);
+                                        if (!player.bagResult.IsZCrystal()) player.UseItem(player.bagResult);
                                         StartCoroutine(AnnounceAndReturn("The " +
-                                            p.bagResult.Data().itemName +
+                                            player.bagResult.Data().itemName +
                                             " was given to " +
                                             CurrentMon.MonName +
                                             " to hold.").DoAtEnd(ReturnWithNothing));
@@ -464,8 +506,8 @@ public class PartyScreen : MonoBehaviour
                         state = State.Active;
                         if (selectedMon != movingMon)
                         {
-                            (p.Party[selectedMon], p.Party[movingMon]) = (p.Party[movingMon], p.Party[selectedMon]);
-                            Init(p);
+                            (player.Party[selectedMon], player.Party[movingMon]) = (player.Party[movingMon], player.Party[selectedMon]);
+                            Init();
                             UpdateDisplays();
                         }
                         audioSource.PlayOneShot(SFX.Select);
