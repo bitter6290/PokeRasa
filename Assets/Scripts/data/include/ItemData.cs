@@ -82,6 +82,8 @@ public class PlateItem : HeldItem //subdata length 3
     public PlateItem()
     {
         type = ItemType.Plate;
+        heldEffect = HeldEffect.BoostMoves20;
+        heldEffectIntensity = (int)plateType;
     }
 }
 
@@ -271,6 +273,19 @@ public class HoldToTransform : ItemData //subdata length 2
     }
 }
 
+public class Fossil : ItemData //subdata length 1
+{
+    public SpeciesID fossilSpecies;
+    public override int[] ItemSubdata => new int[1]
+    {
+        (int)fossilSpecies
+    };
+    public Fossil()
+    {
+        type = ItemType.Fossil;
+    }
+}
+
 public static class ItemUtils
 {
     public static HeldEffect HeldEffect(this ItemID item)
@@ -424,17 +439,23 @@ public static class ItemUtils
         };
     }
 
-    public static SpeciesID transformBase(this ItemID item)
+    public static SpeciesID TransformBase(this ItemID item)
     {
         if (item.Data() is HoldToTransform) return ((HoldToTransform)item.Data()).baseSpecies;
         if (item.Data() is PlateItem) return SpeciesID.Arceus;
         return SpeciesID.Missingno;
     }
 
-    public static SpeciesID transformDestination(this ItemID item)
+    public static SpeciesID TransformDestination(this ItemID item)
     {
         if (item.Data() is HoldToTransform) return ((HoldToTransform)item.Data()).baseSpecies;
         if (item.Data() is PlateItem) return ((PlateItem)item.Data()).destinationSpecies;
+        return SpeciesID.Missingno;
+    }
+    
+    public static SpeciesID FossilSpecies(this ItemID item)
+    {
+        if (item.Data().type is ItemType.Fossil) return (SpeciesID)item.Data().ItemSubdata[0];
         return SpeciesID.Missingno;
     }
 

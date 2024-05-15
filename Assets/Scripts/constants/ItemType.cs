@@ -17,4 +17,5 @@
     ZCrystalMoveSpecific,
     ZCrystalMultipleSpecies,
     HoldToTransform, //Todo: implement after party menu, trigger on giving/taking items
+    Fossil,
 }

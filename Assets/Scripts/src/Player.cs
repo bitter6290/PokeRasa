@@ -1497,6 +1497,7 @@ public class Player : LoadedChar
         bulbasaur.pp3 = 40;
         bulbasaur.move4 = MoveID.VineWhip;
         bulbasaur.pp4 = 5;
+        bulbasaur.item = ItemID.GrassGem;
         Pokemon golisopod = Pokemon.WildPokemon(SpeciesID.Golisopod, 5);
         golisopod.move1 = MoveID.HeadSmash;
         golisopod.pp1 = 30;

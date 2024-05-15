@@ -2,6 +2,7 @@
 using static BerryEffect;
 using static FieldEffect;
 using static HeldEffect;
+using System.Threading;
 
 
 public static class Item
@@ -1183,7 +1184,8 @@ public static class Item
     {
         itemName = "Metal Coat",
         price = 15000,
-        heldEffect = SteelPowerUp20,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Steel,
         graphicsPath = "metal_coat",
     };
 
@@ -1380,6 +1382,370 @@ public static class Item
         graphicsPath = "binding_band",
         flingPower = 30
     };
+    //Gems
+
+    public static readonly HeldItem NormalGem = new()
+    {
+        itemName = "Normal Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Normal,
+        graphicsPath = "normal_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem FireGem = new()
+    {
+        itemName = "Fire Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Fire,
+        graphicsPath = "fire_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem WaterGem = new()
+    {
+        itemName = "Water Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Water,
+        graphicsPath = "water_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem GrassGem = new()
+    {
+        itemName = "Grass Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Grass,
+        graphicsPath = "grass_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem ElectricGem = new()
+    {
+        itemName = "Electric Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Electric,
+        graphicsPath = "electric_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem IceGem = new()
+    {
+        itemName = "Ice Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Ice,
+        graphicsPath = "ice_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem GroundGem = new()
+    {
+        itemName = "Ground Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Ground,
+        graphicsPath = "ground_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem FightingGem = new()
+    {
+        itemName = "Fighting Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Fighting,
+        graphicsPath = "fighting_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem FlyingGem = new()
+    {
+        itemName = "Flying Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Flying,
+        graphicsPath = "flying_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem RockGem = new()
+    {
+        itemName = "Rock Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Rock,
+        graphicsPath = "rock_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem PoisonGem = new()
+    {
+        itemName = "Poison Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Poison,
+        graphicsPath = "poison_gem",
+        flingPower = 0
+    };
+    public static readonly HeldItem BugGem = new()
+    {
+        itemName = "Bug Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Bug,
+        graphicsPath = "bug_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem PsychicGem = new()
+    {
+        itemName = "Psychic Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Psychic,
+        graphicsPath = "psychic_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem GhostGem = new()
+    {
+        itemName = "Ghost Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Ghost,
+        graphicsPath = "ghost_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem DragonGem = new()
+    {
+        itemName = "Dragon Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Dragon,
+        graphicsPath = "dragon_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem DarkGem = new()
+    {
+        itemName = "Dark Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Dark,
+        graphicsPath = "dark_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem SteelGem = new()
+    {
+        itemName = "Steel Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Steel,
+        graphicsPath = "steel_gem",
+        flingPower = 0
+    };
+
+    public static readonly HeldItem FairyGem = new()
+    {
+        itemName = "Fairy Gem",
+        price = 10000,
+        heldEffect = Gem,
+        heldEffectIntensity = (int)Type.Fairy,
+        graphicsPath = "fairy_gem",
+        flingPower = 0
+    };
+
+    //Type-boosting items
+    public static readonly HeldItem BrightPowder = new()
+    {
+        itemName = "Bright Powder",
+        price = 30000,
+        heldEffect = Abstract,
+        graphicsPath = "bright_powder",
+        flingPower = 10
+    };
+
+    //Type-boosting items
+
+    public static readonly HeldItem SilkScarf = new()
+    {
+        itemName = "Silk Scarf",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Normal,
+        graphicsPath = "silk_scarf",
+        flingPower = 10
+    };
+
+    public static readonly HeldItem Charcoal = new()
+    {
+        itemName = "Charcoal",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Fire,
+        graphicsPath = "charcoal",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem MysticWater = new()
+    {
+        itemName = "Mystic Water",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Water,
+        graphicsPath = "mystic_water",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem MiracleSeed = new()
+    {
+        itemName = "Miracle Seed",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Grass,
+        graphicsPath = "miracle_seed",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem Magnet = new()
+    {
+        itemName = "Magnet",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Electric,
+        graphicsPath = "magnet",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem NeverMeltIce = new()
+    {
+        itemName = "Never-Melt Ice",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Ice,
+        graphicsPath = "never_melt_ice",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem SoftSand = new()
+    {
+        itemName = "Soft Sand",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Ground,
+        graphicsPath = "soft_sand",
+        flingPower = 10
+    };
+
+    public static readonly HeldItem BlackBelt = new()
+    {
+        itemName = "Black Belt",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Fighting,
+        graphicsPath = "black_belt",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem SharpBeak = new()
+    {
+        itemName = "Sharp Beak",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Flying,
+        graphicsPath = "sharp_beak",
+        flingPower = 50
+    };
+
+    public static readonly HeldItem HardStone = new()
+    {
+        itemName = "Hard Stone",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Rock,
+        graphicsPath = "hard_stone",
+        flingPower = 100
+    };
+
+    public static readonly HeldItem PoisonBarb = new()
+    {
+        itemName = "Poison Barb",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Poison,
+        graphicsPath = "poison_barb",
+        flingPower = 70,
+        flingEffect = MoveEffect.Poison
+    };
+
+    public static readonly HeldItem SilverPowder = new()
+    {
+        itemName = "Silver Powder",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Bug,
+        graphicsPath = "silver_powder",
+        flingPower = 10
+    };
+
+    public static readonly HeldItem TwistedSpoon = new()
+    {
+        itemName = "Twisted Spoon",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Psychic,
+        graphicsPath = "twisted_spoon",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem SpellTag = new()
+    {
+        itemName = "Spell Tag",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Ghost,
+        graphicsPath = "spell_tag",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem DragonFang = new()
+    {
+        itemName = "Dragon Fang",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Dragon,
+        graphicsPath = "dragon_fang",
+        flingPower = 70
+    };
+
+    public static readonly HeldItem BlackGlasses = new()
+    {
+        itemName = "Black Glasses",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Dark,
+        graphicsPath = "black_glasses",
+        flingPower = 30
+    };
+
+    public static readonly HeldItem FairyFeather = new()
+    {
+        itemName = "Fairy Feather",
+        price = 3000,
+        heldEffect = BoostMoves20,
+        heldEffectIntensity = (int)Type.Fairy,
+        graphicsPath = "fairy_feather",
+        flingPower = 20 //Based on other Feather items
+    };
+
 
     //Plates
 
@@ -1387,7 +1753,6 @@ public static class Item
     {
         itemName = "Blank Plate",
         price = 0,
-        heldEffect = NormalPowerUp20,
         plateType = Type.Normal,
         destinationSpecies = Arceus,
         graphicsPath = "blank_plate"
@@ -1397,7 +1762,6 @@ public static class Item
     {
         itemName = "Flame Plate",
         price = 0,
-        heldEffect = FirePowerUp20,
         plateType = Type.Fire,
         destinationSpecies = ArceusFire,
         graphicsPath = "flame_plate"
@@ -1407,7 +1771,6 @@ public static class Item
     {
         itemName = "Splash Plate",
         price = 0,
-        heldEffect = WaterPowerUp20,
         plateType = Type.Water,
         destinationSpecies = ArceusWater,
         graphicsPath = "water_plate"
@@ -1417,7 +1780,6 @@ public static class Item
     {
         itemName = "Meadow Plate",
         price = 0,
-        heldEffect = GrassPowerUp20,
         plateType = Type.Grass,
         destinationSpecies = ArceusGrass,
         graphicsPath = "meadow_plate"
@@ -1427,7 +1789,6 @@ public static class Item
     {
         itemName = "Zap Plate",
         price = 0,
-        heldEffect = ElectricPowerUp20,
         plateType = Type.Electric,
         destinationSpecies = ArceusElectric,
         graphicsPath = "zap_plate"
@@ -1437,7 +1798,6 @@ public static class Item
     {
         itemName = "Icicle Plate",
         price = 0,
-        heldEffect = IcePowerUp20,
         plateType = Type.Ice,
         destinationSpecies = ArceusIce,
         graphicsPath = "icicle_plate"
@@ -1447,7 +1807,6 @@ public static class Item
     {
         itemName = "Earth Plate",
         price = 0,
-        heldEffect = GroundPowerUp20,
         plateType = Type.Ground,
         destinationSpecies = ArceusGround,
         graphicsPath = "earth_plate"
@@ -1457,7 +1816,6 @@ public static class Item
     {
         itemName = "Stone Plate",
         price = 0,
-        heldEffect = RockPowerUp20,
         plateType = Type.Rock,
         destinationSpecies = ArceusRock,
         graphicsPath = "stone_plate"
@@ -1467,7 +1825,6 @@ public static class Item
     {
         itemName = "Sky Plate",
         price = 0,
-        heldEffect = FlyingPowerUp20,
         plateType = Type.Flying,
         destinationSpecies = ArceusFlying,
         graphicsPath = "sky_plate"
@@ -1477,7 +1834,6 @@ public static class Item
     {
         itemName = "Fist Plate",
         price = 0,
-        heldEffect = FightingPowerUp20,
         plateType = Type.Fighting,
         destinationSpecies = ArceusFighting,
         graphicsPath = "fist_plate"
@@ -1487,7 +1843,6 @@ public static class Item
     {
         itemName = "Insect Plate",
         price = 0,
-        heldEffect = BugPowerUp20,
         plateType = Type.Bug,
         destinationSpecies = ArceusBug,
         graphicsPath = "insect_plate"
@@ -1497,7 +1852,6 @@ public static class Item
     {
         itemName = "Mind Plate",
         price = 0,
-        heldEffect = PsychicPowerUp20,
         plateType = Type.Psychic,
         destinationSpecies = ArceusPsychic,
         graphicsPath = "mind_plate"
@@ -1507,7 +1861,6 @@ public static class Item
     {
         itemName = "Spooky Plate",
         price = 0,
-        heldEffect = GhostPowerUp20,
         plateType = Type.Ghost,
         destinationSpecies = ArceusGhost,
         graphicsPath = "spooky_plate"
@@ -1517,7 +1870,6 @@ public static class Item
     {
         itemName = "Toxic Plate",
         price = 0,
-        heldEffect = PoisonPowerUp20,
         plateType = Type.Poison,
         destinationSpecies = ArceusPoison,
         graphicsPath = "toxic_plate"
@@ -1527,7 +1879,6 @@ public static class Item
     {
         itemName = "Draco Plate",
         price = 0,
-        heldEffect = DragonPowerUp20,
         plateType = Type.Dragon,
         destinationSpecies = ArceusDragon,
         graphicsPath = "draco_plate"
@@ -1537,7 +1888,6 @@ public static class Item
     {
         itemName = "Dread Plate",
         price = 0,
-        heldEffect = DarkPowerUp20,
         plateType = Type.Dark,
         destinationSpecies = ArceusDark,
         graphicsPath = "dread_plate"
@@ -1547,7 +1897,6 @@ public static class Item
     {
         itemName = "Iron Plate",
         price = 0,
-        heldEffect = SteelPowerUp20,
         plateType = Type.Steel,
         destinationSpecies = ArceusSteel,
         graphicsPath = "iron_plate"
@@ -1557,7 +1906,6 @@ public static class Item
     {
         itemName = "Pixie Plate",
         price = 0,
-        heldEffect = FairyPowerUp20,
         plateType = Type.Fairy,
         destinationSpecies = ArceusFairy,
         graphicsPath = "pixie_plate"
@@ -2828,7 +3176,6 @@ public static class Item
         AbilityPatch,
         //Held items
         KingsRock,
-        MetalCoat,
         DeepSeaTooth,
         DeepSeaScale,
         RazorClaw,
@@ -2851,6 +3198,45 @@ public static class Item
         AssaultVest,
         ClearAmulet,
         BindingBand,
+        BrightPowder,
+        //Gems
+        NormalGem,
+        FireGem,
+        WaterGem,
+        GrassGem,
+        ElectricGem,
+        IceGem,
+        GroundGem,
+        FightingGem,
+        FlyingGem,
+        RockGem,
+        PoisonGem,
+        BugGem,
+        PsychicGem,
+        GhostGem,
+        DragonGem,
+        DarkGem,
+        SteelGem,
+        FairyGem,
+        //Type boosting items
+        SilkScarf,
+        Charcoal,
+        MysticWater,
+        MiracleSeed,
+        Magnet,
+        NeverMeltIce,
+        SoftSand,
+        BlackBelt,
+        SharpBeak,
+        HardStone,
+        PoisonBarb,
+        SilverPowder,
+        TwistedSpoon,
+        SpellTag,
+        DragonFang,
+        BlackGlasses,
+        MetalCoat,
+        FairyFeather,
         //Plates
         BlankPlate,
         FlamePlate,

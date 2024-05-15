@@ -249,6 +249,8 @@ public partial class Battle : MonoBehaviour
 
     private bool oneAnnouncementDone; //Used for Perish Song
 
+    private bool gemUsed;
+
     private System.Random random = new();
 
     private int DoublesPartner(int index) => index switch
@@ -1634,6 +1636,7 @@ public partial class Battle : MonoBehaviour
             * GetAttackerAbilityAccuracyModifier(attacker)
             * GetDefenderAbilityAccuracyModifier(defender, attacker, move);
         if (gravity) result *= 5.0F / 3.0F;
+        if (EffectiveItem(defender) is BrightPowder) result *= 0.9F;
         if (AbilityOnSide(VictoryStar, attacker / 3)) result *= 11.0F / 10.0F;
         if (PokemonOnField[attacker].micleAccBoost)
         {
@@ -1834,6 +1837,8 @@ public partial class Battle : MonoBehaviour
         }
         if (attacker.meFirst) effectivePower += effectivePower >> 1;
         if (attacker.gotAteBoost) effectivePower += effectivePower / 5;
+        if (EffectiveItem(attacker).HeldEffect() is HeldEffect.BoostMoves20 &&
+                (Type)EffectiveItem(attacker).HeldEffectIntensity() == effectiveType) effectivePower += effectivePower / 5;
         if (move.Data().type == Type.Electric && attacker.charged)
         {
             effectivePower <<= 1;
@@ -1845,6 +1850,7 @@ public partial class Battle : MonoBehaviour
             else effectivePower += effectivePower / 3;
         if (move is MoveID.Bulldoze or MoveID.Earthquake or MoveID.Magnitude &&
             IsTerrainAffected(defender, Terrain.Grassy)) effectivePower >>= 1;
+        if (gemUsed) effectivePower += effectivePower * 3 / 10;
         effectivePower = Max(1, effectivePower);
         float critical = isCritical ? CritModifier(attacker) : 1.0F;
         float stab = attacker.HasType(effectiveType) ? StabModifier(attacker) : 1.0F;
@@ -3927,7 +3933,7 @@ public partial class Battle : MonoBehaviour
         }
         if (goAhead && mon.powdered && GetEffectiveType(Moves[index], index) is Type.Fire)
         {
-            UsePP(index);
+            if (!PokemonOnField[index].dontCheckPP) UsePP(index);
             yield return MonUsed(index);
             if (!HasAbility(index, MagicGuard)) yield return DoDamage(mon, mon.HPMax >> 2, true, true);
             yield return Announce("When the flame touched the powder, it exploded!");
@@ -4689,6 +4695,14 @@ public partial class Battle : MonoBehaviour
             Moves[index] = MoveID.PollenPuffHeal;
         }
 
+        if (EffectiveItem(index).HeldEffect() is HeldEffect.Gem && EffectiveItem(index).HeldEffectIntensity() == (int)GetEffectiveType(Moves[index], index))
+        {
+            yield return UseItemAnim(index);
+            yield return Announce("The " + EffectiveItem(index).Data().itemName + " powered up " + MonNameWithPrefix(index, false) + "'s move!");
+            UseUpItem(index);
+            gemUsed = true;
+        }
+        else gemUsed = false;
         yield return Announce(user.pokemon.MonName + " used " + GetMove(index).name + "!");
         lastMoveUsed = Moves[index];
 
@@ -5897,8 +5911,24 @@ public partial class Battle : MonoBehaviour
             user.dontCheckPP = true;
             yield return ExecuteMove(index, true);
         }
+        if (!dancer && Moves[index].Data().moveFlags.HasFlag(MoveFlags.danceMove))
+        {
+            List<int> dancers = new();
+            for(int i = 0; i < 6; i++)
+            {
+                if (HasAbility(i, Dancer)) dancers.Add(i);
+            }
+            dancers = dancers.OrderBy(i => GetSpeed(i)).ThenBy(i => random.Next()).ToList();
+            foreach(int i in dancers)
+            {
+                MoveID storedMove = Moves[i];
+                Moves[i] = Moves[index];
+                yield return PopupDo(i, ExecuteMove(i, false, true));
+                Moves[i] = storedMove;
+            }
+        }
         if (user.pokemon.species is SpeciesID.FarfetchdGalar && critSomeone) user.pokemon.evolutionCounter++;
-        user.done = true;
+        if (!dancer) user.done = true;
         MoveCleanup();
     }
 
