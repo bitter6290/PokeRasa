@@ -20,13 +20,13 @@ public class HealthBarManager : MonoBehaviour
     public Battle battle;
     public int index;
 
-    private Pokemon Mon => battle.PokemonOnField[index].pokemon;
+    private Battle.BattlePokemon Mon => battle.PokemonOnField[index];
 
     public void Update()
     {
         wholeBar.SetActive(battle.PokemonOnField[index].exists);
-        healthBar.transform.localScale = new((float)Mon.hp / Mon.hpMax, 1, 1);
-        switch (((Mon.hp * 4) - 1) / Mon.hpMax)
+        healthBar.transform.localScale = new((float)Mon.HP / Mon.HPMax, 1, 1);
+        switch (((Mon.HP * 4) - 1) / Mon.HPMax)
         {
             case 0:
                 healthBar.color = HealthBarColors.Red;

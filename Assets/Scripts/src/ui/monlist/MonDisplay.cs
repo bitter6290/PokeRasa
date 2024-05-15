@@ -36,7 +36,7 @@ public class MonDisplay : MonoBehaviour
             return;
         }
         box.gameObject.SetActive(true);
-        monSprite.sprite = mon.SpeciesData.Icon1;
+        monSprite.sprite = mon.SpeciesData.graphics.icon1;
         monName.text = mon.MonName;
         monStatus.sprite = mon.status.ToSprite();
         healthBar.localScale = new((float)mon.hp / mon.hpMax, 1, 1);
@@ -72,7 +72,7 @@ public class MonDisplay : MonoBehaviour
         selected = false;
         moving = false;
         box.color = ineligible ? ineligibleUnselected : unselectedColor;
-        monSprite.sprite = mon.SpeciesData.Icon1;
+        monSprite.sprite = mon.SpeciesData.graphics.icon1;
     }
 
     public IEnumerator Heal(int amount, DataStore<int> store)
@@ -96,6 +96,6 @@ public class MonDisplay : MonoBehaviour
     {
         if (selected | moving)
             monSprite.sprite = Time.time % 0.36 < 0.18 ?
-                mon.SpeciesData.Icon2 : mon.SpeciesData.Icon1;
+                mon.SpeciesData.graphics.icon2 : mon.SpeciesData.graphics.icon1;
     }
 }

@@ -43,7 +43,7 @@ public class BoxScreen : MonoBehaviour
         public void Adopt(Pokemon mon)
         {
             parentObject.SetActive(true);
-            monSprite.sprite = mon.SpeciesData.FrontSprite1;
+            monSprite.sprite = mon.SpeciesData.graphics.frontSprite1;
             monName.text = mon.MonName;
             speciesText.text = mon.SpeciesData.pokedexData.number + " / " + mon.SpeciesData.speciesName;
             type1Image.color = mon.SpeciesData.type1.Color();
@@ -307,7 +307,7 @@ public class BoxScreen : MonoBehaviour
         switch (index)
         {
             case < 42 when GetPokemon(index).exists:
-                boxSprites[index].sprite = GetPokemon(index).SpeciesData.Icon1;
+                boxSprites[index].sprite = GetPokemon(index).SpeciesData.graphics.icon1;
                 break;
             case leftArrowID:
                 leftArrow.position = leftArrowPos;
@@ -348,7 +348,7 @@ public class BoxScreen : MonoBehaviour
         {
             if (CurrentBox.pokemon[i].exists)
             {
-                boxSprites[i].sprite = CurrentBox.pokemon[i].SpeciesData.Icon1;
+                boxSprites[i].sprite = CurrentBox.pokemon[i].SpeciesData.graphics.icon1;
                 boxSprites[i].enabled = true;
             }
             else boxSprites[i].enabled = false;
@@ -370,7 +370,7 @@ public class BoxScreen : MonoBehaviour
         {
             if (p.Party[i].exists)
             {
-                partySprites[i].sprite = p.Party[i].SpeciesData.Icon1;
+                partySprites[i].sprite = p.Party[i].SpeciesData.graphics.icon1;
                 partySprites[i].enabled = true;
             }
             else partySprites[i].enabled = false;
@@ -557,8 +557,8 @@ public class BoxScreen : MonoBehaviour
         {
             case < 48 when GetPokemon(selection).exists:
                 GetMonSprite(selection).sprite = Time.time % 0.36 > 0.18
-                    ? GetPokemon(selection).SpeciesData.Icon2
-                    : GetPokemon(selection).SpeciesData.Icon1;
+                    ? GetPokemon(selection).SpeciesData.graphics.icon2
+                    : GetPokemon(selection).SpeciesData.graphics.icon1;
                 break;
             case leftArrowID:
                 yCoord = leftArrowPos.y - (Time.time % 0.36 > 0.18 ? 0.1F : 0);
@@ -572,16 +572,16 @@ public class BoxScreen : MonoBehaviour
         if (state is State.Moving)
         {
             if (IsMovingMonOnScreen) MovingMonSprite.sprite = Time.time % 0.36 > 0.18
-                    ? GetPokemon(movingAddress).SpeciesData.Icon2
-                    : GetPokemon(movingAddress).SpeciesData.Icon1;
+                    ? GetPokemon(movingAddress).SpeciesData.graphics.icon2
+                    : GetPokemon(movingAddress).SpeciesData.graphics.icon1;
             else movingBarSprite.sprite = Time.time % 0.36 > 0.18
-                    ? GetPokemon(movingAddress).SpeciesData.Icon2
-                    : GetPokemon(movingAddress).SpeciesData.Icon1;
+                    ? GetPokemon(movingAddress).SpeciesData.graphics.icon2
+                    : GetPokemon(movingAddress).SpeciesData.graphics.icon1;
             if (Input.GetKeyDown(KeyCode.Backspace))
             {
                 state = State.Active;
                 movingBar.SetActive(false);
-                if (IsMovingMonOnScreen) MovingMonSprite.sprite = GetPokemon(movingAddress).SpeciesData.Icon1;
+                if (IsMovingMonOnScreen) MovingMonSprite.sprite = GetPokemon(movingAddress).SpeciesData.graphics.icon1;
                 return;
             }
         }

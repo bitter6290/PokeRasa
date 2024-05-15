@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -9,12 +7,6 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI[] levelBoxes = new TextMeshProUGUI[6];
     public TextMeshProUGUI hpBox;
     public Battle battle;
-
-    // Start is called before the first frame update
-    public void Start()
-    {
-
-    }
 
     // Update is called once per frame
     public void Update()
@@ -32,8 +24,8 @@ public class UIManager : MonoBehaviour
                     if (battle.battleType == Battle.BattleType.Single)
                     {
                         hpBox.enabled = true;
-                        hpBox.text = battle.PokemonOnField[3].pokemon.hp.ToString().LeadingZero2() + " / "
-                            + battle.PokemonOnField[3].pokemon.hpMax.ToString().LeadingZero2();
+                        hpBox.text = battle.PokemonOnField[3].HP.ToString().LeadingZero2() + " / "
+                            + battle.PokemonOnField[3].HPMax.ToString().LeadingZero2();
                         battle.xpController.spriteRenderer.enabled = true;
                     }
                     else

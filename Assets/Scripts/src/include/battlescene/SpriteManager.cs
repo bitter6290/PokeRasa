@@ -10,7 +10,7 @@ public class SpriteManager : MonoBehaviour
     public bool secondFrame;
 
     [SerializeField]
-    private SpeciesID currentMon;
+    private SpeciesData.PokemonGraphics graphics;
     private bool hasSecondFrame;
 
     private Sprite Sprite1;
@@ -22,46 +22,37 @@ public class SpriteManager : MonoBehaviour
 
     private float basePosition;
 
-
-    public SpriteManager(Battle battle, SpriteRenderer sprite)
+    private void UpdateSpecies()
     {
-        this.battle = battle;
-        this.sprite = sprite;
-
-    }
-
-    private void updateSpecies()
-    {
-        SpeciesData currentSpecies = currentMon.Data();
         if (isBack)
         {
-            Sprite1 = currentSpecies.BackSprite;
+            Sprite1 = graphics.backSprite;
             hasSecondFrame = false;
         }
         else
         {
-            Sprite1 = currentSpecies.FrontSprite1;
-            Sprite2 = currentSpecies.FrontSprite2;
+            Sprite1 = graphics.frontSprite1;
+            Sprite2 = graphics.frontSprite2;
         }
         if (isBack)
         {
-            position.position = new Vector3(position.position.x, basePosition - (3 * currentSpecies.backSpriteHeight / 64.0F), position.position.z);
+            position.position = new Vector3(position.position.x, basePosition - (3 * graphics.backSpriteHeight / 64.0F), position.position.z);
         }
     }
     // Start is called before the first frame update
     public void Start()
     {
         basePosition = position.position.y;
-        updateSpecies();
+        UpdateSpecies();
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (currentMon != TrackedMon.ApparentSpecies)
+        if (graphics != TrackedMon.Graphics)
         {
-            currentMon = TrackedMon.ApparentSpecies;
-            updateSpecies();
+            graphics = TrackedMon.Graphics;
+            UpdateSpecies();
         }
         sprite.sprite = hasSecondFrame && secondFrame ? Sprite2 : Sprite1;
         sprite.enabled = TrackedMon.exists;

@@ -65,8 +65,8 @@ public class EvolutionScene : MonoBehaviour
         overlay.color = new(1, 1, 1, 0);
         originalSpecies = mon.species;
         destinationSpecies = mon.destinationSpecies;
-        yield return originalSprite = originalSpecies.Data().FrontSprite1;
-        yield return destinationSprite = destinationSpecies.Data().FrontSprite1;
+        yield return originalSprite = originalSpecies.Data().graphics.frontSprite1;
+        yield return destinationSprite = destinationSpecies.Data().graphics.frontSprite1;
         monSprite.sprite = originalSprite;
         mask.sprite = originalSprite;
     }

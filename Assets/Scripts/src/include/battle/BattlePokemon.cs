@@ -193,6 +193,30 @@ public partial class Battle
         public bool dynamaxed = false;
         public int dynamaxTurns = 0;
 
+        private int dynamaxHP;
+
+        public int HP
+        {
+            get
+            {
+                return dynamaxed ? dynamaxHP : pokemon.hp;
+            }
+            set
+            {
+                if (dynamaxed)
+                {
+                    dynamaxHP = value;
+                    pokemon.hp = (int)Ceiling(dynamaxHP / pokemon.dynamaxRatio);
+                }
+                else
+                {
+                    pokemon.hp = value;
+                }
+            }
+        }
+
+        public int HPMax => dynamaxed ? (int)(pokemon.hpMax * pokemon.dynamaxRatio) : pokemon.hpMax;
+
         public bool tormented = false;
 
         public bool cursed = false;
@@ -307,6 +331,9 @@ public partial class Battle
         public MoveID zMoveBase;
 
         public Battle battle;
+
+        public SpeciesData.PokemonGraphics Graphics => (dynamaxed && pokemon.gMaxFactor) ? 
+            pokemon.SpeciesData.gMaxGraphics : pokemon.SpeciesData.graphics;
 
         public MoveID lastTargetedMove = MoveID.None;
 
@@ -581,6 +608,18 @@ public partial class Battle
             speedStage = -speedStage;
             accuracyStage = -accuracyStage;
             evasionStage = -evasionStage;
+        }
+
+        public void DynamaxStart()
+        {
+            dynamaxed = true;
+            dynamaxTurns = 3;
+            dynamaxHP = (int)(pokemon.hp * pokemon.dynamaxRatio);
+        }
+
+        public void DynamaxEnd()
+        {
+            dynamaxed = false;
         }
 
         public BatonPassStruct MakeBatonPassStruct()

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using JetBrains.Annotations;
 
 [Serializable]
 public class Pokemon : ICloneable
@@ -56,6 +57,26 @@ public class Pokemon : ICloneable
     public Nature Nature => minted ? mintedNature : nature;
     public Nature RawNature => nature;
     public int whichAbility;
+
+    public int dynamaxLevel;
+
+    public float dynamaxRatio => (30 + dynamaxLevel) / 20F;
+
+    public bool UseDynamaxCandy()
+    {
+        if (dynamaxLevel >= 10) return false;
+            dynamaxLevel++;
+            return true;
+    }
+
+    public bool gMaxFactor;
+
+    public bool UseGMaxSoup()
+    {
+        if (gMaxFactor) return false;
+        gMaxFactor = true;
+        return true;
+    }
 
     public int hpMax => species is SpeciesID.Shedinja ? 1 : CalculateHPMax;
     public int attack => CalculateStat(Stat.Attack, SpeciesData.baseAttack, ivAttack, capAttack, evAttack);
@@ -125,8 +146,6 @@ public class Pokemon : ICloneable
     public Type hiddenPowerType;
 
     public bool gainedLevel;
-
-    public bool gMaxFactor;
 
     public int id;
 

@@ -14616,6 +14616,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -14646,7 +14648,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14664,6 +14665,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -14694,7 +14697,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14712,6 +14714,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -14742,7 +14746,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14760,6 +14763,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -14790,7 +14795,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14808,6 +14812,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -14838,7 +14844,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14856,6 +14861,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -14886,7 +14893,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   playerPokemon:
@@ -14905,6 +14911,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -14935,7 +14943,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -14953,6 +14960,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -14983,7 +14992,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -15001,6 +15009,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -15031,7 +15041,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -15049,6 +15058,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -15079,7 +15090,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -15097,6 +15107,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -15127,7 +15139,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   - species: 0
@@ -15145,6 +15156,8 @@ MonoBehaviour:
     mintedNature: 0
     minted: 0
     whichAbility: 0
+    dynamaxLevel: 0
+    gMaxFactor: 0
     move1: 0
     pp1Level: 0
     pp1: 0
@@ -15175,7 +15188,6 @@ MonoBehaviour:
     friendship: 0
     hiddenPowerType: 0
     gainedLevel: 0
-    gMaxFactor: 0
     id: 0
     egg: 0
   state: 0
@@ -15227,6 +15239,7 @@ MonoBehaviour:
   audioSource1: {fileID: 0}
   megaEvolveOnMove: 000000000000
   usingZMove: 000000000000
+  dynamaxing: 000000000000
   menuOpen: 0
   textSpeed: 25
   persistenceTime: 1.5
@@ -15250,6 +15263,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -15280,7 +15295,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -15309,6 +15323,7 @@ MonoBehaviour:
     protoQuarkStat: 0
     boosterEnergy: 0
     done: 1
+    wimpingOut: 0
     isTarget: 0
     isHit: 0
     isMissed: 0
@@ -15400,6 +15415,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -15430,7 +15447,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     illusionActive: 0
@@ -15541,6 +15557,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -15571,7 +15589,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -15600,6 +15617,7 @@ MonoBehaviour:
     protoQuarkStat: 0
     boosterEnergy: 0
     done: 1
+    wimpingOut: 0
     isTarget: 0
     isHit: 0
     isMissed: 0
@@ -15691,6 +15709,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -15721,7 +15741,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     illusionActive: 0
@@ -15832,6 +15851,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -15862,7 +15883,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -15891,6 +15911,7 @@ MonoBehaviour:
     protoQuarkStat: 0
     boosterEnergy: 0
     done: 1
+    wimpingOut: 0
     isTarget: 0
     isHit: 0
     isMissed: 0
@@ -15982,6 +16003,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -16012,7 +16035,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     illusionActive: 0
@@ -16123,6 +16145,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -16153,7 +16177,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -16182,6 +16205,7 @@ MonoBehaviour:
     protoQuarkStat: 0
     boosterEnergy: 0
     done: 1
+    wimpingOut: 0
     isTarget: 0
     isHit: 0
     isMissed: 0
@@ -16273,6 +16297,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -16303,7 +16329,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     illusionActive: 0
@@ -16414,6 +16439,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -16444,7 +16471,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -16473,6 +16499,7 @@ MonoBehaviour:
     protoQuarkStat: 0
     boosterEnergy: 0
     done: 1
+    wimpingOut: 0
     isTarget: 0
     isHit: 0
     isMissed: 0
@@ -16564,6 +16591,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -16594,7 +16623,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     illusionActive: 0
@@ -16705,6 +16733,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -16735,7 +16765,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     partyIndex: 0
@@ -16764,6 +16793,7 @@ MonoBehaviour:
     protoQuarkStat: 0
     boosterEnergy: 0
     done: 1
+    wimpingOut: 0
     isTarget: 0
     isHit: 0
     isMissed: 0
@@ -16855,6 +16885,8 @@ MonoBehaviour:
       mintedNature: 0
       minted: 0
       whichAbility: 0
+      dynamaxLevel: 0
+      gMaxFactor: 0
       move1: 0
       pp1Level: 0
       pp1: 0
@@ -16885,7 +16917,6 @@ MonoBehaviour:
       friendship: 0
       hiddenPowerType: 0
       gainedLevel: 0
-      gMaxFactor: 0
       id: 0
       egg: 0
     illusionActive: 0
@@ -17045,6 +17076,7 @@ MonoBehaviour:
   summaryIndicator: {fileID: 602029259}
   megaSprite: {fileID: 1290465575, guid: 32fc34712c11a43668b4f74273b19ae6, type: 3}
   zSprite: {fileID: 21300000, guid: 24829c61855cb46ad99558340862c4e5, type: 3}
+  dynaSprite: {fileID: 21300000, guid: 3959fe52b24d14b91b070ea6f6b56cee, type: 3}
   battle: {fileID: 1814309873}
   currentMon: 3
   currentMove: 1
@@ -17052,6 +17084,7 @@ MonoBehaviour:
   currentPartyMon: 0
   megaEvolving: 0
   usingZMove: 0
+  dynamaxing: 0
   menuMode: 0
 --- !u!114 &1814309875
 MonoBehaviour:

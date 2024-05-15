@@ -43,7 +43,7 @@ public class MoveSelectScreen : MonoBehaviour
 
     private MoveData CurrentData => mon.MoveIDs[selectedMove].Data();
 
-    public static IEnumerator DoMoveSelectScreen(Pokemon mon, DataStore<int> dataStore)
+    public static IEnumerator DoMoveSelectScreen(Pokemon mon, DataStore<int> dataStore, bool gmax = false)
     {
         yield return player.FadeToBlack(0.3F);
         GameObject screen = Instantiate(Resources.Load<GameObject>("Prefabs/Summary Screen/Move Select Screen"));
@@ -64,8 +64,8 @@ public class MoveSelectScreen : MonoBehaviour
     public void RefreshAll()
     {
         moveScreenName.text = mon.MonName;
-        monIcon0 = mon.SpeciesData.Icon1;
-        monIcon1 = mon.SpeciesData.Icon2;
+        monIcon0 = mon.SpeciesData.graphics.icon1;
+        monIcon1 = mon.SpeciesData.graphics.icon2;
         for (int i = 0; i < 4; i++)
         {
             moveBoxes[i].Adopt(mon, i);

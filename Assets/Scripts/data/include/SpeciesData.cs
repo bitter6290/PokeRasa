@@ -41,12 +41,37 @@ public struct SpeciesData
 
     public SpeciesID dexRedirect;
 
-    public Sprite BackSprite;
-    public int backSpriteHeight;
-    public Sprite FrontSprite1;
-    public Sprite FrontSprite2;
-    public Sprite Icon1;
-    public Sprite Icon2;
+    public class PokemonGraphics
+    {
+        public Sprite backSprite;
+        public int backSpriteHeight;
+        public Sprite frontSprite1;
+        public Sprite frontSprite2;
+        public Sprite icon1;
+        public Sprite icon2;
+
+        public PokemonGraphics(string path, int backSpriteHeight)
+        {
+            backSprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/back"),
+                new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
+        {
+            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/anim_front");
+            test ??= Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/front");
+            bool anim = test != null && test.height > 64;
+            frontSprite1 = Sprite.Create(test, new Rect(0.0f, anim ? 64.0f : 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
+            frontSprite2 = Sprite.Create(test, new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
+        }
+        {
+            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/icon");
+            test ??= Resources.Load<Texture2D>("Sprites/Pokemon/" + Strip(path) + "/icon");
+            icon1 = Sprite.Create(test, new Rect(0.0f, 32.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
+            icon2 = Sprite.Create(test, new Rect(0.0f, 0.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
+        }
+        this.backSpriteHeight = backSpriteHeight;
+        }
+    }
+    public PokemonGraphics graphics;
+    public PokemonGraphics gMaxGraphics;
 
     public AudioClip Cry;
 
@@ -72,7 +97,7 @@ public struct SpeciesData
         EggGroup eggGroup1, EggGroup eggGroup2, int eggCycles, int catchRate,
         string graphicsLocation, string cryLocation, int backSpriteHeight,
         PokedexData pokedexData, Ability[] abilities, bool genderDifferences = false,
-        byte baseFriendship = 70, SpeciesID redirect = SpeciesID.Missingno)
+        byte baseFriendship = 70, SpeciesID redirect = SpeciesID.Missingno, string gMaxPath = "", int gMaxBackHeight = 0)
     {
         this.speciesName = speciesName;
         this.type1 = type1;
@@ -93,23 +118,10 @@ public struct SpeciesData
         this.eggGroup2 = eggGroup2;
         this.eggCycles = eggCycles;
         this.catchRate = catchRate;
-        BackSprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/back"),
-            new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
-        {
-            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/anim_front");
-            test ??= Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/front");
-            bool anim = test != null && test.height > 64;
-            FrontSprite1 = Sprite.Create(test, new Rect(0.0f, anim ? 64.0f : 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
-            FrontSprite2 = Sprite.Create(test, new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
-        }
-        {
-            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + graphicsLocation + "/icon");
-            test ??= Resources.Load<Texture2D>("Sprites/Pokemon/" + Strip(graphicsLocation) + "/icon");
-            Icon1 = Sprite.Create(test, new Rect(0.0f, 32.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
-            Icon2 = Sprite.Create(test, new Rect(0.0f, 0.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
-        }
+        graphics = new(graphicsLocation, backSpriteHeight);
+        if (gMaxPath == "") gMaxGraphics = graphics;
+        else gMaxGraphics = new(gMaxPath, gMaxBackHeight);
         Cry = Resources.Load<AudioClip>("Sound/Cries/" + cryLocation);
-        this.backSpriteHeight = backSpriteHeight;
         this.genderDifferences = genderDifferences;
         this.pokedexData = pokedexData;
         this.abilities = abilities;
@@ -1561,6 +1573,8 @@ public struct SpeciesData
         cryLocation: "toxtricity",
         graphicsLocation: "toxtricity" + (lowKey ? "/low_key" : string.Empty),
         backSpriteHeight: 0,
+        gMaxPath: "toxtricity/gmax",
+        gMaxBackHeight: 0,
         pokedexData: Pokedex.Toxtricity,
         abilities: new[]
         {
@@ -1667,6 +1681,8 @@ public struct SpeciesData
         cryLocation: "alcremie",
         graphicsLocation: path is "" ? "alcremie" : "alcremie/" + path,
         backSpriteHeight: 9,
+        gMaxPath: "alcremie/gmax",
+        gMaxBackHeight: 9,
         pokedexData: Pokedex.Alcremie, //Not done
         abilities: new[]
         {

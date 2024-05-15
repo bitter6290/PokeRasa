@@ -109,8 +109,8 @@ public class DexScreen : MonoBehaviour
             speciesName.text = "No. " + ((int)data.pokedexData.forms[0]).LeadingZero4() + " " + species.Data().speciesName;
             speciesCategory.text = data.pokedexData.category + " Pokémon";
 
-            sprite.sprite = data.FrontSprite1;
-            icon.sprite = data.Icon1;
+            sprite.sprite = data.graphics.frontSprite1;
+            icon.sprite = data.graphics.icon1;
 
             number.text = "No. " + ((int)data.pokedexData.forms[0]).LeadingZero4();
             statScreenName.text = data.speciesName;
@@ -230,7 +230,7 @@ public class DexScreen : MonoBehaviour
                 else
                 {
                     Sprites[i].enabled = true;
-                    Sprites[i].sprite = forms[position + i].Data().Icon1;
+                    Sprites[i].sprite = forms[position + i].Data().graphics.icon1;
                 }
             }
             if (selection is not 11) selection = maxShown is 7 ? 11 : Mathf.Min(selection, maxShown);
@@ -243,7 +243,7 @@ public class DexScreen : MonoBehaviour
             {
                 Borders[i].color = i == selection ? Color.red : Color.black;
                 if (i is 11) break;
-                if (Sprites[i].enabled) Sprites[i].sprite = forms[position + i].Data().Icon1;
+                if (Sprites[i].enabled) Sprites[i].sprite = forms[position + i].Data().graphics.icon1;
             }
         }
     }
@@ -357,7 +357,7 @@ public class DexScreen : MonoBehaviour
                 dexList[i].Adopt(Player.player, (SpeciesID)speciesNum);
         }
         monSprite.sprite = ((SpeciesID)position).Data().
-            pokedexData.GetFirstSpecies(Player.player).Data().FrontSprite1;
+            pokedexData.GetFirstSpecies(Player.player).Data().graphics.frontSprite1;
         currentSpecies = (SpeciesID)position;
     }
 
@@ -567,8 +567,8 @@ public class DexScreen : MonoBehaviour
                 if (formScreen.selection is not 11)
                 {
                     formScreen.Sprites[formScreen.selection].sprite =
-                        Time.time % 0.3F > 0.15F ? formScreen.forms[formScreen.selection + formScreen.position].Data().Icon1 :
-                            formScreen.forms[formScreen.selection + formScreen.position].Data().Icon2;
+                        Time.time % 0.3F > 0.15F ? formScreen.forms[formScreen.selection + formScreen.position].Data().graphics.icon1 :
+                            formScreen.forms[formScreen.selection + formScreen.position].Data().graphics.icon2;
                 }
                 break;
             default: break;

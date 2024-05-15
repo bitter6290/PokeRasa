@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using static MenuManager;
+using Unity.VisualScripting;
 
 public class SummaryScreen : MonoBehaviour
 {
@@ -102,6 +103,7 @@ public class SummaryScreen : MonoBehaviour
 
     public int index;
     private Pokemon PlayerMon => player.Party[index];
+    private SpeciesData.PokemonGraphics graphics;
     public Battle battle;
     public BoxScreen boxScreen;
     public Player player;
@@ -162,10 +164,26 @@ public class SummaryScreen : MonoBehaviour
         yield return player.FadeFromBlack(0.3F);
     }
 
+    public void FindGraphics()
+    {
+        if (battle != null)
+        {
+            foreach (Battle.BattlePokemon bMon in battle.PokemonOnField)
+            {
+                if (bMon.pokemon == mon)
+                {
+                    graphics = bMon.Graphics;
+                    return;
+                }
+            }
+        }
+       graphics = mon.SpeciesData.graphics;
+    }
+
     public void RefreshAll()
     {
-
-        monBox.sprite = mon.SpeciesData.FrontSprite1;
+        FindGraphics();
+        monBox.sprite = graphics.frontSprite1;
 
         monScreenName.text = mon.MonName;
         speciesText.text = mon.SpeciesData.pokedexData.number.ToString().LeadingZero2() + " / " + mon.SpeciesData.speciesName;
@@ -223,8 +241,8 @@ public class SummaryScreen : MonoBehaviour
 
 
         moveScreenName.text = mon.MonName;
-        monIcon0 = mon.SpeciesData.Icon1;
-        monIcon1 = mon.SpeciesData.Icon2;
+        monIcon0 = graphics.icon1;
+        monIcon1 = graphics.icon2;
 
         move1Box.color = mon.MoveIDs[0].Data().type.Color();
         move2Box.color = mon.MoveIDs[1].Data().type.Color();

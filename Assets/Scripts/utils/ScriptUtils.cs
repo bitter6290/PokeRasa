@@ -89,7 +89,7 @@ public static class ScriptUtils
         yield break;
     }
 
-    public static IEnumerator TrainerSeeSingle(Player p, LoadedChar c, TeamData team, List<string> beforeText)
+    public static IEnumerator TrainerSeeSingle(Player p, LoadedChar c, TeamData team, List<string> beforeText, bool dynamaxEnabled)
     {
         p.locked = true;
         if (p.state != PlayerState.Moving) p.state = PlayerState.Locked;
@@ -107,7 +107,7 @@ public static class ScriptUtils
         int distance = System.Math.Abs(p.pos.x - c.pos.x + p.pos.y - c.pos.y);
         for (int i = 1; i < distance; i++) yield return c.WalkInDirection();
         yield return p.DoAnnouncements(beforeText);
-        p.StartCoroutine(p.StartSingleTrainerBattle(c, team));
+        p.StartCoroutine(p.StartSingleTrainerBattle(c, team, dynamaxEnabled));
         yield break;
     }
 

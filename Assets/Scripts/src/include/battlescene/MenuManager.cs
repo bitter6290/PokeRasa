@@ -63,6 +63,7 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private Sprite megaSprite;
     [SerializeField] private Sprite zSprite;
+    [SerializeField] private Sprite dynaSprite;
 
 
     [SerializeField] private Battle battle;
@@ -115,6 +116,15 @@ public class MenuManager : MonoBehaviour
         4 => text4,
         5 => text5,
         _ => throw new System.Exception("Passed bad argument to MenuManager.Text")
+    };
+
+    private TextMeshProUGUI PP(int i) => i switch
+    {
+        1 => pp1,
+        2 => pp2,
+        3 => pp3,
+        4 => pp4,
+        _ => throw new System.Exception("Passed bad argunemt to MenuManager.PP")
     };
 
     private TextMeshProUGUI PartyText(int i) => i switch
@@ -177,8 +187,10 @@ public class MenuManager : MonoBehaviour
 
     private bool canMegaEvolve;
     private bool canUseZMove;
+    private bool canDynamax;
     public bool megaEvolving;
     public bool usingZMove;
+    public bool dynamaxing;
 
     public MenuMode menuMode;
 
@@ -201,6 +213,9 @@ public class MenuManager : MonoBehaviour
 
     private static Color zNoColor = new(220.0F / 255.0F, 1, 239.0F / 255.0F);
     private static Color zYesColor = new(0, 1, 137.0F / 255.0F);
+
+    private static Color dynaNoColor = new(1, 213.0F / 255.0F, 199.0F / 255.0F);
+    private static Color dynaYesColor = new(1, 94.0F / 255.0F, 41.0F / 255.0F);
 
     private static Color partyOK = new(25.0F / 255.0F, 25.0F / 255.0F, 128.0F / 255.0F);
     private static Color partyFainted = new(128.0F / 255.0F, 25.0F / 255.0F, 25.0F / 255.0F);
@@ -358,6 +373,35 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    private void RefreshMoves()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (mon.GetMoveRaw(i) == MoveID.None)
+            {
+                PP(i + 1).enabled = false;
+                Box(i + 1).enabled = false;
+                Text(i + 1).enabled = false;
+            }
+            else
+            {
+                Type type = battle.GetEffectiveType(mon.GetMove(i), currentMon);
+                Box(i + 1).enabled = true;
+                Text(i + 1).enabled = true;
+                PP(i + 1).enabled = true;
+                Box(i + 1).color = (dynamaxing & mon.GetMove(i).Data().power == 0)
+                    ? Type.Normal.Color()
+                    : (mon.GetMove(i) == MoveID.None
+                        ? transparent 
+                        : type.Color());
+                Text(i + 1).text = dynamaxing ? mon.GetMove(i).MaxMove(mon.pokemon).Data().name : mon.GetMove(i).Data().name;
+                Text(i + 1).color = (dynamaxing & mon.GetMove(i).Data().power == 0) ? Color.black : type.TextColor();
+                PP(i + 1).text = LeadingZero(mon.GetPP(i).ToString()) + " / " +
+                    LeadingZero(mon.GetMaxPP(i).ToString());
+                PP(i + 1).color = (dynamaxing & mon.GetMove(i).Data().power == 0) ? Color.black : type.TextColor();
+            }
+        }
+    }
     private void MovesMenu()
     {
         menuMode = MenuMode.Moves;
@@ -371,36 +415,7 @@ public class MenuManager : MonoBehaviour
         box5.enabled = true;
         text5.text = "Back";
 
-        Type[] moveTypes = new Type[4];
-
-        for (int i = 0; i < 4; i++)
-        {
-            moveTypes[i] = battle.GetEffectiveType(mon.GetMove(i), currentMon);
-            Box(i + 1).color = mon.GetMove(i) == MoveID.None
-                ? transparent : moveTypes[i].Color();
-            Box(i + 1).enabled = !(mon.GetMove(i) == MoveID.None);
-            Text(i + 1).text = mon.GetMove(i).Data().name;
-            Text(i + 1).color = moveTypes[i].TextColor();
-            Text(i + 1).enabled = !(mon.GetMove(i) == MoveID.None);
-        }
-
-        pp1.text = LeadingZero(mon.GetPP(0).ToString()) + " / " +
-            LeadingZero(mon.GetMaxPP(0).ToString());
-        pp1.color = moveTypes[0].TextColor();
-        pp2.text = LeadingZero(mon.GetPP(1).ToString()) + " / " +
-            LeadingZero(mon.GetMaxPP(1).ToString());
-        pp2.color = moveTypes[1].TextColor();
-        pp3.text = LeadingZero(mon.GetPP(2).ToString()) + " / " +
-            LeadingZero(mon.GetMaxPP(2).ToString());
-        pp3.color = moveTypes[2].TextColor();
-        pp4.text = LeadingZero(mon.GetPP(3).ToString()) + " / " +
-            LeadingZero(mon.GetMaxPP(3).ToString());
-        pp4.color = moveTypes[3].TextColor();
-
-        pp1.enabled = !(mon.GetMove(0) == MoveID.None);
-        pp2.enabled = !(mon.GetMove(1) == MoveID.None);
-        pp3.enabled = !(mon.GetMove(2) == MoveID.None);
-        pp4.enabled = !(mon.GetMove(3) == MoveID.None);
+        RefreshMoves();
 
 
         text7.enabled = false;
@@ -423,8 +438,10 @@ public class MenuManager : MonoBehaviour
     {
         usingZMove = false;
         megaEvolving = false;
+        dynamaxing = false;
         battle.megaEvolveOnMove[currentMon] = false;
         battle.usingZMove[currentMon] = false;
+        battle.dynamaxing[currentMon] = false;
         bool canUseAnyMove = battle.PokemonOnField[currentMon].CanUseAnyMove;
 
         box1.color = canUseAnyMove ? moveColor : struggleColor;
@@ -523,6 +540,9 @@ public class MenuManager : MonoBehaviour
         {
             canMegaEvolve = true;
             canUseZMove = false;
+            usingZMove = false;
+            canDynamax = false;
+            dynamaxing = false;
             megaKey.text = "M";
             megaSymbol.sprite = megaSprite;
             megaIndicator.GetComponent<SpriteRenderer>().color =
@@ -543,10 +563,24 @@ public class MenuManager : MonoBehaviour
                 megaIndicator.SetActive(true);
             }
             else
-            {
-                megaIndicator.SetActive(false);
+            {            
                 usingZMove = false;
                 canUseZMove = false;
+                if (battle.CanDynamax(currentMon))
+                {
+                    canDynamax = true;
+                    megaKey.text = "X";
+                    megaSymbol.sprite = dynaSprite;
+                    megaIndicator.GetComponent<SpriteRenderer>().color =
+                        dynamaxing ? dynaYesColor : dynaNoColor;
+                    megaIndicator.SetActive(true);
+                }
+                else
+                {
+                    dynamaxing = false;
+                    canDynamax = false;
+                    megaIndicator.SetActive(false);
+                }
             }
         }
     }
@@ -774,6 +808,19 @@ public class MenuManager : MonoBehaviour
                                 usingZMove ? zYesColor : zNoColor;
                         }
                     }
+                    else if (canDynamax)
+                    {
+                        if (Input.GetKeyDown(KeyCode.X))
+                        {
+                            dynamaxing = !dynamaxing;
+                            battle.dynamaxing[currentMon] = dynamaxing;
+                            battle.audioSource0.PlayOneShot(Select);
+                            battle.audioSource0.panStereo = 0;
+                            megaIndicator.GetComponent<SpriteRenderer>().color =
+                                dynamaxing ? dynaYesColor : dynaNoColor;
+                            RefreshMoves();
+                        }
+                    }
 
                     summaryIndicator.SetActive(false);
 
@@ -782,7 +829,7 @@ public class MenuManager : MonoBehaviour
                         switch (currentMove)
                         {
                             case 1:
-                                ChangeSelection(mon.GetMove(1) == MoveID.None ? 0 : 2);
+                                ChangeSelection(mon.GetMoveRaw(1) == MoveID.None ? 0 : 2);
                                 RefreshMegaAndZ();
                                 break;
                             case 2:
@@ -790,7 +837,7 @@ public class MenuManager : MonoBehaviour
                                 RefreshMegaAndZ();
                                 break;
                             case 3:
-                                if (mon.GetMove(3) != MoveID.None)
+                                if (mon.GetMoveRaw(3) != MoveID.None)
                                 {
                                     ChangeSelection(4);
                                     RefreshMegaAndZ();
@@ -805,7 +852,7 @@ public class MenuManager : MonoBehaviour
                         switch (currentMove)
                         {
                             case 0:
-                                ChangeSelection(mon.GetMove(1) == MoveID.None ? 1 : 2);
+                                ChangeSelection(mon.GetMoveRaw(1) == MoveID.None ? 1 : 2);
                                 RefreshMegaAndZ();
                                 break;
                             case 2:
@@ -825,14 +872,14 @@ public class MenuManager : MonoBehaviour
                         switch (currentMove)
                         {
                             case 1:
-                                if (mon.GetMove(2) != MoveID.None)
+                                if (mon.GetMoveRaw(2) != MoveID.None)
                                 {
                                     ChangeSelection(3);
                                     RefreshMegaAndZ();
                                 }
                                 break;
                             case 2:
-                                if (mon.GetMove(3) != MoveID.None)
+                                if (mon.GetMoveRaw(3) != MoveID.None)
                                 {
                                     ChangeSelection(4);
                                     RefreshMegaAndZ();

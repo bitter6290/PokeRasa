@@ -1,3 +1,6 @@
+using UnityEditor;
+using UnityEngine.Scripting;
+
 public enum MoveID
 {
     None,
@@ -972,8 +975,41 @@ public static class MoveUtils
         if (move.Data().power is 0) return MoveID.MaxGuard;
         if (mon.gMaxFactor)
         {
-            switch (move)
+            switch (mon.species)
             {
+                case SpeciesID.Venusaur when move.Data().type is Type.Grass: return MoveID.GMaxVineLash;
+                case SpeciesID.Charizard when move.Data().type is Type.Fire: return MoveID.GMaxWildfire;
+                case SpeciesID.Blastoise when move.Data().type is Type.Water: return MoveID.GMaxCannonade;
+                case SpeciesID.Butterfree when move.Data().type is Type.Bug: return MoveID.GMaxBefuddle;
+                case SpeciesID.Pikachu when move.Data().type is Type.Electric: return MoveID.GMaxVoltCrash;
+                case SpeciesID.Meowth when move.Data().type is Type.Normal: return MoveID.GMaxGoldRush;
+                case SpeciesID.Machamp when move.Data().type is Type.Fighting: return MoveID.GMaxChiStrike;
+                case SpeciesID.Gengar when move.Data().type is Type.Ghost: return MoveID.GMaxTerror;
+                case SpeciesID.Kingler when move.Data().type is Type.Water: return MoveID.GMaxFoamBurst;
+                case SpeciesID.Lapras when move.Data().type is Type.Ice: return MoveID.GMaxResonance;
+                case SpeciesID.Eevee when move.Data().type is Type.Normal: return MoveID.GMaxCuddle;
+                case SpeciesID.Snorlax when move.Data().type is Type.Normal: return MoveID.GMaxReplenish;
+                case SpeciesID.Garbodor when move.Data().type is Type.Poison: return MoveID.GMaxMalodor;
+                case SpeciesID.Melmetal when move.Data().type is Type.Steel: return MoveID.GMaxMeltdown;
+                case SpeciesID.Rillaboom when move.Data().type is Type.Grass: return MoveID.GMaxDrumSolo;
+                case SpeciesID.Cinderace when move.Data().type is Type.Fire: return MoveID.GMaxFireball;
+                case SpeciesID.Inteleon when move.Data().type is Type.Water: return MoveID.GMaxHydrosnipe;
+                case SpeciesID.Corviknight when move.Data().type is Type.Flying: return MoveID.GMaxWindRage;
+                case SpeciesID.Orbeetle when move.Data().type is Type.Psychic: return MoveID.GMaxGravitas;
+                case SpeciesID.Drednaw when move.Data().type is Type.Water: return MoveID.GMaxStonesurge;
+                case SpeciesID.Coalossal when move.Data().type is Type.Rock: return MoveID.GMaxVolcalith;
+                case SpeciesID.Flapple when move.Data().type is Type.Grass: return MoveID.GMaxTartness;
+                case SpeciesID.Appletun when move.Data().type is Type.Grass: return MoveID.GMaxSweetness;
+                case SpeciesID.Sandaconda when move.Data().type is Type.Ground: return MoveID.GMaxSandblast;
+                case SpeciesID.Toxtricity or SpeciesID.ToxtricityLowKey when move.Data().type is Type.Electric: return MoveID.GMaxStunShock;
+                case SpeciesID.Centiskorch when move.Data().type is Type.Fire: return MoveID.GMaxCentinferno;
+                case SpeciesID.Hatterene when move.Data().type is Type.Fairy: return MoveID.GMaxSmite;
+                case SpeciesID.Grimmsnarl when move.Data().type is Type.Dark: return MoveID.GMaxSnooze;
+                case SpeciesID.Alcremie when move.Data().type is Type.Fairy: return MoveID.GMaxFinale;
+                case SpeciesID.Copperajah when move.Data().type is Type.Steel: return MoveID.GMaxSteelsurge;
+                case SpeciesID.Duraludon when move.Data().type is Type.Dragon: return MoveID.GMaxDepletion;
+                case SpeciesID.Urshifu when move.Data().type is Type.Dark: return MoveID.GMaxOneBlow;
+                case SpeciesID.UrshifuRapid when move.Data().type is Type.Water: return MoveID.GMaxRapidFlow;
                 default: break;
             }
         }

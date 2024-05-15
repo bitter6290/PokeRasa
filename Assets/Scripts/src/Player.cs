@@ -808,7 +808,7 @@ public class Player : LoadedChar
 
     public void CenterCamera() => camera.transform.localPosition = new Vector3(0, 0, -100);
 
-    public IEnumerator StartSingleTrainerBattle(LoadedChar opponentChar, TeamData opponentTeam)
+    public IEnumerator StartSingleTrainerBattle(LoadedChar opponentChar, TeamData opponentTeam, bool dynamaxEnabled = false)
     {
         Pokemon[] opponentParty = opponentTeam.GetParty();
         state = PlayerState.Locked;
@@ -831,6 +831,7 @@ public class Player : LoadedChar
         battle.battleTerrain = currentTerrain;
         battle.prizeMoney = opponentTeam.prizeMoney;
         yield return FadeFromBlack(0.2F);
+        Battle.dynamaxEnabled = dynamaxEnabled;
         battle.StartCoroutine(battle.StartBattle());
     }
 
@@ -1494,6 +1495,8 @@ public class Player : LoadedChar
         bulbasaur.pp2 = 40;
         bulbasaur.move3 = MoveID.Tackle;
         bulbasaur.pp3 = 40;
+        bulbasaur.move4 = MoveID.VineWhip;
+        bulbasaur.pp4 = 5;
         Pokemon golisopod = Pokemon.WildPokemon(SpeciesID.Golisopod, 5);
         golisopod.move1 = MoveID.HeadSmash;
         golisopod.pp1 = 30;
@@ -1504,6 +1507,15 @@ public class Player : LoadedChar
         minior.pp1 = 30;
         minior.move2 = MoveID.BellyDrum;
         minior.pp2 = 30;
+        Pokemon charizard = Pokemon.WildPokemon(SpeciesID.Charizard, 15);
+        charizard.move1 = MoveID.BlastBurn;
+        charizard.pp1 = 20;
+        charizard.move2 = MoveID.Flamethrower;
+        charizard.pp2 = 20;
+        charizard.move3 = MoveID.Tackle;
+        charizard.pp3 = 20;
+        charizard.gMaxFactor = true;
+        TryAddMon(charizard);
         TryAddMon(bulbasaur);
         TryAddMon(golisopod);
         TryAddMon(minior);

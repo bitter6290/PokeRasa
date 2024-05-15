@@ -89,8 +89,8 @@ public class MoveReplaceScreen : MonoBehaviour
     {
 
         moveScreenName.text = mon.MonName;
-        monIcon0 = mon.SpeciesData.Icon1;
-        monIcon1 = mon.SpeciesData.Icon2;
+        monIcon0 = mon.SpeciesData.graphics.icon1;
+        monIcon1 = mon.SpeciesData.graphics.icon2;
 
         move1Box.color = mon.MoveIDs[0].Data().type.Color();
         move2Box.color = mon.MoveIDs[1].Data().type.Color();
