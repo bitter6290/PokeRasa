@@ -28,8 +28,9 @@ public partial class Battle : MonoBehaviour
 
     private const int TurnOver = 63;
     private const int NoMons = 63;
-    private const int HandleMega = 127;
-    private const int HandleDyna = 126;
+    private const int HandleMega = 1 << 7;
+    private const int HandleDyna = 1 << 8;
+    private const int HandleTera = 1 << 9;
     private const int NullInt = (1 << 30) - 1;
     private const int ReturnFalse = 63;
 
@@ -147,6 +148,11 @@ public partial class Battle : MonoBehaviour
     private bool hasPlayerDynamaxed = false;
     private bool hasOpponentDyamaxed = false;
 
+    public static bool teraEnabled;
+    public bool[] terastalizing = new bool[6];
+    private bool hasPlayerTerastalized = false;
+    private bool hasOpponentTerastalized = false;
+
     public bool menuOpen = false;
 
     private readonly bool[] healingWish = new bool[6];
@@ -250,6 +256,7 @@ public partial class Battle : MonoBehaviour
     private bool oneAnnouncementDone; //Used for Perish Song
 
     private bool gemUsed;
+    private float stellarBoost;
 
     private System.Random random = new();
 
@@ -867,7 +874,7 @@ public partial class Battle : MonoBehaviour
     {
         switch (move.Data().effect)
         {
-            case PhotonGeyser or LightThatBurnsTheSky:
+            case PhotonGeyser or LightThatBurnsTheSky or TeraBlast:
                 return PokemonOnField[attacker].Attack > PokemonOnField[attacker].SpAtk;
             case ShellSideArm:
                 return wonderRoom
@@ -1050,6 +1057,9 @@ public partial class Battle : MonoBehaviour
                     SpeciesID.MorpekoHangry => Type.Dark,
                     _ => Type.Typeless,
                 };
+                break;
+            case TeraBlast when PokemonOnField[index].pokemon.terastalized:
+                effectiveType = PokemonOnField[index].pokemon.teraType;
                 break;
             default: break;
         }
@@ -1242,6 +1252,7 @@ public partial class Battle : MonoBehaviour
 
     private int FindNextToMove()
     {
+        const int teraPriority = 27;
         const int dynaPriority = 28;
         const int megaPriority = 29;
         const int itemPriority = 30;
@@ -1333,7 +1344,29 @@ public partial class Battle : MonoBehaviour
                     {
                         speedTieList.Add(i);
                     }
-
+                }
+                else if (terastalizing[i])
+                {
+                    if (currentPriority < teraPriority)
+                    {
+                        currentPriority = teraPriority;
+                        currentSpeed = GetSpeed(i);
+                        currentMove = HandleTera;
+                        monToMega = i;
+                        speedTieList = new() { i };
+                    }
+                    else if (currentPriority == teraPriority
+                        && GetSpeed(i) > currentSpeed)
+                    {
+                        currentSpeed = GetSpeed(i);
+                        monToMega = i;
+                        speedTieList = new() { i };
+                    }
+                    else if (currentPriority == teraPriority
+                        && GetSpeed(i) == currentSpeed)
+                    {
+                        speedTieList.Add(i);
+                    }
                 }
                 else if (PokemonOnField[i].goingNext) return i;
                 else if (GetPriority(i) > currentPriority)
@@ -1376,7 +1409,7 @@ public partial class Battle : MonoBehaviour
         }
         if (speedTieList.Count > 1)
         {
-            if (currentMove is HandleMega or HandleDyna) monToMega = speedTieList[random.Next() % speedTieList.Count];
+            if (currentMove is HandleMega or HandleDyna or HandleTera) monToMega = speedTieList[random.Next() % speedTieList.Count];
             else currentMove = speedTieList[random.Next() % speedTieList.Count];
         }
         return currentMove;
@@ -1682,6 +1715,13 @@ public partial class Battle : MonoBehaviour
         };
     }
 
+    public enum TeraStabLevel
+    {
+        None,
+        Single,
+        Double
+    }
+
     private int DamageCalc(BattlePokemon attacker, BattlePokemon defender, MoveID move,
         bool isMultiTarget, bool isCritical, int side, int powerOverride = NullInt)
     {
@@ -1853,13 +1893,22 @@ public partial class Battle : MonoBehaviour
         if (gemUsed) effectivePower += effectivePower * 3 / 10;
         effectivePower = Max(1, effectivePower);
         float critical = isCritical ? CritModifier(attacker) : 1.0F;
-        float stab = attacker.HasType(effectiveType) ? StabModifier(attacker) : 1.0F;
+        float stab;
+        if (!attacker.pokemon.terastalized)
+            stab = attacker.HasType(effectiveType) ? StabModifier(attacker) : 1.0F;
+        else
+            stab = attacker.TeraStab(effectiveType) switch
+            {
+                TeraStabLevel.Single => StabModifier(attacker),
+                TeraStabLevel.Double => HasAbility(attacker, Adaptability) ? 2.25F : 2.0F,
+                _ => 1.0F,
+            };
         if (move is MoveID.RainbowPledge or MoveID.SwampPledge or MoveID.BurningFieldPledge)
             stab = StabModifier(attacker);
         float multitarget = isMultiTarget ? 0.75F : 1.0F;
         float helpingHand = Mathf.Pow(1.5f, attacker.helpingHand);
-        float effectiveAttack = (IsPhysical(attacker, defender, MoveNums[attacker]) ?
-            GetAttack(attacker, isCritical, move.Data().effect is BodyPress) : GetSpAtk(attacker, isCritical));
+        float effectiveAttack = IsPhysical(attacker, defender, MoveNums[attacker]) ?
+            GetAttack(attacker, isCritical, move.Data().effect is BodyPress) : GetSpAtk(attacker, isCritical);
         if (move.Data().effect == FoulPlay) effectiveAttack = GetAttack(defender, isCritical);
         float effectiveDefense = ((move.Data().physical || move.Data().effect == Psyshock)
             ^ flipPhysicalSpecial) ?
@@ -1923,7 +1972,7 @@ public partial class Battle : MonoBehaviour
         int result = (int)Floor(((((2.0F * attacker.pokemon.level / 5) + 2)
             * effectivePower * attackOverDefense / 50) + 2)
             * effectiveTypeModifier * helpingHand * weather
-            * stab * multitarget * critical * burn * screen * sport
+            * stab * multitarget * critical * burn * screen * sport * stellarBoost
             * (defender.protected75 ? 0.25F : 1.0F)
             * AttackerAbilityModifier(attacker, defender, move, GetEffectiveType(move, attacker))
             * DefenderAbilityModifier(defender, GetEffectiveType(move, attacker), move, attacker)
@@ -2712,8 +2761,8 @@ public partial class Battle : MonoBehaviour
                             case Nightmare when target.pokemon.status is not Status.Sleep && !HasAbility(i, Comatose):
                             case Rototiller when (!target.HasType(Type.Grass) || !IsGrounded(i, attacker) ||
                                 target.invulnerability is not Invulnerability.None):
-                            case TrickOrTreat when target.HasType(Type.Ghost):
-                            case ForestsCurse when target.HasType(Type.Grass):
+                            case TrickOrTreat when target.HasType(Type.Ghost) || PokemonOnField[i].pokemon.terastalized:
+                            case ForestsCurse when target.HasType(Type.Grass) || PokemonOnField[i].pokemon.terastalized:
                             case MagneticFlux or GearUp when
                                 EffectiveAbility(i) is not Plus or Minus:
                             case Instruct when !target.done || target.lockedInNextTurn ||
@@ -2734,8 +2783,8 @@ public partial class Battle : MonoBehaviour
                             case Poison or Toxic when !CanStatus(i, Status.Poison, attacker) && !ShowFailure:
                             case Sleep or MoveEffect.Rest when
                                 !CanStatus(i, Status.Sleep, attacker):
-                            case Soak when PokemonOnField[i].IsMonotype(Type.Water):
-                            case MagicPowder when PokemonOnField[i].IsMonotype(Type.Psychic):
+                            case Soak when PokemonOnField[i].IsMonotype(Type.Water) || PokemonOnField[i].pokemon.terastalized:
+                            case MagicPowder when PokemonOnField[i].IsMonotype(Type.Psychic) || PokemonOnField[i].pokemon.terastalized:
                             case Freeze when !CanStatus(i, Status.Freeze, attacker) && !ShowFailure:
                             case Telekinesis when target.telekinesis || target.ingrained || target.smackDown ||
                                     target.pokemon.GetSpecies is SpeciesID.GengarMega or
@@ -3419,6 +3468,7 @@ public partial class Battle : MonoBehaviour
             int partyIndex = PokemonOnField[index].partyIndex;
             yield return ExitAbilityCheck(index);
             LeaveFieldCleanup(index);
+            PokemonOnField[index].pokemon.terastalized = false; //Todo: Tera breaking animation
             yield return Faint(index);
             Moves[index] = MoveID.None;
             yield return HandleXPOnFaint(partyIndex);
@@ -4621,6 +4671,14 @@ public partial class Battle : MonoBehaviour
             yield return AbilityPopupEnd(index);
         }
 
+        if (user.pokemon.terastalized && user.pokemon.teraType is Type.Stellar && GetMove(index).power > 0)
+        {
+            Type type = GetEffectiveType(Moves[index], index);
+            if (user.pokemon.TryStellarMove(type)) stellarBoost = user.HasType(type) ? 2.0F : 1.2F;
+            else stellarBoost = 1.0F;
+        }
+        else stellarBoost = 1.0F;
+
         if (MoveNums[index] > 0) user.usedMove[MoveNums[index] - 1] = true;
         user.moveUsedThisTurn = Moves[index];
         if (!Moves[index].Data().moveFlags.HasFlag(mimicBypass)) user.lastMoveUsed = Moves[index];
@@ -4703,7 +4761,8 @@ public partial class Battle : MonoBehaviour
             gemUsed = true;
         }
         else gemUsed = false;
-        yield return Announce(user.pokemon.MonName + " used " + GetMove(index).name + "!");
+        if (Moves[index] is not MoveID.Recharge)
+            yield return Announce(user.pokemon.MonName + " used " + GetMove(index).name + "!");
         lastMoveUsed = Moves[index];
 
         if (GetMove(index).effect == NaturePower)
@@ -7462,7 +7521,7 @@ public partial class Battle : MonoBehaviour
                     {
                         MoveID.MaxFlare when weather is not Sun
                         or ExtremeSun or HeavyRain or StrongWinds
-                        => StartWeather(Sun, 5), //Todo: Weather rocks
+                        => StartWeather(Sun, HasItem(attacker, HeatRock) ? 8 : 5),
                         MoveID.MaxFlutterby => LowerOpponentStats(SpAtk),
                         MoveID.MaxLightning => CreateTerrain(Terrain.Electric, false), //Todo: Terrain extender
                         MoveID.MaxStrike => LowerOpponentStats(Speed),
@@ -7470,18 +7529,18 @@ public partial class Battle : MonoBehaviour
                         MoveID.MaxPhantasm => LowerOpponentStats(Defense),
                         MoveID.MaxHailstorm when weather is not Snow
                         or ExtremeSun or HeavyRain or StrongWinds
-                        => StartWeather(Snow, 5), //Todo: weather rocks
+                        => StartWeather(Snow, HasItem(attacker, IcyRock) ? 8 : 5),
                         MoveID.MaxOoze => RaiseFriendlyStats(SpAtk),
                         MoveID.MaxGeyser when weather is not Rain
                         or ExtremeSun or HeavyRain or StrongWinds
-                        => StartWeather(Rain, 5), //Todo: weather rocks
+                        => StartWeather(Rain, HasItem(attacker, DampRock) ? 8 : 5),
                         MoveID.MaxAirstream => RaiseFriendlyStats(Speed),
                         MoveID.MaxStarfall => CreateTerrain(Terrain.Misty, false), //Todo: Terrain extender
                         MoveID.MaxWyrmwind => LowerOpponentStats(Attack),
                         MoveID.MaxMindstorm => CreateTerrain(Terrain.Psychic, false), //Todo: Terrain extender
                         MoveID.MaxRockfall when weather is not Sand
                         or ExtremeSun or HeavyRain or StrongWinds
-                        => StartWeather(Sand, 5), //Todo: weather rocks
+                        => StartWeather(Sand, HasItem(attacker, SmoothRock) ? 8 : 5),
                         MoveID.MaxQuake => RaiseFriendlyStats(SpDef),
                         MoveID.MaxDarkness => LowerOpponentStats(SpDef),
                         MoveID.MaxOvergrowth => CreateTerrain(Terrain.Grassy, false), //Todo: terrain extender
@@ -7776,12 +7835,11 @@ public partial class Battle : MonoBehaviour
                     default:
                         switch (Moves[index])
                         {
-                            //Todo: weather rocks
                             case MoveID.SunnyDay:
                                 if (weather is not Sun)
                                 {
                                     yield return AttackerAnims(index, move, 0);
-                                    yield return StartWeather(Sun, 5);
+                                    yield return StartWeather(Sun, HasItem(index, HeatRock) ? 8 : 5);
                                 }
                                 else
                                 {
@@ -7793,7 +7851,7 @@ public partial class Battle : MonoBehaviour
                                 if (weather is not Rain)
                                 {
                                     yield return AttackerAnims(index, move, 0);
-                                    yield return StartWeather(Rain, 5);
+                                    yield return StartWeather(Rain, HasItem(index, DampRock) ? 8 : 5);
                                 }
                                 else
                                 {
@@ -7805,7 +7863,7 @@ public partial class Battle : MonoBehaviour
                                 if (weather is not Sand)
                                 {
                                     yield return AttackerAnims(index, move, 0);
-                                    yield return StartWeather(Sand, 5);
+                                    yield return StartWeather(Sand, HasItem(index, SmoothRock) ? 8 : 5);
                                 }
                                 else
                                 {
@@ -7817,7 +7875,7 @@ public partial class Battle : MonoBehaviour
                                 if (weather is not Snow)
                                 {
                                     yield return AttackerAnims(index, move, 0);
-                                    yield return StartWeather(Snow, 5);
+                                    yield return StartWeather(Snow, HasItem(index, IcyRock) ? 8 : 5);
                                 }
                                 else
                                 {
@@ -8057,6 +8115,11 @@ public partial class Battle : MonoBehaviour
         else if (index == HandleDyna)
         {
             StartCoroutine(StartDynamax(monToMega));
+            return;
+        }
+        else if (index == HandleTera)
+        {
+            StartCoroutine(StartTerastalization(monToMega));
             return;
         }
         else
@@ -8487,6 +8550,9 @@ public partial class Battle : MonoBehaviour
                         _ => "Invalid G-Max damage"
                     });
                 yield return DoDamage(index, mon.HPMax / 6, true, true);
+                yield return ProcessFaintingSingle(index);
+                yield return CheckBerryCondition(index, false);
+                yield return CheckWimpOut();
             }
         }
         yield return DoMonChecks(CheckGMaxDamage);
@@ -8893,6 +8959,10 @@ public partial class Battle : MonoBehaviour
         hasOpponentMegaEvolved = false;
         hasPlayerUsedZMove = false;
         hasOpponentUsedZMove = false;
+        hasPlayerDynamaxed = false;
+        hasOpponentDyamaxed = false;
+        hasPlayerTerastalized = false;
+        hasOpponentTerastalized = false;
         menuManager.GoToAnnounce();
         PokemonOnField = new BattlePokemon[6]
         {
@@ -9166,11 +9236,29 @@ public partial class Battle : MonoBehaviour
         return false;
     }
 
+    private bool ZMoveLockedIn(bool player)
+    {
+        for (int i = player ? 3 : 0; i < (player ? 6 : 3); i++)
+        {
+            if (PokemonOnField[i].choseMove && usingZMove[i]) return true;
+        }
+        return false;
+    }
+
     private bool DynamaxLockedIn(bool player)
     {
         for (int i = player ? 3 : 0; i < (player ? 6 : 3); i++)
         {
             if (PokemonOnField[i].choseMove && dynamaxing[i]) return true;
+        }
+        return false;
+    }
+    
+    private bool TeraLockedIn(bool player)
+    {
+        for (int i = player ? 3 : 0; i < (player ? 6 : 3); i++)
+        {
+            if (PokemonOnField[i].choseMove && terastalizing[i]) return true;
         }
         return false;
     }
@@ -9196,8 +9284,44 @@ public partial class Battle : MonoBehaviour
         else return false;
     }
 
-    public bool CanDynamax(int index) => dynamaxEnabled && !(index < 3 ? hasOpponentDyamaxed : hasPlayerDynamaxed);
-
+    public bool CanDynamax(int index)
+    {
+        if (!dynamaxEnabled) return false;
+        if (index > 2 && (hasPlayerDynamaxed || DynamaxLockedIn(true)))
+            return false;
+        if (index < 3 && (hasOpponentDyamaxed || DynamaxLockedIn(false)))
+            return false;
+        if (PokemonOnField[index].pokemon.SpeciesData.speciesFlags.HasFlag(SpeciesFlags.MegaEvolved))
+            return false;
+        if (PokemonOnField[index].pokemon.species is SpeciesID.Zacian or SpeciesID.ZacianCrowned or SpeciesID.Zamazenta or SpeciesID.ZamazentaCrowned or SpeciesID.Eternatus)
+            return false;
+        return true;
+    }
+    public bool CanTerastalize(int index)   
+    {
+        Debug.Log("Checking Tera");
+        if (!teraEnabled) {
+            Debug.Log("Tera disabled");
+            return false;
+        }
+        if (index > 2 && (hasPlayerTerastalized || TeraLockedIn(true)))
+        {
+            Debug.Log("Player already used Tera");
+            return false;
+        }
+        if (index < 3 && (hasOpponentTerastalized || TeraLockedIn(false)))
+        {
+            Debug.Log("Opponent already used Tera");
+            return false;
+        }
+        if (PokemonOnField[index].pokemon.SpeciesData.speciesFlags.HasFlag(SpeciesFlags.MegaEvolved))
+        {
+            Debug.Log("Mon is mega evolved");
+            return false;
+        }
+        Debug.Log("Mon can Tera");
+        return true;
+    }
     private IEnumerator DoMegaEvolution(int index)
     {
         BattlePokemon mon = PokemonOnField[index];
@@ -9264,8 +9388,9 @@ public partial class Battle : MonoBehaviour
         yield return Announce("Placeholder: Dynamax animation");
         PokemonOnField[index].DynamaxStart();
         dynamaxing[index] = false;
+        if (index < 3) hasOpponentDyamaxed = true;
+        else hasPlayerDynamaxed = true;
         DoNextMove();
-        yield break;
     }
 
     private IEnumerator EndDynamax(int index)
@@ -9273,6 +9398,19 @@ public partial class Battle : MonoBehaviour
         //Todo: End animation
         yield return Announce("Placeholder: Dynamax ends");
         PokemonOnField[index].DynamaxEnd();
+    }
+
+    private IEnumerator StartTerastalization(int index)
+    {
+        //Todo: Tera animation
+        yield return Announce("Placeholder: Tera animation");
+        Pokemon mon = PokemonOnField[index].pokemon;
+        mon.terastalized = true;
+        terastalizing[index] = false;
+        if (mon.teraType is Type.Stellar) mon.InitStellarTracker();
+        if (index < 3) hasOpponentTerastalized = true;
+        else hasPlayerTerastalized = true;
+        DoNextMove();
     }
 
     public IEnumerator TryToRun()
@@ -9304,8 +9442,9 @@ public partial class Battle : MonoBehaviour
         yield return WonBattle();
     }
 
-    private void EndBattleAbilityCheck(Pokemon mon)
+    private void DoEndBattleChecks(Pokemon mon)
     {
+        mon.terastalized = false;
         switch (mon.GetAbility)
         {
             case HoneyGather when mon.item is None && random.Next(20) < (mon.level + 9) / 10:
@@ -9318,7 +9457,7 @@ public partial class Battle : MonoBehaviour
     private IEnumerator WonBattle()
     {
         for (int i = 0; i < 6; i++) LeaveFieldCleanup(i);
-        foreach (Pokemon mon in player.Party) if (mon.exists) EndBattleAbilityCheck(mon);
+        foreach (Pokemon mon in player.Party) if (mon.exists) DoEndBattleChecks(mon);
         if (scatteredCoins > 0)
         {
             yield return Announce("Picked up $" + scatteredCoins + "!");
@@ -9362,6 +9501,7 @@ public partial class Battle : MonoBehaviour
         int losingMoney = losingPrizeMoney;
         yield return Announce("Paid out $" + losingMoney + " to the winner...");
         player.money -= losingMoney;
+        foreach (Pokemon mon in Player.player.Party) mon.terastalized = false;
         yield return Announce("... ...");
         yield return Announce(player.playerName + " blacked out!");
         //Todo: player portion of script

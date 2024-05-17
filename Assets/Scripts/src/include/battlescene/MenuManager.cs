@@ -188,9 +188,11 @@ public class MenuManager : MonoBehaviour
     private bool canMegaEvolve;
     private bool canUseZMove;
     private bool canDynamax;
+    private bool canTera;
     public bool megaEvolving;
     public bool usingZMove;
     public bool dynamaxing;
+    public bool terastalizing;
 
     public MenuMode menuMode;
 
@@ -217,6 +219,11 @@ public class MenuManager : MonoBehaviour
     private static Color dynaNoColor = new(1, 213.0F / 255.0F, 199.0F / 255.0F);
     private static Color dynaYesColor = new(1, 94.0F / 255.0F, 41.0F / 255.0F);
 
+    private static Color teraGreenYes = new(80.0F / 255.0F, 200.0F / 255.0F, 120.0F / 255.0F);
+    private static Color teraGreenNo = new(150.0F / 255.0F, 200.0F / 255.0F, 168.0F / 255.0F);
+
+    private static Color teraRedYes = new(1, 72.0F / 255.0F, 64.0F / 255.0F);
+    private static Color teraRedNo = new(1, 152.0F / 255.0F, 144.0F / 255.0F);
     private static Color partyOK = new(25.0F / 255.0F, 25.0F / 255.0F, 128.0F / 255.0F);
     private static Color partyFainted = new(128.0F / 255.0F, 25.0F / 255.0F, 25.0F / 255.0F);
 
@@ -392,7 +399,7 @@ public class MenuManager : MonoBehaviour
                 Box(i + 1).color = (dynamaxing & mon.GetMove(i).Data().power == 0)
                     ? Type.Normal.Color()
                     : (mon.GetMove(i) == MoveID.None
-                        ? transparent 
+                        ? transparent
                         : type.Color());
                 Text(i + 1).text = dynamaxing ? mon.GetMove(i).MaxMove(mon.pokemon).Data().name : mon.GetMove(i).Data().name;
                 Text(i + 1).color = (dynamaxing & mon.GetMove(i).Data().power == 0) ? Color.black : type.TextColor();
@@ -543,6 +550,8 @@ public class MenuManager : MonoBehaviour
             usingZMove = false;
             canDynamax = false;
             dynamaxing = false;
+            canTera = false;
+            terastalizing = false;
             megaKey.text = "M";
             megaSymbol.sprite = megaSprite;
             megaIndicator.GetComponent<SpriteRenderer>().color =
@@ -555,6 +564,10 @@ public class MenuManager : MonoBehaviour
             megaEvolving = false;
             if (currentMove > 0 && battle.CanUseZMove(currentMon, currentMove - 1))
             {
+                canDynamax = false;
+                dynamaxing = false;
+                canTera = false;
+                terastalizing = false;
                 canUseZMove = true;
                 megaKey.text = "Z";
                 megaSymbol.sprite = zSprite;
@@ -563,11 +576,13 @@ public class MenuManager : MonoBehaviour
                 megaIndicator.SetActive(true);
             }
             else
-            {            
+            {
                 usingZMove = false;
                 canUseZMove = false;
                 if (battle.CanDynamax(currentMon))
                 {
+                    canTera = false;
+                    terastalizing = false;
                     canDynamax = true;
                     megaKey.text = "X";
                     megaSymbol.sprite = dynaSprite;
@@ -579,7 +594,23 @@ public class MenuManager : MonoBehaviour
                 {
                     dynamaxing = false;
                     canDynamax = false;
-                    megaIndicator.SetActive(false);
+                    if (battle.CanTerastalize(currentMon))
+                    {
+                        canTera = true;
+                        megaKey.text = "T";
+                        Texture2D texture = mon.pokemon.TeraSymbol;
+                        megaSymbol.sprite = Sprite.Create(texture, new(0, 0, texture.width, texture.height), StaticValues.defPivot, texture.width * 1.8F);
+                        megaIndicator.GetComponent<SpriteRenderer>().color =
+                            mon.pokemon.teraType is Type.Fire or Type.Fighting or Type.Fairy or Type.Psychic or Type.Ghost or Type.Poison or Type.Ground or Type.Rock
+                            ? (terastalizing ? teraGreenYes : teraGreenNo) : (terastalizing ? teraRedYes : teraRedNo);
+                        megaIndicator.SetActive(true);
+                    }
+                    else
+                    {
+                        terastalizing = false;
+                        canTera = false;
+                        megaIndicator.SetActive(false);
+                    }
                 }
             }
         }
@@ -819,6 +850,19 @@ public class MenuManager : MonoBehaviour
                             megaIndicator.GetComponent<SpriteRenderer>().color =
                                 dynamaxing ? dynaYesColor : dynaNoColor;
                             RefreshMoves();
+                        }
+                    }
+                    else if (canTera)
+                    {
+                        if (Input.GetKeyDown(KeyCode.T))
+                        {
+                            terastalizing = !terastalizing;
+                            battle.terastalizing[currentMon] = terastalizing;
+                            battle.audioSource0.PlayOneShot(Select);
+                            battle.audioSource0.panStereo = 0;
+                            megaIndicator.GetComponent<SpriteRenderer>().color =
+                                mon.pokemon.teraType is Type.Fire or Type.Fighting or Type.Fairy or Type.Psychic or Type.Ghost or Type.Poison or Type.Ground or Type.Rock
+                                ? (terastalizing ? teraGreenYes : teraGreenNo) : (terastalizing ? teraRedYes : teraRedNo);
                         }
                     }
 

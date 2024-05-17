@@ -50,6 +50,7 @@ public class PlayerMovement
             yield return null;
         }
         p.pos.y++;
+        yield return p.DecrementRepelCounter();
         p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
     }
     public IEnumerator WalkSouth(Player p, float duration)
@@ -73,6 +74,7 @@ public class PlayerMovement
             yield return null;
         }
         p.pos.y--;
+        yield return p.DecrementRepelCounter();
         p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
     }
     public IEnumerator WalkWest(Player p, float duration)
@@ -96,6 +98,7 @@ public class PlayerMovement
             yield return null;
         }
         p.pos.x--;
+        yield return p.DecrementRepelCounter();
         p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
     }
     public IEnumerator WalkEast(Player p, float duration)
@@ -119,6 +122,7 @@ public class PlayerMovement
             yield return null;
         }
         p.pos.x++;
+        yield return p.DecrementRepelCounter();
         p.state = p.locked ? PlayerState.Locked : PlayerState.Free;
     }
     public IEnumerator BumpNorth(Player p, float duration)

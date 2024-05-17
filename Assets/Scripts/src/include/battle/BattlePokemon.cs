@@ -332,7 +332,7 @@ public partial class Battle
 
         public Battle battle;
 
-        public SpeciesData.PokemonGraphics Graphics => (dynamaxed && pokemon.gMaxFactor) ? 
+        public SpeciesData.PokemonGraphics Graphics => (dynamaxed && pokemon.gMaxFactor) ?
             pokemon.SpeciesData.gMaxGraphics : pokemon.SpeciesData.graphics;
 
         public MoveID lastTargetedMove = MoveID.None;
@@ -501,29 +501,75 @@ public partial class Battle
 
         public bool HasType(Type type)
         {
-            return Type1 == type
-                || Type2 == type
-                || (hasType3 && Type3 == type);
+            if (pokemon.terastalized && pokemon.teraType is not Type.Stellar)
+                return type == pokemon.teraType || (hasType3 && Type3 == type);
+            else
+                return Type1 == type
+                    || Type2 == type
+                    || (hasType3 && Type3 == type);
+        }
+
+        public bool HasTypeNoTera(Type type)
+        {
+            return Type1NoTera == type
+                    || Type2NoTera == type
+                    || (hasType3 && Type3 == type);
         }
 
         public bool IsMonotype(Type type) =>
-            Type1 == type && Type2 == type && (Type3 == type || !hasType3);
+            ((pokemon.terastalized && pokemon.teraType == type) || Type1 == type && Type2 == type) && (!hasType3 || Type3 == type);
 
         public bool IsTypeless =>
             Type1 == Type.Typeless && Type2 == Type.Typeless &&
             (!hasType3 || Type3 == Type.Typeless);
 
+        public Type Type1NoTera => typesOverriden
+                                        ? newType1
+                                    : isTransformed
+                                        ? transformedMon.SpeciesData.type1
+                                    : pokemon.SpeciesData.type1;
+        public Type Type2NoTera => typesOverriden
+                                        ? newType2
+                                    : isTransformed
+                                        ? transformedMon.SpeciesData.type2
+                                    : pokemon.SpeciesData.type2;
         public Type Type1 => typesOverriden
                                 ? newType1
+                            : pokemon.terastalized
+                                ? pokemon.teraType
                             : isTransformed
                                 ? transformedMon.SpeciesData.type1
                             : pokemon.SpeciesData.type1;
-
         public Type Type2 => typesOverriden
                                 ? newType2
+                            : pokemon.terastalized
+                                ? pokemon.teraType
                             : isTransformed
                                 ? transformedMon.SpeciesData.type2
                             : pokemon.SpeciesData.type2;
+
+        public Type Type1Defense 
+        {
+            get
+            {
+                Type type = Type1;
+                return type is Type.Stellar ? Type1NoTera : type;
+            }
+        }
+        public Type Type2Defense 
+        {
+            get
+            {
+                Type type = Type2;
+                return type is Type.Stellar ? Type2NoTera : type;
+            }
+        }
+
+        public TeraStabLevel TeraStab(Type type)
+        {
+            if (HasTypeNoTera(type)) return pokemon.teraType == type ? TeraStabLevel.Double : TeraStabLevel.Single;
+            else return pokemon.teraType == type ? TeraStabLevel.Single : TeraStabLevel.None;
+        }
 
         public static float StageToModifierNormal(int stage)
         {

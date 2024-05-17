@@ -118,7 +118,7 @@ public class FieldMenu : MonoBehaviour
     {
         switch (menuItem)
         {
-            case Player.MenuItem.Pokemon: return player.monsInParty > 0;
+            case Player.MenuItem.Pokemon: return player.MonsInParty > 0;
             default: return true;
         }
     }

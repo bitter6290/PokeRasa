@@ -143,6 +143,9 @@
         Honey,
         AbilityCapsule,
         AbilityPatch,
+        Repel,
+        SuperRepel,
+        MaxRepel,
         //Held items
         KingsRock,
         DeepSeaTooth,
@@ -168,6 +171,10 @@
         ClearAmulet,
         BindingBand,
         BrightPowder,
+        DampRock,
+        HeatRock,
+        IcyRock,
+        SmoothRock,
         //Gems
         NormalGem,
         FireGem,

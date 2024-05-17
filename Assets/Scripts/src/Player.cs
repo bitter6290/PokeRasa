@@ -91,6 +91,9 @@ public class Player : LoadedChar
 
     public CachedScreenData cachedScreenData;
 
+    private int repelSteps;
+    private ItemID repelUsed;
+
     private bool blackScreenOn;
 
     private bool menuOpen;
@@ -280,7 +283,7 @@ public class Player : LoadedChar
     }
 
     public Pokemon[] Party = new Pokemon[6];
-    public int monsInParty
+    public int MonsInParty
     {
         get
         {
@@ -290,6 +293,20 @@ public class Player : LoadedChar
                 if (Party[i].exists) mons++;
             }
             return mons;
+        }
+    }
+
+    private int MaxLevel 
+    {
+        get
+        {
+            int acc = 0;
+            foreach (Pokemon mon in Party)
+            {
+                if (!mon.exists) continue;
+                if (mon.level > acc) acc = mon.level;
+            }
+            return acc;
         }
     }
 
@@ -360,13 +377,13 @@ public class Player : LoadedChar
         seenFlags[(int)mon.species] = true;
         caughtFlags[(int)mon.species] = true;
         SortParty();
-        if (monsInParty >= 6)
+        if (MonsInParty >= 6)
         {
             return false;
         }
         else
         {
-            Party[monsInParty] = mon;
+            Party[MonsInParty] = mon;
             return true;
         }
     }
@@ -808,7 +825,7 @@ public class Player : LoadedChar
 
     public void CenterCamera() => camera.transform.localPosition = new Vector3(0, 0, -100);
 
-    public IEnumerator StartSingleTrainerBattle(LoadedChar opponentChar, TeamData opponentTeam, bool dynamaxEnabled = false)
+    public IEnumerator StartSingleTrainerBattle(LoadedChar opponentChar, TeamData opponentTeam, bool dynamaxEnabled = false, bool teraEnabled = false)
     {
         Pokemon[] opponentParty = opponentTeam.GetParty();
         state = PlayerState.Locked;
@@ -832,6 +849,7 @@ public class Player : LoadedChar
         battle.prizeMoney = opponentTeam.prizeMoney;
         yield return FadeFromBlack(0.2F);
         Battle.dynamaxEnabled = dynamaxEnabled;
+        Battle.teraEnabled = teraEnabled;
         battle.StartCoroutine(battle.StartBattle());
     }
 
@@ -1029,6 +1047,18 @@ public class Player : LoadedChar
                                             yield return FadeToBlack(0.2f);
                                         }
                                         break;
+                                    case FieldEffect.Repel:
+                                        yield return FadeToBlack(0.2f);
+                                        yield return Scene.Map.Load();
+                                        MapReturn();
+                                        yield return FadeFromBlack(0.2f);
+                                        ActivateAll();
+                                        doneBag = true;
+                                        repelSteps = bagResult.FieldEffectIntensity();
+                                        repelUsed = bagResult;
+                                        UseItem(bagResult);
+                                        yield return DoAnnouncements(new(){"Used the " + bagResult.Data().itemName + "!"});
+                                        break;
                                 }
                                 break;
                             case BagOutcome.Give:
@@ -1137,6 +1167,30 @@ public class Player : LoadedChar
         UnlockAll();
     }
 
+    public IEnumerator DecrementRepelCounter()
+    {
+        if (repelSteps == 0) yield break;
+        repelSteps--;
+        if (repelSteps == 0)
+        if (Bag.ContainsKey(repelUsed))
+        {
+            yield return DoAnnouncements(new() {"The Repel wore off.", "Use another?"});
+            DataStore<int> result = new();
+            yield return DoChoiceMenu(result, ScriptUtils.binaryChoice, 0);
+            if (result.Data == 0) yield break;
+            else
+            {
+                yield return DoAnnouncements(new() {$"Used a " + repelUsed.Data().itemName + "!"});
+                repelSteps = repelUsed.FieldEffectIntensity();
+                UseItem(repelUsed);
+            }
+        }
+        else
+        {
+            yield return DoAnnouncements(new() {"The Repel wore off!"});
+        }
+    }
+
     public IEnumerator DoBagPrompt()
     {
         yield return FadeToBlack(0.2f);
@@ -1209,7 +1263,9 @@ public class Player : LoadedChar
         WildDataset dataset = currentMap.grassData[index - 1];
         if (random.NextDouble() * 100 < dataset.encounterPercent)
         {
-            StartCoroutine(StartSingleWildBattle(dataset.GetWildMon()));
+            Pokemon mon = dataset.GetWildMon();
+            if (repelSteps == 0 || mon.level > MaxLevel)
+                StartCoroutine(StartSingleWildBattle(dataset.GetWildMon()));
         }
     }
 

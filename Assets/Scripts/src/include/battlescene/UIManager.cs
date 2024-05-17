@@ -1,10 +1,11 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public TextMeshProUGUI[] textBoxes = new TextMeshProUGUI[6];
-    public TextMeshProUGUI[] levelBoxes = new TextMeshProUGUI[6];
+    public BattleMonDisplay[] displays = new BattleMonDisplay[6];
     public TextMeshProUGUI hpBox;
     public Battle battle;
 
@@ -15,10 +16,7 @@ public class UIManager : MonoBehaviour
         {
             if (battle.PokemonOnField[i].exists)
             {
-                textBoxes[i].enabled = true;
-                textBoxes[i].text = battle.PokemonOnField[i].ApparentName;
-                levelBoxes[i].enabled = true;
-                levelBoxes[i].text = "Lv. " + battle.PokemonOnField[i].ApparentLevel;
+                displays[i].Adopt(battle.PokemonOnField[i]);
                 if (i == 3)
                 {
                     if (battle.battleType == Battle.BattleType.Single)
@@ -37,8 +35,8 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                textBoxes[i].enabled = false;
-                levelBoxes[i].enabled = false;
+                if (displays[i] == null) continue;
+                displays[i].Disable();
                 if (i == 3)
                 {
                     hpBox.enabled = false;

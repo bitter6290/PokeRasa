@@ -41,6 +41,8 @@ public struct SpeciesData
 
     public SpeciesID dexRedirect;
 
+    public SpeciesFlags speciesFlags;
+
     public class PokemonGraphics
     {
         public Sprite backSprite;
@@ -54,20 +56,20 @@ public struct SpeciesData
         {
             backSprite = Sprite.Create(Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/back"),
                 new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
-        {
-            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/anim_front");
-            test ??= Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/front");
-            bool anim = test != null && test.height > 64;
-            frontSprite1 = Sprite.Create(test, new Rect(0.0f, anim ? 64.0f : 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
-            frontSprite2 = Sprite.Create(test, new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
-        }
-        {
-            Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/icon");
-            test ??= Resources.Load<Texture2D>("Sprites/Pokemon/" + Strip(path) + "/icon");
-            icon1 = Sprite.Create(test, new Rect(0.0f, 32.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
-            icon2 = Sprite.Create(test, new Rect(0.0f, 0.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
-        }
-        this.backSpriteHeight = backSpriteHeight;
+            {
+                Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/anim_front");
+                test ??= Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/front");
+                bool anim = test != null && test.height > 64;
+                frontSprite1 = Sprite.Create(test, new Rect(0.0f, anim ? 64.0f : 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
+                frontSprite2 = Sprite.Create(test, new Rect(0.0f, 0.0f, 64.0f, 64.0f), StaticValues.defPivot, 64.0f);
+            }
+            {
+                Texture2D test = Resources.Load<Texture2D>("Sprites/Pokemon/" + path + "/icon");
+                test ??= Resources.Load<Texture2D>("Sprites/Pokemon/" + Strip(path) + "/icon");
+                icon1 = Sprite.Create(test, new Rect(0.0f, 32.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
+                icon2 = Sprite.Create(test, new Rect(0.0f, 0.0f, 32.0f, 32.0f), StaticValues.defPivot, 64.0f);
+            }
+            this.backSpriteHeight = backSpriteHeight;
         }
     }
     public PokemonGraphics graphics;
@@ -97,7 +99,8 @@ public struct SpeciesData
         EggGroup eggGroup1, EggGroup eggGroup2, int eggCycles, int catchRate,
         string graphicsLocation, string cryLocation, int backSpriteHeight,
         PokedexData pokedexData, Ability[] abilities, bool genderDifferences = false,
-        byte baseFriendship = 70, SpeciesID redirect = SpeciesID.Missingno, string gMaxPath = "", int gMaxBackHeight = 0)
+        byte baseFriendship = 70, SpeciesID redirect = SpeciesID.Missingno, string gMaxPath = "",
+        int gMaxBackHeight = 0, SpeciesFlags flags = SpeciesFlags.None)
     {
         this.speciesName = speciesName;
         this.type1 = type1;
@@ -126,7 +129,12 @@ public struct SpeciesData
         this.pokedexData = pokedexData;
         this.abilities = abilities;
         this.baseFriendship = baseFriendship;
-        this.dexRedirect = redirect;
+        dexRedirect = redirect;
+        if (flags == SpeciesFlags.None)
+        {
+            speciesFlags = evolution == Evolution.None ? SpeciesFlags.None : SpeciesFlags.NotFullyEvolved;
+        }
+        else speciesFlags = flags;
     }
 
     //Pikachu forms
@@ -1757,7 +1765,7 @@ public struct SpeciesData
             LeafGuard,
             LeafGuard,
             LeafGuard
-    }
+        }
     );
 
     //Mega constructor
@@ -1797,7 +1805,8 @@ public struct SpeciesData
                  ability,
                  ability,
                  ability,
-         }
+         },
+         flags: SpeciesFlags.MegaEvolved
      );
 
     public static SpeciesID[] SingleSpecies(SpeciesID species) =>

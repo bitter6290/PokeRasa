@@ -308,7 +308,7 @@ public class PartyScreen : MonoBehaviour
                 case GetSummary:
                 case GiveItem when CurrentMon.item is ItemID.None:
                 case TakeItem when CurrentMon.item is not ItemID.None:
-                case MoveMon when player.monsInParty > 1:
+                case MoveMon when player.MonsInParty > 1:
                     possibleChoices.Add(choice);
                     continue;
                 default: continue;
@@ -369,9 +369,9 @@ public class PartyScreen : MonoBehaviour
             case State.Active or State.Moving:
                 if (Input.GetKeyDown(KeyCode.DownArrow) && selectedMon != exitNumber)
                 {
-                    if (player.monsInParty > selectedMon + 2)
+                    if (player.MonsInParty > selectedMon + 2)
                         Select(selectedMon + 2);
-                    else if (player.monsInParty == selectedMon + 2 && (selectedMon & 1) == 1)
+                    else if (player.MonsInParty == selectedMon + 2 && (selectedMon & 1) == 1)
                         Select(selectedMon + 1);
                     else
                         GoToExit();
@@ -379,7 +379,7 @@ public class PartyScreen : MonoBehaviour
                 else if (Input.GetKeyDown(KeyCode.UpArrow) && selectedMon > 1)
                 {
                     if (selectedMon is exitNumber)
-                        Select(player.monsInParty - 1);
+                        Select(player.MonsInParty - 1);
                     else
                         Select(selectedMon - 2);
                 }
@@ -392,12 +392,12 @@ public class PartyScreen : MonoBehaviour
                     }
                     else
                     {
-                        Select(player.monsInParty - 1);
+                        Select(player.MonsInParty - 1);
                     }
                 }
                 else if (Input.GetKeyDown(KeyCode.RightArrow) && selectedMon != exitNumber)
                 {
-                    if (selectedMon + 1 == player.monsInParty)
+                    if (selectedMon + 1 == player.MonsInParty)
                         GoToExit();
                     else
                         Select(selectedMon + 1);

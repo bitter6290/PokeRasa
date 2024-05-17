@@ -463,7 +463,7 @@ public class BoxScreen : MonoBehaviour
                         StartMove();
                         yield break;
                     case MenuRelease:
-                        if (selection is 42 && p.monsInParty is 1)
+                        if (selection is 42 && p.MonsInParty is 1)
                         {
                             yield return announcer.AnnounceAndDisappear("You can't release your last Pokémon!");
                             state = State.Active;
@@ -517,7 +517,7 @@ public class BoxScreen : MonoBehaviour
             case < 48 when state is State.Moving:
                 p.audioSource.PlayOneShot(SFX.Select);
                 if (movingAddress.boxNumber is not MonAddress.Party ||
-                    p.monsInParty > 1 || GetPokemon(selection).exists)
+                    p.MonsInParty > 1 || GetPokemon(selection).exists)
                     FinishMove();
                 else
                 {

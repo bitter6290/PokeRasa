@@ -159,6 +159,11 @@ public class Pokemon : ICloneable
     [NonSerialized]
     public SpeciesID destinationSpecies;
 
+    public Type teraType;
+    public bool terastalized;
+
+    public bool[] stellarTracker;
+
     private bool Amped => nature is Nature.Hardy or Nature.Brave or Nature.Adamant
         or Nature.Naughty or Nature.Docile or Nature.Impish or Nature.Lax or Nature.Hasty
         or Nature.Jolly or Nature.Naive or Nature.Rash or Nature.Sassy or Nature.Quirky;
@@ -452,6 +457,14 @@ public class Pokemon : ICloneable
 
     public bool AddFriendship(int amount) => AddFriendship(amount, amount, amount);
 
+    public void InitStellarTracker() => stellarTracker = new bool[(int)Type.Count];
+    public bool TryStellarMove(Type type)
+    {
+        if (stellarTracker[(int)type]) return false;
+        stellarTracker[(int)type] = true;
+        return true;
+    }
+
     public bool ShouldLevelUp()
     {
         return level < PokemonConst.maxLevel && xp > NextLevelXP;
@@ -678,6 +691,31 @@ public class Pokemon : ICloneable
         }
     }
 
+    private static readonly Dictionary<Type, Texture2D> teraSymbols = new()
+    {
+        {Type.Normal, Resources.Load<Texture2D>("Sprites/JorMxDos/normal")},
+        {Type.Fire, Resources.Load<Texture2D>("Sprites/JorMxDos/fire")},
+        {Type.Water, Resources.Load<Texture2D>("Sprites/JorMxDos/water")},
+        {Type.Grass, Resources.Load<Texture2D>("Sprites/JorMxDos/grass")},
+        {Type.Electric, Resources.Load<Texture2D>("Sprites/JorMxDos/electric")},
+        {Type.Ice, Resources.Load<Texture2D>("Sprites/JorMxDos/ice")},
+        {Type.Ground, Resources.Load<Texture2D>("Sprites/JorMxDos/ground")},
+        {Type.Fighting, Resources.Load<Texture2D>("Sprites/JorMxDos/fighting")},
+        {Type.Flying, Resources.Load<Texture2D>("Sprites/JorMxDos/flying")},
+        {Type.Rock, Resources.Load<Texture2D>("Sprites/JorMxDos/rock")},
+        {Type.Poison, Resources.Load<Texture2D>("Sprites/JorMxDos/poison")},
+        {Type.Bug, Resources.Load<Texture2D>("Sprites/JorMxDos/bug")},
+        {Type.Psychic, Resources.Load<Texture2D>("Sprites/JorMxDos/psychic")},
+        {Type.Ghost, Resources.Load<Texture2D>("Sprites/JorMxDos/ghost")},
+        {Type.Dragon, Resources.Load<Texture2D>("Sprites/JorMxDos/dragon")},
+        {Type.Dark, Resources.Load<Texture2D>("Sprites/JorMxDos/dark")},
+        {Type.Steel, Resources.Load<Texture2D>("Sprites/JorMxDos/steel")},
+        {Type.Fairy, Resources.Load<Texture2D>("Sprites/JorMxDos/fairy")},
+        {Type.Stellar, Resources.Load<Texture2D>("Sprites/JorMxDos/stellar")},
+    };
+
+    public Texture2D TeraSymbol => teraSymbols[teraType];
+
     public static Pokemon WildPokemon(SpeciesID species, int level)
     {
         var random = new System.Random();
@@ -700,7 +738,10 @@ public class Pokemon : ICloneable
         return new Pokemon(species, gender, level, IvHP, IvAttack, IvDefense, IvSpAtk, IvSpDef, IvSpeed,
             0, 0, 0, 0, 0, 0,
             Nature, Moves[0], Moves[1], Moves[2], Moves[3], (int)Floor(random.NextDouble() * 2),
-            Species.SpeciesTable[(int)species].baseFriendship, ItemID.None, (Type)(random.Next() % 18));
+            Species.SpeciesTable[(int)species].baseFriendship, ItemID.None, (Type)(random.Next() % 18))
+        {
+            teraType = random.Next(2) is 0 ? species.Data().type1 : species.Data().type2
+        };
     }
     public static Pokemon EmptyMon = new
         (SpeciesID.Missingno, Gender.Genderless, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Nature.Serious, MoveID.None, MoveID.None, MoveID.None, MoveID.None, 0, 0, ItemID.None, Type.Normal, false);

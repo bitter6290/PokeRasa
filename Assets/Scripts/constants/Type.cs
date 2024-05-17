@@ -21,6 +21,8 @@ public enum Type : byte
     Dark,
     Steel,
     Fairy,
+    Stellar,
+    Count,
 
     Typeless = 63
 }
@@ -45,10 +47,10 @@ public static class TypeUtils
          { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 1, 0 }, //Dragon
          { 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 3, 3, 2, 1, 2, 1 }, //Dark
          { 2, 1, 1, 2, 1, 3, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 1, 3 }, //Steel
-         { 2, 1, 2, 2, 2, 2, 2, 3, 2, 2, 1, 2, 2, 2, 3, 3, 1, 2 }  //Fairy
+         { 2, 1, 2, 2, 2, 2, 2, 3, 2, 2, 1, 2, 2, 2, 3, 3, 1, 2 }, //Fairy
         };
 
-    public static readonly string[] typeName = new string[18]
+    public static readonly string[] typeName = new string[19]
     {
         "Normal",
         "Fire",
@@ -67,13 +69,14 @@ public static class TypeUtils
         "Dragon",
         "Dark",
         "Steel",
-        "Fairy"
+        "Fairy",
+        "Stellar"
     };
 
     public static string Name(this Type type) =>
         type == Type.Typeless ? "???" : typeName[(int)type];
 
-    public static Color[] typeColor = new Color[18]
+    public static Color[] typeColor = new Color[19]
     {
         new(242F/255F, 242F/255F, 242F/255F), //Normal
         new(1, 110F/255F, 43F/255F),          //Fire
@@ -93,11 +96,11 @@ public static class TypeUtils
         new(64F/255F, 64F/255F, 64F/255F),    //Dark
         new(176F/255F, 180F/255F, 181F/255F), //Steel
         new(247F/255F, 195F/255F, 232F/255F), //Fairy
-
+        new(32F/255F, 144F/255F, 128F/255F), //Stellar
     };
 
     public static bool WhiteText(this Type type) => type is Type.Water or
-        Type.Dark or Type.Dragon or Type.Poison or Type.Fighting;
+        Type.Dark or Type.Dragon or Type.Poison or Type.Fighting or Type.Stellar;
 
     public static Color TextColor(this Type type) => type.WhiteText() ? UnityEngine.Color.white : UnityEngine.Color.black;
 

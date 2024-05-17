@@ -21,6 +21,7 @@
     SpAtkEVDown10,
     SpDefEVDown10,
     SpeedEVDown10,
+    Repel,
 
 
     PartyMenuEffects = Heal - 1

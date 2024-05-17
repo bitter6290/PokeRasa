@@ -247,6 +247,7 @@ public enum MoveEffect : ushort
     SwitchHit,
     Synchronoise,
     TechnoBlast,
+    TeraBlast,
     Thrash,
     ThroatChop,
     Uproar,

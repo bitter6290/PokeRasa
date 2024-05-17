@@ -3,6 +3,7 @@ using static BerryEffect;
 using static FieldEffect;
 using static HeldEffect;
 using System.Threading;
+using System.Security.Authentication.ExtendedProtection;
 
 
 public static class Item
@@ -1169,6 +1170,33 @@ public static class Item
         graphicsPath = "ability_patch"
     };
 
+    public static readonly FieldItem Repel = new()
+    {
+        itemName = "Repel",
+        price = 400,
+        fieldEffect = FieldEffect.Repel,
+        fieldEffectIntensity = 100,
+        graphicsPath = "repel"
+    };
+
+    public static readonly FieldItem SuperRepel = new()
+    {
+        itemName = "Super Repel",
+        price = 700,
+        fieldEffect = FieldEffect.Repel,
+        fieldEffectIntensity = 200,
+        graphicsPath = "super_repel"
+    };
+
+    public static readonly FieldItem MaxRepel = new()
+    {
+        itemName = "Max Repel",
+        price = 900,
+        fieldEffect = FieldEffect.Repel,
+        fieldEffectIntensity = 250,
+        graphicsPath = "max_repel"
+    };
+
     //Held items
 
     public static readonly HeldItem KingsRock = new()
@@ -1382,6 +1410,42 @@ public static class Item
         graphicsPath = "binding_band",
         flingPower = 30
     };
+
+    //Weather rocks
+
+    public static readonly HeldItem DampRock = new()
+    {
+        itemName = "Damp Rock",
+        price = 8000,
+        heldEffect = Abstract,
+        graphicsPath = "damp_rock",
+        flingPower = 60
+    };
+    public static readonly HeldItem HeatRock = new()
+    {
+        itemName = "Heat Rock",
+        price = 8000,
+        heldEffect = Abstract,
+        graphicsPath = "heat_rock",
+        flingPower = 60
+    };
+    public static readonly HeldItem IcyRock = new()
+    {
+        itemName = "Icy Rock",
+        price = 8000,
+        heldEffect = Abstract,
+        graphicsPath = "icy_rock",
+        flingPower = 60
+    };
+    public static readonly HeldItem SmoothRock = new()
+    {
+        itemName = "Smooth Rock",
+        price = 8000,
+        heldEffect = Abstract,
+        graphicsPath = "smooth_rock",
+        flingPower = 60
+    };
+
     //Gems
 
     public static readonly HeldItem NormalGem = new()
@@ -3174,6 +3238,9 @@ public static class Item
         Honey,
         AbilityCapsule,
         AbilityPatch,
+        Repel,
+        SuperRepel,
+        MaxRepel,
         //Held items
         KingsRock,
         DeepSeaTooth,
@@ -3199,6 +3266,10 @@ public static class Item
         ClearAmulet,
         BindingBand,
         BrightPowder,
+        DampRock,
+        HeatRock,
+        IcyRock,
+        SmoothRock,
         //Gems
         NormalGem,
         FireGem,

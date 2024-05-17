@@ -28,7 +28,7 @@ namespace Scripts.Test
             if (!TrainerFlag.MayTest.Get(p))
             {
                 yield return ScriptUtils.TrainerSeeSingle(
-                    p, c, Team.mayTestTeam, new() { "Boo!", "Did you know my backpack is a Power Spot?" }, true);
+                    p, c, Team.mayTestTeam, new() { "Boo!", "Have you been to Paldea?" }, teraEnabled: true);
             }
         }
         public override IEnumerator OnWin(Player p, LoadedChar c)
