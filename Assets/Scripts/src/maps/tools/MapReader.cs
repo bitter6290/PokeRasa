@@ -1,5 +1,4 @@
-﻿using System.IO;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public static class MapReader
@@ -9,7 +8,7 @@ public static class MapReader
         Tilemap level1 = manager.level1;
         Tilemap level2 = manager.level2;
         Tilemap level3 = manager.level3;
-        string inString = manager.map.MapTiles.Replace("?", "AAAA").Replace("@", "AA").Replace("&", "AAAAAAA").Replace("^","AAAAAA");
+        string inString = manager.map.MapTiles.Replace("?", "AAAA").Replace("@", "AA").Replace("&", "AAAAAAA").Replace("^", "AAAAAA");
         Debug.Log(inString.Length);
         byte[] data = System.Convert.FromBase64String(inString);
         manager.collision = new byte[manager.map.width, manager.map.height];
@@ -210,7 +209,7 @@ public static class MapReader
                 Vector3Int pos = new(i, j);
                 if ((level1.GetTile(pos), level2.GetTile(pos), level3.GetTile(pos)) == (null, null, null))
                 {
-                    Metatiles.MapTile mapTile = manager.map.boundary.GetTile(new(i,j));
+                    Metatiles.MapTile mapTile = manager.map.boundary.GetTile(new(i, j));
                     level1.SetTile(pos, mapTile.level1);
                     level2.SetTile(pos, mapTile.level2);
                     level3.SetTile(pos, mapTile.level3);
@@ -229,7 +228,7 @@ public static class MapReader
         foreach (Connection i in mapHelper.OpenMap.connection)
         {
             MapData connectedMap = i.map;
-            string connectionString = connectedMap.MapTiles.Replace("?", "AAAA").Replace("@", "AA").Replace("&","AAAAAAA").Replace("^", "AAAAAA");
+            string connectionString = connectedMap.MapTiles.Replace("?", "AAAA").Replace("@", "AA").Replace("&", "AAAAAAA").Replace("^", "AAAAAA");
             byte[] connectionData = System.Convert.FromBase64String(connectionString);
             Tileset currentTiles = i.map.tileset;
             switch (i.direction)

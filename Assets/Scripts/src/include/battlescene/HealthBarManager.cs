@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static System.Math;
-using static System.Convert;
 
 public class HealthBarManager : MonoBehaviour
 {

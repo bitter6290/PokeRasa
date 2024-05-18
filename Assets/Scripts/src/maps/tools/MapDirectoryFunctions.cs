@@ -14,7 +14,7 @@ public static class MapDirectoryUtils
         int i = 0;
         foreach (string guid in FindAssets("t:MapData"))
         {
-            MapData mapData = (LoadAssetAtPath<MapData>(GUIDToAssetPath(guid)));
+            MapData mapData = LoadAssetAtPath<MapData>(GUIDToAssetPath(guid));
             maps.maps.Add(mapData);
             mapData.index = i++;
         }

@@ -162,6 +162,7 @@ public enum MoveEffect : ushort
     Recoil25Max,
     Recoil50Max,
     Crash50Max,
+    AxeKick,
     VoltTackle,
     FlareBlitz,
     //Other added effects
@@ -219,6 +220,7 @@ public enum MoveEffect : ushort
     JawLock,
     Judgement,
     LastResort,
+    LastRespects,
     MetalBurst,
     MeteorBeam,
     MistyExplosion,
@@ -226,6 +228,7 @@ public enum MoveEffect : ushort
     NaturalGift,
     NaturePower,
     OHKO,
+    OrderUp,
     PainSplit,
     PhotonGeyser,
     Pluck,
@@ -395,6 +398,7 @@ public enum MoveEffect : ushort
     QuickGuard,
     SpikyShield,
     WideGuard,
+    SilkTrap,
     //Effects for doubles/triples
     AllySwitch,
     FollowMe,
@@ -428,7 +432,7 @@ public static class MoveEffectUtils
         or AttackDefenseUp1 or AttackDefenseAccUp1 or SpAtkSpDefUp1
         or AttackDefenseSpeedUp1 or SpAtkSpDefSpeedUp1 or AllUp1 or AllUp2
         or Autotomize or Acupressure or TakeHeart
-        or BellyDrum or Charge or DefenseCurl or Growth or Minimize;
+        or BellyDrum or Charge or DefenseCurl or Growth or Minimize or OrderUp;
 
     public static bool IsShieldDustAffected(this MoveEffect effect)
     {
@@ -441,7 +445,7 @@ public static class MoveEffectUtils
         return effect.IsStatusMove() || effect.IsStatDrop()
             || effect is Flinch or Trap or Confuse or SmackDown or ThousandArrows or
             Curse or Nightmare or PerishSong or LeechSeed or Telekinesis or
-            Yawn or Disable or Embargo or HealBlock or FellStinger;
+            Yawn or Disable or Embargo or HealBlock or FellStinger or AxeKick;
     }
 
     public static bool IsSheerForceAffectedSelfOnly(this MoveEffect effect) =>

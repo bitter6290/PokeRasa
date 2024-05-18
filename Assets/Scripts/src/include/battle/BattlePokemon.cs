@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using static System.Math;
 
 public partial class Battle
@@ -332,6 +331,9 @@ public partial class Battle
 
         public Battle battle;
 
+        public bool commanded;
+        public SpeciesID commandingSpecies;
+
         public SpeciesData.PokemonGraphics Graphics => (dynamaxed && pokemon.gMaxFactor) ?
             pokemon.SpeciesData.gMaxGraphics : pokemon.SpeciesData.graphics;
 
@@ -548,7 +550,7 @@ public partial class Battle
                                 ? transformedMon.SpeciesData.type2
                             : pokemon.SpeciesData.type2;
 
-        public Type Type1Defense 
+        public Type Type1Defense
         {
             get
             {
@@ -556,7 +558,7 @@ public partial class Battle
                 return type is Type.Stellar ? Type1NoTera : type;
             }
         }
-        public Type Type2Defense 
+        public Type Type2Defense
         {
             get
             {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 using UnityEngine;
 using UnityEditor;
-using System.IO;
 using System;
 
 public class MapWriter

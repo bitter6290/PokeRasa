@@ -1,5 +1,4 @@
-﻿using System;
-public enum BallBehavior
+﻿public enum BallBehavior
 {
     None,
     Friend,

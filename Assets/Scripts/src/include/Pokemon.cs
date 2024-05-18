@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-using JetBrains.Annotations;
 
 [Serializable]
 public class Pokemon : ICloneable
@@ -65,8 +64,8 @@ public class Pokemon : ICloneable
     public bool UseDynamaxCandy()
     {
         if (dynamaxLevel >= 10) return false;
-            dynamaxLevel++;
-            return true;
+        dynamaxLevel++;
+        return true;
     }
 
     public bool gMaxFactor;
@@ -183,7 +182,7 @@ public class Pokemon : ICloneable
     }
 
 
-    public SpeciesData SpeciesData => Species.SpeciesTable[transformed ?
+    public ref SpeciesData SpeciesData => ref Species.SpeciesTable[transformed ?
         (int)temporarySpecies : (int)species];
 
     public SpeciesID GetSpecies => transformed ? temporarySpecies : species;
@@ -386,9 +385,9 @@ public class Pokemon : ICloneable
         status = Status.None;
     }
 
-    private int CalculateHPMax => (((2 * SpeciesData.baseHP) +
+    private int CalculateHPMax => ((2 * SpeciesData.baseHP) +
             (capHP switch { CapState.No => ivHP, CapState.Yes => 31, _ => 0 }) +
-            (evHP >> 2)) * level / 100 + level + 10);
+            (evHP >> 2)) * level / 100 + level + 10;
 
 
     private int CalculateStat(Stat stat, int baseStat, int statIv, CapState capState, int statEv)

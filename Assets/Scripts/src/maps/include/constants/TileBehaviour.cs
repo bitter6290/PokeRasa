@@ -1,5 +1,4 @@
-﻿using System;
-public enum TileBehaviour
+﻿public enum TileBehaviour
 {
     None,
     CanFish,

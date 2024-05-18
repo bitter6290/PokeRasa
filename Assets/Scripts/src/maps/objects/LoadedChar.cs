@@ -31,7 +31,7 @@ public abstract class LoadedChar : MonoBehaviour
         while (Time.time < endTime)
         {
             AlignObject();
-            if (breakPause) { breakPause = false;  paused = false; yield break; }
+            if (breakPause) { breakPause = false; paused = false; yield break; }
             else yield return null;
         }
         moving = false;

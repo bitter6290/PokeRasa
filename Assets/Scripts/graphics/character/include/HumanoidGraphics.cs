@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public struct HumanoidGraphics
+public class HumanoidGraphics
 {
     public Sprite stillNorth;
     public Sprite walkNorthL;

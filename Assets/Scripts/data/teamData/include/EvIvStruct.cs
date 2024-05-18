@@ -1,6 +1,4 @@
-﻿using System;
-
-public struct EvIvSpread
+﻿public struct EvIvSpread
 {
     public bool real;
     public int ivHP;

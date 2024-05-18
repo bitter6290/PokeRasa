@@ -296,7 +296,7 @@ public class Player : LoadedChar
         }
     }
 
-    private int MaxLevel 
+    private int MaxLevel
     {
         get
         {
@@ -1057,7 +1057,7 @@ public class Player : LoadedChar
                                         repelSteps = bagResult.FieldEffectIntensity();
                                         repelUsed = bagResult;
                                         UseItem(bagResult);
-                                        yield return DoAnnouncements(new(){"Used the " + bagResult.Data().itemName + "!"});
+                                        yield return DoAnnouncements(new() { "Used the " + bagResult.Data().itemName + "!" });
                                         break;
                                 }
                                 break;
@@ -1172,23 +1172,23 @@ public class Player : LoadedChar
         if (repelSteps == 0) yield break;
         repelSteps--;
         if (repelSteps == 0)
-        if (Bag.ContainsKey(repelUsed))
-        {
-            yield return DoAnnouncements(new() {"The Repel wore off.", "Use another?"});
-            DataStore<int> result = new();
-            yield return DoChoiceMenu(result, ScriptUtils.binaryChoice, 0);
-            if (result.Data == 0) yield break;
+            if (Bag.ContainsKey(repelUsed))
+            {
+                yield return DoAnnouncements(new() { "The Repel wore off.", "Use another?" });
+                DataStore<int> result = new();
+                yield return DoChoiceMenu(result, ScriptUtils.binaryChoice, 0);
+                if (result.Data == 0) yield break;
+                else
+                {
+                    yield return DoAnnouncements(new() { $"Used a " + repelUsed.Data().itemName + "!" });
+                    repelSteps = repelUsed.FieldEffectIntensity();
+                    UseItem(repelUsed);
+                }
+            }
             else
             {
-                yield return DoAnnouncements(new() {$"Used a " + repelUsed.Data().itemName + "!"});
-                repelSteps = repelUsed.FieldEffectIntensity();
-                UseItem(repelUsed);
+                yield return DoAnnouncements(new() { "The Repel wore off!" });
             }
-        }
-        else
-        {
-            yield return DoAnnouncements(new() {"The Repel wore off!"});
-        }
     }
 
     public IEnumerator DoBagPrompt()

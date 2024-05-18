@@ -2,8 +2,6 @@
 using static BerryEffect;
 using static FieldEffect;
 using static HeldEffect;
-using System.Threading;
-using System.Security.Authentication.ExtendedProtection;
 
 
 public static class Item

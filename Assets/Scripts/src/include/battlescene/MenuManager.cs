@@ -219,11 +219,9 @@ public class MenuManager : MonoBehaviour
     private static Color dynaNoColor = new(1, 213.0F / 255.0F, 199.0F / 255.0F);
     private static Color dynaYesColor = new(1, 94.0F / 255.0F, 41.0F / 255.0F);
 
-    private static Color teraGreenYes = new(80.0F / 255.0F, 200.0F / 255.0F, 120.0F / 255.0F);
-    private static Color teraGreenNo = new(150.0F / 255.0F, 200.0F / 255.0F, 168.0F / 255.0F);
+    private static Color teraYesColor = new(224.0F / 255.0F, 176.0F / 255.0F, 1);
+    private static Color teraNoColor = new(248.0F / 255.0F, 232.0F / 255.0F, 1);
 
-    private static Color teraRedYes = new(1, 72.0F / 255.0F, 64.0F / 255.0F);
-    private static Color teraRedNo = new(1, 152.0F / 255.0F, 144.0F / 255.0F);
     private static Color partyOK = new(25.0F / 255.0F, 25.0F / 255.0F, 128.0F / 255.0F);
     private static Color partyFainted = new(128.0F / 255.0F, 25.0F / 255.0F, 25.0F / 255.0F);
 
@@ -601,8 +599,7 @@ public class MenuManager : MonoBehaviour
                         Texture2D texture = mon.pokemon.TeraSymbol;
                         megaSymbol.sprite = Sprite.Create(texture, new(0, 0, texture.width, texture.height), StaticValues.defPivot, texture.width * 1.8F);
                         megaIndicator.GetComponent<SpriteRenderer>().color =
-                            mon.pokemon.teraType is Type.Fire or Type.Fighting or Type.Fairy or Type.Psychic or Type.Ghost or Type.Poison or Type.Ground or Type.Rock
-                            ? (terastalizing ? teraGreenYes : teraGreenNo) : (terastalizing ? teraRedYes : teraRedNo);
+                            terastalizing ? teraYesColor : teraNoColor;
                         megaIndicator.SetActive(true);
                     }
                     else
@@ -861,8 +858,7 @@ public class MenuManager : MonoBehaviour
                             battle.audioSource0.PlayOneShot(Select);
                             battle.audioSource0.panStereo = 0;
                             megaIndicator.GetComponent<SpriteRenderer>().color =
-                                mon.pokemon.teraType is Type.Fire or Type.Fighting or Type.Fairy or Type.Psychic or Type.Ghost or Type.Poison or Type.Ground or Type.Rock
-                                ? (terastalizing ? teraGreenYes : teraGreenNo) : (terastalizing ? teraRedYes : teraRedNo);
+                                terastalizing ? teraYesColor : teraNoColor;
                         }
                     }
 

@@ -4,7 +4,6 @@ using static Type;
 using static SpeciesData;
 using static XPClass;
 using static Learnset;
-using Unity.VisualScripting;
 
 public static class Species
 {

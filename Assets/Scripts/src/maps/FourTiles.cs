@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 namespace Metatiles
 {
-    [CreateAssetMenu(fileName = "NewFourTiles.asset",menuName = "ScriptableObjects/FourTiles")]
+    [CreateAssetMenu(fileName = "NewFourTiles.asset", menuName = "ScriptableObjects/FourTiles")]
     public class FourTiles : ScriptableObject
     {
         public FullTile nwTile;

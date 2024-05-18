@@ -1376,5 +1376,5 @@ public enum SpeciesID
 
 public static class SpeciesIDUtils
 {
-    public static SpeciesData Data(this SpeciesID id) => Species.SpeciesTable[(int)id];
+    public static ref SpeciesData Data(this SpeciesID id) => ref Species.SpeciesTable[(int)id];
 }

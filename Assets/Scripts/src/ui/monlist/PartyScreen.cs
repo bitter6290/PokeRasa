@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using static System.Net.Mime.MediaTypeNames;
 using static BagController;
 using System.Collections.Generic;
 using static Player;

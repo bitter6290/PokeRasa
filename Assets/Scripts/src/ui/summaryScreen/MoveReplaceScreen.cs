@@ -109,7 +109,7 @@ public class MoveReplaceScreen : MonoBehaviour
         newMovePP.text = LeadingZero(move.Data().pp.ToString()) + " / " + LeadingZero(move.Data().pp.ToString());
         move1Name.color = move1PP.color = mon.MoveIDs[0].Data().type.TextColor();
         move2Name.color = move2PP.color = mon.MoveIDs[1].Data().type.TextColor();
-        move3Name.color = move3PP.color =  mon.MoveIDs[2].Data().type.TextColor();
+        move3Name.color = move3PP.color = mon.MoveIDs[2].Data().type.TextColor();
         move4Name.color = move4PP.color = mon.MoveIDs[3].Data().type.TextColor();
         newMoveName.color = newMovePP.color = move.Data().type.TextColor();
 

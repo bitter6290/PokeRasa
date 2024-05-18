@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public delegate void ObjectMovement(LoadedChar loadedChar);
 public delegate bool SeeCondition(Player p);

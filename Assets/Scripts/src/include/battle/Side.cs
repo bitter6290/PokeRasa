@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
-public partial class Battle {
+public partial class Battle
+{
     private class Side
     {
         public bool lightScreen = false;

@@ -1,5 +1,4 @@
-﻿using System;
-public interface IBehaviourObject
+﻿public interface IBehaviourObject
 {
     TileBehaviour Behaviour { get; }
 }

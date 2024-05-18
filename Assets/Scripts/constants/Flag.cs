@@ -1,5 +1,4 @@
-﻿using System;
-public enum Flag
+﻿public enum Flag
 {
     //One-time items
     TestPotion,

@@ -4089,7 +4089,43 @@ public static partial class Move
         snatchAffected, LunarBlessingDesc, 0, SpDefUp2); //Needs anim
     public static readonly MoveData TakeHeart = SelfTargetingMove(
         "Take Heart", Type.Psychic, 0, MoveEffect.TakeHeart, 10, snatchAffected,
-        SpAtkUp1, TakeHeartDesc);
+        SpAtkUp1, TakeHeartDesc); //Needs anim
+
+    //Gen 9
+
+    public static readonly MoveData TeraBlast = new(
+        "Tera Blast", Normal,
+        80, 100, 0,
+        MoveEffect.TeraBlast, 101,
+        false, Single, 10,
+        noFlag, TeraBlastDesc, 160); //Needs anim
+    public static readonly MoveData SilkTrap = SelfTargetingMove(
+        "Silk Trap", Bug, 4, MoveEffect.SilkTrap, 10, usesProtectCounter,
+        DefenseUp1, SilkTrapDesc); //Needs anim
+    public static readonly MoveData AxeKick = new(
+        "Axe Kick", Fighting,
+        120, 90, 0,
+        MoveEffect.AxeKick, 30,
+        true, Single, 10,
+        makesContact, AxeKickDesc, 190); //Needs anim
+    public static readonly MoveData LastRespects = new(
+        "Last Respects", Ghost,
+        50, 100, 0,
+        MoveEffect.LastRespects, 0,
+        true, Single, 10,
+        noFlag, LastRespectsDesc, 100); //Needs anim
+    public static readonly MoveData LuminaCrash = new(
+        "Lumina Crash", Type.Psychic,
+        80, 100, 0,
+        MoveEffect.SpDefDown2, 101,
+        false, Single, 10,
+        noFlag, LuminaCrashDesc, 160); //Needs anim
+    public static readonly MoveData OrderUp = new(
+        "Order Up", Dragon, 
+        80, 100, 0,
+        MoveEffect.OrderUp, 101,
+        true, Single, 10,
+        effectOnSelfOnly, OrderUpDesc, 160); //Needs anim
 
 
     //Gigantamax Moves
@@ -5205,6 +5241,14 @@ public static partial class Move
         SandsearStorm,
         LunarBlessing,
         TakeHeart,
+
+        //Gen 9
+        TeraBlast,
+        SilkTrap,
+        AxeKick,
+        LastRespects,
+        LuminaCrash,
+        OrderUp,
 
         //G-max Moves
 

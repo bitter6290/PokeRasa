@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-public static class Team
+﻿public static class Team
 {
     public static TeamData mayTestTeam = new()
     {

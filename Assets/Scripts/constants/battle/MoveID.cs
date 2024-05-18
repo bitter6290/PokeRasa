@@ -1,6 +1,3 @@
-using UnityEditor;
-using UnityEngine.Scripting;
-
 public enum MoveID
 {
     None,
@@ -870,6 +867,15 @@ public enum MoveID
     LunarBlessing,
     TakeHeart,
 
+    //Gen 9
+    TeraBlast,
+    SilkTrap,
+    AxeKick,
+    LastRespects,
+    LuminaCrash,
+    OrderUp,
+
+
     //G-max Moves
 
     GMaxWildfire,
@@ -952,7 +958,7 @@ public enum MoveID
 
 public static class MoveUtils
 {
-    public static MoveData Data(this MoveID move) => Move.MoveTable[(int)move];
+    public static ref MoveData Data(this MoveID move) => ref Move.MoveTable[(int)move];
     public static bool TriageAffected(this MoveID move) =>
         move.Data().effect is MoveEffect.Heal50 or MoveEffect.Absorb50
         or MoveEffect.HealingWish or MoveEffect.DreamEater or MoveEffect.HealWeather

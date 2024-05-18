@@ -1,5 +1,4 @@
-﻿using System;
-public enum HumanoidGraphicsID
+﻿public enum HumanoidGraphicsID
 {
     brendanWalk,
     mayWalk,

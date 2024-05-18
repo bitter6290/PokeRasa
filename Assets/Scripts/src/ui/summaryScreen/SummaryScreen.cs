@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using static MenuManager;
-using Unity.VisualScripting;
 
 public class SummaryScreen : MonoBehaviour
 {
@@ -177,7 +176,7 @@ public class SummaryScreen : MonoBehaviour
                 }
             }
         }
-       graphics = mon.SpeciesData.graphics;
+        graphics = mon.SpeciesData.graphics;
     }
 
     public void RefreshAll()

@@ -851,6 +851,14 @@
     private const string LunarBlessingDesc = "The user receives a blessing from the crescent moon, restoring HP and curing status conditions for itself and its ally Pokémon currently in the battle.";
     private const string TakeHeartDesc = "The user lifts its spirits, curing its own status conditions and boosting its Sp. Atk and Sp. Def stats.";
 
+    //Gen 9
+    private const string TeraBlastDesc = "If the user has Terastallized, it unleashes energy of its Tera Type. This move inflicts damage using the Attack or Sp. Atk stat—whichever is higher for the user.";
+    private const string SilkTrapDesc = "The user spins a silken trap, protecting itself from damage while lowering the Speed stat of any attacker that makes direct contact.";
+    private const string AxeKickDesc = "The user attacks by kicking up into the air and slamming its heel down upon the target. This may also confuse the target. If it misses, the user takes damage instead.";
+    private const string LastRespectsDesc = "The user attacks to avenge its allies. The more defeated allies there are in the user's party, the greater the move's power.";
+    private const string LuminaCrashDesc = "The user attacks by unleashing a peculiar light that even affects the mind. This also harshly lowers the target's Sp. Def stat.";
+    private const string OrderUpDesc = "The user attacks with elegant poise. If the user has a Tatsugiri in its mouth, this move boosts one of the user's stats based on the Tatsugiri's form.";
+    
     //G-Max moves
     private const string GMaxWildfireDesc = "A Fire-type attack that Gigantamax Charizard use. This move continues to deal damage to opponents for four turns.";
     private const string GMaxBefuddleDesc = "A Bug-type attack that Gigantamax Butterfree use. This move inflicts the poisoned, paralyzed, or asleep status condition on opponents.";

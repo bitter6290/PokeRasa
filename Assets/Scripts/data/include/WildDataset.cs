@@ -27,7 +27,7 @@ public struct WildDataset
             if (i < 0)
             {
                 species = mon.species;
-                level = (mon.minLevel + (random.Next() % (mon.maxLevel - mon.minLevel + 1)));
+                level = mon.minLevel + (random.Next() % (mon.maxLevel - mon.minLevel + 1));
                 break;
             }
         }

@@ -1,5 +1,3 @@
-using System.Collections;
-
 public readonly struct MoveData
 {
     public readonly string name;

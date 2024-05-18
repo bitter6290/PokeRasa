@@ -65,7 +65,7 @@ public class DexScreen : MonoBehaviour
                 }, 36);
                 statBar.color = stat switch
                 {
-                    0 => new(120F/255F, 120F/255F, 120F/255F),
+                    0 => new(120F / 255F, 120F / 255F, 120F / 255F),
                     <= 50 => new((3 * stat + 105) / 255F, 30 / 255F, 30 / 255F),
                     < 80 => new(1, (7 * stat - 305) / 255F, 30 / 255F),
                     < 125 => new((-5 * stat + 655) / 255F, 1, 30 / 255F),
@@ -538,7 +538,7 @@ public class DexScreen : MonoBehaviour
                     }
                     else
                     {
-                        switch((formScreen.selection / 4, formScreen.maxShown / 4))
+                        switch ((formScreen.selection / 4, formScreen.maxShown / 4))
                         {
                             case (0, 0):
                             case (1, 1):

@@ -3,9 +3,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
-using System.Collections;
-using static UnityEngine.GraphicsBuffer;
-using System;
 
 [ExecuteInEditMode]
 public class MapHelper : MapManager
@@ -89,7 +86,7 @@ public class MapHelper : MapManager
     {
         if (mapData == null)
         {
-            EditorUtility.DisplayDialog("No map selected", "No map was selected!","OK");
+            EditorUtility.DisplayDialog("No map selected", "No map was selected!", "OK");
             return;
         }
         if (mapData == openMap)

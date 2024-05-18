@@ -4,8 +4,6 @@ using UnityEngine;
 using static System.Math;
 using static BattleText;
 using static Ability;
-using System;
-using UnityEditor.Experimental.GraphView;
 
 public partial class Battle
 {
@@ -96,7 +94,7 @@ public partial class Battle
                 " is protected by the Clear Amulet!");
             yield break;
         }
-        if ((!checkSide || GetSideNumber(attacker) != GetSideNumber(index)))
+        if (!checkSide || GetSideNumber(attacker) != GetSideNumber(index))
         {
             if (Sides[GetSideNumber(index)].mist)
             {
@@ -201,7 +199,7 @@ public partial class Battle
                 yield return PopupDo(index, NoEffect(index));
                 yield break;
             }
-            for (int i = 3 * (index / 3); i < ((3 * (index / 3) + 3)); i++)
+            for (int i = 3 * (index / 3); i < 3 * (index / 3) + 3; i++)
             {
                 if (HasAbility(i, FlowerVeil) && PokemonOnField[index].HasType(Type.Grass))
                 {
@@ -246,7 +244,7 @@ public partial class Battle
                 yield return PopupDo(index, NoEffect(index));
                 yield break;
             }
-            for (int i = 3 * (index / 3); i < ((3 * (index / 3) + 3)); i++)
+            for (int i = 3 * (index / 3); i < 3 * (index / 3) + 3; i++)
             {
                 if (HasAbility(i, FlowerVeil) && PokemonOnField[index].HasType(Type.Grass))
                 {
@@ -341,8 +339,8 @@ public partial class Battle
             }
             yield break;
         }
-        if ((target.HasType(Type.Poison)
-            || target.HasType(Type.Steel)))
+        if (target.HasType(Type.Poison)
+            || target.HasType(Type.Steel))
         {
             if (ShowFailure && announceFailure)
                 yield return Announce("It doesn't affect " + MonNameWithPrefix(index, false));
@@ -385,8 +383,8 @@ public partial class Battle
             }
             yield break;
         }
-        if ((target.HasType(Type.Poison)
-            || target.HasType(Type.Steel)))
+        if (target.HasType(Type.Poison)
+            || target.HasType(Type.Steel))
         {
             if (ShowFailure && announceFailure)
                 yield return Announce("It doesn't affect " + MonNameWithPrefix(index, false));
@@ -585,8 +583,8 @@ public partial class Battle
         yield return Announce(MonNameWithPrefix(index, true) + " became confused!");
     }
 
-    private bool CanDisable(int index) => (!PokemonOnField[index].disabled &&
-        PokemonOnField[index].lastMoveUsed is not MoveID.None or MoveID.Struggle);
+    private bool CanDisable(int index) => !PokemonOnField[index].disabled &&
+        PokemonOnField[index].lastMoveUsed is not MoveID.None or MoveID.Struggle;
 
     private IEnumerator Disable(int index)
     {

@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using static SpeciesData;
+﻿using static SpeciesData;
 
 public static partial class Pokedex
 {

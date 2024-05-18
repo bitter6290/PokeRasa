@@ -1,5 +1,4 @@
-﻿using System;
-public enum ZMoveEffect
+﻿public enum ZMoveEffect
 {
     None,
     AttackUp1,

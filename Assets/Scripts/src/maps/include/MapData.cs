@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 
 public class MapData : ScriptableObject

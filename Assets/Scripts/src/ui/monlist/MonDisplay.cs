@@ -27,7 +27,7 @@ public class MonDisplay : MonoBehaviour
     public bool selected;
     public bool moving;
     public Pokemon mon;
-    
+
     public void UpdateDisplay()
     {
         if (!mon.exists)

@@ -452,7 +452,7 @@ public static class ItemUtils
         if (item.Data() is PlateItem) return ((PlateItem)item.Data()).destinationSpecies;
         return SpeciesID.Missingno;
     }
-    
+
     public static SpeciesID FossilSpecies(this ItemID item)
     {
         if (item.Data().type is ItemType.Fossil) return (SpeciesID)item.Data().ItemSubdata[0];

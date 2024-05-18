@@ -231,7 +231,7 @@ public enum Ability
     PsychicSurge,
     MistySurge,
     GrassySurge,
-    FullMetalBody, 
+    FullMetalBody,
     ShadowShield,
     PrismArmor,
     Neuroforce,

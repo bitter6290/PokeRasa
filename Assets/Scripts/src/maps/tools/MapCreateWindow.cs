@@ -48,6 +48,7 @@ public class MapCreateWindow : EditorWindow
             AssetDatabase.SaveAssets();
             helper.map = AssetDatabase.LoadAssetAtPath<MapData>(
                 "Assets/Maps/" + data.name + ".asset");
+            MapDirectoryUtils.CreateMapDirectory();
             Close();
         }
 
