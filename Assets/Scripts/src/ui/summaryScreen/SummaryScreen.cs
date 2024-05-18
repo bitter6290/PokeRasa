@@ -63,6 +63,7 @@ public class SummaryScreen : MonoBehaviour
 
     public Image monBox;
     public TextMeshProUGUI monScreenName;
+    public RawImage ball;
     public TextMeshProUGUI speciesText;
     public TextMeshProUGUI type1;
     public RawImage type1Box;
@@ -185,6 +186,7 @@ public class SummaryScreen : MonoBehaviour
         monBox.sprite = graphics.frontSprite1;
 
         monScreenName.text = mon.MonName;
+        ball.texture = mon.ball.Data().ItemSprite;
         speciesText.text = mon.SpeciesData.pokedexData.number.ToString().LeadingZero2() + " / " + mon.SpeciesData.speciesName;
 
         type1Box.color = mon.SpeciesData.type1.Color();

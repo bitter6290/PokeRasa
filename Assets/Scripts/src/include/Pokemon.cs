@@ -163,6 +163,8 @@ public class Pokemon : ICloneable
 
     public bool[] stellarTracker;
 
+    public ItemID ball;
+
     private bool Amped => nature is Nature.Hardy or Nature.Brave or Nature.Adamant
         or Nature.Naughty or Nature.Docile or Nature.Impish or Nature.Lax or Nature.Hasty
         or Nature.Jolly or Nature.Naive or Nature.Rash or Nature.Sassy or Nature.Quirky;

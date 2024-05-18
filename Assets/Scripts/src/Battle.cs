@@ -1639,6 +1639,7 @@ public partial class Battle : MonoBehaviour
                 yield return BallShake(ballObject.transform);
                 yield return BallCatch(ballObject.transform, renderer);
                 yield return Announce(PokemonOnField[targetMon].pokemon.SpeciesData.speciesName + " was caught!");
+                PokemonOnField[targetMon].pokemon.ball = ball;
                 yield return Announce("Would you like to give " + PokemonOnField[targetMon].pokemon.SpeciesData.speciesName + " a name?", true);
                 DataStore<int> result = new();
                 yield return ChoiceMenu.DoChoiceMenu(Player.player,
