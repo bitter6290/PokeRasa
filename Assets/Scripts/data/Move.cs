@@ -3904,7 +3904,7 @@ public static partial class Move
     public static readonly MoveData SurgingStrikes = new(
         "Surging Strikes", Water,
         25, 100, 0,
-        MoveEffect.SurgingStrikes, 0,
+        MoveEffect.MultiHit3, 0,
         true, Single, 5,
         makesContact, SurgingStrikesDesc, 150, MaxMovePower: 130); //Needs anim
     public static readonly MoveData ThunderCage = new(
@@ -4164,7 +4164,19 @@ public static partial class Move
         MoveEffect.SaltCure, 101,
         true, Single, 15,
         noFlag, SaltCureDesc, 100); //Needs anim
-
+    public static readonly MoveData TripleDive = new(
+        "Triple Dive", Water,
+        30, 95, 0,
+        MoveEffect.MultiHit3, 0,
+        true, Single, 10,
+        makesContact, TripleDiveDesc, 140); //Needs anim
+    public static readonly MoveData MortalSpin = new(
+        "Mortal Spin", Poison,
+        30, 100, 0,
+        MoveEffect.MortalSpin, 101,
+        true, Spread, 15,
+        makesContact, MortalSpinDesc, 100); //Needs anim
+    
 
     //Gigantamax Moves
     public static readonly MoveData GMaxWildfire = MaxMove(
@@ -5295,6 +5307,8 @@ public static partial class Move
         GlaiveRush,
         RevivalBlessing,
         SaltCure,
+        TripleDive,
+        MortalSpin,
 
         //G-max Moves
 

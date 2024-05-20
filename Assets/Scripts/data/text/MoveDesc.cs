@@ -866,6 +866,8 @@
     private const string GlaiveRushDesc = "The user throws its entire body into a reckless charge. After this move is used, attacks on the user cannot miss and will inflict double damage until the user’s next turn.";
     private const string RevivalBlessingDesc = "The user bestows a loving blessing, reviving a party Pokémon that has fainted and restoring half that Pokémon's max HP.";
     private const string SaltCureDesc = "The user salt cures the target, inflicting damage every turn. Steel and Water types are more strongly affected by this move.";
+    private const string TripleDiveDesc = "The user performs a perfectly timed triple dive, hitting the target with splashes of water three times in a row.";
+    private const string MortalSpinDesc = "The user performs a spin attack that can also eliminate the effects of such moves as Bind, Wrap, and Leech Seed. This also poisons opposing Pokémon.";
 
     //G-Max moves
     private const string GMaxWildfireDesc = "A Fire-type attack that Gigantamax Charizard use. This move continues to deal damage to opponents for four turns.";

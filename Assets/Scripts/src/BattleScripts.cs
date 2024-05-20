@@ -4,6 +4,7 @@ using UnityEngine;
 using static System.Math;
 using static BattleText;
 using static Ability;
+using Unity.VisualScripting.Dependencies.NCalc;
 
 public partial class Battle
 {
@@ -917,6 +918,12 @@ public partial class Battle
         BattlePokemon target = PokemonOnField[index];
         if (!target.partialTrapped || (HasAbility(index, MagicGuard) &&
             target.partialTrappingType != PartialTrapping.Octolock)) yield break;
+        if (target.partialTrappingTimer <= 0)
+        {
+            yield return EndContinuousDamage(index);
+            yield break;
+        }
+        target.partialTrappingTimer--;
         int damage = 0;
         PartialTrapping type = target.partialTrappingType;
         int damageDenominator = HasItem(target.partialTrappingSource, ItemID.BindingBand) ? 6 : 8;
@@ -1001,6 +1008,28 @@ public partial class Battle
             yield return ProcessBerries(index, false);
             yield return CheckWimpOut();
         }
+    }
+
+    private IEnumerator EndContinuousDamage(int index)
+    {
+        BattlePokemon mon = PokemonOnField[index];
+        if (!mon.partialTrapped) yield break;
+        mon.partialTrapped = false;
+        yield return Announce(MonNameWithPrefix(index, true) + " was freed from " + mon.partialTrappingType switch
+        {
+            PartialTrapping.Wrap => "Wrap",
+            PartialTrapping.Bind => "Bind",
+            PartialTrapping.FireSpin => "Fire Spin",
+            PartialTrapping.Clamp => "Clamp",
+            PartialTrapping.Whirlpool => "Whirlpool",
+            PartialTrapping.SandTomb => "Sand Tomb",
+            PartialTrapping.MagmaStorm => "Magma Storm",
+            PartialTrapping.Infestation => "Infestation",
+            PartialTrapping.Octolock => "Octolock",
+            PartialTrapping.SnapTrap => "Snap Trap",
+            PartialTrapping.ThunderCage => "Thunder Cage",
+            _ => "???"
+        } + "!");
     }
     private IEnumerator StartWeather(Weather weather, int turns)
     {
@@ -1710,6 +1739,10 @@ public partial class Battle
         {
             yield return Announce(StickyWebDisappeared + teamText);
             side.stickyWeb = false;
+        }
+        if (PokemonOnField[index].partialTrapped)
+        {
+            yield return EndContinuousDamage(index);
         }
     }
 

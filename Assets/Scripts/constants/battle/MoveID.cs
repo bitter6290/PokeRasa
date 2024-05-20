@@ -882,6 +882,8 @@ public enum MoveID
     GlaiveRush,
     RevivalBlessing,
     SaltCure,
+    TripleDive,
+    MortalSpin,
 
     //G-max Moves
 

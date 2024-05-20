@@ -10,7 +10,7 @@ public enum MoveEffect : ushort
     DoubleIronBash,
     PopulationBomb,
     ScaleShot,
-    SurgingStrikes,
+    MultiHit3,
     Twineedle,
     TripleHit,
     //Status-inducing moves
@@ -228,6 +228,7 @@ public enum MoveEffect : ushort
     MetalBurst,
     MeteorBeam,
     MistyExplosion,
+    MortalSpin,
     MultiAttack,
     NaturalGift,
     NaturePower,

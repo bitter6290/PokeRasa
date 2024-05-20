@@ -336,6 +336,8 @@ public partial class Battle : MonoBehaviour
     public ItemID[] itemToUse = new ItemID[6];
     public int[] itemTarget = new int[6];
 
+    private bool didMortalSpinRemoval = false;
+
     public Sprite PlayerIcon1(int i) => playerPokemon[i].SpeciesData.graphics.icon1;
     public Sprite PlayerIcon2(int i) => playerPokemon[i].SpeciesData.graphics.icon2;
 
@@ -2618,7 +2620,7 @@ public partial class Battle : MonoBehaviour
                 if ((HasAbility(attacker, Merciless) &&
                         PokemonOnField[i].pokemon.status is Status.Poison or
                         Status.ToxicPoison) ||
-                        move.Data().effect is AlwaysCrit or SurgingStrikes)
+                        move.Data().effect is AlwaysCrit or MultiHit3)
                 {
                     PokemonOnField[i].isCrit = true;
                     continue;
@@ -5595,7 +5597,7 @@ public partial class Battle : MonoBehaviour
                 yield return ProcessDestinyBondAndGrudge(index);
                 break;
             case MultiHit2to5 or MultiHit2 or Twineedle or TripleHit or PopulationBomb
-                or DoubleIronBash or DragonDarts or ScaleShot or SurgingStrikes:
+                or DoubleIronBash or DragonDarts or ScaleShot or MultiHit3:
                 {
                     if (hitAnyone)
                     {
@@ -5611,7 +5613,7 @@ public partial class Battle : MonoBehaviour
                                 < 1.00 => 5,
                                 _ => 2,
                             },
-                            TripleHit or SurgingStrikes => 3,
+                            TripleHit or MultiHit3 => 3,
                             MultiHit2 or Twineedle or DoubleIronBash or DragonDarts => 2,
                             _ => 0
                         };
@@ -6356,6 +6358,7 @@ public partial class Battle : MonoBehaviour
 
     private IEnumerator HandleMoveEffect(int index)
     {
+        didMortalSpinRemoval = false;
         for (int i = 0; i < 6; i++)
         {
             if (PokemonOnField[i].gotMoveEffect && !PokemonOnField[i].pokemon.fainted)
@@ -6843,6 +6846,14 @@ public partial class Battle : MonoBehaviour
             case RapidSpin:
                 yield return StatUp(index, Speed, 1, attacker);
                 yield return RemoveHazards(index);
+                break;
+            case MortalSpin:
+                if (!didMortalSpinRemoval)
+                {
+                    yield return RemoveHazards(attacker);
+                    didMortalSpinRemoval = true;
+                }
+                yield return GetPoison(index, false, attacker);
                 break;
             case AttackDefenseUp1:
                 yield return StatUp(index, Attack, 1, attacker);
