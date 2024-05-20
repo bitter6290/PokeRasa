@@ -858,7 +858,15 @@
     private const string LastRespectsDesc = "The user attacks to avenge its allies. The more defeated allies there are in the user's party, the greater the move's power.";
     private const string LuminaCrashDesc = "The user attacks by unleashing a peculiar light that even affects the mind. This also harshly lowers the target's Sp. Def stat.";
     private const string OrderUpDesc = "The user attacks with elegant poise. If the user has a Tatsugiri in its mouth, this move boosts one of the user's stats based on the Tatsugiri's form.";
-    
+    private const string JetPunchDesc = "The user summons a torrent around its fist and punches at blinding speed. This move always goes first.";
+    private const string SpicyExtractDesc = "The user emits an incredibly spicy extract, sharply boosting the target's Attack stat and harshly lowering the target's Defense stat.";
+    private const string SpinOutDesc = "The user spins furiously by straining its legs, inflicting damage on the target. This also harshly lowers the user's Speed stat.";
+    private const string PopulationBombDesc = "The user’s fellows gather in droves to perform a combo attack that hits the target one to ten times in a row.";
+    private const string IceSpinnerDesc = "The user covers its feet in thin ice and twirls around, slamming into the target. This move's spinning motion also destroys the terrain.";
+    private const string GlaiveRushDesc = "The user throws its entire body into a reckless charge. After this move is used, attacks on the user cannot miss and will inflict double damage until the user’s next turn.";
+    private const string RevivalBlessingDesc = "The user bestows a loving blessing, reviving a party Pokémon that has fainted and restoring half that Pokémon's max HP.";
+    private const string SaltCureDesc = "The user salt cures the target, inflicting damage every turn. Steel and Water types are more strongly affected by this move.";
+
     //G-Max moves
     private const string GMaxWildfireDesc = "A Fire-type attack that Gigantamax Charizard use. This move continues to deal damage to opponents for four turns.";
     private const string GMaxBefuddleDesc = "A Bug-type attack that Gigantamax Butterfree use. This move inflicts the poisoned, paralyzed, or asleep status condition on opponents.";

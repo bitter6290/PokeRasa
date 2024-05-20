@@ -329,10 +329,14 @@ public partial class Battle
 
         public MoveID zMoveBase;
 
-        public Battle battle;
-
         public bool commanded;
         public SpeciesID commandingSpecies;
+
+        public bool vulnerable; //Glaive Rush
+
+        public bool saltCure;
+
+        public Battle battle;
 
         public SpeciesData.PokemonGraphics Graphics => (dynamaxed && pokemon.gMaxFactor) ?
             pokemon.SpeciesData.gMaxGraphics : pokemon.SpeciesData.graphics;
@@ -409,6 +413,15 @@ public partial class Battle
         public MoveID GetMove(int index)
         {
             return dynamaxed ? GetMoveRaw(index).MaxMove(pokemon) : GetMoveRaw(index);
+        }
+
+        public int GetMoveSlot(MoveID move)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (GetMove(i) == move) return i;
+            }
+            return NullInt;
         }
 
         public int GetStatStage(Stat stat)

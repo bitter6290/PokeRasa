@@ -8,6 +8,7 @@ public enum MoveEffect : ushort
     MultiHit2,
     MultiHit2to5,
     DoubleIronBash,
+    PopulationBomb,
     ScaleShot,
     SurgingStrikes,
     Twineedle,
@@ -87,6 +88,7 @@ public enum MoveEffect : ushort
     NoRetreat,
     Rototiller,
     ShellSmash,
+    SpicyExtract,
     TarShot,
     TripleArrows,
     VenomDrench,
@@ -212,8 +214,10 @@ public enum MoveEffect : ushort
     FlyingPress,
     FuryCutter,
     FutureSight,
+    GlaiveRush,
     GrassyGlide,
     HiddenPower,
+    IceSpinner,
     IgnoreAbility,
     Incinerate,
     IgnoreDefenseStage,
@@ -240,6 +244,7 @@ public enum MoveEffect : ushort
     RevelationDance,
     Rollout,
     Round,
+    SaltCure,
     SelfDestruct,
     ShellSideArm,
     SnipeShot,
@@ -381,6 +386,7 @@ public enum MoveEffect : ushort
     LunarBlessing,
     Purify,
     Rest,
+    RevivalBlessing,
     Roost,
     ShoreUp,
     TakeHeart,
@@ -418,7 +424,7 @@ public static class MoveEffectUtils
         => effect is AttackDown1 or AttackDown2 or DefenseDown1
         or DefenseDown2 or SpAtkDown1 or SpAtkDown2 or SpDefDown1
         or SpDefDown2 or SpeedDown1 or SpeedDown2 or AttackDefenseDown1
-        or DefenseSpDefDown1 or Captivate or TripleArrows;
+        or DefenseSpDefDown1 or Captivate or TripleArrows or SpicyExtract;
 
     public static bool IsStatusMove(this MoveEffect effect)
         => effect is Paralyze or Freeze or Burn or Sleep or Poison or Toxic
@@ -432,7 +438,7 @@ public static class MoveEffectUtils
         or AttackDefenseUp1 or AttackDefenseAccUp1 or SpAtkSpDefUp1
         or AttackDefenseSpeedUp1 or SpAtkSpDefSpeedUp1 or AllUp1 or AllUp2
         or Autotomize or Acupressure or TakeHeart
-        or BellyDrum or Charge or DefenseCurl or Growth or Minimize or OrderUp;
+        or BellyDrum or Charge or DefenseCurl or Growth or Minimize or OrderUp or SpicyExtract;
 
     public static bool IsShieldDustAffected(this MoveEffect effect)
     {

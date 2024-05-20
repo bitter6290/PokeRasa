@@ -741,7 +741,8 @@ public class Pokemon : ICloneable
             Nature, Moves[0], Moves[1], Moves[2], Moves[3], (int)Floor(random.NextDouble() * 2),
             Species.SpeciesTable[(int)species].baseFriendship, ItemID.None, (Type)(random.Next() % 18))
         {
-            teraType = random.Next(2) is 0 ? species.Data().type1 : species.Data().type2
+            teraType = random.Next(2) is 0 ? species.Data().type1 : species.Data().type2,
+            ball = ItemID.PokeBall
         };
     }
     public static Pokemon EmptyMon = new

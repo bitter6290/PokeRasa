@@ -874,7 +874,14 @@ public enum MoveID
     LastRespects,
     LuminaCrash,
     OrderUp,
-
+    JetPunch,
+    SpicyExtract,
+    SpinOut,
+    PopulationBomb,
+    IceSpinner,
+    GlaiveRush,
+    RevivalBlessing,
+    SaltCure,
 
     //G-max Moves
 

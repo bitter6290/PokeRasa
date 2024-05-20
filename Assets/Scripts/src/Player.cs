@@ -1564,6 +1564,8 @@ public class Player : LoadedChar
         minior.pp1 = 30;
         minior.move2 = MoveID.BellyDrum;
         minior.pp2 = 30;
+        minior.move3 = MoveID.RevivalBlessing;
+        minior.pp3 = 20;
         Pokemon charizard = Pokemon.WildPokemon(SpeciesID.Charizard, 15);
         charizard.move1 = MoveID.BlastBurn;
         charizard.pp1 = 20;
@@ -1571,6 +1573,8 @@ public class Player : LoadedChar
         charizard.pp2 = 20;
         charizard.move3 = MoveID.Tackle;
         charizard.pp3 = 20;
+        charizard.move4 = MoveID.Memento;
+        charizard.pp4 = 20;
         charizard.gMaxFactor = true;
         TryAddMon(charizard);
         TryAddMon(bulbasaur);

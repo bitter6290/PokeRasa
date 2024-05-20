@@ -1728,10 +1728,22 @@ public partial class Battle : MonoBehaviour
         Double
     }
 
-    private int DamageCalc(BattlePokemon attacker, BattlePokemon defender, MoveID move,
-        bool isMultiTarget, bool isCritical, int side, int powerOverride = NullInt)
+    private enum CalcAIMode
     {
-        int roll = 100 - (random.Next() & 15);
+        None,
+        Floor,
+        Ceiling
+    }
+
+    private int DamageCalc(BattlePokemon attacker, BattlePokemon defender, MoveID move,
+        bool isMultiTarget, bool isCritical, int side, int powerOverride = NullInt, CalcAIMode aiMode = 0)
+    {
+        int roll = aiMode switch 
+        {
+            CalcAIMode.Floor => 85,
+            CalcAIMode.Ceiling => 100,
+            _ => 100 - (random.Next() & 15)
+        };
         int effectivePower = powerOverride == NullInt ? move.Data().power : powerOverride;
         bool flipPhysicalSpecial = move.Data().effect is PhotonGeyser or LightThatBurnsTheSky
             & attacker.Attack > attacker.SpAtk;
@@ -1991,6 +2003,7 @@ public partial class Battle : MonoBehaviour
             * GetAttackerPartnerAbilityModifiers(attacker)
             * GetDefenderPartnerAbilityModifiers(defender, attacker)
             * invulnerabiltyBonus * roll / 100);
+        if (defender.vulnerable) result <<= 1;
         Debug.Log(result);
         return Max(1, result);
     }
@@ -2333,32 +2346,15 @@ public partial class Battle : MonoBehaviour
                 return false;
             default: break;
         }
-        if (GetMove(attacker).accuracy == Move.AlwaysHit)
-        {
-            PokemonOnField[defender].isHit = true;
-            return true;
-        }
-        if (Moves[attacker] is MoveID.Toxic && PokemonOnField[attacker].HasType(Type.Poison))
-        {
-            PokemonOnField[defender].isHit = true;
-            return true;
-        }
-        if (move.Data().moveFlags.HasFlag(alwaysHitsInRain) && IsRainAffected(defender))
-        {
-            PokemonOnField[defender].isHit = true;
-            return true;
-        }
-        if (move.Data().moveFlags.HasFlag(alwaysHitsMinimized)
-            && PokemonOnField[defender].minimized)
-        {
-            PokemonOnField[defender].isHit = true;
-            return true;
-        }
-        if (GetAccuracy(move, attacker, defender) > random.NextDouble()
+        if (GetMove(attacker).accuracy == Move.AlwaysHit || PokemonOnField[defender].vulnerable
+            || (Moves[attacker] is MoveID.Toxic && PokemonOnField[attacker].HasType(Type.Poison))
+            || move.Data().moveFlags.HasFlag(alwaysHitsInRain) && IsRainAffected(defender)
+            || move.Data().moveFlags.HasFlag(alwaysHitsInSnow) && IsWeatherAffected(defender, Snow)
+            || (move.Data().moveFlags.HasFlag(alwaysHitsMinimized) && PokemonOnField[defender].minimized)
             || HasAbility(attacker, NoGuard)
             || HasAbility(defender, NoGuard)
-            || (PokemonOnField[attacker].hasMindReader
-            && PokemonOnField[attacker].mindReaderTarget == defender))
+            || (PokemonOnField[attacker].hasMindReader && PokemonOnField[attacker].mindReaderTarget == defender)
+            || GetAccuracy(move, attacker, defender) > random.NextDouble())
         {
             PokemonOnField[defender].isHit = true;
             return true;
@@ -2780,7 +2776,7 @@ public partial class Battle : MonoBehaviour
                             case Instruct when !target.done || target.lockedInNextTurn ||
                                 target.GetPP(target.lastMoveSlot) < 1 || target.lastMoveUsed is
                                 MoveID.Instruct or MoveID.Bide or MoveID.FocusPunchAttack or
-                                //Add Beak Blast and Shell Trap
+                                MoveID.BeakBlast or MoveID.ShellTrap or
                                 MoveID.Transform or MoveID.Sketch or MoveID.Mimic or
                                 MoveID.KingsShield or MoveID.Struggle or MoveID.Metronome or
                                 MoveID.MirrorMove ||
@@ -3899,6 +3895,7 @@ public partial class Battle : MonoBehaviour
         BattlePokemon mon = PokemonOnField[index];
         mon.goingNext = false;
         mon.beakBlast = false;
+        mon.vulnerable = false;
         if (Moves[index] == MoveID.UseItem)
         {
             currentMovingMon = NoMons;
@@ -4675,6 +4672,8 @@ public partial class Battle : MonoBehaviour
 
         BattlePokemon user = PokemonOnField[index];
 
+        user.vulnerable = GetMove(index).effect is GlaiveRush;
+
         Debug.Log("Executing for " + index);
 
         if (EffectiveAbility(index) is Protean or Libero &&
@@ -4837,24 +4836,28 @@ public partial class Battle : MonoBehaviour
                 };
                 user.done = true;
                 MoveCleanup();
+                yield return CheckLeppaBerry(index, MoveNums[index]);
                 yield break;
             case MirrorMove:
                 yield return DoMoveAnimation(index, MoveID.MirrorMove);
                 user.dontCheckPP = true;
                 Moves[index] = user.lastTargetedMove;
                 yield return ExecuteMove(index);
+                yield return CheckLeppaBerry(index, MoveNums[index]);
                 yield break;
             case Metronome:
                 yield return DoMoveAnimation(index, MoveID.Metronome);
                 user.dontCheckPP = true;
                 Moves[index] = (MoveID)(random.Next() % (int)MoveID.Count); //Todo: Add double or multi-battle functionality (targeting)
                 yield return ExecuteMove(index);
+                yield return CheckLeppaBerry(index, MoveNums[index]);
                 yield break;
             case Assist:
                 yield return DoMoveAnimation(index, MoveID.Assist);
                 user.dontCheckPP = true;
                 Moves[index] = GetAssistMove(index);
                 yield return ExecuteMove(index);
+                yield return CheckLeppaBerry(index, MoveNums[index]);
                 yield break;
             case Sketch:
                 {
@@ -4866,6 +4869,7 @@ public partial class Battle : MonoBehaviour
                         user.moveFailedThisTurn = true;
                         user.done = true;
                         MoveCleanup();
+                        if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                         yield break;
                     }
                     else
@@ -4876,6 +4880,7 @@ public partial class Battle : MonoBehaviour
                             + targetMove.Data().name + "!");
                         user.done = true;
                         MoveCleanup();
+                        if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                         yield break;
                     }
                 }
@@ -4896,6 +4901,7 @@ public partial class Battle : MonoBehaviour
                     yield return StatDown(index, Speed, 1, index);
                     user.done = true;
                     MoveCleanup();
+                    if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                     yield break;
                 }
                 break;
@@ -4929,11 +4935,13 @@ public partial class Battle : MonoBehaviour
                 user.meFirst = true;
                 Moves[index] = Moves[Targets[index]];
                 yield return ExecuteMove(index);
+                if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                 yield break;
             case Copycat:
                 user.dontCheckPP = true;
                 Moves[index] = lastMoveUsed;
                 yield return ExecuteMove(index);
+                if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                 yield break;
             case FocusPunchAttack when !user.focused:
                 yield return Announce(MonNameWithPrefix(index, true)
@@ -4985,6 +4993,7 @@ public partial class Battle : MonoBehaviour
                         user.moveFailedThisTurn = true;
                         user.done = true;
                         MoveCleanup();
+                        if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                         yield break;
                     }
                     else
@@ -5027,6 +5036,7 @@ public partial class Battle : MonoBehaviour
                         " regained health!");
                     user.done = true;
                     MoveCleanup();
+                    if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                     yield break;
                 }
                 else singleMovePower = presentPower;
@@ -5038,30 +5048,45 @@ public partial class Battle : MonoBehaviour
                         " took the kind offer!");
                     user.done = true;
                     MoveCleanup();
+                    if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                     yield return TryMove(Targets[index]);
                 }
                 else
                 {
+                    yield return Announce(BattleText.MoveFailed);
+                    user.moveFailedThisTurn = true;
                     user.done = true;
                     MoveCleanup();
+                    if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                 }
                 yield break;
             case Instruct:
                 int target = Targets[index];
+                BattlePokemon mon = PokemonOnField[target];
+                if (mon.GetMoveSlot(mon.lastMoveUsed) is NullInt)
+                {
+                    yield return Announce(BattleText.MoveFailed);
+                    user.moveFailedThisTurn = true;
+                    user.done = true;
+                    MoveCleanup();
+                    if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
+                    yield break;
+                }
                 yield return Announce(MonNameWithPrefix(target, true) +
                     " used the move instructed by " + MonNameWithPrefix(index, false) + "!");
-                bool storedDone = PokemonOnField[target].done;
+                bool storedDone = mon.done;
                 MoveID storedMove = Moves[target];
                 int storedSlot = MoveNums[target];
-                Moves[target] = PokemonOnField[target].lastMoveUsed;
-                MoveNums[target] = PokemonOnField[target].lastMoveSlot;
-                PokemonOnField[target].done = false;
+                Moves[target] = mon.lastMoveUsed;
+                MoveNums[target] = mon.lastMoveSlot;
+                mon.done = false;
                 yield return TryMove(Targets[index]);
                 Moves[target] = storedMove;
                 MoveNums[target] = storedSlot;
-                PokemonOnField[target].done = storedDone;
+                mon.done = storedDone;
                 user.done = true;
                 MoveCleanup();
+                if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                 yield break;
             case Poltergeist:
                 yield return Announce(MonNameWithPrefix(Targets[index], true)
@@ -5140,9 +5165,13 @@ public partial class Battle : MonoBehaviour
                 {
                     if (!PlayerHasMonsInBack)
                     {
-                        Debug.Log("No mons!");
+                        //Debug.Log("No mons!");
                         yield return Announce(BattleText.MoveFailed);
                         user.moveFailedThisTurn = true;
+                        user.done = true;
+                        MoveCleanup();
+                        if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
+                        yield break;
                     }
                     else
                     {
@@ -5159,8 +5188,9 @@ public partial class Battle : MonoBehaviour
                         yield return Announce(BattleText.MoveFailed);
                         user.moveFailedThisTurn = true;
                         user.done = true;
+                        MoveCleanup();
+                        if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                         yield break;
-
                     }
                     yield return DoMoveAnimation(index, Moves[index]);
                     yield return ExitAbilityCheck(index);
@@ -5168,6 +5198,55 @@ public partial class Battle : MonoBehaviour
                     yield return VoluntarySwitch(0, nextMon, false, true);
                     yield return EntryAbilityCheck(0);
                 }
+                yield break;
+            case RevivalBlessing:
+                if (user.player)
+                {
+                    bool goAhead = false;
+                    foreach (Pokemon mon in playerPokemon)
+                    {
+                        if (mon.exists && mon.fainted) goAhead = true;
+                    }
+                    if (!goAhead)
+                    {
+                        yield return Announce(BattleText.MoveFailed);
+                        user.moveFailedThisTurn = true;
+                    }
+                    else
+                    {
+                        choseSwitchMon = false;
+                        menuManager.currentPartyMon = 1;
+                        menuManager.PartyMenu(MenuManager.PartyScreenReason.RevivalBlessing);
+                        state = BattleState.PlayerInput;
+                        while (!choseSwitchMon)
+                        {
+                            yield return null;
+                        }
+                        Pokemon mon = playerPokemon[switchingTarget];
+                        mon.fainted = false;
+                        mon.hp = mon.hpMax >> 1;
+                        yield return Announce(mon.MonName + " was revived!");
+                    }
+                }
+                else
+                {
+                    int whichMon = GetRevivedMonSingle();
+                    if (whichMon is NoMons)
+                    {
+                        yield return Announce(BattleText.MoveFailed);
+                        user.moveFailedThisTurn = true;
+                    }
+                    else
+                    {
+                        Pokemon mon = opponentPokemon[whichMon];
+                        mon.fainted = false;
+                        mon.hp = mon.hpMax >> 1;
+                        yield return Announce(mon.MonName + " was revived!");
+                    }
+                }
+                user.done = true;
+                MoveCleanup();
+                if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                 yield break;
             case MoveEffect.BatonPass:
                 if (user.player)
@@ -5204,6 +5283,8 @@ public partial class Battle : MonoBehaviour
                         yield return Announce(BattleText.MoveFailed);
                         user.moveFailedThisTurn = true;
                         user.done = true;
+                        MoveCleanup();
+                        if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                         yield break;
 
                     }
@@ -5248,10 +5329,19 @@ public partial class Battle : MonoBehaviour
                 user.lockedInMove = MoveID.Recharge;
                 goto default;
             case MoveEffect.Transform:
-                yield return TransformByMove(index, Targets[index]);
-                CleanStatSwaps(user);
+                if (PokemonOnField[Targets[index]].exists)
+                {
+                    yield return TransformByMove(index, Targets[index]);
+                    CleanStatSwaps(user);
+                }
+                else
+                {
+                    yield return Announce(BattleText.MoveFailed);
+                    user.moveFailedThisTurn = true;
+                }
                 user.done = true;
                 MoveCleanup();
+                if (!user.dontCheckPP) yield return CheckLeppaBerry(index, MoveNums[index]);
                 yield break;
             case ChargingAttack:
                 bool GoToHit = false;
@@ -5504,13 +5594,14 @@ public partial class Battle : MonoBehaviour
                 yield return ProcessFainting();
                 yield return ProcessDestinyBondAndGrudge(index);
                 break;
-            case MultiHit2to5 or MultiHit2 or Twineedle or TripleHit
+            case MultiHit2to5 or MultiHit2 or Twineedle or TripleHit or PopulationBomb
                 or DoubleIronBash or DragonDarts or ScaleShot or SurgingStrikes:
                 {
                     if (hitAnyone)
                     {
                         int hits = GetMove(index).effect switch
                         {
+                            PopulationBomb => 10,
                             MultiHit2to5 or ScaleShot => HasAbility(index, SkillLink) ? 5 :
                             random.NextDouble() switch
                             {
@@ -5627,7 +5718,7 @@ public partial class Battle : MonoBehaviour
                                 hits = i + 1;
                                 break;
                             }
-                            if (GetMove(index).effect == TripleHit
+                            if (GetMove(index).effect is TripleHit or PopulationBomb
                                 && random.NextDouble() > GetAccuracy(Moves[index], index, Targets[index])
                                 && !HasAbility(index, SkillLink))
                             {
@@ -5984,12 +6075,12 @@ public partial class Battle : MonoBehaviour
             user.dontCheckPP = true;
             yield return ExecuteMove(index, true);
         }
-        if (!dancer && Moves[index].Data().moveFlags.HasFlag(MoveFlags.danceMove))
+        if (!dancer && Moves[index].Data().moveFlags.HasFlag(danceMove))
         {
             List<int> dancers = new();
             for (int i = 0; i < 6; i++)
             {
-                if (HasAbility(i, Dancer)) dancers.Add(i);
+                if (HasAbility(i, Dancer) && i != index) dancers.Add(i);
             }
             dancers = dancers.OrderBy(i => GetSpeed(i)).ThenBy(i => random.Next()).ToList();
             foreach (int i in dancers)
@@ -6003,19 +6094,6 @@ public partial class Battle : MonoBehaviour
         if (user.pokemon.species is SpeciesID.FarfetchdGalar && critSomeone) user.pokemon.evolutionCounter++;
         if (!dancer) user.done = true;
         MoveCleanup();
-    }
-
-    private IEnumerator CheckDancer(int index)
-    {
-        for (int i = 0; i < 6; i++)
-        {
-            if (i == index || !HasAbility(i, Dancer)) continue;
-            (MoveID move, bool wasDone) = (Moves[i], PokemonOnField[i].done);
-            Moves[i] = Moves[index];
-            PokemonOnField[i].done = false;
-            yield return TryMove(i, false);
-
-        }
     }
 
     private IEnumerator DoMoveAnimation(int attacker, MoveID move)
@@ -6692,6 +6770,11 @@ public partial class Battle : MonoBehaviour
             case EvasionDown2:
                 yield return StatDown(index, Evasion, 2, attacker);
                 break;
+            case SpicyExtract:
+                yield return StatUp(index, Attack, 2, attacker);
+                doStatAnim = true;
+                yield return StatDown(index, Defense, 2, attacker);
+                break;
             case VenomDrench:
                 yield return StatDown(index, Attack, 1, attacker);
                 yield return StatDown(index, SpAtk, 1, attacker);
@@ -6852,7 +6935,7 @@ public partial class Battle : MonoBehaviour
                 }
                 else
                 {
-                    int nextMon = GetNextOpponentMonSingle();
+                    int nextMon = GetNextOpponentMonSingle(); //Todo: Doubles
                     if (nextMon == NoMons)
                     {
                         PokemonOnField[index].done = true;
@@ -6935,7 +7018,7 @@ public partial class Battle : MonoBehaviour
             case Memento:
                 yield return StatDown(index, Attack, 2, attacker);
                 yield return StatDown(index, SpAtk, 2, attacker);
-                yield return DoFatalDamage(index);
+                yield return DoFatalDamage(attacker);
                 PokemonOnField[attacker].pokemon.fainted = true;
                 break;
             case PartingShot:
@@ -7126,6 +7209,7 @@ public partial class Battle : MonoBehaviour
                 break;
             case SplinteredStormshards:
             case SteelRoller:
+            case IceSpinner:
                 yield return RemoveTerrain();
                 break;
             case PayDay:
@@ -7395,6 +7479,10 @@ public partial class Battle : MonoBehaviour
                 break;
             case ContinuousDamage:
                 yield return GetContinuousDamage(attacker, index, Moves[attacker]);
+                break;
+            case SaltCure:
+                PokemonOnField[index].saltCure = true;
+                yield return Announce(MonNameWithPrefix(index, true) + " is being salt cured!");
                 break;
             case StealthRock:
                 yield return DoStealthRock(attacker);
@@ -8584,6 +8672,21 @@ public partial class Battle : MonoBehaviour
             }
         }
         yield return DoMonChecks(CheckGMaxDamage);
+        IEnumerator CheckSaltCure(int index)
+        {
+            BattlePokemon mon = PokemonOnField[index];
+            if (mon.saltCure)
+            {
+                yield return DoDamage(mon, 
+                    mon.HPMax >> (mon.HasType(Type.Water) || mon.HasType(Type.Steel) ? 2 : 3), 
+                    true, true);
+                yield return Announce (MonNameWithPrefix(index, true) + " is hurt by Salt Cure!");
+                yield return ProcessFaintingSingle(index);
+                yield return ProcessBerries(index, false);
+                yield return CheckWimpOut();
+            }
+        }
+        yield return DoMonChecks(CheckSaltCure);
         IEnumerator CheckDynamax(int index)
         {
             BattlePokemon mon = PokemonOnField[index];
@@ -8953,11 +9056,23 @@ public partial class Battle : MonoBehaviour
 
     private IEnumerator AbilityPopupEnd(int index) => abilityControllers[index].Dismiss();
 
-    private int GetNextOpponentMonSingle()
+    private int GetNextOpponentMonSingle() //Todo: AI
     {
         for (int i = 0; i < 6; i++)
         {
             if (opponentPokemon[i].fainted == false && opponentPokemon[i].exists && !opponentPokemon[i].onField)
+            {
+                return i;
+            }
+        }
+        return NoMons;
+    }
+
+    private int GetRevivedMonSingle() //Todo: AI
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (opponentPokemon[i].exists == true && opponentPokemon[i].fainted)
             {
                 return i;
             }

@@ -2525,4 +2525,19 @@ public partial class Battle
         scatteredCoins += amount;
         scatteredCoins = Min(scatteredCoins, 99999);
     }
+
+    private IEnumerator DoCommander(int commander, int target)
+    {
+        PokemonOnField[commander].trapped = true;
+        PokemonOnField[commander].trappingSlot = target;
+        PokemonOnField[target].trapped = true;
+        PokemonOnField[target].trappingSlot = commander;
+        PokemonOnField[commander].invulnerability = Invulnerability.Swallowed;
+        //Todo: animation
+        yield return PopupAnnounce(commander, $"Commander placeholder animation");
+        for (Stat i = Stat.Attack; i <= Stat.Speed; i++)
+        {
+            yield return StatUp(target, i, 2, commander);
+        }
+    }
 }

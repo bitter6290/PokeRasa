@@ -4126,6 +4126,44 @@ public static partial class Move
         MoveEffect.OrderUp, 101,
         true, Single, 10,
         effectOnSelfOnly, OrderUpDesc, 160); //Needs anim
+    public static readonly MoveData JetPunch = SingleTargetNoAddedEffect(
+        "Jet Punch", Water, 60, 100, 1, true, 15, makesContact, 120, JetPunchDesc); //Needs anim
+    public static readonly MoveData SpicyExtract = SingleTargetStatusMove(
+        "Spicy Extract", Grass, 101, 0, MoveEffect.SpicyExtract, 15, magicBounceAffected,
+        AttackUp1, SpicyExtractDesc); //Needs anim
+    public static readonly MoveData SpinOut = new(
+        "Spin Out", Steel,
+        100, 100, 0,
+        MoveEffect.SpeedDown2, 101,
+        true, Single, 5,
+        effectOnSelfOnly & makesContact, SpinOutDesc , 180); //Needs anim
+    public static readonly MoveData PopulationBomb = new
+        ("Population Bomb", Normal,
+        20, 90, 0,
+        MoveEffect.PopulationBomb, 0,
+        true, Single, 10,
+        makesContact & sharpnessBoosted, PopulationBombDesc, 100); //Needs anim
+    public static readonly MoveData IceSpinner = new
+        ("Ice Spinner", Ice,
+        80, 100, 0,
+        MoveEffect.IceSpinner, 101,
+        true, Single, 15,
+        makesContact & effectOnSelfOnly, IceSpinnerDesc, 160); //Needs anim
+    public static readonly MoveData GlaiveRush = new
+        ("Glaive Rush", Dragon,
+        120, 100, 0,
+        MoveEffect.GlaiveRush, 101,
+        true, Single, 5,
+        makesContact, GlaiveRushDesc, 180); //Needs anim
+    public static readonly MoveData RevivalBlessing = SelfTargetingMove(
+        "Revival Blessing", Normal, 0, MoveEffect.RevivalBlessing, 1, snatchAffected,
+        Heal100, RevivalBlessingDesc); //Needs anim
+    public static readonly MoveData SaltCure = new(
+        "Salt Cure", Rock,
+        40, 100, 0,
+        MoveEffect.SaltCure, 101,
+        true, Single, 15,
+        noFlag, SaltCureDesc, 100); //Needs anim
 
 
     //Gigantamax Moves
@@ -5249,6 +5287,14 @@ public static partial class Move
         LastRespects,
         LuminaCrash,
         OrderUp,
+        JetPunch,
+        SpicyExtract,
+        SpinOut,
+        PopulationBomb,
+        IceSpinner,
+        GlaiveRush,
+        RevivalBlessing,
+        SaltCure,
 
         //G-max Moves
 

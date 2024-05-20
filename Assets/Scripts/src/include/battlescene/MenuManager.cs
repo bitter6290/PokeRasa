@@ -75,7 +75,8 @@ public class MenuManager : MonoBehaviour
     {
         ChoosingSwitch,
         SwitchingMove,
-        UsingItem
+        UsingItem,
+        RevivalBlessing,
     }
 
     public PartyScreenReason partyScreenReason;
@@ -504,7 +505,7 @@ public class MenuManager : MonoBehaviour
             Text(i).enabled = false;
         }
 
-        box7.enabled = reason is not PartyScreenReason.SwitchingMove;
+        box7.enabled = reason is not PartyScreenReason.SwitchingMove or PartyScreenReason.RevivalBlessing;
         text7.enabled = box7.enabled;
         box7.color = backColor;
         text7.text = "Back";
@@ -1129,7 +1130,7 @@ public class MenuManager : MonoBehaviour
                         {
                             case 1:
                                 currentPartyMon = box2.enabled ? 3 :
-                                    partyScreenReason is PartyScreenReason.SwitchingMove ? 1 : 0;
+                                    partyScreenReason is PartyScreenReason.SwitchingMove or PartyScreenReason.RevivalBlessing ? 1 : 0;
                                 if (currentPartyMon != 1)
                                 {
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1138,7 +1139,7 @@ public class MenuManager : MonoBehaviour
                                 break;
                             case 2:
                                 currentPartyMon = box4.enabled ? 4 :
-                                    partyScreenReason is PartyScreenReason.SwitchingMove ? 2 : 0;
+                                    partyScreenReason is PartyScreenReason.SwitchingMove or PartyScreenReason.RevivalBlessing ? 2 : 0;
                                 if (currentPartyMon != 2)
                                 {
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1147,7 +1148,7 @@ public class MenuManager : MonoBehaviour
                                 break;
                             case 3:
                                 currentPartyMon = box5.enabled ? 5 :
-                                    partyScreenReason is PartyScreenReason.SwitchingMove ? 3 : 0;
+                                    partyScreenReason is PartyScreenReason.SwitchingMove or PartyScreenReason.RevivalBlessing ? 3 : 0;
                                 if (currentPartyMon != 3)
                                 {
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1156,7 +1157,7 @@ public class MenuManager : MonoBehaviour
                                 break;
                             case 4:
                                 currentPartyMon = box6.enabled ? 6 :
-                                    partyScreenReason is PartyScreenReason.SwitchingMove ? 4 : 0;
+                                    partyScreenReason is PartyScreenReason.SwitchingMove or PartyScreenReason.RevivalBlessing ? 4 : 0;
                                 if (currentPartyMon != 4)
                                 {
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1164,7 +1165,7 @@ public class MenuManager : MonoBehaviour
                                 }
                                 break;
                             case 5:
-                                if (partyScreenReason is not PartyScreenReason.SwitchingMove)
+                                if (partyScreenReason is not PartyScreenReason.SwitchingMove or PartyScreenReason.RevivalBlessing)
                                 {
                                     currentPartyMon = 0;
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1172,7 +1173,7 @@ public class MenuManager : MonoBehaviour
                                 }
                                 break;
                             case 6:
-                                if (partyScreenReason is not PartyScreenReason.SwitchingMove)
+                                if (partyScreenReason is not PartyScreenReason.SwitchingMove or PartyScreenReason.RevivalBlessing)
                                 {
                                     currentPartyMon = 0;
                                     battle.audioSource0.PlayOneShot(MoveCursor);
@@ -1282,7 +1283,20 @@ public class MenuManager : MonoBehaviour
                                 case 4:
                                 case 5:
                                 case 6:
-                                    if (battle.playerPokemon[currentPartyMon - 1].fainted)
+                                    if (partyScreenReason is PartyScreenReason.RevivalBlessing)
+                                    {
+                                        if (battle.playerPokemon[currentPartyMon - 1].fainted)
+                                        {
+                                            GoToAnnounce();
+                                            battle.switchingTarget = currentPartyMon - 1;
+                                            battle.choseSwitchMon = true;
+                                        }
+                                        else
+                                        {
+                                            StartCoroutine(AnnounceAndReturn($"{battle.playerPokemon[currentPartyMon - 1].MonName} hasn't fainted!"));
+                                        }
+                                    }
+                                    else if (battle.playerPokemon[currentPartyMon - 1].fainted)
                                     {
                                         StartCoroutine(AnnounceAndReturn(
                                             battle.playerPokemon[currentPartyMon - 1].MonName
@@ -1294,6 +1308,12 @@ public class MenuManager : MonoBehaviour
                                             battle.playerPokemon[currentPartyMon - 1].MonName
                                             + " is already on the field!"));
                                     }
+                                    else if (partyScreenReason is PartyScreenReason.SwitchingMove)
+                                    {
+                                        GoToAnnounce();
+                                        battle.switchingTarget = currentPartyMon - 1;
+                                        battle.choseSwitchMon = true;
+                                    }
                                     else if (battle.IsTrapped(currentMon))
                                     {
                                         StartCoroutine(AnnounceAndReturn(
@@ -1302,31 +1322,22 @@ public class MenuManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        if (partyScreenReason is PartyScreenReason.SwitchingMove)
+                                        battle.PokemonOnField[currentMon].choseMove = true;
+                                        battle.Moves[currentMon] = MoveID.Switch;
+                                        battle.SwitchTargets[currentMon] = currentPartyMon - 1;
+                                        if (GetNextPokemon())
                                         {
+                                            menuMode = MenuMode.Main;
                                             GoToAnnounce();
-                                            battle.switchingTarget = currentPartyMon - 1;
-                                            battle.choseSwitchMon = true;
+                                            currentMove = 1;
+                                            currentMon = 2;
+                                            GetNextPokemon();
+                                            battle.DoNextMove();
                                         }
                                         else
                                         {
-                                            battle.PokemonOnField[currentMon].choseMove = true;
-                                            battle.Moves[currentMon] = MoveID.Switch;
-                                            battle.SwitchTargets[currentMon] = currentPartyMon - 1;
-                                            if (GetNextPokemon())
-                                            {
-                                                menuMode = MenuMode.Main;
-                                                GoToAnnounce();
-                                                currentMove = 1;
-                                                currentMon = 2;
-                                                GetNextPokemon();
-                                                battle.DoNextMove();
-                                            }
-                                            else
-                                            {
-                                                MainMenu();
-                                                currentMove = 1;
-                                            }
+                                            MainMenu();
+                                            currentMove = 1;
                                         }
                                     }
                                     break;
