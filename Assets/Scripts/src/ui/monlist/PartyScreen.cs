@@ -264,8 +264,10 @@ public class PartyScreen : MonoBehaviour
     private IEnumerator DoPPUp(bool max)
     {
         state = State.Busy;
-        DataStore<int> store = new();
-        store.Data = 63;
+        DataStore<int> store = new()
+        {
+            Data = 63
+        };
         yield return MoveSelectScreen.DoMoveSelectScreen(CurrentMon, store);
         if (store.Data is 63)
         {

@@ -6,22 +6,24 @@ public delegate void MovementHandler();
 
 public abstract class LoadedChar : MonoBehaviour
 {
-    public abstract IEnumerator FaceNorth();
-    public abstract IEnumerator FaceSouth();
-    public abstract IEnumerator FaceEast();
-    public abstract IEnumerator FaceWest();
-    public abstract IEnumerator BumpNorth();
-    public abstract IEnumerator BumpSouth();
-    public abstract IEnumerator BumpEast();
-    public abstract IEnumerator BumpWest();
-    public abstract IEnumerator WalkNorth();
-    public abstract IEnumerator WalkSouth();
-    public abstract IEnumerator WalkEast();
-    public abstract IEnumerator WalkWest();
-    public abstract IEnumerator RunNorth();
-    public abstract IEnumerator RunSouth();
-    public abstract IEnumerator RunEast();
-    public abstract IEnumerator RunWest();
+    public virtual IEnumerator FaceNorth() => ScriptUtils.DoNothing();
+    public virtual IEnumerator FaceSouth() => ScriptUtils.DoNothing();
+    public virtual IEnumerator FaceEast() => ScriptUtils.DoNothing();
+    public virtual IEnumerator FaceWest() => ScriptUtils.DoNothing();
+    public virtual IEnumerator BumpNorth() => ScriptUtils.DoNothing();
+    public virtual IEnumerator BumpSouth() => ScriptUtils.DoNothing();
+    public virtual IEnumerator BumpEast() => ScriptUtils.DoNothing();
+    public virtual IEnumerator BumpWest() => ScriptUtils.DoNothing();
+    public virtual IEnumerator WalkNorth() => ScriptUtils.DoNothing();
+    public virtual IEnumerator WalkSouth() => ScriptUtils.DoNothing();
+    public virtual IEnumerator WalkEast() => ScriptUtils.DoNothing();
+    public virtual IEnumerator WalkWest() => ScriptUtils.DoNothing();
+    public virtual IEnumerator RunNorth() => ScriptUtils.DoNothing();
+    public virtual IEnumerator RunSouth() => ScriptUtils.DoNothing();
+    public virtual IEnumerator RunEast() => ScriptUtils.DoNothing();
+    public virtual IEnumerator RunWest() => ScriptUtils.DoNothing();
+
+    public IEnumerator Break => WalkNorth();
 
     public IEnumerator DoPause(float duration)
     {

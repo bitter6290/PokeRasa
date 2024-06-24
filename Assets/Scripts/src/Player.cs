@@ -10,6 +10,7 @@ using BagOutcome = BagController.BagOutcome;
 using PartyScreenOutcome = PartyScreen.PartyScreenOutcome;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using Unity.VisualScripting;
 
 public class Player : LoadedChar
 {
@@ -282,6 +283,18 @@ public class Player : LoadedChar
         Debug.Log("Game saved!");
     }
 
+    private void ResetSave()
+    {
+        TM = new bool[(int)TMID.Count];
+        storyFlags = new bool[(int)Flag.Count];
+        trainerFlags = new bool[(int)TrainerFlag.Count];
+        seenFlags = new bool[(int)SpeciesID.Count];
+        caughtFlags = new bool[(int)SpeciesID.Count];
+        boxes = new();
+        currentBox = 0;
+        money = 0;
+    }
+
     public Pokemon[] Party = new Pokemon[6];
     public int MonsInParty
     {
@@ -312,22 +325,32 @@ public class Player : LoadedChar
 
     public IEnumerator GetItem(ItemID item, int amount)
     {
+        yield return DoAnnouncements(new(){$"Received the {item.Data().itemName}!"});
+        //Todo: item sound
         switch (Item.ItemTable[(int)item].type)
         {
             case ItemType.TM:
-                //yield return Field.Announce("Received" + Item.ItemTable[item].name");
                 TM[Item.ItemTable[(int)item].ItemSubdata[0]] = true;
                 break;
             case ItemType.KeyItem:
-                //yield return Field.Announce("Received" + Item.ItemTable[item].name");
                 storyFlags[Item.ItemTable[(int)item].ItemSubdata[0]] = true;
                 break;
             default:
-                //yield return Field.Announce("Received" + Item.ItemTable[item].name");
                 AddItem(item, amount);
                 break;
         }
         yield break;
+    }
+
+    public IEnumerator GetTM(TMID tm)
+    {
+        yield return DoAnnouncements(new(){$"Received the TM{(int)tm} {tm.Move().Data().name}!"});
+        tm.Set();
+    }
+    public IEnumerator GetHM(TMID hm)
+    {
+        yield return DoAnnouncements(new(){$"Received the HM{hm - TMID.HMStart + 1} {hm.Move().Data().name}!"});
+        hm.Set();
     }
 
     public void AddItem(ItemID item, int amount = 1)
@@ -351,6 +374,7 @@ public class Player : LoadedChar
 
     public bool UseItem(ItemID item, int number = 1) //Returns true when the item is exhausted
     {
+        if (item.IsZCrystal() || item.Data().type is ItemType.KeyItem) return false;
         int remaining = NumberOf(item);
         if (remaining is 0) return true;
         remaining -= number;
@@ -1059,6 +1083,16 @@ public class Player : LoadedChar
                                         UseItem(bagResult);
                                         yield return DoAnnouncements(new() { "Used the " + bagResult.Data().itemName + "!" });
                                         break;
+                                    case FieldEffect.KeyItem:
+                                        switch (bagResult)
+                                        {
+                                            case ItemID.TMCase:
+                                            yield return FadeToBlack(0.2f);
+                                            yield return DoTMCase();
+                                            //Loop back to Scene.Bag.Load()
+                                            break;
+                                        }
+                                        break;
                                 }
                                 break;
                             case BagOutcome.Give:
@@ -1165,6 +1199,16 @@ public class Player : LoadedChar
         state = PlayerState.Free;
         menu.ClearName();
         UnlockAll();
+    }
+
+    private IEnumerator DoTMCase()
+    {
+        //Start from black screen
+        yield return Scene.TMCase.Load();
+        yield return FadeFromBlack(0.2F);
+        TMCase tmCase = FindAnyObjectByType<TMCase>();
+        yield return tmCase.DoTMCase();
+        yield return FadeToBlack(0.2F);
     }
 
     public IEnumerator DecrementRepelCounter()
@@ -1470,6 +1514,7 @@ public class Player : LoadedChar
         Unlock();
     }
 
+
     public void StartBox() => StartCoroutine(DoBox());
 
     public void CheckForInteractables()
@@ -1531,6 +1576,7 @@ public class Player : LoadedChar
 
     public IEnumerator InitMapTest()
     {
+        ResetSave();
         yield return Scene.Map.Load();
         MapReturn();
         boxes = new()

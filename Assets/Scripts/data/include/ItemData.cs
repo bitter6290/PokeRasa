@@ -312,6 +312,7 @@ public static class ItemUtils
             ItemType.HeldFieldItem => (FieldEffect)item.Subdata(2),
             ItemType.Berry => (FieldEffect)item.Subdata(4),
             ItemType.TM => global::FieldEffect.TM,
+            ItemType.KeyItem => global::FieldEffect.KeyItem,
             _ => global::FieldEffect.None,
         };
     }

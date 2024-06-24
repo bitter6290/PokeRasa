@@ -9,22 +9,17 @@ namespace Scripts.Test
         public override IEnumerator OnInteract(Player p, LoadedChar c)
         {
             c.FaceAndLock();
-            if (TrainerFlag.MayTest.Get(p))
+            if (TrainerFlag.MayTest.Get())
             {
                 yield return p.DoAnnouncements(new()
             { "I wish TMs were invented already..."});
-            }
-            else
-            {
-                yield return p.DoAnnouncements(new()
-            { "Hello!"});
             }
             c.free = true;
         }
         public override IEnumerator OnSee(Player p, LoadedChar c)
         {
-            Debug.Log(TrainerFlag.MayTest.Get(p));
-            if (!TrainerFlag.MayTest.Get(p))
+            Debug.Log(TrainerFlag.MayTest.Get());
+            if (!TrainerFlag.MayTest.Get())
             {
                 yield return ScriptUtils.TrainerSeeSingle(
                     p, c, Team.mayTestTeam, new() { "Boo!", "Have you been to Paldea?" }, teraEnabled: true);
@@ -34,12 +29,12 @@ namespace Scripts.Test
         {
             yield return p.DoAnnouncements(new() { "Somehow you won..." });
             p.state = PlayerState.Free;
-            TrainerFlag.MayTest.Set(p);
+            TrainerFlag.MayTest.Set();
             c.doMove = false;
             c.free = true;
             p.locked = false;
         }
-        public override bool SeeCheck(Player p) => !TrainerFlag.MayTest.Get(p);
+        public override bool SeeCheck(Player p) => !TrainerFlag.MayTest.Get();
         public override void GetMovement(LoadedChar c)
         {
             c.Actions.Enqueue(c.TryWalkNorth);

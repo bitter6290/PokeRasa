@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba887c79a07fd4408bcb46a0c8f52cbf, type: 3}
+  m_Name: Gym1
+  m_EditorClassIdentifier: 
+  index: 0
+  id: Gym1
+  mapTiles: AQD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5AP0@AD5AP4@AD5AP8@AD5APs^Pk@AE@Pk@QE@Pk@gE@Pk@wE?A+Q?QB+Q?UB+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5AP4@AD5AP4@AD5APs@AD5APs^Pk@QE@Pk@QE@Pk@wE@Pk@wE?A+Q?UB+Q?UB+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5AP4@AD5AP4@AD5APs@AD5APs^Pk@QE@Pk@QE@Pk@wE@Pk@wE?A+Q?UB+Q?UB+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5AP4@AD5AP4@AD5APs@AD5APs^Pk@QE@Pk@QE@Pk@wE@Pk@wE?A+Q?UB+Q?UB+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5AP4@AD5@YB@D5APs@AD5@cB?APk@QE@PkACAE@Pk@wE@PkACQE?A+QAMAQ@+QAJAQ@+QACAQ@+QAJAQ?D5@IB@D5@kB@D5@IB@D5@kB?APk@gE@PkACQE@Pk@gE@PkACQE?A+QACAQ@+QAJAQ@+QACAQ@+QAJAQ?D5@IB@D5@kB@D5@IB@D5@kB?APo@gE@PoACQE@Ps@gE@PsACQE?A+wACAQ@+wAJAQ@/?AoB/?AsB@D5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5AM?D5AME@AD5AMI@AD5AMM?DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5AMo@AD5AMs@AD5AMw@AD5AM0?DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/??AD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPk^Pk^Pk^Pk&MA+Q^+Q^+Q^+Q&wD5^D5^D5^D5&DAPo^Po^Ps^Ps??A+w^+w^/&/?^=
+  tileset: {fileID: 11400000, guid: 4e2d0bce123de4fdf9a5402b3593ef27, type: 2}
+  height: 15
+  width: 20
+  connection: []
+  shading: 0
+  triggers: []
+  signposts: []
+  warps:
+  - pos: {x: 10, y: 0}
+    destination: {fileID: 11400000, guid: 0ad9a16a74a2449bbb98e1f8733ce282, type: 2}
+    destinationPos: {x: 16, y: 12}
+    active: 0
+    triggerType: 4
+  - pos: {x: 11, y: 0}
+    destination: {fileID: 11400000, guid: 0ad9a16a74a2449bbb98e1f8733ce282, type: 2}
+    destinationPos: {x: 16, y: 12}
+    active: 0
+    triggerType: 4
+  chars:
+  - data: {fileID: 11400000, guid: 10451102ef49a49cb9e0897a25483cd3, type: 2}
+    pos: {x: 6, y: 5}
+  - data: {fileID: 11400000, guid: ebf164bc3266c4723a7a1915fd4d2488, type: 2}
+    pos: {x: 6, y: 11}
+  grassData:
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  - wildMons: []
+    encounterPercent: 0
+  boundary: {fileID: 11400000, guid: aa3a64c965a06425b9e5def5fc9fff0b, type: 2}
+  mapScripts: {fileID: 11400000, guid: 1d32d9536ee0f457b866b2732ad8cc24, type: 2}

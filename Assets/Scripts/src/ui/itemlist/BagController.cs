@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class BagController : MonoBehaviour
 {
@@ -67,7 +68,6 @@ public class BagController : MonoBehaviour
     public TextMeshProUGUI pocketName;
 
     public ItemDisplay[] itemDisplays = new ItemDisplay[8];
-    public Player p;
 
     [SerializeField]
     private ItemID[] items;
@@ -90,7 +90,16 @@ public class BagController : MonoBehaviour
     {
         List<ItemID> items = new();
         cachedItemCount = 1;
-        foreach (ItemID item in p.Bag.Keys)
+        if (pocket is Pocket.KeyItem)
+        {
+            for (Flag flag = Flag.KeyItemStart; flag < Flag.KeyItemEnd; flag++)
+            {
+                Debug.Log(flag);
+                Debug.Log(flag.FlagToKeyItem());
+                if (flag.Get() && flag.FlagToKeyItem() != ItemID.None) { items.Add(flag.FlagToKeyItem()); cachedItemCount++; }
+            }
+        }
+        foreach (ItemID item in Player.player.Bag.Keys)
         {
             if (GetPocket(item) == pocket) { items.Add(item); cachedItemCount++; }
         }
@@ -130,8 +139,6 @@ public class BagController : MonoBehaviour
 
     public IEnumerator DoBag(Player player, bool prompt)
     {
-        p = player;
-        foreach (ItemDisplay i in itemDisplays) i.p = p;
         this.prompt = prompt;
         currentPocket = Pocket.Item;
         currentPosition = 0;
@@ -147,9 +154,7 @@ public class BagController : MonoBehaviour
 
     public IEnumerator DoBag(Player player, bool prompt, Player.BagCachedData callback)
     {
-        p = player;
         callback ??= new() { pocket = Pocket.Item, position = 0, selection = 0 };
-        foreach (ItemDisplay i in itemDisplays) i.p = p;
         this.prompt = prompt;
         currentPocket = callback.pocket;
         currentPosition = callback.position;
@@ -225,7 +230,7 @@ public class BagController : MonoBehaviour
             }
         }
         bool goingDown = currentSelection < 4;
-        yield return ChoiceMenu.DoChoiceMenu(p, choices, 0,
+        yield return ChoiceMenu.DoChoiceMenu(Player.player, choices, 0,
             result, itemDisplays[currentSelection].transform, new(-80, goingDown ? 15 : -15), new(1, goingDown ? 1 : 0));
         switch (result.Data)
         {
@@ -244,17 +249,17 @@ public class BagController : MonoBehaviour
 
     private void CloseDoNothing()
     {
-        p.audioSource.PlayOneShot(SFX.Select);
+        Player.player.audioSource.PlayOneShot(SFX.Select);
         done = true;
-        p.bagResult = ItemID.None;
-        p.bagOutcome = BagOutcome.None;
+        Player.player.bagResult = ItemID.None;
+        Player.player.bagOutcome = BagOutcome.None;
     }
 
     private void CacheAndReturn(BagOutcome outcome)
     {
-        p.bagResult = currentItemID;
-        p.bagOutcome = outcome;
-        p.cachedScreenData = new Player.BagCachedData()
+        Player.player.bagResult = currentItemID;
+        Player.player.bagOutcome = outcome;
+        Player.player.cachedScreenData = new Player.BagCachedData()
         {
             pocket = currentPocket,
             position = currentPosition,
@@ -270,7 +275,7 @@ public class BagController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             if (currentItemID is ItemID.CloseBag) CloseDoNothing();
-            else if (prompt) { done = true; p.bagResult = currentItemID; }
+            else if (prompt) { done = true; Player.player.bagResult = currentItemID; }
             else StartCoroutine(DoChoiceMenu());
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -279,13 +284,13 @@ public class BagController : MonoBehaviour
             if (currentSelection < 8)
             {
                 currentSelection++;
-                p.audioSource.PlayOneShot(SFX.MoveCursor);
+                Player.player.audioSource.PlayOneShot(SFX.MoveCursor);
                 UpdateDisplay();
             }
             else
             {
                 currentPosition++;
-                p.audioSource.PlayOneShot(SFX.MoveCursor);
+                Player.player.audioSource.PlayOneShot(SFX.MoveCursor);
                 UpdateDisplay();
             }
         }
@@ -295,13 +300,13 @@ public class BagController : MonoBehaviour
             if (currentSelection > 0)
             {
                 currentSelection--;
-                p.audioSource.PlayOneShot(SFX.MoveCursor);
+                Player.player.audioSource.PlayOneShot(SFX.MoveCursor);
                 UpdateDisplay();
             }
             else
             {
                 currentPosition--;
-                p.audioSource.PlayOneShot(SFX.MoveCursor);
+                Player.player.audioSource.PlayOneShot(SFX.MoveCursor);
                 UpdateDisplay();
             }
         }
@@ -310,7 +315,7 @@ public class BagController : MonoBehaviour
             if (currentPocket is Pocket.Item)
                 currentPocket = prompt ? Pocket.ZCrystal : Pocket.KeyItem;
             else currentPocket--;
-            p.audioSource.PlayOneShot(SFX.MoveCursor);
+            Player.player.audioSource.PlayOneShot(SFX.MoveCursor);
             UpdatePocket();
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -318,7 +323,7 @@ public class BagController : MonoBehaviour
             if (currentPocket == (prompt ? Pocket.ZCrystal : Pocket.KeyItem))
                 currentPocket = Pocket.Item;
             else currentPocket++;
-            p.audioSource.PlayOneShot(SFX.MoveCursor);
+            Player.player.audioSource.PlayOneShot(SFX.MoveCursor);
             UpdatePocket();
         }
     }

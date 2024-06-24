@@ -14,8 +14,10 @@ public class NewCharWindow : EditorWindow
         if (GUILayout.Button("Cancel")) Close();
         if (GUILayout.Button("Create") && charData)
         {
-            MapChar mapChar = new();
-            mapChar.data = charData;
+            MapChar mapChar = new()
+            {
+                data = charData
+            };
             helper.OpenMap.chars.Add(mapChar);
             helper.ShowObjects();
         }

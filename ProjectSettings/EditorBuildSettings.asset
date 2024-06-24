@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Pokedex.unity
     guid: 552736d2670be43baa2bedf15b824745
+  - enabled: 1
+    path: Assets/Scenes/TM Case.unity
+    guid: 1a1ec524a692342d1b4c4f7d7a73170d
   m_configObjects: {}

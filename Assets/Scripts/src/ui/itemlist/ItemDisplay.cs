@@ -23,7 +23,6 @@ public class ItemDisplay : MonoBehaviour
     public bool isCloseBag = false;
 
     public ItemID item;
-    public Player p;
 
     public void UpdateDisplay()
     {
@@ -31,14 +30,23 @@ public class ItemDisplay : MonoBehaviour
         if (item is ItemID.CloseBag)
         {
             itemName.text = "Close Bag";
-            itemNumber.text = string.Empty;
+            itemNumber.enabled = false;
             x.enabled = false;
         }
         else
         {
             itemName.text = item.Data().itemName;
-            itemNumber.text = p.Bag[item].ToString();
-            x.enabled = item.Data().type is not ItemType.KeyItem;
+            if (item.Data().type is not ItemType.KeyItem)
+            {
+                itemNumber.text = Player.player.Bag[item].ToString();
+                itemNumber.enabled = true;
+                x.enabled = true;
+            }
+            else
+            {
+                itemNumber.enabled = false;
+                x.enabled = false;
+            }
         }
         background.color = selected ? selectedColor : unselectedColor;
     }

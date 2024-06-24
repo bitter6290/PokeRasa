@@ -643,30 +643,37 @@ public class Pokemon : ICloneable
             }
             else
             {
-                DataStore<int> whichMove = new();
+                yield return TryAddMove(move.move, Announce, p, baseTransform, menuScale, menuPos);
+            }
+        }
+    }
+
+    public IEnumerator TryAddMove(MoveID move, FAnnounce Announce, Player p, Transform baseTransform, float menuScale, Vector2 menuPos)
+    {
+        DataStore<int> whichMove = new();
                 DataStore<int> binaryStore = new();
                 IEnumerator BinaryChoice() => ChoiceMenu.DoChoiceMenu(p,
                         ScriptUtils.binaryChoice, 0, binaryStore,
                         baseTransform, menuPos, Vector2.zero, menuScale: menuScale);
                 IEnumerator WantsToLearn()
                 {
-                    yield return Announce(MonName + " wants to learn " + move.move.Data().name + ".", false);
+                    yield return Announce(MonName + " wants to learn " + move.Data().name + ".", false);
                     yield return Announce("However, " + MonName + " already knows four moves.", false);
-                    yield return Announce("Should a move be forgotten in order to learn " + move.move.Data().name + "?", true);
+                    yield return Announce("Should a move be forgotten in order to learn " + move.Data().name + "?", true);
                     yield return BinaryChoice();
                     if (binaryStore.Data == 0) yield return GiveUpOn();
                     else yield return DoMoveReplaceScreen();
                 }
                 IEnumerator GiveUpOn()
                 {
-                    yield return Announce("Give up on learning " + move.move.Data().name + "?", true);
+                    yield return Announce("Give up on learning " + move.Data().name + "?", true);
                     yield return BinaryChoice();
                     if (binaryStore.Data == 0) yield return WantsToLearn();
-                    else yield return Announce(MonName + " gave up on learning " + move.move.Data().name + ".", false);
+                    else yield return Announce(MonName + " gave up on learning " + move.Data().name + ".", false);
                 }
                 IEnumerator DoMoveReplaceScreen()
                 {
-                    yield return MoveReplaceScreen.DoMoveReplaceScreen(p, this, whichMove, move.move);
+                    yield return MoveReplaceScreen.DoMoveReplaceScreen(p, this, whichMove, move);
                     if (whichMove.Data == 4) yield return GiveUpOn();
                     else yield return Forget();
                 }
@@ -684,12 +691,10 @@ public class Pokemon : ICloneable
                     yield return Announce("Done!", false);
                     yield return Announce(MonName + " forgot "
                         + MoveIDs[whichMove.Data].Data().name + " and learned "
-                        + move.move.Data().name + "!", false);
-                    AddMove(whichMove.Data + 1, move.move);
+                        + move.Data().name + "!", false);
+                    AddMove(whichMove.Data + 1, move);
                 }
                 yield return WantsToLearn();
-            }
-        }
     }
 
     private static readonly Dictionary<Type, Texture2D> teraSymbols = new()

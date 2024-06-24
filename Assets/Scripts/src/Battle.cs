@@ -21,6 +21,8 @@ using static Stat;
 using static Weather;
 using System.Linq;
 using System;
+using UnityEditor;
+using Unity.VisualScripting;
 
 public partial class Battle : MonoBehaviour
 {
@@ -2718,126 +2720,141 @@ public partial class Battle : MonoBehaviour
 
     private void GetMoveEffects(int attacker, MoveID move)
     {
-        //Debug.Log(move.Data().targets);
-        switch (move.Data().moveFlags.HasFlag(effectOnSelfOnly))
+        Debug.Log("Doing move effects");
+        Debug.Log(move);
+        Debug.Log(move.Data().name);
+        Debug.Log(((int)move.Data().moveFlags).ToBinaryString());
+        bool UnchangeableOnSide(int index)
         {
-            case false:
-                for (int i = 0; i < 6; i++)
+            for (int i = index < 2 ? 0 : 3; i < (index < 2 ? 3 : 6); i++)
+            {
+                if (!PokemonOnField[i].exists) continue;
+                if (EffectiveAbility(i).Unchangeable()) return true;
+            }
+            return false;
+        }
+        //Debug.Log(move.Data().targets);
+        if (move.Data().moveFlags.HasFlag(effectOnSelfOnly))
+        {
+            Debug.Log("Self-only");
+            if (random.NextDouble() * 100.0F
+                <= move.Data().effectChance * (HasAbility(attacker, SereneGrace) ? 2 : 1))
+            {
+                Debug.Log(attacker + " got effect");
+                PokemonOnField[attacker].gotMoveEffect = true;
+            }
+        }
+        else
+        {
+            Debug.Log("Not self-only");
+            for (int i = 0; i < 6; i++)
+            {
+                BattlePokemon target = PokemonOnField[i];
+                if (target.isHit)
                 {
-                    BattlePokemon target = PokemonOnField[i];
-                    if (target.isHit)
+                    if (i != attacker)
                     {
-                        if (i != attacker)
-                        {
-                            if (target.hasSubstitute
-                                && !move.Data().moveFlags.HasFlag(soundMove)
-                                && !HasAbility(attacker, Infiltrator)) continue;
-                            if (HasAbility(i, ShieldDust) && move.Data().power > 0
-                                && move.Data().effect.IsShieldDustAffected()) continue;
-                        }
-                        switch (move.Data().effect)
-                        {
-                            case MoveEffect.ForcedSwitch when HasAbility(i, SuctionCups) || HasAbility(i, GuardDog):
-                                if (move.Data().power == 0) abilityEffects.Enqueue((i, i, PokemonOnField[i].ability));
-                                continue;
-                            case FutureSight:
-                                target.gotMoveEffect = !isFutureSightTargeted[i];
-                                target.isHit = false;
-                                break;
-                            case MoveEffect.ForcedSwitch when target.ingrained:
-                            case PerishSong when HasAbility(i, Soundproof):
-                            case Teatime when EffectiveItem(i).BerryEffect() is None:
-                            case DestinyBond when PokemonOnField[attacker].cannotUseDestinyBondAgain:
-                            case Yawn when target.yawnNextTurn
-                                || target.yawnThisTurn || target.pokemon.status != Status.None
-                                || UproarOnField && !HasAbility(i, Soundproof)
-                                || EffectiveAbility(i) is Insomnia or VitalSpirit or Comatose:
-                            case Wish when target.healBlocked:
-                            case Captivate when !OppositeGenders(attacker, i):
-                            case SkillSwap or WorrySeed or SimpleBeam or Entrainment when
-                                AbilityFixed(i):
-                            case MoveEffect.SuppressAbility when target.ability.Unsuppressable():
-                            case SkillSwap or RolePlay when target.ability.Uncopiable():
-                            case WorrySeed or SimpleBeam when HasAbility(i, Truant):
-                            case RolePlay or SkillSwap when
-                                AbilityFixed(attacker):
-                            case Incinerate or KnockOff or Trick or Thief when
-                                !ItemIsChangeable(i):
-                            case Thief when PokemonOnField[attacker].Item != None:
-                            case Bestow when PokemonOnField[attacker].Item == None:
-                            case Bestow when PokemonOnField[i].Item != None:
-                            case Bestow when !ItemIsChangeable(attacker):
-                            case MoveEffect.ReflectType when target.IsTypeless:
-                            case Nightmare when target.pokemon.status is not Status.Sleep && !HasAbility(i, Comatose):
-                            case Rototiller when !target.HasType(Type.Grass) || !IsGrounded(i, attacker) ||
-                                target.invulnerability is not Invulnerability.None:
-                            case TrickOrTreat when target.HasType(Type.Ghost) || PokemonOnField[i].pokemon.terastalized:
-                            case ForestsCurse when target.HasType(Type.Grass) || PokemonOnField[i].pokemon.terastalized:
-                            case MagneticFlux or GearUp when
-                                EffectiveAbility(i) is not Plus or Minus:
-                            case Instruct when !target.done || target.lockedInNextTurn ||
-                                target.GetPP(target.lastMoveSlot) < 1 || target.lastMoveUsed is
-                                MoveID.Instruct or MoveID.Bide or MoveID.FocusPunchAttack or
-                                MoveID.BeakBlast or MoveID.ShellTrap or
-                                MoveID.Transform or MoveID.Sketch or MoveID.Mimic or
-                                MoveID.KingsShield or MoveID.Struggle or MoveID.Metronome or
-                                MoveID.MirrorMove ||
-                                GetMove(i).effect is ZMove or SplinteredStormshards or
-                                GenesisSupernova:
-                            case FlowerShield when !target.HasType(Type.Grass):
-                            case MoveEffect.Confuse when HasAbility(i, OwnTempo):
-                            case ClangorousSoul when target.HP * 3 <= target.HPMax
-                                || AllStatsMax(i):
-                            case Burn when !CanStatus(i, Status.Burn, attacker) && !ShowFailure:
-                            case Paralyze when !CanStatus(i, Status.Paralysis, attacker) && !ShowFailure:
-                            case Poison or Toxic when !CanStatus(i, Status.Poison, attacker) && !ShowFailure:
-                            case Sleep or MoveEffect.Rest when
-                                !CanStatus(i, Status.Sleep, attacker):
-                            case Soak when PokemonOnField[i].IsMonotype(Type.Water) || PokemonOnField[i].pokemon.terastalized:
-                            case MagicPowder when PokemonOnField[i].IsMonotype(Type.Psychic) || PokemonOnField[i].pokemon.terastalized:
-                            case Freeze when !CanStatus(i, Status.Freeze, attacker) && !ShowFailure:
-                            case Telekinesis when target.telekinesis || target.ingrained || target.smackDown ||
-                                    target.pokemon.GetSpecies is SpeciesID.GengarMega or
-                                    SpeciesID.Diglett or SpeciesID.Dugtrio
-                                    or SpeciesID.Sandygast or SpeciesID.Palossand:
-                            case JawLock when target.trapped || PokemonOnField[attacker].trapped:
-                            case StuffCheeks when target.Item.BerryEffect() is None:
-                            case NoRetreat when target.usedNoRetreat:
-                            case TriAttack or DireClaw when target.pokemon.status != Status.None:
-                                continue;
-                            default:
-                                if (random.NextDouble() * 100.0F
-                                    <= move.Data().effectChance * (HasAbility(attacker, SereneGrace) ? 2 : 1)
-                                    * (Sides[GetSideNumber(attacker)].rainbow ? 2 : 1))
-                                {
-                                    //Debug.Log(i + "got effect");
-                                    target.gotMoveEffect = true;
-                                }
+                        if (target.hasSubstitute
+                            && !move.Data().moveFlags.HasFlag(soundMove)
+                            && !HasAbility(attacker, Infiltrator)) continue;
+                        if (HasAbility(i, ShieldDust) && move.Data().power > 0
+                            && move.Data().effect.IsShieldDustAffected()) continue;
+                    }
+                    switch (move.Data().effect)
+                    {
+                        case MoveEffect.ForcedSwitch when HasAbility(i, SuctionCups) || HasAbility(i, GuardDog):
+                            if (move.Data().power == 0) abilityEffects.Enqueue((i, i, PokemonOnField[i].ability));
+                            continue;
+                        case FutureSight:
+                            target.gotMoveEffect = !isFutureSightTargeted[i];
+                            target.isHit = false;
+                            break;
+                        case MoveEffect.ForcedSwitch when target.ingrained:
+                        case PerishSong when HasAbility(i, Soundproof):
+                        case Teatime when EffectiveItem(i).BerryEffect() is None:
+                        case DestinyBond when PokemonOnField[attacker].cannotUseDestinyBondAgain:
+                        case Yawn when target.yawnNextTurn
+                            || target.yawnThisTurn || target.pokemon.status != Status.None
+                            || UproarOnField && !HasAbility(i, Soundproof)
+                            || EffectiveAbility(i) is Insomnia or VitalSpirit or Comatose:
+                        case Wish when target.healBlocked:
+                        case Captivate when !OppositeGenders(attacker, i):
+                        case SkillSwap or WorrySeed or SimpleBeam or Entrainment when
+                            AbilityFixed(i):
+                        case MoveEffect.SuppressAbility when target.ability.Unsuppressable():
+                        case SkillSwap or RolePlay when target.ability.Uncopiable():
+                        case WorrySeed or SimpleBeam when HasAbility(i, Truant):
+                        case RolePlay or SkillSwap when
+                            AbilityFixed(attacker):
+                        case Doodle when UnchangeableOnSide(attacker) || EffectiveAbility(Targets[attacker]).Uncopiable():
+                        case Incinerate or KnockOff or Trick or Thief when
+                            !ItemIsChangeable(i):
+                        case Thief when PokemonOnField[attacker].Item != None:
+                        case Bestow when PokemonOnField[attacker].Item == None:
+                        case Bestow when PokemonOnField[i].Item != None:
+                        case Bestow when !ItemIsChangeable(attacker):
+                        case MoveEffect.ReflectType when target.IsTypeless:
+                        case Nightmare when target.pokemon.status is not Status.Sleep && !HasAbility(i, Comatose):
+                        case Rototiller when !target.HasType(Type.Grass) || !IsGrounded(i, attacker) ||
+                            target.invulnerability is not Invulnerability.None:
+                        case TrickOrTreat when target.HasType(Type.Ghost) || PokemonOnField[i].pokemon.terastalized:
+                        case ForestsCurse when target.HasType(Type.Grass) || PokemonOnField[i].pokemon.terastalized:
+                        case MagneticFlux or GearUp when
+                            EffectiveAbility(i) is not Plus or Minus:
+                        case Instruct when !target.done || target.lockedInNextTurn ||
+                            target.GetPP(target.lastMoveSlot) < 1 || target.lastMoveUsed is
+                            MoveID.Instruct or MoveID.Bide or MoveID.FocusPunchAttack or
+                            MoveID.BeakBlast or MoveID.ShellTrap or
+                            MoveID.Transform or MoveID.Sketch or MoveID.Mimic or
+                            MoveID.KingsShield or MoveID.Struggle or MoveID.Metronome or
+                            MoveID.MirrorMove ||
+                            GetMove(i).effect is ZMove or SplinteredStormshards or
+                            GenesisSupernova:
+                        case FlowerShield when !target.HasType(Type.Grass):
+                        case MoveEffect.Confuse when HasAbility(i, OwnTempo):
+                        case ClangorousSoul when target.HP * 3 <= target.HPMax
+                            || AllStatsMax(i):
+                        case Burn when !CanStatus(i, Status.Burn, attacker) && !ShowFailure:
+                        case Paralyze when !CanStatus(i, Status.Paralysis, attacker) && !ShowFailure:
+                        case Poison or Toxic when !CanStatus(i, Status.Poison, attacker) && !ShowFailure:
+                        case Sleep or MoveEffect.Rest when
+                            !CanStatus(i, Status.Sleep, attacker):
+                        case Soak when PokemonOnField[i].IsMonotype(Type.Water) || PokemonOnField[i].pokemon.terastalized:
+                        case MagicPowder when PokemonOnField[i].IsMonotype(Type.Psychic) || PokemonOnField[i].pokemon.terastalized:
+                        case Freeze when !CanStatus(i, Status.Freeze, attacker) && !ShowFailure:
+                        case Telekinesis when target.telekinesis || target.ingrained || target.smackDown ||
+                                target.pokemon.GetSpecies is SpeciesID.GengarMega or
+                                SpeciesID.Diglett or SpeciesID.Dugtrio
+                                or SpeciesID.Sandygast or SpeciesID.Palossand:
+                        case JawLock when target.trapped || PokemonOnField[attacker].trapped:
+                        case StuffCheeks when target.Item.BerryEffect() is None:
+                        case NoRetreat when target.usedNoRetreat:
+                        case TriAttack or DireClaw when target.pokemon.status != Status.None:
+                            continue;
+                        default:
+                            if (random.NextDouble() * 100.0F
+                                <= move.Data().effectChance * (HasAbility(attacker, SereneGrace) ? 2 : 1)
+                                * (Sides[GetSideNumber(attacker)].rainbow ? 2 : 1))
+                            {
+                                Debug.Log(i + " got effect");
+                                target.gotMoveEffect = true;
+                            }
 
-                                break;
-                        }
+                            break;
                     }
                 }
-                if ((move.Data().targets & Target.Self) != 0)
+            }
+            if ((move.Data().targets & Target.Self) != 0)
+            {
+                if (move.Data().effect == Swallow
+                    && PokemonOnField[attacker].stockpile == 0)
                 {
-                    if (move.Data().effect == Swallow
-                        && PokemonOnField[attacker].stockpile == 0)
-                    {
-                        Debug.Log("No stockpile!");
-                        PokemonOnField[attacker].isTarget = false;
-                        PokemonOnField[attacker].isHit = false; //Show move as failing
-                    }
-                    else PokemonOnField[attacker].gotMoveEffect = true;
+                    Debug.Log("No stockpile!");
+                    PokemonOnField[attacker].isTarget = false;
+                    PokemonOnField[attacker].isHit = false; //Show move as failing
                 }
-                break;
-            case true:
-                if (random.NextDouble() * 100.0F
-                    <= move.Data().effectChance * (HasAbility(attacker, SereneGrace) ? 2 : 1))
-                {
-                    //Debug.Log(i + "got effect");
-                    PokemonOnField[attacker].gotMoveEffect = true;
-                }
-                break;
+                else PokemonOnField[attacker].gotMoveEffect = true;
+            }
         }
     }
 
@@ -4666,6 +4683,7 @@ public partial class Battle : MonoBehaviour
         moveCausedFainting = false;
         didAnyoneProtect = false;
         someoneWimpedOut = false;
+        doStatAnim = true;
         sheerForceBoosted = HasAbility(index, SheerForce) &&
             (Moves[index].Data().moveFlags.HasFlag(effectOnSelfOnly) ?
             Moves[index].Data().effect.IsSheerForceAffectedSelfOnly() :
@@ -7146,11 +7164,8 @@ public partial class Battle : MonoBehaviour
                     Max(1, PokemonOnField[index].moveDamageDone / 2));
                 if (doAnnouncement50)
                 {
-                    if (battleType == BattleType.Single)
-                    {
-                        yield return Announce(MonNameWithPrefix(3 - index, true)
-                            + BattleText.Absorb);
-                    }
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + BattleText.Absorb);
                 }
                 break;
             case Absorb75:
@@ -7160,11 +7175,8 @@ public partial class Battle : MonoBehaviour
                     Max(1, 3 * PokemonOnField[index].moveDamageDone / 4));
                 if (doAnnouncement75)
                 {
-                    if (battleType == BattleType.Single)
-                    {
-                        yield return Announce(MonNameWithPrefix(3 - index, true)
-                            + BattleText.Absorb);
-                    }
+                    yield return Announce(MonNameWithPrefix(index, true)
+                        + BattleText.Absorb);
                 }
                 break;
             case Absorb100:
@@ -7174,11 +7186,15 @@ public partial class Battle : MonoBehaviour
                     Max(1, PokemonOnField[index].moveDamageDone));
                 if (doAnnouncement100)
                 {
-                    if (battleType == BattleType.Single)
-                    {
-                        yield return Announce(MonNameWithPrefix(3 - index, true)
-                            + BattleText.Absorb);
-                    }
+                    yield return Announce(MonNameWithPrefix(3 - index, true)
+                        + BattleText.Absorb);
+                }
+                break;
+            case Doodle:
+                Ability ability = EffectiveAbility(Targets[index]);
+                for (int i = index > 2 ? 3 : 0; i < (index > 2 ? 6 : 3); i++)
+                {
+                    yield return ChangeAbility(i, ability);
                 }
                 break;
             case BurnUp:

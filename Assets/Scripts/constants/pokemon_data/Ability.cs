@@ -333,7 +333,7 @@ public static class AbilityUtils
         => ability is AsOneGlastrier or AsOneSpectrier or BattleBond
         or Comatose or Commander or Disguise or FlowerGift or Forecast
         or GulpMissile or IceFace or Illusion or Imposter or Multitype
-        or PowerOfAlchemy or Protosynthesis or QuarkDrive or Receiver
+        or PowerOfAlchemy or Protosynthesis or PoisonPuppeteer or QuarkDrive or Receiver
         or RKSSystem or Schooling or ShieldsDown or StanceChange or Trace
         or WonderGuard or ZenMode or ZeroToHero;
     public static bool Unsuppressable(this Ability ability)

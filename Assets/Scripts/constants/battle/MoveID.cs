@@ -884,6 +884,7 @@ public enum MoveID
     SaltCure,
     TripleDive,
     MortalSpin,
+    Doodle,
 
     //G-max Moves
 

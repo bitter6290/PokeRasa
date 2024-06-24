@@ -791,8 +791,10 @@ public partial class Battle
             LeaveField(index);
             yield return Announce(opponentName + " sent out "
                 + opponentPokemon[partyIndex].MonName + "!");
-            PokemonOnField[index] = new(opponentPokemon[partyIndex], index, false, this);
-            PokemonOnField[index].partyIndex = partyIndex;
+            PokemonOnField[index] = new(opponentPokemon[partyIndex], index, false, this)
+            {
+                partyIndex = partyIndex
+            };
             HandleFacing(index);
             audioSource0.PlayOneShot(PokemonOnField[index].pokemon.SpeciesData.Cry);
             yield return MonEntersField(index);
@@ -810,8 +812,10 @@ public partial class Battle
             }
             LeaveField(index);
             yield return Announce("Go! " + playerPokemon[partyIndex].MonName + "!");
-            PokemonOnField[index] = new(playerPokemon[partyIndex], index, true, this);
-            PokemonOnField[index].partyIndex = partyIndex;
+            PokemonOnField[index] = new(playerPokemon[partyIndex], index, true, this)
+            {
+                partyIndex = partyIndex
+            };
             HandleFacing(index);
             audioSource0.PlayOneShot(PokemonOnField[index].pokemon.SpeciesData.Cry);
             yield return MonEntersField(index);

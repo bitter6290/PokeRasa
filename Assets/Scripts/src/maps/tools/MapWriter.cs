@@ -81,10 +81,10 @@ public class MapWriter
                 byte wildDataByte = wildData.HasTile(new Vector3Int(x, y))
                     ? (byte)((CollisionTile)wildData.GetTile(new Vector3Int(x, y))).collisionID : (byte)0;
                 List<byte> tileData = new() {
-                    (byte)(tile1SW & 255), (byte)(tile1SW >> 16), (byte)(tile2SW & 255), (byte)(tile2SW >> 16), (byte)(tile3SW & 255), (byte)(tile3SW >> 16),
-                    (byte)(tile1SE & 255), (byte)(tile1SE >> 16), (byte)(tile2SE & 255), (byte)(tile2SE >> 16), (byte)(tile3SE & 255), (byte)(tile3SE >> 16),
-                    (byte)(tile1NW & 255), (byte)(tile1NW >> 16), (byte)(tile2NW & 255), (byte)(tile2NW >> 16), (byte)(tile3NW & 255), (byte)(tile3NW >> 16),
-                    (byte)(tile1NE & 255), (byte)(tile1NE >> 16), (byte)(tile2NE & 255), (byte)(tile2NE >> 16), (byte)(tile3NE & 255), (byte)(tile3NE >> 16),
+                    (byte)(tile1SW & 255), (byte)(tile1SW >> 8), (byte)(tile2SW & 255), (byte)(tile2SW >> 8), (byte)(tile3SW & 255), (byte)(tile3SW >> 8),
+                    (byte)(tile1SE & 255), (byte)(tile1SE >> 8), (byte)(tile2SE & 255), (byte)(tile2SE >> 8), (byte)(tile3SE & 255), (byte)(tile3SE >> 8),
+                    (byte)(tile1NW & 255), (byte)(tile1NW >> 8), (byte)(tile2NW & 255), (byte)(tile2NW >> 8), (byte)(tile3NW & 255), (byte)(tile3NW >> 8),
+                    (byte)(tile1NE & 255), (byte)(tile1NE >> 8), (byte)(tile2NE & 255), (byte)(tile2NE >> 8), (byte)(tile3NE & 255), (byte)(tile3NE >> 8),
                     collisionByte, wildDataByte
                 };
                 if (tileData.Count != 26) Debug.Log(tileData.Count);

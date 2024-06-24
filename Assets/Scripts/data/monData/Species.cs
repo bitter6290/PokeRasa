@@ -4,6 +4,7 @@ using static Type;
 using static SpeciesData;
 using static XPClass;
 using static Learnset;
+using static TMLearnset;
 
 public static class Species
 {
@@ -22,6 +23,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 0,
         learnset: EmptyLearnset,
+        tmLearnset: NoTMs, //Todo
         cryLocation: "pikachu",
         graphicsLocation: "question_mark/circled",
         backSpriteHeight: 0,
@@ -53,6 +55,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 64,
         learnset: BulbasaurLearnset,
+        tmLearnset: CutDance, //Todo
         catchRate: 45,
         baseFriendship: 70,
         eggGroup1: EggGroup.Monster,
@@ -85,6 +88,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: IvysaurLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -117,6 +121,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 236,
         learnset: VenusaurLearnset,
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -151,6 +156,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -183,6 +189,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -215,6 +222,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 240,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: CutOnly, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -249,6 +257,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -281,6 +290,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -313,6 +323,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -347,6 +358,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 39,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -379,6 +391,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 72,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -411,6 +424,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 178,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -445,6 +459,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 39,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -477,6 +492,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 72,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -509,6 +525,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 178,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -541,6 +558,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 50,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -573,6 +591,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 122,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -605,6 +624,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 216,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -637,6 +657,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 51,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -669,6 +690,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 145,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -701,6 +723,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 52,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -733,6 +756,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 155,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -765,6 +789,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Dragon,
@@ -797,6 +822,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 157,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Dragon,
@@ -829,6 +855,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 112,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -863,6 +890,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 218,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -895,6 +923,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -927,6 +956,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 158,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -959,6 +989,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 55,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -992,6 +1023,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 128,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -1024,6 +1056,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 227,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -1056,6 +1089,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 55,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -1088,6 +1122,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 128,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -1120,6 +1155,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 227,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -1152,6 +1188,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 113,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -1184,6 +1221,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 217,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -1216,6 +1254,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1248,6 +1287,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1280,6 +1320,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 95,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -1312,6 +1353,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 196,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -1344,6 +1386,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 49,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -1376,6 +1419,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -1408,6 +1452,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -1440,6 +1485,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 138,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -1472,6 +1518,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 221,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -1504,6 +1551,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 57,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Grass,
@@ -1536,6 +1584,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Grass,
@@ -1568,6 +1617,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -1600,6 +1650,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 158,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -1632,6 +1683,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 53,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1664,6 +1716,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 149,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1696,6 +1749,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1730,6 +1784,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 154,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1762,6 +1817,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -1794,6 +1850,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -1826,6 +1883,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1858,6 +1916,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1890,6 +1949,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1922,6 +1982,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 194,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1954,6 +2015,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -1986,6 +2048,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 135,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -2018,6 +2081,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 230,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -2050,6 +2114,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -2082,6 +2147,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 140,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -2114,6 +2180,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 225,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -2146,6 +2213,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -2178,6 +2246,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -2210,6 +2279,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 227,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -2244,6 +2314,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -2276,6 +2347,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 137,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -2308,6 +2380,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 221,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -2340,6 +2413,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 67,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -2372,6 +2446,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 180,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -2404,6 +2479,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -2436,6 +2512,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 137,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -2468,6 +2545,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 223,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -2500,6 +2578,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 82,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -2532,6 +2611,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -2564,6 +2644,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -2596,6 +2677,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -2628,6 +2710,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -2660,6 +2743,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 163,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -2692,6 +2776,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 132,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Field,
@@ -2724,6 +2809,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -2756,6 +2842,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -2788,6 +2875,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -2820,6 +2908,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -2852,6 +2941,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -2884,6 +2974,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -2916,6 +3007,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -2948,6 +3040,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -2980,6 +3073,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -3012,6 +3106,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -3044,6 +3139,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 225,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -3078,6 +3174,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 77,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -3110,6 +3207,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -3142,6 +3240,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 169,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -3174,6 +3273,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -3206,6 +3306,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -3240,6 +3341,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -3272,6 +3374,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -3304,6 +3407,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -3336,6 +3440,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 186,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -3368,6 +3473,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -3400,6 +3506,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 149,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -3432,6 +3539,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -3464,6 +3572,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -3496,6 +3605,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 77,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -3528,6 +3638,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 68,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -3560,6 +3671,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -3592,6 +3704,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 69,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -3624,6 +3737,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -3656,6 +3770,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 395,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -3688,6 +3803,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 87,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -3720,6 +3836,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -3752,6 +3869,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 59,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Dragon,
@@ -3784,6 +3902,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 154,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Dragon,
@@ -3816,6 +3935,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -3848,6 +3968,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 158,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -3880,6 +4001,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 68,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -3912,6 +4034,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 182,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -3944,6 +4067,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -3976,6 +4100,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 100,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -4008,6 +4133,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -4040,6 +4166,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -4072,6 +4199,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -4104,6 +4232,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -4136,6 +4265,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -4168,6 +4298,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 40,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Dragon,
@@ -4200,6 +4331,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 189,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Dragon,
@@ -4232,6 +4364,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 187,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -4266,6 +4399,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 101,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Ditto,
         eggGroup2: EggGroup.Ditto,
@@ -4298,6 +4432,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -4332,6 +4467,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -4364,6 +4500,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -4396,6 +4533,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -4428,6 +4566,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 79,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -4460,6 +4599,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 71,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -4492,6 +4632,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -4524,6 +4665,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 71,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -4556,6 +4698,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -4588,6 +4731,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 180,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -4620,6 +4764,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 189,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -4654,6 +4799,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -4686,6 +4832,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -4718,6 +4865,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -4750,6 +4898,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Dragon,
@@ -4782,6 +4931,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Dragon,
@@ -4814,6 +4964,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Dragon,
@@ -4846,6 +4997,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -4878,6 +5030,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -4910,6 +5063,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -4942,6 +5096,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -4974,6 +5129,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 236,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -5006,6 +5162,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -5038,6 +5195,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -5070,6 +5228,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 240,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -5102,6 +5261,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -5134,6 +5294,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -5166,6 +5327,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -5198,6 +5360,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 43,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -5230,6 +5393,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 145,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -5262,6 +5426,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 52,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -5294,6 +5459,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 158,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -5326,6 +5492,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 53,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -5358,6 +5525,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 137,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -5390,6 +5558,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 50,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -5422,6 +5591,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 140,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -5454,6 +5624,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 241,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -5486,6 +5657,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -5518,6 +5690,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -5553,6 +5726,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 44,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -5585,6 +5759,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 42,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -5617,6 +5792,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 49,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -5649,6 +5825,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Fairy,
@@ -5681,6 +5858,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -5713,6 +5891,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -5745,6 +5924,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -5777,6 +5957,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 128,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -5809,6 +5990,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 230,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -5841,6 +6023,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 221,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -5873,6 +6056,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 88,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Fairy,
@@ -5905,6 +6089,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 189,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Fairy,
@@ -5937,6 +6122,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -5969,6 +6155,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 225,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -6001,6 +6188,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 50,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Grass,
@@ -6033,6 +6221,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 119,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Grass,
@@ -6065,6 +6254,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 207,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Grass,
@@ -6097,6 +6287,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 72,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -6129,6 +6320,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 36,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -6161,6 +6353,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 149,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -6193,6 +6386,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 78,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -6225,6 +6419,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 42,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -6257,6 +6452,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 151,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -6289,6 +6485,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -6321,6 +6518,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -6353,6 +6551,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 81,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -6385,6 +6584,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -6417,6 +6617,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 87,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -6449,6 +6650,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 118,
         learnset: EmptyLearnset,
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -6481,6 +6683,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -6513,6 +6716,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -6545,6 +6749,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -6577,6 +6782,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 163,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -6609,6 +6815,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 145,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -6641,6 +6848,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 86,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -6673,6 +6881,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -6705,6 +6914,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -6737,6 +6947,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 158,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -6769,6 +6980,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 88,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -6801,6 +7013,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -6833,6 +7046,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -6865,6 +7079,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -6897,6 +7112,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 86,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -6929,6 +7145,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -6961,6 +7178,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -6993,6 +7211,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 50,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -7025,6 +7244,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 151,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -7057,6 +7277,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 50,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -7089,6 +7310,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 158,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -7121,6 +7343,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -7153,6 +7376,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water2,
@@ -7185,6 +7409,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water2,
@@ -7217,6 +7442,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 116,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -7249,6 +7475,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -7281,6 +7508,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 163,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -7313,6 +7541,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -7345,6 +7574,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -7377,6 +7607,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 243,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Dragon,
@@ -7409,6 +7640,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -7441,6 +7673,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -7473,6 +7706,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 180,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -7505,6 +7739,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 163,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -7537,6 +7772,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 88,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -7569,6 +7805,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 42,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -7601,6 +7838,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -7633,6 +7871,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -7665,6 +7904,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 72,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -7697,6 +7937,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 73,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -7729,6 +7970,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -7761,6 +8003,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 608,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -7793,6 +8036,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -7825,6 +8069,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -7857,6 +8102,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -7889,6 +8135,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -7921,6 +8168,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -7953,6 +8201,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -7985,6 +8234,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -8017,6 +8267,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -8050,6 +8301,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -8083,6 +8335,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -8115,6 +8368,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -8147,6 +8401,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -8179,6 +8434,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -8211,6 +8467,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -8243,6 +8500,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -8275,6 +8533,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -8307,6 +8566,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -8339,6 +8599,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 241,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -8371,6 +8632,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -8403,6 +8665,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -8435,6 +8698,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -8467,6 +8731,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -8499,6 +8764,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -8531,6 +8797,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 72,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -8563,6 +8830,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 178,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -8595,6 +8863,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 72,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -8627,6 +8896,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -8659,6 +8929,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 44,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Grass,
@@ -8691,6 +8962,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 119,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Grass,
@@ -8723,6 +8995,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 216,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Grass,
@@ -8755,6 +9028,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 44,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Grass,
@@ -8787,6 +9061,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 119,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Grass,
@@ -8819,6 +9094,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 216,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Grass,
@@ -8851,6 +9127,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 54,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -8883,6 +9160,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -8915,6 +9193,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 54,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Flying,
@@ -8947,6 +9226,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 154,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Flying,
@@ -8979,6 +9259,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 40,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.Amorphous,
@@ -9011,6 +9292,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 97,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.Amorphous,
@@ -9043,6 +9325,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 233,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.Amorphous,
@@ -9075,6 +9358,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 54,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Bug,
@@ -9107,6 +9391,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Bug,
@@ -9139,6 +9424,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 59,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Grass,
@@ -9171,6 +9457,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Grass,
@@ -9203,6 +9490,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -9235,6 +9523,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 154,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -9267,6 +9556,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 252,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -9299,6 +9589,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 53,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -9331,6 +9622,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 160,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -9363,6 +9655,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 83,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -9395,6 +9688,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 48,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -9427,6 +9721,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 126,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -9459,6 +9754,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 221,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -9491,6 +9787,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 47,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -9523,6 +9820,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -9555,6 +9853,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 38,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -9587,6 +9886,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 75,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -9619,6 +9919,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 52,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -9651,6 +9952,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 140,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -9683,6 +9985,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 133,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -9715,6 +10018,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 133,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -9747,6 +10051,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -9779,6 +10084,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 151,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -9811,6 +10117,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -9843,6 +10150,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -9875,6 +10183,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -9907,6 +10216,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 59,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -9939,6 +10249,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -9971,6 +10282,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -10003,6 +10315,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -10035,6 +10348,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 151,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.HumanLike,
@@ -10067,6 +10381,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 151,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.HumanLike,
@@ -10099,6 +10414,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 140,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Grass,
@@ -10131,6 +10447,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -10163,6 +10480,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 163,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -10195,6 +10513,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -10227,6 +10546,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -10259,6 +10579,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 80,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Water2,
@@ -10291,6 +10612,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Water2,
@@ -10323,6 +10645,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -10355,6 +10678,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -10387,6 +10711,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -10419,6 +10744,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -10451,6 +10777,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -10483,6 +10810,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 126,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -10515,6 +10843,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Dragon,
@@ -10547,6 +10876,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 119,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Dragon,
@@ -10579,6 +10909,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 234,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Dragon,
@@ -10611,6 +10942,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 67,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.HumanLike,
@@ -10643,6 +10975,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.HumanLike,
@@ -10675,6 +11008,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Dragon,
@@ -10707,6 +11041,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Dragon,
@@ -10739,6 +11074,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 160,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -10771,6 +11107,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 160,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Dragon,
@@ -10803,6 +11140,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -10835,6 +11173,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -10867,6 +11206,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -10899,6 +11239,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 164,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -10931,6 +11272,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -10963,6 +11305,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 164,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -10995,6 +11338,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -11027,6 +11371,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -11059,6 +11404,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 71,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -11091,6 +11437,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -11123,6 +11470,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 71,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -11155,6 +11503,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -11187,6 +11536,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 40,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Dragon,
@@ -11219,6 +11569,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 189,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Dragon,
@@ -11255,6 +11606,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 154,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -11287,6 +11639,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 59,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -11319,6 +11672,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -11351,6 +11705,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 59,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -11383,6 +11738,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -11415,6 +11771,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -11447,6 +11804,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -11479,6 +11837,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 163,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -11511,6 +11870,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 52,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -11543,6 +11903,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Mineral,
@@ -11575,6 +11936,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Mineral,
@@ -11607,6 +11969,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -11639,6 +12002,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -11671,6 +12035,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -11703,6 +12068,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 69,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -11735,6 +12101,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -11767,6 +12134,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -11799,6 +12167,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water2,
@@ -11831,6 +12200,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 116,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -11863,6 +12233,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -11895,6 +12266,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -11927,6 +12299,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -11959,6 +12332,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -11991,6 +12365,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -12023,6 +12398,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -12055,6 +12431,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -12087,6 +12464,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -12119,6 +12497,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -12151,6 +12530,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -12183,6 +12563,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -12215,6 +12596,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 302,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -12247,6 +12629,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 302,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -12279,6 +12662,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -12311,6 +12695,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -12359,6 +12744,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -12391,6 +12777,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -12423,6 +12810,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 236,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -12455,6 +12843,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -12487,6 +12876,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -12519,6 +12909,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 240,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -12551,6 +12942,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -12583,6 +12975,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -12615,6 +13008,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -12647,6 +13041,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 49,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -12679,6 +13074,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 119,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -12711,6 +13107,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 218,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -12743,6 +13140,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 50,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -12775,6 +13173,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -12807,6 +13206,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 39,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -12839,6 +13239,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 134,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -12871,6 +13272,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 53,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -12903,6 +13305,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 127,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -12935,6 +13338,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 235,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -12967,6 +13371,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -12999,6 +13404,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 232,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Grass,
@@ -13031,6 +13437,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -13063,6 +13470,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -13095,6 +13503,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -13127,6 +13536,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -13177,6 +13587,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 148,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -13209,6 +13620,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 49,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -13241,6 +13653,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -13273,6 +13686,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -13305,6 +13719,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -13337,6 +13752,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -13369,6 +13785,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 55,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Grass,
@@ -13405,6 +13822,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 169,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -13437,6 +13855,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -13469,6 +13888,7 @@ public static class Species
         xpClass: Fluctuating,
         xpYield: 174,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -13501,6 +13921,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -13533,6 +13954,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -13565,6 +13987,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -13597,6 +14020,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -13629,6 +14053,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -13661,6 +14086,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 158,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -13693,6 +14119,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 57,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -13725,6 +14152,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -13757,6 +14185,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -13789,6 +14218,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -13821,6 +14251,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -13853,6 +14284,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -13885,6 +14317,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -13917,6 +14350,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 110,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -13949,6 +14383,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -13981,6 +14416,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -14013,6 +14449,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -14045,6 +14482,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -14077,6 +14515,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -14109,6 +14548,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 78,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -14141,6 +14581,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 57,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -14173,6 +14614,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -14205,6 +14647,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -14237,6 +14680,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -14269,6 +14713,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Water3,
@@ -14301,6 +14746,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Water3,
@@ -14333,6 +14779,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -14365,6 +14812,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -14397,6 +14845,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -14429,6 +14878,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -14461,6 +14911,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -14493,6 +14944,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 69,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -14525,6 +14977,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 67,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -14557,6 +15010,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Grass,
@@ -14589,6 +15043,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -14621,6 +15076,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 241,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -14653,6 +15109,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 180,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -14685,6 +15142,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 241,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Field,
@@ -14717,6 +15175,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 187,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -14749,6 +15208,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 243,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -14781,6 +15241,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 243,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -14813,6 +15274,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 245,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Fairy,
@@ -14845,6 +15307,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 180,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -14877,6 +15340,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -14909,6 +15373,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -14941,6 +15406,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -14973,6 +15439,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15005,6 +15472,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 241,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -15037,6 +15505,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 233,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.Amorphous,
@@ -15069,6 +15538,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -15101,6 +15571,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 236,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -15133,6 +15604,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Mineral,
@@ -15165,6 +15637,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 154,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -15197,6 +15670,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -15229,6 +15703,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -15261,6 +15736,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -15305,6 +15781,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -15337,6 +15814,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 302,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -15377,6 +15855,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -15409,6 +15888,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 216,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Fairy,
@@ -15441,6 +15921,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Fairy,
@@ -15473,6 +15954,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -15520,6 +16002,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -15552,6 +16035,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Grass,
@@ -15584,6 +16068,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 145,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Grass,
@@ -15616,6 +16101,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 238,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Grass,
@@ -15648,6 +16134,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15680,6 +16167,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 146,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15712,6 +16200,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 238,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15744,6 +16233,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15776,6 +16266,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 145,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15808,6 +16299,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 238,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15840,6 +16332,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 51,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15872,6 +16365,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15904,6 +16398,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 55,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15936,6 +16431,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 130,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -15968,6 +16464,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 225,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16000,6 +16497,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16032,6 +16530,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 156,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16064,6 +16563,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16096,6 +16596,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 174,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16128,6 +16629,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16160,6 +16662,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 174,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16192,6 +16695,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16224,6 +16728,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 174,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16256,6 +16761,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16288,6 +16794,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16320,6 +16827,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 53,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -16352,6 +16860,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 125,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -16384,6 +16893,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 220,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -16416,6 +16926,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 59,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16448,6 +16959,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 174,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16480,6 +16992,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -16512,6 +17025,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 137,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -16544,6 +17058,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 232,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -16576,6 +17091,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Flying,
@@ -16608,6 +17124,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 149,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Flying,
@@ -16640,6 +17157,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16672,6 +17190,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 178,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -16704,6 +17223,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 390,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -16736,6 +17256,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -16768,6 +17289,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -16800,6 +17322,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 227,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -16832,6 +17355,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 59,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -16864,6 +17388,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 134,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -16896,6 +17421,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 229,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -16928,6 +17454,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 163,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -16960,6 +17487,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 163,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -16992,6 +17520,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -17024,6 +17553,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 133,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -17056,6 +17586,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 225,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -17088,6 +17619,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 52,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -17120,6 +17652,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 126,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -17152,6 +17685,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 218,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -17184,6 +17718,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Fairy,
@@ -17216,6 +17751,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Fairy,
@@ -17248,6 +17784,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -17280,6 +17817,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -17314,6 +17852,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -17346,6 +17885,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 123,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -17378,6 +17918,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 234,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -17410,6 +17951,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -17442,6 +17984,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -17474,6 +18017,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -17506,6 +18050,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Mineral,
@@ -17538,6 +18083,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Mineral,
@@ -17570,6 +18116,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Dragon,
@@ -17602,6 +18149,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 171,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Dragon,
@@ -17634,6 +18182,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -17666,6 +18215,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Amorphous,
@@ -17698,6 +18248,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 169,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Amorphous,
@@ -17730,6 +18281,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 71,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -17762,6 +18314,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -17794,6 +18347,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 71,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Water3,
@@ -17826,6 +18380,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Water3,
@@ -17858,6 +18413,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -17890,6 +18446,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -17922,6 +18479,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -17954,6 +18512,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -17986,6 +18545,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -18018,6 +18578,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -18050,6 +18611,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -18082,6 +18644,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 137,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -18114,6 +18677,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 221,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -18146,6 +18710,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -18178,6 +18743,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 130,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -18210,6 +18776,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 221,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -18242,6 +18809,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Flying,
@@ -18274,6 +18842,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Flying,
@@ -18306,6 +18875,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -18338,6 +18908,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 138,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -18370,6 +18941,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 241,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -18406,6 +18978,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 150,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -18438,6 +19011,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -18470,6 +19044,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -18502,6 +19077,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 59,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -18534,6 +19110,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 162,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -18566,6 +19143,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 67,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -18598,6 +19176,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -18630,6 +19209,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water2,
@@ -18662,6 +19242,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -18694,6 +19275,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -18726,6 +19308,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Mineral,
@@ -18758,6 +19341,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 171,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Mineral,
@@ -18790,6 +19374,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -18822,6 +19407,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 154,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -18854,6 +19440,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 234,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -18886,6 +19473,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 55,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -18918,6 +19506,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -18950,6 +19539,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 232,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -18982,6 +19572,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 67,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -19014,6 +19605,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -19046,6 +19638,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 55,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -19078,6 +19671,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 130,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -19110,6 +19704,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 234,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -19142,6 +19737,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -19174,6 +19770,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -19206,6 +19803,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 243,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -19238,6 +19836,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -19270,6 +19869,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -19302,6 +19902,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 180,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -19334,6 +19935,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -19366,6 +19968,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -19398,6 +20001,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Amorphous,
@@ -19430,6 +20034,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -19462,6 +20067,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -19494,6 +20100,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Monster,
@@ -19526,6 +20133,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -19558,6 +20166,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 169,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -19590,6 +20199,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 68,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -19622,6 +20232,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -19654,6 +20265,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -19686,6 +20298,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -19718,6 +20331,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -19750,6 +20364,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 74,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -19782,6 +20397,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -19814,6 +20430,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 169,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -19846,6 +20463,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 169,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -19878,6 +20496,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -19910,6 +20529,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -19942,6 +20562,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -19974,6 +20595,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 72,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -20006,6 +20628,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 248,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -20038,6 +20661,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -20070,6 +20694,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -20102,6 +20727,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -20134,6 +20760,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -20166,6 +20793,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -20198,6 +20826,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -20230,6 +20859,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -20262,6 +20892,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -20294,6 +20925,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 297,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -20327,6 +20959,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -20362,6 +20995,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20394,6 +21028,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20426,6 +21061,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20458,6 +21094,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20490,6 +21127,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 143,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20522,6 +21160,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 240,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20554,6 +21193,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -20586,6 +21226,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -20618,6 +21259,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -20650,6 +21292,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 47,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20682,6 +21325,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 148,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20714,6 +21358,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -20746,6 +21391,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 134,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -20778,6 +21424,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -20817,6 +21464,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 74,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 13,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20849,6 +21497,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 13,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20888,6 +21537,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20920,6 +21570,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 186,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -20952,6 +21603,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -20984,6 +21636,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -21019,6 +21672,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 71,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -21051,6 +21705,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 163,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -21083,6 +21738,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -21115,6 +21771,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 157,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -21148,6 +21805,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 68,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -21180,6 +21838,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 162,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -21212,6 +21871,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 68,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -21244,6 +21904,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -21276,6 +21937,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water2,
@@ -21308,6 +21970,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 169,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water2,
@@ -21340,6 +22003,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -21372,6 +22036,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -21404,6 +22069,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Dragon,
@@ -21436,6 +22102,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Dragon,
@@ -21468,6 +22135,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -21500,6 +22168,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 100,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -21532,6 +22201,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -21564,6 +22234,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -21596,6 +22267,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 72,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -21628,6 +22300,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 182,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -21660,6 +22333,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 72,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -21692,6 +22366,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 104,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -21724,6 +22399,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -21756,6 +22432,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -21788,6 +22465,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 151,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -21820,6 +22498,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 100,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Mineral,
@@ -21852,6 +22531,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -21884,6 +22564,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 158,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -21916,6 +22597,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -21948,6 +22630,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -21980,6 +22663,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Amorphous,
@@ -22012,6 +22696,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Amorphous,
@@ -22061,6 +22746,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Mineral,
@@ -22093,6 +22779,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 180,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Mineral,
@@ -22125,6 +22812,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 49,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -22157,6 +22845,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 187,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -22194,6 +22883,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -22227,6 +22917,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -22260,6 +22951,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -22292,6 +22984,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -22324,6 +23017,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -22359,6 +23053,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -22391,6 +23086,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -22423,6 +23119,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -22455,6 +23152,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -22487,6 +23185,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -22519,6 +23218,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -22551,6 +23251,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -22583,6 +23284,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -22615,6 +23317,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -22647,6 +23350,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 53,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -22679,6 +23383,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 124,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -22711,6 +23416,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 218,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -22743,6 +23449,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 51,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -22775,6 +23482,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 146,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -22807,6 +23515,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -22839,6 +23548,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 140,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -22871,6 +23581,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 225,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -22903,6 +23614,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 68,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -22935,6 +23647,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 167,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water3,
         eggGroup2: EggGroup.Water3,
@@ -22968,6 +23681,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Fairy,
@@ -23000,6 +23714,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 162,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Fairy,
@@ -23034,6 +23749,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -23066,6 +23782,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -23098,6 +23815,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -23130,6 +23848,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -23162,6 +23881,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 77,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -23194,6 +23914,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -23226,6 +23947,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 54,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Bug,
@@ -23258,6 +23980,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Bug,
@@ -23290,6 +24013,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 50,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -23322,6 +24046,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -23354,6 +24079,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 57,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -23386,6 +24112,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 142,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -23418,6 +24145,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -23450,6 +24178,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -23482,6 +24211,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 68,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -23514,6 +24244,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -23546,6 +24277,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 42,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -23578,6 +24310,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 102,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -23610,6 +24343,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 230,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -23642,6 +24376,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -23674,6 +24409,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -23706,6 +24442,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -23738,6 +24475,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 46,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Water3,
@@ -23770,6 +24508,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 186,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: CutOnly, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Water3,
@@ -23802,6 +24541,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 64,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -23834,6 +24574,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -23866,6 +24607,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water1,
@@ -23898,6 +24640,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 107,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -23932,6 +24675,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -23964,6 +24708,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -23996,6 +24741,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 152,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -24029,6 +24775,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -24061,6 +24808,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Dragon,
@@ -24093,6 +24841,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 181,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -24125,6 +24874,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -24157,6 +24907,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -24189,6 +24940,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -24221,6 +24973,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24253,6 +25006,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24285,6 +25039,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24317,6 +25072,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24349,6 +25105,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 40,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24381,6 +25138,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 140,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24413,6 +25171,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24445,6 +25204,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24477,6 +25237,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24509,6 +25270,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24541,6 +25303,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24573,6 +25336,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24605,6 +25369,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24637,6 +25402,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24669,6 +25435,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24701,6 +25468,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24734,6 +25502,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24766,6 +25535,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 189,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24798,6 +25568,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 243,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24830,6 +25601,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24862,6 +25634,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24894,6 +25667,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24926,6 +25700,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 135,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24958,6 +25733,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -24993,6 +25769,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Grass,
@@ -25025,6 +25802,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Grass,
@@ -25057,6 +25835,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 265,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Grass,
@@ -25091,6 +25870,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -25123,6 +25903,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -25155,6 +25936,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 265,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.HumanLike,
@@ -25189,6 +25971,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -25221,6 +26004,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -25253,6 +26037,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 265,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -25287,6 +26072,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 55,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -25319,6 +26105,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -25351,6 +26138,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 49,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -25383,6 +26171,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 128,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -25415,6 +26204,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 248,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -25449,6 +26239,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 36,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -25481,6 +26272,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 117,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -25513,6 +26305,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 253,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -25547,6 +26340,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 49,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -25579,6 +26373,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 159,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -25611,6 +26406,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 50,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -25643,6 +26439,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -25675,6 +26472,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 122,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -25707,6 +26505,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -25739,6 +26538,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 57,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -25771,6 +26571,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -25805,6 +26606,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 54,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -25837,6 +26639,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -25869,6 +26672,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 48,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -25901,6 +26705,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -25933,6 +26738,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 255,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -25967,6 +26773,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 52,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Dragon,
@@ -25999,6 +26806,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Dragon,
@@ -26033,6 +26841,7 @@ public static class Species
         xpClass: Erratic,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Dragon,
@@ -26067,6 +26876,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Dragon,
@@ -26099,6 +26909,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Dragon,
@@ -26136,6 +26947,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -26168,6 +26980,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -26200,6 +27013,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 48,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -26233,6 +27047,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -26265,6 +27080,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -26299,6 +27115,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.HumanLike,
@@ -26331,6 +27148,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.HumanLike,
@@ -26367,6 +27185,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 53,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -26399,6 +27218,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 130,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -26431,6 +27251,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 255,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -26465,6 +27286,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 53,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.HumanLike,
@@ -26497,6 +27319,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 130,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.HumanLike,
@@ -26529,6 +27352,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 255,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.HumanLike,
@@ -26563,6 +27387,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 260,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -26595,6 +27420,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 154,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -26627,6 +27453,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -26659,6 +27486,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Field,
@@ -26691,6 +27519,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 182,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -26723,6 +27552,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 169,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Amorphous,
@@ -26755,6 +27585,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 54,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Amorphous,
@@ -26789,6 +27620,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Mineral,
@@ -26821,6 +27653,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 152,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Amorphous,
@@ -26853,6 +27686,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 37,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -26885,6 +27719,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -26917,6 +27752,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -26949,6 +27785,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -26981,6 +27818,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -27015,6 +27853,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Mineral,
@@ -27047,6 +27886,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Mineral,
@@ -27081,6 +27921,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27113,6 +27954,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27145,6 +27987,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27177,6 +28020,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27209,6 +28053,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 187,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Dragon,
@@ -27243,6 +28088,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 54,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Dragon,
@@ -27275,6 +28121,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Dragon,
@@ -27307,6 +28154,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 300,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Dragon,
@@ -27339,6 +28187,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 335,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27371,6 +28220,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 335,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27403,6 +28253,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 345,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27435,6 +28286,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 77,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27467,6 +28319,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 275,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27504,6 +28357,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 290,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27536,6 +28390,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 290,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27568,6 +28423,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 290,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27600,6 +28456,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 290,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27632,6 +28489,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 250,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27664,6 +28522,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 184,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -27696,6 +28555,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -27728,6 +28588,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 194,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -27760,6 +28621,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 186,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -27795,6 +28657,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -27827,6 +28690,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 180,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -27859,6 +28723,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -27895,6 +28760,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 51,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -27927,6 +28793,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 145,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -27959,6 +28826,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 218,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -27991,6 +28859,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28023,6 +28892,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 158,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28055,6 +28925,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28087,6 +28958,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 177,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28119,6 +28991,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 53,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28151,6 +29024,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 149,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28183,6 +29057,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28215,6 +29090,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 154,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28247,6 +29123,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 60,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -28279,6 +29156,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 137,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -28311,6 +29189,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 223,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -28343,6 +29222,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -28375,6 +29255,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -28407,6 +29288,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 186,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -28439,6 +29321,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 149,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Monster,
@@ -28474,6 +29357,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 58,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28506,6 +29390,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 82,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28538,6 +29423,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 175,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28570,6 +29456,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -28602,6 +29489,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -28634,6 +29522,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 132,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Field,
@@ -28666,6 +29555,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -28698,6 +29588,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 161,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -28730,6 +29621,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 290,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -28762,6 +29654,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 290,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -28794,6 +29687,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 290,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -28826,6 +29720,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Water1,
@@ -28858,6 +29753,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 144,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Water3,
@@ -28890,6 +29786,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28922,6 +29819,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 147,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28954,6 +29852,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 63,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -28986,6 +29885,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -29018,6 +29918,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Amorphous,
@@ -29050,6 +29951,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Amorphous,
@@ -29085,6 +29987,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 70,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -29117,6 +30020,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 194,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 75,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -29149,6 +30053,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -29181,6 +30086,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 172,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -29213,6 +30119,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 240,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -29245,6 +30152,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 88,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -29277,6 +30185,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 86,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -29309,6 +30218,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 238,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -29341,6 +30251,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 168,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Grass,
         eggGroup2: EggGroup.Grass,
@@ -29373,6 +30284,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 66,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -29405,6 +30317,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -29437,6 +30350,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 179,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -29469,6 +30383,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 158,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -29501,6 +30416,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Dragon,
         eggGroup2: EggGroup.Dragon,
@@ -29533,6 +30449,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 180,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Monster,
         eggGroup2: EggGroup.Mineral,
@@ -29565,6 +30482,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 239,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -30219,6 +31137,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 112,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Undiscovered, //Just to be safe
         eggGroup2: EggGroup.Undiscovered,
@@ -30252,6 +31171,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 65,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -30353,6 +31273,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 302,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -30386,6 +31307,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 302,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -30563,6 +31485,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 189,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -30596,6 +31519,7 @@ public static class Species
         xpClass: MediumSlow,
         xpYield: 189,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -30637,6 +31561,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -30669,6 +31594,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -30702,6 +31628,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 100,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -30735,6 +31662,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 315,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -30768,6 +31696,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 315,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -30802,6 +31731,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -30928,6 +31858,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 163,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -31011,6 +31942,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 219,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31045,6 +31977,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 319,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31078,6 +32011,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31118,6 +32052,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -31150,6 +32085,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 170,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -31182,6 +32118,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,
@@ -31251,6 +32188,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31283,6 +32221,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31315,6 +32254,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 339,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31367,6 +32307,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Field,
@@ -31399,6 +32340,7 @@ public static class Species
         xpClass: Fast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -31434,6 +32376,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 360,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31466,6 +32409,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 360,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31498,6 +32442,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 563,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31530,6 +32475,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 275,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 87,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31567,6 +32513,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 340,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: SpeciesData.Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31599,6 +32546,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 340,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31632,6 +32580,7 @@ public static class Species
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -31665,6 +32614,7 @@ public static class Species
         xpClass: MediumFast,
         xpYield: 186,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Water2,
         eggGroup2: EggGroup.Water2,

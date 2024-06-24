@@ -7,11 +7,12 @@ public class TeamPokemon
     public Nature nature = Nature.Any;
     public int level;
     public Gender gender = Gender.Any;
-    public List<MoveID> moves = new(); /*Supplying an array with fewer than 4 moves 
+    public List<MoveID> moves = new(); /*Using an array with fewer than 4 moves 
                             * will only overwrite as many moves as you supply;
                             * to create a Pokemon with fewer than 4 moves,
                             * fill out the array with Move.None.
                             */
+    public Ability ability;
     public Pokemon ToPokemon
     {
         get
@@ -30,6 +31,10 @@ public class TeamPokemon
                     case 3: initialPokemon.move4 = moves[3]; break;
                     default: break;
                 }
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                if (species.Data().abilities[i] == ability) initialPokemon.whichAbility = i;
             }
             return initialPokemon;
         }

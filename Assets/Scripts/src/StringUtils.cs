@@ -22,4 +22,5 @@
             default: return input.ToString();
         }
     }
+    public static string LeadingZero1(this string input) => input.Length is 1 ? "0" + input : input;
 }

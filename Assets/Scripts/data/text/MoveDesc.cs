@@ -868,6 +868,7 @@
     private const string SaltCureDesc = "The user salt cures the target, inflicting damage every turn. Steel and Water types are more strongly affected by this move.";
     private const string TripleDiveDesc = "The user performs a perfectly timed triple dive, hitting the target with splashes of water three times in a row.";
     private const string MortalSpinDesc = "The user performs a spin attack that can also eliminate the effects of such moves as Bind, Wrap, and Leech Seed. This also poisons opposing Pokémon.";
+    private const string DoodleDesc = "The user captures the very essence of the target in a sketch. This changes the Abilities of the user and its ally Pokémon to that of the target.";
 
     //G-Max moves
     private const string GMaxWildfireDesc = "A Fire-type attack that Gigantamax Charizard use. This move continues to deal damage to opponents for four turns.";

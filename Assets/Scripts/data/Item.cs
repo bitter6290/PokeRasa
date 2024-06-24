@@ -3089,6 +3089,14 @@ public static class Item
         transformedSpecies = SilvallyFairy,
         graphicsPath = "fairy_memory"
     };
+    //Key items
+    public static readonly KeyItem TMCase = new()
+    {
+        itemName = "TM Case",
+        price = 0,
+        graphicsPath = "tm_case",
+        flag = Flag.Key_TMCase,
+    };
 
 
     public static readonly ItemData[] ItemTable = new ItemData[(int)ItemID.Count]
@@ -3453,6 +3461,8 @@ public static class Item
         MimikiumZ,
         LycaniumZ,
         KommoniumZ,
+        //Key items
+        TMCase,
     };
 }
 

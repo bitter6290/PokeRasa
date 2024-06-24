@@ -4,9 +4,10 @@ using static Type;
 using static XPClass;
 using static Ability;
 using static Learnset;
+using static TMLearnset;
 using UnityEngine;
 
-public struct SpeciesData
+public class SpeciesData
 {
     public const int Genderless = 255;
 
@@ -82,6 +83,7 @@ public struct SpeciesData
     public PokedexData pokedexData;
 
     public Ability[] abilities;
+    public TMLearnsetData tmLearnset;
 
     private static string Strip(string path) => path.Split(new char[] { '/' })[0];
 
@@ -95,7 +97,7 @@ public struct SpeciesData
     public SpeciesData(string speciesName, Type type1, Type type2,
         byte baseHP, byte baseAttack, byte baseDefense, byte baseSpAtk,
         byte baseSpDef, byte baseSpeed, ushort evYield, EvolutionData[] evolution,
-        XPClass xpClass, int xpYield, LearnsetMove[] learnset, int malePercent,
+        XPClass xpClass, int xpYield, LearnsetMove[] learnset, TMLearnsetData tmLearnset, int malePercent,
         EggGroup eggGroup1, EggGroup eggGroup2, int eggCycles, int catchRate,
         string graphicsLocation, string cryLocation, int backSpriteHeight,
         PokedexData pokedexData, Ability[] abilities, bool genderDifferences = false,
@@ -121,6 +123,7 @@ public struct SpeciesData
         this.eggGroup2 = eggGroup2;
         this.eggCycles = eggCycles;
         this.catchRate = catchRate;
+        this.tmLearnset = tmLearnset;
         graphics = new(graphicsLocation, backSpriteHeight);
         if (gMaxPath == "") gMaxGraphics = graphics;
         else gMaxGraphics = new(gMaxPath, gMaxBackHeight);
@@ -153,6 +156,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 112,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs,
         malePercent: 100,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -187,6 +191,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 112,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs,
         malePercent: 0,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -222,6 +227,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 41,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs,
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -257,6 +263,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 118,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs,
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -294,6 +301,7 @@ public struct SpeciesData
         xpYield: 147,
         catchRate: 45,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs,
         malePercent: 50,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Amorphous,
@@ -331,6 +339,7 @@ public struct SpeciesData
             xpYield: 270,
             catchRate: 3,
             learnset: EmptyLearnset, //Not done
+            tmLearnset: NoTMs,
             malePercent: Genderless,
             eggGroup1: EggGroup.Undiscovered,
             eggGroup2: EggGroup.Undiscovered,
@@ -366,6 +375,7 @@ public struct SpeciesData
             xpClass: MediumFast,
             xpYield: 45,
             learnset: EmptyLearnset, //Todo: Burmy's learnset
+            tmLearnset: NoTMs, //Todo
             malePercent: 50,
             eggGroup1: EggGroup.Bug,
             eggGroup2: EggGroup.Bug,
@@ -402,6 +412,7 @@ public struct SpeciesData
             xpClass: MediumFast,
             xpYield: 65,
             learnset: EmptyLearnset, //Todo: Shellos's learnset
+            tmLearnset: NoTMs, //Todo
             malePercent: 50,
             eggGroup1: EggGroup.Water1,
             eggGroup2: EggGroup.Amorphous,
@@ -437,6 +448,7 @@ public struct SpeciesData
             xpClass: MediumFast,
             xpYield: 166,
             learnset: EmptyLearnset, //Todo: Gastrodon's learnset
+            tmLearnset: NoTMs, //Todo
             malePercent: 50,
             eggGroup1: EggGroup.Water1,
             eggGroup2: EggGroup.Amorphous,
@@ -474,6 +486,7 @@ public struct SpeciesData
             xpClass: MediumFast,
             xpYield: 148,
             learnset: EmptyLearnset, //Todo: Wormadam's learnset
+            tmLearnset: NoTMs, //Todo
             malePercent: 0,
             eggGroup1: EggGroup.Bug,
             eggGroup2: EggGroup.Bug,
@@ -510,6 +523,7 @@ public struct SpeciesData
             xpClass: MediumFast,
             xpYield: 158,
             learnset: EmptyLearnset, //Not done
+            tmLearnset: NoTMs,
             malePercent: 50,
             eggGroup1: EggGroup.Fairy,
             eggGroup2: EggGroup.Grass,
@@ -546,6 +560,7 @@ public struct SpeciesData
             xpClass: MediumFast,
             xpYield: 182,
             learnset: EmptyLearnset, //Todo: Rotom's learnset
+            tmLearnset: NoTMs, //Todo
             malePercent: Genderless,
             eggGroup1: EggGroup.Amorphous,
             eggGroup2: EggGroup.Amorphous,
@@ -581,6 +596,7 @@ public struct SpeciesData
         xpClass: Slow,
         xpYield: 324,
         learnset: EmptyLearnset, //Todo: Arceus's learnset
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -619,6 +635,7 @@ public struct SpeciesData
             xpClass: Slow,
             xpYield: 306,
             learnset: EmptyLearnset, //Not done
+            tmLearnset: NoTMs, //Todo
             malePercent: Genderless,
             eggGroup1: EggGroup.Undiscovered,
             eggGroup2: EggGroup.Undiscovered,
@@ -654,6 +671,7 @@ public struct SpeciesData
             xpClass: Slow,
             xpYield: 306,
             learnset: EmptyLearnset, //Not done
+            tmLearnset: NoTMs, //Todo
             malePercent: Genderless,
             eggGroup1: EggGroup.Undiscovered,
             eggGroup2: EggGroup.Undiscovered,
@@ -690,6 +708,7 @@ public struct SpeciesData
             xpClass: Slow,
             xpYield: 306,
             learnset: EmptyLearnset, //Not done
+            tmLearnset: NoTMs,
             malePercent: Genderless,
             eggGroup1: EggGroup.Undiscovered,
             eggGroup2: EggGroup.Undiscovered,
@@ -729,6 +748,7 @@ public struct SpeciesData
             xpClass: MediumSlow,
             xpYield: 270,
             learnset: EmptyLearnset, //Not done
+            tmLearnset: NoTMs, //Todo
             malePercent: Genderless,
             eggGroup1: EggGroup.Undiscovered,
             eggGroup2: EggGroup.Undiscovered,
@@ -766,6 +786,7 @@ public struct SpeciesData
             xpClass: MediumFast,
             xpYield: 161,
             learnset: EmptyLearnset, //Not done
+            tmLearnset: NoTMs, //Todo
             malePercent: 50,
             eggGroup1: EggGroup.Water2,
             eggGroup2: EggGroup.Water2,
@@ -801,6 +822,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 67,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -836,6 +858,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -871,6 +894,7 @@ public struct SpeciesData
         xpClass: Slow,
         xpYield: 261,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -906,6 +930,7 @@ public struct SpeciesData
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -942,6 +967,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 40,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -977,6 +1003,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 75,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -1012,6 +1039,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 185,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Bug,
         eggGroup2: EggGroup.Bug,
@@ -1047,6 +1075,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 61,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -1082,6 +1111,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 130,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -1116,6 +1146,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 248,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Fairy,
@@ -1150,6 +1181,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 165,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1185,6 +1217,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 234,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -1222,6 +1255,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 67,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -1257,6 +1291,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -1292,6 +1327,7 @@ public struct SpeciesData
         xpClass: Slow,
         xpYield: 306,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -1327,6 +1363,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 167,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 25,
         eggGroup1: EggGroup.Flying,
         eggGroup2: EggGroup.Flying,
@@ -1362,6 +1399,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 56,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Field,
@@ -1393,6 +1431,7 @@ public struct SpeciesData
         xpClass: Slow,
         xpYield: 257,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -1428,6 +1467,7 @@ public struct SpeciesData
         xpClass: MediumSlow,
         xpYield: 154,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Mineral,
@@ -1463,6 +1503,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 167,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Amorphous,
         eggGroup2: EggGroup.Amorphous,
@@ -1498,6 +1539,7 @@ public struct SpeciesData
         xpClass: Slow,
         xpYield: 270,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -1533,6 +1575,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 166,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Water1,
         eggGroup2: EggGroup.Flying,
@@ -1573,6 +1616,7 @@ public struct SpeciesData
         xpClass: MediumSlow,
         xpYield: 176,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.HumanLike,
         eggGroup2: EggGroup.HumanLike,
@@ -1611,6 +1655,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 62,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Amorphous,
@@ -1646,6 +1691,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 178,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Mineral,
         eggGroup2: EggGroup.Amorphous,
@@ -1681,6 +1727,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 173,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 0,
         eggGroup1: EggGroup.Fairy,
         eggGroup2: EggGroup.Amorphous,
@@ -1717,6 +1764,7 @@ public struct SpeciesData
         xpClass: MediumFast,
         xpYield: 153,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: 50,
         eggGroup1: EggGroup.Field,
         eggGroup2: EggGroup.Fairy,
@@ -1751,6 +1799,7 @@ public struct SpeciesData
         xpClass: Slow,
         xpYield: 300,
         learnset: EmptyLearnset, //Not done
+        tmLearnset: NoTMs, //Todo
         malePercent: Genderless,
         eggGroup1: EggGroup.Undiscovered,
         eggGroup2: EggGroup.Undiscovered,
@@ -1790,6 +1839,7 @@ public struct SpeciesData
          xpClass: baseSpecies.xpClass,
          xpYield: baseSpecies.xpYield,
          learnset: baseSpecies.learnset,
+         tmLearnset: baseSpecies.tmLearnset,
          malePercent: baseSpecies.malePercent,
          eggGroup1: baseSpecies.eggGroup1,
          eggGroup2: baseSpecies.eggGroup2,

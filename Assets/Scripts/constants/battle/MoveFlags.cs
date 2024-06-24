@@ -1,5 +1,5 @@
 [System.Flags]
-public enum MoveFlags
+public enum MoveFlags : int
 {
     none = 0,
     highCrit = 1 << 0,

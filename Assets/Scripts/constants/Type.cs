@@ -153,4 +153,28 @@ public static class TypeUtils
     public static BerryEffect GetReducingBerry(this Type type) => type == Type.Typeless ?
         BerryEffect.NoneApply : typeBerries[(int)type];
 
+    public static Texture2D[] tm = new Texture2D[18]
+    {
+        Resources.Load<Texture2D>("Sprites/Items/tm/normal"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/fire"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/water"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/grass"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/electric"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/ice"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/ground"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/fighting"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/flying"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/rock"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/poison"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/bug"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/psychic"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/ghost"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/dragon"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/dark"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/steel"),
+        Resources.Load<Texture2D>("Sprites/Items/tm/fairy")
+    };
+
+    public static Texture2D TMTexture(this Type type) => type > Type.Fairy ? null : tm[(int)type];
+
 }

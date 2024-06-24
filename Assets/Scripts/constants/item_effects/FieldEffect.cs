@@ -1,6 +1,7 @@
 ﻿public enum FieldEffect : ushort
 {
     None,
+    KeyItem,
     // Party menu effects go under here
     Heal,
     HealStatus,

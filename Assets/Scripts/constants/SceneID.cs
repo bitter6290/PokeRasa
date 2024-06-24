@@ -11,6 +11,7 @@ public enum SceneID //Make sure this matches the list in Build Settings!
     Party,
     Box,
     Pokedex,
+    TMCase,
 }
 
 public static class SceneUtils

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbc3e8b026e14ff1beb9c2c0f94af0c, type: 3}
+  m_Name: CuttableTree
+  m_EditorClassIdentifier: 
+  id: 
+  mapsToLoad: []
+  loadedByDefault: 1
+  hasCollision: 1
+  hasSeeScript: 0
+  sightRadius: 0
+  charScripts: {fileID: 11400000, guid: cdc93ddab7f744607a420f198fb5818b, type: 2}
+  type: 1

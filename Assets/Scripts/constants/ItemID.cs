@@ -360,7 +360,10 @@
     MimikiumZ,
     LycaniumZ,
     KommoniumZ,
+    //Key items
+    TMCase,
     Count,
 
     CloseBag = 65535,
+    TMStart = TMCase - 1,
 }

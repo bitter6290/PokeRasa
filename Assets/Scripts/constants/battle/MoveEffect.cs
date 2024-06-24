@@ -100,6 +100,7 @@ public enum MoveEffect : ushort
     Curse,
     Defog,
     Disable,
+    Doodle,
     Electrify,
     Embargo,
     Encore,
